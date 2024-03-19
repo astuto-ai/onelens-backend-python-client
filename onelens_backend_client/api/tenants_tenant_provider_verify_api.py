@@ -39,7 +39,7 @@ class TenantsTenantProviderVerifyApi:
 
 
     @validate_call
-    def verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post(
+    def verify_tenant(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -89,7 +89,7 @@ class TenantsTenantProviderVerifyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post_serialize(
+        _param = self._verify_tenant_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             tenant_verify_request=tenant_verify_request,
@@ -115,7 +115,7 @@ class TenantsTenantProviderVerifyApi:
 
 
     @validate_call
-    def verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post_with_http_info(
+    def verify_tenant_with_http_info(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -165,7 +165,7 @@ class TenantsTenantProviderVerifyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post_serialize(
+        _param = self._verify_tenant_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             tenant_verify_request=tenant_verify_request,
@@ -191,7 +191,7 @@ class TenantsTenantProviderVerifyApi:
 
 
     @validate_call
-    def verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post_without_preload_content(
+    def verify_tenant_without_preload_content(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -241,7 +241,7 @@ class TenantsTenantProviderVerifyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post_serialize(
+        _param = self._verify_tenant_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             tenant_verify_request=tenant_verify_request,
@@ -262,7 +262,7 @@ class TenantsTenantProviderVerifyApi:
         return response_data.response
 
 
-    def _verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post_serialize(
+    def _verify_tenant_serialize(
         self,
         tenant_id,
         tenant_provider_id,

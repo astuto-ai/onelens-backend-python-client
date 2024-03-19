@@ -43,7 +43,7 @@ class UsersApi:
 
 
     @validate_call
-    def create_user_v1_users_post(
+    def create_user(
         self,
         create_user_request: CreateUserRequest,
         _request_timeout: Union[
@@ -86,7 +86,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_user_v1_users_post_serialize(
+        _param = self._create_user_serialize(
             create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -110,7 +110,7 @@ class UsersApi:
 
 
     @validate_call
-    def create_user_v1_users_post_with_http_info(
+    def create_user_with_http_info(
         self,
         create_user_request: CreateUserRequest,
         _request_timeout: Union[
@@ -153,7 +153,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_user_v1_users_post_serialize(
+        _param = self._create_user_serialize(
             create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -177,7 +177,7 @@ class UsersApi:
 
 
     @validate_call
-    def create_user_v1_users_post_without_preload_content(
+    def create_user_without_preload_content(
         self,
         create_user_request: CreateUserRequest,
         _request_timeout: Union[
@@ -220,7 +220,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_user_v1_users_post_serialize(
+        _param = self._create_user_serialize(
             create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -239,7 +239,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _create_user_v1_users_post_serialize(
+    def _create_user_serialize(
         self,
         create_user_request,
         _request_auth,
@@ -313,7 +313,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_user_by_id_v1_users_user_id_get(
+    def get_user_by_id(
         self,
         user_id: StrictStr,
         _request_timeout: Union[
@@ -356,7 +356,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_user_by_id_v1_users_user_id_get_serialize(
+        _param = self._get_user_by_id_serialize(
             user_id=user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -380,7 +380,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_user_by_id_v1_users_user_id_get_with_http_info(
+    def get_user_by_id_with_http_info(
         self,
         user_id: StrictStr,
         _request_timeout: Union[
@@ -423,7 +423,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_user_by_id_v1_users_user_id_get_serialize(
+        _param = self._get_user_by_id_serialize(
             user_id=user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -447,7 +447,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_user_by_id_v1_users_user_id_get_without_preload_content(
+    def get_user_by_id_without_preload_content(
         self,
         user_id: StrictStr,
         _request_timeout: Union[
@@ -490,7 +490,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_user_by_id_v1_users_user_id_get_serialize(
+        _param = self._get_user_by_id_serialize(
             user_id=user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -509,7 +509,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _get_user_by_id_v1_users_user_id_get_serialize(
+    def _get_user_by_id_serialize(
         self,
         user_id,
         _request_auth,
@@ -570,7 +570,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_users_v1_users_get(
+    def get_users(
         self,
         get_all_users_request: GetAllUsersRequest,
         _request_timeout: Union[
@@ -613,7 +613,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_users_v1_users_get_serialize(
+        _param = self._get_users_serialize(
             get_all_users_request=get_all_users_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -637,7 +637,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_users_v1_users_get_with_http_info(
+    def get_users_with_http_info(
         self,
         get_all_users_request: GetAllUsersRequest,
         _request_timeout: Union[
@@ -680,7 +680,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_users_v1_users_get_serialize(
+        _param = self._get_users_serialize(
             get_all_users_request=get_all_users_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -704,7 +704,7 @@ class UsersApi:
 
 
     @validate_call
-    def get_users_v1_users_get_without_preload_content(
+    def get_users_without_preload_content(
         self,
         get_all_users_request: GetAllUsersRequest,
         _request_timeout: Union[
@@ -747,7 +747,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_users_v1_users_get_serialize(
+        _param = self._get_users_serialize(
             get_all_users_request=get_all_users_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -766,7 +766,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _get_users_v1_users_get_serialize(
+    def _get_users_serialize(
         self,
         get_all_users_request,
         _request_auth,
@@ -840,7 +840,7 @@ class UsersApi:
 
 
     @validate_call
-    def update_user_v1_users_put(
+    def update_user(
         self,
         update_user_request: UpdateUserRequest,
         _request_timeout: Union[
@@ -883,7 +883,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_user_v1_users_put_serialize(
+        _param = self._update_user_serialize(
             update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -907,7 +907,7 @@ class UsersApi:
 
 
     @validate_call
-    def update_user_v1_users_put_with_http_info(
+    def update_user_with_http_info(
         self,
         update_user_request: UpdateUserRequest,
         _request_timeout: Union[
@@ -950,7 +950,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_user_v1_users_put_serialize(
+        _param = self._update_user_serialize(
             update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -974,7 +974,7 @@ class UsersApi:
 
 
     @validate_call
-    def update_user_v1_users_put_without_preload_content(
+    def update_user_without_preload_content(
         self,
         update_user_request: UpdateUserRequest,
         _request_timeout: Union[
@@ -1017,7 +1017,7 @@ class UsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_user_v1_users_put_serialize(
+        _param = self._update_user_serialize(
             update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1036,7 +1036,7 @@ class UsersApi:
         return response_data.response
 
 
-    def _update_user_v1_users_put_serialize(
+    def _update_user_serialize(
         self,
         update_user_request,
         _request_auth,

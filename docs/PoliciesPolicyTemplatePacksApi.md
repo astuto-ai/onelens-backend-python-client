@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_policy_template_pack_v1_policies_policy_templates_packs_post**](PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack_v1_policies_policy_templates_packs_post) | **POST** /v1/policies/policy_templates_packs | Create Policy Template Pack
-[**get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get) | **GET** /v1/policies/policy_templates_packs/{policy_template_pack_id} | Get Policy Template Pack
-[**get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post) | **POST** /v1/policies/policy_templates_packs/fetch | Get Policy Template Packs
+[**create_policy_template_pack**](PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack) | **POST** /v1/policies/policy_templates_packs | Create Policy Template Pack
+[**get_policy_template_pack**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack) | **GET** /v1/policies/policy_templates_packs/{policy_template_pack_id} | Get Policy Template Pack
+[**get_policy_template_packs**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs) | **POST** /v1/policies/policy_templates_packs/fetch | Get Policy Template Packs
 
 
-# **create_policy_template_pack_v1_policies_policy_templates_packs_post**
-> ResponseCreatePolicyTemplatePackResponse create_policy_template_pack_v1_policies_policy_templates_packs_post(create_policy_template_pack_request)
+# **create_policy_template_pack**
+> ResponseCreatePolicyTemplatePackResponse create_policy_template_pack(create_policy_template_pack_request)
 
 Create Policy Template Pack
 
@@ -41,11 +41,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Create Policy Template Pack
-        api_response = api_instance.create_policy_template_pack_v1_policies_policy_templates_packs_post(create_policy_template_pack_request)
-        print("The response of PoliciesPolicyTemplatePacksApi->create_policy_template_pack_v1_policies_policy_templates_packs_post:\n")
+        api_response = api_instance.create_policy_template_pack(create_policy_template_pack_request)
+        print("The response of PoliciesPolicyTemplatePacksApi->create_policy_template_pack:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatePacksApi->create_policy_template_pack_v1_policies_policy_templates_packs_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatePacksApi->create_policy_template_pack: %s\n" % e)
 ```
 
 
@@ -79,8 +79,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get**
-> ResponseGetPolicyTemplatePackByIdResponse get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get(policy_template_pack_id)
+# **get_policy_template_pack**
+> ResponseGetPolicyTemplatePackByIdResponse get_policy_template_pack(policy_template_pack_id)
 
 Get Policy Template Pack
 
@@ -110,11 +110,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Policy Template Pack
-        api_response = api_instance.get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get(policy_template_pack_id)
-        print("The response of PoliciesPolicyTemplatePacksApi->get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get:\n")
+        api_response = api_instance.get_policy_template_pack(policy_template_pack_id)
+        print("The response of PoliciesPolicyTemplatePacksApi->get_policy_template_pack:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatePacksApi->get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatePacksApi->get_policy_template_pack: %s\n" % e)
 ```
 
 
@@ -148,8 +148,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post**
-> ResponseGetPolicyTemplatePacksResponse get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post(get_policy_template_packs_request)
+# **get_policy_template_packs**
+> ResponseGetPolicyTemplatePacksResponse get_policy_template_packs(get_policy_template_packs_request)
 
 Get Policy Template Packs
 
@@ -180,11 +180,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Policy Template Packs
-        api_response = api_instance.get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post(get_policy_template_packs_request)
-        print("The response of PoliciesPolicyTemplatePacksApi->get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post:\n")
+        api_response = api_instance.get_policy_template_packs(get_policy_template_packs_request)
+        print("The response of PoliciesPolicyTemplatePacksApi->get_policy_template_packs:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatePacksApi->get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatePacksApi->get_policy_template_packs: %s\n" % e)
 ```
 
 

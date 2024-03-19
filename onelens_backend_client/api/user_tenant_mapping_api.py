@@ -38,7 +38,7 @@ class UserTenantMappingApi:
 
 
     @validate_call
-    def create_user_tenant_mapping_v1_users_tenant_mapping_post(
+    def create_user_tenant_mapping(
         self,
         create_user_tenant_mapping_request: CreateUserTenantMappingRequest,
         _request_timeout: Union[
@@ -82,7 +82,7 @@ class UserTenantMappingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_user_tenant_mapping_v1_users_tenant_mapping_post_serialize(
+        _param = self._create_user_tenant_mapping_serialize(
             create_user_tenant_mapping_request=create_user_tenant_mapping_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -106,7 +106,7 @@ class UserTenantMappingApi:
 
 
     @validate_call
-    def create_user_tenant_mapping_v1_users_tenant_mapping_post_with_http_info(
+    def create_user_tenant_mapping_with_http_info(
         self,
         create_user_tenant_mapping_request: CreateUserTenantMappingRequest,
         _request_timeout: Union[
@@ -150,7 +150,7 @@ class UserTenantMappingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_user_tenant_mapping_v1_users_tenant_mapping_post_serialize(
+        _param = self._create_user_tenant_mapping_serialize(
             create_user_tenant_mapping_request=create_user_tenant_mapping_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -174,7 +174,7 @@ class UserTenantMappingApi:
 
 
     @validate_call
-    def create_user_tenant_mapping_v1_users_tenant_mapping_post_without_preload_content(
+    def create_user_tenant_mapping_without_preload_content(
         self,
         create_user_tenant_mapping_request: CreateUserTenantMappingRequest,
         _request_timeout: Union[
@@ -218,7 +218,7 @@ class UserTenantMappingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_user_tenant_mapping_v1_users_tenant_mapping_post_serialize(
+        _param = self._create_user_tenant_mapping_serialize(
             create_user_tenant_mapping_request=create_user_tenant_mapping_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -237,7 +237,7 @@ class UserTenantMappingApi:
         return response_data.response
 
 
-    def _create_user_tenant_mapping_v1_users_tenant_mapping_post_serialize(
+    def _create_user_tenant_mapping_serialize(
         self,
         create_user_tenant_mapping_request,
         _request_auth,

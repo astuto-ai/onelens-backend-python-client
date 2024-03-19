@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_user_tenant_mapping_v1_users_tenant_mapping_post**](UserTenantMappingApi.md#create_user_tenant_mapping_v1_users_tenant_mapping_post) | **POST** /v1/users/tenant_mapping | Create User Tenant Mapping
+[**create_user_tenant_mapping**](UserTenantMappingApi.md#create_user_tenant_mapping) | **POST** /v1/users/tenant_mapping | Create User Tenant Mapping
 
 
-# **create_user_tenant_mapping_v1_users_tenant_mapping_post**
-> ResponseCreateUserTenantMappingResponse create_user_tenant_mapping_v1_users_tenant_mapping_post(create_user_tenant_mapping_request)
+# **create_user_tenant_mapping**
+> ResponseCreateUserTenantMappingResponse create_user_tenant_mapping(create_user_tenant_mapping_request)
 
 Create User Tenant Mapping
 
@@ -39,11 +39,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Create User Tenant Mapping
-        api_response = api_instance.create_user_tenant_mapping_v1_users_tenant_mapping_post(create_user_tenant_mapping_request)
-        print("The response of UserTenantMappingApi->create_user_tenant_mapping_v1_users_tenant_mapping_post:\n")
+        api_response = api_instance.create_user_tenant_mapping(create_user_tenant_mapping_request)
+        print("The response of UserTenantMappingApi->create_user_tenant_mapping:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UserTenantMappingApi->create_user_tenant_mapping_v1_users_tenant_mapping_post: %s\n" % e)
+        print("Exception when calling UserTenantMappingApi->create_user_tenant_mapping: %s\n" % e)
 ```
 
 

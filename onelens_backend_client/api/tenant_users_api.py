@@ -41,7 +41,7 @@ class TenantUsersApi:
 
 
     @validate_call
-    def create_tenant_user_v1_users_tenant_tenant_id_post(
+    def create_tenant_user(
         self,
         tenant_id: StrictStr,
         create_tenant_user_request: CreateTenantUserRequest,
@@ -88,7 +88,7 @@ class TenantUsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_tenant_user_v1_users_tenant_tenant_id_post_serialize(
+        _param = self._create_tenant_user_serialize(
             tenant_id=tenant_id,
             create_tenant_user_request=create_tenant_user_request,
             _request_auth=_request_auth,
@@ -113,7 +113,7 @@ class TenantUsersApi:
 
 
     @validate_call
-    def create_tenant_user_v1_users_tenant_tenant_id_post_with_http_info(
+    def create_tenant_user_with_http_info(
         self,
         tenant_id: StrictStr,
         create_tenant_user_request: CreateTenantUserRequest,
@@ -160,7 +160,7 @@ class TenantUsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_tenant_user_v1_users_tenant_tenant_id_post_serialize(
+        _param = self._create_tenant_user_serialize(
             tenant_id=tenant_id,
             create_tenant_user_request=create_tenant_user_request,
             _request_auth=_request_auth,
@@ -185,7 +185,7 @@ class TenantUsersApi:
 
 
     @validate_call
-    def create_tenant_user_v1_users_tenant_tenant_id_post_without_preload_content(
+    def create_tenant_user_without_preload_content(
         self,
         tenant_id: StrictStr,
         create_tenant_user_request: CreateTenantUserRequest,
@@ -232,7 +232,7 @@ class TenantUsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_tenant_user_v1_users_tenant_tenant_id_post_serialize(
+        _param = self._create_tenant_user_serialize(
             tenant_id=tenant_id,
             create_tenant_user_request=create_tenant_user_request,
             _request_auth=_request_auth,
@@ -252,7 +252,7 @@ class TenantUsersApi:
         return response_data.response
 
 
-    def _create_tenant_user_v1_users_tenant_tenant_id_post_serialize(
+    def _create_tenant_user_serialize(
         self,
         tenant_id,
         create_tenant_user_request,
@@ -329,7 +329,7 @@ class TenantUsersApi:
 
 
     @validate_call
-    def update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put(
+    def update_tenant_user(
         self,
         tenant_id: StrictStr,
         ol_user_id: StrictStr,
@@ -379,7 +379,7 @@ class TenantUsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put_serialize(
+        _param = self._update_tenant_user_serialize(
             tenant_id=tenant_id,
             ol_user_id=ol_user_id,
             tenant_user_update_fields_mixin=tenant_user_update_fields_mixin,
@@ -405,7 +405,7 @@ class TenantUsersApi:
 
 
     @validate_call
-    def update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put_with_http_info(
+    def update_tenant_user_with_http_info(
         self,
         tenant_id: StrictStr,
         ol_user_id: StrictStr,
@@ -455,7 +455,7 @@ class TenantUsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put_serialize(
+        _param = self._update_tenant_user_serialize(
             tenant_id=tenant_id,
             ol_user_id=ol_user_id,
             tenant_user_update_fields_mixin=tenant_user_update_fields_mixin,
@@ -481,7 +481,7 @@ class TenantUsersApi:
 
 
     @validate_call
-    def update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put_without_preload_content(
+    def update_tenant_user_without_preload_content(
         self,
         tenant_id: StrictStr,
         ol_user_id: StrictStr,
@@ -531,7 +531,7 @@ class TenantUsersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put_serialize(
+        _param = self._update_tenant_user_serialize(
             tenant_id=tenant_id,
             ol_user_id=ol_user_id,
             tenant_user_update_fields_mixin=tenant_user_update_fields_mixin,
@@ -552,7 +552,7 @@ class TenantUsersApi:
         return response_data.response
 
 
-    def _update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put_serialize(
+    def _update_tenant_user_serialize(
         self,
         tenant_id,
         ol_user_id,

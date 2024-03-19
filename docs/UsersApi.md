@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_user_v1_users_post**](UsersApi.md#create_user_v1_users_post) | **POST** /v1/users/ | Create User
-[**get_user_by_id_v1_users_user_id_get**](UsersApi.md#get_user_by_id_v1_users_user_id_get) | **GET** /v1/users/{user_id} | Get User By Id
-[**get_users_v1_users_get**](UsersApi.md#get_users_v1_users_get) | **GET** /v1/users/ | Get Users
-[**update_user_v1_users_put**](UsersApi.md#update_user_v1_users_put) | **PUT** /v1/users/ | Update User
+[**create_user**](UsersApi.md#create_user) | **POST** /v1/users/ | Create User
+[**get_user_by_id**](UsersApi.md#get_user_by_id) | **GET** /v1/users/{user_id} | Get User By Id
+[**get_users**](UsersApi.md#get_users) | **GET** /v1/users/ | Get Users
+[**update_user**](UsersApi.md#update_user) | **PUT** /v1/users/ | Update User
 
 
-# **create_user_v1_users_post**
-> CreateUserResponse create_user_v1_users_post(create_user_request)
+# **create_user**
+> CreateUserResponse create_user(create_user_request)
 
 Create User
 
@@ -40,11 +40,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Create User
-        api_response = api_instance.create_user_v1_users_post(create_user_request)
-        print("The response of UsersApi->create_user_v1_users_post:\n")
+        api_response = api_instance.create_user(create_user_request)
+        print("The response of UsersApi->create_user:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UsersApi->create_user_v1_users_post: %s\n" % e)
+        print("Exception when calling UsersApi->create_user: %s\n" % e)
 ```
 
 
@@ -78,8 +78,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_user_by_id_v1_users_user_id_get**
-> object get_user_by_id_v1_users_user_id_get(user_id)
+# **get_user_by_id**
+> object get_user_by_id(user_id)
 
 Get User By Id
 
@@ -106,11 +106,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get User By Id
-        api_response = api_instance.get_user_by_id_v1_users_user_id_get(user_id)
-        print("The response of UsersApi->get_user_by_id_v1_users_user_id_get:\n")
+        api_response = api_instance.get_user_by_id(user_id)
+        print("The response of UsersApi->get_user_by_id:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UsersApi->get_user_by_id_v1_users_user_id_get: %s\n" % e)
+        print("Exception when calling UsersApi->get_user_by_id: %s\n" % e)
 ```
 
 
@@ -144,8 +144,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_users_v1_users_get**
-> GetAllUsersResponse get_users_v1_users_get(get_all_users_request)
+# **get_users**
+> GetAllUsersResponse get_users(get_all_users_request)
 
 Get Users
 
@@ -174,11 +174,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Users
-        api_response = api_instance.get_users_v1_users_get(get_all_users_request)
-        print("The response of UsersApi->get_users_v1_users_get:\n")
+        api_response = api_instance.get_users(get_all_users_request)
+        print("The response of UsersApi->get_users:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UsersApi->get_users_v1_users_get: %s\n" % e)
+        print("Exception when calling UsersApi->get_users: %s\n" % e)
 ```
 
 
@@ -212,8 +212,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_user_v1_users_put**
-> UpdateUserResponse update_user_v1_users_put(update_user_request)
+# **update_user**
+> UpdateUserResponse update_user(update_user_request)
 
 Update User
 
@@ -242,11 +242,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Update User
-        api_response = api_instance.update_user_v1_users_put(update_user_request)
-        print("The response of UsersApi->update_user_v1_users_put:\n")
+        api_response = api_instance.update_user(update_user_request)
+        print("The response of UsersApi->update_user:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UsersApi->update_user_v1_users_put: %s\n" % e)
+        print("Exception when calling UsersApi->update_user: %s\n" % e)
 ```
 
 

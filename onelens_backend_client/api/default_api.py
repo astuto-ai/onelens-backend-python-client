@@ -36,7 +36,7 @@ class DefaultApi:
 
 
     @validate_call
-    def root_get(
+    def root(
         self,
         _request_timeout: Union[
             None,
@@ -76,7 +76,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._root_get_serialize(
+        _param = self._root_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -98,7 +98,7 @@ class DefaultApi:
 
 
     @validate_call
-    def root_get_with_http_info(
+    def root_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -138,7 +138,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._root_get_serialize(
+        _param = self._root_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -160,7 +160,7 @@ class DefaultApi:
 
 
     @validate_call
-    def root_get_without_preload_content(
+    def root_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -200,7 +200,7 @@ class DefaultApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._root_get_serialize(
+        _param = self._root_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -217,7 +217,7 @@ class DefaultApi:
         return response_data.response
 
 
-    def _root_get_serialize(
+    def _root_serialize(
         self,
         _request_auth,
         _content_type,

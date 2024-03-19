@@ -70,11 +70,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Root
-        api_response = api_instance.root_get()
-        print("The response of DefaultApi->root_get:\n")
+        api_response = api_instance.root()
+        print("The response of DefaultApi->root:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->root_get: %s\n" % e)
+        print("Exception when calling DefaultApi->root: %s\n" % e)
 
 ```
 
@@ -84,35 +84,35 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**root_get**](docs/DefaultApi.md#root_get) | **GET** / | Root
-*PoliciesPolicyTemplatePacksApi* | [**create_policy_template_pack_v1_policies_policy_templates_packs_post**](docs/PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack_v1_policies_policy_templates_packs_post) | **POST** /v1/policies/policy_templates_packs | Create Policy Template Pack
-*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get) | **GET** /v1/policies/policy_templates_packs/{policy_template_pack_id} | Get Policy Template Pack
-*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post) | **POST** /v1/policies/policy_templates_packs/fetch | Get Policy Template Packs
-*PoliciesPolicyTemplatesApi* | [**activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post**](docs/PoliciesPolicyTemplatesApi.md#activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post) | **POST** /v1/policies/policy_templates/{policy_template_id}/activate | Activate Policy Template
-*PoliciesPolicyTemplatesApi* | [**create_policy_template_v1_policies_policy_templates_post**](docs/PoliciesPolicyTemplatesApi.md#create_policy_template_v1_policies_policy_templates_post) | **POST** /v1/policies/policy_templates | Create Policy Template
-*PoliciesPolicyTemplatesApi* | [**deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post**](docs/PoliciesPolicyTemplatesApi.md#deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post) | **POST** /v1/policies/policy_templates/{policy_template_id}/deactivate | Deactivate Policy Template
-*PoliciesPolicyTemplatesApi* | [**deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post**](docs/PoliciesPolicyTemplatesApi.md#deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post) | **POST** /v1/policies/policy_templates/{policy_template_id}/deprecate | Deprecate Policy Template
-*PoliciesPolicyTemplatesApi* | [**get_policy_template_v1_policies_policy_templates_policy_template_id_get**](docs/PoliciesPolicyTemplatesApi.md#get_policy_template_v1_policies_policy_templates_policy_template_id_get) | **GET** /v1/policies/policy_templates/{policy_template_id} | Get Policy Template
-*PoliciesPolicyTemplatesApi* | [**get_policy_templates_v1_policies_policy_templates_fetch_post**](docs/PoliciesPolicyTemplatesApi.md#get_policy_templates_v1_policies_policy_templates_fetch_post) | **POST** /v1/policies/policy_templates/fetch | Get Policy Templates
-*PoliciesPolicyTemplatesApi* | [**update_policy_template_v1_policies_policy_templates_policy_template_id_put**](docs/PoliciesPolicyTemplatesApi.md#update_policy_template_v1_policies_policy_templates_policy_template_id_put) | **PUT** /v1/policies/policy_templates/{policy_template_id} | Update Policy Template
-*TenantUsersApi* | [**create_tenant_user_v1_users_tenant_tenant_id_post**](docs/TenantUsersApi.md#create_tenant_user_v1_users_tenant_tenant_id_post) | **POST** /v1/users/tenant/{tenant_id} | Create a new user in the Tenant Database.
-*TenantUsersApi* | [**update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put**](docs/TenantUsersApi.md#update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put) | **PUT** /v1/users/tenant/{tenant_id}/{ol_user_id} | Update a user in the Tenant Database.
-*TenantsApi* | [**create_tenant_v1_tenants_post**](docs/TenantsApi.md#create_tenant_v1_tenants_post) | **POST** /v1/tenants/ | Create Tenant
-*TenantsApi* | [**disable_tenant_v1_tenants_tenant_id_disable_put**](docs/TenantsApi.md#disable_tenant_v1_tenants_tenant_id_disable_put) | **PUT** /v1/tenants/{tenant_id}/disable | Disable Tenant
-*TenantsApi* | [**get_tenant_v1_tenants_tenant_id_get**](docs/TenantsApi.md#get_tenant_v1_tenants_tenant_id_get) | **GET** /v1/tenants/{tenant_id} | Get Tenant
-*TenantsApi* | [**get_tenants_v1_tenants_fetch_post**](docs/TenantsApi.md#get_tenants_v1_tenants_fetch_post) | **POST** /v1/tenants/fetch | Get Tenants
-*TenantsApi* | [**update_tenant_v1_tenants_tenant_id_put**](docs/TenantsApi.md#update_tenant_v1_tenants_tenant_id_put) | **PUT** /v1/tenants/{tenant_id} | Update Tenant
-*TenantsTenantProviderVerifyApi* | [**verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post) | **POST** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/verify | Verify Tenant
-*TenantsTenantsProvidersApi* | [**create_tenant_provider_v1_tenants_tenant_id_providers_post**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider_v1_tenants_tenant_id_providers_post) | **POST** /v1/tenants/{tenant_id}/providers | Create Tenant Provider
-*TenantsTenantsProvidersApi* | [**disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/disable | Disable Tenant Provider
-*TenantsTenantsProvidersApi* | [**get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get) | **GET** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Get Tenant Provider
-*TenantsTenantsProvidersApi* | [**get_tenant_providers_v1_tenants_providers_fetch_post**](docs/TenantsTenantsProvidersApi.md#get_tenant_providers_v1_tenants_providers_fetch_post) | **POST** /v1/tenants/providers/fetch | Get Tenant Providers
-*TenantsTenantsProvidersApi* | [**update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Update Tenant Provider
-*UserTenantMappingApi* | [**create_user_tenant_mapping_v1_users_tenant_mapping_post**](docs/UserTenantMappingApi.md#create_user_tenant_mapping_v1_users_tenant_mapping_post) | **POST** /v1/users/tenant_mapping | Create User Tenant Mapping
-*UsersApi* | [**create_user_v1_users_post**](docs/UsersApi.md#create_user_v1_users_post) | **POST** /v1/users/ | Create User
-*UsersApi* | [**get_user_by_id_v1_users_user_id_get**](docs/UsersApi.md#get_user_by_id_v1_users_user_id_get) | **GET** /v1/users/{user_id} | Get User By Id
-*UsersApi* | [**get_users_v1_users_get**](docs/UsersApi.md#get_users_v1_users_get) | **GET** /v1/users/ | Get Users
-*UsersApi* | [**update_user_v1_users_put**](docs/UsersApi.md#update_user_v1_users_put) | **PUT** /v1/users/ | Update User
+*DefaultApi* | [**root**](docs/DefaultApi.md#root) | **GET** / | Root
+*PoliciesPolicyTemplatePacksApi* | [**create_policy_template_pack**](docs/PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack) | **POST** /v1/policies/policy_templates_packs | Create Policy Template Pack
+*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_pack**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack) | **GET** /v1/policies/policy_templates_packs/{policy_template_pack_id} | Get Policy Template Pack
+*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_packs**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs) | **POST** /v1/policies/policy_templates_packs/fetch | Get Policy Template Packs
+*PoliciesPolicyTemplatesApi* | [**activate_policy_template**](docs/PoliciesPolicyTemplatesApi.md#activate_policy_template) | **POST** /v1/policies/policy_templates/{policy_template_id}/activate | Activate Policy Template
+*PoliciesPolicyTemplatesApi* | [**create_policy_template**](docs/PoliciesPolicyTemplatesApi.md#create_policy_template) | **POST** /v1/policies/policy_templates | Create Policy Template
+*PoliciesPolicyTemplatesApi* | [**deactivate_policy_template**](docs/PoliciesPolicyTemplatesApi.md#deactivate_policy_template) | **POST** /v1/policies/policy_templates/{policy_template_id}/deactivate | Deactivate Policy Template
+*PoliciesPolicyTemplatesApi* | [**deprecate_policy_template**](docs/PoliciesPolicyTemplatesApi.md#deprecate_policy_template) | **POST** /v1/policies/policy_templates/{policy_template_id}/deprecate | Deprecate Policy Template
+*PoliciesPolicyTemplatesApi* | [**get_policy_template**](docs/PoliciesPolicyTemplatesApi.md#get_policy_template) | **GET** /v1/policies/policy_templates/{policy_template_id} | Get Policy Template
+*PoliciesPolicyTemplatesApi* | [**get_policy_templates**](docs/PoliciesPolicyTemplatesApi.md#get_policy_templates) | **POST** /v1/policies/policy_templates/fetch | Get Policy Templates
+*PoliciesPolicyTemplatesApi* | [**update_policy_template**](docs/PoliciesPolicyTemplatesApi.md#update_policy_template) | **PUT** /v1/policies/policy_templates/{policy_template_id} | Update Policy Template
+*TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | **POST** /v1/users/tenant/{tenant_id} | Create a new user in the Tenant Database.
+*TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | **PUT** /v1/users/tenant/{tenant_id}/{ol_user_id} | Update a user in the Tenant Database.
+*TenantsApi* | [**create_tenant**](docs/TenantsApi.md#create_tenant) | **POST** /v1/tenants/ | Create Tenant
+*TenantsApi* | [**disable_tenant**](docs/TenantsApi.md#disable_tenant) | **PUT** /v1/tenants/{tenant_id}/disable | Disable Tenant
+*TenantsApi* | [**get_tenant**](docs/TenantsApi.md#get_tenant) | **GET** /v1/tenants/{tenant_id} | Get Tenant
+*TenantsApi* | [**get_tenants**](docs/TenantsApi.md#get_tenants) | **POST** /v1/tenants/fetch | Get Tenants
+*TenantsApi* | [**update_tenant**](docs/TenantsApi.md#update_tenant) | **PUT** /v1/tenants/{tenant_id} | Update Tenant
+*TenantsTenantProviderVerifyApi* | [**verify_tenant**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant) | **POST** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/verify | Verify Tenant
+*TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | **POST** /v1/tenants/{tenant_id}/providers | Create Tenant Provider
+*TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/disable | Disable Tenant Provider
+*TenantsTenantsProvidersApi* | [**get_tenant_provider**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider) | **GET** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Get Tenant Provider
+*TenantsTenantsProvidersApi* | [**get_tenant_providers**](docs/TenantsTenantsProvidersApi.md#get_tenant_providers) | **POST** /v1/tenants/providers/fetch | Get Tenant Providers
+*TenantsTenantsProvidersApi* | [**update_tenant_provider**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Update Tenant Provider
+*UserTenantMappingApi* | [**create_user_tenant_mapping**](docs/UserTenantMappingApi.md#create_user_tenant_mapping) | **POST** /v1/users/tenant_mapping | Create User Tenant Mapping
+*UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /v1/users/ | Create User
+*UsersApi* | [**get_user_by_id**](docs/UsersApi.md#get_user_by_id) | **GET** /v1/users/{user_id} | Get User By Id
+*UsersApi* | [**get_users**](docs/UsersApi.md#get_users) | **GET** /v1/users/ | Get Users
+*UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PUT** /v1/users/ | Update User
 
 
 ## Documentation For Models

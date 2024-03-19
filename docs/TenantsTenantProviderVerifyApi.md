@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post**](TenantsTenantProviderVerifyApi.md#verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post) | **POST** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/verify | Verify Tenant
+[**verify_tenant**](TenantsTenantProviderVerifyApi.md#verify_tenant) | **POST** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/verify | Verify Tenant
 
 
-# **verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post**
-> ResponseTenantVerifyResponse verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post(tenant_id, tenant_provider_id, tenant_verify_request)
+# **verify_tenant**
+> ResponseTenantVerifyResponse verify_tenant(tenant_id, tenant_provider_id, tenant_verify_request)
 
 Verify Tenant
 
@@ -41,11 +41,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Verify Tenant
-        api_response = api_instance.verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post(tenant_id, tenant_provider_id, tenant_verify_request)
-        print("The response of TenantsTenantProviderVerifyApi->verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post:\n")
+        api_response = api_instance.verify_tenant(tenant_id, tenant_provider_id, tenant_verify_request)
+        print("The response of TenantsTenantProviderVerifyApi->verify_tenant:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsTenantProviderVerifyApi->verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post: %s\n" % e)
+        print("Exception when calling TenantsTenantProviderVerifyApi->verify_tenant: %s\n" % e)
 ```
 
 

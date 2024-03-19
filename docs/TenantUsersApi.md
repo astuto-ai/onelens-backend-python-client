@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_tenant_user_v1_users_tenant_tenant_id_post**](TenantUsersApi.md#create_tenant_user_v1_users_tenant_tenant_id_post) | **POST** /v1/users/tenant/{tenant_id} | Create a new user in the Tenant Database.
-[**update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put**](TenantUsersApi.md#update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put) | **PUT** /v1/users/tenant/{tenant_id}/{ol_user_id} | Update a user in the Tenant Database.
+[**create_tenant_user**](TenantUsersApi.md#create_tenant_user) | **POST** /v1/users/tenant/{tenant_id} | Create a new user in the Tenant Database.
+[**update_tenant_user**](TenantUsersApi.md#update_tenant_user) | **PUT** /v1/users/tenant/{tenant_id}/{ol_user_id} | Update a user in the Tenant Database.
 
 
-# **create_tenant_user_v1_users_tenant_tenant_id_post**
-> ResponseCreateTenantUserResponse create_tenant_user_v1_users_tenant_tenant_id_post(tenant_id, create_tenant_user_request)
+# **create_tenant_user**
+> ResponseCreateTenantUserResponse create_tenant_user(tenant_id, create_tenant_user_request)
 
 Create a new user in the Tenant Database.
 
@@ -41,11 +41,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Create a new user in the Tenant Database.
-        api_response = api_instance.create_tenant_user_v1_users_tenant_tenant_id_post(tenant_id, create_tenant_user_request)
-        print("The response of TenantUsersApi->create_tenant_user_v1_users_tenant_tenant_id_post:\n")
+        api_response = api_instance.create_tenant_user(tenant_id, create_tenant_user_request)
+        print("The response of TenantUsersApi->create_tenant_user:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantUsersApi->create_tenant_user_v1_users_tenant_tenant_id_post: %s\n" % e)
+        print("Exception when calling TenantUsersApi->create_tenant_user: %s\n" % e)
 ```
 
 
@@ -80,8 +80,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put**
-> ResponseUpdateTenantUserResponse update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put(tenant_id, ol_user_id, tenant_user_update_fields_mixin)
+# **update_tenant_user**
+> ResponseUpdateTenantUserResponse update_tenant_user(tenant_id, ol_user_id, tenant_user_update_fields_mixin)
 
 Update a user in the Tenant Database.
 
@@ -114,11 +114,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Update a user in the Tenant Database.
-        api_response = api_instance.update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put(tenant_id, ol_user_id, tenant_user_update_fields_mixin)
-        print("The response of TenantUsersApi->update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put:\n")
+        api_response = api_instance.update_tenant_user(tenant_id, ol_user_id, tenant_user_update_fields_mixin)
+        print("The response of TenantUsersApi->update_tenant_user:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantUsersApi->update_tenant_user_v1_users_tenant_tenant_id_ol_user_id_put: %s\n" % e)
+        print("Exception when calling TenantUsersApi->update_tenant_user: %s\n" % e)
 ```
 
 

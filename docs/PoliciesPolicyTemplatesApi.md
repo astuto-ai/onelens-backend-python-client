@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post**](PoliciesPolicyTemplatesApi.md#activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post) | **POST** /v1/policies/policy_templates/{policy_template_id}/activate | Activate Policy Template
-[**create_policy_template_v1_policies_policy_templates_post**](PoliciesPolicyTemplatesApi.md#create_policy_template_v1_policies_policy_templates_post) | **POST** /v1/policies/policy_templates | Create Policy Template
-[**deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post**](PoliciesPolicyTemplatesApi.md#deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post) | **POST** /v1/policies/policy_templates/{policy_template_id}/deactivate | Deactivate Policy Template
-[**deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post**](PoliciesPolicyTemplatesApi.md#deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post) | **POST** /v1/policies/policy_templates/{policy_template_id}/deprecate | Deprecate Policy Template
-[**get_policy_template_v1_policies_policy_templates_policy_template_id_get**](PoliciesPolicyTemplatesApi.md#get_policy_template_v1_policies_policy_templates_policy_template_id_get) | **GET** /v1/policies/policy_templates/{policy_template_id} | Get Policy Template
-[**get_policy_templates_v1_policies_policy_templates_fetch_post**](PoliciesPolicyTemplatesApi.md#get_policy_templates_v1_policies_policy_templates_fetch_post) | **POST** /v1/policies/policy_templates/fetch | Get Policy Templates
-[**update_policy_template_v1_policies_policy_templates_policy_template_id_put**](PoliciesPolicyTemplatesApi.md#update_policy_template_v1_policies_policy_templates_policy_template_id_put) | **PUT** /v1/policies/policy_templates/{policy_template_id} | Update Policy Template
+[**activate_policy_template**](PoliciesPolicyTemplatesApi.md#activate_policy_template) | **POST** /v1/policies/policy_templates/{policy_template_id}/activate | Activate Policy Template
+[**create_policy_template**](PoliciesPolicyTemplatesApi.md#create_policy_template) | **POST** /v1/policies/policy_templates | Create Policy Template
+[**deactivate_policy_template**](PoliciesPolicyTemplatesApi.md#deactivate_policy_template) | **POST** /v1/policies/policy_templates/{policy_template_id}/deactivate | Deactivate Policy Template
+[**deprecate_policy_template**](PoliciesPolicyTemplatesApi.md#deprecate_policy_template) | **POST** /v1/policies/policy_templates/{policy_template_id}/deprecate | Deprecate Policy Template
+[**get_policy_template**](PoliciesPolicyTemplatesApi.md#get_policy_template) | **GET** /v1/policies/policy_templates/{policy_template_id} | Get Policy Template
+[**get_policy_templates**](PoliciesPolicyTemplatesApi.md#get_policy_templates) | **POST** /v1/policies/policy_templates/fetch | Get Policy Templates
+[**update_policy_template**](PoliciesPolicyTemplatesApi.md#update_policy_template) | **PUT** /v1/policies/policy_templates/{policy_template_id} | Update Policy Template
 
 
-# **activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post**
-> ResponseActivatePolicyTemplateResponse activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post(policy_template_id)
+# **activate_policy_template**
+> ResponseActivatePolicyTemplateResponse activate_policy_template(policy_template_id)
 
 Activate Policy Template
 
@@ -44,11 +44,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Activate Policy Template
-        api_response = api_instance.activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post(policy_template_id)
-        print("The response of PoliciesPolicyTemplatesApi->activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post:\n")
+        api_response = api_instance.activate_policy_template(policy_template_id)
+        print("The response of PoliciesPolicyTemplatesApi->activate_policy_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->activate_policy_template: %s\n" % e)
 ```
 
 
@@ -82,8 +82,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_policy_template_v1_policies_policy_templates_post**
-> ResponseCreatePolicyTemplateResponse create_policy_template_v1_policies_policy_templates_post(create_policy_template_request)
+# **create_policy_template**
+> ResponseCreatePolicyTemplateResponse create_policy_template(create_policy_template_request)
 
 Create Policy Template
 
@@ -114,11 +114,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Create Policy Template
-        api_response = api_instance.create_policy_template_v1_policies_policy_templates_post(create_policy_template_request)
-        print("The response of PoliciesPolicyTemplatesApi->create_policy_template_v1_policies_policy_templates_post:\n")
+        api_response = api_instance.create_policy_template(create_policy_template_request)
+        print("The response of PoliciesPolicyTemplatesApi->create_policy_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->create_policy_template_v1_policies_policy_templates_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->create_policy_template: %s\n" % e)
 ```
 
 
@@ -152,8 +152,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post**
-> ResponseDeprecatePolicyTemplateResponse deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post(policy_template_id)
+# **deactivate_policy_template**
+> ResponseDeprecatePolicyTemplateResponse deactivate_policy_template(policy_template_id)
 
 Deactivate Policy Template
 
@@ -183,11 +183,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Deactivate Policy Template
-        api_response = api_instance.deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post(policy_template_id)
-        print("The response of PoliciesPolicyTemplatesApi->deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post:\n")
+        api_response = api_instance.deactivate_policy_template(policy_template_id)
+        print("The response of PoliciesPolicyTemplatesApi->deactivate_policy_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->deactivate_policy_template: %s\n" % e)
 ```
 
 
@@ -221,8 +221,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post**
-> ResponseDeprecatePolicyTemplateResponse deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post(policy_template_id)
+# **deprecate_policy_template**
+> ResponseDeprecatePolicyTemplateResponse deprecate_policy_template(policy_template_id)
 
 Deprecate Policy Template
 
@@ -252,11 +252,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Deprecate Policy Template
-        api_response = api_instance.deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post(policy_template_id)
-        print("The response of PoliciesPolicyTemplatesApi->deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post:\n")
+        api_response = api_instance.deprecate_policy_template(policy_template_id)
+        print("The response of PoliciesPolicyTemplatesApi->deprecate_policy_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->deprecate_policy_template: %s\n" % e)
 ```
 
 
@@ -290,8 +290,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_policy_template_v1_policies_policy_templates_policy_template_id_get**
-> ResponseGetPolicyTemplateByIDResponse get_policy_template_v1_policies_policy_templates_policy_template_id_get(policy_template_id)
+# **get_policy_template**
+> ResponseGetPolicyTemplateByIDResponse get_policy_template(policy_template_id)
 
 Get Policy Template
 
@@ -321,11 +321,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Policy Template
-        api_response = api_instance.get_policy_template_v1_policies_policy_templates_policy_template_id_get(policy_template_id)
-        print("The response of PoliciesPolicyTemplatesApi->get_policy_template_v1_policies_policy_templates_policy_template_id_get:\n")
+        api_response = api_instance.get_policy_template(policy_template_id)
+        print("The response of PoliciesPolicyTemplatesApi->get_policy_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->get_policy_template_v1_policies_policy_templates_policy_template_id_get: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->get_policy_template: %s\n" % e)
 ```
 
 
@@ -359,8 +359,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_policy_templates_v1_policies_policy_templates_fetch_post**
-> ResponseGetPolicyTemplatesResponse get_policy_templates_v1_policies_policy_templates_fetch_post(get_policy_templates_request)
+# **get_policy_templates**
+> ResponseGetPolicyTemplatesResponse get_policy_templates(get_policy_templates_request)
 
 Get Policy Templates
 
@@ -391,11 +391,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Policy Templates
-        api_response = api_instance.get_policy_templates_v1_policies_policy_templates_fetch_post(get_policy_templates_request)
-        print("The response of PoliciesPolicyTemplatesApi->get_policy_templates_v1_policies_policy_templates_fetch_post:\n")
+        api_response = api_instance.get_policy_templates(get_policy_templates_request)
+        print("The response of PoliciesPolicyTemplatesApi->get_policy_templates:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->get_policy_templates_v1_policies_policy_templates_fetch_post: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->get_policy_templates: %s\n" % e)
 ```
 
 
@@ -429,8 +429,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_policy_template_v1_policies_policy_templates_policy_template_id_put**
-> ResponseUpdatePolicyTemplateResponse update_policy_template_v1_policies_policy_templates_policy_template_id_put(policy_template_id, policy_template_update_fields_mixin)
+# **update_policy_template**
+> ResponseUpdatePolicyTemplateResponse update_policy_template(policy_template_id, policy_template_update_fields_mixin)
 
 Update Policy Template
 
@@ -462,11 +462,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Update Policy Template
-        api_response = api_instance.update_policy_template_v1_policies_policy_templates_policy_template_id_put(policy_template_id, policy_template_update_fields_mixin)
-        print("The response of PoliciesPolicyTemplatesApi->update_policy_template_v1_policies_policy_templates_policy_template_id_put:\n")
+        api_response = api_instance.update_policy_template(policy_template_id, policy_template_update_fields_mixin)
+        print("The response of PoliciesPolicyTemplatesApi->update_policy_template:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PoliciesPolicyTemplatesApi->update_policy_template_v1_policies_policy_templates_policy_template_id_put: %s\n" % e)
+        print("Exception when calling PoliciesPolicyTemplatesApi->update_policy_template: %s\n" % e)
 ```
 
 

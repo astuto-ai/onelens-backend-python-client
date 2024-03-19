@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**root_get**](DefaultApi.md#root_get) | **GET** / | Root
+[**root**](DefaultApi.md#root) | **GET** / | Root
 
 
-# **root_get**
-> object root_get()
+# **root**
+> object root()
 
 Root
 
@@ -34,11 +34,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Root
-        api_response = api_instance.root_get()
-        print("The response of DefaultApi->root_get:\n")
+        api_response = api_instance.root()
+        print("The response of DefaultApi->root:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->root_get: %s\n" % e)
+        print("Exception when calling DefaultApi->root: %s\n" % e)
 ```
 
 

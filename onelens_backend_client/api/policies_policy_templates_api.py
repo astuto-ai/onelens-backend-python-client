@@ -46,7 +46,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post(
+    def activate_policy_template(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -90,7 +90,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post_serialize(
+        _param = self._activate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +114,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post_with_http_info(
+    def activate_policy_template_with_http_info(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -158,7 +158,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post_serialize(
+        _param = self._activate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -182,7 +182,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post_without_preload_content(
+    def activate_policy_template_without_preload_content(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -226,7 +226,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post_serialize(
+        _param = self._activate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -245,7 +245,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _activate_policy_template_v1_policies_policy_templates_policy_template_id_activate_post_serialize(
+    def _activate_policy_template_serialize(
         self,
         policy_template_id,
         _request_auth,
@@ -306,7 +306,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def create_policy_template_v1_policies_policy_templates_post(
+    def create_policy_template(
         self,
         create_policy_template_request: CreatePolicyTemplateRequest,
         _request_timeout: Union[
@@ -350,7 +350,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_policy_template_v1_policies_policy_templates_post_serialize(
+        _param = self._create_policy_template_serialize(
             create_policy_template_request=create_policy_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -374,7 +374,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def create_policy_template_v1_policies_policy_templates_post_with_http_info(
+    def create_policy_template_with_http_info(
         self,
         create_policy_template_request: CreatePolicyTemplateRequest,
         _request_timeout: Union[
@@ -418,7 +418,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_policy_template_v1_policies_policy_templates_post_serialize(
+        _param = self._create_policy_template_serialize(
             create_policy_template_request=create_policy_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -442,7 +442,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def create_policy_template_v1_policies_policy_templates_post_without_preload_content(
+    def create_policy_template_without_preload_content(
         self,
         create_policy_template_request: CreatePolicyTemplateRequest,
         _request_timeout: Union[
@@ -486,7 +486,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_policy_template_v1_policies_policy_templates_post_serialize(
+        _param = self._create_policy_template_serialize(
             create_policy_template_request=create_policy_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -505,7 +505,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _create_policy_template_v1_policies_policy_templates_post_serialize(
+    def _create_policy_template_serialize(
         self,
         create_policy_template_request,
         _request_auth,
@@ -579,7 +579,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post(
+    def deactivate_policy_template(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -623,7 +623,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post_serialize(
+        _param = self._deactivate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -647,7 +647,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post_with_http_info(
+    def deactivate_policy_template_with_http_info(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -691,7 +691,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post_serialize(
+        _param = self._deactivate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -715,7 +715,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post_without_preload_content(
+    def deactivate_policy_template_without_preload_content(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -759,7 +759,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post_serialize(
+        _param = self._deactivate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -778,7 +778,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _deactivate_policy_template_v1_policies_policy_templates_policy_template_id_deactivate_post_serialize(
+    def _deactivate_policy_template_serialize(
         self,
         policy_template_id,
         _request_auth,
@@ -839,7 +839,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post(
+    def deprecate_policy_template(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -883,7 +883,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post_serialize(
+        _param = self._deprecate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -907,7 +907,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post_with_http_info(
+    def deprecate_policy_template_with_http_info(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -951,7 +951,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post_serialize(
+        _param = self._deprecate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -975,7 +975,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post_without_preload_content(
+    def deprecate_policy_template_without_preload_content(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -1019,7 +1019,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post_serialize(
+        _param = self._deprecate_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1038,7 +1038,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _deprecate_policy_template_v1_policies_policy_templates_policy_template_id_deprecate_post_serialize(
+    def _deprecate_policy_template_serialize(
         self,
         policy_template_id,
         _request_auth,
@@ -1099,7 +1099,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def get_policy_template_v1_policies_policy_templates_policy_template_id_get(
+    def get_policy_template(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -1143,7 +1143,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_v1_policies_policy_templates_policy_template_id_get_serialize(
+        _param = self._get_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1167,7 +1167,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def get_policy_template_v1_policies_policy_templates_policy_template_id_get_with_http_info(
+    def get_policy_template_with_http_info(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -1211,7 +1211,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_v1_policies_policy_templates_policy_template_id_get_serialize(
+        _param = self._get_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1235,7 +1235,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def get_policy_template_v1_policies_policy_templates_policy_template_id_get_without_preload_content(
+    def get_policy_template_without_preload_content(
         self,
         policy_template_id: StrictStr,
         _request_timeout: Union[
@@ -1279,7 +1279,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_v1_policies_policy_templates_policy_template_id_get_serialize(
+        _param = self._get_policy_template_serialize(
             policy_template_id=policy_template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1298,7 +1298,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _get_policy_template_v1_policies_policy_templates_policy_template_id_get_serialize(
+    def _get_policy_template_serialize(
         self,
         policy_template_id,
         _request_auth,
@@ -1359,7 +1359,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def get_policy_templates_v1_policies_policy_templates_fetch_post(
+    def get_policy_templates(
         self,
         get_policy_templates_request: GetPolicyTemplatesRequest,
         _request_timeout: Union[
@@ -1403,7 +1403,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_templates_v1_policies_policy_templates_fetch_post_serialize(
+        _param = self._get_policy_templates_serialize(
             get_policy_templates_request=get_policy_templates_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1427,7 +1427,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def get_policy_templates_v1_policies_policy_templates_fetch_post_with_http_info(
+    def get_policy_templates_with_http_info(
         self,
         get_policy_templates_request: GetPolicyTemplatesRequest,
         _request_timeout: Union[
@@ -1471,7 +1471,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_templates_v1_policies_policy_templates_fetch_post_serialize(
+        _param = self._get_policy_templates_serialize(
             get_policy_templates_request=get_policy_templates_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1495,7 +1495,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def get_policy_templates_v1_policies_policy_templates_fetch_post_without_preload_content(
+    def get_policy_templates_without_preload_content(
         self,
         get_policy_templates_request: GetPolicyTemplatesRequest,
         _request_timeout: Union[
@@ -1539,7 +1539,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_templates_v1_policies_policy_templates_fetch_post_serialize(
+        _param = self._get_policy_templates_serialize(
             get_policy_templates_request=get_policy_templates_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1558,7 +1558,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _get_policy_templates_v1_policies_policy_templates_fetch_post_serialize(
+    def _get_policy_templates_serialize(
         self,
         get_policy_templates_request,
         _request_auth,
@@ -1632,7 +1632,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def update_policy_template_v1_policies_policy_templates_policy_template_id_put(
+    def update_policy_template(
         self,
         policy_template_id: StrictStr,
         policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin,
@@ -1679,7 +1679,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_policy_template_v1_policies_policy_templates_policy_template_id_put_serialize(
+        _param = self._update_policy_template_serialize(
             policy_template_id=policy_template_id,
             policy_template_update_fields_mixin=policy_template_update_fields_mixin,
             _request_auth=_request_auth,
@@ -1704,7 +1704,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def update_policy_template_v1_policies_policy_templates_policy_template_id_put_with_http_info(
+    def update_policy_template_with_http_info(
         self,
         policy_template_id: StrictStr,
         policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin,
@@ -1751,7 +1751,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_policy_template_v1_policies_policy_templates_policy_template_id_put_serialize(
+        _param = self._update_policy_template_serialize(
             policy_template_id=policy_template_id,
             policy_template_update_fields_mixin=policy_template_update_fields_mixin,
             _request_auth=_request_auth,
@@ -1776,7 +1776,7 @@ class PoliciesPolicyTemplatesApi:
 
 
     @validate_call
-    def update_policy_template_v1_policies_policy_templates_policy_template_id_put_without_preload_content(
+    def update_policy_template_without_preload_content(
         self,
         policy_template_id: StrictStr,
         policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin,
@@ -1823,7 +1823,7 @@ class PoliciesPolicyTemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_policy_template_v1_policies_policy_templates_policy_template_id_put_serialize(
+        _param = self._update_policy_template_serialize(
             policy_template_id=policy_template_id,
             policy_template_update_fields_mixin=policy_template_update_fields_mixin,
             _request_auth=_request_auth,
@@ -1843,7 +1843,7 @@ class PoliciesPolicyTemplatesApi:
         return response_data.response
 
 
-    def _update_policy_template_v1_policies_policy_templates_policy_template_id_put_serialize(
+    def _update_policy_template_serialize(
         self,
         policy_template_id,
         policy_template_update_fields_mixin,

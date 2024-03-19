@@ -45,7 +45,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def create_tenant_provider_v1_tenants_tenant_id_providers_post(
+    def create_tenant_provider(
         self,
         tenant_id: StrictStr,
         create_tenant_provider_request: CreateTenantProviderRequest,
@@ -92,7 +92,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_tenant_provider_v1_tenants_tenant_id_providers_post_serialize(
+        _param = self._create_tenant_provider_serialize(
             tenant_id=tenant_id,
             create_tenant_provider_request=create_tenant_provider_request,
             _request_auth=_request_auth,
@@ -117,7 +117,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def create_tenant_provider_v1_tenants_tenant_id_providers_post_with_http_info(
+    def create_tenant_provider_with_http_info(
         self,
         tenant_id: StrictStr,
         create_tenant_provider_request: CreateTenantProviderRequest,
@@ -164,7 +164,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_tenant_provider_v1_tenants_tenant_id_providers_post_serialize(
+        _param = self._create_tenant_provider_serialize(
             tenant_id=tenant_id,
             create_tenant_provider_request=create_tenant_provider_request,
             _request_auth=_request_auth,
@@ -189,7 +189,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def create_tenant_provider_v1_tenants_tenant_id_providers_post_without_preload_content(
+    def create_tenant_provider_without_preload_content(
         self,
         tenant_id: StrictStr,
         create_tenant_provider_request: CreateTenantProviderRequest,
@@ -236,7 +236,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_tenant_provider_v1_tenants_tenant_id_providers_post_serialize(
+        _param = self._create_tenant_provider_serialize(
             tenant_id=tenant_id,
             create_tenant_provider_request=create_tenant_provider_request,
             _request_auth=_request_auth,
@@ -256,7 +256,7 @@ class TenantsTenantsProvidersApi:
         return response_data.response
 
 
-    def _create_tenant_provider_v1_tenants_tenant_id_providers_post_serialize(
+    def _create_tenant_provider_serialize(
         self,
         tenant_id,
         create_tenant_provider_request,
@@ -333,7 +333,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put(
+    def disable_tenant_provider(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -380,7 +380,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put_serialize(
+        _param = self._disable_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             _request_auth=_request_auth,
@@ -405,7 +405,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put_with_http_info(
+    def disable_tenant_provider_with_http_info(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -452,7 +452,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put_serialize(
+        _param = self._disable_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             _request_auth=_request_auth,
@@ -477,7 +477,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put_without_preload_content(
+    def disable_tenant_provider_without_preload_content(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -524,7 +524,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put_serialize(
+        _param = self._disable_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             _request_auth=_request_auth,
@@ -544,7 +544,7 @@ class TenantsTenantsProvidersApi:
         return response_data.response
 
 
-    def _disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put_serialize(
+    def _disable_tenant_provider_serialize(
         self,
         tenant_id,
         tenant_provider_id,
@@ -608,7 +608,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get(
+    def get_tenant_provider(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -655,7 +655,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get_serialize(
+        _param = self._get_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             _request_auth=_request_auth,
@@ -680,7 +680,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get_with_http_info(
+    def get_tenant_provider_with_http_info(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -727,7 +727,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get_serialize(
+        _param = self._get_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             _request_auth=_request_auth,
@@ -752,7 +752,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get_without_preload_content(
+    def get_tenant_provider_without_preload_content(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -799,7 +799,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get_serialize(
+        _param = self._get_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             _request_auth=_request_auth,
@@ -819,7 +819,7 @@ class TenantsTenantsProvidersApi:
         return response_data.response
 
 
-    def _get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get_serialize(
+    def _get_tenant_provider_serialize(
         self,
         tenant_id,
         tenant_provider_id,
@@ -883,7 +883,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_providers_v1_tenants_providers_fetch_post(
+    def get_tenant_providers(
         self,
         get_tenant_providers_request: GetTenantProvidersRequest,
         _request_timeout: Union[
@@ -927,7 +927,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
+        _param = self._get_tenant_providers_serialize(
             get_tenant_providers_request=get_tenant_providers_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -951,7 +951,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_providers_v1_tenants_providers_fetch_post_with_http_info(
+    def get_tenant_providers_with_http_info(
         self,
         get_tenant_providers_request: GetTenantProvidersRequest,
         _request_timeout: Union[
@@ -995,7 +995,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
+        _param = self._get_tenant_providers_serialize(
             get_tenant_providers_request=get_tenant_providers_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1019,7 +1019,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_providers_v1_tenants_providers_fetch_post_without_preload_content(
+    def get_tenant_providers_without_preload_content(
         self,
         get_tenant_providers_request: GetTenantProvidersRequest,
         _request_timeout: Union[
@@ -1063,7 +1063,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
+        _param = self._get_tenant_providers_serialize(
             get_tenant_providers_request=get_tenant_providers_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1082,7 +1082,7 @@ class TenantsTenantsProvidersApi:
         return response_data.response
 
 
-    def _get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
+    def _get_tenant_providers_serialize(
         self,
         get_tenant_providers_request,
         _request_auth,
@@ -1156,7 +1156,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put(
+    def update_tenant_provider(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -1206,7 +1206,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put_serialize(
+        _param = self._update_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             update_tenant_provider_request=update_tenant_provider_request,
@@ -1232,7 +1232,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put_with_http_info(
+    def update_tenant_provider_with_http_info(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -1282,7 +1282,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put_serialize(
+        _param = self._update_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             update_tenant_provider_request=update_tenant_provider_request,
@@ -1308,7 +1308,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put_without_preload_content(
+    def update_tenant_provider_without_preload_content(
         self,
         tenant_id: StrictStr,
         tenant_provider_id: StrictStr,
@@ -1358,7 +1358,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put_serialize(
+        _param = self._update_tenant_provider_serialize(
             tenant_id=tenant_id,
             tenant_provider_id=tenant_provider_id,
             update_tenant_provider_request=update_tenant_provider_request,
@@ -1379,7 +1379,7 @@ class TenantsTenantsProvidersApi:
         return response_data.response
 
 
-    def _update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put_serialize(
+    def _update_tenant_provider_serialize(
         self,
         tenant_id,
         tenant_provider_id,

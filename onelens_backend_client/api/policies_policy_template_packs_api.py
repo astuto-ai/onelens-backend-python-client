@@ -42,7 +42,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def create_policy_template_pack_v1_policies_policy_templates_packs_post(
+    def create_policy_template_pack(
         self,
         create_policy_template_pack_request: CreatePolicyTemplatePackRequest,
         _request_timeout: Union[
@@ -86,7 +86,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_policy_template_pack_v1_policies_policy_templates_packs_post_serialize(
+        _param = self._create_policy_template_pack_serialize(
             create_policy_template_pack_request=create_policy_template_pack_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -110,7 +110,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def create_policy_template_pack_v1_policies_policy_templates_packs_post_with_http_info(
+    def create_policy_template_pack_with_http_info(
         self,
         create_policy_template_pack_request: CreatePolicyTemplatePackRequest,
         _request_timeout: Union[
@@ -154,7 +154,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_policy_template_pack_v1_policies_policy_templates_packs_post_serialize(
+        _param = self._create_policy_template_pack_serialize(
             create_policy_template_pack_request=create_policy_template_pack_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -178,7 +178,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def create_policy_template_pack_v1_policies_policy_templates_packs_post_without_preload_content(
+    def create_policy_template_pack_without_preload_content(
         self,
         create_policy_template_pack_request: CreatePolicyTemplatePackRequest,
         _request_timeout: Union[
@@ -222,7 +222,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_policy_template_pack_v1_policies_policy_templates_packs_post_serialize(
+        _param = self._create_policy_template_pack_serialize(
             create_policy_template_pack_request=create_policy_template_pack_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -241,7 +241,7 @@ class PoliciesPolicyTemplatePacksApi:
         return response_data.response
 
 
-    def _create_policy_template_pack_v1_policies_policy_templates_packs_post_serialize(
+    def _create_policy_template_pack_serialize(
         self,
         create_policy_template_pack_request,
         _request_auth,
@@ -315,7 +315,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get(
+    def get_policy_template_pack(
         self,
         policy_template_pack_id: StrictStr,
         _request_timeout: Union[
@@ -359,7 +359,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get_serialize(
+        _param = self._get_policy_template_pack_serialize(
             policy_template_pack_id=policy_template_pack_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -383,7 +383,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get_with_http_info(
+    def get_policy_template_pack_with_http_info(
         self,
         policy_template_pack_id: StrictStr,
         _request_timeout: Union[
@@ -427,7 +427,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get_serialize(
+        _param = self._get_policy_template_pack_serialize(
             policy_template_pack_id=policy_template_pack_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -451,7 +451,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get_without_preload_content(
+    def get_policy_template_pack_without_preload_content(
         self,
         policy_template_pack_id: StrictStr,
         _request_timeout: Union[
@@ -495,7 +495,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get_serialize(
+        _param = self._get_policy_template_pack_serialize(
             policy_template_pack_id=policy_template_pack_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -514,7 +514,7 @@ class PoliciesPolicyTemplatePacksApi:
         return response_data.response
 
 
-    def _get_policy_template_pack_v1_policies_policy_templates_packs_policy_template_pack_id_get_serialize(
+    def _get_policy_template_pack_serialize(
         self,
         policy_template_pack_id,
         _request_auth,
@@ -575,7 +575,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post(
+    def get_policy_template_packs(
         self,
         get_policy_template_packs_request: GetPolicyTemplatePacksRequest,
         _request_timeout: Union[
@@ -619,7 +619,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post_serialize(
+        _param = self._get_policy_template_packs_serialize(
             get_policy_template_packs_request=get_policy_template_packs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -643,7 +643,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post_with_http_info(
+    def get_policy_template_packs_with_http_info(
         self,
         get_policy_template_packs_request: GetPolicyTemplatePacksRequest,
         _request_timeout: Union[
@@ -687,7 +687,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post_serialize(
+        _param = self._get_policy_template_packs_serialize(
             get_policy_template_packs_request=get_policy_template_packs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -711,7 +711,7 @@ class PoliciesPolicyTemplatePacksApi:
 
 
     @validate_call
-    def get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post_without_preload_content(
+    def get_policy_template_packs_without_preload_content(
         self,
         get_policy_template_packs_request: GetPolicyTemplatePacksRequest,
         _request_timeout: Union[
@@ -755,7 +755,7 @@ class PoliciesPolicyTemplatePacksApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post_serialize(
+        _param = self._get_policy_template_packs_serialize(
             get_policy_template_packs_request=get_policy_template_packs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -774,7 +774,7 @@ class PoliciesPolicyTemplatePacksApi:
         return response_data.response
 
 
-    def _get_policy_template_packs_v1_policies_policy_templates_packs_fetch_post_serialize(
+    def _get_policy_template_packs_serialize(
         self,
         get_policy_template_packs_request,
         _request_auth,
