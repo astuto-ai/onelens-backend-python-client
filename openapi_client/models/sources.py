@@ -27,7 +27,7 @@ SOURCES_ANY_OF_SCHEMAS = ["object"]
 
 class Sources(BaseModel):
     """
-    Different sources from where did the signup. e.g. social, username-password
+    Different sources from where user signed up. e.g. social signup, username-password
     """
 
     # data type: object

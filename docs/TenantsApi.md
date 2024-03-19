@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_tenant_v1_tenants_post**](TenantsApi.md#create_tenant_v1_tenants_post) | **POST** /v1/tenants/ | Create Tenant
 [**disable_tenant_v1_tenants_tenant_id_disable_put**](TenantsApi.md#disable_tenant_v1_tenants_tenant_id_disable_put) | **PUT** /v1/tenants/{tenant_id}/disable | Disable Tenant
 [**get_tenant_v1_tenants_tenant_id_get**](TenantsApi.md#get_tenant_v1_tenants_tenant_id_get) | **GET** /v1/tenants/{tenant_id} | Get Tenant
+[**get_tenants_v1_tenants_fetch_post**](TenantsApi.md#get_tenants_v1_tenants_fetch_post) | **POST** /v1/tenants/fetch | Get Tenants
 [**update_tenant_v1_tenants_tenant_id_put**](TenantsApi.md#update_tenant_v1_tenants_tenant_id_put) | **PUT** /v1/tenants/{tenant_id} | Update Tenant
 
 
@@ -207,6 +208,76 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenants_v1_tenants_fetch_post**
+> ResponseGetTenantsResponse get_tenants_v1_tenants_fetch_post(get_tenants_request)
+
+Get Tenants
+
+An API endpoint that retrieves tenant with filters.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.get_tenants_request import GetTenantsRequest
+from openapi_client.models.response_get_tenants_response import ResponseGetTenantsResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.TenantsApi(api_client)
+    get_tenants_request = openapi_client.GetTenantsRequest() # GetTenantsRequest | 
+
+    try:
+        # Get Tenants
+        api_response = api_instance.get_tenants_v1_tenants_fetch_post(get_tenants_request)
+        print("The response of TenantsApi->get_tenants_v1_tenants_fetch_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantsApi->get_tenants_v1_tenants_fetch_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_tenants_request** | [**GetTenantsRequest**](GetTenantsRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetTenantsResponse**](ResponseGetTenantsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

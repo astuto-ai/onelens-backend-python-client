@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.create_tenant_user_request_role import CreateTenantUserRequestRole
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,11 @@ class CreateTenantUserRequest(BaseModel):
     """
     CreateTenantUserRequest
     """ # noqa: E501
-    ol_user_id: Annotated[str, Field(strict=True, max_length=255)] = Field(description="The catalog DB user identifier.")
+    ol_user_id: StrictStr = Field(description="Unique onelens identifier for the user")
+    role: Optional[CreateTenantUserRequestRole] = None
+    sources: List[StrictStr] = Field(description="Different sources from where user signed up. e.g. social signup, username-password")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["ol_user_id"]
+    __properties: ClassVar[List[str]] = ["ol_user_id", "role", "sources"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +74,9 @@ class CreateTenantUserRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of role
+        if self.role:
+            _dict['role'] = self.role.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -89,7 +94,9 @@ class CreateTenantUserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ol_user_id": obj.get("ol_user_id")
+            "ol_user_id": obj.get("ol_user_id"),
+            "role": CreateTenantUserRequestRole.from_dict(obj["role"]) if obj.get("role") is not None else None,
+            "sources": obj.get("sources")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

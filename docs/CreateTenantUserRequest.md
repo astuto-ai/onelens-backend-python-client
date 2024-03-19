@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ol_user_id** | **str** | The catalog DB user identifier. | 
+**ol_user_id** | **str** | Unique onelens identifier for the user | 
+**role** | [**CreateTenantUserRequestRole**](CreateTenantUserRequestRole.md) |  | [optional] 
+**sources** | **List[str]** | Different sources from where user signed up. e.g. social signup, username-password | 
 
 ## Example
 

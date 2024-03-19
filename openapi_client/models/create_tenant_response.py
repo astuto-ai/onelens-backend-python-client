@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from openapi_client.models.tenant_state import TenantState
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +32,8 @@ class CreateTenantResponse(BaseModel):
     domains: List[StrictStr] = Field(description="List of domains associated with the tenant")
     timezone: StrictStr = Field(description="Timezone of the tenant")
     id: StrictStr = Field(description="Unique identifier for the tenant")
-    __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id"]
+    tenant_state: TenantState = Field(description="State of the tenant")
+    __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id", "tenant_state"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,7 +89,8 @@ class CreateTenantResponse(BaseModel):
             "name": obj.get("name"),
             "domains": obj.get("domains"),
             "timezone": obj.get("timezone"),
-            "id": obj.get("id")
+            "id": obj.get("id"),
+            "tenant_state": obj.get("tenant_state")
         })
         return _obj
 

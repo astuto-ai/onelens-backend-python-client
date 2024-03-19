@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.attributes_data import AttributesData
-from openapi_client.models.tenant_filter_data import TenantFilterData
+from openapi_client.models.tenant_provider_filter_data import TenantProviderFilterData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class GetTenantProvidersResponse(BaseModel):
     """
     GetTenantProvidersResponse
     """ # noqa: E501
-    tenant_filter_data: TenantFilterData
+    tenant_provider_filter_data: TenantProviderFilterData
     attributes_data: AttributesData
-    __properties: ClassVar[List[str]] = ["tenant_filter_data", "attributes_data"]
+    __properties: ClassVar[List[str]] = ["tenant_provider_filter_data", "attributes_data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,9 +71,9 @@ class GetTenantProvidersResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of tenant_filter_data
-        if self.tenant_filter_data:
-            _dict['tenant_filter_data'] = self.tenant_filter_data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tenant_provider_filter_data
+        if self.tenant_provider_filter_data:
+            _dict['tenant_provider_filter_data'] = self.tenant_provider_filter_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of attributes_data
         if self.attributes_data:
             _dict['attributes_data'] = self.attributes_data.to_dict()
@@ -89,7 +89,7 @@ class GetTenantProvidersResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tenant_filter_data": TenantFilterData.from_dict(obj["tenant_filter_data"]) if obj.get("tenant_filter_data") is not None else None,
+            "tenant_provider_filter_data": TenantProviderFilterData.from_dict(obj["tenant_provider_filter_data"]) if obj.get("tenant_provider_filter_data") is not None else None,
             "attributes_data": AttributesData.from_dict(obj["attributes_data"]) if obj.get("attributes_data") is not None else None
         })
         return _obj

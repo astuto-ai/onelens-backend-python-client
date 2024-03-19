@@ -883,7 +883,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_providers_v1_tenants_fetch_post(
+    def get_tenant_providers_v1_tenants_providers_fetch_post(
         self,
         get_tenant_providers_request: GetTenantProvidersRequest,
         _request_timeout: Union[
@@ -927,7 +927,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_providers_v1_tenants_fetch_post_serialize(
+        _param = self._get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
             get_tenant_providers_request=get_tenant_providers_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -951,7 +951,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_providers_v1_tenants_fetch_post_with_http_info(
+    def get_tenant_providers_v1_tenants_providers_fetch_post_with_http_info(
         self,
         get_tenant_providers_request: GetTenantProvidersRequest,
         _request_timeout: Union[
@@ -995,7 +995,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_providers_v1_tenants_fetch_post_serialize(
+        _param = self._get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
             get_tenant_providers_request=get_tenant_providers_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1019,7 +1019,7 @@ class TenantsTenantsProvidersApi:
 
 
     @validate_call
-    def get_tenant_providers_v1_tenants_fetch_post_without_preload_content(
+    def get_tenant_providers_v1_tenants_providers_fetch_post_without_preload_content(
         self,
         get_tenant_providers_request: GetTenantProvidersRequest,
         _request_timeout: Union[
@@ -1063,7 +1063,7 @@ class TenantsTenantsProvidersApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_tenant_providers_v1_tenants_fetch_post_serialize(
+        _param = self._get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
             get_tenant_providers_request=get_tenant_providers_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1082,7 +1082,7 @@ class TenantsTenantsProvidersApi:
         return response_data.response
 
 
-    def _get_tenant_providers_v1_tenants_fetch_post_serialize(
+    def _get_tenant_providers_v1_tenants_providers_fetch_post_serialize(
         self,
         get_tenant_providers_request,
         _request_auth,
@@ -1139,7 +1139,7 @@ class TenantsTenantsProvidersApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v1/tenants/fetch',
+            resource_path='/v1/tenants/providers/fetch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

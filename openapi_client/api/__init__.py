@@ -8,6 +8,6 @@ from openapi_client.api.tenant_users_api import TenantUsersApi
 from openapi_client.api.tenants_api import TenantsApi
 from openapi_client.api.tenants_tenant_provider_verify_api import TenantsTenantProviderVerifyApi
 from openapi_client.api.tenants_tenants_providers_api import TenantsTenantsProvidersApi
-from openapi_client.api.user_tenant_api import UserTenantApi
+from openapi_client.api.user_tenant_mapping_api import UserTenantMappingApi
 from openapi_client.api.users_api import UsersApi
 

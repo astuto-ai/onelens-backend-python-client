@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **domains** | **List[str]** | List of domains associated with the tenant | 
 **timezone** | **str** | Timezone of the tenant | 
 **id** | **str** | Unique identifier for the tenant | 
-**tenant_state** | **str** | State of the tenant | 
+**tenant_state** | [**TenantState**](TenantState.md) | State of the tenant | 
 
 ## Example
 

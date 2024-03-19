@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_tenant_provider_v1_tenants_tenant_id_providers_post**](TenantsTenantsProvidersApi.md#create_tenant_provider_v1_tenants_tenant_id_providers_post) | **POST** /v1/tenants/{tenant_id}/providers | Create Tenant Provider
 [**disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put**](TenantsTenantsProvidersApi.md#disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/disable | Disable Tenant Provider
 [**get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get**](TenantsTenantsProvidersApi.md#get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get) | **GET** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Get Tenant Provider
-[**get_tenant_providers_v1_tenants_fetch_post**](TenantsTenantsProvidersApi.md#get_tenant_providers_v1_tenants_fetch_post) | **POST** /v1/tenants/fetch | Get Tenant Providers
+[**get_tenant_providers_v1_tenants_providers_fetch_post**](TenantsTenantsProvidersApi.md#get_tenant_providers_v1_tenants_providers_fetch_post) | **POST** /v1/tenants/providers/fetch | Get Tenant Providers
 [**update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put**](TenantsTenantsProvidersApi.md#update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Update Tenant Provider
 
 
@@ -225,8 +225,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_tenant_providers_v1_tenants_fetch_post**
-> ResponseGetTenantProvidersResponse get_tenant_providers_v1_tenants_fetch_post(get_tenant_providers_request)
+# **get_tenant_providers_v1_tenants_providers_fetch_post**
+> ResponseGetTenantProvidersResponse get_tenant_providers_v1_tenants_providers_fetch_post(get_tenant_providers_request)
 
 Get Tenant Providers
 
@@ -257,11 +257,11 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Tenant Providers
-        api_response = api_instance.get_tenant_providers_v1_tenants_fetch_post(get_tenant_providers_request)
-        print("The response of TenantsTenantsProvidersApi->get_tenant_providers_v1_tenants_fetch_post:\n")
+        api_response = api_instance.get_tenant_providers_v1_tenants_providers_fetch_post(get_tenant_providers_request)
+        print("The response of TenantsTenantsProvidersApi->get_tenant_providers_v1_tenants_providers_fetch_post:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsTenantsProvidersApi->get_tenant_providers_v1_tenants_fetch_post: %s\n" % e)
+        print("Exception when calling TenantsTenantsProvidersApi->get_tenant_providers_v1_tenants_providers_fetch_post: %s\n" % e)
 ```
 
 
