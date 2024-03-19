@@ -22,11 +22,11 @@ from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreatePolicyTemplateRequest(BaseModel):
+class DeactivatePolicyTemplateRequest(BaseModel):
     """
-    CreatePolicyTemplateRequest
+    DeactivatePolicyTemplateRequest
     """ # noqa: E501
-    request: CreatePolicyTemplateRequest
+    request: DeactivatePolicyTemplateRequest
     __properties: ClassVar[List[str]] = ["request"]
 
     model_config = ConfigDict(
@@ -47,7 +47,7 @@ class CreatePolicyTemplateRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreatePolicyTemplateRequest from a JSON string"""
+        """Create an instance of DeactivatePolicyTemplateRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +75,7 @@ class CreatePolicyTemplateRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreatePolicyTemplateRequest from a dict"""
+        """Create an instance of DeactivatePolicyTemplateRequest from a dict"""
         if obj is None:
             return None
 
@@ -83,10 +83,10 @@ class CreatePolicyTemplateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "request": CreatePolicyTemplateRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
+            "request": DeactivatePolicyTemplateRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
         })
         return _obj
 
 # TODO: Rewrite to not use raise_errors
-CreatePolicyTemplateRequest.model_rebuild(raise_errors=False)
+DeactivatePolicyTemplateRequest.model_rebuild(raise_errors=False)
 
