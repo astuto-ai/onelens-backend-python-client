@@ -82,16 +82,16 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 All URIs are relative to *http://localhost*
 
-Class | Method | HTTP request | Description
+Class | Method | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**root**](docs/DefaultApi.md#root) | **GET** / | Root
-*PolicyTemplateServiceApi* | [**activate_policy_template**](docs/PolicyTemplateServiceApi.md#activate_policy_template) | **POST** /policy_template_service/activate_policy_template | Deprecate a policy template.
-*PolicyTemplateServiceApi* | [**create_policy_template**](docs/PolicyTemplateServiceApi.md#create_policy_template) | **POST** /policy_template_service/create_policy_template | Creates a new policy template.
-*PolicyTemplateServiceApi* | [**deactivate_policy_template**](docs/PolicyTemplateServiceApi.md#deactivate_policy_template) | **POST** /policy_template_service/deactivate_policy_template | Deprecate a policy template.
-*PolicyTemplateServiceApi* | [**deprecate_policy_template**](docs/PolicyTemplateServiceApi.md#deprecate_policy_template) | **POST** /policy_template_service/deprecate_policy_template | Deprecate a policy template.
-*PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | **POST** /policy_template_service/get_policy_template_by_id | Retrieves a policy template by its unique identifier.
-*PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | **POST** /policy_template_service/get_policy_templates | Retrieves all policy templates, optionally filtered by the parameters in the request.
-*PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | **POST** /policy_template_service/update_policy_template | Updates an existing policy template.
+*DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
+*PolicyTemplateServiceApi* | [**activate_policy_template**](docs/PolicyTemplateServiceApi.md#activate_policy_template) | Deprecate a policy template.
+*PolicyTemplateServiceApi* | [**create_policy_template**](docs/PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
+*PolicyTemplateServiceApi* | [**deactivate_policy_template**](docs/PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
+*PolicyTemplateServiceApi* | [**deprecate_policy_template**](docs/PolicyTemplateServiceApi.md#deprecate_policy_template) | Deprecate a policy template.
+*PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
+*PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
+*PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
 
 
 ## Documentation For Models

@@ -2,15 +2,15 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
+Method | Description
 ------------- | ------------- | -------------
-[**activate_policy_template**](PolicyTemplateServiceApi.md#activate_policy_template) | **POST** /policy_template_service/activate_policy_template | Deprecate a policy template.
-[**create_policy_template**](PolicyTemplateServiceApi.md#create_policy_template) | **POST** /policy_template_service/create_policy_template | Creates a new policy template.
-[**deactivate_policy_template**](PolicyTemplateServiceApi.md#deactivate_policy_template) | **POST** /policy_template_service/deactivate_policy_template | Deprecate a policy template.
-[**deprecate_policy_template**](PolicyTemplateServiceApi.md#deprecate_policy_template) | **POST** /policy_template_service/deprecate_policy_template | Deprecate a policy template.
-[**get_policy_template_by_id**](PolicyTemplateServiceApi.md#get_policy_template_by_id) | **POST** /policy_template_service/get_policy_template_by_id | Retrieves a policy template by its unique identifier.
-[**get_policy_templates**](PolicyTemplateServiceApi.md#get_policy_templates) | **POST** /policy_template_service/get_policy_templates | Retrieves all policy templates, optionally filtered by the parameters in the request.
-[**update_policy_template**](PolicyTemplateServiceApi.md#update_policy_template) | **POST** /policy_template_service/update_policy_template | Updates an existing policy template.
+[**activate_policy_template**](PolicyTemplateServiceApi.md#activate_policy_template) | Deprecate a policy template.
+[**create_policy_template**](PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
+[**deactivate_policy_template**](PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
+[**deprecate_policy_template**](PolicyTemplateServiceApi.md#deprecate_policy_template) | Deprecate a policy template.
+[**get_policy_template_by_id**](PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
+[**get_policy_templates**](PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
+[**update_policy_template**](PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
 
 
 # **activate_policy_template**
