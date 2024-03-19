@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenants_filter_data** | [**TenantsFilterData**](TenantsFilterData.md) |  | 
+**tenants** | [**List[Tenant]**](Tenant.md) |  | 
 
 ## Example
 

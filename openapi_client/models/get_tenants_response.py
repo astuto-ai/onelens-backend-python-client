@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.tenants_filter_data import TenantsFilterData
+from openapi_client.models.tenant import Tenant
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +27,8 @@ class GetTenantsResponse(BaseModel):
     """
     GetTenantsResponse
     """ # noqa: E501
-    tenants_filter_data: TenantsFilterData
-    __properties: ClassVar[List[str]] = ["tenants_filter_data"]
+    tenants: List[Tenant]
+    __properties: ClassVar[List[str]] = ["tenants"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,9 +69,13 @@ class GetTenantsResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of tenants_filter_data
-        if self.tenants_filter_data:
-            _dict['tenants_filter_data'] = self.tenants_filter_data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in tenants (list)
+        _items = []
+        if self.tenants:
+            for _item in self.tenants:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['tenants'] = _items
         return _dict
 
     @classmethod
@@ -84,7 +88,7 @@ class GetTenantsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tenants_filter_data": TenantsFilterData.from_dict(obj["tenants_filter_data"]) if obj.get("tenants_filter_data") is not None else None
+            "tenants": [Tenant.from_dict(_item) for _item in obj["tenants"]] if obj.get("tenants") is not None else None
         })
         return _obj
 

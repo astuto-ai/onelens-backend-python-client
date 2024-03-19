@@ -230,7 +230,6 @@ Class | Method | HTTP request | Description
  - [TenantUserUpdateFieldsMixinStatus](docs/TenantUserUpdateFieldsMixinStatus.md)
  - [TenantVerifyRequest](docs/TenantVerifyRequest.md)
  - [TenantVerifyResponse](docs/TenantVerifyResponse.md)
- - [TenantsFilterData](docs/TenantsFilterData.md)
  - [Timezone](docs/Timezone.md)
  - [Title](docs/Title.md)
  - [UpdatePolicyTemplateResponse](docs/UpdatePolicyTemplateResponse.md)

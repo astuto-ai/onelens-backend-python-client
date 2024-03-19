@@ -127,7 +127,6 @@ from openapi_client.models.tenant_user_update_fields_mixin_role import TenantUse
 from openapi_client.models.tenant_user_update_fields_mixin_status import TenantUserUpdateFieldsMixinStatus
 from openapi_client.models.tenant_verify_request import TenantVerifyRequest
 from openapi_client.models.tenant_verify_response import TenantVerifyResponse
-from openapi_client.models.tenants_filter_data import TenantsFilterData
 from openapi_client.models.timezone import Timezone
 from openapi_client.models.title import Title
 from openapi_client.models.update_policy_template_response import UpdatePolicyTemplateResponse
