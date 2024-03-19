@@ -3,7 +3,7 @@
 All URIs are relative to *http://localhost*
 
 Method | Description
-------------- | ------------- | -------------
+------------- | -------------
 [**root**](DefaultApi.md#root) | Root
 
 

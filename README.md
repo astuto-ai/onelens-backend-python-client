@@ -83,7 +83,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 All URIs are relative to *http://localhost*
 
 Class | Method | Description
------------- | ------------- | ------------- | -------------
+------------ | ------------- | -------------
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
 *PolicyTemplateServiceApi* | [**activate_policy_template**](docs/PolicyTemplateServiceApi.md#activate_policy_template) | Deprecate a policy template.
 *PolicyTemplateServiceApi* | [**create_policy_template**](docs/PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.

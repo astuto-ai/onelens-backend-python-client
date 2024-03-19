@@ -3,7 +3,7 @@
 All URIs are relative to *http://localhost*
 
 Method | Description
-------------- | ------------- | -------------
+------------- | -------------
 [**activate_policy_template**](PolicyTemplateServiceApi.md#activate_policy_template) | Deprecate a policy template.
 [**create_policy_template**](PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
 [**deactivate_policy_template**](PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
