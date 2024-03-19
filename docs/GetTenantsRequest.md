@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.get_tenants_request import GetTenantsRequest
+from onelens_backend_client.models.get_tenants_request import GetTenantsRequest
 
 # TODO update the JSON string below
 json = "{}"

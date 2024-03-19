@@ -1,4 +1,4 @@
-# openapi_client.TenantsTenantsProvidersApi
+# onelens_backend_client.TenantsTenantsProvidersApi
 
 All URIs are relative to *http://localhost*
 
@@ -22,25 +22,25 @@ An API endpoint that retrieves tenant with tenant IDs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_tenant_provider_request import CreateTenantProviderRequest
-from openapi_client.models.create_tenant_provider_response import CreateTenantProviderResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.create_tenant_provider_request import CreateTenantProviderRequest
+from onelens_backend_client.models.create_tenant_provider_response import CreateTenantProviderResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantsTenantsProvidersApi(api_client)
+    api_instance = onelens_backend_client.TenantsTenantsProvidersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_tenant_provider_request = openapi_client.CreateTenantProviderRequest() # CreateTenantProviderRequest | 
+    create_tenant_provider_request = onelens_backend_client.CreateTenantProviderRequest() # CreateTenantProviderRequest | 
 
     try:
         # Create Tenant Provider
@@ -94,22 +94,22 @@ An API endpoint that retrieves tenant with tenant IDs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.response_disable_tenant_provider_response import ResponseDisableTenantProviderResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.response_disable_tenant_provider_response import ResponseDisableTenantProviderResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantsTenantsProvidersApi(api_client)
+    api_instance = onelens_backend_client.TenantsTenantsProvidersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     tenant_provider_id = 'tenant_provider_id_example' # str | 
 
@@ -165,22 +165,22 @@ An API endpoint that retrieves tenant with tenant IDs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.response_get_tenant_provider_by_id_response import ResponseGetTenantProviderByIDResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.response_get_tenant_provider_by_id_response import ResponseGetTenantProviderByIDResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantsTenantsProvidersApi(api_client)
+    api_instance = onelens_backend_client.TenantsTenantsProvidersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     tenant_provider_id = 'tenant_provider_id_example' # str | 
 
@@ -236,24 +236,24 @@ An API endpoint that retrieves tenant with tenant IDs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.get_tenant_providers_request import GetTenantProvidersRequest
-from openapi_client.models.response_get_tenant_providers_response import ResponseGetTenantProvidersResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.get_tenant_providers_request import GetTenantProvidersRequest
+from onelens_backend_client.models.response_get_tenant_providers_response import ResponseGetTenantProvidersResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantsTenantsProvidersApi(api_client)
-    get_tenant_providers_request = openapi_client.GetTenantProvidersRequest() # GetTenantProvidersRequest | 
+    api_instance = onelens_backend_client.TenantsTenantsProvidersApi(api_client)
+    get_tenant_providers_request = onelens_backend_client.GetTenantProvidersRequest() # GetTenantProvidersRequest | 
 
     try:
         # Get Tenant Providers
@@ -306,26 +306,26 @@ An API endpoint that retrieves tenant with tenant IDs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.response_update_tenant_provider_response import ResponseUpdateTenantProviderResponse
-from openapi_client.models.update_tenant_provider_request import UpdateTenantProviderRequest
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.response_update_tenant_provider_response import ResponseUpdateTenantProviderResponse
+from onelens_backend_client.models.update_tenant_provider_request import UpdateTenantProviderRequest
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantsTenantsProvidersApi(api_client)
+    api_instance = onelens_backend_client.TenantsTenantsProvidersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     tenant_provider_id = 'tenant_provider_id_example' # str | 
-    update_tenant_provider_request = openapi_client.UpdateTenantProviderRequest() # UpdateTenantProviderRequest | 
+    update_tenant_provider_request = onelens_backend_client.UpdateTenantProviderRequest() # UpdateTenantProviderRequest | 
 
     try:
         # Update Tenant Provider

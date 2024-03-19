@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.pagination_fields import PaginationFields
+from onelens_backend_client.models.pagination_fields import PaginationFields
 
 # TODO update the JSON string below
 json = "{}"

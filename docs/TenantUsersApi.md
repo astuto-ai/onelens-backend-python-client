@@ -1,4 +1,4 @@
-# openapi_client.TenantUsersApi
+# onelens_backend_client.TenantUsersApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,25 +19,25 @@ Create a new user in the Tenant Database.
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_tenant_user_request import CreateTenantUserRequest
-from openapi_client.models.response_create_tenant_user_response import ResponseCreateTenantUserResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.create_tenant_user_request import CreateTenantUserRequest
+from onelens_backend_client.models.response_create_tenant_user_response import ResponseCreateTenantUserResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantUsersApi(api_client)
+    api_instance = onelens_backend_client.TenantUsersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_tenant_user_request = openapi_client.CreateTenantUserRequest() # CreateTenantUserRequest | 
+    create_tenant_user_request = onelens_backend_client.CreateTenantUserRequest() # CreateTenantUserRequest | 
 
     try:
         # Create a new user in the Tenant Database.
@@ -91,26 +91,26 @@ Update a user in the Tenant Database.
 
 
 ```python
-import openapi_client
-from openapi_client.models.response_update_tenant_user_response import ResponseUpdateTenantUserResponse
-from openapi_client.models.tenant_user_update_fields_mixin import TenantUserUpdateFieldsMixin
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.response_update_tenant_user_response import ResponseUpdateTenantUserResponse
+from onelens_backend_client.models.tenant_user_update_fields_mixin import TenantUserUpdateFieldsMixin
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantUsersApi(api_client)
+    api_instance = onelens_backend_client.TenantUsersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     ol_user_id = 'ol_user_id_example' # str | 
-    tenant_user_update_fields_mixin = openapi_client.TenantUserUpdateFieldsMixin() # TenantUserUpdateFieldsMixin | 
+    tenant_user_update_fields_mixin = onelens_backend_client.TenantUserUpdateFieldsMixin() # TenantUserUpdateFieldsMixin | 
 
     try:
         # Update a user in the Tenant Database.

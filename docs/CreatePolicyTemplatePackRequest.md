@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_policy_template_pack_request import CreatePolicyTemplatePackRequest
+from onelens_backend_client.models.create_policy_template_pack_request import CreatePolicyTemplatePackRequest
 
 # TODO update the JSON string below
 json = "{}"

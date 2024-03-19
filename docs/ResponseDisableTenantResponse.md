@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.response_disable_tenant_response import ResponseDisableTenantResponse
+from onelens_backend_client.models.response_disable_tenant_response import ResponseDisableTenantResponse
 
 # TODO update the JSON string below
 json = "{}"

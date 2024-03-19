@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.policy_template_update_fields_mixin import PolicyTemplateUpdateFieldsMixin
+from onelens_backend_client.models.policy_template_update_fields_mixin import PolicyTemplateUpdateFieldsMixin
 
 # TODO update the JSON string below
 json = "{}"

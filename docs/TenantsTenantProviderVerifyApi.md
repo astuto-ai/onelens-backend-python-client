@@ -1,4 +1,4 @@
-# openapi_client.TenantsTenantProviderVerifyApi
+# onelens_backend_client.TenantsTenantProviderVerifyApi
 
 All URIs are relative to *http://localhost*
 
@@ -18,26 +18,26 @@ An API endpoint that verified the tenant IDs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.response_tenant_verify_response import ResponseTenantVerifyResponse
-from openapi_client.models.tenant_verify_request import TenantVerifyRequest
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.response_tenant_verify_response import ResponseTenantVerifyResponse
+from onelens_backend_client.models.tenant_verify_request import TenantVerifyRequest
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.TenantsTenantProviderVerifyApi(api_client)
+    api_instance = onelens_backend_client.TenantsTenantProviderVerifyApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     tenant_provider_id = 'tenant_provider_id_example' # str | 
-    tenant_verify_request = openapi_client.TenantVerifyRequest() # TenantVerifyRequest | 
+    tenant_verify_request = onelens_backend_client.TenantVerifyRequest() # TenantVerifyRequest | 
 
     try:
         # Verify Tenant

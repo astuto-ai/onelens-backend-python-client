@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_user_tenant_mapping_request import CreateUserTenantMappingRequest
+from onelens_backend_client.models.create_user_tenant_mapping_request import CreateUserTenantMappingRequest
 
 # TODO update the JSON string below
 json = "{}"

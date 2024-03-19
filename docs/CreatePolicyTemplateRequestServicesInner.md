@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
 
 # TODO update the JSON string below
 json = "{}"

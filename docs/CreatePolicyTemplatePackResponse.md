@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_policy_template_pack_response import CreatePolicyTemplatePackResponse
+from onelens_backend_client.models.create_policy_template_pack_response import CreatePolicyTemplatePackResponse
 
 # TODO update the JSON string below
 json = "{}"

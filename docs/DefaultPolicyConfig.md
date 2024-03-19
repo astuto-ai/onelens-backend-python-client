@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.default_policy_config import DefaultPolicyConfig
+from onelens_backend_client.models.default_policy_config import DefaultPolicyConfig
 
 # TODO update the JSON string below
 json = "{}"

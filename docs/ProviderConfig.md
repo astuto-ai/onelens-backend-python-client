@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.provider_config import ProviderConfig
+from onelens_backend_client.models.provider_config import ProviderConfig
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.pagination_params import PaginationParams
+from onelens_backend_client.models.pagination_params import PaginationParams
 
 # TODO update the JSON string below
 json = "{}"

@@ -1,4 +1,4 @@
-# openapi_client.DefaultApi
+# onelens_backend_client.DefaultApi
 
 All URIs are relative to *http://localhost*
 
@@ -16,21 +16,21 @@ Root
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.DefaultApi(api_client)
+    api_instance = onelens_backend_client.DefaultApi(api_client)
 
     try:
         # Root

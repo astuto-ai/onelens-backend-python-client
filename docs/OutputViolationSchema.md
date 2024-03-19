@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.output_violation_schema import OutputViolationSchema
+from onelens_backend_client.models.output_violation_schema import OutputViolationSchema
 
 # TODO update the JSON string below
 json = "{}"

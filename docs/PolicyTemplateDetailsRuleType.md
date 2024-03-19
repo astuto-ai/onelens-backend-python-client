@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.policy_template_details_rule_type import PolicyTemplateDetailsRuleType
+from onelens_backend_client.models.policy_template_details_rule_type import PolicyTemplateDetailsRuleType
 
 # TODO update the JSON string below
 json = "{}"

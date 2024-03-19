@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.tenant_provider import TenantProvider
+from onelens_backend_client.models.tenant_provider import TenantProvider
 
 # TODO update the JSON string below
 json = "{}"

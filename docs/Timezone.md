@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.timezone import Timezone
+from onelens_backend_client.models.timezone import Timezone
 
 # TODO update the JSON string below
 json = "{}"

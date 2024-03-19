@@ -1,4 +1,4 @@
-# openapi_client.PoliciesPolicyTemplatePacksApi
+# onelens_backend_client.PoliciesPolicyTemplatePacksApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,24 +20,24 @@ An API endpoint that creates a new policy template pack.
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_policy_template_pack_request import CreatePolicyTemplatePackRequest
-from openapi_client.models.response_create_policy_template_pack_response import ResponseCreatePolicyTemplatePackResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.create_policy_template_pack_request import CreatePolicyTemplatePackRequest
+from onelens_backend_client.models.response_create_policy_template_pack_response import ResponseCreatePolicyTemplatePackResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.PoliciesPolicyTemplatePacksApi(api_client)
-    create_policy_template_pack_request = openapi_client.CreatePolicyTemplatePackRequest() # CreatePolicyTemplatePackRequest | 
+    api_instance = onelens_backend_client.PoliciesPolicyTemplatePacksApi(api_client)
+    create_policy_template_pack_request = onelens_backend_client.CreatePolicyTemplatePackRequest() # CreatePolicyTemplatePackRequest | 
 
     try:
         # Create Policy Template Pack
@@ -90,22 +90,22 @@ An API endpoint that retrieves a policy template pack by id.
 
 
 ```python
-import openapi_client
-from openapi_client.models.response_get_policy_template_pack_by_id_response import ResponseGetPolicyTemplatePackByIdResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.response_get_policy_template_pack_by_id_response import ResponseGetPolicyTemplatePackByIdResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.PoliciesPolicyTemplatePacksApi(api_client)
+    api_instance = onelens_backend_client.PoliciesPolicyTemplatePacksApi(api_client)
     policy_template_pack_id = 'policy_template_pack_id_example' # str | 
 
     try:
@@ -159,24 +159,24 @@ An API endpoint that retrieves all policy template packs.
 
 
 ```python
-import openapi_client
-from openapi_client.models.get_policy_template_packs_request import GetPolicyTemplatePacksRequest
-from openapi_client.models.response_get_policy_template_packs_response import ResponseGetPolicyTemplatePacksResponse
-from openapi_client.rest import ApiException
+import onelens_backend_client
+from onelens_backend_client.models.get_policy_template_packs_request import GetPolicyTemplatePacksRequest
+from onelens_backend_client.models.response_get_policy_template_packs_response import ResponseGetPolicyTemplatePacksResponse
+from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = onelens_backend_client.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.PoliciesPolicyTemplatePacksApi(api_client)
-    get_policy_template_packs_request = openapi_client.GetPolicyTemplatePacksRequest() # GetPolicyTemplatePacksRequest | 
+    api_instance = onelens_backend_client.PoliciesPolicyTemplatePacksApi(api_client)
+    get_policy_template_packs_request = onelens_backend_client.GetPolicyTemplatePacksRequest() # GetPolicyTemplatePacksRequest | 
 
     try:
         # Get Policy Template Packs
