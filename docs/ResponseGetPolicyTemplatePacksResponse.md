@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**GetPolicyTemplatePacksResponse**](GetPolicyTemplatePacksResponse.md) |  | 
-**message** | [**Message**](Message.md) |  | 
+**message** | [**Message**](Message.md) |  | [optional] 
 
 ## Example
 

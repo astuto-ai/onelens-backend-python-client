@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.message import Message
 from onelens_backend_client.models.update_tenant_response import UpdateTenantResponse
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class ResponseUpdateTenantResponse(BaseModel):
     ResponseUpdateTenantResponse
     """ # noqa: E501
     data: UpdateTenantResponse
-    message: Message
+    message: Optional[Message] = None
     __properties: ClassVar[List[str]] = ["data", "message"]
 
     model_config = ConfigDict(

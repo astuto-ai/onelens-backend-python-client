@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.message import Message
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class ResponseActivatePolicyTemplateResponse(BaseModel):
     ResponseActivatePolicyTemplateResponse
     """ # noqa: E501
     data: Dict[str, Any]
-    message: Message
+    message: Optional[Message] = None
     __properties: ClassVar[List[str]] = ["data", "message"]
 
     model_config = ConfigDict(

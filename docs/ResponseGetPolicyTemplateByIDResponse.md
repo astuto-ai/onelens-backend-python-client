@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**GetPolicyTemplateByIDResponse**](GetPolicyTemplateByIDResponse.md) |  | 
-**message** | [**Message**](Message.md) |  | 
+**message** | [**Message**](Message.md) |  | [optional] 
 
 ## Example
 
