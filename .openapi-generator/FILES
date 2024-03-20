@@ -38,6 +38,7 @@ docs/GetAllUsersRequest.md
 docs/GetAllUsersResponse.md
 docs/GetPolicyTemplateByIDRequest.md
 docs/GetPolicyTemplateByIDResponse.md
+docs/GetPolicyTemplatePackByIdRequest.md
 docs/GetPolicyTemplatePackByIdResponse.md
 docs/GetPolicyTemplatePacksRequest.md
 docs/GetPolicyTemplatePacksResponse.md
@@ -63,7 +64,6 @@ docs/PaginationParams.md
 docs/ParentId.md
 docs/ParentId1.md
 docs/ParentIds.md
-docs/PoliciesPolicyTemplatePacksApi.md
 docs/PolicyCategory.md
 docs/PolicyExecutionType.md
 docs/PolicyTemplate.md
@@ -72,17 +72,15 @@ docs/PolicyTemplateDetailsRuleType.md
 docs/PolicyTemplateFilters.md
 docs/PolicyTemplatePack.md
 docs/PolicyTemplatePackDetails.md
+docs/PolicyTemplatePackServiceApi.md
 docs/PolicyTemplatePackState.md
 docs/PolicyTemplateServiceApi.md
 docs/PolicyTemplateState.md
 docs/Provider.md
 docs/ProviderConfig.md
-docs/ResponseCreatePolicyTemplatePackResponse.md
 docs/ResponseCreateTenantUserResponse.md
 docs/ResponseCreateUserTenantMappingResponse.md
 docs/ResponseDisableTenantProviderResponse.md
-docs/ResponseGetPolicyTemplatePackByIdResponse.md
-docs/ResponseGetPolicyTemplatePacksResponse.md
 docs/ResponseGetTenantProviderByIDResponse.md
 docs/ResponseGetTenantProvidersResponse.md
 docs/ResponseTenantVerifyResponse.md
@@ -135,7 +133,7 @@ git_push.sh
 onelens_backend_client/__init__.py
 onelens_backend_client/api/__init__.py
 onelens_backend_client/api/default_api.py
-onelens_backend_client/api/policies_policy_template_packs_api.py
+onelens_backend_client/api/policy_template_pack_service_api.py
 onelens_backend_client/api/policy_template_service_api.py
 onelens_backend_client/api/tenant_service_api.py
 onelens_backend_client/api/tenant_users_api.py
@@ -182,6 +180,7 @@ onelens_backend_client/models/get_all_users_request.py
 onelens_backend_client/models/get_all_users_response.py
 onelens_backend_client/models/get_policy_template_by_id_request.py
 onelens_backend_client/models/get_policy_template_by_id_response.py
+onelens_backend_client/models/get_policy_template_pack_by_id_request.py
 onelens_backend_client/models/get_policy_template_pack_by_id_response.py
 onelens_backend_client/models/get_policy_template_packs_request.py
 onelens_backend_client/models/get_policy_template_packs_response.py
@@ -219,12 +218,9 @@ onelens_backend_client/models/policy_template_pack_state.py
 onelens_backend_client/models/policy_template_state.py
 onelens_backend_client/models/provider.py
 onelens_backend_client/models/provider_config.py
-onelens_backend_client/models/response_create_policy_template_pack_response.py
 onelens_backend_client/models/response_create_tenant_user_response.py
 onelens_backend_client/models/response_create_user_tenant_mapping_response.py
 onelens_backend_client/models/response_disable_tenant_provider_response.py
-onelens_backend_client/models/response_get_policy_template_pack_by_id_response.py
-onelens_backend_client/models/response_get_policy_template_packs_response.py
 onelens_backend_client/models/response_get_tenant_provider_by_id_response.py
 onelens_backend_client/models/response_get_tenant_providers_response.py
 onelens_backend_client/models/response_tenant_verify_response.py
@@ -275,4 +271,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_get_policy_template_pack_by_id_request.py
+test/test_policy_template_pack_service_api.py
 tox.ini

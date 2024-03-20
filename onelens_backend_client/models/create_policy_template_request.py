@@ -31,11 +31,12 @@ class CreatePolicyTemplateRequest(BaseModel):
     """ # noqa: E501
     parent_ptp_id: StrictStr = Field(description="The id of the parent policy template pack.")
     title: StrictStr = Field(description="The title of the policy template.")
+    alias: StrictStr = Field(description="The alias of the policy template.")
     description: Optional[StrictStr] = Field(default=None, description="The description of the policy template.")
     services: List[CreatePolicyTemplateRequestServicesInner] = Field(description="The list of services associated the policy template.")
     execution_type: PolicyExecutionType = Field(description="The execution type of the policy template.")
     details: PolicyTemplateDetails = Field(description="The details of the policy template.")
-    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "description", "services", "execution_type", "details"]
+    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,6 +101,7 @@ class CreatePolicyTemplateRequest(BaseModel):
         _obj = cls.model_validate({
             "parent_ptp_id": obj.get("parent_ptp_id"),
             "title": obj.get("title"),
+            "alias": obj.get("alias"),
             "description": obj.get("description"),
             "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),

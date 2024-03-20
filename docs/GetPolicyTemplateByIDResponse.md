@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parent_ptp_id** | **str** | The id of the parent policy template pack. | 
 **title** | **str** | The title of the policy template. | 
+**alias** | **str** | The alias of the policy template. | 
 **description** | **str** | The description of the policy template. | [optional] 
 **services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) | The list of services associated the policy template. | 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) | The execution type of the policy template. | 

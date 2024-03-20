@@ -85,9 +85,9 @@ All URIs are relative to *http://localhost*
 Class | Method | Description
 ------------ | ------------- | -------------
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
-*PoliciesPolicyTemplatePacksApi* | [**create_policy_template_pack**](docs/PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack) | Create Policy Template Pack
-*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_pack**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack) | Get Policy Template Pack
-*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_packs**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs) | Get Policy Template Packs
+*PolicyTemplatePackServiceApi* | [**create_policy_template_pack**](docs/PolicyTemplatePackServiceApi.md#create_policy_template_pack) | Create a new policy template pack.
+*PolicyTemplatePackServiceApi* | [**get_policy_template_pack_by_id**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_pack_by_id) | Get a policy template pack by id.
+*PolicyTemplatePackServiceApi* | [**get_policy_template_packs**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_packs) | Get all policy template packs.
 *PolicyTemplateServiceApi* | [**activate_policy_template**](docs/PolicyTemplateServiceApi.md#activate_policy_template) | Deprecate a policy template.
 *PolicyTemplateServiceApi* | [**create_policy_template**](docs/PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
 *PolicyTemplateServiceApi* | [**deactivate_policy_template**](docs/PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
@@ -151,6 +151,7 @@ Class | Method | Description
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
  - [GetPolicyTemplateByIDRequest](docs/GetPolicyTemplateByIDRequest.md)
  - [GetPolicyTemplateByIDResponse](docs/GetPolicyTemplateByIDResponse.md)
+ - [GetPolicyTemplatePackByIdRequest](docs/GetPolicyTemplatePackByIdRequest.md)
  - [GetPolicyTemplatePackByIdResponse](docs/GetPolicyTemplatePackByIdResponse.md)
  - [GetPolicyTemplatePacksRequest](docs/GetPolicyTemplatePacksRequest.md)
  - [GetPolicyTemplatePacksResponse](docs/GetPolicyTemplatePacksResponse.md)
@@ -188,12 +189,9 @@ Class | Method | Description
  - [PolicyTemplateState](docs/PolicyTemplateState.md)
  - [Provider](docs/Provider.md)
  - [ProviderConfig](docs/ProviderConfig.md)
- - [ResponseCreatePolicyTemplatePackResponse](docs/ResponseCreatePolicyTemplatePackResponse.md)
  - [ResponseCreateTenantUserResponse](docs/ResponseCreateTenantUserResponse.md)
  - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
  - [ResponseDisableTenantProviderResponse](docs/ResponseDisableTenantProviderResponse.md)
- - [ResponseGetPolicyTemplatePackByIdResponse](docs/ResponseGetPolicyTemplatePackByIdResponse.md)
- - [ResponseGetPolicyTemplatePacksResponse](docs/ResponseGetPolicyTemplatePacksResponse.md)
  - [ResponseGetTenantProviderByIDResponse](docs/ResponseGetTenantProviderByIDResponse.md)
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
  - [ResponseTenantVerifyResponse](docs/ResponseTenantVerifyResponse.md)
