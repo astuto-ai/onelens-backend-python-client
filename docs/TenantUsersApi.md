@@ -1,11 +1,11 @@
-# onelens_backend_client.TenantUsersApi
+# TenantUsersApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_tenant_user**](TenantUsersApi.md#create_tenant_user) | **POST** /v1/users/tenant/{tenant_id} | Create a new user in the Tenant Database.
-[**update_tenant_user**](TenantUsersApi.md#update_tenant_user) | **PUT** /v1/users/tenant/{tenant_id}/{ol_user_id} | Update a user in the Tenant Database.
+Method | Description
+------------- | -------------
+[**create_tenant_user**](TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
+[**update_tenant_user**](TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
 
 
 # **create_tenant_user**

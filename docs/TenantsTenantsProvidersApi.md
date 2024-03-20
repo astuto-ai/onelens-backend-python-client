@@ -1,14 +1,14 @@
-# onelens_backend_client.TenantsTenantsProvidersApi
+# TenantsTenantsProvidersApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_tenant_provider**](TenantsTenantsProvidersApi.md#create_tenant_provider) | **POST** /v1/tenants/{tenant_id}/providers | Create Tenant Provider
-[**disable_tenant_provider**](TenantsTenantsProvidersApi.md#disable_tenant_provider) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/disable | Disable Tenant Provider
-[**get_tenant_provider**](TenantsTenantsProvidersApi.md#get_tenant_provider) | **GET** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Get Tenant Provider
-[**get_tenant_providers**](TenantsTenantsProvidersApi.md#get_tenant_providers) | **POST** /v1/tenants/providers/fetch | Get Tenant Providers
-[**update_tenant_provider**](TenantsTenantsProvidersApi.md#update_tenant_provider) | **PUT** /v1/tenants/{tenant_id}/providers/{tenant_provider_id} | Update Tenant Provider
+Method | Description
+------------- | -------------
+[**create_tenant_provider**](TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
+[**disable_tenant_provider**](TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
+[**get_tenant_provider**](TenantsTenantsProvidersApi.md#get_tenant_provider) | Get Tenant Provider
+[**get_tenant_providers**](TenantsTenantsProvidersApi.md#get_tenant_providers) | Get Tenant Providers
+[**update_tenant_provider**](TenantsTenantsProvidersApi.md#update_tenant_provider) | Update Tenant Provider
 
 
 # **create_tenant_provider**

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**TenantFilters**](TenantFilters.md) | Filters to apply to the policy templates. | [optional] 
+**request** | [**GetTenantsRequest**](GetTenantsRequest.md) |  | 
 
 ## Example
 

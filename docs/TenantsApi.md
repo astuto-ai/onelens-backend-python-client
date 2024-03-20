@@ -1,18 +1,18 @@
-# onelens_backend_client.TenantsApi
+# TenantsApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_tenant**](TenantsApi.md#create_tenant) | **POST** /v1/tenants/ | Create Tenant
-[**disable_tenant**](TenantsApi.md#disable_tenant) | **PUT** /v1/tenants/{tenant_id}/disable | Disable Tenant
-[**get_tenant**](TenantsApi.md#get_tenant) | **GET** /v1/tenants/{tenant_id} | Get Tenant
-[**get_tenants**](TenantsApi.md#get_tenants) | **POST** /v1/tenants/fetch | Get Tenants
-[**update_tenant**](TenantsApi.md#update_tenant) | **PUT** /v1/tenants/{tenant_id} | Update Tenant
+Method | Description
+------------- | -------------
+[**create_tenant_tenants_post**](TenantsApi.md#create_tenant_tenants_post) | Create Tenant
+[**disable_tenant_tenants_tenant_id_disable_put**](TenantsApi.md#disable_tenant_tenants_tenant_id_disable_put) | Disable Tenant
+[**get_tenant_tenants_tenant_id_get**](TenantsApi.md#get_tenant_tenants_tenant_id_get) | Get Tenant
+[**get_tenants_tenants_fetch_post**](TenantsApi.md#get_tenants_tenants_fetch_post) | Get Tenants
+[**update_tenant_tenants_tenant_id_put**](TenantsApi.md#update_tenant_tenants_tenant_id_put) | Update Tenant
 
 
-# **create_tenant**
-> CreateTenantResponse create_tenant(create_tenant_request)
+# **create_tenant_tenants_post**
+> CreateTenantResponse create_tenant_tenants_post(create_tenant_request)
 
 Create Tenant
 
@@ -43,11 +43,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Create Tenant
-        api_response = api_instance.create_tenant(create_tenant_request)
-        print("The response of TenantsApi->create_tenant:\n")
+        api_response = api_instance.create_tenant_tenants_post(create_tenant_request)
+        print("The response of TenantsApi->create_tenant_tenants_post:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsApi->create_tenant: %s\n" % e)
+        print("Exception when calling TenantsApi->create_tenant_tenants_post: %s\n" % e)
 ```
 
 
@@ -81,8 +81,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **disable_tenant**
-> ResponseDisableTenantResponse disable_tenant(tenant_id)
+# **disable_tenant_tenants_tenant_id_disable_put**
+> ResponseDisableTenantResponse disable_tenant_tenants_tenant_id_disable_put(tenant_id)
 
 Disable Tenant
 
@@ -112,11 +112,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Disable Tenant
-        api_response = api_instance.disable_tenant(tenant_id)
-        print("The response of TenantsApi->disable_tenant:\n")
+        api_response = api_instance.disable_tenant_tenants_tenant_id_disable_put(tenant_id)
+        print("The response of TenantsApi->disable_tenant_tenants_tenant_id_disable_put:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsApi->disable_tenant: %s\n" % e)
+        print("Exception when calling TenantsApi->disable_tenant_tenants_tenant_id_disable_put: %s\n" % e)
 ```
 
 
@@ -150,8 +150,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_tenant**
-> ResponseGetTenantByIDResponse get_tenant(tenant_id)
+# **get_tenant_tenants_tenant_id_get**
+> ResponseGetTenantByIDResponse get_tenant_tenants_tenant_id_get(tenant_id)
 
 Get Tenant
 
@@ -181,11 +181,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Tenant
-        api_response = api_instance.get_tenant(tenant_id)
-        print("The response of TenantsApi->get_tenant:\n")
+        api_response = api_instance.get_tenant_tenants_tenant_id_get(tenant_id)
+        print("The response of TenantsApi->get_tenant_tenants_tenant_id_get:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsApi->get_tenant: %s\n" % e)
+        print("Exception when calling TenantsApi->get_tenant_tenants_tenant_id_get: %s\n" % e)
 ```
 
 
@@ -219,8 +219,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_tenants**
-> ResponseGetTenantsResponse get_tenants(get_tenants_request)
+# **get_tenants_tenants_fetch_post**
+> ResponseGetTenantsResponse get_tenants_tenants_fetch_post(get_tenants_request)
 
 Get Tenants
 
@@ -251,11 +251,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Tenants
-        api_response = api_instance.get_tenants(get_tenants_request)
-        print("The response of TenantsApi->get_tenants:\n")
+        api_response = api_instance.get_tenants_tenants_fetch_post(get_tenants_request)
+        print("The response of TenantsApi->get_tenants_tenants_fetch_post:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsApi->get_tenants: %s\n" % e)
+        print("Exception when calling TenantsApi->get_tenants_tenants_fetch_post: %s\n" % e)
 ```
 
 
@@ -289,8 +289,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_tenant**
-> ResponseUpdateTenantResponse update_tenant(tenant_id, update_tenant_request)
+# **update_tenant_tenants_tenant_id_put**
+> ResponseUpdateTenantResponse update_tenant_tenants_tenant_id_put(tenant_id, update_tenant_request)
 
 Update Tenant
 
@@ -322,11 +322,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
     try:
         # Update Tenant
-        api_response = api_instance.update_tenant(tenant_id, update_tenant_request)
-        print("The response of TenantsApi->update_tenant:\n")
+        api_response = api_instance.update_tenant_tenants_tenant_id_put(tenant_id, update_tenant_request)
+        print("The response of TenantsApi->update_tenant_tenants_tenant_id_put:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsApi->update_tenant: %s\n" % e)
+        print("Exception when calling TenantsApi->update_tenant_tenants_tenant_id_put: %s\n" % e)
 ```
 
 

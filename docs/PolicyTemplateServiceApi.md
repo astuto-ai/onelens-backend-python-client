@@ -1,4 +1,4 @@
-# onelens_backend_client.PolicyTemplateServiceApi
+# PolicyTemplateServiceApi
 
 All URIs are relative to *http://localhost*
 

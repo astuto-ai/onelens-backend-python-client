@@ -1,10 +1,10 @@
-# onelens_backend_client.UserTenantMappingApi
+# UserTenantMappingApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_user_tenant_mapping**](UserTenantMappingApi.md#create_user_tenant_mapping) | **POST** /v1/users/tenant_mapping | Create User Tenant Mapping
+Method | Description
+------------- | -------------
+[**create_user_tenant_mapping**](UserTenantMappingApi.md#create_user_tenant_mapping) | Create User Tenant Mapping
 
 
 # **create_user_tenant_mapping**

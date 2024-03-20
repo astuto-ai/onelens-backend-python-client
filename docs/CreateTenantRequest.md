@@ -5,9 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | Name of the tenant | 
-**domains** | **List[str]** | List of domains associated with the tenant | 
-**timezone** | **str** | Timezone of the tenant | 
+**create_tenant_request** | [**CreateTenantRequest**](CreateTenantRequest.md) |  | 
 
 ## Example
 

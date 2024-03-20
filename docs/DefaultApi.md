@@ -1,4 +1,4 @@
-# onelens_backend_client.DefaultApi
+# DefaultApi
 
 All URIs are relative to *http://localhost*
 

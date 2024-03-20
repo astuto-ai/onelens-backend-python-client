@@ -1,10 +1,10 @@
-# onelens_backend_client.TenantsTenantProviderVerifyApi
+# TenantsTenantProviderVerifyApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**verify_tenant**](TenantsTenantProviderVerifyApi.md#verify_tenant) | **POST** /v1/tenants/{tenant_id}/providers/{tenant_provider_id}/verify | Verify Tenant
+Method | Description
+------------- | -------------
+[**verify_tenant**](TenantsTenantProviderVerifyApi.md#verify_tenant) | Verify Tenant
 
 
 # **verify_tenant**

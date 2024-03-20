@@ -300,7 +300,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/activate_policy_template',
+            resource_path='/rpc/policy_template_service/activate_policy_template',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -570,7 +570,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/create_policy_template',
+            resource_path='/rpc/policy_template_service/create_policy_template',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -840,7 +840,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/deactivate_policy_template',
+            resource_path='/rpc/policy_template_service/deactivate_policy_template',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1110,7 +1110,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/deprecate_policy_template',
+            resource_path='/rpc/policy_template_service/deprecate_policy_template',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1380,7 +1380,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/get_policy_template_by_id',
+            resource_path='/rpc/policy_template_service/get_policy_template_by_id',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1650,7 +1650,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/get_policy_templates',
+            resource_path='/rpc/policy_template_service/get_policy_templates',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1920,7 +1920,7 @@ class PolicyTemplateServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/policy_template_service/update_policy_template',
+            resource_path='/rpc/policy_template_service/update_policy_template',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

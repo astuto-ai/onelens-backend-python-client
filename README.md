@@ -85,6 +85,9 @@ All URIs are relative to *http://localhost*
 Class | Method | Description
 ------------ | ------------- | -------------
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
+*PoliciesPolicyTemplatePacksApi* | [**create_policy_template_pack**](docs/PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack) | Create Policy Template Pack
+*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_pack**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack) | Get Policy Template Pack
+*PoliciesPolicyTemplatePacksApi* | [**get_policy_template_packs**](docs/PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs) | Get Policy Template Packs
 *PolicyTemplateServiceApi* | [**activate_policy_template**](docs/PolicyTemplateServiceApi.md#activate_policy_template) | Deprecate a policy template.
 *PolicyTemplateServiceApi* | [**create_policy_template**](docs/PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
 *PolicyTemplateServiceApi* | [**deactivate_policy_template**](docs/PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
@@ -92,48 +95,151 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
+*TenantServiceApi* | [**create_tenant**](docs/TenantServiceApi.md#create_tenant) | Creates a new tenant.
+*TenantServiceApi* | [**disable_tenant**](docs/TenantServiceApi.md#disable_tenant) | Disables a tenant.
+*TenantServiceApi* | [**get_tenant_by_id**](docs/TenantServiceApi.md#get_tenant_by_id) | Retrieves a tenant by its unique identifier.
+*TenantServiceApi* | [**get_tenants**](docs/TenantServiceApi.md#get_tenants) | Retrieves all Tenants with filters.
+*TenantServiceApi* | [**update_tenant**](docs/TenantServiceApi.md#update_tenant) | Updates an existing tenant.
+*TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
+*TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
+*TenantsTenantProviderVerifyApi* | [**verify_tenant**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant) | Verify Tenant
+*TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
+*TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
+*TenantsTenantsProvidersApi* | [**get_tenant_provider**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider) | Get Tenant Provider
+*TenantsTenantsProvidersApi* | [**get_tenant_providers**](docs/TenantsTenantsProvidersApi.md#get_tenant_providers) | Get Tenant Providers
+*TenantsTenantsProvidersApi* | [**update_tenant_provider**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider) | Update Tenant Provider
+*UserTenantMappingApi* | [**create_user_tenant_mapping**](docs/UserTenantMappingApi.md#create_user_tenant_mapping) | Create User Tenant Mapping
+*UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | Create User
+*UsersApi* | [**get_user_by_id**](docs/UsersApi.md#get_user_by_id) | Get User By Id
+*UsersApi* | [**get_users**](docs/UsersApi.md#get_users) | Get Users
+*UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | Update User
 
 
 ## Documentation For Models
 
  - [ActivatePolicyTemplateRequest](docs/ActivatePolicyTemplateRequest.md)
+ - [AttributesData](docs/AttributesData.md)
  - [AwsService](docs/AwsService.md)
+ - [CloudId](docs/CloudId.md)
+ - [CloudIds](docs/CloudIds.md)
+ - [CloudProviders](docs/CloudProviders.md)
  - [ConfigSchema](docs/ConfigSchema.md)
+ - [CreatePolicyTemplatePackRequest](docs/CreatePolicyTemplatePackRequest.md)
+ - [CreatePolicyTemplatePackResponse](docs/CreatePolicyTemplatePackResponse.md)
  - [CreatePolicyTemplateRequest](docs/CreatePolicyTemplateRequest.md)
  - [CreatePolicyTemplateRequestServicesInner](docs/CreatePolicyTemplateRequestServicesInner.md)
  - [CreatePolicyTemplateResponse](docs/CreatePolicyTemplateResponse.md)
+ - [CreateTenantProviderRequest](docs/CreateTenantProviderRequest.md)
+ - [CreateTenantProviderResponse](docs/CreateTenantProviderResponse.md)
+ - [CreateTenantRequest](docs/CreateTenantRequest.md)
+ - [CreateTenantResponse](docs/CreateTenantResponse.md)
+ - [CreateTenantUserRequest](docs/CreateTenantUserRequest.md)
+ - [CreateTenantUserRequestRole](docs/CreateTenantUserRequestRole.md)
+ - [CreateTenantUserResponse](docs/CreateTenantUserResponse.md)
+ - [CreateTenantUserResponseStatus](docs/CreateTenantUserResponseStatus.md)
+ - [CreateUserRequest](docs/CreateUserRequest.md)
+ - [CreateUserResponse](docs/CreateUserResponse.md)
+ - [CreateUserTenantMappingRequest](docs/CreateUserTenantMappingRequest.md)
+ - [CreateUserTenantMappingResponse](docs/CreateUserTenantMappingResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DefaultPolicyConfig](docs/DefaultPolicyConfig.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
  - [Description](docs/Description.md)
+ - [DisableTenantRequest](docs/DisableTenantRequest.md)
+ - [Domains](docs/Domains.md)
  - [GcpService](docs/GcpService.md)
+ - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
+ - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
  - [GetPolicyTemplateByIDRequest](docs/GetPolicyTemplateByIDRequest.md)
  - [GetPolicyTemplateByIDResponse](docs/GetPolicyTemplateByIDResponse.md)
  - [GetPolicyTemplateByIdRequest](docs/GetPolicyTemplateByIdRequest.md)
+ - [GetPolicyTemplatePackByIdResponse](docs/GetPolicyTemplatePackByIdResponse.md)
+ - [GetPolicyTemplatePacksRequest](docs/GetPolicyTemplatePacksRequest.md)
+ - [GetPolicyTemplatePacksResponse](docs/GetPolicyTemplatePacksResponse.md)
  - [GetPolicyTemplatesRequest](docs/GetPolicyTemplatesRequest.md)
  - [GetPolicyTemplatesResponse](docs/GetPolicyTemplatesResponse.md)
+ - [GetTenantByIDRequest](docs/GetTenantByIDRequest.md)
+ - [GetTenantByIDResponse](docs/GetTenantByIDResponse.md)
+ - [GetTenantByIdRequest](docs/GetTenantByIdRequest.md)
+ - [GetTenantProviderByIDResponse](docs/GetTenantProviderByIDResponse.md)
+ - [GetTenantProvidersRequest](docs/GetTenantProvidersRequest.md)
+ - [GetTenantProvidersResponse](docs/GetTenantProvidersResponse.md)
+ - [GetTenantsRequest](docs/GetTenantsRequest.md)
+ - [GetTenantsResponse](docs/GetTenantsResponse.md)
+ - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [Inputs](docs/Inputs.md)
+ - [IsParentAccount](docs/IsParentAccount.md)
+ - [IsVerified](docs/IsVerified.md)
+ - [Message](docs/Message.md)
+ - [Name](docs/Name.md)
+ - [Names](docs/Names.md)
  - [OutputViolationSchema](docs/OutputViolationSchema.md)
  - [PaginationFields](docs/PaginationFields.md)
  - [PaginationParams](docs/PaginationParams.md)
+ - [ParentId](docs/ParentId.md)
+ - [ParentId1](docs/ParentId1.md)
+ - [ParentIds](docs/ParentIds.md)
  - [PolicyCategory](docs/PolicyCategory.md)
  - [PolicyExecutionType](docs/PolicyExecutionType.md)
  - [PolicyTemplate](docs/PolicyTemplate.md)
  - [PolicyTemplateDetails](docs/PolicyTemplateDetails.md)
  - [PolicyTemplateDetailsRuleType](docs/PolicyTemplateDetailsRuleType.md)
  - [PolicyTemplateFilters](docs/PolicyTemplateFilters.md)
+ - [PolicyTemplatePack](docs/PolicyTemplatePack.md)
+ - [PolicyTemplatePackDetails](docs/PolicyTemplatePackDetails.md)
+ - [PolicyTemplatePackState](docs/PolicyTemplatePackState.md)
  - [PolicyTemplateState](docs/PolicyTemplateState.md)
  - [Provider](docs/Provider.md)
+ - [ProviderConfig](docs/ProviderConfig.md)
+ - [ResponseCreatePolicyTemplatePackResponse](docs/ResponseCreatePolicyTemplatePackResponse.md)
+ - [ResponseCreateTenantUserResponse](docs/ResponseCreateTenantUserResponse.md)
+ - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
+ - [ResponseDisableTenantProviderResponse](docs/ResponseDisableTenantProviderResponse.md)
+ - [ResponseGetPolicyTemplatePackByIdResponse](docs/ResponseGetPolicyTemplatePackByIdResponse.md)
+ - [ResponseGetPolicyTemplatePacksResponse](docs/ResponseGetPolicyTemplatePacksResponse.md)
+ - [ResponseGetTenantProviderByIDResponse](docs/ResponseGetTenantProviderByIDResponse.md)
+ - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
+ - [ResponseTenantVerifyResponse](docs/ResponseTenantVerifyResponse.md)
+ - [ResponseUpdateTenantProviderResponse](docs/ResponseUpdateTenantProviderResponse.md)
+ - [ResponseUpdateTenantUserResponse](docs/ResponseUpdateTenantUserResponse.md)
  - [RuleDefinition](docs/RuleDefinition.md)
  - [RuleType](docs/RuleType.md)
  - [SearchQuery](docs/SearchQuery.md)
  - [Services](docs/Services.md)
+ - [SourceSchema](docs/SourceSchema.md)
+ - [Sources](docs/Sources.md)
+ - [States](docs/States.md)
+ - [Tenant](docs/Tenant.md)
+ - [TenantFilters](docs/TenantFilters.md)
+ - [TenantId](docs/TenantId.md)
+ - [TenantIds](docs/TenantIds.md)
+ - [TenantProvider](docs/TenantProvider.md)
+ - [TenantProviderAttributes](docs/TenantProviderAttributes.md)
+ - [TenantProviderFilterData](docs/TenantProviderFilterData.md)
+ - [TenantProviderFilters](docs/TenantProviderFilters.md)
+ - [TenantState](docs/TenantState.md)
+ - [TenantStates](docs/TenantStates.md)
+ - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
+ - [TenantUserUpdateFieldsMixinRole](docs/TenantUserUpdateFieldsMixinRole.md)
+ - [TenantUserUpdateFieldsMixinStatus](docs/TenantUserUpdateFieldsMixinStatus.md)
+ - [TenantVerifyRequest](docs/TenantVerifyRequest.md)
+ - [TenantVerifyResponse](docs/TenantVerifyResponse.md)
+ - [Timezone](docs/Timezone.md)
  - [Title](docs/Title.md)
  - [UpdatePolicyTemplateRequest](docs/UpdatePolicyTemplateRequest.md)
  - [UpdatePolicyTemplateRequestDetails](docs/UpdatePolicyTemplateRequestDetails.md)
  - [UpdatePolicyTemplateRequestExecutionType](docs/UpdatePolicyTemplateRequestExecutionType.md)
  - [UpdatePolicyTemplateResponse](docs/UpdatePolicyTemplateResponse.md)
+ - [UpdateTenantProviderRequest](docs/UpdateTenantProviderRequest.md)
+ - [UpdateTenantProviderResponse](docs/UpdateTenantProviderResponse.md)
+ - [UpdateTenantRequest](docs/UpdateTenantRequest.md)
+ - [UpdateTenantResponse](docs/UpdateTenantResponse.md)
+ - [UpdateTenantUserResponse](docs/UpdateTenantUserResponse.md)
+ - [UpdateUserRequest](docs/UpdateUserRequest.md)
+ - [UpdateUserResponse](docs/UpdateUserResponse.md)
+ - [UserRole](docs/UserRole.md)
+ - [UserStatus](docs/UserStatus.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
 

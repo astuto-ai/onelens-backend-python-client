@@ -1,13 +1,13 @@
-# onelens_backend_client.UsersApi
+# UsersApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_user**](UsersApi.md#create_user) | **POST** /v1/users/ | Create User
-[**get_user_by_id**](UsersApi.md#get_user_by_id) | **GET** /v1/users/{user_id} | Get User By Id
-[**get_users**](UsersApi.md#get_users) | **GET** /v1/users/ | Get Users
-[**update_user**](UsersApi.md#update_user) | **PUT** /v1/users/ | Update User
+Method | Description
+------------- | -------------
+[**create_user**](UsersApi.md#create_user) | Create User
+[**get_user_by_id**](UsersApi.md#get_user_by_id) | Get User By Id
+[**get_users**](UsersApi.md#get_users) | Get Users
+[**update_user**](UsersApi.md#update_user) | Update User
 
 
 # **create_user**

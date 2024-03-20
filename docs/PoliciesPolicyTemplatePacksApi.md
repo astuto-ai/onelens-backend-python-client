@@ -1,12 +1,12 @@
-# onelens_backend_client.PoliciesPolicyTemplatePacksApi
+# PoliciesPolicyTemplatePacksApi
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**create_policy_template_pack**](PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack) | **POST** /v1/policies/policy_templates_packs | Create Policy Template Pack
-[**get_policy_template_pack**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack) | **GET** /v1/policies/policy_templates_packs/{policy_template_pack_id} | Get Policy Template Pack
-[**get_policy_template_packs**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs) | **POST** /v1/policies/policy_templates_packs/fetch | Get Policy Template Packs
+Method | Description
+------------- | -------------
+[**create_policy_template_pack**](PoliciesPolicyTemplatePacksApi.md#create_policy_template_pack) | Create Policy Template Pack
+[**get_policy_template_pack**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_pack) | Get Policy Template Pack
+[**get_policy_template_packs**](PoliciesPolicyTemplatePacksApi.md#get_policy_template_packs) | Get Policy Template Packs
 
 
 # **create_policy_template_pack**
