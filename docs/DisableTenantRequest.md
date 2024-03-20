@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request** | [**DisableTenantRequest**](DisableTenantRequest.md) |  | 
+**id** | **str** | Unique identifier for the tenant | 
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request** | [**DeactivatePolicyTemplateRequest**](DeactivatePolicyTemplateRequest.md) |  | 
+**id** | **str** | The unique identifier of the policy template. | 
 
 ## Example
 

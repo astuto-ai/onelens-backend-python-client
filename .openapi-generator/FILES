@@ -33,13 +33,11 @@ docs/DefaultPolicyConfig.md
 docs/DeprecatePolicyTemplateRequest.md
 docs/Description.md
 docs/DisableTenantRequest.md
-docs/Domains.md
 docs/GcpService.md
 docs/GetAllUsersRequest.md
 docs/GetAllUsersResponse.md
 docs/GetPolicyTemplateByIDRequest.md
 docs/GetPolicyTemplateByIDResponse.md
-docs/GetPolicyTemplateByIdRequest.md
 docs/GetPolicyTemplatePackByIdResponse.md
 docs/GetPolicyTemplatePacksRequest.md
 docs/GetPolicyTemplatePacksResponse.md
@@ -47,7 +45,6 @@ docs/GetPolicyTemplatesRequest.md
 docs/GetPolicyTemplatesResponse.md
 docs/GetTenantByIDRequest.md
 docs/GetTenantByIDResponse.md
-docs/GetTenantByIdRequest.md
 docs/GetTenantProviderByIDResponse.md
 docs/GetTenantProvidersRequest.md
 docs/GetTenantProvidersResponse.md
@@ -59,7 +56,6 @@ docs/Inputs.md
 docs/IsParentAccount.md
 docs/IsVerified.md
 docs/Message.md
-docs/Name.md
 docs/Names.md
 docs/OutputViolationSchema.md
 docs/PaginationFields.md
@@ -118,7 +114,6 @@ docs/TenantVerifyRequest.md
 docs/TenantVerifyResponse.md
 docs/TenantsTenantProviderVerifyApi.md
 docs/TenantsTenantsProvidersApi.md
-docs/Timezone.md
 docs/Title.md
 docs/UpdatePolicyTemplateRequest.md
 docs/UpdatePolicyTemplateRequestDetails.md
@@ -126,7 +121,6 @@ docs/UpdatePolicyTemplateRequestExecutionType.md
 docs/UpdatePolicyTemplateResponse.md
 docs/UpdateTenantProviderRequest.md
 docs/UpdateTenantProviderResponse.md
-docs/UpdateTenantRequest.md
 docs/UpdateTenantResponse.md
 docs/UpdateTenantUserResponse.md
 docs/UpdateUserRequest.md
@@ -183,11 +177,9 @@ onelens_backend_client/models/default_policy_config.py
 onelens_backend_client/models/deprecate_policy_template_request.py
 onelens_backend_client/models/description.py
 onelens_backend_client/models/disable_tenant_request.py
-onelens_backend_client/models/domains.py
 onelens_backend_client/models/gcp_service.py
 onelens_backend_client/models/get_all_users_request.py
 onelens_backend_client/models/get_all_users_response.py
-onelens_backend_client/models/get_policy_template_by_id_request.py
 onelens_backend_client/models/get_policy_template_by_id_request.py
 onelens_backend_client/models/get_policy_template_by_id_response.py
 onelens_backend_client/models/get_policy_template_pack_by_id_response.py
@@ -195,7 +187,6 @@ onelens_backend_client/models/get_policy_template_packs_request.py
 onelens_backend_client/models/get_policy_template_packs_response.py
 onelens_backend_client/models/get_policy_templates_request.py
 onelens_backend_client/models/get_policy_templates_response.py
-onelens_backend_client/models/get_tenant_by_id_request.py
 onelens_backend_client/models/get_tenant_by_id_request.py
 onelens_backend_client/models/get_tenant_by_id_response.py
 onelens_backend_client/models/get_tenant_provider_by_id_response.py
@@ -209,7 +200,6 @@ onelens_backend_client/models/inputs.py
 onelens_backend_client/models/is_parent_account.py
 onelens_backend_client/models/is_verified.py
 onelens_backend_client/models/message.py
-onelens_backend_client/models/name.py
 onelens_backend_client/models/names.py
 onelens_backend_client/models/output_violation_schema.py
 onelens_backend_client/models/pagination_fields.py
@@ -262,7 +252,6 @@ onelens_backend_client/models/tenant_user_update_fields_mixin_role.py
 onelens_backend_client/models/tenant_user_update_fields_mixin_status.py
 onelens_backend_client/models/tenant_verify_request.py
 onelens_backend_client/models/tenant_verify_response.py
-onelens_backend_client/models/timezone.py
 onelens_backend_client/models/title.py
 onelens_backend_client/models/update_policy_template_request.py
 onelens_backend_client/models/update_policy_template_request_details.py
@@ -270,7 +259,6 @@ onelens_backend_client/models/update_policy_template_request_execution_type.py
 onelens_backend_client/models/update_policy_template_response.py
 onelens_backend_client/models/update_tenant_provider_request.py
 onelens_backend_client/models/update_tenant_provider_response.py
-onelens_backend_client/models/update_tenant_request.py
 onelens_backend_client/models/update_tenant_response.py
 onelens_backend_client/models/update_tenant_user_response.py
 onelens_backend_client/models/update_user_request.py

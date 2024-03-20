@@ -156,8 +156,8 @@ Retrieves a tenant by its unique identifier.
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.get_tenant_by_id_request import GetTenantByIDRequest
 from onelens_backend_client.models.get_tenant_by_id_response import GetTenantByIDResponse
-from onelens_backend_client.models.get_tenant_by_id_request import GetTenantByIdRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -172,7 +172,7 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantServiceApi(api_client)
-    get_tenant_by_id_request = onelens_backend_client.GetTenantByIdRequest() # GetTenantByIdRequest | 
+    get_tenant_by_id_request = onelens_backend_client.GetTenantByIDRequest() # GetTenantByIDRequest | 
 
     try:
         # Retrieves a tenant by its unique identifier.
@@ -190,7 +190,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_tenant_by_id_request** | [**GetTenantByIdRequest**](GetTenantByIdRequest.md)|  | 
+ **get_tenant_by_id_request** | [**GetTenantByIDRequest**](GetTenantByIDRequest.md)|  | 
 
 ### Return type
 
@@ -283,7 +283,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant**
-> UpdateTenantResponse update_tenant(update_tenant_request)
+> UpdateTenantResponse update_tenant(request)
 
 Updates an existing tenant.
 
@@ -292,7 +292,6 @@ Updates an existing tenant.
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.update_tenant_request import UpdateTenantRequest
 from onelens_backend_client.models.update_tenant_response import UpdateTenantResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -308,11 +307,11 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantServiceApi(api_client)
-    update_tenant_request = onelens_backend_client.UpdateTenantRequest() # UpdateTenantRequest | 
+    request = 'request_example' # str | 
 
     try:
         # Updates an existing tenant.
-        api_response = api_instance.update_tenant(update_tenant_request)
+        api_response = api_instance.update_tenant(request)
         print("The response of TenantServiceApi->update_tenant:\n")
         pprint(api_response)
     except Exception as e:
@@ -326,7 +325,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_tenant_request** | [**UpdateTenantRequest**](UpdateTenantRequest.md)|  | 
+ **request** | **str**|  | 
 
 ### Return type
 
@@ -338,7 +337,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

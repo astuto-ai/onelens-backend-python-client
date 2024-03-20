@@ -16,14 +16,14 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
+from pydantic import StrictStr
 from onelens_backend_client.models.create_tenant_request import CreateTenantRequest
 from onelens_backend_client.models.create_tenant_response import CreateTenantResponse
 from onelens_backend_client.models.disable_tenant_request import DisableTenantRequest
+from onelens_backend_client.models.get_tenant_by_id_request import GetTenantByIDRequest
 from onelens_backend_client.models.get_tenant_by_id_response import GetTenantByIDResponse
-from onelens_backend_client.models.get_tenant_by_id_request import GetTenantByIdRequest
 from onelens_backend_client.models.get_tenants_request import GetTenantsRequest
 from onelens_backend_client.models.get_tenants_response import GetTenantsResponse
-from onelens_backend_client.models.update_tenant_request import UpdateTenantRequest
 from onelens_backend_client.models.update_tenant_response import UpdateTenantResponse
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
@@ -587,7 +587,7 @@ class TenantServiceApi:
     @validate_call
     def get_tenant_by_id(
         self,
-        get_tenant_by_id_request: GetTenantByIdRequest,
+        get_tenant_by_id_request: GetTenantByIDRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -605,7 +605,7 @@ class TenantServiceApi:
 
 
         :param get_tenant_by_id_request: (required)
-        :type get_tenant_by_id_request: GetTenantByIdRequest
+        :type get_tenant_by_id_request: GetTenantByIDRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -654,7 +654,7 @@ class TenantServiceApi:
     @validate_call
     def get_tenant_by_id_with_http_info(
         self,
-        get_tenant_by_id_request: GetTenantByIdRequest,
+        get_tenant_by_id_request: GetTenantByIDRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -672,7 +672,7 @@ class TenantServiceApi:
 
 
         :param get_tenant_by_id_request: (required)
-        :type get_tenant_by_id_request: GetTenantByIdRequest
+        :type get_tenant_by_id_request: GetTenantByIDRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -721,7 +721,7 @@ class TenantServiceApi:
     @validate_call
     def get_tenant_by_id_without_preload_content(
         self,
-        get_tenant_by_id_request: GetTenantByIdRequest,
+        get_tenant_by_id_request: GetTenantByIDRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -739,7 +739,7 @@ class TenantServiceApi:
 
 
         :param get_tenant_by_id_request: (required)
-        :type get_tenant_by_id_request: GetTenantByIdRequest
+        :type get_tenant_by_id_request: GetTenantByIDRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1127,7 +1127,7 @@ class TenantServiceApi:
     @validate_call
     def update_tenant(
         self,
-        update_tenant_request: UpdateTenantRequest,
+        request: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1144,8 +1144,8 @@ class TenantServiceApi:
         """Updates an existing tenant.
 
 
-        :param update_tenant_request: (required)
-        :type update_tenant_request: UpdateTenantRequest
+        :param request: (required)
+        :type request: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1169,7 +1169,7 @@ class TenantServiceApi:
         """ # noqa: E501
 
         _param = self._update_tenant_serialize(
-            update_tenant_request=update_tenant_request,
+            request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1194,7 +1194,7 @@ class TenantServiceApi:
     @validate_call
     def update_tenant_with_http_info(
         self,
-        update_tenant_request: UpdateTenantRequest,
+        request: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1211,8 +1211,8 @@ class TenantServiceApi:
         """Updates an existing tenant.
 
 
-        :param update_tenant_request: (required)
-        :type update_tenant_request: UpdateTenantRequest
+        :param request: (required)
+        :type request: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1236,7 +1236,7 @@ class TenantServiceApi:
         """ # noqa: E501
 
         _param = self._update_tenant_serialize(
-            update_tenant_request=update_tenant_request,
+            request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1261,7 +1261,7 @@ class TenantServiceApi:
     @validate_call
     def update_tenant_without_preload_content(
         self,
-        update_tenant_request: UpdateTenantRequest,
+        request: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1278,8 +1278,8 @@ class TenantServiceApi:
         """Updates an existing tenant.
 
 
-        :param update_tenant_request: (required)
-        :type update_tenant_request: UpdateTenantRequest
+        :param request: (required)
+        :type request: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1303,7 +1303,7 @@ class TenantServiceApi:
         """ # noqa: E501
 
         _param = self._update_tenant_serialize(
-            update_tenant_request=update_tenant_request,
+            request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1323,7 +1323,7 @@ class TenantServiceApi:
 
     def _update_tenant_serialize(
         self,
-        update_tenant_request,
+        request,
         _request_auth,
         _content_type,
         _headers,
@@ -1344,11 +1344,13 @@ class TenantServiceApi:
 
         # process the path parameters
         # process the query parameters
+        if request is not None:
+            
+            _query_params.append(('request', request))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_tenant_request is not None:
-            _body_params = update_tenant_request
 
 
         # set the HTTP header `Accept`
@@ -1358,19 +1360,6 @@ class TenantServiceApi:
             ]
         )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

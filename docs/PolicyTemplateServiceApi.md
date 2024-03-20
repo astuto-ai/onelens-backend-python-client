@@ -292,8 +292,8 @@ Retrieves a policy template by its unique identifier.
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.get_policy_template_by_id_request import GetPolicyTemplateByIDRequest
 from onelens_backend_client.models.get_policy_template_by_id_response import GetPolicyTemplateByIDResponse
-from onelens_backend_client.models.get_policy_template_by_id_request import GetPolicyTemplateByIdRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -308,7 +308,7 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.PolicyTemplateServiceApi(api_client)
-    get_policy_template_by_id_request = onelens_backend_client.GetPolicyTemplateByIdRequest() # GetPolicyTemplateByIdRequest | 
+    get_policy_template_by_id_request = onelens_backend_client.GetPolicyTemplateByIDRequest() # GetPolicyTemplateByIDRequest | 
 
     try:
         # Retrieves a policy template by its unique identifier.
@@ -326,7 +326,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_policy_template_by_id_request** | [**GetPolicyTemplateByIdRequest**](GetPolicyTemplateByIdRequest.md)|  | 
+ **get_policy_template_by_id_request** | [**GetPolicyTemplateByIDRequest**](GetPolicyTemplateByIDRequest.md)|  | 
 
 ### Return type
 

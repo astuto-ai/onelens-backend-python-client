@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request** | [**GetPolicyTemplatesRequest**](GetPolicyTemplatesRequest.md) |  | 
+**pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
+**filters** | [**PolicyTemplateFilters**](PolicyTemplateFilters.md) | Filters to apply to the policy templates. | [optional] 
 
 ## Example
 

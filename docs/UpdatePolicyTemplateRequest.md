@@ -5,7 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request** | [**UpdatePolicyTemplateRequest**](UpdatePolicyTemplateRequest.md) |  | 
+**title** | [**Title**](Title.md) |  | [optional] 
+**description** | [**Description**](Description.md) |  | [optional] 
+**services** | [**Services**](Services.md) |  | [optional] 
+**execution_type** | [**UpdatePolicyTemplateRequestExecutionType**](UpdatePolicyTemplateRequestExecutionType.md) |  | [optional] 
+**details** | [**UpdatePolicyTemplateRequestDetails**](UpdatePolicyTemplateRequestDetails.md) |  | [optional] 
+**id** | **str** | The unique identifier of the policy template. | 
 
 ## Example
 

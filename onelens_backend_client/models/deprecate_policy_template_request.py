@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,8 +26,8 @@ class DeprecatePolicyTemplateRequest(BaseModel):
     """
     DeprecatePolicyTemplateRequest
     """ # noqa: E501
-    request: DeprecatePolicyTemplateRequest
-    __properties: ClassVar[List[str]] = ["request"]
+    id: StrictStr = Field(description="The unique identifier of the policy template.")
+    __properties: ClassVar[List[str]] = ["id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,9 +68,6 @@ class DeprecatePolicyTemplateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of request
-        if self.request:
-            _dict['request'] = self.request.to_dict()
         return _dict
 
     @classmethod
@@ -83,10 +80,8 @@ class DeprecatePolicyTemplateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "request": DeprecatePolicyTemplateRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
+            "id": obj.get("id")
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-DeprecatePolicyTemplateRequest.model_rebuild(raise_errors=False)
 

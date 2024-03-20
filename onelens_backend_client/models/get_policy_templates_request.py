@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.pagination_params import PaginationParams
+from onelens_backend_client.models.policy_template_filters import PolicyTemplateFilters
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +28,9 @@ class GetPolicyTemplatesRequest(BaseModel):
     """
     GetPolicyTemplatesRequest
     """ # noqa: E501
-    request: GetPolicyTemplatesRequest
-    __properties: ClassVar[List[str]] = ["request"]
+    pagination: Optional[PaginationParams] = Field(default=None, description="Pagination parameters for the request.")
+    filters: Optional[PolicyTemplateFilters] = Field(default=None, description="Filters to apply to the policy templates.")
+    __properties: ClassVar[List[str]] = ["pagination", "filters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,9 +71,12 @@ class GetPolicyTemplatesRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of request
-        if self.request:
-            _dict['request'] = self.request.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of filters
+        if self.filters:
+            _dict['filters'] = self.filters.to_dict()
         return _dict
 
     @classmethod
@@ -83,10 +89,9 @@ class GetPolicyTemplatesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "request": GetPolicyTemplatesRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
+            "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
+            "filters": PolicyTemplateFilters.from_dict(obj["filters"]) if obj.get("filters") is not None else None
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-GetPolicyTemplatesRequest.model_rebuild(raise_errors=False)
 

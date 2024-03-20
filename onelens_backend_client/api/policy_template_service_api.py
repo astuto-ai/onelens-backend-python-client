@@ -21,8 +21,8 @@ from onelens_backend_client.models.create_policy_template_request import CreateP
 from onelens_backend_client.models.create_policy_template_response import CreatePolicyTemplateResponse
 from onelens_backend_client.models.deactivate_policy_template_request import DeactivatePolicyTemplateRequest
 from onelens_backend_client.models.deprecate_policy_template_request import DeprecatePolicyTemplateRequest
+from onelens_backend_client.models.get_policy_template_by_id_request import GetPolicyTemplateByIDRequest
 from onelens_backend_client.models.get_policy_template_by_id_response import GetPolicyTemplateByIDResponse
-from onelens_backend_client.models.get_policy_template_by_id_request import GetPolicyTemplateByIdRequest
 from onelens_backend_client.models.get_policy_templates_request import GetPolicyTemplatesRequest
 from onelens_backend_client.models.get_policy_templates_response import GetPolicyTemplatesResponse
 from onelens_backend_client.models.update_policy_template_request import UpdatePolicyTemplateRequest
@@ -1129,7 +1129,7 @@ class PolicyTemplateServiceApi:
     @validate_call
     def get_policy_template_by_id(
         self,
-        get_policy_template_by_id_request: GetPolicyTemplateByIdRequest,
+        get_policy_template_by_id_request: GetPolicyTemplateByIDRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1147,7 +1147,7 @@ class PolicyTemplateServiceApi:
 
 
         :param get_policy_template_by_id_request: (required)
-        :type get_policy_template_by_id_request: GetPolicyTemplateByIdRequest
+        :type get_policy_template_by_id_request: GetPolicyTemplateByIDRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1196,7 +1196,7 @@ class PolicyTemplateServiceApi:
     @validate_call
     def get_policy_template_by_id_with_http_info(
         self,
-        get_policy_template_by_id_request: GetPolicyTemplateByIdRequest,
+        get_policy_template_by_id_request: GetPolicyTemplateByIDRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1214,7 +1214,7 @@ class PolicyTemplateServiceApi:
 
 
         :param get_policy_template_by_id_request: (required)
-        :type get_policy_template_by_id_request: GetPolicyTemplateByIdRequest
+        :type get_policy_template_by_id_request: GetPolicyTemplateByIDRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1263,7 +1263,7 @@ class PolicyTemplateServiceApi:
     @validate_call
     def get_policy_template_by_id_without_preload_content(
         self,
-        get_policy_template_by_id_request: GetPolicyTemplateByIdRequest,
+        get_policy_template_by_id_request: GetPolicyTemplateByIDRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1281,7 +1281,7 @@ class PolicyTemplateServiceApi:
 
 
         :param get_policy_template_by_id_request: (required)
-        :type get_policy_template_by_id_request: GetPolicyTemplateByIdRequest
+        :type get_policy_template_by_id_request: GetPolicyTemplateByIDRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

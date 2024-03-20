@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +27,10 @@ class CreateTenantRequest(BaseModel):
     """
     CreateTenantRequest
     """ # noqa: E501
-    create_tenant_request: CreateTenantRequest = Field(alias="createTenantRequest")
-    __properties: ClassVar[List[str]] = ["createTenantRequest"]
+    name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Name of the tenant")
+    domains: List[StrictStr] = Field(description="List of domains associated with the tenant")
+    timezone: StrictStr = Field(description="Timezone of the tenant")
+    __properties: ClassVar[List[str]] = ["name", "domains", "timezone"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,9 +71,6 @@ class CreateTenantRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of create_tenant_request
-        if self.create_tenant_request:
-            _dict['createTenantRequest'] = self.create_tenant_request.to_dict()
         return _dict
 
     @classmethod
@@ -83,10 +83,10 @@ class CreateTenantRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "createTenantRequest": CreateTenantRequest.from_dict(obj["createTenantRequest"]) if obj.get("createTenantRequest") is not None else None
+            "name": obj.get("name"),
+            "domains": obj.get("domains"),
+            "timezone": obj.get("timezone")
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-CreateTenantRequest.model_rebuild(raise_errors=False)
 

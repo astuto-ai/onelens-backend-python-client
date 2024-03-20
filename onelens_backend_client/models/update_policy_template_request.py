@@ -17,8 +17,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.description import Description
+from onelens_backend_client.models.services import Services
+from onelens_backend_client.models.title import Title
+from onelens_backend_client.models.update_policy_template_request_details import UpdatePolicyTemplateRequestDetails
+from onelens_backend_client.models.update_policy_template_request_execution_type import UpdatePolicyTemplateRequestExecutionType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +31,13 @@ class UpdatePolicyTemplateRequest(BaseModel):
     """
     UpdatePolicyTemplateRequest
     """ # noqa: E501
-    request: UpdatePolicyTemplateRequest
-    __properties: ClassVar[List[str]] = ["request"]
+    title: Optional[Title] = None
+    description: Optional[Description] = None
+    services: Optional[Services] = None
+    execution_type: Optional[UpdatePolicyTemplateRequestExecutionType] = None
+    details: Optional[UpdatePolicyTemplateRequestDetails] = None
+    id: StrictStr = Field(description="The unique identifier of the policy template.")
+    __properties: ClassVar[List[str]] = ["title", "description", "services", "execution_type", "details", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,9 +78,21 @@ class UpdatePolicyTemplateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of request
-        if self.request:
-            _dict['request'] = self.request.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of title
+        if self.title:
+            _dict['title'] = self.title.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of description
+        if self.description:
+            _dict['description'] = self.description.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of services
+        if self.services:
+            _dict['services'] = self.services.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of execution_type
+        if self.execution_type:
+            _dict['execution_type'] = self.execution_type.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of details
+        if self.details:
+            _dict['details'] = self.details.to_dict()
         return _dict
 
     @classmethod
@@ -83,10 +105,13 @@ class UpdatePolicyTemplateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "request": UpdatePolicyTemplateRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
+            "title": Title.from_dict(obj["title"]) if obj.get("title") is not None else None,
+            "description": Description.from_dict(obj["description"]) if obj.get("description") is not None else None,
+            "services": Services.from_dict(obj["services"]) if obj.get("services") is not None else None,
+            "execution_type": UpdatePolicyTemplateRequestExecutionType.from_dict(obj["execution_type"]) if obj.get("execution_type") is not None else None,
+            "details": UpdatePolicyTemplateRequestDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "id": obj.get("id")
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-UpdatePolicyTemplateRequest.model_rebuild(raise_errors=False)
 

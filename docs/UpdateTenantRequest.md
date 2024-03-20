@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | **str** |  | 
-**request** | [**UpdateTenantRequest**](UpdateTenantRequest.md) |  | 
+**name** | [**Name**](Name.md) |  | [optional] 
+**domains** | [**Domains**](Domains.md) |  | [optional] 
+**timezone** | [**Timezone**](Timezone.md) |  | [optional] 
 
 ## Example
 

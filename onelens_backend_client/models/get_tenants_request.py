@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.tenant_filters import TenantFilters
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +27,8 @@ class GetTenantsRequest(BaseModel):
     """
     GetTenantsRequest
     """ # noqa: E501
-    request: GetTenantsRequest
-    __properties: ClassVar[List[str]] = ["request"]
+    filters: Optional[TenantFilters] = Field(default=None, description="Filters to apply to the policy templates.")
+    __properties: ClassVar[List[str]] = ["filters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,9 +69,9 @@ class GetTenantsRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of request
-        if self.request:
-            _dict['request'] = self.request.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of filters
+        if self.filters:
+            _dict['filters'] = self.filters.to_dict()
         return _dict
 
     @classmethod
@@ -83,10 +84,8 @@ class GetTenantsRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "request": GetTenantsRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
+            "filters": TenantFilters.from_dict(obj["filters"]) if obj.get("filters") is not None else None
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-GetTenantsRequest.model_rebuild(raise_errors=False)
 
