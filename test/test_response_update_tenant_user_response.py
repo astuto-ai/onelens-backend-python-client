@@ -36,7 +36,7 @@ class TestResponseUpdateTenantUserResponse(unittest.TestCase):
         if include_optional:
             return ResponseUpdateTenantUserResponse(
                 data = { },
-                message = None
+                message = ''
             )
         else:
             return ResponseUpdateTenantUserResponse(

@@ -19,11 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.description import Description
-from onelens_backend_client.models.services import Services
-from onelens_backend_client.models.title import Title
-from onelens_backend_client.models.update_policy_template_request_details import UpdatePolicyTemplateRequestDetails
-from onelens_backend_client.models.update_policy_template_request_execution_type import UpdatePolicyTemplateRequestExecutionType
+from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
+from onelens_backend_client.models.policy_template_details import PolicyTemplateDetails
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,11 +28,11 @@ class UpdatePolicyTemplateRequest(BaseModel):
     """
     UpdatePolicyTemplateRequest
     """ # noqa: E501
-    title: Optional[Title] = None
-    description: Optional[Description] = None
-    services: Optional[Services] = None
-    execution_type: Optional[UpdatePolicyTemplateRequestExecutionType] = None
-    details: Optional[UpdatePolicyTemplateRequestDetails] = None
+    title: Optional[StrictStr] = None
+    description: Optional[StrictStr] = None
+    services: Optional[Any] = None
+    execution_type: Optional[PolicyExecutionType] = None
+    details: Optional[PolicyTemplateDetails] = None
     id: StrictStr = Field(description="The unique identifier of the policy template.")
     __properties: ClassVar[List[str]] = ["title", "description", "services", "execution_type", "details", "id"]
 
@@ -78,21 +75,34 @@ class UpdatePolicyTemplateRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of title
-        if self.title:
-            _dict['title'] = self.title.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of description
-        if self.description:
-            _dict['description'] = self.description.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of services
-        if self.services:
-            _dict['services'] = self.services.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of execution_type
-        if self.execution_type:
-            _dict['execution_type'] = self.execution_type.to_dict()
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
+        # set to None if title (nullable) is None
+        # and model_fields_set contains the field
+        if self.title is None and "title" in self.model_fields_set:
+            _dict['title'] = None
+
+        # set to None if description (nullable) is None
+        # and model_fields_set contains the field
+        if self.description is None and "description" in self.model_fields_set:
+            _dict['description'] = None
+
+        # set to None if services (nullable) is None
+        # and model_fields_set contains the field
+        if self.services is None and "services" in self.model_fields_set:
+            _dict['services'] = None
+
+        # set to None if execution_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.execution_type is None and "execution_type" in self.model_fields_set:
+            _dict['execution_type'] = None
+
+        # set to None if details (nullable) is None
+        # and model_fields_set contains the field
+        if self.details is None and "details" in self.model_fields_set:
+            _dict['details'] = None
+
         return _dict
 
     @classmethod
@@ -105,11 +115,11 @@ class UpdatePolicyTemplateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "title": Title.from_dict(obj["title"]) if obj.get("title") is not None else None,
-            "description": Description.from_dict(obj["description"]) if obj.get("description") is not None else None,
-            "services": Services.from_dict(obj["services"]) if obj.get("services") is not None else None,
-            "execution_type": UpdatePolicyTemplateRequestExecutionType.from_dict(obj["execution_type"]) if obj.get("execution_type") is not None else None,
-            "details": UpdatePolicyTemplateRequestDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "title": obj.get("title"),
+            "description": obj.get("description"),
+            "services": obj.get("services"),
+            "execution_type": obj.get("execution_type"),
+            "details": PolicyTemplateDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "id": obj.get("id")
         })
         return _obj

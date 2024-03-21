@@ -39,7 +39,7 @@ class TestGetPolicyTemplatePackByIdResponse(unittest.TestCase):
                 category = 'COST_SAVING',
                 provider = 'AWS',
                 details = onelens_backend_client.models.policy_template_pack_details.PolicyTemplatePackDetails(
-                    source_schema = null, ),
+                    source_schema = onelens_backend_client.models.source_schema.source_schema(), ),
                 id = '',
                 state = 'DRAFT'
             )
@@ -49,7 +49,7 @@ class TestGetPolicyTemplatePackByIdResponse(unittest.TestCase):
                 category = 'COST_SAVING',
                 provider = 'AWS',
                 details = onelens_backend_client.models.policy_template_pack_details.PolicyTemplatePackDetails(
-                    source_schema = null, ),
+                    source_schema = onelens_backend_client.models.source_schema.source_schema(), ),
                 id = '',
                 state = 'DRAFT',
         )

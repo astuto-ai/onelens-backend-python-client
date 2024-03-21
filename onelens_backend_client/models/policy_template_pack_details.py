@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.source_schema import SourceSchema
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +26,7 @@ class PolicyTemplatePackDetails(BaseModel):
     """
     PolicyTemplatePackDetails
     """ # noqa: E501
-    source_schema: Optional[SourceSchema] = None
+    source_schema: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["source_schema"]
 
     model_config = ConfigDict(
@@ -69,9 +68,11 @@ class PolicyTemplatePackDetails(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of source_schema
-        if self.source_schema:
-            _dict['source_schema'] = self.source_schema.to_dict()
+        # set to None if source_schema (nullable) is None
+        # and model_fields_set contains the field
+        if self.source_schema is None and "source_schema" in self.model_fields_set:
+            _dict['source_schema'] = None
+
         return _dict
 
     @classmethod
@@ -84,7 +85,7 @@ class PolicyTemplatePackDetails(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "source_schema": SourceSchema.from_dict(obj["source_schema"]) if obj.get("source_schema") is not None else None
+            "source_schema": obj.get("source_schema")
         })
         return _obj
 

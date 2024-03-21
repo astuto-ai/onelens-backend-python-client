@@ -36,11 +36,11 @@ class TestPolicyTemplateDetails(unittest.TestCase):
         if include_optional:
             return PolicyTemplateDetails(
                 inputs = None,
-                config_schema = None,
-                output_violation_schema = None,
-                rule_type = None,
-                rule_definition = None,
-                default_policy_config = None
+                config_schema = onelens_backend_client.models.config_schema.config_schema(),
+                output_violation_schema = onelens_backend_client.models.output_violation_schema.output_violation_schema(),
+                rule_type = 'SQL',
+                rule_definition = '',
+                default_policy_config = onelens_backend_client.models.default_policy_config.default_policy_config()
             )
         else:
             return PolicyTemplateDetails(

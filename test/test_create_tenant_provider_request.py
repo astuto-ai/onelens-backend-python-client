@@ -37,9 +37,9 @@ class TestCreateTenantProviderRequest(unittest.TestCase):
             return CreateTenantProviderRequest(
                 cloud_provider = '',
                 cloud_id = '',
-                parent_id = None,
+                parent_id = '',
                 provider_config = onelens_backend_client.models.provider_config.Provider Config(),
-                tenant_id = None
+                tenant_id = ''
             )
         else:
             return CreateTenantProviderRequest(

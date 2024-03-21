@@ -24,7 +24,6 @@ from onelens_backend_client.models.policy_category import PolicyCategory
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_state import PolicyTemplateState
 from onelens_backend_client.models.provider import Provider
-from onelens_backend_client.models.search_query import SearchQuery
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +31,7 @@ class PolicyTemplateFilters(BaseModel):
     """
     PolicyTemplateFilters
     """ # noqa: E501
-    search_query: Optional[SearchQuery] = None
+    search_query: Optional[StrictStr] = None
     parent_ptp_ids: Optional[List[StrictStr]] = Field(default=None, description="Filter by parent policy template pack id.")
     states: Optional[List[PolicyTemplateState]] = Field(default=None, description="Filter by state. Default is ACTIVE.")
     categories: Optional[List[PolicyCategory]] = Field(default=None, description="Filter by type.")
@@ -80,9 +79,6 @@ class PolicyTemplateFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of search_query
-        if self.search_query:
-            _dict['search_query'] = self.search_query.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in services (list)
         _items = []
         if self.services:
@@ -90,6 +86,11 @@ class PolicyTemplateFilters(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['services'] = _items
+        # set to None if search_query (nullable) is None
+        # and model_fields_set contains the field
+        if self.search_query is None and "search_query" in self.model_fields_set:
+            _dict['search_query'] = None
+
         return _dict
 
     @classmethod
@@ -102,7 +103,7 @@ class PolicyTemplateFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "search_query": SearchQuery.from_dict(obj["search_query"]) if obj.get("search_query") is not None else None,
+            "search_query": obj.get("search_query"),
             "parent_ptp_ids": obj.get("parent_ptp_ids"),
             "states": obj.get("states"),
             "categories": obj.get("categories"),

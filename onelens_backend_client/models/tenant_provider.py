@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.parent_id import ParentId
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +28,7 @@ class TenantProvider(BaseModel):
     """ # noqa: E501
     cloud_provider: StrictStr = Field(description="Cloud provider")
     cloud_id: StrictStr = Field(description="Cloud ID")
-    parent_id: Optional[ParentId] = None
+    parent_id: Optional[StrictStr] = None
     provider_config: Dict[str, Any] = Field(description="provider config")
     id: StrictStr = Field(description="Unique ID for the Tenant Provider")
     is_parent_account: StrictBool = Field(description="billing account")
@@ -76,9 +75,11 @@ class TenantProvider(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of parent_id
-        if self.parent_id:
-            _dict['parent_id'] = self.parent_id.to_dict()
+        # set to None if parent_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.parent_id is None and "parent_id" in self.model_fields_set:
+            _dict['parent_id'] = None
+
         return _dict
 
     @classmethod
@@ -93,7 +94,7 @@ class TenantProvider(BaseModel):
         _obj = cls.model_validate({
             "cloud_provider": obj.get("cloud_provider"),
             "cloud_id": obj.get("cloud_id"),
-            "parent_id": ParentId.from_dict(obj["parent_id"]) if obj.get("parent_id") is not None else None,
+            "parent_id": obj.get("parent_id"),
             "provider_config": obj.get("provider_config"),
             "id": obj.get("id"),
             "is_parent_account": obj.get("is_parent_account"),

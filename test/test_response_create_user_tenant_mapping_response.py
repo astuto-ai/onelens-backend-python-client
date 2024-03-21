@@ -38,7 +38,7 @@ class TestResponseCreateUserTenantMappingResponse(unittest.TestCase):
                 data = onelens_backend_client.models.create_user_tenant_mapping_response.CreateUserTenantMappingResponse(
                     user_id = '', 
                     tenant_id = '', ),
-                message = None
+                message = ''
             )
         else:
             return ResponseCreateUserTenantMappingResponse(

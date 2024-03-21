@@ -35,8 +35,8 @@ class TestTenantUserUpdateFieldsMixin(unittest.TestCase):
         model = TenantUserUpdateFieldsMixin()
         if include_optional:
             return TenantUserUpdateFieldsMixin(
-                status = None,
-                role = None,
+                status = 'ACTIVE',
+                role = 'ADMIN',
                 sources = None
             )
         else:

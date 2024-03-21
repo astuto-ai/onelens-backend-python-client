@@ -36,7 +36,7 @@ class TestResponseCreateTenantUserResponse(unittest.TestCase):
         if include_optional:
             return ResponseCreateTenantUserResponse(
                 data = { },
-                message = None
+                message = ''
             )
         else:
             return ResponseCreateTenantUserResponse(
