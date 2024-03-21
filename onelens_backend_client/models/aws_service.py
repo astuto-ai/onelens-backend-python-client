@@ -31,6 +31,7 @@ class AwsService(str, Enum):
     RDS = 'RDS'
     EKS = 'EKS'
     ECS = 'ECS'
+    EBS = 'EBS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
