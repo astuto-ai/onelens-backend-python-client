@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.pagination_params import PaginationParams
+from onelens_backend_client.models.pagination_params import PaginationParams
 
 class TestPaginationParams(unittest.TestCase):
     """PaginationParams unit test stubs"""

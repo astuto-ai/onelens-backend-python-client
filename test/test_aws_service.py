@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.aws_service import AwsService
+from onelens_backend_client.models.aws_service import AwsService
 
 class TestAwsService(unittest.TestCase):
     """AwsService unit test stubs"""

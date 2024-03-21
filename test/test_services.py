@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.services import Services
+from onelens_backend_client.models.services import Services
 
 class TestServices(unittest.TestCase):
     """Services unit test stubs"""

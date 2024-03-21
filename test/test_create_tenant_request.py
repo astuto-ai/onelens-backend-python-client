@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_tenant_request import CreateTenantRequest
+from onelens_backend_client.models.create_tenant_request import CreateTenantRequest
 
 class TestCreateTenantRequest(unittest.TestCase):
     """CreateTenantRequest unit test stubs"""

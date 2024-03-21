@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.sources import Sources
+from onelens_backend_client.models.sources import Sources
 
 class TestSources(unittest.TestCase):
     """Sources unit test stubs"""

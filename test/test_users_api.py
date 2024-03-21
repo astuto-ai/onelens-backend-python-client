@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.users_api import UsersApi
+from onelens_backend_client.api.users_api import UsersApi
 
 
 class TestUsersApi(unittest.TestCase):
@@ -26,29 +26,29 @@ class TestUsersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_user_v1_users_post(self) -> None:
-        """Test case for create_user_v1_users_post
+    def test_create_user(self) -> None:
+        """Test case for create_user
 
         Create User
         """
         pass
 
-    def test_get_user_by_id_v1_users_user_id_get(self) -> None:
-        """Test case for get_user_by_id_v1_users_user_id_get
+    def test_get_user_by_id(self) -> None:
+        """Test case for get_user_by_id
 
         Get User By Id
         """
         pass
 
-    def test_get_users_v1_users_get(self) -> None:
-        """Test case for get_users_v1_users_get
+    def test_get_users(self) -> None:
+        """Test case for get_users
 
         Get Users
         """
         pass
 
-    def test_update_user_v1_users_put(self) -> None:
-        """Test case for update_user_v1_users_put
+    def test_update_user(self) -> None:
+        """Test case for update_user
 
         Update User
         """

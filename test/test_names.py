@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.names import Names
+from onelens_backend_client.models.names import Names
 
 class TestNames(unittest.TestCase):
     """Names unit test stubs"""

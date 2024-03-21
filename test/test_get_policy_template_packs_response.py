@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_policy_template_packs_response import GetPolicyTemplatePacksResponse
+from onelens_backend_client.models.get_policy_template_packs_response import GetPolicyTemplatePacksResponse
 
 class TestGetPolicyTemplatePacksResponse(unittest.TestCase):
     """GetPolicyTemplatePacksResponse unit test stubs"""
@@ -35,13 +35,13 @@ class TestGetPolicyTemplatePacksResponse(unittest.TestCase):
         model = GetPolicyTemplatePacksResponse()
         if include_optional:
             return GetPolicyTemplatePacksResponse(
-                pagination = openapi_client.models.pagination_fields.PaginationFields(
+                pagination = onelens_backend_client.models.pagination_fields.PaginationFields(
                     total_items = 56, 
                     total_pages = 56, 
                     current_page = 56, 
                     page_size = 56, ),
                 policy_template_packs = [
-                    openapi_client.models.policy_template_pack.PolicyTemplatePack(
+                    onelens_backend_client.models.policy_template_pack.PolicyTemplatePack(
                         alias = '', 
                         category = null, 
                         provider = null, 
@@ -52,13 +52,13 @@ class TestGetPolicyTemplatePacksResponse(unittest.TestCase):
             )
         else:
             return GetPolicyTemplatePacksResponse(
-                pagination = openapi_client.models.pagination_fields.PaginationFields(
+                pagination = onelens_backend_client.models.pagination_fields.PaginationFields(
                     total_items = 56, 
                     total_pages = 56, 
                     current_page = 56, 
                     page_size = 56, ),
                 policy_template_packs = [
-                    openapi_client.models.policy_template_pack.PolicyTemplatePack(
+                    onelens_backend_client.models.policy_template_pack.PolicyTemplatePack(
                         alias = '', 
                         category = null, 
                         provider = null, 

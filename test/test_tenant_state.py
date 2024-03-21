@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_state import TenantState
+from onelens_backend_client.models.tenant_state import TenantState
 
 class TestTenantState(unittest.TestCase):
     """TenantState unit test stubs"""

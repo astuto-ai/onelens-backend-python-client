@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.gcp_service import GcpService
+from onelens_backend_client.models.gcp_service import GcpService
 
 class TestGcpService(unittest.TestCase):
     """GcpService unit test stubs"""

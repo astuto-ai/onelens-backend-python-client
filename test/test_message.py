@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.message import Message
+from onelens_backend_client.models.message import Message
 
 class TestMessage(unittest.TestCase):
     """Message unit test stubs"""

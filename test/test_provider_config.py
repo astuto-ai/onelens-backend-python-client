@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.provider_config import ProviderConfig
+from onelens_backend_client.models.provider_config import ProviderConfig
 
 class TestProviderConfig(unittest.TestCase):
     """ProviderConfig unit test stubs"""

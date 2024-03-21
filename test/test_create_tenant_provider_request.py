@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_tenant_provider_request import CreateTenantProviderRequest
+from onelens_backend_client.models.create_tenant_provider_request import CreateTenantProviderRequest
 
 class TestCreateTenantProviderRequest(unittest.TestCase):
     """CreateTenantProviderRequest unit test stubs"""
@@ -38,14 +38,14 @@ class TestCreateTenantProviderRequest(unittest.TestCase):
                 cloud_provider = '',
                 cloud_id = '',
                 parent_id = None,
-                provider_config = openapi_client.models.provider_config.Provider Config(),
+                provider_config = onelens_backend_client.models.provider_config.Provider Config(),
                 tenant_id = None
             )
         else:
             return CreateTenantProviderRequest(
                 cloud_provider = '',
                 cloud_id = '',
-                provider_config = openapi_client.models.provider_config.Provider Config(),
+                provider_config = onelens_backend_client.models.provider_config.Provider Config(),
         )
         """
 

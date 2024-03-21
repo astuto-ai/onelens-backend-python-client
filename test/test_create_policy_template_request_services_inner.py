@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
 
 class TestCreatePolicyTemplateRequestServicesInner(unittest.TestCase):
     """CreatePolicyTemplateRequestServicesInner unit test stubs"""

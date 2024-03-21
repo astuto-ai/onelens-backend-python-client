@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_policy_templates_response import GetPolicyTemplatesResponse
+from onelens_backend_client.models.get_policy_templates_response import GetPolicyTemplatesResponse
 
 class TestGetPolicyTemplatesResponse(unittest.TestCase):
     """GetPolicyTemplatesResponse unit test stubs"""
@@ -35,15 +35,16 @@ class TestGetPolicyTemplatesResponse(unittest.TestCase):
         model = GetPolicyTemplatesResponse()
         if include_optional:
             return GetPolicyTemplatesResponse(
-                pagination = openapi_client.models.pagination_fields.PaginationFields(
+                pagination = onelens_backend_client.models.pagination_fields.PaginationFields(
                     total_items = 56, 
                     total_pages = 56, 
                     current_page = 56, 
                     page_size = 56, ),
                 policy_templates = [
-                    openapi_client.models.policy_template.PolicyTemplate(
+                    onelens_backend_client.models.policy_template.PolicyTemplate(
                         parent_ptp_id = '', 
                         title = '', 
+                        alias = '', 
                         description = '', 
                         services = [
                             null
@@ -58,15 +59,16 @@ class TestGetPolicyTemplatesResponse(unittest.TestCase):
             )
         else:
             return GetPolicyTemplatesResponse(
-                pagination = openapi_client.models.pagination_fields.PaginationFields(
+                pagination = onelens_backend_client.models.pagination_fields.PaginationFields(
                     total_items = 56, 
                     total_pages = 56, 
                     current_page = 56, 
                     page_size = 56, ),
                 policy_templates = [
-                    openapi_client.models.policy_template.PolicyTemplate(
+                    onelens_backend_client.models.policy_template.PolicyTemplate(
                         parent_ptp_id = '', 
                         title = '', 
+                        alias = '', 
                         description = '', 
                         services = [
                             null

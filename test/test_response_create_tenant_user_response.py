@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.response_create_tenant_user_response import ResponseCreateTenantUserResponse
+from onelens_backend_client.models.response_create_tenant_user_response import ResponseCreateTenantUserResponse
 
 class TestResponseCreateTenantUserResponse(unittest.TestCase):
     """ResponseCreateTenantUserResponse unit test stubs"""
@@ -41,7 +41,6 @@ class TestResponseCreateTenantUserResponse(unittest.TestCase):
         else:
             return ResponseCreateTenantUserResponse(
                 data = { },
-                message = None,
         )
         """
 

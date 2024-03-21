@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.response_create_user_tenant_mapping_response import ResponseCreateUserTenantMappingResponse
+from onelens_backend_client.models.response_create_user_tenant_mapping_response import ResponseCreateUserTenantMappingResponse
 
 class TestResponseCreateUserTenantMappingResponse(unittest.TestCase):
     """ResponseCreateUserTenantMappingResponse unit test stubs"""
@@ -35,17 +35,16 @@ class TestResponseCreateUserTenantMappingResponse(unittest.TestCase):
         model = ResponseCreateUserTenantMappingResponse()
         if include_optional:
             return ResponseCreateUserTenantMappingResponse(
-                data = openapi_client.models.create_user_tenant_mapping_response.CreateUserTenantMappingResponse(
+                data = onelens_backend_client.models.create_user_tenant_mapping_response.CreateUserTenantMappingResponse(
                     user_id = '', 
                     tenant_id = '', ),
                 message = None
             )
         else:
             return ResponseCreateUserTenantMappingResponse(
-                data = openapi_client.models.create_user_tenant_mapping_response.CreateUserTenantMappingResponse(
+                data = onelens_backend_client.models.create_user_tenant_mapping_response.CreateUserTenantMappingResponse(
                     user_id = '', 
                     tenant_id = '', ),
-                message = None,
         )
         """
 

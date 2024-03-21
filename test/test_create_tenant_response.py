@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_tenant_response import CreateTenantResponse
+from onelens_backend_client.models.create_tenant_response import CreateTenantResponse
 
 class TestCreateTenantResponse(unittest.TestCase):
     """CreateTenantResponse unit test stubs"""
@@ -40,7 +40,8 @@ class TestCreateTenantResponse(unittest.TestCase):
                     ''
                     ],
                 timezone = '',
-                id = ''
+                id = '',
+                tenant_state = 'ACTIVE'
             )
         else:
             return CreateTenantResponse(
@@ -50,6 +51,7 @@ class TestCreateTenantResponse(unittest.TestCase):
                     ],
                 timezone = '',
                 id = '',
+                tenant_state = 'ACTIVE',
         )
         """
 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.user_tenant_mapping_api import UserTenantMappingApi
+from onelens_backend_client.api.user_tenant_mapping_api import UserTenantMappingApi
 
 
 class TestUserTenantMappingApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestUserTenantMappingApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_user_tenant_mapping_v1_users_tenant_mapping_post(self) -> None:
-        """Test case for create_user_tenant_mapping_v1_users_tenant_mapping_post
+    def test_create_user_tenant_mapping(self) -> None:
+        """Test case for create_user_tenant_mapping
 
         Create User Tenant Mapping
         """

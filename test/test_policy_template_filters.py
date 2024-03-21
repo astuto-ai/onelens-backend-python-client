@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.policy_template_filters import PolicyTemplateFilters
+from onelens_backend_client.models.policy_template_filters import PolicyTemplateFilters
 
 class TestPolicyTemplateFilters(unittest.TestCase):
     """PolicyTemplateFilters unit test stubs"""

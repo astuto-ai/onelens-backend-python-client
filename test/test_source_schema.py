@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.source_schema import SourceSchema
+from onelens_backend_client.models.source_schema import SourceSchema
 
 class TestSourceSchema(unittest.TestCase):
     """SourceSchema unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_user_by_id_response import GetUserByIDResponse
+from onelens_backend_client.models.get_user_by_id_response import GetUserByIDResponse
 
 class TestGetUserByIDResponse(unittest.TestCase):
     """GetUserByIDResponse unit test stubs"""

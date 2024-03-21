@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.rule_type import RuleType
+from onelens_backend_client.models.rule_type import RuleType
 
 class TestRuleType(unittest.TestCase):
     """RuleType unit test stubs"""

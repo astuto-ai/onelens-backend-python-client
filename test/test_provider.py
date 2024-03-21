@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.provider import Provider
+from onelens_backend_client.models.provider import Provider
 
 class TestProvider(unittest.TestCase):
     """Provider unit test stubs"""

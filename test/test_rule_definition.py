@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.rule_definition import RuleDefinition
+from onelens_backend_client.models.rule_definition import RuleDefinition
 
 class TestRuleDefinition(unittest.TestCase):
     """RuleDefinition unit test stubs"""

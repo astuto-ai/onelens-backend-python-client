@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.states import States
+from onelens_backend_client.models.states import States
 
 class TestStates(unittest.TestCase):
     """States unit test stubs"""

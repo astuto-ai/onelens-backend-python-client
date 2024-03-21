@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.response_get_tenant_provider_by_id_response import ResponseGetTenantProviderByIDResponse
+from onelens_backend_client.models.response_get_tenant_provider_by_id_response import ResponseGetTenantProviderByIDResponse
 
 class TestResponseGetTenantProviderByIDResponse(unittest.TestCase):
     """ResponseGetTenantProviderByIDResponse unit test stubs"""
@@ -35,11 +35,11 @@ class TestResponseGetTenantProviderByIDResponse(unittest.TestCase):
         model = ResponseGetTenantProviderByIDResponse()
         if include_optional:
             return ResponseGetTenantProviderByIDResponse(
-                data = openapi_client.models.get_tenant_provider_by_id_response.GetTenantProviderByIDResponse(
+                data = onelens_backend_client.models.get_tenant_provider_by_id_response.GetTenantProviderByIDResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
                     parent_id = null, 
-                    provider_config = openapi_client.models.provider_config.Provider Config(), 
+                    provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 
                     is_verified = True, 
@@ -48,16 +48,15 @@ class TestResponseGetTenantProviderByIDResponse(unittest.TestCase):
             )
         else:
             return ResponseGetTenantProviderByIDResponse(
-                data = openapi_client.models.get_tenant_provider_by_id_response.GetTenantProviderByIDResponse(
+                data = onelens_backend_client.models.get_tenant_provider_by_id_response.GetTenantProviderByIDResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
                     parent_id = null, 
-                    provider_config = openapi_client.models.provider_config.Provider Config(), 
+                    provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 
                     is_verified = True, 
                     state = '', ),
-                message = None,
         )
         """
 

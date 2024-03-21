@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.response_disable_tenant_provider_response import ResponseDisableTenantProviderResponse
+from onelens_backend_client.models.response_disable_tenant_provider_response import ResponseDisableTenantProviderResponse
 
 class TestResponseDisableTenantProviderResponse(unittest.TestCase):
     """ResponseDisableTenantProviderResponse unit test stubs"""
@@ -35,13 +35,12 @@ class TestResponseDisableTenantProviderResponse(unittest.TestCase):
         model = ResponseDisableTenantProviderResponse()
         if include_optional:
             return ResponseDisableTenantProviderResponse(
-                data = openapi_client.models.disable_tenant_provider_response.DisableTenantProviderResponse(),
+                data = onelens_backend_client.models.disable_tenant_provider_response.DisableTenantProviderResponse(),
                 message = None
             )
         else:
             return ResponseDisableTenantProviderResponse(
-                data = openapi_client.models.disable_tenant_provider_response.DisableTenantProviderResponse(),
-                message = None,
+                data = onelens_backend_client.models.disable_tenant_provider_response.DisableTenantProviderResponse(),
         )
         """
 

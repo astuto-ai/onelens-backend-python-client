@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_user_update_fields_mixin_status import TenantUserUpdateFieldsMixinStatus
+from onelens_backend_client.models.tenant_user_update_fields_mixin_status import TenantUserUpdateFieldsMixinStatus
 
 class TestTenantUserUpdateFieldsMixinStatus(unittest.TestCase):
     """TenantUserUpdateFieldsMixinStatus unit test stubs"""

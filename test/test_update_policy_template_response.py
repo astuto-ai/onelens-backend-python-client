@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.update_policy_template_response import UpdatePolicyTemplateResponse
+from onelens_backend_client.models.update_policy_template_response import UpdatePolicyTemplateResponse
 
 class TestUpdatePolicyTemplateResponse(unittest.TestCase):
     """UpdatePolicyTemplateResponse unit test stubs"""
@@ -37,12 +37,13 @@ class TestUpdatePolicyTemplateResponse(unittest.TestCase):
             return UpdatePolicyTemplateResponse(
                 parent_ptp_id = '',
                 title = '',
+                alias = '',
                 description = '',
                 services = [
                     null
                     ],
                 execution_type = 'DETECTIVE',
-                details = openapi_client.models.policy_template_details.PolicyTemplateDetails(
+                details = onelens_backend_client.models.policy_template_details.PolicyTemplateDetails(
                     inputs = null, 
                     config_schema = null, 
                     output_violation_schema = null, 
@@ -58,11 +59,12 @@ class TestUpdatePolicyTemplateResponse(unittest.TestCase):
             return UpdatePolicyTemplateResponse(
                 parent_ptp_id = '',
                 title = '',
+                alias = '',
                 services = [
                     null
                     ],
                 execution_type = 'DETECTIVE',
-                details = openapi_client.models.policy_template_details.PolicyTemplateDetails(
+                details = onelens_backend_client.models.policy_template_details.PolicyTemplateDetails(
                     inputs = null, 
                     config_schema = null, 
                     output_violation_schema = null, 

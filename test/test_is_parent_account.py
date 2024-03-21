@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.is_parent_account import IsParentAccount
+from onelens_backend_client.models.is_parent_account import IsParentAccount
 
 class TestIsParentAccount(unittest.TestCase):
     """IsParentAccount unit test stubs"""

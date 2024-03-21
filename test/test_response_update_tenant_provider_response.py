@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.response_update_tenant_provider_response import ResponseUpdateTenantProviderResponse
+from onelens_backend_client.models.response_update_tenant_provider_response import ResponseUpdateTenantProviderResponse
 
 class TestResponseUpdateTenantProviderResponse(unittest.TestCase):
     """ResponseUpdateTenantProviderResponse unit test stubs"""
@@ -35,11 +35,11 @@ class TestResponseUpdateTenantProviderResponse(unittest.TestCase):
         model = ResponseUpdateTenantProviderResponse()
         if include_optional:
             return ResponseUpdateTenantProviderResponse(
-                data = openapi_client.models.update_tenant_provider_response.UpdateTenantProviderResponse(
+                data = onelens_backend_client.models.update_tenant_provider_response.UpdateTenantProviderResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
                     parent_id = null, 
-                    provider_config = openapi_client.models.provider_config.Provider Config(), 
+                    provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 
                     is_verified = True, 
@@ -48,16 +48,15 @@ class TestResponseUpdateTenantProviderResponse(unittest.TestCase):
             )
         else:
             return ResponseUpdateTenantProviderResponse(
-                data = openapi_client.models.update_tenant_provider_response.UpdateTenantProviderResponse(
+                data = onelens_backend_client.models.update_tenant_provider_response.UpdateTenantProviderResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
                     parent_id = null, 
-                    provider_config = openapi_client.models.provider_config.Provider Config(), 
+                    provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 
                     is_verified = True, 
                     state = '', ),
-                message = None,
         )
         """
 

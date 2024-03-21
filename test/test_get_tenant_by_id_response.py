@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_tenant_by_id_response import GetTenantByIDResponse
+from onelens_backend_client.models.get_tenant_by_id_response import GetTenantByIDResponse
 
 class TestGetTenantByIDResponse(unittest.TestCase):
     """GetTenantByIDResponse unit test stubs"""
@@ -41,7 +41,7 @@ class TestGetTenantByIDResponse(unittest.TestCase):
                     ],
                 timezone = '',
                 id = '',
-                tenant_state = ''
+                tenant_state = 'ACTIVE'
             )
         else:
             return GetTenantByIDResponse(
@@ -51,7 +51,7 @@ class TestGetTenantByIDResponse(unittest.TestCase):
                     ],
                 timezone = '',
                 id = '',
-                tenant_state = '',
+                tenant_state = 'ACTIVE',
         )
         """
 

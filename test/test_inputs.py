@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.inputs import Inputs
+from onelens_backend_client.models.inputs import Inputs
 
 class TestInputs(unittest.TestCase):
     """Inputs unit test stubs"""

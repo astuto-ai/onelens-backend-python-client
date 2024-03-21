@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.update_tenant_response import UpdateTenantResponse
+from onelens_backend_client.models.update_tenant_response import UpdateTenantResponse
 
 class TestUpdateTenantResponse(unittest.TestCase):
     """UpdateTenantResponse unit test stubs"""
@@ -41,7 +41,7 @@ class TestUpdateTenantResponse(unittest.TestCase):
                     ],
                 timezone = '',
                 id = '',
-                tenant_state = ''
+                tenant_state = 'ACTIVE'
             )
         else:
             return UpdateTenantResponse(
@@ -51,7 +51,7 @@ class TestUpdateTenantResponse(unittest.TestCase):
                     ],
                 timezone = '',
                 id = '',
-                tenant_state = '',
+                tenant_state = 'ACTIVE',
         )
         """
 

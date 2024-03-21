@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_tenant_user_request import CreateTenantUserRequest
+from onelens_backend_client.models.create_tenant_user_request import CreateTenantUserRequest
 
 class TestCreateTenantUserRequest(unittest.TestCase):
     """CreateTenantUserRequest unit test stubs"""
@@ -35,11 +35,18 @@ class TestCreateTenantUserRequest(unittest.TestCase):
         model = CreateTenantUserRequest()
         if include_optional:
             return CreateTenantUserRequest(
-                ol_user_id = ''
+                ol_user_id = '',
+                role = None,
+                sources = [
+                    ''
+                    ]
             )
         else:
             return CreateTenantUserRequest(
                 ol_user_id = '',
+                sources = [
+                    ''
+                    ],
         )
         """
 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.tenant_users_api import TenantUsersApi
+from onelens_backend_client.api.tenant_users_api import TenantUsersApi
 
 
 class TestTenantUsersApi(unittest.TestCase):
@@ -26,10 +26,17 @@ class TestTenantUsersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_tenant_user_v1_users_tenant_post(self) -> None:
-        """Test case for create_tenant_user_v1_users_tenant_post
+    def test_create_tenant_user(self) -> None:
+        """Test case for create_tenant_user
 
-        Create Tenant User
+        Create a new user in the Tenant Database.
+        """
+        pass
+
+    def test_update_tenant_user(self) -> None:
+        """Test case for update_tenant_user
+
+        Update a user in the Tenant Database.
         """
         pass
 

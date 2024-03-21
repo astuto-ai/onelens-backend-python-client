@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.default_policy_config import DefaultPolicyConfig
+from onelens_backend_client.models.default_policy_config import DefaultPolicyConfig
 
 class TestDefaultPolicyConfig(unittest.TestCase):
     """DefaultPolicyConfig unit test stubs"""

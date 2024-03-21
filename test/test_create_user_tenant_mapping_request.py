@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_user_tenant_mapping_request import CreateUserTenantMappingRequest
+from onelens_backend_client.models.create_user_tenant_mapping_request import CreateUserTenantMappingRequest
 
 class TestCreateUserTenantMappingRequest(unittest.TestCase):
     """CreateUserTenantMappingRequest unit test stubs"""

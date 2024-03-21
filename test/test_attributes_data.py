@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.attributes_data import AttributesData
+from onelens_backend_client.models.attributes_data import AttributesData
 
 class TestAttributesData(unittest.TestCase):
     """AttributesData unit test stubs"""

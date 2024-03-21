@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.cloud_id import CloudId
+from onelens_backend_client.models.cloud_id import CloudId
 
 class TestCloudId(unittest.TestCase):
     """CloudId unit test stubs"""

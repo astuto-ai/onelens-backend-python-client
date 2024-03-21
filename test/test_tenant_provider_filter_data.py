@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_provider_filter_data import TenantProviderFilterData
+from onelens_backend_client.models.tenant_provider_filter_data import TenantProviderFilterData
 
 class TestTenantProviderFilterData(unittest.TestCase):
     """TenantProviderFilterData unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_tenant_provider_by_id_response import GetTenantProviderByIDResponse
+from onelens_backend_client.models.get_tenant_provider_by_id_response import GetTenantProviderByIDResponse
 
 class TestGetTenantProviderByIDResponse(unittest.TestCase):
     """GetTenantProviderByIDResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestGetTenantProviderByIDResponse(unittest.TestCase):
                 cloud_provider = '',
                 cloud_id = '',
                 parent_id = None,
-                provider_config = openapi_client.models.provider_config.Provider Config(),
+                provider_config = onelens_backend_client.models.provider_config.Provider Config(),
                 id = '',
                 is_parent_account = True,
                 is_verified = True,
@@ -48,7 +48,7 @@ class TestGetTenantProviderByIDResponse(unittest.TestCase):
             return GetTenantProviderByIDResponse(
                 cloud_provider = '',
                 cloud_id = '',
-                provider_config = openapi_client.models.provider_config.Provider Config(),
+                provider_config = onelens_backend_client.models.provider_config.Provider Config(),
                 id = '',
                 is_parent_account = True,
                 is_verified = True,

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_user_update_fields_mixin_role import TenantUserUpdateFieldsMixinRole
+from onelens_backend_client.models.tenant_user_update_fields_mixin_role import TenantUserUpdateFieldsMixinRole
 
 class TestTenantUserUpdateFieldsMixinRole(unittest.TestCase):
     """TenantUserUpdateFieldsMixinRole unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.update_tenant_provider_request import UpdateTenantProviderRequest
+from onelens_backend_client.models.update_tenant_provider_request import UpdateTenantProviderRequest
 
 class TestUpdateTenantProviderRequest(unittest.TestCase):
     """UpdateTenantProviderRequest unit test stubs"""

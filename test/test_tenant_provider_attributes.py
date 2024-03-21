@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_provider_attributes import TenantProviderAttributes
+from onelens_backend_client.models.tenant_provider_attributes import TenantProviderAttributes
 
 class TestTenantProviderAttributes(unittest.TestCase):
     """TenantProviderAttributes unit test stubs"""

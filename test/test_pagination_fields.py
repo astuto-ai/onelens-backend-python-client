@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.pagination_fields import PaginationFields
+from onelens_backend_client.models.pagination_fields import PaginationFields
 
 class TestPaginationFields(unittest.TestCase):
     """PaginationFields unit test stubs"""

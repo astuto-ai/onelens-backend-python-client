@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.tenants_tenant_provider_verify_api import TenantsTenantProviderVerifyApi
+from onelens_backend_client.api.tenants_tenant_provider_verify_api import TenantsTenantProviderVerifyApi
 
 
 class TestTenantsTenantProviderVerifyApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestTenantsTenantProviderVerifyApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post(self) -> None:
-        """Test case for verify_tenant_v1_tenants_tenant_id_providers_tenant_provider_id_verify_post
+    def test_verify_tenant(self) -> None:
+        """Test case for verify_tenant
 
         Verify Tenant
         """

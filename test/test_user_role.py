@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_role import UserRole
+from onelens_backend_client.models.user_role import UserRole
 
 class TestUserRole(unittest.TestCase):
     """UserRole unit test stubs"""

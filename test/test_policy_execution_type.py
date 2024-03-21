@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.policy_execution_type import PolicyExecutionType
+from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 
 class TestPolicyExecutionType(unittest.TestCase):
     """PolicyExecutionType unit test stubs"""

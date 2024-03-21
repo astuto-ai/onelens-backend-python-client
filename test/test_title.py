@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.title import Title
+from onelens_backend_client.models.title import Title
 
 class TestTitle(unittest.TestCase):
     """Title unit test stubs"""

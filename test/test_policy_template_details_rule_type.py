@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.policy_template_details_rule_type import PolicyTemplateDetailsRuleType
+from onelens_backend_client.models.policy_template_details_rule_type import PolicyTemplateDetailsRuleType
 
 class TestPolicyTemplateDetailsRuleType(unittest.TestCase):
     """PolicyTemplateDetailsRuleType unit test stubs"""

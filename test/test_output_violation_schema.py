@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.output_violation_schema import OutputViolationSchema
+from onelens_backend_client.models.output_violation_schema import OutputViolationSchema
 
 class TestOutputViolationSchema(unittest.TestCase):
     """OutputViolationSchema unit test stubs"""

@@ -26,52 +26,52 @@ class TestPolicyTemplateServiceApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_route_policy_template_service_activate_policy_template_post(self) -> None:
-        """Test case for route_policy_template_service_activate_policy_template_post
+    def test_activate_policy_template(self) -> None:
+        """Test case for activate_policy_template
 
-        Automatically generated endpoint for activate_policy_template
+        Deprecate a policy template.
         """
         pass
 
-    def test_route_policy_template_service_create_policy_template_post(self) -> None:
-        """Test case for route_policy_template_service_create_policy_template_post
+    def test_create_policy_template(self) -> None:
+        """Test case for create_policy_template
 
-        Automatically generated endpoint for create_policy_template
+        Creates a new policy template.
         """
         pass
 
-    def test_route_policy_template_service_deactivate_policy_template_post(self) -> None:
-        """Test case for route_policy_template_service_deactivate_policy_template_post
+    def test_deactivate_policy_template(self) -> None:
+        """Test case for deactivate_policy_template
 
-        Automatically generated endpoint for deactivate_policy_template
+        Deprecate a policy template.
         """
         pass
 
-    def test_route_policy_template_service_deprecate_policy_template_post(self) -> None:
-        """Test case for route_policy_template_service_deprecate_policy_template_post
+    def test_deprecate_policy_template(self) -> None:
+        """Test case for deprecate_policy_template
 
-        Automatically generated endpoint for deprecate_policy_template
+        Deprecate a policy template.
         """
         pass
 
-    def test_route_policy_template_service_get_policy_template_by_id_post(self) -> None:
-        """Test case for route_policy_template_service_get_policy_template_by_id_post
+    def test_get_policy_template_by_id(self) -> None:
+        """Test case for get_policy_template_by_id
 
-        Automatically generated endpoint for get_policy_template_by_id
+        Retrieves a policy template by its unique identifier.
         """
         pass
 
-    def test_route_policy_template_service_get_policy_templates_post(self) -> None:
-        """Test case for route_policy_template_service_get_policy_templates_post
+    def test_get_policy_templates(self) -> None:
+        """Test case for get_policy_templates
 
-        Automatically generated endpoint for get_policy_templates
+        Retrieves all policy templates, optionally filtered by the parameters in the request.
         """
         pass
 
-    def test_route_policy_template_service_update_policy_template_post(self) -> None:
-        """Test case for route_policy_template_service_update_policy_template_post
+    def test_update_policy_template(self) -> None:
+        """Test case for update_policy_template
 
-        Automatically generated endpoint for update_policy_template
+        Updates an existing policy template.
         """
         pass
 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_policy_template_packs_request import GetPolicyTemplatePacksRequest
+from onelens_backend_client.models.get_policy_template_packs_request import GetPolicyTemplatePacksRequest
 
 class TestGetPolicyTemplatePacksRequest(unittest.TestCase):
     """GetPolicyTemplatePacksRequest unit test stubs"""
@@ -35,7 +35,7 @@ class TestGetPolicyTemplatePacksRequest(unittest.TestCase):
         model = GetPolicyTemplatePacksRequest()
         if include_optional:
             return GetPolicyTemplatePacksRequest(
-                pagination = openapi_client.models.pagination_params.PaginationParams(
+                pagination = onelens_backend_client.models.pagination_params.PaginationParams(
                     page = 56, 
                     page_size = 56, )
             )

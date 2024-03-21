@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.is_verified import IsVerified
+from onelens_backend_client.models.is_verified import IsVerified
 
 class TestIsVerified(unittest.TestCase):
     """IsVerified unit test stubs"""

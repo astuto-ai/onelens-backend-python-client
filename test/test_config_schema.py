@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.config_schema import ConfigSchema
+from onelens_backend_client.models.config_schema import ConfigSchema
 
 class TestConfigSchema(unittest.TestCase):
     """ConfigSchema unit test stubs"""

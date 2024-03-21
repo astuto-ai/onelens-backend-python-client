@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_verify_request import TenantVerifyRequest
+from onelens_backend_client.models.tenant_verify_request import TenantVerifyRequest
 
 class TestTenantVerifyRequest(unittest.TestCase):
     """TenantVerifyRequest unit test stubs"""

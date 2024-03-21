@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_user_response import CreateUserResponse
+from onelens_backend_client.models.create_user_response import CreateUserResponse
 
 class TestCreateUserResponse(unittest.TestCase):
     """CreateUserResponse unit test stubs"""

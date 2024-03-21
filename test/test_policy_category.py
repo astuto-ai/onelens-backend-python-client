@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.policy_category import PolicyCategory
+from onelens_backend_client.models.policy_category import PolicyCategory
 
 class TestPolicyCategory(unittest.TestCase):
     """PolicyCategory unit test stubs"""

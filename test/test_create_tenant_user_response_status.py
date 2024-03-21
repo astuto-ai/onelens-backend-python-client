@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_tenant_user_response_status import CreateTenantUserResponseStatus
+from onelens_backend_client.models.create_tenant_user_response_status import CreateTenantUserResponseStatus
 
 class TestCreateTenantUserResponseStatus(unittest.TestCase):
     """CreateTenantUserResponseStatus unit test stubs"""

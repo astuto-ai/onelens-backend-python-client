@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.parent_id import ParentId
+from onelens_backend_client.models.parent_id import ParentId
 
 class TestParentId(unittest.TestCase):
     """ParentId unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.search_query import SearchQuery
+from onelens_backend_client.models.search_query import SearchQuery
 
 class TestSearchQuery(unittest.TestCase):
     """SearchQuery unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_ids import TenantIds
+from onelens_backend_client.models.tenant_ids import TenantIds
 
 class TestTenantIds(unittest.TestCase):
     """TenantIds unit test stubs"""

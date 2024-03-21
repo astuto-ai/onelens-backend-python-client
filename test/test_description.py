@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.description import Description
+from onelens_backend_client.models.description import Description
 
 class TestDescription(unittest.TestCase):
     """Description unit test stubs"""

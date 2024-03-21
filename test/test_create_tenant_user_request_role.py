@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_tenant_user_request_role import CreateTenantUserRequestRole
+from onelens_backend_client.models.create_tenant_user_request_role import CreateTenantUserRequestRole
 
 class TestCreateTenantUserRequestRole(unittest.TestCase):
     """CreateTenantUserRequestRole unit test stubs"""

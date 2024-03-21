@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_policy_template_request import CreatePolicyTemplateRequest
+from onelens_backend_client.models.create_policy_template_request import CreatePolicyTemplateRequest
 
 class TestCreatePolicyTemplateRequest(unittest.TestCase):
     """CreatePolicyTemplateRequest unit test stubs"""
@@ -37,12 +37,13 @@ class TestCreatePolicyTemplateRequest(unittest.TestCase):
             return CreatePolicyTemplateRequest(
                 parent_ptp_id = '',
                 title = '',
+                alias = '',
                 description = '',
                 services = [
                     null
                     ],
                 execution_type = 'DETECTIVE',
-                details = openapi_client.models.policy_template_details.PolicyTemplateDetails(
+                details = onelens_backend_client.models.policy_template_details.PolicyTemplateDetails(
                     inputs = null, 
                     config_schema = null, 
                     output_violation_schema = null, 
@@ -54,11 +55,12 @@ class TestCreatePolicyTemplateRequest(unittest.TestCase):
             return CreatePolicyTemplateRequest(
                 parent_ptp_id = '',
                 title = '',
+                alias = '',
                 services = [
                     null
                     ],
                 execution_type = 'DETECTIVE',
-                details = openapi_client.models.policy_template_details.PolicyTemplateDetails(
+                details = onelens_backend_client.models.policy_template_details.PolicyTemplateDetails(
                     inputs = null, 
                     config_schema = null, 
                     output_violation_schema = null, 

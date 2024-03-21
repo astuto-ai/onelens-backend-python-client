@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.update_tenant_user_response import UpdateTenantUserResponse
+from onelens_backend_client.models.update_tenant_user_response import UpdateTenantUserResponse
 
 class TestUpdateTenantUserResponse(unittest.TestCase):
     """UpdateTenantUserResponse unit test stubs"""

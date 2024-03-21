@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_all_users_response import GetAllUsersResponse
+from onelens_backend_client.models.get_all_users_response import GetAllUsersResponse
 
 class TestGetAllUsersResponse(unittest.TestCase):
     """GetAllUsersResponse unit test stubs"""

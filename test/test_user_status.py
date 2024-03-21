@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_status import UserStatus
+from onelens_backend_client.models.user_status import UserStatus
 
 class TestUserStatus(unittest.TestCase):
     """UserStatus unit test stubs"""

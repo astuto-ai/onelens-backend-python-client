@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.create_policy_template_pack_response import CreatePolicyTemplatePackResponse
+from onelens_backend_client.models.create_policy_template_pack_response import CreatePolicyTemplatePackResponse
 
 class TestCreatePolicyTemplatePackResponse(unittest.TestCase):
     """CreatePolicyTemplatePackResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestCreatePolicyTemplatePackResponse(unittest.TestCase):
                 alias = '',
                 category = 'COST_SAVING',
                 provider = 'AWS',
-                details = openapi_client.models.policy_template_pack_details.PolicyTemplatePackDetails(
+                details = onelens_backend_client.models.policy_template_pack_details.PolicyTemplatePackDetails(
                     source_schema = null, ),
                 id = '',
                 state = 'DRAFT'
@@ -48,7 +48,7 @@ class TestCreatePolicyTemplatePackResponse(unittest.TestCase):
                 alias = '',
                 category = 'COST_SAVING',
                 provider = 'AWS',
-                details = openapi_client.models.policy_template_pack_details.PolicyTemplatePackDetails(
+                details = onelens_backend_client.models.policy_template_pack_details.PolicyTemplatePackDetails(
                     source_schema = null, ),
                 id = '',
                 state = 'DRAFT',

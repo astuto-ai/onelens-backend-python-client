@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.default_api import DefaultApi
+from onelens_backend_client.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):
@@ -26,8 +26,8 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_root_get(self) -> None:
-        """Test case for root_get
+    def test_root(self) -> None:
+        """Test case for root
 
         Root
         """

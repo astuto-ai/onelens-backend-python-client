@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.tenants_tenants_providers_api import TenantsTenantsProvidersApi
+from onelens_backend_client.api.tenants_tenants_providers_api import TenantsTenantsProvidersApi
 
 
 class TestTenantsTenantsProvidersApi(unittest.TestCase):
@@ -26,36 +26,36 @@ class TestTenantsTenantsProvidersApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_tenant_provider_v1_tenants_tenant_id_providers_post(self) -> None:
-        """Test case for create_tenant_provider_v1_tenants_tenant_id_providers_post
+    def test_create_tenant_provider(self) -> None:
+        """Test case for create_tenant_provider
 
         Create Tenant Provider
         """
         pass
 
-    def test_disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put(self) -> None:
-        """Test case for disable_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_disable_put
+    def test_disable_tenant_provider(self) -> None:
+        """Test case for disable_tenant_provider
 
         Disable Tenant Provider
         """
         pass
 
-    def test_get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get(self) -> None:
-        """Test case for get_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_get
+    def test_get_tenant_provider(self) -> None:
+        """Test case for get_tenant_provider
 
         Get Tenant Provider
         """
         pass
 
-    def test_get_tenant_providers_v1_tenants_fetch_post(self) -> None:
-        """Test case for get_tenant_providers_v1_tenants_fetch_post
+    def test_get_tenant_providers(self) -> None:
+        """Test case for get_tenant_providers
 
         Get Tenant Providers
         """
         pass
 
-    def test_update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put(self) -> None:
-        """Test case for update_tenant_provider_v1_tenants_tenant_id_providers_tenant_provider_id_put
+    def test_update_tenant_provider(self) -> None:
+        """Test case for update_tenant_provider
 
         Update Tenant Provider
         """

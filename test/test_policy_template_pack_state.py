@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.policy_template_pack_state import PolicyTemplatePackState
+from onelens_backend_client.models.policy_template_pack_state import PolicyTemplatePackState
 
 class TestPolicyTemplatePackState(unittest.TestCase):
     """PolicyTemplatePackState unit test stubs"""

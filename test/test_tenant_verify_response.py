@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_verify_response import TenantVerifyResponse
+from onelens_backend_client.models.tenant_verify_response import TenantVerifyResponse
 
 class TestTenantVerifyResponse(unittest.TestCase):
     """TenantVerifyResponse unit test stubs"""
@@ -36,12 +36,12 @@ class TestTenantVerifyResponse(unittest.TestCase):
         if include_optional:
             return TenantVerifyResponse(
                 verified = True,
-                accounts = openapi_client.models.accounts.Accounts()
+                accounts = onelens_backend_client.models.accounts.Accounts()
             )
         else:
             return TenantVerifyResponse(
                 verified = True,
-                accounts = openapi_client.models.accounts.Accounts(),
+                accounts = onelens_backend_client.models.accounts.Accounts(),
         )
         """
 

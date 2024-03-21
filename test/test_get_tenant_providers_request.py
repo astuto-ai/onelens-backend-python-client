@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.get_tenant_providers_request import GetTenantProvidersRequest
+from onelens_backend_client.models.get_tenant_providers_request import GetTenantProvidersRequest
 
 class TestGetTenantProvidersRequest(unittest.TestCase):
     """GetTenantProvidersRequest unit test stubs"""
@@ -35,7 +35,7 @@ class TestGetTenantProvidersRequest(unittest.TestCase):
         model = GetTenantProvidersRequest()
         if include_optional:
             return GetTenantProvidersRequest(
-                filters = openapi_client.models.tenant_provider_filters.TenantProviderFilters(
+                filters = onelens_backend_client.models.tenant_provider_filters.TenantProviderFilters(
                     tenant_ids = null, 
                     cloud_ids = null, 
                     cloud_providers = null, 

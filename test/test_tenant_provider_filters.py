@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tenant_provider_filters import TenantProviderFilters
+from onelens_backend_client.models.tenant_provider_filters import TenantProviderFilters
 
 class TestTenantProviderFilters(unittest.TestCase):
     """TenantProviderFilters unit test stubs"""

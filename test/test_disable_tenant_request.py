@@ -35,13 +35,11 @@ class TestDisableTenantRequest(unittest.TestCase):
         model = DisableTenantRequest()
         if include_optional:
             return DisableTenantRequest(
-                request = onelens_backend_client.models.disable_tenant_request.DisableTenantRequest(
-                    id = '', )
+                id = ''
             )
         else:
             return DisableTenantRequest(
-                request = onelens_backend_client.models.disable_tenant_request.DisableTenantRequest(
-                    id = '', ),
+                id = '',
         )
         """
 
