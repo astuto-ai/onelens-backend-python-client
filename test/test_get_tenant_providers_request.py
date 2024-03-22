@@ -40,8 +40,8 @@ class TestGetTenantProvidersRequest(unittest.TestCase):
                     cloud_ids = null, 
                     cloud_providers = null, 
                     parent_ids = null, 
-                    is_parent_account = True, 
-                    is_verified = True, 
+                    is_parent_account = null, 
+                    is_verified = null, 
                     states = null, ),
                 attributes = [
                     'role_arn'

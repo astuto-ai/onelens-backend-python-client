@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_ids** | **object** |  | [optional] 
-**cloud_ids** | **object** |  | [optional] 
-**cloud_providers** | **object** |  | [optional] 
-**parent_ids** | **object** |  | [optional] 
-**is_parent_account** | **bool** |  | [optional] 
-**is_verified** | **bool** |  | [optional] 
-**states** | **object** |  | [optional] 
+**tenant_ids** | [**TenantIds**](TenantIds.md) |  | [optional] 
+**cloud_ids** | [**CloudIds**](CloudIds.md) |  | [optional] 
+**cloud_providers** | [**CloudProviders**](CloudProviders.md) |  | [optional] 
+**parent_ids** | [**ParentIds**](ParentIds.md) |  | [optional] 
+**is_parent_account** | [**IsParentAccount**](IsParentAccount.md) |  | [optional] 
+**is_verified** | [**IsVerified**](IsVerified.md) |  | [optional] 
+**states** | [**States**](States.md) |  | [optional] 
 
 ## Example
 

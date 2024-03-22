@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**names** | **object** |  | [optional] 
-**tenant_states** | **object** |  | [optional] 
+**names** | [**Names**](Names.md) |  | [optional] 
+**tenant_states** | [**TenantStates**](TenantStates.md) |  | [optional] 
 
 ## Example
 

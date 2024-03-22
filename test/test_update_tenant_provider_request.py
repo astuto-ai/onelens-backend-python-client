@@ -35,8 +35,8 @@ class TestUpdateTenantProviderRequest(unittest.TestCase):
         model = UpdateTenantProviderRequest()
         if include_optional:
             return UpdateTenantProviderRequest(
-                cloud_id = '',
-                parent_id = '',
+                cloud_id = None,
+                parent_id = None,
                 provider_config = None
             )
         else:

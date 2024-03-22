@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source_schema** | **object** |  | [optional] 
+**source_schema** | [**SourceSchema**](SourceSchema.md) |  | [optional] 
 
 ## Example
 

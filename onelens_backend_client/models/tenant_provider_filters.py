@@ -17,8 +17,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.cloud_ids import CloudIds
+from onelens_backend_client.models.cloud_providers import CloudProviders
+from onelens_backend_client.models.is_parent_account import IsParentAccount
+from onelens_backend_client.models.is_verified import IsVerified
+from onelens_backend_client.models.parent_ids import ParentIds
+from onelens_backend_client.models.states import States
+from onelens_backend_client.models.tenant_ids import TenantIds
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,13 +33,13 @@ class TenantProviderFilters(BaseModel):
     """
     TenantProviderFilters
     """ # noqa: E501
-    tenant_ids: Optional[Any] = None
-    cloud_ids: Optional[Any] = None
-    cloud_providers: Optional[Any] = None
-    parent_ids: Optional[Any] = None
-    is_parent_account: Optional[StrictBool] = None
-    is_verified: Optional[StrictBool] = None
-    states: Optional[Any] = None
+    tenant_ids: Optional[TenantIds] = None
+    cloud_ids: Optional[CloudIds] = None
+    cloud_providers: Optional[CloudProviders] = None
+    parent_ids: Optional[ParentIds] = None
+    is_parent_account: Optional[IsParentAccount] = None
+    is_verified: Optional[IsVerified] = None
+    states: Optional[States] = None
     __properties: ClassVar[List[str]] = ["tenant_ids", "cloud_ids", "cloud_providers", "parent_ids", "is_parent_account", "is_verified", "states"]
 
     model_config = ConfigDict(
@@ -74,41 +81,27 @@ class TenantProviderFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if tenant_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.tenant_ids is None and "tenant_ids" in self.model_fields_set:
-            _dict['tenant_ids'] = None
-
-        # set to None if cloud_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.cloud_ids is None and "cloud_ids" in self.model_fields_set:
-            _dict['cloud_ids'] = None
-
-        # set to None if cloud_providers (nullable) is None
-        # and model_fields_set contains the field
-        if self.cloud_providers is None and "cloud_providers" in self.model_fields_set:
-            _dict['cloud_providers'] = None
-
-        # set to None if parent_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.parent_ids is None and "parent_ids" in self.model_fields_set:
-            _dict['parent_ids'] = None
-
-        # set to None if is_parent_account (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_parent_account is None and "is_parent_account" in self.model_fields_set:
-            _dict['is_parent_account'] = None
-
-        # set to None if is_verified (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_verified is None and "is_verified" in self.model_fields_set:
-            _dict['is_verified'] = None
-
-        # set to None if states (nullable) is None
-        # and model_fields_set contains the field
-        if self.states is None and "states" in self.model_fields_set:
-            _dict['states'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of tenant_ids
+        if self.tenant_ids:
+            _dict['tenant_ids'] = self.tenant_ids.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of cloud_ids
+        if self.cloud_ids:
+            _dict['cloud_ids'] = self.cloud_ids.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of cloud_providers
+        if self.cloud_providers:
+            _dict['cloud_providers'] = self.cloud_providers.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of parent_ids
+        if self.parent_ids:
+            _dict['parent_ids'] = self.parent_ids.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of is_parent_account
+        if self.is_parent_account:
+            _dict['is_parent_account'] = self.is_parent_account.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of is_verified
+        if self.is_verified:
+            _dict['is_verified'] = self.is_verified.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of states
+        if self.states:
+            _dict['states'] = self.states.to_dict()
         return _dict
 
     @classmethod
@@ -121,13 +114,13 @@ class TenantProviderFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tenant_ids": obj.get("tenant_ids"),
-            "cloud_ids": obj.get("cloud_ids"),
-            "cloud_providers": obj.get("cloud_providers"),
-            "parent_ids": obj.get("parent_ids"),
-            "is_parent_account": obj.get("is_parent_account"),
-            "is_verified": obj.get("is_verified"),
-            "states": obj.get("states")
+            "tenant_ids": TenantIds.from_dict(obj["tenant_ids"]) if obj.get("tenant_ids") is not None else None,
+            "cloud_ids": CloudIds.from_dict(obj["cloud_ids"]) if obj.get("cloud_ids") is not None else None,
+            "cloud_providers": CloudProviders.from_dict(obj["cloud_providers"]) if obj.get("cloud_providers") is not None else None,
+            "parent_ids": ParentIds.from_dict(obj["parent_ids"]) if obj.get("parent_ids") is not None else None,
+            "is_parent_account": IsParentAccount.from_dict(obj["is_parent_account"]) if obj.get("is_parent_account") is not None else None,
+            "is_verified": IsVerified.from_dict(obj["is_verified"]) if obj.get("is_verified") is not None else None,
+            "states": States.from_dict(obj["states"]) if obj.get("states") is not None else None
         })
         return _obj
 

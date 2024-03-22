@@ -17,8 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.cloud_id import CloudId
+from onelens_backend_client.models.parent_id1 import ParentId1
+from onelens_backend_client.models.provider_config import ProviderConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +29,9 @@ class UpdateTenantProviderRequest(BaseModel):
     """
     UpdateTenantProviderRequest
     """ # noqa: E501
-    cloud_id: Optional[StrictStr] = None
-    parent_id: Optional[StrictStr] = None
-    provider_config: Optional[Dict[str, Any]] = None
+    cloud_id: Optional[CloudId] = None
+    parent_id: Optional[ParentId1] = None
+    provider_config: Optional[ProviderConfig] = None
     __properties: ClassVar[List[str]] = ["cloud_id", "parent_id", "provider_config"]
 
     model_config = ConfigDict(
@@ -70,21 +73,15 @@ class UpdateTenantProviderRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if cloud_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.cloud_id is None and "cloud_id" in self.model_fields_set:
-            _dict['cloud_id'] = None
-
-        # set to None if parent_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.parent_id is None and "parent_id" in self.model_fields_set:
-            _dict['parent_id'] = None
-
-        # set to None if provider_config (nullable) is None
-        # and model_fields_set contains the field
-        if self.provider_config is None and "provider_config" in self.model_fields_set:
-            _dict['provider_config'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of cloud_id
+        if self.cloud_id:
+            _dict['cloud_id'] = self.cloud_id.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of parent_id
+        if self.parent_id:
+            _dict['parent_id'] = self.parent_id.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of provider_config
+        if self.provider_config:
+            _dict['provider_config'] = self.provider_config.to_dict()
         return _dict
 
     @classmethod
@@ -97,9 +94,9 @@ class UpdateTenantProviderRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "cloud_id": obj.get("cloud_id"),
-            "parent_id": obj.get("parent_id"),
-            "provider_config": obj.get("provider_config")
+            "cloud_id": CloudId.from_dict(obj["cloud_id"]) if obj.get("cloud_id") is not None else None,
+            "parent_id": ParentId1.from_dict(obj["parent_id"]) if obj.get("parent_id") is not None else None,
+            "provider_config": ProviderConfig.from_dict(obj["provider_config"]) if obj.get("provider_config") is not None else None
         })
         return _obj
 

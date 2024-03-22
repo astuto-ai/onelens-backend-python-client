@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cloud_provider** | **str** | Cloud provider | 
 **cloud_id** | **str** | Cloud ID | 
-**parent_id** | **str** |  | [optional] 
+**parent_id** | [**ParentId**](ParentId.md) |  | [optional] 
 **provider_config** | **object** | Provider config | 
-**tenant_id** | **str** |  | [optional] 
+**tenant_id** | [**TenantId**](TenantId.md) |  | [optional] 
 
 ## Example
 

@@ -38,20 +38,20 @@ class TestResponseGetTenantProviderByIDResponse(unittest.TestCase):
                 data = onelens_backend_client.models.get_tenant_provider_by_id_response.GetTenantProviderByIDResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
-                    parent_id = '', 
+                    parent_id = null, 
                     provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 
                     is_verified = True, 
                     state = '', ),
-                message = ''
+                message = None
             )
         else:
             return ResponseGetTenantProviderByIDResponse(
                 data = onelens_backend_client.models.get_tenant_provider_by_id_response.GetTenantProviderByIDResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
-                    parent_id = '', 
+                    parent_id = null, 
                     provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 

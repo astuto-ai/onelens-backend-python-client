@@ -17,7 +17,6 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from typing import Any
 from onelens_backend_client.models.create_user_request import CreateUserRequest
 from onelens_backend_client.models.create_user_response import CreateUserResponse
 from onelens_backend_client.models.get_all_users_request import GetAllUsersRequest
@@ -297,7 +296,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/users/',
+            resource_path='/api/v1/users/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -554,7 +553,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/users/{user_id}',
+            resource_path='/api/v1/users/{user_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -824,7 +823,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/users/',
+            resource_path='/api/v1/users/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1094,7 +1093,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/users/',
+            resource_path='/api/v1/users/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

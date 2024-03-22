@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | **object** |  | 
-**message** | **str** |  | [optional] 
+**message** | [**Message**](Message.md) |  | [optional] 
 
 ## Example
 

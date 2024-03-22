@@ -17,9 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.get_tenant_providers_response import GetTenantProvidersResponse
+from onelens_backend_client.models.message import Message
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class ResponseGetTenantProvidersResponse(BaseModel):
     ResponseGetTenantProvidersResponse
     """ # noqa: E501
     data: GetTenantProvidersResponse
-    message: Optional[StrictStr] = None
+    message: Optional[Message] = None
     __properties: ClassVar[List[str]] = ["data", "message"]
 
     model_config = ConfigDict(
@@ -73,11 +74,9 @@ class ResponseGetTenantProvidersResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
             _dict['data'] = self.data.to_dict()
-        # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of message
+        if self.message:
+            _dict['message'] = self.message.to_dict()
         return _dict
 
     @classmethod
@@ -91,7 +90,7 @@ class ResponseGetTenantProvidersResponse(BaseModel):
 
         _obj = cls.model_validate({
             "data": GetTenantProvidersResponse.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "message": obj.get("message")
+            "message": Message.from_dict(obj["message"]) if obj.get("message") is not None else None
         })
         return _obj
 

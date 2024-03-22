@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cloud_id** | **str** |  | [optional] 
-**parent_id** | **str** |  | [optional] 
-**provider_config** | **object** |  | [optional] 
+**cloud_id** | [**CloudId**](CloudId.md) |  | [optional] 
+**parent_id** | [**ParentId1**](ParentId1.md) |  | [optional] 
+**provider_config** | [**ProviderConfig**](ProviderConfig.md) |  | [optional] 
 
 ## Example
 

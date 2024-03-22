@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**UserStatus**](UserStatus.md) |  | [optional] 
+**status** | [**CreateTenantUserResponseStatus**](CreateTenantUserResponseStatus.md) |  | [optional] 
 **ol_user_id** | **str** | Unique onelens identifier for the user | 
-**role** | [**UserRole**](UserRole.md) |  | [optional] 
+**role** | [**CreateTenantUserRequestRole**](CreateTenantUserRequestRole.md) |  | [optional] 
 **sources** | **List[str]** | Different sources from where user signed up. e.g. social signup, username-password | 
 **id** | **str** | PK in the tenant users table | 
 

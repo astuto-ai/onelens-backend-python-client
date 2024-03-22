@@ -39,8 +39,8 @@ class TestTenantProviderFilters(unittest.TestCase):
                 cloud_ids = None,
                 cloud_providers = None,
                 parent_ids = None,
-                is_parent_account = True,
-                is_verified = True,
+                is_parent_account = None,
+                is_verified = None,
                 states = None
             )
         else:

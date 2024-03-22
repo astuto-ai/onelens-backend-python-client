@@ -19,6 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.names import Names
+from onelens_backend_client.models.tenant_states import TenantStates
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +28,8 @@ class TenantFilters(BaseModel):
     """
     TenantFilters
     """ # noqa: E501
-    names: Optional[Any] = None
-    tenant_states: Optional[Any] = None
+    names: Optional[Names] = None
+    tenant_states: Optional[TenantStates] = None
     __properties: ClassVar[List[str]] = ["names", "tenant_states"]
 
     model_config = ConfigDict(
@@ -69,16 +71,12 @@ class TenantFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if names (nullable) is None
-        # and model_fields_set contains the field
-        if self.names is None and "names" in self.model_fields_set:
-            _dict['names'] = None
-
-        # set to None if tenant_states (nullable) is None
-        # and model_fields_set contains the field
-        if self.tenant_states is None and "tenant_states" in self.model_fields_set:
-            _dict['tenant_states'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of names
+        if self.names:
+            _dict['names'] = self.names.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tenant_states
+        if self.tenant_states:
+            _dict['tenant_states'] = self.tenant_states.to_dict()
         return _dict
 
     @classmethod
@@ -91,8 +89,8 @@ class TenantFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "names": obj.get("names"),
-            "tenant_states": obj.get("tenant_states")
+            "names": Names.from_dict(obj["names"]) if obj.get("names") is not None else None,
+            "tenant_states": TenantStates.from_dict(obj["tenant_states"]) if obj.get("tenant_states") is not None else None
         })
         return _obj
 

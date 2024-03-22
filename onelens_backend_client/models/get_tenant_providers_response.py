@@ -18,7 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
+from onelens_backend_client.models.attributes_data import AttributesData
+from onelens_backend_client.models.tenant_provider_filter_data import TenantProviderFilterData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +28,8 @@ class GetTenantProvidersResponse(BaseModel):
     """
     GetTenantProvidersResponse
     """ # noqa: E501
-    tenant_provider_filter_data: Optional[Any]
-    attributes_data: Optional[Dict[str, Any]]
+    tenant_provider_filter_data: TenantProviderFilterData
+    attributes_data: AttributesData
     __properties: ClassVar[List[str]] = ["tenant_provider_filter_data", "attributes_data"]
 
     model_config = ConfigDict(
@@ -69,16 +71,12 @@ class GetTenantProvidersResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if tenant_provider_filter_data (nullable) is None
-        # and model_fields_set contains the field
-        if self.tenant_provider_filter_data is None and "tenant_provider_filter_data" in self.model_fields_set:
-            _dict['tenant_provider_filter_data'] = None
-
-        # set to None if attributes_data (nullable) is None
-        # and model_fields_set contains the field
-        if self.attributes_data is None and "attributes_data" in self.model_fields_set:
-            _dict['attributes_data'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of tenant_provider_filter_data
+        if self.tenant_provider_filter_data:
+            _dict['tenant_provider_filter_data'] = self.tenant_provider_filter_data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of attributes_data
+        if self.attributes_data:
+            _dict['attributes_data'] = self.attributes_data.to_dict()
         return _dict
 
     @classmethod
@@ -91,8 +89,8 @@ class GetTenantProvidersResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tenant_provider_filter_data": obj.get("tenant_provider_filter_data"),
-            "attributes_data": obj.get("attributes_data")
+            "tenant_provider_filter_data": TenantProviderFilterData.from_dict(obj["tenant_provider_filter_data"]) if obj.get("tenant_provider_filter_data") is not None else None,
+            "attributes_data": AttributesData.from_dict(obj["attributes_data"]) if obj.get("attributes_data") is not None else None
         })
         return _obj
 

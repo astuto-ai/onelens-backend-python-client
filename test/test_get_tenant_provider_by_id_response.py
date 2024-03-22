@@ -37,7 +37,7 @@ class TestGetTenantProviderByIDResponse(unittest.TestCase):
             return GetTenantProviderByIDResponse(
                 cloud_provider = '',
                 cloud_id = '',
-                parent_id = '',
+                parent_id = None,
                 provider_config = onelens_backend_client.models.provider_config.Provider Config(),
                 id = '',
                 is_parent_account = True,

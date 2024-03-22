@@ -1,0 +1,30 @@
+# ResponseCreatePolicyTemplateResponse
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | [**CreatePolicyTemplateResponse**](CreatePolicyTemplateResponse.md) |  | 
+**message** | [**Message**](Message.md) |  | [optional] 
+
+## Example
+
+```python
+from onelens_backend_client.models.response_create_policy_template_response import ResponseCreatePolicyTemplateResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ResponseCreatePolicyTemplateResponse from a JSON string
+response_create_policy_template_response_instance = ResponseCreatePolicyTemplateResponse.from_json(json)
+# print the JSON string representation of the object
+print(ResponseCreatePolicyTemplateResponse.to_json())
+
+# convert the object into a dict
+response_create_policy_template_response_dict = response_create_policy_template_response_instance.to_dict()
+# create an instance of ResponseCreatePolicyTemplateResponse from a dict
+response_create_policy_template_response_form_dict = response_create_policy_template_response.from_dict(response_create_policy_template_response_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

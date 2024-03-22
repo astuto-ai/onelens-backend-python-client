@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**search_query** | **str** |  | [optional] 
+**search_query** | [**SearchQuery**](SearchQuery.md) |  | [optional] 
 **parent_ptp_ids** | **List[str]** | Filter by parent policy template pack id. | [optional] [default to []]
 **states** | [**List[PolicyTemplateState]**](PolicyTemplateState.md) | Filter by state. Default is ACTIVE. | [optional] [default to [ACTIVE]]
 **categories** | [**List[PolicyCategory]**](PolicyCategory.md) | Filter by type. | [optional] [default to []]

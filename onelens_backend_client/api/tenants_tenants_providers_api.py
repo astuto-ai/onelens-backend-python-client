@@ -316,7 +316,7 @@ class TenantsTenantsProvidersApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/tenants/{tenant_id}/providers',
+            resource_path='/api/v1/tenants/{tenant_id}/providers',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -591,7 +591,7 @@ class TenantsTenantsProvidersApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/tenants/{tenant_id}/providers/{tenant_provider_id}/disable',
+            resource_path='/api/v1/tenants/{tenant_id}/providers/{tenant_provider_id}/disable',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -866,7 +866,7 @@ class TenantsTenantsProvidersApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/tenants/{tenant_id}/providers/{tenant_provider_id}',
+            resource_path='/api/v1/tenants/{tenant_id}/providers/{tenant_provider_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1139,7 +1139,7 @@ class TenantsTenantsProvidersApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/tenants/providers/fetch',
+            resource_path='/api/v1/tenants/providers/fetch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1442,7 +1442,7 @@ class TenantsTenantsProvidersApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/tenants/{tenant_id}/providers/{tenant_provider_id}',
+            resource_path='/api/v1/tenants/{tenant_id}/providers/{tenant_provider_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

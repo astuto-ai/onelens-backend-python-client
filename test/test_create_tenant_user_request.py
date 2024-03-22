@@ -36,7 +36,7 @@ class TestCreateTenantUserRequest(unittest.TestCase):
         if include_optional:
             return CreateTenantUserRequest(
                 ol_user_id = '',
-                role = 'ADMIN',
+                role = None,
                 sources = [
                     ''
                     ]

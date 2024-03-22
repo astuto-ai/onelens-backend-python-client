@@ -35,9 +35,9 @@ class TestUpdateTenantUserResponse(unittest.TestCase):
         model = UpdateTenantUserResponse()
         if include_optional:
             return UpdateTenantUserResponse(
-                status = 'ACTIVE',
+                status = None,
                 ol_user_id = '',
-                role = 'ADMIN',
+                role = None,
                 sources = [
                     ''
                     ],

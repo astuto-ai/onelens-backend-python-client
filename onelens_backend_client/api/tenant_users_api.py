@@ -312,7 +312,7 @@ class TenantUsersApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/users/tenant/{tenant_id}',
+            resource_path='/api/v1/users/tenant/{tenant_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -615,7 +615,7 @@ class TenantUsersApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/users/tenant/{tenant_id}/{ol_user_id}',
+            resource_path='/api/v1/users/tenant/{tenant_id}/{ol_user_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.user_role import UserRole
-from onelens_backend_client.models.user_status import UserStatus
+from onelens_backend_client.models.create_tenant_user_request_role import CreateTenantUserRequestRole
+from onelens_backend_client.models.create_tenant_user_response_status import CreateTenantUserResponseStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class UpdateTenantUserResponse(BaseModel):
     """
     UpdateTenantUserResponse
     """ # noqa: E501
-    status: Optional[UserStatus] = None
+    status: Optional[CreateTenantUserResponseStatus] = None
     ol_user_id: StrictStr = Field(description="Unique onelens identifier for the user")
-    role: Optional[UserRole] = None
+    role: Optional[CreateTenantUserRequestRole] = None
     sources: List[StrictStr] = Field(description="Different sources from where user signed up. e.g. social signup, username-password")
     id: StrictStr = Field(description="PK in the tenant users table")
     additional_properties: Dict[str, Any] = {}
@@ -77,20 +77,16 @@ class UpdateTenantUserResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status
+        if self.status:
+            _dict['status'] = self.status.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of role
+        if self.role:
+            _dict['role'] = self.role.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
-        # set to None if role (nullable) is None
-        # and model_fields_set contains the field
-        if self.role is None and "role" in self.model_fields_set:
-            _dict['role'] = None
 
         return _dict
 
@@ -104,9 +100,9 @@ class UpdateTenantUserResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status"),
+            "status": CreateTenantUserResponseStatus.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "ol_user_id": obj.get("ol_user_id"),
-            "role": obj.get("role"),
+            "role": CreateTenantUserRequestRole.from_dict(obj["role"]) if obj.get("role") is not None else None,
             "sources": obj.get("sources"),
             "id": obj.get("id")
         })

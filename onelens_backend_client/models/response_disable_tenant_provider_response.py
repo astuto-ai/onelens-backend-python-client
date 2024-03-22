@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.message import Message
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class ResponseDisableTenantProviderResponse(BaseModel):
     ResponseDisableTenantProviderResponse
     """ # noqa: E501
     data: Dict[str, Any]
-    message: Optional[StrictStr] = None
+    message: Optional[Message] = None
     __properties: ClassVar[List[str]] = ["data", "message"]
 
     model_config = ConfigDict(
@@ -69,11 +70,9 @@ class ResponseDisableTenantProviderResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of message
+        if self.message:
+            _dict['message'] = self.message.to_dict()
         return _dict
 
     @classmethod
@@ -87,7 +86,7 @@ class ResponseDisableTenantProviderResponse(BaseModel):
 
         _obj = cls.model_validate({
             "data": obj.get("data"),
-            "message": obj.get("message")
+            "message": Message.from_dict(obj["message"]) if obj.get("message") is not None else None
         })
         return _obj
 

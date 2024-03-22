@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
-**services** | **object** |  | [optional] 
-**execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) |  | [optional] 
-**details** | [**PolicyTemplateDetails**](PolicyTemplateDetails.md) |  | [optional] 
+**title** | [**Title**](Title.md) |  | [optional] 
+**description** | [**Description**](Description.md) |  | [optional] 
+**services** | [**Services**](Services.md) |  | [optional] 
+**execution_type** | [**PolicyTemplateUpdateFieldsMixinExecutionType**](PolicyTemplateUpdateFieldsMixinExecutionType.md) |  | [optional] 
+**details** | [**PolicyTemplateUpdateFieldsMixinDetails**](PolicyTemplateUpdateFieldsMixinDetails.md) |  | [optional] 
 **id** | **str** | The unique identifier of the policy template. | 
 
 ## Example

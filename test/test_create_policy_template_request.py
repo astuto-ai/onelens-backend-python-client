@@ -45,11 +45,11 @@ class TestCreatePolicyTemplateRequest(unittest.TestCase):
                 execution_type = 'DETECTIVE',
                 details = onelens_backend_client.models.policy_template_details.PolicyTemplateDetails(
                     inputs = null, 
-                    config_schema = onelens_backend_client.models.config_schema.config_schema(), 
-                    output_violation_schema = onelens_backend_client.models.output_violation_schema.output_violation_schema(), 
-                    rule_type = 'SQL', 
-                    rule_definition = '', 
-                    default_policy_config = onelens_backend_client.models.default_policy_config.default_policy_config(), )
+                    config_schema = null, 
+                    output_violation_schema = null, 
+                    rule_type = null, 
+                    rule_definition = null, 
+                    default_policy_config = null, )
             )
         else:
             return CreatePolicyTemplateRequest(
@@ -62,11 +62,11 @@ class TestCreatePolicyTemplateRequest(unittest.TestCase):
                 execution_type = 'DETECTIVE',
                 details = onelens_backend_client.models.policy_template_details.PolicyTemplateDetails(
                     inputs = null, 
-                    config_schema = onelens_backend_client.models.config_schema.config_schema(), 
-                    output_violation_schema = onelens_backend_client.models.output_violation_schema.output_violation_schema(), 
-                    rule_type = 'SQL', 
-                    rule_definition = '', 
-                    default_policy_config = onelens_backend_client.models.default_policy_config.default_policy_config(), ),
+                    config_schema = null, 
+                    output_violation_schema = null, 
+                    rule_type = null, 
+                    rule_definition = null, 
+                    default_policy_config = null, ),
         )
         """
 

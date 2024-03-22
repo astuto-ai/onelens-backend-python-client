@@ -39,7 +39,7 @@ class TestGetPolicyTemplatesRequest(unittest.TestCase):
                     page = 56, 
                     page_size = 56, ),
                 filters = onelens_backend_client.models.policy_template_filters.PolicyTemplateFilters(
-                    search_query = '', 
+                    search_query = null, 
                     parent_ptp_ids = [
                         ''
                         ], 

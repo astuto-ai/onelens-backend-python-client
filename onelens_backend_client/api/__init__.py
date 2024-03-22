@@ -2,6 +2,8 @@
 
 # import apis into api package
 from onelens_backend_client.api.default_api import DefaultApi
+from onelens_backend_client.api.policies_policy_template_packs_api import PoliciesPolicyTemplatePacksApi
+from onelens_backend_client.api.policies_policy_templates_api import PoliciesPolicyTemplatesApi
 from onelens_backend_client.api.policy_template_pack_service_api import PolicyTemplatePackServiceApi
 from onelens_backend_client.api.policy_template_service_api import PolicyTemplateServiceApi
 from onelens_backend_client.api.tenant_service_api import TenantServiceApi

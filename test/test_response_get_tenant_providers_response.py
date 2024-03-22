@@ -37,14 +37,14 @@ class TestResponseGetTenantProvidersResponse(unittest.TestCase):
             return ResponseGetTenantProvidersResponse(
                 data = onelens_backend_client.models.get_tenant_providers_response.GetTenantProvidersResponse(
                     tenant_provider_filter_data = null, 
-                    attributes_data = onelens_backend_client.models.attributes_data.attributes_data(), ),
-                message = ''
+                    attributes_data = null, ),
+                message = None
             )
         else:
             return ResponseGetTenantProvidersResponse(
                 data = onelens_backend_client.models.get_tenant_providers_response.GetTenantProvidersResponse(
                     tenant_provider_filter_data = null, 
-                    attributes_data = onelens_backend_client.models.attributes_data.attributes_data(), ),
+                    attributes_data = null, ),
         )
         """
 

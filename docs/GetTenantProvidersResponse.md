@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_provider_filter_data** | **object** |  | 
-**attributes_data** | **object** |  | 
+**tenant_provider_filter_data** | [**TenantProviderFilterData**](TenantProviderFilterData.md) |  | 
+**attributes_data** | [**AttributesData**](AttributesData.md) |  | 
 
 ## Example
 

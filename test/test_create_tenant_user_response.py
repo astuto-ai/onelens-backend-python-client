@@ -35,9 +35,9 @@ class TestCreateTenantUserResponse(unittest.TestCase):
         model = CreateTenantUserResponse()
         if include_optional:
             return CreateTenantUserResponse(
-                status = 'ACTIVE',
+                status = None,
                 ol_user_id = '',
-                role = 'ADMIN',
+                role = None,
                 sources = [
                     ''
                     ],
