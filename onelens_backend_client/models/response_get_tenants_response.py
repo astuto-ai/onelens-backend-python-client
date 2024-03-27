@@ -17,25 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
-from onelens_backend_client.models.database_connection_string import DatabaseConnectionString
-from onelens_backend_client.models.tenant_state import TenantState
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.get_tenants_response import GetTenantsResponse
+from onelens_backend_client.models.message import Message
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetTenantByIDResponse(BaseModel):
+class ResponseGetTenantsResponse(BaseModel):
     """
-    GetTenantByIDResponse
+    ResponseGetTenantsResponse
     """ # noqa: E501
-    name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Name of the tenant")
-    domains: List[StrictStr] = Field(description="List of domains associated with the tenant")
-    timezone: StrictStr = Field(description="Timezone of the tenant")
-    id: StrictStr = Field(description="Unique identifier for the tenant")
-    tenant_state: TenantState = Field(description="State of the tenant")
-    database_connection_string: DatabaseConnectionString
-    __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id", "tenant_state", "database_connection_string"]
+    data: GetTenantsResponse
+    message: Optional[Message] = None
+    __properties: ClassVar[List[str]] = ["data", "message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +50,7 @@ class GetTenantByIDResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetTenantByIDResponse from a JSON string"""
+        """Create an instance of ResponseGetTenantsResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,14 +71,17 @@ class GetTenantByIDResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of database_connection_string
-        if self.database_connection_string:
-            _dict['database_connection_string'] = self.database_connection_string.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of message
+        if self.message:
+            _dict['message'] = self.message.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetTenantByIDResponse from a dict"""
+        """Create an instance of ResponseGetTenantsResponse from a dict"""
         if obj is None:
             return None
 
@@ -91,12 +89,8 @@ class GetTenantByIDResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "domains": obj.get("domains"),
-            "timezone": obj.get("timezone"),
-            "id": obj.get("id"),
-            "tenant_state": obj.get("tenant_state"),
-            "database_connection_string": DatabaseConnectionString.from_dict(obj["database_connection_string"]) if obj.get("database_connection_string") is not None else None
+            "data": GetTenantsResponse.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "message": Message.from_dict(obj["message"]) if obj.get("message") is not None else None
         })
         return _obj
 

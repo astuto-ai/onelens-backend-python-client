@@ -298,7 +298,7 @@ class PoliciesPolicyTemplatePacksApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates_packs',
+            resource_path='/v1/policies/policy_templates_packs',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -558,7 +558,7 @@ class PoliciesPolicyTemplatePacksApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/policies/policy_templates_packs/{policy_template_pack_id}',
+            resource_path='/v1/policies/policy_templates_packs/{policy_template_pack_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -831,7 +831,7 @@ class PoliciesPolicyTemplatePacksApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates_packs/fetch',
+            resource_path='/v1/policies/policy_templates_packs/fetch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

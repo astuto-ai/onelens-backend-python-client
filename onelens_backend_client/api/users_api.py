@@ -296,7 +296,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/users/',
+            resource_path='/v1/users/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -553,7 +553,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/users/{user_id}',
+            resource_path='/v1/users/{user_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -823,7 +823,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/users/',
+            resource_path='/v1/users/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1093,7 +1093,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/v1/users/',
+            resource_path='/v1/users/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

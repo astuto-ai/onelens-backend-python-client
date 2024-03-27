@@ -112,6 +112,11 @@ Class | Method | Description
 *TenantServiceApi* | [**update_tenant**](docs/TenantServiceApi.md#update_tenant) | Updates an existing tenant.
 *TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
+*TenantsApi* | [**create_tenant**](docs/TenantsApi.md#create_tenant) | Create Tenant
+*TenantsApi* | [**disable_tenant**](docs/TenantsApi.md#disable_tenant) | Disable Tenant
+*TenantsApi* | [**get_tenant**](docs/TenantsApi.md#get_tenant) | Get Tenant
+*TenantsApi* | [**get_tenants**](docs/TenantsApi.md#get_tenants) | Get Tenants
+*TenantsApi* | [**update_tenant**](docs/TenantsApi.md#update_tenant) | Update Tenant
 *TenantsTenantProviderVerifyApi* | [**verify_tenant**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant) | Verify Tenant
 *TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
 *TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
@@ -151,11 +156,13 @@ Class | Method | Description
  - [CreateUserResponse](docs/CreateUserResponse.md)
  - [CreateUserTenantMappingRequest](docs/CreateUserTenantMappingRequest.md)
  - [CreateUserTenantMappingResponse](docs/CreateUserTenantMappingResponse.md)
+ - [DatabaseConnectionString](docs/DatabaseConnectionString.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DefaultPolicyConfig](docs/DefaultPolicyConfig.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
  - [Description](docs/Description.md)
  - [DisableTenantRequest](docs/DisableTenantRequest.md)
+ - [Domains](docs/Domains.md)
  - [GcpService](docs/GcpService.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
@@ -180,6 +187,7 @@ Class | Method | Description
  - [IsParentAccount](docs/IsParentAccount.md)
  - [IsVerified](docs/IsVerified.md)
  - [Message](docs/Message.md)
+ - [Name](docs/Name.md)
  - [Names](docs/Names.md)
  - [OutputViolationSchema](docs/OutputViolationSchema.md)
  - [PaginationFields](docs/PaginationFields.md)
@@ -209,15 +217,19 @@ Class | Method | Description
  - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
  - [ResponseDeprecatePolicyTemplateResponse](docs/ResponseDeprecatePolicyTemplateResponse.md)
  - [ResponseDisableTenantProviderResponse](docs/ResponseDisableTenantProviderResponse.md)
+ - [ResponseDisableTenantResponse](docs/ResponseDisableTenantResponse.md)
  - [ResponseGetPolicyTemplateByIDResponse](docs/ResponseGetPolicyTemplateByIDResponse.md)
  - [ResponseGetPolicyTemplatePackByIdResponse](docs/ResponseGetPolicyTemplatePackByIdResponse.md)
  - [ResponseGetPolicyTemplatePacksResponse](docs/ResponseGetPolicyTemplatePacksResponse.md)
  - [ResponseGetPolicyTemplatesResponse](docs/ResponseGetPolicyTemplatesResponse.md)
+ - [ResponseGetTenantByIDResponse](docs/ResponseGetTenantByIDResponse.md)
  - [ResponseGetTenantProviderByIDResponse](docs/ResponseGetTenantProviderByIDResponse.md)
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
+ - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
  - [ResponseTenantVerifyResponse](docs/ResponseTenantVerifyResponse.md)
  - [ResponseUpdatePolicyTemplateResponse](docs/ResponseUpdatePolicyTemplateResponse.md)
  - [ResponseUpdateTenantProviderResponse](docs/ResponseUpdateTenantProviderResponse.md)
+ - [ResponseUpdateTenantResponse](docs/ResponseUpdateTenantResponse.md)
  - [ResponseUpdateTenantUserResponse](docs/ResponseUpdateTenantUserResponse.md)
  - [RuleDefinition](docs/RuleDefinition.md)
  - [RuleType](docs/RuleType.md)
@@ -241,11 +253,13 @@ Class | Method | Description
  - [TenantUserUpdateFieldsMixinStatus](docs/TenantUserUpdateFieldsMixinStatus.md)
  - [TenantVerifyRequest](docs/TenantVerifyRequest.md)
  - [TenantVerifyResponse](docs/TenantVerifyResponse.md)
+ - [Timezone](docs/Timezone.md)
  - [Title](docs/Title.md)
  - [UpdatePolicyTemplateRequest](docs/UpdatePolicyTemplateRequest.md)
  - [UpdatePolicyTemplateResponse](docs/UpdatePolicyTemplateResponse.md)
  - [UpdateTenantProviderRequest](docs/UpdateTenantProviderRequest.md)
  - [UpdateTenantProviderResponse](docs/UpdateTenantProviderResponse.md)
+ - [UpdateTenantRequest](docs/UpdateTenantRequest.md)
  - [UpdateTenantResponse](docs/UpdateTenantResponse.md)
  - [UpdateTenantUserResponse](docs/UpdateTenantUserResponse.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)

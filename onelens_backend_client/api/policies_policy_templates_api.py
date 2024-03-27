@@ -289,7 +289,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates/{policy_template_id}/activate',
+            resource_path='/v1/policies/policy_templates/{policy_template_id}/activate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -562,7 +562,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates',
+            resource_path='/v1/policies/policy_templates',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -822,7 +822,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates/{policy_template_id}/deactivate',
+            resource_path='/v1/policies/policy_templates/{policy_template_id}/deactivate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1082,7 +1082,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates/{policy_template_id}/deprecate',
+            resource_path='/v1/policies/policy_templates/{policy_template_id}/deprecate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1342,7 +1342,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v1/policies/policy_templates/{policy_template_id}',
+            resource_path='/v1/policies/policy_templates/{policy_template_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1615,7 +1615,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/policies/policy_templates/fetch',
+            resource_path='/v1/policies/policy_templates/fetch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1903,7 +1903,7 @@ class PoliciesPolicyTemplatesApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/v1/policies/policy_templates/{policy_template_id}',
+            resource_path='/v1/policies/policy_templates/{policy_template_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

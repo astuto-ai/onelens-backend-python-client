@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **timezone** | **str** | Timezone of the tenant | 
 **id** | **str** | Unique identifier for the tenant | 
 **tenant_state** | [**TenantState**](TenantState.md) | State of the tenant | 
+**database_connection_string** | [**DatabaseConnectionString**](DatabaseConnectionString.md) |  | 
 
 ## Example
 

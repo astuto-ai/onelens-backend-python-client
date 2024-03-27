@@ -17,25 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
-from onelens_backend_client.models.database_connection_string import DatabaseConnectionString
-from onelens_backend_client.models.tenant_state import TenantState
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.domains import Domains
+from onelens_backend_client.models.name import Name
+from onelens_backend_client.models.timezone import Timezone
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetTenantByIDResponse(BaseModel):
+class UpdateTenantRequest(BaseModel):
     """
-    GetTenantByIDResponse
+    UpdateTenantRequest
     """ # noqa: E501
-    name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Name of the tenant")
-    domains: List[StrictStr] = Field(description="List of domains associated with the tenant")
-    timezone: StrictStr = Field(description="Timezone of the tenant")
-    id: StrictStr = Field(description="Unique identifier for the tenant")
-    tenant_state: TenantState = Field(description="State of the tenant")
-    database_connection_string: DatabaseConnectionString
-    __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id", "tenant_state", "database_connection_string"]
+    name: Optional[Name] = None
+    domains: Optional[Domains] = None
+    timezone: Optional[Timezone] = None
+    __properties: ClassVar[List[str]] = ["name", "domains", "timezone"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +52,7 @@ class GetTenantByIDResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetTenantByIDResponse from a JSON string"""
+        """Create an instance of UpdateTenantRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,14 +73,20 @@ class GetTenantByIDResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of database_connection_string
-        if self.database_connection_string:
-            _dict['database_connection_string'] = self.database_connection_string.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of name
+        if self.name:
+            _dict['name'] = self.name.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of domains
+        if self.domains:
+            _dict['domains'] = self.domains.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of timezone
+        if self.timezone:
+            _dict['timezone'] = self.timezone.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetTenantByIDResponse from a dict"""
+        """Create an instance of UpdateTenantRequest from a dict"""
         if obj is None:
             return None
 
@@ -91,12 +94,9 @@ class GetTenantByIDResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "domains": obj.get("domains"),
-            "timezone": obj.get("timezone"),
-            "id": obj.get("id"),
-            "tenant_state": obj.get("tenant_state"),
-            "database_connection_string": DatabaseConnectionString.from_dict(obj["database_connection_string"]) if obj.get("database_connection_string") is not None else None
+            "name": Name.from_dict(obj["name"]) if obj.get("name") is not None else None,
+            "domains": Domains.from_dict(obj["domains"]) if obj.get("domains") is not None else None,
+            "timezone": Timezone.from_dict(obj["timezone"]) if obj.get("timezone") is not None else None
         })
         return _obj
 

@@ -9,7 +9,7 @@ docker run --rm -v "${PWD}:/onelens-backend-python-client" openapitools/openapi-
     -g python \
     -o /onelens-backend-python-client/ \
     -t /onelens-backend-python-client/templates/ \
-    -c /onelens-backend-python-client/config.yaml
+    -c /onelens-backend-python-client/config.yaml --skip-validate-spec
 
 /Users/sid/Code/openapi-generator/run-in-docker.sh generate \
     -i http://host.docker.internal:19000/openapi.json \
