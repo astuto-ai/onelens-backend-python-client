@@ -36,7 +36,7 @@ class TestResponseActivatePolicyTemplateResponse(unittest.TestCase):
         if include_optional:
             return ResponseActivatePolicyTemplateResponse(
                 data = onelens_backend_client.models.activate_policy_template_response.ActivatePolicyTemplateResponse(),
-                message = None
+                message = ''
             )
         else:
             return ResponseActivatePolicyTemplateResponse(

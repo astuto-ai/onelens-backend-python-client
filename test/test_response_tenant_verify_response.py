@@ -38,7 +38,7 @@ class TestResponseTenantVerifyResponse(unittest.TestCase):
                 data = onelens_backend_client.models.tenant_verify_response.TenantVerifyResponse(
                     verified = True, 
                     accounts = onelens_backend_client.models.accounts.Accounts(), ),
-                message = None
+                message = ''
             )
         else:
             return ResponseTenantVerifyResponse(

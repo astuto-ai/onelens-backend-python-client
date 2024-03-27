@@ -17,14 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.config_schema import ConfigSchema
-from onelens_backend_client.models.default_policy_config import DefaultPolicyConfig
-from onelens_backend_client.models.inputs import Inputs
-from onelens_backend_client.models.output_violation_schema import OutputViolationSchema
-from onelens_backend_client.models.policy_template_details_rule_type import PolicyTemplateDetailsRuleType
-from onelens_backend_client.models.rule_definition import RuleDefinition
+from onelens_backend_client.models.rule_type import RuleType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,12 +27,12 @@ class PolicyTemplateDetails(BaseModel):
     """
     PolicyTemplateDetails
     """ # noqa: E501
-    inputs: Optional[Inputs] = None
-    config_schema: Optional[ConfigSchema] = None
-    output_violation_schema: Optional[OutputViolationSchema] = None
-    rule_type: Optional[PolicyTemplateDetailsRuleType] = None
-    rule_definition: Optional[RuleDefinition] = None
-    default_policy_config: Optional[DefaultPolicyConfig] = None
+    inputs: Optional[Any] = None
+    config_schema: Optional[Dict[str, Any]] = None
+    output_violation_schema: Optional[Dict[str, Any]] = None
+    rule_type: Optional[RuleType] = None
+    rule_definition: Optional[StrictStr] = None
+    default_policy_config: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["inputs", "config_schema", "output_violation_schema", "rule_type", "rule_definition", "default_policy_config"]
 
     model_config = ConfigDict(
@@ -79,24 +74,36 @@ class PolicyTemplateDetails(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of inputs
-        if self.inputs:
-            _dict['inputs'] = self.inputs.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of config_schema
-        if self.config_schema:
-            _dict['config_schema'] = self.config_schema.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of output_violation_schema
-        if self.output_violation_schema:
-            _dict['output_violation_schema'] = self.output_violation_schema.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of rule_type
-        if self.rule_type:
-            _dict['rule_type'] = self.rule_type.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of rule_definition
-        if self.rule_definition:
-            _dict['rule_definition'] = self.rule_definition.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of default_policy_config
-        if self.default_policy_config:
-            _dict['default_policy_config'] = self.default_policy_config.to_dict()
+        # set to None if inputs (nullable) is None
+        # and model_fields_set contains the field
+        if self.inputs is None and "inputs" in self.model_fields_set:
+            _dict['inputs'] = None
+
+        # set to None if config_schema (nullable) is None
+        # and model_fields_set contains the field
+        if self.config_schema is None and "config_schema" in self.model_fields_set:
+            _dict['config_schema'] = None
+
+        # set to None if output_violation_schema (nullable) is None
+        # and model_fields_set contains the field
+        if self.output_violation_schema is None and "output_violation_schema" in self.model_fields_set:
+            _dict['output_violation_schema'] = None
+
+        # set to None if rule_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.rule_type is None and "rule_type" in self.model_fields_set:
+            _dict['rule_type'] = None
+
+        # set to None if rule_definition (nullable) is None
+        # and model_fields_set contains the field
+        if self.rule_definition is None and "rule_definition" in self.model_fields_set:
+            _dict['rule_definition'] = None
+
+        # set to None if default_policy_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.default_policy_config is None and "default_policy_config" in self.model_fields_set:
+            _dict['default_policy_config'] = None
+
         return _dict
 
     @classmethod
@@ -109,12 +116,12 @@ class PolicyTemplateDetails(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "inputs": Inputs.from_dict(obj["inputs"]) if obj.get("inputs") is not None else None,
-            "config_schema": ConfigSchema.from_dict(obj["config_schema"]) if obj.get("config_schema") is not None else None,
-            "output_violation_schema": OutputViolationSchema.from_dict(obj["output_violation_schema"]) if obj.get("output_violation_schema") is not None else None,
-            "rule_type": PolicyTemplateDetailsRuleType.from_dict(obj["rule_type"]) if obj.get("rule_type") is not None else None,
-            "rule_definition": RuleDefinition.from_dict(obj["rule_definition"]) if obj.get("rule_definition") is not None else None,
-            "default_policy_config": DefaultPolicyConfig.from_dict(obj["default_policy_config"]) if obj.get("default_policy_config") is not None else None
+            "inputs": obj.get("inputs"),
+            "config_schema": obj.get("config_schema"),
+            "output_violation_schema": obj.get("output_violation_schema"),
+            "rule_type": obj.get("rule_type"),
+            "rule_definition": obj.get("rule_definition"),
+            "default_policy_config": obj.get("default_policy_config")
         })
         return _obj
 

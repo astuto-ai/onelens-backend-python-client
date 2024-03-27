@@ -36,7 +36,7 @@ class TestResponseDeprecatePolicyTemplateResponse(unittest.TestCase):
         if include_optional:
             return ResponseDeprecatePolicyTemplateResponse(
                 data = onelens_backend_client.models.deprecate_policy_template_response.DeprecatePolicyTemplateResponse(),
-                message = None
+                message = ''
             )
         else:
             return ResponseDeprecatePolicyTemplateResponse(

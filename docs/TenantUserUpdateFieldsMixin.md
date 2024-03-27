@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**TenantUserUpdateFieldsMixinStatus**](TenantUserUpdateFieldsMixinStatus.md) |  | [optional] 
-**role** | [**TenantUserUpdateFieldsMixinRole**](TenantUserUpdateFieldsMixinRole.md) |  | [optional] 
-**sources** | [**Sources**](Sources.md) |  | [optional] 
+**status** | [**UserStatus**](UserStatus.md) |  | [optional] 
+**role** | [**UserRole**](UserRole.md) |  | [optional] 
+**sources** | **object** |  | [optional] 
 
 ## Example
 

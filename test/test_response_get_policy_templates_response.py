@@ -53,7 +53,7 @@ class TestResponseGetPolicyTemplatesResponse(unittest.TestCase):
                             category = null, 
                             provider = null, )
                         ], ),
-                message = None
+                message = ''
             )
         else:
             return ResponseGetPolicyTemplatesResponse(

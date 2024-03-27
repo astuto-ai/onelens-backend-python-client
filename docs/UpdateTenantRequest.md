@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | [**Name**](Name.md) |  | [optional] 
-**domains** | [**Domains**](Domains.md) |  | [optional] 
-**timezone** | [**Timezone**](Timezone.md) |  | [optional] 
+**name** | **str** |  | [optional] 
+**domains** | **object** |  | [optional] 
+**timezone** | **str** |  | [optional] 
 
 ## Example
 

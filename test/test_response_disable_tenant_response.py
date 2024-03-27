@@ -36,7 +36,7 @@ class TestResponseDisableTenantResponse(unittest.TestCase):
         if include_optional:
             return ResponseDisableTenantResponse(
                 data = onelens_backend_client.models.disable_tenant_response.DisableTenantResponse(),
-                message = None
+                message = ''
             )
         else:
             return ResponseDisableTenantResponse(

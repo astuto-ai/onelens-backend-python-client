@@ -35,7 +35,7 @@ class TestPolicyTemplatePackDetails(unittest.TestCase):
         model = PolicyTemplatePackDetails()
         if include_optional:
             return PolicyTemplatePackDetails(
-                source_schema = None
+                source_schema = onelens_backend_client.models.source_schema.source_schema()
             )
         else:
             return PolicyTemplatePackDetails(

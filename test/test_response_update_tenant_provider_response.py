@@ -38,20 +38,20 @@ class TestResponseUpdateTenantProviderResponse(unittest.TestCase):
                 data = onelens_backend_client.models.update_tenant_provider_response.UpdateTenantProviderResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
-                    parent_id = null, 
+                    parent_id = '', 
                     provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 
                     is_verified = True, 
                     state = '', ),
-                message = None
+                message = ''
             )
         else:
             return ResponseUpdateTenantProviderResponse(
                 data = onelens_backend_client.models.update_tenant_provider_response.UpdateTenantProviderResponse(
                     cloud_provider = '', 
                     cloud_id = '', 
-                    parent_id = null, 
+                    parent_id = '', 
                     provider_config = onelens_backend_client.models.provider_config.Provider Config(), 
                     id = '', 
                     is_parent_account = True, 

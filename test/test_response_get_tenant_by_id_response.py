@@ -43,8 +43,8 @@ class TestResponseGetTenantByIDResponse(unittest.TestCase):
                     timezone = '', 
                     id = '', 
                     tenant_state = null, 
-                    database_connection_string = null, ),
-                message = None
+                    database_connection_string = '', ),
+                message = ''
             )
         else:
             return ResponseGetTenantByIDResponse(
@@ -56,7 +56,7 @@ class TestResponseGetTenantByIDResponse(unittest.TestCase):
                     timezone = '', 
                     id = '', 
                     tenant_state = null, 
-                    database_connection_string = null, ),
+                    database_connection_string = '', ),
         )
         """
 

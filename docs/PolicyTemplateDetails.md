@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**inputs** | [**Inputs**](Inputs.md) |  | [optional] 
-**config_schema** | [**ConfigSchema**](ConfigSchema.md) |  | [optional] 
-**output_violation_schema** | [**OutputViolationSchema**](OutputViolationSchema.md) |  | [optional] 
-**rule_type** | [**PolicyTemplateDetailsRuleType**](PolicyTemplateDetailsRuleType.md) |  | [optional] 
-**rule_definition** | [**RuleDefinition**](RuleDefinition.md) |  | [optional] 
-**default_policy_config** | [**DefaultPolicyConfig**](DefaultPolicyConfig.md) |  | [optional] 
+**inputs** | **object** |  | [optional] 
+**config_schema** | **object** |  | [optional] 
+**output_violation_schema** | **object** |  | [optional] 
+**rule_type** | [**RuleType**](RuleType.md) |  | [optional] 
+**rule_definition** | **str** |  | [optional] 
+**default_policy_config** | **object** |  | [optional] 
 
 ## Example
 

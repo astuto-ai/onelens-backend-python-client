@@ -46,7 +46,7 @@ class TestResponseGetTenantsResponse(unittest.TestCase):
                             id = '', 
                             tenant_state = null, )
                         ], ),
-                message = None
+                message = ''
             )
         else:
             return ResponseGetTenantsResponse(

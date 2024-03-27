@@ -19,9 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.sources import Sources
-from onelens_backend_client.models.tenant_user_update_fields_mixin_role import TenantUserUpdateFieldsMixinRole
-from onelens_backend_client.models.tenant_user_update_fields_mixin_status import TenantUserUpdateFieldsMixinStatus
+from onelens_backend_client.models.user_role import UserRole
+from onelens_backend_client.models.user_status import UserStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,9 +28,9 @@ class TenantUserUpdateFieldsMixin(BaseModel):
     """
     TenantUserUpdateFieldsMixin
     """ # noqa: E501
-    status: Optional[TenantUserUpdateFieldsMixinStatus] = None
-    role: Optional[TenantUserUpdateFieldsMixinRole] = None
-    sources: Optional[Sources] = None
+    status: Optional[UserStatus] = None
+    role: Optional[UserRole] = None
+    sources: Optional[Any] = None
     __properties: ClassVar[List[str]] = ["status", "role", "sources"]
 
     model_config = ConfigDict(
@@ -73,15 +72,21 @@ class TenantUserUpdateFieldsMixin(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of status
-        if self.status:
-            _dict['status'] = self.status.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of role
-        if self.role:
-            _dict['role'] = self.role.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of sources
-        if self.sources:
-            _dict['sources'] = self.sources.to_dict()
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict['status'] = None
+
+        # set to None if role (nullable) is None
+        # and model_fields_set contains the field
+        if self.role is None and "role" in self.model_fields_set:
+            _dict['role'] = None
+
+        # set to None if sources (nullable) is None
+        # and model_fields_set contains the field
+        if self.sources is None and "sources" in self.model_fields_set:
+            _dict['sources'] = None
+
         return _dict
 
     @classmethod
@@ -94,9 +99,9 @@ class TenantUserUpdateFieldsMixin(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": TenantUserUpdateFieldsMixinStatus.from_dict(obj["status"]) if obj.get("status") is not None else None,
-            "role": TenantUserUpdateFieldsMixinRole.from_dict(obj["role"]) if obj.get("role") is not None else None,
-            "sources": Sources.from_dict(obj["sources"]) if obj.get("sources") is not None else None
+            "status": obj.get("status"),
+            "role": obj.get("role"),
+            "sources": obj.get("sources")
         })
         return _obj
 

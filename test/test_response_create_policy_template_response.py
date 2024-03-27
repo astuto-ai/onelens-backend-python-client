@@ -49,7 +49,7 @@ class TestResponseCreatePolicyTemplateResponse(unittest.TestCase):
                     state = null, 
                     category = null, 
                     provider = null, ),
-                message = None
+                message = ''
             )
         else:
             return ResponseCreatePolicyTemplateResponse(

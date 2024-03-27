@@ -17,11 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.domains import Domains
-from onelens_backend_client.models.name import Name
-from onelens_backend_client.models.timezone import Timezone
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,9 +26,9 @@ class UpdateTenantRequest(BaseModel):
     """
     UpdateTenantRequest
     """ # noqa: E501
-    name: Optional[Name] = None
-    domains: Optional[Domains] = None
-    timezone: Optional[Timezone] = None
+    name: Optional[StrictStr] = None
+    domains: Optional[Any] = None
+    timezone: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["name", "domains", "timezone"]
 
     model_config = ConfigDict(
@@ -73,15 +70,21 @@ class UpdateTenantRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of name
-        if self.name:
-            _dict['name'] = self.name.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of domains
-        if self.domains:
-            _dict['domains'] = self.domains.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of timezone
-        if self.timezone:
-            _dict['timezone'] = self.timezone.to_dict()
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
+        # set to None if domains (nullable) is None
+        # and model_fields_set contains the field
+        if self.domains is None and "domains" in self.model_fields_set:
+            _dict['domains'] = None
+
+        # set to None if timezone (nullable) is None
+        # and model_fields_set contains the field
+        if self.timezone is None and "timezone" in self.model_fields_set:
+            _dict['timezone'] = None
+
         return _dict
 
     @classmethod
@@ -94,9 +97,9 @@ class UpdateTenantRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": Name.from_dict(obj["name"]) if obj.get("name") is not None else None,
-            "domains": Domains.from_dict(obj["domains"]) if obj.get("domains") is not None else None,
-            "timezone": Timezone.from_dict(obj["timezone"]) if obj.get("timezone") is not None else None
+            "name": obj.get("name"),
+            "domains": obj.get("domains"),
+            "timezone": obj.get("timezone")
         })
         return _obj
 

@@ -43,7 +43,7 @@ class TestResponseUpdateTenantResponse(unittest.TestCase):
                     timezone = '', 
                     id = '', 
                     tenant_state = null, ),
-                message = None
+                message = ''
             )
         else:
             return ResponseUpdateTenantResponse(

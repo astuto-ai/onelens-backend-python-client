@@ -35,7 +35,7 @@ class TestPolicyTemplateFilters(unittest.TestCase):
         model = PolicyTemplateFilters()
         if include_optional:
             return PolicyTemplateFilters(
-                search_query = None,
+                search_query = '',
                 parent_ptp_ids = [
                     ''
                     ],

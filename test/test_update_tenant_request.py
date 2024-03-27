@@ -35,9 +35,9 @@ class TestUpdateTenantRequest(unittest.TestCase):
         model = UpdateTenantRequest()
         if include_optional:
             return UpdateTenantRequest(
-                name = None,
+                name = '',
                 domains = None,
-                timezone = None
+                timezone = ''
             )
         else:
             return UpdateTenantRequest(

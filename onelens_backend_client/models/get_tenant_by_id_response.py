@@ -18,9 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from onelens_backend_client.models.database_connection_string import DatabaseConnectionString
 from onelens_backend_client.models.tenant_state import TenantState
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +33,7 @@ class GetTenantByIDResponse(BaseModel):
     timezone: StrictStr = Field(description="Timezone of the tenant")
     id: StrictStr = Field(description="Unique identifier for the tenant")
     tenant_state: TenantState = Field(description="State of the tenant")
-    database_connection_string: DatabaseConnectionString
+    database_connection_string: Optional[StrictStr]
     __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id", "tenant_state", "database_connection_string"]
 
     model_config = ConfigDict(
@@ -76,9 +75,11 @@ class GetTenantByIDResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of database_connection_string
-        if self.database_connection_string:
-            _dict['database_connection_string'] = self.database_connection_string.to_dict()
+        # set to None if database_connection_string (nullable) is None
+        # and model_fields_set contains the field
+        if self.database_connection_string is None and "database_connection_string" in self.model_fields_set:
+            _dict['database_connection_string'] = None
+
         return _dict
 
     @classmethod
@@ -96,7 +97,7 @@ class GetTenantByIDResponse(BaseModel):
             "timezone": obj.get("timezone"),
             "id": obj.get("id"),
             "tenant_state": obj.get("tenant_state"),
-            "database_connection_string": DatabaseConnectionString.from_dict(obj["database_connection_string"]) if obj.get("database_connection_string") is not None else None
+            "database_connection_string": obj.get("database_connection_string")
         })
         return _obj
 

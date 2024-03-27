@@ -42,7 +42,7 @@ class TestResponseGetPolicyTemplatePackByIdResponse(unittest.TestCase):
                     details = null, 
                     id = '', 
                     state = null, ),
-                message = None
+                message = ''
             )
         else:
             return ResponseGetPolicyTemplatePackByIdResponse(

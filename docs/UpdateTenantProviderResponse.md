@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cloud_provider** | **str** | Cloud provider | 
 **cloud_id** | **str** | Cloud ID | 
-**parent_id** | [**ParentId**](ParentId.md) |  | [optional] 
+**parent_id** | **str** |  | [optional] 
 **provider_config** | **object** | provider config | 
 **id** | **str** | Unique ID for the Tenant Provider | 
 **is_parent_account** | **bool** | billing account | 
