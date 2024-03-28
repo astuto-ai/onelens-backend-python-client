@@ -105,6 +105,9 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
+*TenantProviderServiceApi* | [**create_tenant_provider**](docs/TenantProviderServiceApi.md#create_tenant_provider) | Creates a new tenant Provider.
+*TenantProviderServiceApi* | [**get_tenant_provider_by_id**](docs/TenantProviderServiceApi.md#get_tenant_provider_by_id) | Retrieves a Tenant Provider by its unique identifier.
+*TenantProviderServiceApi* | [**get_tenant_providers**](docs/TenantProviderServiceApi.md#get_tenant_providers) | Retrieves all tenant providers.
 *TenantServiceApi* | [**create_tenant**](docs/TenantServiceApi.md#create_tenant) | Creates a new tenant.
 *TenantServiceApi* | [**disable_tenant**](docs/TenantServiceApi.md#disable_tenant) | Disables a tenant.
 *TenantServiceApi* | [**get_tenant_by_id**](docs/TenantServiceApi.md#get_tenant_by_id) | Retrieves a tenant by its unique identifier.
@@ -165,6 +168,7 @@ Class | Method | Description
  - [GetPolicyTemplatesResponse](docs/GetPolicyTemplatesResponse.md)
  - [GetTenantByIDRequest](docs/GetTenantByIDRequest.md)
  - [GetTenantByIDResponse](docs/GetTenantByIDResponse.md)
+ - [GetTenantProviderByIDRequest](docs/GetTenantProviderByIDRequest.md)
  - [GetTenantProviderByIDResponse](docs/GetTenantProviderByIDResponse.md)
  - [GetTenantProvidersRequest](docs/GetTenantProvidersRequest.md)
  - [GetTenantProvidersResponse](docs/GetTenantProvidersResponse.md)
