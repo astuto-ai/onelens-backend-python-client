@@ -26,9 +26,10 @@ class TenantFilters(BaseModel):
     """
     TenantFilters
     """ # noqa: E501
+    ids: Optional[Any] = None
     names: Optional[Any] = None
     tenant_states: Optional[Any] = None
-    __properties: ClassVar[List[str]] = ["names", "tenant_states"]
+    __properties: ClassVar[List[str]] = ["ids", "names", "tenant_states"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +70,11 @@ class TenantFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if ids (nullable) is None
+        # and model_fields_set contains the field
+        if self.ids is None and "ids" in self.model_fields_set:
+            _dict['ids'] = None
+
         # set to None if names (nullable) is None
         # and model_fields_set contains the field
         if self.names is None and "names" in self.model_fields_set:
@@ -91,6 +97,7 @@ class TenantFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "ids": obj.get("ids"),
             "names": obj.get("names"),
             "tenant_states": obj.get("tenant_states")
         })

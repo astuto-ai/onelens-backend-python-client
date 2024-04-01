@@ -216,6 +216,7 @@ Class | Method | Description
  - [TenantProvider](docs/TenantProvider.md)
  - [TenantProviderAttributes](docs/TenantProviderAttributes.md)
  - [TenantProviderFilters](docs/TenantProviderFilters.md)
+ - [TenantProviderState](docs/TenantProviderState.md)
  - [TenantState](docs/TenantState.md)
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
  - [TenantVerifyRequest](docs/TenantVerifyRequest.md)

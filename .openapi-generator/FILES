@@ -90,6 +90,7 @@ docs/TenantProvider.md
 docs/TenantProviderAttributes.md
 docs/TenantProviderFilters.md
 docs/TenantProviderServiceApi.md
+docs/TenantProviderState.md
 docs/TenantServiceApi.md
 docs/TenantState.md
 docs/TenantUserUpdateFieldsMixin.md
@@ -216,6 +217,7 @@ onelens_backend_client/models/tenant_filters.py
 onelens_backend_client/models/tenant_provider.py
 onelens_backend_client/models/tenant_provider_attributes.py
 onelens_backend_client/models/tenant_provider_filters.py
+onelens_backend_client/models/tenant_provider_state.py
 onelens_backend_client/models/tenant_state.py
 onelens_backend_client/models/tenant_user_update_fields_mixin.py
 onelens_backend_client/models/tenant_verify_request.py
@@ -241,6 +243,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_get_tenant_provider_by_id_request.py
-test/test_tenant_provider_service_api.py
+test/test_tenant_provider_state.py
 tox.ini

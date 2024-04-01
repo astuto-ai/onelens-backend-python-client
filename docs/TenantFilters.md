@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ids** | **object** |  | [optional] 
 **names** | **object** |  | [optional] 
 **tenant_states** | **object** |  | [optional] 
 

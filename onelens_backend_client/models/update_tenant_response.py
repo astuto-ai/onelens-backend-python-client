@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from onelens_backend_client.models.tenant_state import TenantState
 from typing import Optional, Set
@@ -33,7 +33,8 @@ class UpdateTenantResponse(BaseModel):
     timezone: StrictStr = Field(description="Timezone of the tenant")
     id: StrictStr = Field(description="Unique identifier for the tenant")
     tenant_state: TenantState = Field(description="State of the tenant")
-    __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id", "tenant_state"]
+    database_connection_string: Optional[StrictStr]
+    __properties: ClassVar[List[str]] = ["name", "domains", "timezone", "id", "tenant_state", "database_connection_string"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,11 @@ class UpdateTenantResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if database_connection_string (nullable) is None
+        # and model_fields_set contains the field
+        if self.database_connection_string is None and "database_connection_string" in self.model_fields_set:
+            _dict['database_connection_string'] = None
+
         return _dict
 
     @classmethod
@@ -90,7 +96,8 @@ class UpdateTenantResponse(BaseModel):
             "domains": obj.get("domains"),
             "timezone": obj.get("timezone"),
             "id": obj.get("id"),
-            "tenant_state": obj.get("tenant_state")
+            "tenant_state": obj.get("tenant_state"),
+            "database_connection_string": obj.get("database_connection_string")
         })
         return _obj
 

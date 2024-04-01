@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.tenant_provider_state import TenantProviderState
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +34,7 @@ class TenantProvider(BaseModel):
     id: StrictStr = Field(description="Unique ID for the Tenant Provider")
     is_parent_account: StrictBool = Field(description="billing account")
     is_verified: StrictBool = Field(description="is verified")
-    state: StrictStr = Field(description="state")
+    state: TenantProviderState = Field(description="state")
     __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "id", "is_parent_account", "is_verified", "state"]
 
     model_config = ConfigDict(

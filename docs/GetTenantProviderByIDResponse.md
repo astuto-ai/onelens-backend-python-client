@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **id** | **str** | Unique ID for the Tenant Provider | 
 **is_parent_account** | **bool** | billing account | 
 **is_verified** | **bool** | is verified | 
-**state** | **str** | State of the tenant | 
+**state** | [**TenantProviderState**](TenantProviderState.md) | State of the tenant | 
 
 ## Example
 
