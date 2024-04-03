@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **provider_config** | **object** | provider config | 
 **id** | **str** | Unique ID for the Tenant Provider | 
 **is_parent_account** | **bool** | billing account | 
+**tenant_id** | **str** | Tenant ID | 
 **is_verified** | **bool** | is verified | 
 **state** | [**TenantProviderState**](TenantProviderState.md) | State of the tenant | 
 

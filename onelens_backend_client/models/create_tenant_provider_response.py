@@ -33,9 +33,10 @@ class CreateTenantProviderResponse(BaseModel):
     provider_config: Dict[str, Any] = Field(description="provider config")
     id: StrictStr = Field(description="Unique ID for the Tenant Provider")
     is_parent_account: StrictBool = Field(description="billing account")
+    tenant_id: StrictStr = Field(description="Tenant ID")
     is_verified: StrictBool = Field(description="is verified")
     state: TenantProviderState = Field(description="state")
-    __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "id", "is_parent_account", "is_verified", "state"]
+    __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "id", "is_parent_account", "tenant_id", "is_verified", "state"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +100,7 @@ class CreateTenantProviderResponse(BaseModel):
             "provider_config": obj.get("provider_config"),
             "id": obj.get("id"),
             "is_parent_account": obj.get("is_parent_account"),
+            "tenant_id": obj.get("tenant_id"),
             "is_verified": obj.get("is_verified"),
             "state": obj.get("state")
         })
