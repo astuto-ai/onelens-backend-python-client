@@ -105,6 +105,18 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
+*TenantPoliciesApi* | [**disable_tenant_policy**](docs/TenantPoliciesApi.md#disable_tenant_policy) | Disable Tenant Policy
+*TenantPoliciesApi* | [**enable_all_policies**](docs/TenantPoliciesApi.md#enable_all_policies) | Enable All Policies
+*TenantPoliciesApi* | [**enable_tenant_policy**](docs/TenantPoliciesApi.md#enable_tenant_policy) | Enable Tenant Policy
+*TenantPoliciesApi* | [**get_tenant_policies**](docs/TenantPoliciesApi.md#get_tenant_policies) | Get Tenant Policies
+*TenantPoliciesApi* | [**get_tenant_policy_settings**](docs/TenantPoliciesApi.md#get_tenant_policy_settings) | Get Tenant Policy Settings
+*TenantPoliciesApi* | [**override_tenant_policy_config**](docs/TenantPoliciesApi.md#override_tenant_policy_config) | Override Tenant Policy Config
+*TenantPolicyServiceApi* | [**disable_tenant_policy**](docs/TenantPolicyServiceApi.md#disable_tenant_policy) | disable a policy for a tenant in the tenant DB.
+*TenantPolicyServiceApi* | [**enable_all_policies**](docs/TenantPolicyServiceApi.md#enable_all_policies) | enables all policies for a tenant.
+*TenantPolicyServiceApi* | [**enable_tenant_policy**](docs/TenantPolicyServiceApi.md#enable_tenant_policy) | enables a policy for a tenant in the tenant DB.
+*TenantPolicyServiceApi* | [**get_tenant_policies**](docs/TenantPolicyServiceApi.md#get_tenant_policies) | Retrieves all tenant policies, optionally filtered by the parameters in the request.
+*TenantPolicyServiceApi* | [**get_tenant_policy_settings**](docs/TenantPolicyServiceApi.md#get_tenant_policy_settings) | Retrieves all tenant policy settings, optionally filtered by the parameters in the request.
+*TenantPolicyServiceApi* | [**override_tenant_policy_config**](docs/TenantPolicyServiceApi.md#override_tenant_policy_config) | Override the tenant policy config with the provided config.
 *TenantProviderServiceApi* | [**create_tenant_provider**](docs/TenantProviderServiceApi.md#create_tenant_provider) | Creates a new tenant Provider.
 *TenantProviderServiceApi* | [**get_tenant_provider_by_id**](docs/TenantProviderServiceApi.md#get_tenant_provider_by_id) | Retrieves a Tenant Provider by its unique identifier.
 *TenantProviderServiceApi* | [**get_tenant_providers**](docs/TenantProviderServiceApi.md#get_tenant_providers) | Retrieves all tenant providers.
@@ -154,7 +166,10 @@ Class | Method | Description
  - [CreateUserTenantMappingResponse](docs/CreateUserTenantMappingResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
+ - [DisableTenantPolicyRequest](docs/DisableTenantPolicyRequest.md)
  - [DisableTenantRequest](docs/DisableTenantRequest.md)
+ - [EnableAllPoliciesRequest](docs/EnableAllPoliciesRequest.md)
+ - [EnableTenantPolicyRequest](docs/EnableTenantPolicyRequest.md)
  - [GcpService](docs/GcpService.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
@@ -168,6 +183,12 @@ Class | Method | Description
  - [GetPolicyTemplatesResponse](docs/GetPolicyTemplatesResponse.md)
  - [GetTenantByIDRequest](docs/GetTenantByIDRequest.md)
  - [GetTenantByIDResponse](docs/GetTenantByIDResponse.md)
+ - [GetTenantPoliciesAPIRequest](docs/GetTenantPoliciesAPIRequest.md)
+ - [GetTenantPoliciesRequest](docs/GetTenantPoliciesRequest.md)
+ - [GetTenantPoliciesResponse](docs/GetTenantPoliciesResponse.md)
+ - [GetTenantPolicySettingsAPIRequest](docs/GetTenantPolicySettingsAPIRequest.md)
+ - [GetTenantPolicySettingsRequest](docs/GetTenantPolicySettingsRequest.md)
+ - [GetTenantPolicySettingsResponse](docs/GetTenantPolicySettingsResponse.md)
  - [GetTenantProviderByIDRequest](docs/GetTenantProviderByIDRequest.md)
  - [GetTenantProviderByIDResponse](docs/GetTenantProviderByIDResponse.md)
  - [GetTenantProvidersRequest](docs/GetTenantProvidersRequest.md)
@@ -176,6 +197,9 @@ Class | Method | Description
  - [GetTenantsResponse](docs/GetTenantsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [OverrideTenantPolicyConfigAPIRequest](docs/OverrideTenantPolicyConfigAPIRequest.md)
+ - [OverrideTenantPolicyConfigRequest](docs/OverrideTenantPolicyConfigRequest.md)
+ - [OverrideTenantPolicyConfigResponse](docs/OverrideTenantPolicyConfigResponse.md)
  - [PaginationFields](docs/PaginationFields.md)
  - [PaginationParams](docs/PaginationParams.md)
  - [PolicyCategory](docs/PolicyCategory.md)
@@ -195,13 +219,18 @@ Class | Method | Description
  - [ResponseCreateTenantUserResponse](docs/ResponseCreateTenantUserResponse.md)
  - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
  - [ResponseDeprecatePolicyTemplateResponse](docs/ResponseDeprecatePolicyTemplateResponse.md)
+ - [ResponseDisableTenantPolicyResponse](docs/ResponseDisableTenantPolicyResponse.md)
  - [ResponseDisableTenantProviderResponse](docs/ResponseDisableTenantProviderResponse.md)
  - [ResponseDisableTenantResponse](docs/ResponseDisableTenantResponse.md)
+ - [ResponseEnableAllPoliciesResponse](docs/ResponseEnableAllPoliciesResponse.md)
+ - [ResponseEnableTenantPolicyResponse](docs/ResponseEnableTenantPolicyResponse.md)
  - [ResponseGetPolicyTemplateByIDResponse](docs/ResponseGetPolicyTemplateByIDResponse.md)
  - [ResponseGetPolicyTemplatePackByIdResponse](docs/ResponseGetPolicyTemplatePackByIdResponse.md)
  - [ResponseGetPolicyTemplatePacksResponse](docs/ResponseGetPolicyTemplatePacksResponse.md)
  - [ResponseGetPolicyTemplatesResponse](docs/ResponseGetPolicyTemplatesResponse.md)
  - [ResponseGetTenantByIDResponse](docs/ResponseGetTenantByIDResponse.md)
+ - [ResponseGetTenantPoliciesResponse](docs/ResponseGetTenantPoliciesResponse.md)
+ - [ResponseGetTenantPolicySettingsResponse](docs/ResponseGetTenantPolicySettingsResponse.md)
  - [ResponseGetTenantProviderByIDResponse](docs/ResponseGetTenantProviderByIDResponse.md)
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
@@ -213,6 +242,11 @@ Class | Method | Description
  - [RuleType](docs/RuleType.md)
  - [Tenant](docs/Tenant.md)
  - [TenantFilters](docs/TenantFilters.md)
+ - [TenantPolicy](docs/TenantPolicy.md)
+ - [TenantPolicyFilters](docs/TenantPolicyFilters.md)
+ - [TenantPolicySettings](docs/TenantPolicySettings.md)
+ - [TenantPolicySettingsFilters](docs/TenantPolicySettingsFilters.md)
+ - [TenantPolicyState](docs/TenantPolicyState.md)
  - [TenantProvider](docs/TenantProvider.md)
  - [TenantProviderAttributes](docs/TenantProviderAttributes.md)
  - [TenantProviderFilters](docs/TenantProviderFilters.md)

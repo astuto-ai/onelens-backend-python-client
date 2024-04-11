@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) | The list of services associated the policy template. | 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) | The execution type of the policy template. | 
 **details** | [**PolicyTemplateDetails**](PolicyTemplateDetails.md) | The details of the policy template. | 
-**id** | **str** | The unique identifier of the policy template. | 
-**state** | [**PolicyTemplateState**](PolicyTemplateState.md) | The state of the policy template. | 
 **category** | [**PolicyCategory**](PolicyCategory.md) | The category of the policy template. | 
 **provider** | [**Provider**](Provider.md) | The cloud provider of the policy template. | 
+**id** | **str** | The unique identifier of the policy template. | 
+**state** | [**PolicyTemplateState**](PolicyTemplateState.md) | The state of the policy template. | 
 
 ## Example
 

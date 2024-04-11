@@ -39,11 +39,11 @@ class PolicyTemplate(BaseModel):
     services: List[CreatePolicyTemplateRequestServicesInner] = Field(description="The list of services associated the policy template.")
     execution_type: PolicyExecutionType = Field(description="The execution type of the policy template.")
     details: PolicyTemplateDetails = Field(description="The details of the policy template.")
-    id: StrictStr = Field(description="The unique identifier of the policy template.")
-    state: PolicyTemplateState = Field(description="The state of the policy template.")
     category: PolicyCategory = Field(description="The category of the policy template.")
     provider: Provider = Field(description="The cloud provider of the policy template.")
-    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details", "id", "state", "category", "provider"]
+    id: StrictStr = Field(description="The unique identifier of the policy template.")
+    state: PolicyTemplateState = Field(description="The state of the policy template.")
+    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details", "category", "provider", "id", "state"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -113,10 +113,10 @@ class PolicyTemplate(BaseModel):
             "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "id": obj.get("id"),
-            "state": obj.get("state"),
             "category": obj.get("category"),
-            "provider": obj.get("provider")
+            "provider": obj.get("provider"),
+            "id": obj.get("id"),
+            "state": obj.get("state")
         })
         return _obj
 
