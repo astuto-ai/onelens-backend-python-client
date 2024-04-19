@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | **object** |  | [optional] 
-**** | **object** |  | [optional] 
+**gte** | **object** |  | [optional] 
+**gt** | **object** |  | [optional] 
 
 ## Example
 

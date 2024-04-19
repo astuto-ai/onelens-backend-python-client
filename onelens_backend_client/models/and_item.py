@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,9 +26,9 @@ class AndItem(BaseModel):
     """
     AndItem
     """ # noqa: E501
-    : Optional[Any] = Field(default=None, alias=">=")
-    : Optional[Any] = Field(default=None, alias=">")
-    __properties: ClassVar[List[str]] = ["&gt;&#x3D;", "&gt;"]
+    gte: Optional[Any] = None
+    gt: Optional[Any] = None
+    __properties: ClassVar[List[str]] = ["gte", "gt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,15 +69,15 @@ class AndItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if  (nullable) is None
+        # set to None if gte (nullable) is None
         # and model_fields_set contains the field
-        if self. is None and "" in self.model_fields_set:
-            _dict['>='] = None
+        if self.gte is None and "gte" in self.model_fields_set:
+            _dict['gte'] = None
 
-        # set to None if  (nullable) is None
+        # set to None if gt (nullable) is None
         # and model_fields_set contains the field
-        if self. is None and "" in self.model_fields_set:
-            _dict['>'] = None
+        if self.gt is None and "gt" in self.model_fields_set:
+            _dict['gt'] = None
 
         return _dict
 
@@ -91,8 +91,8 @@ class AndItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            ">=": obj.get(">="),
-            ">": obj.get(">")
+            "gte": obj.get("gte"),
+            "gt": obj.get("gt")
         })
         return _obj
 
