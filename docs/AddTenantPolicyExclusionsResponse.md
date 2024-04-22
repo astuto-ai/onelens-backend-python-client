@@ -1,4 +1,4 @@
-# TenantPolicySettings
+# AddTenantPolicyExclusionsResponse
 
 
 ## Properties
@@ -15,19 +15,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from onelens_backend_client.models.tenant_policy_settings import TenantPolicySettings
+from onelens_backend_client.models.add_tenant_policy_exclusions_response import AddTenantPolicyExclusionsResponse
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of TenantPolicySettings from a JSON string
-tenant_policy_settings_instance = TenantPolicySettings.from_json(json)
+# create an instance of AddTenantPolicyExclusionsResponse from a JSON string
+add_tenant_policy_exclusions_response_instance = AddTenantPolicyExclusionsResponse.from_json(json)
 # print the JSON string representation of the object
-print(TenantPolicySettings.to_json())
+print(AddTenantPolicyExclusionsResponse.to_json())
 
 # convert the object into a dict
-tenant_policy_settings_dict = tenant_policy_settings_instance.to_dict()
-# create an instance of TenantPolicySettings from a dict
-tenant_policy_settings_form_dict = tenant_policy_settings.from_dict(tenant_policy_settings_dict)
+add_tenant_policy_exclusions_response_dict = add_tenant_policy_exclusions_response_instance.to_dict()
+# create an instance of AddTenantPolicyExclusionsResponse from a dict
+add_tenant_policy_exclusions_response_form_dict = add_tenant_policy_exclusions_response.from_dict(add_tenant_policy_exclusions_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

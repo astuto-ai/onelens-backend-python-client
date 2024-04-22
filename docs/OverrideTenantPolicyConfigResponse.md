@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **policy_id** | **str** | The id of the tenant policy. | 
 **config_overrides** | **object** |  | [optional] 
 **state** | [**TenantPolicyState**](TenantPolicyState.md) | The state of the policy template. | 
+**version** | **int** | The version of the tenant policy. | 
+**exclusions** | [**TenantPolicyExclusions**](TenantPolicyExclusions.md) | The exclusions for the tenant policy. | 
 
 ## Example
 

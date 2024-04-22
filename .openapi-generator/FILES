@@ -4,6 +4,9 @@
 .travis.yml
 README.md
 docs/ActivatePolicyTemplateRequest.md
+docs/AddTenantPolicyExclusionsAPIRequest.md
+docs/AddTenantPolicyExclusionsRequest.md
+docs/AddTenantPolicyExclusionsResponse.md
 docs/AndItem.md
 docs/AnomalyLogicOperationInput.md
 docs/AnomalyLogicOperationOutput.md
@@ -72,6 +75,9 @@ docs/OverrideTenantAnomalyConfigResponse.md
 docs/OverrideTenantPolicyConfigAPIRequest.md
 docs/OverrideTenantPolicyConfigRequest.md
 docs/OverrideTenantPolicyConfigResponse.md
+docs/OverrideTenantPolicyExclusionsAPIRequest.md
+docs/OverrideTenantPolicyExclusionsRequest.md
+docs/OverrideTenantPolicyExclusionsResponse.md
 docs/PaginationFields.md
 docs/PaginationParams.md
 docs/PoliciesPolicyTemplatePacksApi.md
@@ -90,6 +96,7 @@ docs/PolicyTemplateState.md
 docs/PolicyTemplateUpdateFieldsMixin.md
 docs/Provider.md
 docs/ResponseActivatePolicyTemplateResponse.md
+docs/ResponseAddTenantPolicyExclusionsResponse.md
 docs/ResponseCreatePolicyTemplatePackResponse.md
 docs/ResponseCreatePolicyTemplateResponse.md
 docs/ResponseCreateTenantUserResponse.md
@@ -113,6 +120,7 @@ docs/ResponseGetTenantProviderByIDResponse.md
 docs/ResponseGetTenantProvidersResponse.md
 docs/ResponseGetTenantsResponse.md
 docs/ResponseOverrideTenantAnomalyConfigResponse.md
+docs/ResponseOverrideTenantPolicyExclusionsResponse.md
 docs/ResponseTenantVerifyResponse.md
 docs/ResponseUpdatePolicyTemplateResponse.md
 docs/ResponseUpdateTenantProviderResponse.md
@@ -128,6 +136,7 @@ docs/TenantAnomalyState.md
 docs/TenantFilters.md
 docs/TenantPoliciesApi.md
 docs/TenantPolicy.md
+docs/TenantPolicyExclusions.md
 docs/TenantPolicyFilters.md
 docs/TenantPolicyServiceApi.md
 docs/TenantPolicySettings.md
@@ -188,6 +197,9 @@ onelens_backend_client/configuration.py
 onelens_backend_client/exceptions.py
 onelens_backend_client/models/__init__.py
 onelens_backend_client/models/activate_policy_template_request.py
+onelens_backend_client/models/add_tenant_policy_exclusions_api_request.py
+onelens_backend_client/models/add_tenant_policy_exclusions_request.py
+onelens_backend_client/models/add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/and_item.py
 onelens_backend_client/models/anomaly_logic_operation_input.py
 onelens_backend_client/models/anomaly_logic_operation_output.py
@@ -255,6 +267,9 @@ onelens_backend_client/models/override_tenant_anomaly_config_response.py
 onelens_backend_client/models/override_tenant_policy_config_api_request.py
 onelens_backend_client/models/override_tenant_policy_config_request.py
 onelens_backend_client/models/override_tenant_policy_config_response.py
+onelens_backend_client/models/override_tenant_policy_exclusions_api_request.py
+onelens_backend_client/models/override_tenant_policy_exclusions_request.py
+onelens_backend_client/models/override_tenant_policy_exclusions_response.py
 onelens_backend_client/models/pagination_fields.py
 onelens_backend_client/models/pagination_params.py
 onelens_backend_client/models/policy_category.py
@@ -269,6 +284,7 @@ onelens_backend_client/models/policy_template_state.py
 onelens_backend_client/models/policy_template_update_fields_mixin.py
 onelens_backend_client/models/provider.py
 onelens_backend_client/models/response_activate_policy_template_response.py
+onelens_backend_client/models/response_add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/response_create_policy_template_pack_response.py
 onelens_backend_client/models/response_create_policy_template_response.py
 onelens_backend_client/models/response_create_tenant_user_response.py
@@ -292,6 +308,7 @@ onelens_backend_client/models/response_get_tenant_provider_by_id_response.py
 onelens_backend_client/models/response_get_tenant_providers_response.py
 onelens_backend_client/models/response_get_tenants_response.py
 onelens_backend_client/models/response_override_tenant_anomaly_config_response.py
+onelens_backend_client/models/response_override_tenant_policy_exclusions_response.py
 onelens_backend_client/models/response_tenant_verify_response.py
 onelens_backend_client/models/response_update_policy_template_response.py
 onelens_backend_client/models/response_update_tenant_provider_response.py
@@ -304,6 +321,7 @@ onelens_backend_client/models/tenant_anomaly_settings.py
 onelens_backend_client/models/tenant_anomaly_state.py
 onelens_backend_client/models/tenant_filters.py
 onelens_backend_client/models/tenant_policy.py
+onelens_backend_client/models/tenant_policy_exclusions.py
 onelens_backend_client/models/tenant_policy_filters.py
 onelens_backend_client/models/tenant_policy_settings.py
 onelens_backend_client/models/tenant_policy_settings_filters.py
@@ -337,4 +355,13 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_add_tenant_policy_exclusions_api_request.py
+test/test_add_tenant_policy_exclusions_request.py
+test/test_add_tenant_policy_exclusions_response.py
+test/test_override_tenant_policy_exclusions_api_request.py
+test/test_override_tenant_policy_exclusions_request.py
+test/test_override_tenant_policy_exclusions_response.py
+test/test_response_add_tenant_policy_exclusions_response.py
+test/test_response_override_tenant_policy_exclusions_response.py
+test/test_tenant_policy_exclusions.py
 tox.ini

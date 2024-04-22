@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.tenant_policy_exclusions import TenantPolicyExclusions
 from onelens_backend_client.models.tenant_policy_state import TenantPolicyState
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +32,9 @@ class TenantPolicySettings(BaseModel):
     policy_id: StrictStr = Field(description="The id of the tenant policy.")
     config_overrides: Optional[Dict[str, Any]] = None
     state: TenantPolicyState = Field(description="The state of the policy template.")
-    __properties: ClassVar[List[str]] = ["id", "policy_id", "config_overrides", "state"]
+    version: StrictInt = Field(description="The version of the tenant policy.")
+    exclusions: TenantPolicyExclusions = Field(description="The exclusions for the tenant policy.")
+    __properties: ClassVar[List[str]] = ["id", "policy_id", "config_overrides", "state", "version", "exclusions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +75,9 @@ class TenantPolicySettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of exclusions
+        if self.exclusions:
+            _dict['exclusions'] = self.exclusions.to_dict()
         # set to None if config_overrides (nullable) is None
         # and model_fields_set contains the field
         if self.config_overrides is None and "config_overrides" in self.model_fields_set:
@@ -92,7 +98,9 @@ class TenantPolicySettings(BaseModel):
             "id": obj.get("id"),
             "policy_id": obj.get("policy_id"),
             "config_overrides": obj.get("config_overrides"),
-            "state": obj.get("state")
+            "state": obj.get("state"),
+            "version": obj.get("version"),
+            "exclusions": TenantPolicyExclusions.from_dict(obj["exclusions"]) if obj.get("exclusions") is not None else None
         })
         return _obj
 

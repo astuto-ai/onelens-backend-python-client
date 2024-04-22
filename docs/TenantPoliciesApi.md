@@ -4,13 +4,89 @@ All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
+[**add_tenant_policy_exclusions**](TenantPoliciesApi.md#add_tenant_policy_exclusions) | Add Tenant Policy Exclusions
 [**disable_tenant_policy**](TenantPoliciesApi.md#disable_tenant_policy) | Disable Tenant Policy
 [**enable_all_policies**](TenantPoliciesApi.md#enable_all_policies) | Enable All Policies
 [**enable_tenant_policy**](TenantPoliciesApi.md#enable_tenant_policy) | Enable Tenant Policy
 [**get_tenant_policies**](TenantPoliciesApi.md#get_tenant_policies) | Get Tenant Policies
 [**get_tenant_policy_settings**](TenantPoliciesApi.md#get_tenant_policy_settings) | Get Tenant Policy Settings
 [**override_tenant_policy_config**](TenantPoliciesApi.md#override_tenant_policy_config) | Override Tenant Policy Config
+[**override_tenant_policy_exclusions**](TenantPoliciesApi.md#override_tenant_policy_exclusions) | Override Tenant Policy Exclusions
 
+
+# **add_tenant_policy_exclusions**
+> ResponseAddTenantPolicyExclusionsResponse add_tenant_policy_exclusions(tenant_id, tenant_policy_id, add_tenant_policy_exclusions_api_request)
+
+Add Tenant Policy Exclusions
+
+API to add Tenant Policy Exclusions in Tenant DB
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.add_tenant_policy_exclusions_api_request import AddTenantPolicyExclusionsAPIRequest
+from onelens_backend_client.models.response_add_tenant_policy_exclusions_response import ResponseAddTenantPolicyExclusionsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantPoliciesApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    tenant_policy_id = 'tenant_policy_id_example' # str | 
+    add_tenant_policy_exclusions_api_request = onelens_backend_client.AddTenantPolicyExclusionsAPIRequest() # AddTenantPolicyExclusionsAPIRequest | 
+
+    try:
+        # Add Tenant Policy Exclusions
+        api_response = api_instance.add_tenant_policy_exclusions(tenant_id, tenant_policy_id, add_tenant_policy_exclusions_api_request)
+        print("The response of TenantPoliciesApi->add_tenant_policy_exclusions:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantPoliciesApi->add_tenant_policy_exclusions: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **tenant_policy_id** | **str**|  | 
+ **add_tenant_policy_exclusions_api_request** | [**AddTenantPolicyExclusionsAPIRequest**](AddTenantPolicyExclusionsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseAddTenantPolicyExclusionsResponse**](ResponseAddTenantPolicyExclusionsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **disable_tenant_policy**
 > ResponseDisableTenantPolicyResponse disable_tenant_policy(tenant_id, tenant_policy_id)
@@ -422,6 +498,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseGetTenantPoliciesResponse**](ResponseGetTenantPoliciesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **override_tenant_policy_exclusions**
+> ResponseOverrideTenantPolicyExclusionsResponse override_tenant_policy_exclusions(tenant_id, tenant_policy_id, override_tenant_policy_exclusions_api_request)
+
+Override Tenant Policy Exclusions
+
+API to override Tenant Policy Exclusions in Tenant DB
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.override_tenant_policy_exclusions_api_request import OverrideTenantPolicyExclusionsAPIRequest
+from onelens_backend_client.models.response_override_tenant_policy_exclusions_response import ResponseOverrideTenantPolicyExclusionsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantPoliciesApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    tenant_policy_id = 'tenant_policy_id_example' # str | 
+    override_tenant_policy_exclusions_api_request = onelens_backend_client.OverrideTenantPolicyExclusionsAPIRequest() # OverrideTenantPolicyExclusionsAPIRequest | 
+
+    try:
+        # Override Tenant Policy Exclusions
+        api_response = api_instance.override_tenant_policy_exclusions(tenant_id, tenant_policy_id, override_tenant_policy_exclusions_api_request)
+        print("The response of TenantPoliciesApi->override_tenant_policy_exclusions:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantPoliciesApi->override_tenant_policy_exclusions: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **tenant_policy_id** | **str**|  | 
+ **override_tenant_policy_exclusions_api_request** | [**OverrideTenantPolicyExclusionsAPIRequest**](OverrideTenantPolicyExclusionsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseOverrideTenantPolicyExclusionsResponse**](ResponseOverrideTenantPolicyExclusionsResponse.md)
 
 ### Authorization
 

@@ -113,18 +113,22 @@ Class | Method | Description
 *TenantAnomalyServiceApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomalyServiceApi.md#enable_tenant_anomaly_setting) | enables an anomaly for a tenant in the tenant DB.
 *TenantAnomalyServiceApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomalyServiceApi.md#get_tenant_anomaly_settings) | Retrieves all tenant anomaly settings, optionally filtered by the parameters in the request.
 *TenantAnomalyServiceApi* | [**override_tenant_anomaly_setting_config**](docs/TenantAnomalyServiceApi.md#override_tenant_anomaly_setting_config) | Override the tenant anomaly config with the provided config.
+*TenantPoliciesApi* | [**add_tenant_policy_exclusions**](docs/TenantPoliciesApi.md#add_tenant_policy_exclusions) | Add Tenant Policy Exclusions
 *TenantPoliciesApi* | [**disable_tenant_policy**](docs/TenantPoliciesApi.md#disable_tenant_policy) | Disable Tenant Policy
 *TenantPoliciesApi* | [**enable_all_policies**](docs/TenantPoliciesApi.md#enable_all_policies) | Enable All Policies
 *TenantPoliciesApi* | [**enable_tenant_policy**](docs/TenantPoliciesApi.md#enable_tenant_policy) | Enable Tenant Policy
 *TenantPoliciesApi* | [**get_tenant_policies**](docs/TenantPoliciesApi.md#get_tenant_policies) | Get Tenant Policies
 *TenantPoliciesApi* | [**get_tenant_policy_settings**](docs/TenantPoliciesApi.md#get_tenant_policy_settings) | Get Tenant Policy Settings
 *TenantPoliciesApi* | [**override_tenant_policy_config**](docs/TenantPoliciesApi.md#override_tenant_policy_config) | Override Tenant Policy Config
+*TenantPoliciesApi* | [**override_tenant_policy_exclusions**](docs/TenantPoliciesApi.md#override_tenant_policy_exclusions) | Override Tenant Policy Exclusions
+*TenantPolicyServiceApi* | [**add_tenant_policy_exclusions**](docs/TenantPolicyServiceApi.md#add_tenant_policy_exclusions) | Add tenant policy exclusions.
 *TenantPolicyServiceApi* | [**disable_tenant_policy**](docs/TenantPolicyServiceApi.md#disable_tenant_policy) | disable a policy for a tenant in the tenant DB.
 *TenantPolicyServiceApi* | [**enable_all_policies**](docs/TenantPolicyServiceApi.md#enable_all_policies) | enables all policies for a tenant.
 *TenantPolicyServiceApi* | [**enable_tenant_policy**](docs/TenantPolicyServiceApi.md#enable_tenant_policy) | enables a policy for a tenant in the tenant DB.
 *TenantPolicyServiceApi* | [**get_tenant_policies**](docs/TenantPolicyServiceApi.md#get_tenant_policies) | Retrieves all tenant policies, optionally filtered by the parameters in the request.
 *TenantPolicyServiceApi* | [**get_tenant_policy_settings**](docs/TenantPolicyServiceApi.md#get_tenant_policy_settings) | Retrieves all tenant policy settings, optionally filtered by the parameters in the request.
 *TenantPolicyServiceApi* | [**override_tenant_policy_config**](docs/TenantPolicyServiceApi.md#override_tenant_policy_config) | Override the tenant policy config with the provided config.
+*TenantPolicyServiceApi* | [**override_tenant_policy_exclusions**](docs/TenantPolicyServiceApi.md#override_tenant_policy_exclusions) | Override tenant policy exclusions.
 *TenantProviderServiceApi* | [**create_tenant_provider**](docs/TenantProviderServiceApi.md#create_tenant_provider) | Creates a new tenant Provider.
 *TenantProviderServiceApi* | [**get_tenant_provider_by_id**](docs/TenantProviderServiceApi.md#get_tenant_provider_by_id) | Retrieves a Tenant Provider by its unique identifier.
 *TenantProviderServiceApi* | [**get_tenant_providers**](docs/TenantProviderServiceApi.md#get_tenant_providers) | Retrieves all tenant providers.
@@ -156,6 +160,9 @@ Class | Method | Description
 ## Documentation For Models
 
  - [ActivatePolicyTemplateRequest](docs/ActivatePolicyTemplateRequest.md)
+ - [AddTenantPolicyExclusionsAPIRequest](docs/AddTenantPolicyExclusionsAPIRequest.md)
+ - [AddTenantPolicyExclusionsRequest](docs/AddTenantPolicyExclusionsRequest.md)
+ - [AddTenantPolicyExclusionsResponse](docs/AddTenantPolicyExclusionsResponse.md)
  - [AndItem](docs/AndItem.md)
  - [AnomalyLogicOperationInput](docs/AnomalyLogicOperationInput.md)
  - [AnomalyLogicOperationOutput](docs/AnomalyLogicOperationOutput.md)
@@ -223,6 +230,9 @@ Class | Method | Description
  - [OverrideTenantPolicyConfigAPIRequest](docs/OverrideTenantPolicyConfigAPIRequest.md)
  - [OverrideTenantPolicyConfigRequest](docs/OverrideTenantPolicyConfigRequest.md)
  - [OverrideTenantPolicyConfigResponse](docs/OverrideTenantPolicyConfigResponse.md)
+ - [OverrideTenantPolicyExclusionsAPIRequest](docs/OverrideTenantPolicyExclusionsAPIRequest.md)
+ - [OverrideTenantPolicyExclusionsRequest](docs/OverrideTenantPolicyExclusionsRequest.md)
+ - [OverrideTenantPolicyExclusionsResponse](docs/OverrideTenantPolicyExclusionsResponse.md)
  - [PaginationFields](docs/PaginationFields.md)
  - [PaginationParams](docs/PaginationParams.md)
  - [PolicyCategory](docs/PolicyCategory.md)
@@ -237,6 +247,7 @@ Class | Method | Description
  - [PolicyTemplateUpdateFieldsMixin](docs/PolicyTemplateUpdateFieldsMixin.md)
  - [Provider](docs/Provider.md)
  - [ResponseActivatePolicyTemplateResponse](docs/ResponseActivatePolicyTemplateResponse.md)
+ - [ResponseAddTenantPolicyExclusionsResponse](docs/ResponseAddTenantPolicyExclusionsResponse.md)
  - [ResponseCreatePolicyTemplatePackResponse](docs/ResponseCreatePolicyTemplatePackResponse.md)
  - [ResponseCreatePolicyTemplateResponse](docs/ResponseCreatePolicyTemplateResponse.md)
  - [ResponseCreateTenantUserResponse](docs/ResponseCreateTenantUserResponse.md)
@@ -260,6 +271,7 @@ Class | Method | Description
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
+ - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
  - [ResponseTenantVerifyResponse](docs/ResponseTenantVerifyResponse.md)
  - [ResponseUpdatePolicyTemplateResponse](docs/ResponseUpdatePolicyTemplateResponse.md)
  - [ResponseUpdateTenantProviderResponse](docs/ResponseUpdateTenantProviderResponse.md)
@@ -272,6 +284,7 @@ Class | Method | Description
  - [TenantAnomalyState](docs/TenantAnomalyState.md)
  - [TenantFilters](docs/TenantFilters.md)
  - [TenantPolicy](docs/TenantPolicy.md)
+ - [TenantPolicyExclusions](docs/TenantPolicyExclusions.md)
  - [TenantPolicyFilters](docs/TenantPolicyFilters.md)
  - [TenantPolicySettings](docs/TenantPolicySettings.md)
  - [TenantPolicySettingsFilters](docs/TenantPolicySettingsFilters.md)
