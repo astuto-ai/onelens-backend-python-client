@@ -27,7 +27,7 @@ class PolicyTemplateDetails(BaseModel):
     """
     PolicyTemplateDetails
     """ # noqa: E501
-    inputs: Optional[Any] = None
+    inputs: Optional[List[StrictStr]] = None
     config_schema: Optional[Dict[str, Any]] = None
     output_violation_schema: Optional[Dict[str, Any]] = None
     rule_type: Optional[RuleType] = None

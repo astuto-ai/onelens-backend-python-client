@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**UserStatus**](UserStatus.md) |  | [optional] 
 **role** | [**UserRole**](UserRole.md) |  | [optional] 
-**sources** | **object** |  | [optional] 
+**sources** | **List[str]** |  | [optional] 
 
 ## Example
 

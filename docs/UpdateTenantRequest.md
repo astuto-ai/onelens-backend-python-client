@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**domains** | **object** |  | [optional] 
+**domains** | **List[str]** |  | [optional] 
 **timezone** | **str** |  | [optional] 
 
 ## Example

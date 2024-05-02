@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.tenant_provider_state import TenantProviderState
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,13 +27,13 @@ class TenantProviderFilters(BaseModel):
     """
     TenantProviderFilters
     """ # noqa: E501
-    tenant_ids: Optional[Any] = None
-    cloud_ids: Optional[Any] = None
-    cloud_providers: Optional[Any] = None
-    parent_ids: Optional[Any] = None
+    tenant_ids: Optional[List[StrictStr]] = None
+    cloud_ids: Optional[List[StrictStr]] = None
+    cloud_providers: Optional[List[StrictStr]] = None
+    parent_ids: Optional[List[StrictStr]] = None
     is_parent_account: Optional[StrictBool] = None
     is_verified: Optional[StrictBool] = None
-    states: Optional[Any] = None
+    states: Optional[List[TenantProviderState]] = None
     __properties: ClassVar[List[str]] = ["tenant_ids", "cloud_ids", "cloud_providers", "parent_ids", "is_parent_account", "is_verified", "states"]
 
     model_config = ConfigDict(

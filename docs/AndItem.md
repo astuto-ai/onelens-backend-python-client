@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gte** | **object** |  | [optional] 
-**gt** | **object** |  | [optional] 
+**gte** | [**List[AndItemGteInner]**](AndItemGteInner.md) |  | [optional] 
+**gt** | [**List[AndItemGteInner]**](AndItemGteInner.md) |  | [optional] 
 
 ## Example
 

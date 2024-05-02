@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.user_role import UserRole
 from onelens_backend_client.models.user_status import UserStatus
@@ -30,7 +30,7 @@ class TenantUserUpdateFieldsMixin(BaseModel):
     """ # noqa: E501
     status: Optional[UserStatus] = None
     role: Optional[UserRole] = None
-    sources: Optional[Any] = None
+    sources: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["status", "role", "sources"]
 
     model_config = ConfigDict(

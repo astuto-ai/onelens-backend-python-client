@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**services** | **object** |  | [optional] 
+**services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) |  | [optional] 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) |  | [optional] 
 **details** | [**PolicyTemplateDetails**](PolicyTemplateDetails.md) |  | [optional] 
 

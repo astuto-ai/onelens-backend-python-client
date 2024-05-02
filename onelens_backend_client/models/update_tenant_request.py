@@ -27,7 +27,7 @@ class UpdateTenantRequest(BaseModel):
     UpdateTenantRequest
     """ # noqa: E501
     name: Optional[StrictStr] = None
-    domains: Optional[Any] = None
+    domains: Optional[List[StrictStr]] = None
     timezone: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["name", "domains", "timezone"]
 

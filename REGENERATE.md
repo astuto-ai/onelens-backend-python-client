@@ -1,7 +1,7 @@
-Run this to regenerate the client code.
+Run this to regenerate the client code locally. OneLens Backend must be running locally at 19000 for this to work.
 
 ```
-docker run --rm -v "${PWD}:/onelens-backend-python-client" openapitools/openapi-generator-cli:local-fix generate \
+docker run --rm -v "${PWD}:/onelens-backend-python-client" openapitools/openapi-generator-cli generate \
 -i http://host.docker.internal:19000/openapi.json \
 -g python \
 -o /onelens-backend-python-client/ \

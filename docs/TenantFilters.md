@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **object** |  | [optional] 
-**names** | **object** |  | [optional] 
-**tenant_states** | **object** |  | [optional] 
+**ids** | **List[str]** |  | [optional] 
+**names** | **List[str]** |  | [optional] 
+**tenant_states** | **List[str]** |  | [optional] 
 
 ## Example
 

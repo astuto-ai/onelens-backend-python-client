@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.tenant_provider import TenantProvider
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +27,7 @@ class GetTenantProvidersResponse(BaseModel):
     """
     GetTenantProvidersResponse
     """ # noqa: E501
-    tenant_provider_filter_data: Optional[Any]
+    tenant_provider_filter_data: Optional[List[TenantProvider]]
     attributes_data: Optional[Dict[str, Any]]
     __properties: ClassVar[List[str]] = ["tenant_provider_filter_data", "attributes_data"]
 
@@ -69,6 +70,13 @@ class GetTenantProvidersResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in tenant_provider_filter_data (list)
+        _items = []
+        if self.tenant_provider_filter_data:
+            for _item in self.tenant_provider_filter_data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['tenant_provider_filter_data'] = _items
         # set to None if tenant_provider_filter_data (nullable) is None
         # and model_fields_set contains the field
         if self.tenant_provider_filter_data is None and "tenant_provider_filter_data" in self.model_fields_set:
@@ -91,7 +99,7 @@ class GetTenantProvidersResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tenant_provider_filter_data": obj.get("tenant_provider_filter_data"),
+            "tenant_provider_filter_data": [TenantProvider.from_dict(_item) for _item in obj["tenant_provider_filter_data"]] if obj.get("tenant_provider_filter_data") is not None else None,
             "attributes_data": obj.get("attributes_data")
         })
         return _obj

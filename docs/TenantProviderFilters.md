@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_ids** | **object** |  | [optional] 
-**cloud_ids** | **object** |  | [optional] 
-**cloud_providers** | **object** |  | [optional] 
-**parent_ids** | **object** |  | [optional] 
+**tenant_ids** | **List[str]** |  | [optional] 
+**cloud_ids** | **List[str]** |  | [optional] 
+**cloud_providers** | **List[str]** |  | [optional] 
+**parent_ids** | **List[str]** |  | [optional] 
 **is_parent_account** | **bool** |  | [optional] 
 **is_verified** | **bool** |  | [optional] 
-**states** | **object** |  | [optional] 
+**states** | [**List[TenantProviderState]**](TenantProviderState.md) |  | [optional] 
 
 ## Example
 

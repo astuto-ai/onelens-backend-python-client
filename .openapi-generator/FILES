@@ -8,6 +8,7 @@ docs/AddTenantPolicyExclusionsAPIRequest.md
 docs/AddTenantPolicyExclusionsRequest.md
 docs/AddTenantPolicyExclusionsResponse.md
 docs/AndItem.md
+docs/AndItemGteInner.md
 docs/AnomalyLogicOperationInput.md
 docs/AnomalyLogicOperationOutput.md
 docs/AwsService.md
@@ -205,6 +206,7 @@ onelens_backend_client/models/add_tenant_policy_exclusions_api_request.py
 onelens_backend_client/models/add_tenant_policy_exclusions_request.py
 onelens_backend_client/models/add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/and_item.py
+onelens_backend_client/models/and_item_gte_inner.py
 onelens_backend_client/models/anomaly_logic_operation_input.py
 onelens_backend_client/models/anomaly_logic_operation_output.py
 onelens_backend_client/models/aws_service.py
@@ -363,8 +365,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_cur_bucket_config.py
-test/test_cur_bucket_version.py
-test/test_provider_config_input.py
-test/test_provider_config_output.py
+test/test_and_item_gte_inner.py
 tox.ini

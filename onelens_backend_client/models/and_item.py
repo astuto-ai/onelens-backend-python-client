@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.and_item_gte_inner import AndItemGteInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +27,8 @@ class AndItem(BaseModel):
     """
     AndItem
     """ # noqa: E501
-    gte: Optional[Any] = None
-    gt: Optional[Any] = None
+    gte: Optional[List[AndItemGteInner]] = None
+    gt: Optional[List[AndItemGteInner]] = None
     __properties: ClassVar[List[str]] = ["gte", "gt"]
 
     model_config = ConfigDict(
@@ -69,6 +70,20 @@ class AndItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in gte (list)
+        _items = []
+        if self.gte:
+            for _item in self.gte:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['gte'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in gt (list)
+        _items = []
+        if self.gt:
+            for _item in self.gt:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['gt'] = _items
         # set to None if gte (nullable) is None
         # and model_fields_set contains the field
         if self.gte is None and "gte" in self.model_fields_set:
@@ -91,8 +106,8 @@ class AndItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "gte": obj.get("gte"),
-            "gt": obj.get("gt")
+            "gte": [AndItemGteInner.from_dict(_item) for _item in obj["gte"]] if obj.get("gte") is not None else None,
+            "gt": [AndItemGteInner.from_dict(_item) for _item in obj["gt"]] if obj.get("gt") is not None else None
         })
         return _obj
 
