@@ -17,28 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.provider_config_output import ProviderConfigOutput
+from onelens_backend_client.models.cur_bucket_version import CurBucketVersion
 from onelens_backend_client.models.tenant_provider_state import TenantProviderState
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TenantProvider(BaseModel):
+class CurBucketConfig(BaseModel):
     """
-    TenantProvider
+    CurBucketConfig
     """ # noqa: E501
-    cloud_provider: StrictStr = Field(description="Cloud provider")
-    cloud_id: StrictStr = Field(description="Cloud ID")
-    parent_id: Optional[StrictStr] = None
-    provider_config: Optional[ProviderConfigOutput]
-    id: StrictStr = Field(description="Unique ID for the Tenant Provider")
-    is_parent_account: StrictBool = Field(description="billing account")
-    tenant_id: StrictStr = Field(description="Tenant ID")
-    is_billing_account: StrictBool = Field(description="is billing account")
-    is_verified: StrictBool = Field(description="is verified")
-    state: TenantProviderState = Field(description="state")
-    __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "id", "is_parent_account", "tenant_id", "is_billing_account", "is_verified", "state"]
+    name: Optional[StrictStr] = None
+    role: Optional[StrictStr] = None
+    path: Optional[StrictStr] = None
+    version: Optional[CurBucketVersion] = None
+    status: Optional[TenantProviderState] = None
+    __properties: ClassVar[List[str]] = ["name", "role", "path", "version", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,7 +53,7 @@ class TenantProvider(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TenantProvider from a JSON string"""
+        """Create an instance of CurBucketConfig from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,24 +74,36 @@ class TenantProvider(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of provider_config
-        if self.provider_config:
-            _dict['provider_config'] = self.provider_config.to_dict()
-        # set to None if parent_id (nullable) is None
+        # set to None if name (nullable) is None
         # and model_fields_set contains the field
-        if self.parent_id is None and "parent_id" in self.model_fields_set:
-            _dict['parent_id'] = None
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
 
-        # set to None if provider_config (nullable) is None
+        # set to None if role (nullable) is None
         # and model_fields_set contains the field
-        if self.provider_config is None and "provider_config" in self.model_fields_set:
-            _dict['provider_config'] = None
+        if self.role is None and "role" in self.model_fields_set:
+            _dict['role'] = None
+
+        # set to None if path (nullable) is None
+        # and model_fields_set contains the field
+        if self.path is None and "path" in self.model_fields_set:
+            _dict['path'] = None
+
+        # set to None if version (nullable) is None
+        # and model_fields_set contains the field
+        if self.version is None and "version" in self.model_fields_set:
+            _dict['version'] = None
+
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict['status'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TenantProvider from a dict"""
+        """Create an instance of CurBucketConfig from a dict"""
         if obj is None:
             return None
 
@@ -104,16 +111,11 @@ class TenantProvider(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "cloud_provider": obj.get("cloud_provider"),
-            "cloud_id": obj.get("cloud_id"),
-            "parent_id": obj.get("parent_id"),
-            "provider_config": ProviderConfigOutput.from_dict(obj["provider_config"]) if obj.get("provider_config") is not None else None,
-            "id": obj.get("id"),
-            "is_parent_account": obj.get("is_parent_account"),
-            "tenant_id": obj.get("tenant_id"),
-            "is_billing_account": obj.get("is_billing_account"),
-            "is_verified": obj.get("is_verified"),
-            "state": obj.get("state")
+            "name": obj.get("name"),
+            "role": obj.get("role"),
+            "path": obj.get("path"),
+            "version": obj.get("version"),
+            "status": obj.get("status")
         })
         return _obj
 

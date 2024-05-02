@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.provider_config_input import ProviderConfigInput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class CreateTenantProviderRequest(BaseModel):
     cloud_provider: StrictStr = Field(description="Cloud provider")
     cloud_id: StrictStr = Field(description="Cloud ID")
     parent_id: Optional[StrictStr] = None
-    provider_config: Dict[str, Any] = Field(description="Provider config")
+    provider_config: Optional[ProviderConfigInput] = None
     tenant_id: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "tenant_id"]
 
@@ -72,10 +73,18 @@ class CreateTenantProviderRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of provider_config
+        if self.provider_config:
+            _dict['provider_config'] = self.provider_config.to_dict()
         # set to None if parent_id (nullable) is None
         # and model_fields_set contains the field
         if self.parent_id is None and "parent_id" in self.model_fields_set:
             _dict['parent_id'] = None
+
+        # set to None if provider_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.provider_config is None and "provider_config" in self.model_fields_set:
+            _dict['provider_config'] = None
 
         # set to None if tenant_id (nullable) is None
         # and model_fields_set contains the field
@@ -97,7 +106,7 @@ class CreateTenantProviderRequest(BaseModel):
             "cloud_provider": obj.get("cloud_provider"),
             "cloud_id": obj.get("cloud_id"),
             "parent_id": obj.get("parent_id"),
-            "provider_config": obj.get("provider_config"),
+            "provider_config": ProviderConfigInput.from_dict(obj["provider_config"]) if obj.get("provider_config") is not None else None,
             "tenant_id": obj.get("tenant_id")
         })
         return _obj

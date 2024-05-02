@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cloud_id** | **str** |  | [optional] 
+**cloud_provider** | **str** |  | [optional] 
+**cloud_id** | **str** | Cloud ID | 
 **parent_id** | **str** |  | [optional] 
-**provider_config** | **object** |  | [optional] 
+**provider_config** | [**ProviderConfigInput**](ProviderConfigInput.md) |  | [optional] 
 
 ## Example
 

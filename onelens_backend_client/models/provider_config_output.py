@@ -17,21 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.provider_config_input import ProviderConfigInput
+from onelens_backend_client.models.cur_bucket_config import CurBucketConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UpdateTenantProviderRequest(BaseModel):
+class ProviderConfigOutput(BaseModel):
     """
-    UpdateTenantProviderRequest
+    ProviderConfigOutput
     """ # noqa: E501
-    cloud_provider: Optional[StrictStr] = None
-    cloud_id: StrictStr = Field(description="Cloud ID")
-    parent_id: Optional[StrictStr] = None
-    provider_config: Optional[ProviderConfigInput] = None
-    __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config"]
+    regions: Optional[Dict[str, Any]] = None
+    role_name: Optional[StrictStr] = None
+    cur_bucket_config: Optional[CurBucketConfig] = None
+    __properties: ClassVar[List[str]] = ["regions", "role_name", "cur_bucket_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class UpdateTenantProviderRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UpdateTenantProviderRequest from a JSON string"""
+        """Create an instance of ProviderConfigOutput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,29 +71,29 @@ class UpdateTenantProviderRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of provider_config
-        if self.provider_config:
-            _dict['provider_config'] = self.provider_config.to_dict()
-        # set to None if cloud_provider (nullable) is None
+        # override the default output from pydantic by calling `to_dict()` of cur_bucket_config
+        if self.cur_bucket_config:
+            _dict['cur_bucket_config'] = self.cur_bucket_config.to_dict()
+        # set to None if regions (nullable) is None
         # and model_fields_set contains the field
-        if self.cloud_provider is None and "cloud_provider" in self.model_fields_set:
-            _dict['cloud_provider'] = None
+        if self.regions is None and "regions" in self.model_fields_set:
+            _dict['regions'] = None
 
-        # set to None if parent_id (nullable) is None
+        # set to None if role_name (nullable) is None
         # and model_fields_set contains the field
-        if self.parent_id is None and "parent_id" in self.model_fields_set:
-            _dict['parent_id'] = None
+        if self.role_name is None and "role_name" in self.model_fields_set:
+            _dict['role_name'] = None
 
-        # set to None if provider_config (nullable) is None
+        # set to None if cur_bucket_config (nullable) is None
         # and model_fields_set contains the field
-        if self.provider_config is None and "provider_config" in self.model_fields_set:
-            _dict['provider_config'] = None
+        if self.cur_bucket_config is None and "cur_bucket_config" in self.model_fields_set:
+            _dict['cur_bucket_config'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UpdateTenantProviderRequest from a dict"""
+        """Create an instance of ProviderConfigOutput from a dict"""
         if obj is None:
             return None
 
@@ -102,10 +101,9 @@ class UpdateTenantProviderRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "cloud_provider": obj.get("cloud_provider"),
-            "cloud_id": obj.get("cloud_id"),
-            "parent_id": obj.get("parent_id"),
-            "provider_config": ProviderConfigInput.from_dict(obj["provider_config"]) if obj.get("provider_config") is not None else None
+            "regions": obj.get("regions"),
+            "role_name": obj.get("role_name"),
+            "cur_bucket_config": CurBucketConfig.from_dict(obj["cur_bucket_config"]) if obj.get("cur_bucket_config") is not None else None
         })
         return _obj
 

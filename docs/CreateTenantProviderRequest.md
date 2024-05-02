@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **cloud_provider** | **str** | Cloud provider | 
 **cloud_id** | **str** | Cloud ID | 
 **parent_id** | **str** |  | [optional] 
-**provider_config** | **object** | Provider config | 
+**provider_config** | [**ProviderConfigInput**](ProviderConfigInput.md) |  | [optional] 
 **tenant_id** | **str** |  | [optional] 
 
 ## Example

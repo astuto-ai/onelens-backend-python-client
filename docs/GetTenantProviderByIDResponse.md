@@ -8,10 +8,11 @@ Name | Type | Description | Notes
 **cloud_provider** | **str** | Cloud provider | 
 **cloud_id** | **str** | Cloud ID | 
 **parent_id** | **str** |  | [optional] 
-**provider_config** | **object** | provider config | 
+**provider_config** | [**ProviderConfigOutput**](ProviderConfigOutput.md) |  | 
 **id** | **str** | Unique ID for the Tenant Provider | 
 **is_parent_account** | **bool** | billing account | 
 **tenant_id** | **str** | Tenant ID | 
+**is_billing_account** | **bool** | is billing account | 
 **is_verified** | **bool** | is verified | 
 **state** | [**TenantProviderState**](TenantProviderState.md) | State of the tenant | 
 

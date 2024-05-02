@@ -26,6 +26,8 @@ docs/CreateUserRequest.md
 docs/CreateUserResponse.md
 docs/CreateUserTenantMappingRequest.md
 docs/CreateUserTenantMappingResponse.md
+docs/CurBucketConfig.md
+docs/CurBucketVersion.md
 docs/DeactivatePolicyTemplateRequest.md
 docs/DefaultApi.md
 docs/DeprecatePolicyTemplateRequest.md
@@ -95,6 +97,8 @@ docs/PolicyTemplateServiceApi.md
 docs/PolicyTemplateState.md
 docs/PolicyTemplateUpdateFieldsMixin.md
 docs/Provider.md
+docs/ProviderConfigInput.md
+docs/ProviderConfigOutput.md
 docs/ResponseActivatePolicyTemplateResponse.md
 docs/ResponseAddTenantPolicyExclusionsResponse.md
 docs/ResponseCreatePolicyTemplatePackResponse.md
@@ -219,6 +223,8 @@ onelens_backend_client/models/create_user_request.py
 onelens_backend_client/models/create_user_response.py
 onelens_backend_client/models/create_user_tenant_mapping_request.py
 onelens_backend_client/models/create_user_tenant_mapping_response.py
+onelens_backend_client/models/cur_bucket_config.py
+onelens_backend_client/models/cur_bucket_version.py
 onelens_backend_client/models/deactivate_policy_template_request.py
 onelens_backend_client/models/deprecate_policy_template_request.py
 onelens_backend_client/models/disable_tenant_anomaly_settings_request.py
@@ -283,6 +289,8 @@ onelens_backend_client/models/policy_template_pack_state.py
 onelens_backend_client/models/policy_template_state.py
 onelens_backend_client/models/policy_template_update_fields_mixin.py
 onelens_backend_client/models/provider.py
+onelens_backend_client/models/provider_config_input.py
+onelens_backend_client/models/provider_config_output.py
 onelens_backend_client/models/response_activate_policy_template_response.py
 onelens_backend_client/models/response_add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/response_create_policy_template_pack_response.py
@@ -355,13 +363,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_add_tenant_policy_exclusions_api_request.py
-test/test_add_tenant_policy_exclusions_request.py
-test/test_add_tenant_policy_exclusions_response.py
-test/test_override_tenant_policy_exclusions_api_request.py
-test/test_override_tenant_policy_exclusions_request.py
-test/test_override_tenant_policy_exclusions_response.py
-test/test_response_add_tenant_policy_exclusions_response.py
-test/test_response_override_tenant_policy_exclusions_response.py
-test/test_tenant_policy_exclusions.py
+test/test_cur_bucket_config.py
+test/test_cur_bucket_version.py
+test/test_provider_config_input.py
+test/test_provider_config_output.py
 tox.ini

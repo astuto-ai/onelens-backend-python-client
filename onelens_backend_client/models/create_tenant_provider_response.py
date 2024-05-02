@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.provider_config_output import ProviderConfigOutput
 from onelens_backend_client.models.tenant_provider_state import TenantProviderState
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +31,14 @@ class CreateTenantProviderResponse(BaseModel):
     cloud_provider: StrictStr = Field(description="Cloud provider")
     cloud_id: StrictStr = Field(description="Cloud ID")
     parent_id: Optional[StrictStr] = None
-    provider_config: Dict[str, Any] = Field(description="provider config")
+    provider_config: Optional[ProviderConfigOutput]
     id: StrictStr = Field(description="Unique ID for the Tenant Provider")
     is_parent_account: StrictBool = Field(description="billing account")
     tenant_id: StrictStr = Field(description="Tenant ID")
+    is_billing_account: StrictBool = Field(description="is billing account")
     is_verified: StrictBool = Field(description="is verified")
     state: TenantProviderState = Field(description="state")
-    __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "id", "is_parent_account", "tenant_id", "is_verified", "state"]
+    __properties: ClassVar[List[str]] = ["cloud_provider", "cloud_id", "parent_id", "provider_config", "id", "is_parent_account", "tenant_id", "is_billing_account", "is_verified", "state"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,10 +79,18 @@ class CreateTenantProviderResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of provider_config
+        if self.provider_config:
+            _dict['provider_config'] = self.provider_config.to_dict()
         # set to None if parent_id (nullable) is None
         # and model_fields_set contains the field
         if self.parent_id is None and "parent_id" in self.model_fields_set:
             _dict['parent_id'] = None
+
+        # set to None if provider_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.provider_config is None and "provider_config" in self.model_fields_set:
+            _dict['provider_config'] = None
 
         return _dict
 
@@ -97,10 +107,11 @@ class CreateTenantProviderResponse(BaseModel):
             "cloud_provider": obj.get("cloud_provider"),
             "cloud_id": obj.get("cloud_id"),
             "parent_id": obj.get("parent_id"),
-            "provider_config": obj.get("provider_config"),
+            "provider_config": ProviderConfigOutput.from_dict(obj["provider_config"]) if obj.get("provider_config") is not None else None,
             "id": obj.get("id"),
             "is_parent_account": obj.get("is_parent_account"),
             "tenant_id": obj.get("tenant_id"),
+            "is_billing_account": obj.get("is_billing_account"),
             "is_verified": obj.get("is_verified"),
             "state": obj.get("state")
         })
