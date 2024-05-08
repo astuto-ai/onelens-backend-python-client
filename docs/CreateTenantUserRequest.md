@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ol_user_id** | **str** | Unique onelens identifier for the user | 
-**role** | [**UserRole**](UserRole.md) |  | [optional] 
-**sources** | **List[str]** | Different sources from where user signed up. e.g. social signup, username-password | 
+**ol_user_id** | **object** | Unique onelens identifier for the user | 
+**role** | [**CreateTenantUserRequestRole**](CreateTenantUserRequestRole.md) |  | [optional] 
+**sources** | **List[object]** | Different sources from where user signed up. e.g. social signup, username-password | 
 
 ## Example
 

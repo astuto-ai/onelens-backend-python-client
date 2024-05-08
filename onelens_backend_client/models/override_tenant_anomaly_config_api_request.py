@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.anomaly_logic_operation_input import AnomalyLogicOperationInput
+from onelens_backend_client.models.anomaly_logic_operation import AnomalyLogicOperation
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class OverrideTenantAnomalyConfigAPIRequest(BaseModel):
     """
     OverrideTenantAnomalyConfigAPIRequest
     """ # noqa: E501
-    config_override: AnomalyLogicOperationInput = Field(description="The config overrides for the anomaly.")
+    config_override: AnomalyLogicOperation = Field(description="The config overrides for the anomaly.")
     __properties: ClassVar[List[str]] = ["config_override"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class OverrideTenantAnomalyConfigAPIRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "config_override": AnomalyLogicOperationInput.from_dict(obj["config_override"]) if obj.get("config_override") is not None else None
+            "config_override": AnomalyLogicOperation.from_dict(obj["config_override"]) if obj.get("config_override") is not None else None
         })
         return _obj
 

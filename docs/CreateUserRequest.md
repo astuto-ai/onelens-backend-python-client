@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auth0_id** | **str** | Auth0 user identifier | 
+**auth0_id** | **object** | Auth0 user identifier | 
 
 ## Example
 

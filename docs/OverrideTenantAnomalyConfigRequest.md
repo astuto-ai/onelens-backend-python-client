@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**config_override** | [**AnomalyLogicOperationInput**](AnomalyLogicOperationInput.md) | The config overrides for the anomaly. | 
+**config_override** | [**AnomalyLogicOperation**](AnomalyLogicOperation.md) | The config overrides for the anomaly. | 
 **tenant_id** | **str** | The id of the tenant. | 
 **node_id** | **object** |  | [optional] 
 

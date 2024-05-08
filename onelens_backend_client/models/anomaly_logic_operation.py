@@ -17,21 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.anomaly_logic_operation import AnomalyLogicOperation
-from onelens_backend_client.models.tenant_anomaly_state import TenantAnomalyState
+from onelens_backend_client.models.and_item import AndItem
+from onelens_backend_client.models.or_item import OrItem
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DisableTenantAnomalySettingsResponse(BaseModel):
+class AnomalyLogicOperation(BaseModel):
     """
-    DisableTenantAnomalySettingsResponse
+    AnomalyLogicOperation
     """ # noqa: E501
-    config_overrides: Optional[AnomalyLogicOperation] = None
-    state: TenantAnomalyState = Field(description="The state of the policy template.")
-    id: StrictStr = Field(description="The unique identifier of the tenant policy.")
-    __properties: ClassVar[List[str]] = ["config_overrides", "state", "id"]
+    var_and: Optional[List[AndItem]] = Field(default=None, alias="and")
+    var_or: Optional[List[OrItem]] = Field(default=None, alias="or")
+    __properties: ClassVar[List[str]] = ["and", "or"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class DisableTenantAnomalySettingsResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DisableTenantAnomalySettingsResponse from a JSON string"""
+        """Create an instance of AnomalyLogicOperation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,19 +71,35 @@ class DisableTenantAnomalySettingsResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of config_overrides
-        if self.config_overrides:
-            _dict['config_overrides'] = self.config_overrides.to_dict()
-        # set to None if config_overrides (nullable) is None
+        # override the default output from pydantic by calling `to_dict()` of each item in var_and (list)
+        _items = []
+        if self.var_and:
+            for _item in self.var_and:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['and'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in var_or (list)
+        _items = []
+        if self.var_or:
+            for _item in self.var_or:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['or'] = _items
+        # set to None if var_and (nullable) is None
         # and model_fields_set contains the field
-        if self.config_overrides is None and "config_overrides" in self.model_fields_set:
-            _dict['config_overrides'] = None
+        if self.var_and is None and "var_and" in self.model_fields_set:
+            _dict['and'] = None
+
+        # set to None if var_or (nullable) is None
+        # and model_fields_set contains the field
+        if self.var_or is None and "var_or" in self.model_fields_set:
+            _dict['or'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DisableTenantAnomalySettingsResponse from a dict"""
+        """Create an instance of AnomalyLogicOperation from a dict"""
         if obj is None:
             return None
 
@@ -92,9 +107,8 @@ class DisableTenantAnomalySettingsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "config_overrides": AnomalyLogicOperation.from_dict(obj["config_overrides"]) if obj.get("config_overrides") is not None else None,
-            "state": obj.get("state"),
-            "id": obj.get("id")
+            "and": [AndItem.from_dict(_item) for _item in obj["and"]] if obj.get("and") is not None else None,
+            "or": [OrItem.from_dict(_item) for _item in obj["or"]] if obj.get("or") is not None else None
         })
         return _obj
 

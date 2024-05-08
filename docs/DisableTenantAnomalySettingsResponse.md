@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**config_overrides** | [**AnomalyLogicOperationOutput**](AnomalyLogicOperationOutput.md) |  | [optional] 
+**config_overrides** | [**AnomalyLogicOperation**](AnomalyLogicOperation.md) |  | [optional] 
 **state** | [**TenantAnomalyState**](TenantAnomalyState.md) | The state of the policy template. | 
 **id** | **str** | The unique identifier of the tenant policy. | 
 

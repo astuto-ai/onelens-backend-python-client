@@ -8,9 +8,7 @@ docs/AddTenantPolicyExclusionsAPIRequest.md
 docs/AddTenantPolicyExclusionsRequest.md
 docs/AddTenantPolicyExclusionsResponse.md
 docs/AndItem.md
-docs/AndItemGteInner.md
-docs/AnomalyLogicOperationInput.md
-docs/AnomalyLogicOperationOutput.md
+docs/AnomalyLogicOperation.md
 docs/AwsService.md
 docs/CreatePolicyTemplatePackRequest.md
 docs/CreatePolicyTemplatePackResponse.md
@@ -22,7 +20,9 @@ docs/CreateTenantProviderResponse.md
 docs/CreateTenantRequest.md
 docs/CreateTenantResponse.md
 docs/CreateTenantUserRequest.md
+docs/CreateTenantUserRequestRole.md
 docs/CreateTenantUserResponse.md
+docs/CreateTenantUserResponseStatus.md
 docs/CreateUserRequest.md
 docs/CreateUserResponse.md
 docs/CreateUserTenantMappingRequest.md
@@ -70,7 +70,6 @@ docs/GetTenantsRequest.md
 docs/GetTenantsResponse.md
 docs/GetUserByIDResponse.md
 docs/HTTPValidationError.md
-docs/Item.md
 docs/OrItem.md
 docs/OverrideTenantAnomalyConfigAPIRequest.md
 docs/OverrideTenantAnomalyConfigRequest.md
@@ -206,9 +205,7 @@ onelens_backend_client/models/add_tenant_policy_exclusions_api_request.py
 onelens_backend_client/models/add_tenant_policy_exclusions_request.py
 onelens_backend_client/models/add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/and_item.py
-onelens_backend_client/models/and_item_gte_inner.py
-onelens_backend_client/models/anomaly_logic_operation_input.py
-onelens_backend_client/models/anomaly_logic_operation_output.py
+onelens_backend_client/models/anomaly_logic_operation.py
 onelens_backend_client/models/aws_service.py
 onelens_backend_client/models/create_policy_template_pack_request.py
 onelens_backend_client/models/create_policy_template_pack_response.py
@@ -220,7 +217,9 @@ onelens_backend_client/models/create_tenant_provider_response.py
 onelens_backend_client/models/create_tenant_request.py
 onelens_backend_client/models/create_tenant_response.py
 onelens_backend_client/models/create_tenant_user_request.py
+onelens_backend_client/models/create_tenant_user_request_role.py
 onelens_backend_client/models/create_tenant_user_response.py
+onelens_backend_client/models/create_tenant_user_response_status.py
 onelens_backend_client/models/create_user_request.py
 onelens_backend_client/models/create_user_response.py
 onelens_backend_client/models/create_user_tenant_mapping_request.py
@@ -267,7 +266,6 @@ onelens_backend_client/models/get_tenants_request.py
 onelens_backend_client/models/get_tenants_response.py
 onelens_backend_client/models/get_user_by_id_response.py
 onelens_backend_client/models/http_validation_error.py
-onelens_backend_client/models/item.py
 onelens_backend_client/models/or_item.py
 onelens_backend_client/models/override_tenant_anomaly_config_api_request.py
 onelens_backend_client/models/override_tenant_anomaly_config_request.py
@@ -365,5 +363,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_and_item_gte_inner.py
+test/test_anomaly_logic_operation.py
+test/test_create_tenant_user_request_role.py
+test/test_create_tenant_user_response_status.py
 tox.ini

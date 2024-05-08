@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.anomaly_logic_operation_output import AnomalyLogicOperationOutput
+from onelens_backend_client.models.anomaly_logic_operation import AnomalyLogicOperation
 from onelens_backend_client.models.tenant_anomaly_state import TenantAnomalyState
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class TenantAnomalySettings(BaseModel):
     """
     TenantAnomalySettings
     """ # noqa: E501
-    config_overrides: Optional[AnomalyLogicOperationOutput] = None
+    config_overrides: Optional[AnomalyLogicOperation] = None
     state: TenantAnomalyState = Field(description="The state of the policy template.")
     id: StrictStr = Field(description="The unique identifier of the tenant policy.")
     __properties: ClassVar[List[str]] = ["config_overrides", "state", "id"]
@@ -92,7 +92,7 @@ class TenantAnomalySettings(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "config_overrides": AnomalyLogicOperationOutput.from_dict(obj["config_overrides"]) if obj.get("config_overrides") is not None else None,
+            "config_overrides": AnomalyLogicOperation.from_dict(obj["config_overrides"]) if obj.get("config_overrides") is not None else None,
             "state": obj.get("state"),
             "id": obj.get("id")
         })
