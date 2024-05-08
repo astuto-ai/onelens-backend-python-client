@@ -28,8 +28,9 @@ class UpdateTenantRequest(BaseModel):
     """ # noqa: E501
     name: Optional[StrictStr] = None
     domains: Optional[List[StrictStr]] = None
+    org_id: Optional[StrictStr] = None
     timezone: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "domains", "timezone"]
+    __properties: ClassVar[List[str]] = ["name", "domains", "org_id", "timezone"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +81,11 @@ class UpdateTenantRequest(BaseModel):
         if self.domains is None and "domains" in self.model_fields_set:
             _dict['domains'] = None
 
+        # set to None if org_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.org_id is None and "org_id" in self.model_fields_set:
+            _dict['org_id'] = None
+
         # set to None if timezone (nullable) is None
         # and model_fields_set contains the field
         if self.timezone is None and "timezone" in self.model_fields_set:
@@ -99,6 +105,7 @@ class UpdateTenantRequest(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "domains": obj.get("domains"),
+            "org_id": obj.get("org_id"),
             "timezone": obj.get("timezone")
         })
         return _obj

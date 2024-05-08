@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **cloud_providers** | **List[str]** |  | [optional] 
 **parent_ids** | **List[str]** |  | [optional] 
 **is_parent_account** | **bool** |  | [optional] 
+**is_billing_account** | **bool** |  | [optional] 
 **is_verified** | **bool** |  | [optional] 
 **states** | [**List[TenantProviderState]**](TenantProviderState.md) |  | [optional] 
 

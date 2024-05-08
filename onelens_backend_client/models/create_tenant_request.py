@@ -29,8 +29,9 @@ class CreateTenantRequest(BaseModel):
     """ # noqa: E501
     name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Name of the tenant")
     domains: List[StrictStr] = Field(description="List of domains associated with the tenant")
+    org_id: StrictStr = Field(description="Organization id of the tenant")
     timezone: StrictStr = Field(description="Timezone of the tenant")
-    __properties: ClassVar[List[str]] = ["name", "domains", "timezone"]
+    __properties: ClassVar[List[str]] = ["name", "domains", "org_id", "timezone"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +86,7 @@ class CreateTenantRequest(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "domains": obj.get("domains"),
+            "org_id": obj.get("org_id"),
             "timezone": obj.get("timezone")
         })
         return _obj

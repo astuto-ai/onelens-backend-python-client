@@ -6,6 +6,7 @@ Method | Description
 ------------- | -------------
 [**create_tenant**](TenantsApi.md#create_tenant) | Create Tenant
 [**disable_tenant**](TenantsApi.md#disable_tenant) | Disable Tenant
+[**enable_tenant**](TenantsApi.md#enable_tenant) | Enable Tenant
 [**get_tenant**](TenantsApi.md#get_tenant) | Get Tenant
 [**get_tenants**](TenantsApi.md#get_tenants) | Get Tenants
 [**update_tenant**](TenantsApi.md#update_tenant) | Update Tenant
@@ -82,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **disable_tenant**
-> ResponseDisableTenantResponse disable_tenant(tenant_id)
+> ResponseSetTenantStatusResponse disable_tenant(tenant_id)
 
 Disable Tenant
 
@@ -93,7 +94,7 @@ An API endpoint that retrieves tenant with tenant IDs.
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.response_disable_tenant_response import ResponseDisableTenantResponse
+from onelens_backend_client.models.response_set_tenant_status_response import ResponseSetTenantStatusResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -130,7 +131,76 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseDisableTenantResponse**](ResponseDisableTenantResponse.md)
+[**ResponseSetTenantStatusResponse**](ResponseSetTenantStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **enable_tenant**
+> ResponseSetTenantStatusResponse enable_tenant(tenant_id)
+
+Enable Tenant
+
+An API endpoint that retrieves tenant with tenant IDs.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_set_tenant_status_response import ResponseSetTenantStatusResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantsApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+
+    try:
+        # Enable Tenant
+        api_response = api_instance.enable_tenant(tenant_id)
+        print("The response of TenantsApi->enable_tenant:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantsApi->enable_tenant: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+
+### Return type
+
+[**ResponseSetTenantStatusResponse**](ResponseSetTenantStatusResponse.md)
 
 ### Authorization
 

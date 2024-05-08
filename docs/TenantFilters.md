@@ -8,6 +8,14 @@ Name | Type | Description | Notes
 **ids** | **List[str]** |  | [optional] 
 **names** | **List[str]** |  | [optional] 
 **tenant_states** | **List[str]** |  | [optional] 
+**short_ids** | **List[str]** |  | [optional] 
+**regions** | **List[str]** |  | [optional] 
+**org_ids** | **List[str]** |  | [optional] 
+**status_reasons** | **List[str]** |  | [optional] 
+**expiry_date** | **datetime** |  | [optional] 
+**plans** | **List[str]** |  | [optional] 
+**billing_owners** | **List[str]** |  | [optional] 
+**billing_types** | **List[str]** |  | [optional] 
 
 ## Example
 

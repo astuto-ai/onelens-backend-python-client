@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -29,7 +30,15 @@ class TenantFilters(BaseModel):
     ids: Optional[List[StrictStr]] = None
     names: Optional[List[StrictStr]] = None
     tenant_states: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["ids", "names", "tenant_states"]
+    short_ids: Optional[List[StrictStr]] = None
+    regions: Optional[List[StrictStr]] = None
+    org_ids: Optional[List[StrictStr]] = None
+    status_reasons: Optional[List[StrictStr]] = None
+    expiry_date: Optional[datetime] = None
+    plans: Optional[List[StrictStr]] = None
+    billing_owners: Optional[List[StrictStr]] = None
+    billing_types: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["ids", "names", "tenant_states", "short_ids", "regions", "org_ids", "status_reasons", "expiry_date", "plans", "billing_owners", "billing_types"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +94,46 @@ class TenantFilters(BaseModel):
         if self.tenant_states is None and "tenant_states" in self.model_fields_set:
             _dict['tenant_states'] = None
 
+        # set to None if short_ids (nullable) is None
+        # and model_fields_set contains the field
+        if self.short_ids is None and "short_ids" in self.model_fields_set:
+            _dict['short_ids'] = None
+
+        # set to None if regions (nullable) is None
+        # and model_fields_set contains the field
+        if self.regions is None and "regions" in self.model_fields_set:
+            _dict['regions'] = None
+
+        # set to None if org_ids (nullable) is None
+        # and model_fields_set contains the field
+        if self.org_ids is None and "org_ids" in self.model_fields_set:
+            _dict['org_ids'] = None
+
+        # set to None if status_reasons (nullable) is None
+        # and model_fields_set contains the field
+        if self.status_reasons is None and "status_reasons" in self.model_fields_set:
+            _dict['status_reasons'] = None
+
+        # set to None if expiry_date (nullable) is None
+        # and model_fields_set contains the field
+        if self.expiry_date is None and "expiry_date" in self.model_fields_set:
+            _dict['expiry_date'] = None
+
+        # set to None if plans (nullable) is None
+        # and model_fields_set contains the field
+        if self.plans is None and "plans" in self.model_fields_set:
+            _dict['plans'] = None
+
+        # set to None if billing_owners (nullable) is None
+        # and model_fields_set contains the field
+        if self.billing_owners is None and "billing_owners" in self.model_fields_set:
+            _dict['billing_owners'] = None
+
+        # set to None if billing_types (nullable) is None
+        # and model_fields_set contains the field
+        if self.billing_types is None and "billing_types" in self.model_fields_set:
+            _dict['billing_types'] = None
+
         return _dict
 
     @classmethod
@@ -99,7 +148,15 @@ class TenantFilters(BaseModel):
         _obj = cls.model_validate({
             "ids": obj.get("ids"),
             "names": obj.get("names"),
-            "tenant_states": obj.get("tenant_states")
+            "tenant_states": obj.get("tenant_states"),
+            "short_ids": obj.get("short_ids"),
+            "regions": obj.get("regions"),
+            "org_ids": obj.get("org_ids"),
+            "status_reasons": obj.get("status_reasons"),
+            "expiry_date": obj.get("expiry_date"),
+            "plans": obj.get("plans"),
+            "billing_owners": obj.get("billing_owners"),
+            "billing_types": obj.get("billing_types")
         })
         return _obj
 

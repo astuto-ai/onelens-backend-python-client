@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **domains** | **List[str]** |  | [optional] 
+**org_id** | **str** |  | [optional] 
 **timezone** | **str** |  | [optional] 
 
 ## Example

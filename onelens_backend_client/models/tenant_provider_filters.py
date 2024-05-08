@@ -32,9 +32,10 @@ class TenantProviderFilters(BaseModel):
     cloud_providers: Optional[List[StrictStr]] = None
     parent_ids: Optional[List[StrictStr]] = None
     is_parent_account: Optional[StrictBool] = None
+    is_billing_account: Optional[StrictBool] = None
     is_verified: Optional[StrictBool] = None
     states: Optional[List[TenantProviderState]] = None
-    __properties: ClassVar[List[str]] = ["tenant_ids", "cloud_ids", "cloud_providers", "parent_ids", "is_parent_account", "is_verified", "states"]
+    __properties: ClassVar[List[str]] = ["tenant_ids", "cloud_ids", "cloud_providers", "parent_ids", "is_parent_account", "is_billing_account", "is_verified", "states"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,6 +101,11 @@ class TenantProviderFilters(BaseModel):
         if self.is_parent_account is None and "is_parent_account" in self.model_fields_set:
             _dict['is_parent_account'] = None
 
+        # set to None if is_billing_account (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_billing_account is None and "is_billing_account" in self.model_fields_set:
+            _dict['is_billing_account'] = None
+
         # set to None if is_verified (nullable) is None
         # and model_fields_set contains the field
         if self.is_verified is None and "is_verified" in self.model_fields_set:
@@ -127,6 +133,7 @@ class TenantProviderFilters(BaseModel):
             "cloud_providers": obj.get("cloud_providers"),
             "parent_ids": obj.get("parent_ids"),
             "is_parent_account": obj.get("is_parent_account"),
+            "is_billing_account": obj.get("is_billing_account"),
             "is_verified": obj.get("is_verified"),
             "states": obj.get("states")
         })
