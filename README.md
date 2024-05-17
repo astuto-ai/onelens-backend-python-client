@@ -314,7 +314,6 @@ Class | Method | Description
  - [RecommendationTicketRequest](docs/RecommendationTicketRequest.md)
  - [RecommendationTicketResponse](docs/RecommendationTicketResponse.md)
  - [ResourceHierarchyMappingRequest](docs/ResourceHierarchyMappingRequest.md)
- - [ResourceHierarchyMappingResponse](docs/ResourceHierarchyMappingResponse.md)
  - [ResponseActivatePolicyTemplateResponse](docs/ResponseActivatePolicyTemplateResponse.md)
  - [ResponseAddTenantPolicyExclusionsResponse](docs/ResponseAddTenantPolicyExclusionsResponse.md)
  - [ResponseCreateDefaultHierarchyResponse](docs/ResponseCreateDefaultHierarchyResponse.md)

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**ResourceHierarchyMappingResponse**](ResourceHierarchyMappingResponse.md) |  | 
+**data** | **object** | dto for resource hierarchy mapping | 
 **message** | **str** |  | [optional] 
 
 ## Example

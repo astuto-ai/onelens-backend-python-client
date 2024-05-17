@@ -138,7 +138,6 @@ docs/RecommendationTicketRequest.md
 docs/RecommendationTicketResponse.md
 docs/RecommendationsApi.md
 docs/ResourceHierarchyMappingRequest.md
-docs/ResourceHierarchyMappingResponse.md
 docs/ResourceMappingServiceApi.md
 docs/ResponseActivatePolicyTemplateResponse.md
 docs/ResponseAddTenantPolicyExclusionsResponse.md
@@ -410,7 +409,6 @@ onelens_backend_client/models/recommendation_ticket_api_request.py
 onelens_backend_client/models/recommendation_ticket_request.py
 onelens_backend_client/models/recommendation_ticket_response.py
 onelens_backend_client/models/resource_hierarchy_mapping_request.py
-onelens_backend_client/models/resource_hierarchy_mapping_response.py
 onelens_backend_client/models/response_activate_policy_template_response.py
 onelens_backend_client/models/response_add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/response_create_default_hierarchy_response.py
@@ -513,7 +511,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_resource_hierarchy_mapping_request.py
-test/test_resource_hierarchy_mapping_response.py
-test/test_response_resource_hierarchy_mapping_response.py
 tox.ini

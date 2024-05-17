@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.resource_hierarchy_mapping_response import ResourceHierarchyMappingResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +26,7 @@ class ResponseResourceHierarchyMappingResponse(BaseModel):
     """
     ResponseResourceHierarchyMappingResponse
     """ # noqa: E501
-    data: ResourceHierarchyMappingResponse
+    data: Dict[str, Any] = Field(description="dto for resource hierarchy mapping")
     message: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["data", "message"]
 
@@ -70,9 +69,6 @@ class ResponseResourceHierarchyMappingResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
         # set to None if message (nullable) is None
         # and model_fields_set contains the field
         if self.message is None and "message" in self.model_fields_set:
@@ -90,7 +86,7 @@ class ResponseResourceHierarchyMappingResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": ResourceHierarchyMappingResponse.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": obj.get("data"),
             "message": obj.get("message")
         })
         return _obj

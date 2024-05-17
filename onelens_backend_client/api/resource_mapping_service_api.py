@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from typing import Any
+from typing import Any, Dict
 from onelens_backend_client.models.resource_hierarchy_mapping_request import ResourceHierarchyMappingRequest
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
