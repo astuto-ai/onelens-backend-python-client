@@ -119,6 +119,7 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationsApi* | [**create_root_node**](docs/RecommendationsApi.md#create_root_node) | Create Root Node
+*ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
 *TenantAnomaliesApi* | [**disable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#disable_tenant_anomaly_setting) | Disable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#enable_tenant_anomaly_setting) | Enable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomaliesApi.md#get_tenant_anomaly_settings) | Get Tenant Anomaly Settings
@@ -312,7 +313,8 @@ Class | Method | Description
  - [RecommendationTicketAPIRequest](docs/RecommendationTicketAPIRequest.md)
  - [RecommendationTicketRequest](docs/RecommendationTicketRequest.md)
  - [RecommendationTicketResponse](docs/RecommendationTicketResponse.md)
- - [ResourceHierarchyMapping](docs/ResourceHierarchyMapping.md)
+ - [ResourceHierarchyMappingRequest](docs/ResourceHierarchyMappingRequest.md)
+ - [ResourceHierarchyMappingResponse](docs/ResourceHierarchyMappingResponse.md)
  - [ResponseActivatePolicyTemplateResponse](docs/ResponseActivatePolicyTemplateResponse.md)
  - [ResponseAddTenantPolicyExclusionsResponse](docs/ResponseAddTenantPolicyExclusionsResponse.md)
  - [ResponseCreateDefaultHierarchyResponse](docs/ResponseCreateDefaultHierarchyResponse.md)
@@ -340,10 +342,10 @@ Class | Method | Description
  - [ResponseGetTenantTicketsResponse](docs/ResponseGetTenantTicketsResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
  - [ResponseListRecommendationTicketResponse](docs/ResponseListRecommendationTicketResponse.md)
- - [ResponseListResourceHierarchyMapping](docs/ResponseListResourceHierarchyMapping.md)
  - [ResponseNoneType](docs/ResponseNoneType.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
+ - [ResponseResourceHierarchyMappingResponse](docs/ResponseResourceHierarchyMappingResponse.md)
  - [ResponseSetTenantProviderStatusResponse](docs/ResponseSetTenantProviderStatusResponse.md)
  - [ResponseSetTenantStatusResponse](docs/ResponseSetTenantStatusResponse.md)
  - [ResponseTenantVerifyCurBucketResponse](docs/ResponseTenantVerifyCurBucketResponse.md)

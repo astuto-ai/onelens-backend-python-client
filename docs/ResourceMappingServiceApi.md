@@ -1,25 +1,23 @@
-# TenantsResourceCatalogApi
+# ResourceMappingServiceApi
 
 All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
-[**create_root_node**](TenantsResourceCatalogApi.md#create_root_node) | Create Root Node
+[**create**](ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
 
 
-# **create_root_node**
-> ResponseResourceHierarchyMappingResponse create_root_node(tenant_id)
+# **create**
+> object create(resource_hierarchy_mapping_request)
 
-Create Root Node
-
-An API endpoint to create resource and hierarchy mapping
+create a resource hierarchy mapping
 
 ### Example
 
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.response_resource_hierarchy_mapping_response import ResponseResourceHierarchyMappingResponse
+from onelens_backend_client.models.resource_hierarchy_mapping_request import ResourceHierarchyMappingRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -33,16 +31,16 @@ configuration = onelens_backend_client.Configuration(
 # Enter a context with an instance of the API client
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = onelens_backend_client.TenantsResourceCatalogApi(api_client)
-    tenant_id = 'tenant_id_example' # str | 
+    api_instance = onelens_backend_client.ResourceMappingServiceApi(api_client)
+    resource_hierarchy_mapping_request = onelens_backend_client.ResourceHierarchyMappingRequest() # ResourceHierarchyMappingRequest | 
 
     try:
-        # Create Root Node
-        api_response = api_instance.create_root_node(tenant_id)
-        print("The response of TenantsResourceCatalogApi->create_root_node:\n")
+        # create a resource hierarchy mapping
+        api_response = api_instance.create(resource_hierarchy_mapping_request)
+        print("The response of ResourceMappingServiceApi->create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantsResourceCatalogApi->create_root_node: %s\n" % e)
+        print("Exception when calling ResourceMappingServiceApi->create: %s\n" % e)
 ```
 
 
@@ -52,11 +50,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenant_id** | **str**|  | 
+ **resource_hierarchy_mapping_request** | [**ResourceHierarchyMappingRequest**](ResourceHierarchyMappingRequest.md)|  | 
 
 ### Return type
 
-[**ResponseResourceHierarchyMappingResponse**](ResponseResourceHierarchyMappingResponse.md)
+**object**
 
 ### Authorization
 
@@ -64,7 +62,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
