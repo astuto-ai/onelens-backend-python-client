@@ -66,15 +66,16 @@ configuration = onelens_backend_client.Configuration(
 # Enter a context with an instance of the API client
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = onelens_backend_client.DefaultApi(api_client)
+    api_instance = onelens_backend_client.DataRetrieverApi(api_client)
+    data_retriever_request = onelens_backend_client.DataRetrieverRequest() # DataRetrieverRequest | 
 
     try:
-        # Root
-        api_response = api_instance.root()
-        print("The response of DefaultApi->root:\n")
+        # Query Data Retriever
+        api_response = api_instance.query_data_retriever(data_retriever_request)
+        print("The response of DataRetrieverApi->query_data_retriever:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->root: %s\n" % e)
+        print("Exception when calling DataRetrieverApi->query_data_retriever: %s\n" % e)
 
 ```
 
@@ -84,7 +85,11 @@ All URIs are relative to *http://localhost*
 
 Class | Method | Description
 ------------ | ------------- | -------------
+*DataRetrieverApi* | [**query_data_retriever**](docs/DataRetrieverApi.md#query_data_retriever) | Query Data Retriever
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
+*HierarchyNodeServiceApi* | [**create_default_hierarchy**](docs/HierarchyNodeServiceApi.md#create_default_hierarchy) | create default hierarchy
+*HierarchyNodeServiceApi* | [**create_root_node**](docs/HierarchyNodeServiceApi.md#create_root_node) | create a root node in org hierarchy
+*HierarchyNodeServiceApi* | [**get_leaf_nodes**](docs/HierarchyNodeServiceApi.md#get_leaf_nodes) | get hierarchy leaf nodes
 *OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | Create Organization
 *OrganizationsApi* | [**disable_organization**](docs/OrganizationsApi.md#disable_organization) | Disable Organization
 *OrganizationsApi* | [**enable_organization**](docs/OrganizationsApi.md#enable_organization) | Enable Organization
@@ -101,6 +106,7 @@ Class | Method | Description
 *PoliciesPolicyTemplatesApi* | [**get_policy_template**](docs/PoliciesPolicyTemplatesApi.md#get_policy_template) | Get Policy Template
 *PoliciesPolicyTemplatesApi* | [**get_policy_templates**](docs/PoliciesPolicyTemplatesApi.md#get_policy_templates) | Get Policy Templates
 *PoliciesPolicyTemplatesApi* | [**update_policy_template**](docs/PoliciesPolicyTemplatesApi.md#update_policy_template) | Update Policy Template
+*PolicyRecommendationsApi* | [**create_root_node**](docs/PolicyRecommendationsApi.md#create_root_node) | Create Root Node
 *PolicyTemplatePackServiceApi* | [**create_policy_template_pack**](docs/PolicyTemplatePackServiceApi.md#create_policy_template_pack) | Create a new policy template pack.
 *PolicyTemplatePackServiceApi* | [**get_policy_template_pack_by_id**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_pack_by_id) | Get a policy template pack by id.
 *PolicyTemplatePackServiceApi* | [**get_policy_template_packs**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_packs) | Get all policy template packs.
@@ -111,6 +117,8 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
+*RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
+*RecommendationsApi* | [**create_root_node**](docs/RecommendationsApi.md#create_root_node) | Create Root Node
 *TenantAnomaliesApi* | [**disable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#disable_tenant_anomaly_setting) | Disable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#enable_tenant_anomaly_setting) | Enable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomaliesApi.md#get_tenant_anomaly_settings) | Get Tenant Anomaly Settings
@@ -119,6 +127,9 @@ Class | Method | Description
 *TenantAnomalyServiceApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomalyServiceApi.md#enable_tenant_anomaly_setting) | enables an anomaly for a tenant in the tenant DB.
 *TenantAnomalyServiceApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomalyServiceApi.md#get_tenant_anomaly_settings) | Retrieves all tenant anomaly settings, optionally filtered by the parameters in the request.
 *TenantAnomalyServiceApi* | [**override_tenant_anomaly_setting_config**](docs/TenantAnomalyServiceApi.md#override_tenant_anomaly_setting_config) | Override the tenant anomaly config with the provided config.
+*TenantHierarchyApi* | [**create_default_hierarchy**](docs/TenantHierarchyApi.md#create_default_hierarchy) | Create Default Hierarchy
+*TenantHierarchyApi* | [**create_root_node**](docs/TenantHierarchyApi.md#create_root_node) | Create Root Node
+*TenantHierarchyApi* | [**get_hierarchy_leaf_nodes**](docs/TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
 *TenantPoliciesApi* | [**add_tenant_policy_exclusions**](docs/TenantPoliciesApi.md#add_tenant_policy_exclusions) | Add Tenant Policy Exclusions
 *TenantPoliciesApi* | [**disable_tenant_policy**](docs/TenantPoliciesApi.md#disable_tenant_policy) | Disable Tenant Policy
 *TenantPoliciesApi* | [**enable_all_policies**](docs/TenantPoliciesApi.md#enable_all_policies) | Enable All Policies
@@ -144,6 +155,10 @@ Class | Method | Description
 *TenantServiceApi* | [**get_tenant_by_id**](docs/TenantServiceApi.md#get_tenant_by_id) | Retrieves a tenant by its unique identifier.
 *TenantServiceApi* | [**get_tenants**](docs/TenantServiceApi.md#get_tenants) | Retrieves all Tenants with filters.
 *TenantServiceApi* | [**update_tenant**](docs/TenantServiceApi.md#update_tenant) | Updates an existing tenant.
+*TenantTicketServiceApi* | [**create_tenant_tickets**](docs/TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
+*TenantTicketServiceApi* | [**get_tenant_tickets**](docs/TenantTicketServiceApi.md#get_tenant_tickets) | Retrieves all active tickets of a tenant.
+*TenantTicketServiceApi* | [**update_tenant_ticket_user_state**](docs/TenantTicketServiceApi.md#update_tenant_ticket_user_state) | Update tenant policy ticket user state
+*TenantTicketServiceApi* | [**update_tenant_tickets**](docs/TenantTicketServiceApi.md#update_tenant_tickets) | Updates policy tickets in bulk
 *TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
 *TenantsApi* | [**create_tenant**](docs/TenantsApi.md#create_tenant) | Create Tenant
@@ -152,8 +167,13 @@ Class | Method | Description
 *TenantsApi* | [**get_tenant**](docs/TenantsApi.md#get_tenant) | Get Tenant
 *TenantsApi* | [**get_tenants**](docs/TenantsApi.md#get_tenants) | Get Tenants
 *TenantsApi* | [**update_tenant**](docs/TenantsApi.md#update_tenant) | Update Tenant
+*TenantsResourceCatalogApi* | [**create_root_node**](docs/TenantsResourceCatalogApi.md#create_root_node) | Create Root Node
 *TenantsTenantProviderVerifyApi* | [**verify_tenant**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant) | Verify Tenant
 *TenantsTenantProviderVerifyApi* | [**verify_tenant_cur_bucket**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_cur_bucket) | Verify Tenant Cur Bucket
+*TenantsTenantTicketsApi* | [**create_tenant_tickets**](docs/TenantsTenantTicketsApi.md#create_tenant_tickets) | Create Tenant Tickets
+*TenantsTenantTicketsApi* | [**get_tenant_tickets**](docs/TenantsTenantTicketsApi.md#get_tenant_tickets) | Get Tenant Tickets
+*TenantsTenantTicketsApi* | [**update_tenant_ticket_user_state**](docs/TenantsTenantTicketsApi.md#update_tenant_ticket_user_state) | Update Tenant Ticket User State
+*TenantsTenantTicketsApi* | [**update_tenant_tickets**](docs/TenantsTenantTicketsApi.md#update_tenant_tickets) | Update Tenant Tickets
 *TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
 *TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
 *TenantsTenantsProvidersApi* | [**enable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#enable_tenant_provider) | Enable Tenant Provider
@@ -176,6 +196,11 @@ Class | Method | Description
  - [AndItem](docs/AndItem.md)
  - [AnomalyLogicOperation](docs/AnomalyLogicOperation.md)
  - [AwsService](docs/AwsService.md)
+ - [CostSaving](docs/CostSaving.md)
+ - [CreateDefaultHierarchyRequest](docs/CreateDefaultHierarchyRequest.md)
+ - [CreateHierarchyRootNodeAPIRequest](docs/CreateHierarchyRootNodeAPIRequest.md)
+ - [CreateHierarchyRootNodeRequest](docs/CreateHierarchyRootNodeRequest.md)
+ - [CreateHierarchyRootNodeResponse](docs/CreateHierarchyRootNodeResponse.md)
  - [CreateOrganizationRequest](docs/CreateOrganizationRequest.md)
  - [CreateOrganizationResponse](docs/CreateOrganizationResponse.md)
  - [CreatePolicyTemplatePackRequest](docs/CreatePolicyTemplatePackRequest.md)
@@ -188,6 +213,7 @@ Class | Method | Description
  - [CreateTenantRequest](docs/CreateTenantRequest.md)
  - [CreateTenantRequestWithUser](docs/CreateTenantRequestWithUser.md)
  - [CreateTenantResponse](docs/CreateTenantResponse.md)
+ - [CreateTenantTicketsRequest](docs/CreateTenantTicketsRequest.md)
  - [CreateTenantUserRequest](docs/CreateTenantUserRequest.md)
  - [CreateTenantUserRequestRole](docs/CreateTenantUserRequestRole.md)
  - [CreateTenantUserResponse](docs/CreateTenantUserResponse.md)
@@ -198,6 +224,9 @@ Class | Method | Description
  - [CreateUserTenantMappingResponse](docs/CreateUserTenantMappingResponse.md)
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
+ - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
+ - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
+ - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
  - [DisableTenantAnomalySettingsRequest](docs/DisableTenantAnomalySettingsRequest.md)
@@ -210,6 +239,8 @@ Class | Method | Description
  - [GcpService](docs/GcpService.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
+ - [GetLeafNodesRequest](docs/GetLeafNodesRequest.md)
+ - [GetLeafNodesResponse](docs/GetLeafNodesResponse.md)
  - [GetOrganizationByIDResponse](docs/GetOrganizationByIDResponse.md)
  - [GetOrganizationsRequest](docs/GetOrganizationsRequest.md)
  - [GetOrganizationsResponse](docs/GetOrganizationsResponse.md)
@@ -236,10 +267,18 @@ Class | Method | Description
  - [GetTenantProviderByIDResponse](docs/GetTenantProviderByIDResponse.md)
  - [GetTenantProvidersRequest](docs/GetTenantProvidersRequest.md)
  - [GetTenantProvidersResponse](docs/GetTenantProvidersResponse.md)
+ - [GetTenantTicketsRequest](docs/GetTenantTicketsRequest.md)
+ - [GetTenantTicketsResponse](docs/GetTenantTicketsResponse.md)
  - [GetTenantsRequest](docs/GetTenantsRequest.md)
  - [GetTenantsResponse](docs/GetTenantsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [HierarchyNodeAttributionDetails](docs/HierarchyNodeAttributionDetails.md)
+ - [HierarchyNodeEntityDTO](docs/HierarchyNodeEntityDTO.md)
+ - [HierarchyNodeResourceFilters](docs/HierarchyNodeResourceFilters.md)
+ - [HierarchyNodeState](docs/HierarchyNodeState.md)
+ - [Key](docs/Key.md)
+ - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
  - [OrItem](docs/OrItem.md)
  - [Organization](docs/Organization.md)
  - [OrganizationFilters](docs/OrganizationFilters.md)
@@ -268,12 +307,21 @@ Class | Method | Description
  - [Provider](docs/Provider.md)
  - [ProviderConfigInput](docs/ProviderConfigInput.md)
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
+ - [QueryFilters](docs/QueryFilters.md)
+ - [QueryOrder](docs/QueryOrder.md)
+ - [RecommendationTicketAPIRequest](docs/RecommendationTicketAPIRequest.md)
+ - [RecommendationTicketRequest](docs/RecommendationTicketRequest.md)
+ - [RecommendationTicketResponse](docs/RecommendationTicketResponse.md)
+ - [ResourceHierarchyMapping](docs/ResourceHierarchyMapping.md)
  - [ResponseActivatePolicyTemplateResponse](docs/ResponseActivatePolicyTemplateResponse.md)
  - [ResponseAddTenantPolicyExclusionsResponse](docs/ResponseAddTenantPolicyExclusionsResponse.md)
+ - [ResponseCreateDefaultHierarchyResponse](docs/ResponseCreateDefaultHierarchyResponse.md)
+ - [ResponseCreateHierarchyRootNodeResponse](docs/ResponseCreateHierarchyRootNodeResponse.md)
  - [ResponseCreatePolicyTemplatePackResponse](docs/ResponseCreatePolicyTemplatePackResponse.md)
  - [ResponseCreatePolicyTemplateResponse](docs/ResponseCreatePolicyTemplateResponse.md)
  - [ResponseCreateTenantUserResponse](docs/ResponseCreateTenantUserResponse.md)
  - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
+ - [ResponseDataRetrieverResponse](docs/ResponseDataRetrieverResponse.md)
  - [ResponseDeprecatePolicyTemplateResponse](docs/ResponseDeprecatePolicyTemplateResponse.md)
  - [ResponseDisableTenantPolicyResponse](docs/ResponseDisableTenantPolicyResponse.md)
  - [ResponseEnableAllPoliciesResponse](docs/ResponseEnableAllPoliciesResponse.md)
@@ -289,7 +337,11 @@ Class | Method | Description
  - [ResponseGetTenantPolicySettingsResponse](docs/ResponseGetTenantPolicySettingsResponse.md)
  - [ResponseGetTenantProviderByIDResponse](docs/ResponseGetTenantProviderByIDResponse.md)
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
+ - [ResponseGetTenantTicketsResponse](docs/ResponseGetTenantTicketsResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
+ - [ResponseListRecommendationTicketResponse](docs/ResponseListRecommendationTicketResponse.md)
+ - [ResponseListResourceHierarchyMapping](docs/ResponseListResourceHierarchyMapping.md)
+ - [ResponseNoneType](docs/ResponseNoneType.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
  - [ResponseSetTenantProviderStatusResponse](docs/ResponseSetTenantProviderStatusResponse.md)
@@ -299,6 +351,7 @@ Class | Method | Description
  - [ResponseUpdatePolicyTemplateResponse](docs/ResponseUpdatePolicyTemplateResponse.md)
  - [ResponseUpdateTenantProviderResponse](docs/ResponseUpdateTenantProviderResponse.md)
  - [ResponseUpdateTenantResponse](docs/ResponseUpdateTenantResponse.md)
+ - [ResponseUpdateTenantTicketsResponse](docs/ResponseUpdateTenantTicketsResponse.md)
  - [ResponseUpdateTenantUserResponse](docs/ResponseUpdateTenantUserResponse.md)
  - [RuleType](docs/RuleType.md)
  - [SetTenantStatusRequest](docs/SetTenantStatusRequest.md)
@@ -318,11 +371,24 @@ Class | Method | Description
  - [TenantProviderFilters](docs/TenantProviderFilters.md)
  - [TenantProviderState](docs/TenantProviderState.md)
  - [TenantState](docs/TenantState.md)
+ - [TenantTicket](docs/TenantTicket.md)
+ - [TenantTicketCreationAPIRequest](docs/TenantTicketCreationAPIRequest.md)
+ - [TenantTicketCreationRequest](docs/TenantTicketCreationRequest.md)
+ - [TenantTicketUpdateUserStateAPIRequest](docs/TenantTicketUpdateUserStateAPIRequest.md)
+ - [TenantTicketUpdationAPIRequest](docs/TenantTicketUpdationAPIRequest.md)
+ - [TenantTicketUpdationRequest](docs/TenantTicketUpdationRequest.md)
+ - [TenantTicketsAPIRequest](docs/TenantTicketsAPIRequest.md)
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
  - [TenantVerifyCurBucketRequest](docs/TenantVerifyCurBucketRequest.md)
  - [TenantVerifyCurBucketResponse](docs/TenantVerifyCurBucketResponse.md)
  - [TenantVerifyRequest](docs/TenantVerifyRequest.md)
  - [TenantVerifyResponse](docs/TenantVerifyResponse.md)
+ - [TicketCategory](docs/TicketCategory.md)
+ - [TicketDetails](docs/TicketDetails.md)
+ - [TicketSystemState](docs/TicketSystemState.md)
+ - [TicketUserState](docs/TicketUserState.md)
+ - [TimeDimension](docs/TimeDimension.md)
+ - [TimeDimensionCompareDateRangeInner](docs/TimeDimensionCompareDateRangeInner.md)
  - [UpdateOrganizationRequest](docs/UpdateOrganizationRequest.md)
  - [UpdateOrganizationResponse](docs/UpdateOrganizationResponse.md)
  - [UpdatePolicyTemplateRequest](docs/UpdatePolicyTemplateRequest.md)
@@ -331,6 +397,8 @@ Class | Method | Description
  - [UpdateTenantProviderResponse](docs/UpdateTenantProviderResponse.md)
  - [UpdateTenantRequest](docs/UpdateTenantRequest.md)
  - [UpdateTenantResponse](docs/UpdateTenantResponse.md)
+ - [UpdateTenantTicketUserStateRequest](docs/UpdateTenantTicketUserStateRequest.md)
+ - [UpdateTenantTicketsRequest](docs/UpdateTenantTicketsRequest.md)
  - [UpdateTenantUserResponse](docs/UpdateTenantUserResponse.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [UpdateUserResponse](docs/UpdateUserResponse.md)
@@ -338,6 +406,7 @@ Class | Method | Description
  - [UserStatus](docs/UserStatus.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
+ - [Value](docs/Value.md)
 
 
 <a id="documentation-for-authorization"></a>
