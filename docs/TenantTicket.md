@@ -7,12 +7,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** | Datetime of ticket creation | 
 **updated_at** | **datetime** | Datetime of ticket updation | 
-**monitor_id** | **str** | Violation monitor id | 
 **ticket_category** | [**TicketCategory**](TicketCategory.md) | Category of the ticket | 
-**system_state** | [**TicketSystemState**](TicketSystemState.md) | System state of the ticket | 
-**user_state** | [**TicketUserState**](TicketUserState.md) | User state of the ticket | 
-**details** | [**TicketDetails**](TicketDetails.md) | Details of the ticket | [optional] 
+**state** | [**TicketState**](TicketState.md) | State of the ticket | 
+**assignment** | [**TicketAssignment**](TicketAssignment.md) | Assignment state of the ticket | 
 **id** | **str** | The unique identifier of the ticket | 
+**status** | [**Status**](Status.md) |  | 
+**monitor_id** | **str** |  | [optional] 
+**heirarchy_node_id** | **str** |  | [optional] 
+**assigned_to** | **str** |  | [optional] 
+**details** | [**Details1**](Details1.md) |  | 
 
 ## Example
 

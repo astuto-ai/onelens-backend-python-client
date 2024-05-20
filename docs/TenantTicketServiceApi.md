@@ -6,7 +6,7 @@ Method | Description
 ------------- | -------------
 [**create_tenant_tickets**](TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
 [**get_tenant_tickets**](TenantTicketServiceApi.md#get_tenant_tickets) | Retrieves all active tickets of a tenant.
-[**update_tenant_ticket_user_state**](TenantTicketServiceApi.md#update_tenant_ticket_user_state) | Update tenant policy ticket user state
+[**update_tenant_ticket**](TenantTicketServiceApi.md#update_tenant_ticket) | Update tenant policy ticket user state
 [**update_tenant_tickets**](TenantTicketServiceApi.md#update_tenant_tickets) | Updates policy tickets in bulk
 
 
@@ -145,8 +145,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_tenant_ticket_user_state**
-> object update_tenant_ticket_user_state(update_tenant_ticket_user_state_request)
+# **update_tenant_ticket**
+> object update_tenant_ticket(update_tenant_ticket_request)
 
 Update tenant policy ticket user state
 
@@ -155,7 +155,7 @@ Update tenant policy ticket user state
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.update_tenant_ticket_user_state_request import UpdateTenantTicketUserStateRequest
+from onelens_backend_client.models.update_tenant_ticket_request import UpdateTenantTicketRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -170,15 +170,15 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantTicketServiceApi(api_client)
-    update_tenant_ticket_user_state_request = onelens_backend_client.UpdateTenantTicketUserStateRequest() # UpdateTenantTicketUserStateRequest | 
+    update_tenant_ticket_request = onelens_backend_client.UpdateTenantTicketRequest() # UpdateTenantTicketRequest | 
 
     try:
         # Update tenant policy ticket user state
-        api_response = api_instance.update_tenant_ticket_user_state(update_tenant_ticket_user_state_request)
-        print("The response of TenantTicketServiceApi->update_tenant_ticket_user_state:\n")
+        api_response = api_instance.update_tenant_ticket(update_tenant_ticket_request)
+        print("The response of TenantTicketServiceApi->update_tenant_ticket:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TenantTicketServiceApi->update_tenant_ticket_user_state: %s\n" % e)
+        print("Exception when calling TenantTicketServiceApi->update_tenant_ticket: %s\n" % e)
 ```
 
 
@@ -188,7 +188,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_tenant_ticket_user_state_request** | [**UpdateTenantTicketUserStateRequest**](UpdateTenantTicketUserStateRequest.md)|  | 
+ **update_tenant_ticket_request** | [**UpdateTenantTicketRequest**](UpdateTenantTicketRequest.md)|  | 
 
 ### Return type
 

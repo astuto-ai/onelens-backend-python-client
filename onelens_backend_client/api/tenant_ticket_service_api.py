@@ -20,7 +20,7 @@ from typing import Any
 from onelens_backend_client.models.create_tenant_tickets_request import CreateTenantTicketsRequest
 from onelens_backend_client.models.get_tenant_tickets_request import GetTenantTicketsRequest
 from onelens_backend_client.models.get_tenant_tickets_response import GetTenantTicketsResponse
-from onelens_backend_client.models.update_tenant_ticket_user_state_request import UpdateTenantTicketUserStateRequest
+from onelens_backend_client.models.update_tenant_ticket_request import UpdateTenantTicketRequest
 from onelens_backend_client.models.update_tenant_tickets_request import UpdateTenantTicketsRequest
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
@@ -582,9 +582,9 @@ class TenantTicketServiceApi:
 
 
     @validate_call
-    def update_tenant_ticket_user_state(
+    def update_tenant_ticket(
         self,
-        update_tenant_ticket_user_state_request: UpdateTenantTicketUserStateRequest,
+        update_tenant_ticket_request: UpdateTenantTicketRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -601,8 +601,8 @@ class TenantTicketServiceApi:
         """Update tenant policy ticket user state
 
 
-        :param update_tenant_ticket_user_state_request: (required)
-        :type update_tenant_ticket_user_state_request: UpdateTenantTicketUserStateRequest
+        :param update_tenant_ticket_request: (required)
+        :type update_tenant_ticket_request: UpdateTenantTicketRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -625,8 +625,8 @@ class TenantTicketServiceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_ticket_user_state_serialize(
-            update_tenant_ticket_user_state_request=update_tenant_ticket_user_state_request,
+        _param = self._update_tenant_ticket_serialize(
+            update_tenant_ticket_request=update_tenant_ticket_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -649,9 +649,9 @@ class TenantTicketServiceApi:
 
 
     @validate_call
-    def update_tenant_ticket_user_state_with_http_info(
+    def update_tenant_ticket_with_http_info(
         self,
-        update_tenant_ticket_user_state_request: UpdateTenantTicketUserStateRequest,
+        update_tenant_ticket_request: UpdateTenantTicketRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -668,8 +668,8 @@ class TenantTicketServiceApi:
         """Update tenant policy ticket user state
 
 
-        :param update_tenant_ticket_user_state_request: (required)
-        :type update_tenant_ticket_user_state_request: UpdateTenantTicketUserStateRequest
+        :param update_tenant_ticket_request: (required)
+        :type update_tenant_ticket_request: UpdateTenantTicketRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -692,8 +692,8 @@ class TenantTicketServiceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_ticket_user_state_serialize(
-            update_tenant_ticket_user_state_request=update_tenant_ticket_user_state_request,
+        _param = self._update_tenant_ticket_serialize(
+            update_tenant_ticket_request=update_tenant_ticket_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -716,9 +716,9 @@ class TenantTicketServiceApi:
 
 
     @validate_call
-    def update_tenant_ticket_user_state_without_preload_content(
+    def update_tenant_ticket_without_preload_content(
         self,
-        update_tenant_ticket_user_state_request: UpdateTenantTicketUserStateRequest,
+        update_tenant_ticket_request: UpdateTenantTicketRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -735,8 +735,8 @@ class TenantTicketServiceApi:
         """Update tenant policy ticket user state
 
 
-        :param update_tenant_ticket_user_state_request: (required)
-        :type update_tenant_ticket_user_state_request: UpdateTenantTicketUserStateRequest
+        :param update_tenant_ticket_request: (required)
+        :type update_tenant_ticket_request: UpdateTenantTicketRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -759,8 +759,8 @@ class TenantTicketServiceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_tenant_ticket_user_state_serialize(
-            update_tenant_ticket_user_state_request=update_tenant_ticket_user_state_request,
+        _param = self._update_tenant_ticket_serialize(
+            update_tenant_ticket_request=update_tenant_ticket_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -778,9 +778,9 @@ class TenantTicketServiceApi:
         return response_data.response
 
 
-    def _update_tenant_ticket_user_state_serialize(
+    def _update_tenant_ticket_serialize(
         self,
-        update_tenant_ticket_user_state_request,
+        update_tenant_ticket_request,
         _request_auth,
         _content_type,
         _headers,
@@ -804,8 +804,8 @@ class TenantTicketServiceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_tenant_ticket_user_state_request is not None:
-            _body_params = update_tenant_ticket_user_state_request
+        if update_tenant_ticket_request is not None:
+            _body_params = update_tenant_ticket_request
 
 
         # set the HTTP header `Accept`
@@ -835,7 +835,7 @@ class TenantTicketServiceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/rpc/tenant_ticket_service/update_tenant_ticket_user_state',
+            resource_path='/rpc/tenant_ticket_service/update_tenant_ticket',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

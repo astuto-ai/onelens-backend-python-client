@@ -18,7 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.pagination_params import PaginationParams
+from onelens_backend_client.models.tenant_ticket_filters import TenantTicketFilters
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +28,10 @@ class GetTenantTicketsRequest(BaseModel):
     """
     GetTenantTicketsRequest
     """ # noqa: E501
-    monitor_ids: List[StrictStr] = Field(description="Unique identifiers for violation monitors for which  tickets are to be fetched.")
+    pagination: Optional[PaginationParams] = Field(default=None, description="Pagination parameters for the request.")
+    filters: Optional[TenantTicketFilters] = Field(default=None, description="Filters to apply to the tickets.")
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
-    __properties: ClassVar[List[str]] = ["monitor_ids", "tenant_id"]
+    __properties: ClassVar[List[str]] = ["pagination", "filters", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +72,12 @@ class GetTenantTicketsRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of filters
+        if self.filters:
+            _dict['filters'] = self.filters.to_dict()
         return _dict
 
     @classmethod
@@ -81,7 +90,8 @@ class GetTenantTicketsRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "monitor_ids": obj.get("monitor_ids"),
+            "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
+            "filters": TenantTicketFilters.from_dict(obj["filters"]) if obj.get("filters") is not None else None,
             "tenant_id": obj.get("tenant_id")
         })
         return _obj

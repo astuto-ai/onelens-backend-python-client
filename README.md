@@ -158,7 +158,7 @@ Class | Method | Description
 *TenantServiceApi* | [**update_tenant**](docs/TenantServiceApi.md#update_tenant) | Updates an existing tenant.
 *TenantTicketServiceApi* | [**create_tenant_tickets**](docs/TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
 *TenantTicketServiceApi* | [**get_tenant_tickets**](docs/TenantTicketServiceApi.md#get_tenant_tickets) | Retrieves all active tickets of a tenant.
-*TenantTicketServiceApi* | [**update_tenant_ticket_user_state**](docs/TenantTicketServiceApi.md#update_tenant_ticket_user_state) | Update tenant policy ticket user state
+*TenantTicketServiceApi* | [**update_tenant_ticket**](docs/TenantTicketServiceApi.md#update_tenant_ticket) | Update tenant policy ticket user state
 *TenantTicketServiceApi* | [**update_tenant_tickets**](docs/TenantTicketServiceApi.md#update_tenant_tickets) | Updates policy tickets in bulk
 *TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
@@ -173,7 +173,7 @@ Class | Method | Description
 *TenantsTenantProviderVerifyApi* | [**verify_tenant_cur_bucket**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_cur_bucket) | Verify Tenant Cur Bucket
 *TenantsTenantTicketsApi* | [**create_tenant_tickets**](docs/TenantsTenantTicketsApi.md#create_tenant_tickets) | Create Tenant Tickets
 *TenantsTenantTicketsApi* | [**get_tenant_tickets**](docs/TenantsTenantTicketsApi.md#get_tenant_tickets) | Get Tenant Tickets
-*TenantsTenantTicketsApi* | [**update_tenant_ticket_user_state**](docs/TenantsTenantTicketsApi.md#update_tenant_ticket_user_state) | Update Tenant Ticket User State
+*TenantsTenantTicketsApi* | [**update_tenant_ticket**](docs/TenantsTenantTicketsApi.md#update_tenant_ticket) | Update Tenant Ticket
 *TenantsTenantTicketsApi* | [**update_tenant_tickets**](docs/TenantsTenantTicketsApi.md#update_tenant_tickets) | Update Tenant Tickets
 *TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
 *TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
@@ -196,6 +196,7 @@ Class | Method | Description
  - [AddTenantPolicyExclusionsResponse](docs/AddTenantPolicyExclusionsResponse.md)
  - [AndItem](docs/AndItem.md)
  - [AnomalyLogicOperation](docs/AnomalyLogicOperation.md)
+ - [AnomalyTicketStatus](docs/AnomalyTicketStatus.md)
  - [AwsService](docs/AwsService.md)
  - [CostSaving](docs/CostSaving.md)
  - [CreateDefaultHierarchyRequest](docs/CreateDefaultHierarchyRequest.md)
@@ -214,6 +215,8 @@ Class | Method | Description
  - [CreateTenantRequest](docs/CreateTenantRequest.md)
  - [CreateTenantRequestWithUser](docs/CreateTenantRequestWithUser.md)
  - [CreateTenantResponse](docs/CreateTenantResponse.md)
+ - [CreateTenantTicketRequestMixin](docs/CreateTenantTicketRequestMixin.md)
+ - [CreateTenantTicketsAPIRequest](docs/CreateTenantTicketsAPIRequest.md)
  - [CreateTenantTicketsRequest](docs/CreateTenantTicketsRequest.md)
  - [CreateTenantUserRequest](docs/CreateTenantUserRequest.md)
  - [CreateTenantUserRequestRole](docs/CreateTenantUserRequestRole.md)
@@ -230,6 +233,9 @@ Class | Method | Description
  - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
+ - [Details](docs/Details.md)
+ - [Details1](docs/Details1.md)
+ - [Details2](docs/Details2.md)
  - [DisableTenantAnomalySettingsRequest](docs/DisableTenantAnomalySettingsRequest.md)
  - [DisableTenantAnomalySettingsResponse](docs/DisableTenantAnomalySettingsResponse.md)
  - [DisableTenantPolicyRequest](docs/DisableTenantPolicyRequest.md)
@@ -268,6 +274,7 @@ Class | Method | Description
  - [GetTenantProviderByIDResponse](docs/GetTenantProviderByIDResponse.md)
  - [GetTenantProvidersRequest](docs/GetTenantProvidersRequest.md)
  - [GetTenantProvidersResponse](docs/GetTenantProvidersResponse.md)
+ - [GetTenantTicketsAPIRequest](docs/GetTenantTicketsAPIRequest.md)
  - [GetTenantTicketsRequest](docs/GetTenantTicketsRequest.md)
  - [GetTenantTicketsResponse](docs/GetTenantTicketsResponse.md)
  - [GetTenantsRequest](docs/GetTenantsRequest.md)
@@ -305,6 +312,7 @@ Class | Method | Description
  - [PolicyTemplatePackState](docs/PolicyTemplatePackState.md)
  - [PolicyTemplateState](docs/PolicyTemplateState.md)
  - [PolicyTemplateUpdateFieldsMixin](docs/PolicyTemplateUpdateFieldsMixin.md)
+ - [PolicyTicketStatus](docs/PolicyTicketStatus.md)
  - [Provider](docs/Provider.md)
  - [ProviderConfigInput](docs/ProviderConfigInput.md)
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
@@ -352,10 +360,12 @@ Class | Method | Description
  - [ResponseUpdatePolicyTemplateResponse](docs/ResponseUpdatePolicyTemplateResponse.md)
  - [ResponseUpdateTenantProviderResponse](docs/ResponseUpdateTenantProviderResponse.md)
  - [ResponseUpdateTenantResponse](docs/ResponseUpdateTenantResponse.md)
- - [ResponseUpdateTenantTicketsResponse](docs/ResponseUpdateTenantTicketsResponse.md)
  - [ResponseUpdateTenantUserResponse](docs/ResponseUpdateTenantUserResponse.md)
  - [RuleType](docs/RuleType.md)
  - [SetTenantStatusRequest](docs/SetTenantStatusRequest.md)
+ - [Status](docs/Status.md)
+ - [Status1](docs/Status1.md)
+ - [Statuses](docs/Statuses.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAnomalySettingFilters](docs/TenantAnomalySettingFilters.md)
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)
@@ -367,27 +377,22 @@ Class | Method | Description
  - [TenantPolicySettings](docs/TenantPolicySettings.md)
  - [TenantPolicySettingsFilters](docs/TenantPolicySettingsFilters.md)
  - [TenantPolicyState](docs/TenantPolicyState.md)
+ - [TenantPolicyTicketDetailsMixin](docs/TenantPolicyTicketDetailsMixin.md)
  - [TenantProvider](docs/TenantProvider.md)
  - [TenantProviderAttributes](docs/TenantProviderAttributes.md)
  - [TenantProviderFilters](docs/TenantProviderFilters.md)
  - [TenantProviderState](docs/TenantProviderState.md)
  - [TenantState](docs/TenantState.md)
  - [TenantTicket](docs/TenantTicket.md)
- - [TenantTicketCreationAPIRequest](docs/TenantTicketCreationAPIRequest.md)
- - [TenantTicketCreationRequest](docs/TenantTicketCreationRequest.md)
- - [TenantTicketUpdateUserStateAPIRequest](docs/TenantTicketUpdateUserStateAPIRequest.md)
- - [TenantTicketUpdationAPIRequest](docs/TenantTicketUpdationAPIRequest.md)
- - [TenantTicketUpdationRequest](docs/TenantTicketUpdationRequest.md)
- - [TenantTicketsAPIRequest](docs/TenantTicketsAPIRequest.md)
+ - [TenantTicketFilters](docs/TenantTicketFilters.md)
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
  - [TenantVerifyCurBucketRequest](docs/TenantVerifyCurBucketRequest.md)
  - [TenantVerifyCurBucketResponse](docs/TenantVerifyCurBucketResponse.md)
  - [TenantVerifyRequest](docs/TenantVerifyRequest.md)
  - [TenantVerifyResponse](docs/TenantVerifyResponse.md)
+ - [TicketAssignment](docs/TicketAssignment.md)
  - [TicketCategory](docs/TicketCategory.md)
- - [TicketDetails](docs/TicketDetails.md)
- - [TicketSystemState](docs/TicketSystemState.md)
- - [TicketUserState](docs/TicketUserState.md)
+ - [TicketState](docs/TicketState.md)
  - [TimeDimension](docs/TimeDimension.md)
  - [TimeDimensionCompareDateRangeInner](docs/TimeDimensionCompareDateRangeInner.md)
  - [UpdateOrganizationRequest](docs/UpdateOrganizationRequest.md)
@@ -398,7 +403,10 @@ Class | Method | Description
  - [UpdateTenantProviderResponse](docs/UpdateTenantProviderResponse.md)
  - [UpdateTenantRequest](docs/UpdateTenantRequest.md)
  - [UpdateTenantResponse](docs/UpdateTenantResponse.md)
- - [UpdateTenantTicketUserStateRequest](docs/UpdateTenantTicketUserStateRequest.md)
+ - [UpdateTenantTicketAPIRequest](docs/UpdateTenantTicketAPIRequest.md)
+ - [UpdateTenantTicketRequest](docs/UpdateTenantTicketRequest.md)
+ - [UpdateTenantTicketRequestMixin](docs/UpdateTenantTicketRequestMixin.md)
+ - [UpdateTenantTicketsAPIRequest](docs/UpdateTenantTicketsAPIRequest.md)
  - [UpdateTenantTicketsRequest](docs/UpdateTenantTicketsRequest.md)
  - [UpdateTenantUserResponse](docs/UpdateTenantUserResponse.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)

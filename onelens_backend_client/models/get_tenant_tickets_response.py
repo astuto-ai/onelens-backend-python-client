@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from onelens_backend_client.models.pagination_fields import PaginationFields
 from onelens_backend_client.models.tenant_ticket import TenantTicket
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +28,9 @@ class GetTenantTicketsResponse(BaseModel):
     """
     GetTenantTicketsResponse
     """ # noqa: E501
+    pagination: PaginationFields = Field(description="Pagination fields.")
     tenant_tickets: List[TenantTicket] = Field(description="List of tickets of the tenant")
-    __properties: ClassVar[List[str]] = ["tenant_tickets"]
+    __properties: ClassVar[List[str]] = ["pagination", "tenant_tickets"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,9 @@ class GetTenantTicketsResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in tenant_tickets (list)
         _items = []
         if self.tenant_tickets:
@@ -88,6 +93,7 @@ class GetTenantTicketsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "pagination": PaginationFields.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
             "tenant_tickets": [TenantTicket.from_dict(_item) for _item in obj["tenant_tickets"]] if obj.get("tenant_tickets") is not None else None
         })
         return _obj

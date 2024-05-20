@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**PaginationFields**](PaginationFields.md) | Pagination fields. | 
 **tenant_tickets** | [**List[TenantTicket]**](TenantTicket.md) | List of tickets of the tenant | 
 
 ## Example

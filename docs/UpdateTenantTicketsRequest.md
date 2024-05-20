@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**update_ticket_details** | [**List[TenantTicketUpdationRequest]**](TenantTicketUpdationRequest.md) | Request payload for ticket updation | 
+**updated_ticket_details** | [**List[UpdateTenantTicketRequestMixin]**](UpdateTenantTicketRequestMixin.md) | Request payload for ticket updation | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 
 ## Example

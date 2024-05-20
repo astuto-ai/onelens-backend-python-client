@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.tenant_ticket_creation_request import TenantTicketCreationRequest
+from onelens_backend_client.models.create_tenant_ticket_request_mixin import CreateTenantTicketRequestMixin
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class CreateTenantTicketsRequest(BaseModel):
     """
     CreateTenantTicketsRequest
     """ # noqa: E501
-    new_ticket_details: List[TenantTicketCreationRequest] = Field(description="Request payload for ticket creation")
+    new_ticket_details: List[CreateTenantTicketRequestMixin] = Field(description="Request payload for ticket creation")
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
     __properties: ClassVar[List[str]] = ["new_ticket_details", "tenant_id"]
 
@@ -89,7 +89,7 @@ class CreateTenantTicketsRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "new_ticket_details": [TenantTicketCreationRequest.from_dict(_item) for _item in obj["new_ticket_details"]] if obj.get("new_ticket_details") is not None else None,
+            "new_ticket_details": [CreateTenantTicketRequestMixin.from_dict(_item) for _item in obj["new_ticket_details"]] if obj.get("new_ticket_details") is not None else None,
             "tenant_id": obj.get("tenant_id")
         })
         return _obj

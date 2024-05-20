@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**new_ticket_details** | [**List[TenantTicketCreationRequest]**](TenantTicketCreationRequest.md) | Request payload for ticket creation | 
+**new_ticket_details** | [**List[CreateTenantTicketRequestMixin]**](CreateTenantTicketRequestMixin.md) | Request payload for ticket creation | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 
 ## Example

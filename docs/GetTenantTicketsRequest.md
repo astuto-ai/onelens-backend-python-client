@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**monitor_ids** | **List[str]** | Unique identifiers for violation monitors for which  tickets are to be fetched. | 
+**pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
+**filters** | [**TenantTicketFilters**](TenantTicketFilters.md) | Filters to apply to the tickets. | [optional] 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 
 ## Example

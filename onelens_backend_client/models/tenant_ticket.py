@@ -20,10 +20,11 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.details1 import Details1
+from onelens_backend_client.models.status import Status
+from onelens_backend_client.models.ticket_assignment import TicketAssignment
 from onelens_backend_client.models.ticket_category import TicketCategory
-from onelens_backend_client.models.ticket_details import TicketDetails
-from onelens_backend_client.models.ticket_system_state import TicketSystemState
-from onelens_backend_client.models.ticket_user_state import TicketUserState
+from onelens_backend_client.models.ticket_state import TicketState
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,13 +34,16 @@ class TenantTicket(BaseModel):
     """ # noqa: E501
     created_at: datetime = Field(description="Datetime of ticket creation")
     updated_at: datetime = Field(description="Datetime of ticket updation")
-    monitor_id: StrictStr = Field(description="Violation monitor id")
     ticket_category: TicketCategory = Field(description="Category of the ticket")
-    system_state: TicketSystemState = Field(description="System state of the ticket")
-    user_state: TicketUserState = Field(description="User state of the ticket")
-    details: Optional[TicketDetails] = Field(default=None, description="Details of the ticket")
+    state: TicketState = Field(description="State of the ticket")
+    assignment: TicketAssignment = Field(description="Assignment state of the ticket")
     id: StrictStr = Field(description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["created_at", "updated_at", "monitor_id", "ticket_category", "system_state", "user_state", "details", "id"]
+    status: Status
+    monitor_id: Optional[StrictStr] = None
+    heirarchy_node_id: Optional[StrictStr] = None
+    assigned_to: Optional[StrictStr] = None
+    details: Details1
+    __properties: ClassVar[List[str]] = ["created_at", "updated_at", "ticket_category", "state", "assignment", "id", "status", "monitor_id", "heirarchy_node_id", "assigned_to", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,9 +84,27 @@ class TenantTicket(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status
+        if self.status:
+            _dict['status'] = self.status.to_dict()
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
+        # set to None if monitor_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.monitor_id is None and "monitor_id" in self.model_fields_set:
+            _dict['monitor_id'] = None
+
+        # set to None if heirarchy_node_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.heirarchy_node_id is None and "heirarchy_node_id" in self.model_fields_set:
+            _dict['heirarchy_node_id'] = None
+
+        # set to None if assigned_to (nullable) is None
+        # and model_fields_set contains the field
+        if self.assigned_to is None and "assigned_to" in self.model_fields_set:
+            _dict['assigned_to'] = None
+
         return _dict
 
     @classmethod
@@ -97,12 +119,15 @@ class TenantTicket(BaseModel):
         _obj = cls.model_validate({
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
-            "monitor_id": obj.get("monitor_id"),
             "ticket_category": obj.get("ticket_category"),
-            "system_state": obj.get("system_state"),
-            "user_state": obj.get("user_state"),
-            "details": TicketDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "id": obj.get("id")
+            "state": obj.get("state"),
+            "assignment": obj.get("assignment"),
+            "id": obj.get("id"),
+            "status": Status.from_dict(obj["status"]) if obj.get("status") is not None else None,
+            "monitor_id": obj.get("monitor_id"),
+            "heirarchy_node_id": obj.get("heirarchy_node_id"),
+            "assigned_to": obj.get("assigned_to"),
+            "details": Details1.from_dict(obj["details"]) if obj.get("details") is not None else None
         })
         return _obj
 

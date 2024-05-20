@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.tenant_ticket_updation_request import TenantTicketUpdationRequest
+from onelens_backend_client.models.update_tenant_ticket_request_mixin import UpdateTenantTicketRequestMixin
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,9 @@ class UpdateTenantTicketsRequest(BaseModel):
     """
     UpdateTenantTicketsRequest
     """ # noqa: E501
-    update_ticket_details: List[TenantTicketUpdationRequest] = Field(description="Request payload for ticket updation")
+    updated_ticket_details: List[UpdateTenantTicketRequestMixin] = Field(description="Request payload for ticket updation")
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
-    __properties: ClassVar[List[str]] = ["update_ticket_details", "tenant_id"]
+    __properties: ClassVar[List[str]] = ["updated_ticket_details", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,13 +70,13 @@ class UpdateTenantTicketsRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in update_ticket_details (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in updated_ticket_details (list)
         _items = []
-        if self.update_ticket_details:
-            for _item in self.update_ticket_details:
+        if self.updated_ticket_details:
+            for _item in self.updated_ticket_details:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['update_ticket_details'] = _items
+            _dict['updated_ticket_details'] = _items
         return _dict
 
     @classmethod
@@ -89,7 +89,7 @@ class UpdateTenantTicketsRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "update_ticket_details": [TenantTicketUpdationRequest.from_dict(_item) for _item in obj["update_ticket_details"]] if obj.get("update_ticket_details") is not None else None,
+            "updated_ticket_details": [UpdateTenantTicketRequestMixin.from_dict(_item) for _item in obj["updated_ticket_details"]] if obj.get("updated_ticket_details") is not None else None,
             "tenant_id": obj.get("tenant_id")
         })
         return _obj
