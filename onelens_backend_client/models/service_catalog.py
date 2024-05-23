@@ -33,7 +33,7 @@ class ServiceCatalog(BaseModel):
     product_code: StrictStr
     display_name: StrictStr
     description: StrictStr
-    resource_types: Dict[str, ResourceTypes]
+    resource_types: List[ResourceTypes]
     features: Features
     __properties: ClassVar[List[str]] = ["id", "name", "product_code", "display_name", "description", "resource_types", "features"]
 
@@ -76,6 +76,13 @@ class ServiceCatalog(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in resource_types (list)
+        _items = []
+        if self.resource_types:
+            for _item in self.resource_types:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['resource_types'] = _items
         # override the default output from pydantic by calling `to_dict()` of features
         if self.features:
             _dict['features'] = self.features.to_dict()
@@ -96,6 +103,7 @@ class ServiceCatalog(BaseModel):
             "product_code": obj.get("product_code"),
             "display_name": obj.get("display_name"),
             "description": obj.get("description"),
+            "resource_types": [ResourceTypes.from_dict(_item) for _item in obj["resource_types"]] if obj.get("resource_types") is not None else None,
             "features": Features.from_dict(obj["features"]) if obj.get("features") is not None else None
         })
         return _obj

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **product_code** | **str** |  | 
 **display_name** | **str** |  | 
 **description** | **str** |  | 
-**resource_types** | [**Dict[str, ResourceTypes]**](ResourceTypes.md) |  | 
+**resource_types** | [**List[ResourceTypes]**](ResourceTypes.md) |  | 
 **features** | [**Features**](Features.md) |  | 
 
 ## Example
