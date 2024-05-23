@@ -19,23 +19,20 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.features import Features
-from onelens_backend_client.models.resource_type import ResourceType
+from onelens_backend_client.models.relationship_config_item import RelationshipConfigItem
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ServiceCatalog(BaseModel):
+class ResourceType(BaseModel):
     """
-    ServiceCatalog
+    ResourceType
     """ # noqa: E501
-    id: StrictStr
-    name: StrictStr
-    product_code: StrictStr
-    display_name: StrictStr
-    description: StrictStr
-    resource_types: List[ResourceType]
-    features: Features
-    __properties: ClassVar[List[str]] = ["id", "name", "product_code", "display_name", "description", "resource_types", "features"]
+    resource_type: StrictStr
+    resource_table: StrictStr
+    select_columns: List[StrictStr]
+    resource_url_template: StrictStr
+    relationship_config: List[RelationshipConfigItem]
+    __properties: ClassVar[List[str]] = ["resource_type", "resource_table", "select_columns", "resource_url_template", "relationship_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +52,7 @@ class ServiceCatalog(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ServiceCatalog from a JSON string"""
+        """Create an instance of ResourceType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,21 +73,18 @@ class ServiceCatalog(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in resource_types (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in relationship_config (list)
         _items = []
-        if self.resource_types:
-            for _item in self.resource_types:
+        if self.relationship_config:
+            for _item in self.relationship_config:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['resource_types'] = _items
-        # override the default output from pydantic by calling `to_dict()` of features
-        if self.features:
-            _dict['features'] = self.features.to_dict()
+            _dict['relationship_config'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ServiceCatalog from a dict"""
+        """Create an instance of ResourceType from a dict"""
         if obj is None:
             return None
 
@@ -98,13 +92,11 @@ class ServiceCatalog(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "product_code": obj.get("product_code"),
-            "display_name": obj.get("display_name"),
-            "description": obj.get("description"),
-            "resource_types": [ResourceType.from_dict(_item) for _item in obj["resource_types"]] if obj.get("resource_types") is not None else None,
-            "features": Features.from_dict(obj["features"]) if obj.get("features") is not None else None
+            "resource_type": obj.get("resource_type"),
+            "resource_table": obj.get("resource_table"),
+            "select_columns": obj.get("select_columns"),
+            "resource_url_template": obj.get("resource_url_template"),
+            "relationship_config": [RelationshipConfigItem.from_dict(_item) for _item in obj["relationship_config"]] if obj.get("relationship_config") is not None else None
         })
         return _obj
 

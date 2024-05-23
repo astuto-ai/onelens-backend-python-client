@@ -349,7 +349,7 @@ Class | Method | Description
  - [ResourceCatalogRequest](docs/ResourceCatalogRequest.md)
  - [ResourceCatalogResponse](docs/ResourceCatalogResponse.md)
  - [ResourceHierarchyMappingRequest](docs/ResourceHierarchyMappingRequest.md)
- - [ResourceTypes](docs/ResourceTypes.md)
+ - [ResourceType](docs/ResourceType.md)
  - [ResponseActivatePolicyTemplateResponse](docs/ResponseActivatePolicyTemplateResponse.md)
  - [ResponseAddTenantPolicyExclusionsResponse](docs/ResponseAddTenantPolicyExclusionsResponse.md)
  - [ResponseCreateDefaultHierarchyResponse](docs/ResponseCreateDefaultHierarchyResponse.md)

@@ -162,7 +162,7 @@ docs/ResourceCatalogResponse.md
 docs/ResourceCatalogServiceApi.md
 docs/ResourceHierarchyMappingRequest.md
 docs/ResourceMappingServiceApi.md
-docs/ResourceTypes.md
+docs/ResourceType.md
 docs/ResponseActivatePolicyTemplateResponse.md
 docs/ResponseAddTenantPolicyExclusionsResponse.md
 docs/ResponseCreateDefaultHierarchyResponse.md
@@ -471,7 +471,7 @@ onelens_backend_client/models/relationship_config_item.py
 onelens_backend_client/models/resource_catalog_request.py
 onelens_backend_client/models/resource_catalog_response.py
 onelens_backend_client/models/resource_hierarchy_mapping_request.py
-onelens_backend_client/models/resource_types.py
+onelens_backend_client/models/resource_type.py
 onelens_backend_client/models/response_activate_policy_template_response.py
 onelens_backend_client/models/response_add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/response_create_default_hierarchy_response.py
@@ -585,4 +585,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_resource_type.py
 tox.ini
