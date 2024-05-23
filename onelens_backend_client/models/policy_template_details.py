@@ -29,11 +29,12 @@ class PolicyTemplateDetails(BaseModel):
     """ # noqa: E501
     inputs: Optional[List[StrictStr]] = None
     config_schema: Optional[Dict[str, Any]] = None
-    output_violation_schema: Optional[Dict[str, Any]] = None
+    primary_violation_attributes_schema: Optional[Dict[str, Any]] = None
+    secondary_violation_attributes_schema: Optional[Dict[str, Any]] = None
     rule_type: Optional[RuleType] = None
     rule_definition: Optional[StrictStr] = None
     default_policy_config: Optional[Dict[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["inputs", "config_schema", "output_violation_schema", "rule_type", "rule_definition", "default_policy_config"]
+    __properties: ClassVar[List[str]] = ["inputs", "config_schema", "primary_violation_attributes_schema", "secondary_violation_attributes_schema", "rule_type", "rule_definition", "default_policy_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,10 +85,15 @@ class PolicyTemplateDetails(BaseModel):
         if self.config_schema is None and "config_schema" in self.model_fields_set:
             _dict['config_schema'] = None
 
-        # set to None if output_violation_schema (nullable) is None
+        # set to None if primary_violation_attributes_schema (nullable) is None
         # and model_fields_set contains the field
-        if self.output_violation_schema is None and "output_violation_schema" in self.model_fields_set:
-            _dict['output_violation_schema'] = None
+        if self.primary_violation_attributes_schema is None and "primary_violation_attributes_schema" in self.model_fields_set:
+            _dict['primary_violation_attributes_schema'] = None
+
+        # set to None if secondary_violation_attributes_schema (nullable) is None
+        # and model_fields_set contains the field
+        if self.secondary_violation_attributes_schema is None and "secondary_violation_attributes_schema" in self.model_fields_set:
+            _dict['secondary_violation_attributes_schema'] = None
 
         # set to None if rule_type (nullable) is None
         # and model_fields_set contains the field
@@ -118,7 +124,8 @@ class PolicyTemplateDetails(BaseModel):
         _obj = cls.model_validate({
             "inputs": obj.get("inputs"),
             "config_schema": obj.get("config_schema"),
-            "output_violation_schema": obj.get("output_violation_schema"),
+            "primary_violation_attributes_schema": obj.get("primary_violation_attributes_schema"),
+            "secondary_violation_attributes_schema": obj.get("secondary_violation_attributes_schema"),
             "rule_type": obj.get("rule_type"),
             "rule_definition": obj.get("rule_definition"),
             "default_policy_config": obj.get("default_policy_config")

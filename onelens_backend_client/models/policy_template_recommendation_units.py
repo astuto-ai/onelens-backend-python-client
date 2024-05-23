@@ -17,30 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from onelens_backend_client.models.policy_recommendation_params import PolicyRecommendationParams
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ResourceCatalogResponse(BaseModel):
+class PolicyTemplateRecommendationUnits(BaseModel):
     """
-    Resource Catalog Response
+    PolicyTemplateRecommendationUnits
     """ # noqa: E501
-    ol_id: StrictStr = Field(description="The id of the resource catalog.")
-    cloud_id: StrictStr = Field(description="Resource cloud identifier")
-    region: StrictStr = Field(description="Resource region")
-    service: StrictStr = Field(description="Resource service class")
-    service_display_name: StrictStr = Field(description="Service name in UI")
-    resource_type: StrictStr = Field(description="Resource type")
-    resource_url_template: StrictStr = Field(description="Resource url template")
-    crn: StrictStr = Field(description="Cloud resource identifier")
-    provider: StrictStr = Field(description="Resource provider")
-    status: StrictStr = Field(description="Resource status")
-    additional_info: Dict[str, Any] = Field(description="Additional info of the resource.")
-    run_id: StrictStr = Field(description="The run id.")
-    last_updated_at: datetime = Field(description="The last updated at.")
-    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_url_template", "crn", "provider", "status", "additional_info", "run_id", "last_updated_at"]
+    recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
+    params: PolicyRecommendationParams = Field(description="Policy template Recommendation Params")
+    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "params"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +49,7 @@ class ResourceCatalogResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ResourceCatalogResponse from a JSON string"""
+        """Create an instance of PolicyTemplateRecommendationUnits from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,11 +70,14 @@ class ResourceCatalogResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of params
+        if self.params:
+            _dict['params'] = self.params.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ResourceCatalogResponse from a dict"""
+        """Create an instance of PolicyTemplateRecommendationUnits from a dict"""
         if obj is None:
             return None
 
@@ -93,19 +85,8 @@ class ResourceCatalogResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ol_id": obj.get("ol_id"),
-            "cloud_id": obj.get("cloud_id"),
-            "region": obj.get("region"),
-            "service": obj.get("service"),
-            "service_display_name": obj.get("service_display_name"),
-            "resource_type": obj.get("resource_type"),
-            "resource_url_template": obj.get("resource_url_template"),
-            "crn": obj.get("crn"),
-            "provider": obj.get("provider"),
-            "status": obj.get("status"),
-            "additional_info": obj.get("additional_info"),
-            "run_id": obj.get("run_id"),
-            "last_updated_at": obj.get("last_updated_at")
+            "recommendation_unit_id": obj.get("recommendation_unit_id"),
+            "params": PolicyRecommendationParams.from_dict(obj["params"]) if obj.get("params") is not None else None
         })
         return _obj
 

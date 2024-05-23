@@ -23,6 +23,7 @@ from onelens_backend_client.models.create_policy_template_request_services_inner
 from onelens_backend_client.models.policy_category import PolicyCategory
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_details import PolicyTemplateDetails
+from onelens_backend_client.models.policy_template_recommendation_details_output import PolicyTemplateRecommendationDetailsOutput
 from onelens_backend_client.models.policy_template_state import PolicyTemplateState
 from onelens_backend_client.models.provider import Provider
 from typing import Optional, Set
@@ -39,11 +40,14 @@ class GetPolicyTemplateByIDResponse(BaseModel):
     services: List[CreatePolicyTemplateRequestServicesInner] = Field(description="The list of services associated the policy template.")
     execution_type: PolicyExecutionType = Field(description="The execution type of the policy template.")
     details: PolicyTemplateDetails = Field(description="The details of the policy template.")
+    description2: StrictStr = Field(description="The description2 of the policy template.")
+    resource_type: StrictStr = Field(description="The resource type of the policy template.")
+    recommendation_details: PolicyTemplateRecommendationDetailsOutput = Field(description="The recommendation details for the policy template.")
     category: PolicyCategory = Field(description="The category of the policy template.")
     provider: Provider = Field(description="The cloud provider of the policy template.")
     id: StrictStr = Field(description="The unique identifier of the policy template.")
     state: PolicyTemplateState = Field(description="The state of the policy template.")
-    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details", "category", "provider", "id", "state"]
+    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details", "description2", "resource_type", "recommendation_details", "category", "provider", "id", "state"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +98,9 @@ class GetPolicyTemplateByIDResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of recommendation_details
+        if self.recommendation_details:
+            _dict['recommendation_details'] = self.recommendation_details.to_dict()
         return _dict
 
     @classmethod
@@ -113,6 +120,9 @@ class GetPolicyTemplateByIDResponse(BaseModel):
             "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "description2": obj.get("description2"),
+            "resource_type": obj.get("resource_type"),
+            "recommendation_details": PolicyTemplateRecommendationDetailsOutput.from_dict(obj["recommendation_details"]) if obj.get("recommendation_details") is not None else None,
             "category": obj.get("category"),
             "provider": obj.get("provider"),
             "id": obj.get("id"),

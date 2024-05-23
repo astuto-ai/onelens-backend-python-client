@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **inputs** | **List[str]** |  | [optional] 
 **config_schema** | **object** |  | [optional] 
-**output_violation_schema** | **object** |  | [optional] 
+**primary_violation_attributes_schema** | **object** |  | [optional] 
+**secondary_violation_attributes_schema** | **object** |  | [optional] 
 **rule_type** | [**RuleType**](RuleType.md) |  | [optional] 
 **rule_definition** | **str** |  | [optional] 
 **default_policy_config** | **object** |  | [optional] 

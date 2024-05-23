@@ -133,6 +133,7 @@ docs/PoliciesPolicyTemplatePacksApi.md
 docs/PoliciesPolicyTemplatesApi.md
 docs/PolicyCategory.md
 docs/PolicyExecutionType.md
+docs/PolicyRecommendationParams.md
 docs/PolicyTemplate.md
 docs/PolicyTemplateDetails.md
 docs/PolicyTemplateFilters.md
@@ -140,6 +141,9 @@ docs/PolicyTemplatePack.md
 docs/PolicyTemplatePackDetails.md
 docs/PolicyTemplatePackServiceApi.md
 docs/PolicyTemplatePackState.md
+docs/PolicyTemplateRecommendationDetailsInput.md
+docs/PolicyTemplateRecommendationDetailsOutput.md
+docs/PolicyTemplateRecommendationUnits.md
 docs/PolicyTemplateServiceApi.md
 docs/PolicyTemplateState.md
 docs/PolicyTemplateUpdateFieldsMixin.md
@@ -449,12 +453,16 @@ onelens_backend_client/models/pagination_fields.py
 onelens_backend_client/models/pagination_params.py
 onelens_backend_client/models/policy_category.py
 onelens_backend_client/models/policy_execution_type.py
+onelens_backend_client/models/policy_recommendation_params.py
 onelens_backend_client/models/policy_template.py
 onelens_backend_client/models/policy_template_details.py
 onelens_backend_client/models/policy_template_filters.py
 onelens_backend_client/models/policy_template_pack.py
 onelens_backend_client/models/policy_template_pack_details.py
 onelens_backend_client/models/policy_template_pack_state.py
+onelens_backend_client/models/policy_template_recommendation_details_input.py
+onelens_backend_client/models/policy_template_recommendation_details_output.py
+onelens_backend_client/models/policy_template_recommendation_units.py
 onelens_backend_client/models/policy_template_state.py
 onelens_backend_client/models/policy_template_update_fields_mixin.py
 onelens_backend_client/models/policy_ticket_status.py
@@ -585,5 +593,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_resource_type.py
+test/test_policy_recommendation_params.py
+test/test_policy_template_recommendation_details_input.py
+test/test_policy_template_recommendation_details_output.py
+test/test_policy_template_recommendation_units.py
 tox.ini
