@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodes** | **List[int]** | List of nodes with which the node is shared | 
+**nodes** | **List[str]** | List of nodes with which the node is shared | 
 **strategy** | **str** | Strategy for attribution | 
 
 ## Example

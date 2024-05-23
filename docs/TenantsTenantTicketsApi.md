@@ -11,7 +11,7 @@ Method | Description
 
 
 # **create_tenant_tickets**
-> ResponseNoneType create_tenant_tickets(tenant_id, create_tenant_tickets_api_request)
+> ResponseCreateTenantTicketsResponse create_tenant_tickets(tenant_id, create_tenant_tickets_api_request)
 
 Create Tenant Tickets
 
@@ -23,7 +23,7 @@ An API endpoint to create new tickets for a tenant in bulk
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.create_tenant_tickets_api_request import CreateTenantTicketsAPIRequest
-from onelens_backend_client.models.response_none_type import ResponseNoneType
+from onelens_backend_client.models.response_create_tenant_tickets_response import ResponseCreateTenantTicketsResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseNoneType**](ResponseNoneType.md)
+[**ResponseCreateTenantTicketsResponse**](ResponseCreateTenantTicketsResponse.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_ticket**
-> object update_tenant_ticket(tenant_id, ticket_id, update_tenant_ticket_api_request)
+> ResponseUpdateTenantTicketResponse update_tenant_ticket(tenant_id, ticket_id, update_tenant_ticket_api_request)
 
 Update Tenant Ticket
 
@@ -166,6 +166,7 @@ An API endpoint to update the user state of a ticket
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.response_update_tenant_ticket_response import ResponseUpdateTenantTicketResponse
 from onelens_backend_client.models.update_tenant_ticket_api_request import UpdateTenantTicketAPIRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -207,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ResponseUpdateTenantTicketResponse**](ResponseUpdateTenantTicketResponse.md)
 
 ### Authorization
 
@@ -228,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_tickets**
-> ResponseNoneType update_tenant_tickets(tenant_id, update_tenant_tickets_api_request)
+> ResponseUpdateTenantTicketsResponse update_tenant_tickets(tenant_id, update_tenant_tickets_api_request)
 
 Update Tenant Tickets
 
@@ -239,7 +240,7 @@ An API endpoint to update tickets for a tenant in bulk
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.response_none_type import ResponseNoneType
+from onelens_backend_client.models.response_update_tenant_tickets_response import ResponseUpdateTenantTicketsResponse
 from onelens_backend_client.models.update_tenant_tickets_api_request import UpdateTenantTicketsAPIRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -279,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseNoneType**](ResponseNoneType.md)
+[**ResponseUpdateTenantTicketsResponse**](ResponseUpdateTenantTicketsResponse.md)
 
 ### Authorization
 

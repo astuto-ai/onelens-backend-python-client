@@ -5,8 +5,13 @@ All URIs are relative to *http://localhost*
 Method | Description
 ------------- | -------------
 [**create_default_hierarchy**](HierarchyNodeServiceApi.md#create_default_hierarchy) | create default hierarchy
+[**create_node**](HierarchyNodeServiceApi.md#create_node) | create a node in org hierarchy
 [**create_root_node**](HierarchyNodeServiceApi.md#create_root_node) | create a root node in org hierarchy
+[**delete_node**](HierarchyNodeServiceApi.md#delete_node) | delete a node in org hierarchy
+[**get_hierarchy**](HierarchyNodeServiceApi.md#get_hierarchy) | get hierarchy
 [**get_leaf_nodes**](HierarchyNodeServiceApi.md#get_leaf_nodes) | get hierarchy leaf nodes
+[**publish_custom_hierarchy**](HierarchyNodeServiceApi.md#publish_custom_hierarchy) | publish custom hierarchy
+[**update_node**](HierarchyNodeServiceApi.md#update_node) | update a node in org hierarchy
 
 
 # **create_default_hierarchy**
@@ -57,6 +62,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 **object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_node**
+> CreateHierarchyNodeResponse create_node(create_hierarchy_node_request)
+
+create a node in org hierarchy
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.create_hierarchy_node_request import CreateHierarchyNodeRequest
+from onelens_backend_client.models.create_hierarchy_node_response import CreateHierarchyNodeResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.HierarchyNodeServiceApi(api_client)
+    create_hierarchy_node_request = onelens_backend_client.CreateHierarchyNodeRequest() # CreateHierarchyNodeRequest | 
+
+    try:
+        # create a node in org hierarchy
+        api_response = api_instance.create_node(create_hierarchy_node_request)
+        print("The response of HierarchyNodeServiceApi->create_node:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HierarchyNodeServiceApi->create_node: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_hierarchy_node_request** | [**CreateHierarchyNodeRequest**](CreateHierarchyNodeRequest.md)|  | 
+
+### Return type
+
+[**CreateHierarchyNodeResponse**](CreateHierarchyNodeResponse.md)
 
 ### Authorization
 
@@ -144,6 +217,141 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_node**
+> object delete_node(delete_hierarchy_node_request)
+
+delete a node in org hierarchy
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.delete_hierarchy_node_request import DeleteHierarchyNodeRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.HierarchyNodeServiceApi(api_client)
+    delete_hierarchy_node_request = onelens_backend_client.DeleteHierarchyNodeRequest() # DeleteHierarchyNodeRequest | 
+
+    try:
+        # delete a node in org hierarchy
+        api_response = api_instance.delete_node(delete_hierarchy_node_request)
+        print("The response of HierarchyNodeServiceApi->delete_node:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HierarchyNodeServiceApi->delete_node: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **delete_hierarchy_node_request** | [**DeleteHierarchyNodeRequest**](DeleteHierarchyNodeRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_hierarchy**
+> GetHierarchyResponse get_hierarchy(get_hierarchy_request)
+
+get hierarchy
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_hierarchy_request import GetHierarchyRequest
+from onelens_backend_client.models.get_hierarchy_response import GetHierarchyResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.HierarchyNodeServiceApi(api_client)
+    get_hierarchy_request = onelens_backend_client.GetHierarchyRequest() # GetHierarchyRequest | 
+
+    try:
+        # get hierarchy
+        api_response = api_instance.get_hierarchy(get_hierarchy_request)
+        print("The response of HierarchyNodeServiceApi->get_hierarchy:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HierarchyNodeServiceApi->get_hierarchy: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_hierarchy_request** | [**GetHierarchyRequest**](GetHierarchyRequest.md)|  | 
+
+### Return type
+
+[**GetHierarchyResponse**](GetHierarchyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_leaf_nodes**
 > GetLeafNodesResponse get_leaf_nodes(get_leaf_nodes_request)
 
@@ -193,6 +401,141 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetLeafNodesResponse**](GetLeafNodesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **publish_custom_hierarchy**
+> object publish_custom_hierarchy(publish_custom_hierarchy_request)
+
+publish custom hierarchy
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.publish_custom_hierarchy_request import PublishCustomHierarchyRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.HierarchyNodeServiceApi(api_client)
+    publish_custom_hierarchy_request = onelens_backend_client.PublishCustomHierarchyRequest() # PublishCustomHierarchyRequest | 
+
+    try:
+        # publish custom hierarchy
+        api_response = api_instance.publish_custom_hierarchy(publish_custom_hierarchy_request)
+        print("The response of HierarchyNodeServiceApi->publish_custom_hierarchy:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HierarchyNodeServiceApi->publish_custom_hierarchy: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **publish_custom_hierarchy_request** | [**PublishCustomHierarchyRequest**](PublishCustomHierarchyRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_node**
+> UpdateHierarchyNodeResponse update_node(update_hierarchy_node_request)
+
+update a node in org hierarchy
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.update_hierarchy_node_request import UpdateHierarchyNodeRequest
+from onelens_backend_client.models.update_hierarchy_node_response import UpdateHierarchyNodeResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.HierarchyNodeServiceApi(api_client)
+    update_hierarchy_node_request = onelens_backend_client.UpdateHierarchyNodeRequest() # UpdateHierarchyNodeRequest | 
+
+    try:
+        # update a node in org hierarchy
+        api_response = api_instance.update_node(update_hierarchy_node_request)
+        print("The response of HierarchyNodeServiceApi->update_node:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HierarchyNodeServiceApi->update_node: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_hierarchy_node_request** | [**UpdateHierarchyNodeRequest**](UpdateHierarchyNodeRequest.md)|  | 
+
+### Return type
+
+[**UpdateHierarchyNodeResponse**](UpdateHierarchyNodeResponse.md)
 
 ### Authorization
 

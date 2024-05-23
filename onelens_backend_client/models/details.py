@@ -18,13 +18,14 @@ import json
 import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
-from typing import Any, Dict, Optional
+from typing import Optional
+from onelens_backend_client.models.tenant_anomaly_ticket_details_mixin import TenantAnomalyTicketDetailsMixin
 from onelens_backend_client.models.tenant_policy_ticket_details_mixin import TenantPolicyTicketDetailsMixin
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-DETAILS_ANY_OF_SCHEMAS = ["TenantPolicyTicketDetailsMixin", "object"]
+DETAILS_ANY_OF_SCHEMAS = ["TenantAnomalyTicketDetailsMixin", "TenantPolicyTicketDetailsMixin"]
 
 class Details(BaseModel):
     """
@@ -33,13 +34,13 @@ class Details(BaseModel):
 
     # data type: TenantPolicyTicketDetailsMixin
     anyof_schema_1_validator: Optional[TenantPolicyTicketDetailsMixin] = None
-    # data type: object
-    anyof_schema_2_validator: Optional[Dict[str, Any]] = None
+    # data type: TenantAnomalyTicketDetailsMixin
+    anyof_schema_2_validator: Optional[TenantAnomalyTicketDetailsMixin] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[TenantPolicyTicketDetailsMixin, object]] = None
+        actual_instance: Optional[Union[TenantAnomalyTicketDetailsMixin, TenantPolicyTicketDetailsMixin]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "TenantPolicyTicketDetailsMixin", "object" }
+    any_of_schemas: Set[str] = { "TenantAnomalyTicketDetailsMixin", "TenantPolicyTicketDetailsMixin" }
 
     model_config = {
         "validate_assignment": True,
@@ -66,15 +67,15 @@ class Details(BaseModel):
         else:
             return v
 
-        # validate data type: object
-        try:
-            instance.anyof_schema_2_validator = v
+        # validate data type: TenantAnomalyTicketDetailsMixin
+        if not isinstance(v, TenantAnomalyTicketDetailsMixin):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TenantAnomalyTicketDetailsMixin`")
+        else:
             return v
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in Details with anyOf schemas: TenantPolicyTicketDetailsMixin, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in Details with anyOf schemas: TenantAnomalyTicketDetailsMixin, TenantPolicyTicketDetailsMixin. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -93,19 +94,16 @@ class Details(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
-        # deserialize data into object
+        # anyof_schema_2_validator: Optional[TenantAnomalyTicketDetailsMixin] = None
         try:
-            # validation
-            instance.anyof_schema_2_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.anyof_schema_2_validator
+            instance.actual_instance = TenantAnomalyTicketDetailsMixin.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
+             error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Details with anyOf schemas: TenantPolicyTicketDetailsMixin, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into Details with anyOf schemas: TenantAnomalyTicketDetailsMixin, TenantPolicyTicketDetailsMixin. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -119,7 +117,7 @@ class Details(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], TenantPolicyTicketDetailsMixin, object]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], TenantAnomalyTicketDetailsMixin, TenantPolicyTicketDetailsMixin]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

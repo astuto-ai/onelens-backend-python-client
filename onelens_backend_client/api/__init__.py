@@ -3,6 +3,8 @@
 # import apis into api package
 from onelens_backend_client.api.data_retriever_api import DataRetrieverApi
 from onelens_backend_client.api.default_api import DefaultApi
+from onelens_backend_client.api.get_resource_by_id_api import GetResourceByIdApi
+from onelens_backend_client.api.get_service_catalog_api import GetServiceCatalogApi
 from onelens_backend_client.api.hierarchy_node_service_api import HierarchyNodeServiceApi
 from onelens_backend_client.api.organizations_api import OrganizationsApi
 from onelens_backend_client.api.policies_policy_template_packs_api import PoliciesPolicyTemplatePacksApi
@@ -12,7 +14,9 @@ from onelens_backend_client.api.policy_template_pack_service_api import PolicyTe
 from onelens_backend_client.api.policy_template_service_api import PolicyTemplateServiceApi
 from onelens_backend_client.api.recommendation_service_api import RecommendationServiceApi
 from onelens_backend_client.api.recommendations_api import RecommendationsApi
+from onelens_backend_client.api.resource_catalog_api import ResourceCatalogApi
 from onelens_backend_client.api.resource_mapping_service_api import ResourceMappingServiceApi
+from onelens_backend_client.api.service_catalog_api import ServiceCatalogApi
 from onelens_backend_client.api.tenant_anomalies_api import TenantAnomaliesApi
 from onelens_backend_client.api.tenant_anomaly_service_api import TenantAnomalyServiceApi
 from onelens_backend_client.api.tenant_hierarchy_api import TenantHierarchyApi

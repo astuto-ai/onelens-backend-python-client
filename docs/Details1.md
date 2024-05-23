@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **policy_config** | **str** | The config of the policy being violated. | 
 **policy_config_version** | **str** | The config version of the policy being violated. | 
 **violation_attributes** | **str** | The attributes of the violation. | 
+**anomaly_id** | **str** | The id of the anomaly being violated. | 
 
 ## Example
 

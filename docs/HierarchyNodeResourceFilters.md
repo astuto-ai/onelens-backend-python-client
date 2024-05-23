@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | [**Key**](Key.md) |  | 
+**key** | **int** |  | 
 **var_field** | **str** |  | 
 **operator** | **str** |  | 
 **value** | [**Value**](Value.md) |  | 

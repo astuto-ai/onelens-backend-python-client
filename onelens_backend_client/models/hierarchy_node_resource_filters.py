@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.key import Key
 from onelens_backend_client.models.value import Value
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +27,7 @@ class HierarchyNodeResourceFilters(BaseModel):
     """
     HierarchyNodeResourceFilters
     """ # noqa: E501
-    key: Key
+    key: StrictInt
     var_field: StrictStr = Field(alias="field")
     operator: StrictStr
     value: Value
@@ -73,9 +72,6 @@ class HierarchyNodeResourceFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of key
-        if self.key:
-            _dict['key'] = self.key.to_dict()
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['value'] = self.value.to_dict()
@@ -91,7 +87,7 @@ class HierarchyNodeResourceFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "key": Key.from_dict(obj["key"]) if obj.get("key") is not None else None,
+            "key": obj.get("key"),
             "field": obj.get("field"),
             "operator": obj.get("operator"),
             "value": Value.from_dict(obj["value"]) if obj.get("value") is not None else None

@@ -17,11 +17,12 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from typing import Any
 from onelens_backend_client.models.create_tenant_tickets_api_request import CreateTenantTicketsAPIRequest
 from onelens_backend_client.models.get_tenant_tickets_api_request import GetTenantTicketsAPIRequest
+from onelens_backend_client.models.response_create_tenant_tickets_response import ResponseCreateTenantTicketsResponse
 from onelens_backend_client.models.response_get_tenant_tickets_response import ResponseGetTenantTicketsResponse
-from onelens_backend_client.models.response_none_type import ResponseNoneType
+from onelens_backend_client.models.response_update_tenant_ticket_response import ResponseUpdateTenantTicketResponse
+from onelens_backend_client.models.response_update_tenant_tickets_response import ResponseUpdateTenantTicketsResponse
 from onelens_backend_client.models.update_tenant_ticket_api_request import UpdateTenantTicketAPIRequest
 from onelens_backend_client.models.update_tenant_tickets_api_request import UpdateTenantTicketsAPIRequest
 
@@ -60,7 +61,7 @@ class TenantsTenantTicketsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseNoneType:
+    ) -> ResponseCreateTenantTicketsResponse:
         """Create Tenant Tickets
 
         An API endpoint to create new tickets for a tenant in bulk
@@ -101,7 +102,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseNoneType",
+            '200': "ResponseCreateTenantTicketsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -132,7 +133,7 @@ class TenantsTenantTicketsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseNoneType]:
+    ) -> ApiResponse[ResponseCreateTenantTicketsResponse]:
         """Create Tenant Tickets
 
         An API endpoint to create new tickets for a tenant in bulk
@@ -173,7 +174,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseNoneType",
+            '200': "ResponseCreateTenantTicketsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -245,7 +246,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseNoneType",
+            '200': "ResponseCreateTenantTicketsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -637,7 +638,7 @@ class TenantsTenantTicketsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> ResponseUpdateTenantTicketResponse:
         """Update Tenant Ticket
 
         An API endpoint to update the user state of a ticket
@@ -681,7 +682,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "ResponseUpdateTenantTicketResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -713,7 +714,7 @@ class TenantsTenantTicketsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[ResponseUpdateTenantTicketResponse]:
         """Update Tenant Ticket
 
         An API endpoint to update the user state of a ticket
@@ -757,7 +758,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "ResponseUpdateTenantTicketResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -833,7 +834,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "ResponseUpdateTenantTicketResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -939,7 +940,7 @@ class TenantsTenantTicketsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseNoneType:
+    ) -> ResponseUpdateTenantTicketsResponse:
         """Update Tenant Tickets
 
         An API endpoint to update tickets for a tenant in bulk
@@ -980,7 +981,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseNoneType",
+            '200': "ResponseUpdateTenantTicketsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1011,7 +1012,7 @@ class TenantsTenantTicketsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseNoneType]:
+    ) -> ApiResponse[ResponseUpdateTenantTicketsResponse]:
         """Update Tenant Tickets
 
         An API endpoint to update tickets for a tenant in bulk
@@ -1052,7 +1053,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseNoneType",
+            '200': "ResponseUpdateTenantTicketsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1124,7 +1125,7 @@ class TenantsTenantTicketsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseNoneType",
+            '200': "ResponseUpdateTenantTicketsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

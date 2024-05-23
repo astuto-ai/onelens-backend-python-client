@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,7 +26,7 @@ class HierarchyNodeAttributionDetails(BaseModel):
     """
     HierarchyNodeAttributionDetails
     """ # noqa: E501
-    nodes: List[StrictInt] = Field(description="List of nodes with which the node is shared")
+    nodes: List[StrictStr] = Field(description="List of nodes with which the node is shared")
     strategy: StrictStr = Field(description="Strategy for attribution")
     __properties: ClassVar[List[str]] = ["nodes", "strategy"]
 

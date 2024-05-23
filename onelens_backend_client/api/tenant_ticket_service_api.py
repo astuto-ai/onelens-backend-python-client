@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from typing import Any
+from typing import Any, Dict
 from onelens_backend_client.models.create_tenant_tickets_request import CreateTenantTicketsRequest
 from onelens_backend_client.models.get_tenant_tickets_request import GetTenantTicketsRequest
 from onelens_backend_client.models.get_tenant_tickets_response import GetTenantTicketsResponse
