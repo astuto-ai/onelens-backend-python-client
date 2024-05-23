@@ -1,25 +1,24 @@
-# ResourceCatalogApi
+# ServiceCatalogServiceApi
 
 All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
-[**create_root_node**](ResourceCatalogApi.md#create_root_node) | Create Root Node
+[**get**](ServiceCatalogServiceApi.md#get) | service catalog service handler
 
 
-# **create_root_node**
-> ResponseResourceCatalogResponse create_root_node(tenant_id, resource_catalog_id)
+# **get**
+> ServiceCatalogResponse get(service_catalog_request)
 
-Create Root Node
-
-An API endpoint to get the resource catalog by ID
+service catalog service handler
 
 ### Example
 
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.response_resource_catalog_response import ResponseResourceCatalogResponse
+from onelens_backend_client.models.service_catalog_request import ServiceCatalogRequest
+from onelens_backend_client.models.service_catalog_response import ServiceCatalogResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -33,17 +32,16 @@ configuration = onelens_backend_client.Configuration(
 # Enter a context with an instance of the API client
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = onelens_backend_client.ResourceCatalogApi(api_client)
-    tenant_id = 'tenant_id_example' # str | 
-    resource_catalog_id = 'resource_catalog_id_example' # str | 
+    api_instance = onelens_backend_client.ServiceCatalogServiceApi(api_client)
+    service_catalog_request = onelens_backend_client.ServiceCatalogRequest() # ServiceCatalogRequest | 
 
     try:
-        # Create Root Node
-        api_response = api_instance.create_root_node(tenant_id, resource_catalog_id)
-        print("The response of ResourceCatalogApi->create_root_node:\n")
+        # service catalog service handler
+        api_response = api_instance.get(service_catalog_request)
+        print("The response of ServiceCatalogServiceApi->get:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ResourceCatalogApi->create_root_node: %s\n" % e)
+        print("Exception when calling ServiceCatalogServiceApi->get: %s\n" % e)
 ```
 
 
@@ -53,12 +51,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenant_id** | **str**|  | 
- **resource_catalog_id** | **str**|  | 
+ **service_catalog_request** | [**ServiceCatalogRequest**](ServiceCatalogRequest.md)|  | 
 
 ### Return type
 
-[**ResponseResourceCatalogResponse**](ResponseResourceCatalogResponse.md)
+[**ServiceCatalogResponse**](ServiceCatalogResponse.md)
 
 ### Authorization
 
@@ -66,7 +63,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

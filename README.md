@@ -87,10 +87,6 @@ Class | Method | Description
 ------------ | ------------- | -------------
 *DataRetrieverApi* | [**query_data_retriever**](docs/DataRetrieverApi.md#query_data_retriever) | Query Data Retriever
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
-*GetResourceByIdApi* | [**create_root_node**](docs/GetResourceByIdApi.md#create_root_node) | Create Root Node
-*GetResourceByIdApi* | [**get_by_id**](docs/GetResourceByIdApi.md#get_by_id) | Get resource catalog by id
-*GetServiceCatalogApi* | [**get**](docs/GetServiceCatalogApi.md#get) | service catalog service handler
-*GetServiceCatalogApi* | [**get_service_catalog**](docs/GetServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
 *HierarchyNodeServiceApi* | [**create_default_hierarchy**](docs/HierarchyNodeServiceApi.md#create_default_hierarchy) | create default hierarchy
 *HierarchyNodeServiceApi* | [**create_node**](docs/HierarchyNodeServiceApi.md#create_node) | create a node in org hierarchy
 *HierarchyNodeServiceApi* | [**create_root_node**](docs/HierarchyNodeServiceApi.md#create_root_node) | create a root node in org hierarchy
@@ -115,7 +111,6 @@ Class | Method | Description
 *PoliciesPolicyTemplatesApi* | [**get_policy_template**](docs/PoliciesPolicyTemplatesApi.md#get_policy_template) | Get Policy Template
 *PoliciesPolicyTemplatesApi* | [**get_policy_templates**](docs/PoliciesPolicyTemplatesApi.md#get_policy_templates) | Get Policy Templates
 *PoliciesPolicyTemplatesApi* | [**update_policy_template**](docs/PoliciesPolicyTemplatesApi.md#update_policy_template) | Update Policy Template
-*PolicyRecommendationsApi* | [**create_root_node**](docs/PolicyRecommendationsApi.md#create_root_node) | Create Root Node
 *PolicyTemplatePackServiceApi* | [**create_policy_template_pack**](docs/PolicyTemplatePackServiceApi.md#create_policy_template_pack) | Create a new policy template pack.
 *PolicyTemplatePackServiceApi* | [**get_policy_template_pack_by_id**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_pack_by_id) | Get a policy template pack by id.
 *PolicyTemplatePackServiceApi* | [**get_policy_template_packs**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_packs) | Get all policy template packs.
@@ -129,10 +124,10 @@ Class | Method | Description
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationsApi* | [**create_root_node**](docs/RecommendationsApi.md#create_root_node) | Create Root Node
 *ResourceCatalogApi* | [**create_root_node**](docs/ResourceCatalogApi.md#create_root_node) | Create Root Node
-*ResourceCatalogApi* | [**get_by_id**](docs/ResourceCatalogApi.md#get_by_id) | Get resource catalog by id
+*ResourceCatalogServiceApi* | [**get_by_id**](docs/ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
-*ServiceCatalogApi* | [**get**](docs/ServiceCatalogApi.md#get) | service catalog service handler
 *ServiceCatalogApi* | [**get_service_catalog**](docs/ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
+*ServiceCatalogServiceApi* | [**get**](docs/ServiceCatalogServiceApi.md#get) | service catalog service handler
 *TenantAnomaliesApi* | [**disable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#disable_tenant_anomaly_setting) | Disable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#enable_tenant_anomaly_setting) | Enable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomaliesApi.md#get_tenant_anomaly_settings) | Get Tenant Anomaly Settings
