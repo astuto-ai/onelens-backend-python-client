@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
+**code** | **str** |  | 
 **product_code** | **str** |  | 
 **display_name** | **str** |  | 
 **description** | **str** |  | 

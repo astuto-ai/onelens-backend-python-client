@@ -30,12 +30,13 @@ class ServiceCatalog(BaseModel):
     """ # noqa: E501
     id: StrictStr
     name: StrictStr
+    code: StrictStr
     product_code: StrictStr
     display_name: StrictStr
     description: StrictStr
     resource_types: List[ResourceType]
     features: Features
-    __properties: ClassVar[List[str]] = ["id", "name", "product_code", "display_name", "description", "resource_types", "features"]
+    __properties: ClassVar[List[str]] = ["id", "name", "code", "product_code", "display_name", "description", "resource_types", "features"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,6 +101,7 @@ class ServiceCatalog(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
+            "code": obj.get("code"),
             "product_code": obj.get("product_code"),
             "display_name": obj.get("display_name"),
             "description": obj.get("description"),

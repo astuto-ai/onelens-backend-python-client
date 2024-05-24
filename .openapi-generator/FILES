@@ -593,8 +593,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_policy_recommendation_params.py
-test/test_policy_template_recommendation_details_input.py
-test/test_policy_template_recommendation_details_output.py
-test/test_policy_template_recommendation_units.py
 tox.ini

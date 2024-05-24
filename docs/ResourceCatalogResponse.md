@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **crn** | **str** | Cloud resource identifier | 
 **provider** | **str** | Resource provider | 
 **status** | **str** | Resource status | 
+**tags** | **object** | Resource tags. | 
 **additional_info** | **object** | Additional info of the resource. | 
 **run_id** | **str** | The run id. | 
 **last_updated_at** | **datetime** | The last updated at. | 
