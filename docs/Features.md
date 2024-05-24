@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enable_in_policy** | **bool** |  | 
-**enable_in_anomalies** | **bool** |  | 
+**enable_in_policy** | **bool** |  | [optional] [default to False]
+**enable_in_anomalies** | **bool** |  | [optional] [default to False]
 
 ## Example
 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +26,8 @@ class Features(BaseModel):
     """
     Features
     """ # noqa: E501
-    enable_in_policy: StrictBool
-    enable_in_anomalies: StrictBool
+    enable_in_policy: Optional[StrictBool] = False
+    enable_in_anomalies: Optional[StrictBool] = False
     __properties: ClassVar[List[str]] = ["enable_in_policy", "enable_in_anomalies"]
 
     model_config = ConfigDict(
@@ -81,8 +81,8 @@ class Features(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "enable_in_policy": obj.get("enable_in_policy"),
-            "enable_in_anomalies": obj.get("enable_in_anomalies")
+            "enable_in_policy": obj.get("enable_in_policy") if obj.get("enable_in_policy") is not None else False,
+            "enable_in_anomalies": obj.get("enable_in_anomalies") if obj.get("enable_in_anomalies") is not None else False
         })
         return _obj
 

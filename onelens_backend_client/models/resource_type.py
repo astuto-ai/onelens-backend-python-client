@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from onelens_backend_client.models.relationship_config_item import RelationshipConfigItem
 from typing import Optional, Set
@@ -31,8 +31,9 @@ class ResourceType(BaseModel):
     resource_table: StrictStr
     select_columns: List[StrictStr]
     resource_url_template: StrictStr
+    is_tags_available: StrictBool
     relationship_config: List[RelationshipConfigItem]
-    __properties: ClassVar[List[str]] = ["resource_type", "resource_table", "select_columns", "resource_url_template", "relationship_config"]
+    __properties: ClassVar[List[str]] = ["resource_type", "resource_table", "select_columns", "resource_url_template", "is_tags_available", "relationship_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +97,7 @@ class ResourceType(BaseModel):
             "resource_table": obj.get("resource_table"),
             "select_columns": obj.get("select_columns"),
             "resource_url_template": obj.get("resource_url_template"),
+            "is_tags_available": obj.get("is_tags_available"),
             "relationship_config": [RelationshipConfigItem.from_dict(_item) for _item in obj["relationship_config"]] if obj.get("relationship_config") is not None else None
         })
         return _obj

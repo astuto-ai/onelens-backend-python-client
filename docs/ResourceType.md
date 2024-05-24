@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **resource_table** | **str** |  | 
 **select_columns** | **List[str]** |  | 
 **resource_url_template** | **str** |  | 
+**is_tags_available** | **bool** |  | 
 **relationship_config** | [**List[RelationshipConfigItem]**](RelationshipConfigItem.md) |  | 
 
 ## Example

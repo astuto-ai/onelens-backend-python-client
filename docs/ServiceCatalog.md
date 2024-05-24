@@ -7,12 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**code** | **str** |  | 
 **product_code** | **str** |  | 
 **display_name** | **str** |  | 
 **description** | **str** |  | 
-**resource_types** | [**List[ResourceType]**](ResourceType.md) |  | 
-**features** | [**Features**](Features.md) |  | 
+**resource_types** | [**List[ResourceType]**](ResourceType.md) |  | [optional] [default to []]
+**features** | [**Features**](Features.md) |  | [optional] 
 
 ## Example
 

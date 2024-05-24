@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.features import Features
 from onelens_backend_client.models.resource_type import ResourceType
 from typing import Optional, Set
@@ -30,13 +30,12 @@ class ServiceCatalog(BaseModel):
     """ # noqa: E501
     id: StrictStr
     name: StrictStr
-    code: StrictStr
     product_code: StrictStr
     display_name: StrictStr
     description: StrictStr
-    resource_types: List[ResourceType]
-    features: Features
-    __properties: ClassVar[List[str]] = ["id", "name", "code", "product_code", "display_name", "description", "resource_types", "features"]
+    resource_types: Optional[List[ResourceType]] = None
+    features: Optional[Features] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "product_code", "display_name", "description", "resource_types", "features"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,7 +100,6 @@ class ServiceCatalog(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "code": obj.get("code"),
             "product_code": obj.get("product_code"),
             "display_name": obj.get("display_name"),
             "description": obj.get("description"),
