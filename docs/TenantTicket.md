@@ -7,14 +7,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** | Datetime of ticket creation | 
 **updated_at** | **datetime** | Datetime of ticket updation | 
+**monitor_id** | **str** |  | [optional] 
 **ticket_category** | [**TicketCategory**](TicketCategory.md) | Category of the ticket | 
 **state** | [**TicketState**](TicketState.md) | State of the ticket | 
+**entity_id** | **str** | The id of the resource experiencing policy violation. | 
+**entity_type** | **str** | The type of the resource experiencing policy violation. | 
 **assignment** | [**TicketAssignment**](TicketAssignment.md) | Assignment state of the ticket | 
+**assigned_to** | **str** |  | [optional] 
+**last_run_id** | **str** | Id of the last policy violation/anomaly run | 
+**last_run_at** | **datetime** | Datetime of the last policy violation/anomaly run | 
+**first_run_at** | **datetime** | Datetime of the first policy violation/anomaly run | 
 **id** | **str** | The unique identifier of the ticket | 
 **status** | [**Status**](Status.md) |  | 
-**monitor_id** | **str** |  | [optional] 
-**heirarchy_node_id** | **str** |  | [optional] 
-**assigned_to** | **str** |  | [optional] 
 **details** | [**Details1**](Details1.md) |  | 
 
 ## Example

@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +26,17 @@ class TenantAnomalyTicketDetailsMixin(BaseModel):
     """
     TenantAnomalyTicketDetailsMixin
     """ # noqa: E501
-    anomaly_id: StrictStr = Field(description="The id of the anomaly being violated.")
-    __properties: ClassVar[List[str]] = ["anomaly_id"]
+    anomalies: List[Any] = Field(description="List of anomaly ids and rca ids.")
+    total_cost_impact: Union[StrictFloat, StrictInt] = Field(description="Total cost incurred due to the anomaly.")
+    rca_hash: StrictStr = Field(description="The hash of the RCA associated with the anomaly.")
+    deviation: Union[StrictFloat, StrictInt] = Field(description="The percentage delta of the anomaly.")
+    duration: Union[StrictFloat, StrictInt] = Field(description="The duration of the anomaly.")
+    duration_unit: StrictStr = Field(description="The duration unit of the anomaly.")
+    source_type: StrictStr = Field(description="The source type of the anomaly.")
+    usage_type: StrictStr = Field(description="The usage type of the anomaly.")
+    operation_type: StrictStr = Field(description="The operation type of the anomaly.")
+    is_continuous: StrictBool = Field(description="Is the anomaly continuous.")
+    __properties: ClassVar[List[str]] = ["anomalies", "total_cost_impact", "rca_hash", "deviation", "duration", "duration_unit", "source_type", "usage_type", "operation_type", "is_continuous"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +89,16 @@ class TenantAnomalyTicketDetailsMixin(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "anomaly_id": obj.get("anomaly_id")
+            "anomalies": obj.get("anomalies"),
+            "total_cost_impact": obj.get("total_cost_impact"),
+            "rca_hash": obj.get("rca_hash"),
+            "deviation": obj.get("deviation"),
+            "duration": obj.get("duration"),
+            "duration_unit": obj.get("duration_unit"),
+            "source_type": obj.get("source_type"),
+            "usage_type": obj.get("usage_type"),
+            "operation_type": obj.get("operation_type"),
+            "is_continuous": obj.get("is_continuous")
         })
         return _obj
 

@@ -7,13 +7,20 @@ Details of the ticket
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **policy_id** | **str** | The id of the policy being violated. | 
-**entity_id** | **str** | The id of the resource experiencing policy violation. | 
-**entity_type** | **str** | The type of the resource experiencing policy violation. | 
 **policy_template_id** | **str** | The id of the policy template being violated. | 
 **policy_config** | **str** | The config of the policy being violated. | 
 **policy_config_version** | **str** | The config version of the policy being violated. | 
 **violation_attributes** | **str** | The attributes of the violation. | 
-**anomaly_id** | **str** | The id of the anomaly being violated. | 
+**anomalies** | **List[object]** | List of anomaly ids and rca ids. | 
+**total_cost_impact** | **float** | Total cost incurred due to the anomaly. | 
+**rca_hash** | **str** | The hash of the RCA associated with the anomaly. | 
+**deviation** | **float** | The percentage delta of the anomaly. | 
+**duration** | **float** | The duration of the anomaly. | 
+**duration_unit** | **str** | The duration unit of the anomaly. | 
+**source_type** | **str** | The source type of the anomaly. | 
+**usage_type** | **str** | The usage type of the anomaly. | 
+**operation_type** | **str** | The operation type of the anomaly. | 
+**is_continuous** | **bool** | Is the anomaly continuous. | 
 
 ## Example
 

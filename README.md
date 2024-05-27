@@ -86,6 +86,8 @@ All URIs are relative to *http://localhost*
 Class | Method | Description
 ------------ | ------------- | -------------
 *DataRetrieverApi* | [**query_data_retriever**](docs/DataRetrieverApi.md#query_data_retriever) | Query Data Retriever
+*RecommendationApi* | [**create_root_node**](docs/RecommendationApi.md#create_root_node) | Create Root Node
+*RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
 *HierarchyNodeServiceApi* | [**create_default_hierarchy**](docs/HierarchyNodeServiceApi.md#create_default_hierarchy) | create default hierarchy
 *HierarchyNodeServiceApi* | [**create_node**](docs/HierarchyNodeServiceApi.md#create_node) | create a node in org hierarchy
@@ -121,8 +123,8 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
+*RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
-*RecommendationsApi* | [**create_root_node**](docs/RecommendationsApi.md#create_root_node) | Create Root Node
 *ResourceCatalogApi* | [**create_root_node**](docs/ResourceCatalogApi.md#create_root_node) | Create Root Node
 *ResourceCatalogServiceApi* | [**get_by_id**](docs/ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
@@ -211,7 +213,7 @@ Class | Method | Description
  - [AnomalyLogicOperation](docs/AnomalyLogicOperation.md)
  - [AnomalyTicketStatus](docs/AnomalyTicketStatus.md)
  - [AwsService](docs/AwsService.md)
- - [CostSaving](docs/CostSaving.md)
+ - [BeginRange](docs/BeginRange.md)
  - [CreateDefaultHierarchyRequest](docs/CreateDefaultHierarchyRequest.md)
  - [CreateHierarchyNodeAPIRequest](docs/CreateHierarchyNodeAPIRequest.md)
  - [CreateHierarchyNodeRequest](docs/CreateHierarchyNodeRequest.md)
@@ -244,6 +246,7 @@ Class | Method | Description
  - [CreateUserTenantMappingResponse](docs/CreateUserTenantMappingResponse.md)
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
+ - [CurrentCost](docs/CurrentCost.md)
  - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
  - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
  - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
@@ -260,6 +263,7 @@ Class | Method | Description
  - [EnableTenantAnomalySettingsRequest](docs/EnableTenantAnomalySettingsRequest.md)
  - [EnableTenantAnomalySettingsResponse](docs/EnableTenantAnomalySettingsResponse.md)
  - [EnableTenantPolicyRequest](docs/EnableTenantPolicyRequest.md)
+ - [EndRange](docs/EndRange.md)
  - [Features](docs/Features.md)
  - [GcpService](docs/GcpService.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
@@ -309,6 +313,7 @@ Class | Method | Description
  - [HierarchyState](docs/HierarchyState.md)
  - [HierarchyType](docs/HierarchyType.md)
  - [Join](docs/Join.md)
+ - [NewCost](docs/NewCost.md)
  - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
  - [OrItem](docs/OrItem.md)
  - [Organization](docs/Organization.md)
@@ -340,12 +345,19 @@ Class | Method | Description
  - [PolicyTemplateState](docs/PolicyTemplateState.md)
  - [PolicyTemplateUpdateFieldsMixin](docs/PolicyTemplateUpdateFieldsMixin.md)
  - [PolicyTicketStatus](docs/PolicyTicketStatus.md)
+ - [PotentialSaving](docs/PotentialSaving.md)
+ - [PricePerUnit](docs/PricePerUnit.md)
  - [Provider](docs/Provider.md)
  - [ProviderConfigInput](docs/ProviderConfigInput.md)
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
  - [PublishCustomHierarchyRequest](docs/PublishCustomHierarchyRequest.md)
  - [QueryFilters](docs/QueryFilters.md)
  - [QueryOrder](docs/QueryOrder.md)
+ - [RecommendationEngine](docs/RecommendationEngine.md)
+ - [RecommendationEngineAPIRequest](docs/RecommendationEngineAPIRequest.md)
+ - [RecommendationEngineRequest](docs/RecommendationEngineRequest.md)
+ - [RecommendationEngineResponse](docs/RecommendationEngineResponse.md)
+ - [RecommendationParams](docs/RecommendationParams.md)
  - [RecommendationTicketAPIRequest](docs/RecommendationTicketAPIRequest.md)
  - [RecommendationTicketRequest](docs/RecommendationTicketRequest.md)
  - [RecommendationTicketResponse](docs/RecommendationTicketResponse.md)
@@ -385,6 +397,7 @@ Class | Method | Description
  - [ResponseListRecommendationTicketResponse](docs/ResponseListRecommendationTicketResponse.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
+ - [ResponseRecommendationEngineResponse](docs/ResponseRecommendationEngineResponse.md)
  - [ResponseResourceCatalogResponse](docs/ResponseResourceCatalogResponse.md)
  - [ResponseResourceHierarchyMappingResponse](docs/ResponseResourceHierarchyMappingResponse.md)
  - [ResponseSetTenantProviderStatusResponse](docs/ResponseSetTenantProviderStatusResponse.md)

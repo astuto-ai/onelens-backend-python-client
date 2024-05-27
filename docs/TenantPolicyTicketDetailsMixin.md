@@ -6,8 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **policy_id** | **str** | The id of the policy being violated. | 
-**entity_id** | **str** | The id of the resource experiencing policy violation. | 
-**entity_type** | **str** | The type of the resource experiencing policy violation. | 
 **policy_template_id** | **str** | The id of the policy template being violated. | 
 **policy_config** | **str** | The config of the policy being violated. | 
 **policy_config_version** | **str** | The config version of the policy being violated. | 

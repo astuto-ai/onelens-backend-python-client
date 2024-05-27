@@ -29,12 +29,11 @@ class TenantTicketFilters(BaseModel):
     """
     TenantTicketFilters
     """ # noqa: E501
-    monitor_ids: Optional[List[StrictStr]] = Field(default=None, description="List of violation monitor ids for which tickets are to be fetched.")
-    heirarchy_node_ids: Optional[List[StrictStr]] = Field(default=None, description="List of heirarchy node ids for which tickets are to be fetched.")
+    monitor_ids: Optional[List[StrictStr]] = Field(default=None, description="List of violation monitor ids/anomaly node ids for which tickets are to be fetched.")
     ticket_categories: Optional[List[TicketCategory]] = Field(default=None, description="List of ticket categories for which tickets are to be fetched.")
     states: Optional[List[TicketState]] = Field(default=None, description="List of ticket State for which tickets are to be fetched.")
     statuses: Optional[Statuses] = None
-    __properties: ClassVar[List[str]] = ["monitor_ids", "heirarchy_node_ids", "ticket_categories", "states", "statuses"]
+    __properties: ClassVar[List[str]] = ["monitor_ids", "ticket_categories", "states", "statuses"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,7 +90,6 @@ class TenantTicketFilters(BaseModel):
 
         _obj = cls.model_validate({
             "monitor_ids": obj.get("monitor_ids"),
-            "heirarchy_node_ids": obj.get("heirarchy_node_ids"),
             "ticket_categories": obj.get("ticket_categories"),
             "states": obj.get("states"),
             "statuses": Statuses.from_dict(obj["statuses"]) if obj.get("statuses") is not None else None

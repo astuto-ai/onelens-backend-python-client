@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **ticket_id** | **str** | The unique identifier of the ticket | 
 **status** | [**Status**](Status.md) |  | 
 **details** | [**Details1**](Details1.md) |  | 
+**cost_impact** | **float** |  | [optional] 
+**last_run_id** | **str** |  | [optional] 
+**last_run_at** | **datetime** |  | [optional] 
 
 ## Example
 

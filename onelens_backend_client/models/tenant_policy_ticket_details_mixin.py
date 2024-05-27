@@ -27,13 +27,11 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
     TenantPolicyTicketDetailsMixin
     """ # noqa: E501
     policy_id: StrictStr = Field(description="The id of the policy being violated.")
-    entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
-    entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
     policy_template_id: StrictStr = Field(description="The id of the policy template being violated.")
     policy_config: StrictStr = Field(description="The config of the policy being violated.")
     policy_config_version: StrictStr = Field(description="The config version of the policy being violated.")
     violation_attributes: StrictStr = Field(description="The attributes of the violation.")
-    __properties: ClassVar[List[str]] = ["policy_id", "entity_id", "entity_type", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes"]
+    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,8 +85,6 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
 
         _obj = cls.model_validate({
             "policy_id": obj.get("policy_id"),
-            "entity_id": obj.get("entity_id"),
-            "entity_type": obj.get("entity_type"),
             "policy_template_id": obj.get("policy_template_id"),
             "policy_config": obj.get("policy_config"),
             "policy_config_version": obj.get("policy_config_version"),

@@ -27,13 +27,23 @@ class RecommendationTicketResponse(BaseModel):
     RecommendationTicketResponse
     """ # noqa: E501
     recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
-    action_type_id: StrictStr = Field(description="Action Type ID")
-    risk: StrictInt = Field(description="Risk")
+    action_type_id: StrictInt = Field(description="Action Type ID")
     priority: StrictInt = Field(description="Priority")
-    cost_saving: StrictStr = Field(description="Cost Saving")
+    instance_type: Optional[StrictStr] = None
+    instance_family: Optional[StrictStr] = None
+    price_per_unit: StrictStr = Field(description="Price Per Unit")
+    currency: StrictStr = Field(description="Currency")
+    unit: StrictStr = Field(description="Unit")
+    new_cost: StrictStr = Field(description="New Cost")
+    current_cost: StrictStr = Field(description="Current Cost")
+    potential_saving: StrictStr = Field(description="Potential Saving")
+    description: StrictStr = Field(description="Description")
+    begin_range: StrictStr = Field(description="Begin Range")
+    end_range: StrictStr = Field(description="End Range")
+    attributes: Dict[str, Any] = Field(description="Attributes")
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "risk", "priority", "cost_saving", "ticket_id", "id"]
+    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "priority", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +84,16 @@ class RecommendationTicketResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if instance_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.instance_type is None and "instance_type" in self.model_fields_set:
+            _dict['instance_type'] = None
+
+        # set to None if instance_family (nullable) is None
+        # and model_fields_set contains the field
+        if self.instance_family is None and "instance_family" in self.model_fields_set:
+            _dict['instance_family'] = None
+
         return _dict
 
     @classmethod
@@ -88,9 +108,19 @@ class RecommendationTicketResponse(BaseModel):
         _obj = cls.model_validate({
             "recommendation_unit_id": obj.get("recommendation_unit_id"),
             "action_type_id": obj.get("action_type_id"),
-            "risk": obj.get("risk"),
             "priority": obj.get("priority"),
-            "cost_saving": obj.get("cost_saving"),
+            "instance_type": obj.get("instance_type"),
+            "instance_family": obj.get("instance_family"),
+            "price_per_unit": obj.get("price_per_unit"),
+            "currency": obj.get("currency"),
+            "unit": obj.get("unit"),
+            "new_cost": obj.get("new_cost"),
+            "current_cost": obj.get("current_cost"),
+            "potential_saving": obj.get("potential_saving"),
+            "description": obj.get("description"),
+            "begin_range": obj.get("begin_range"),
+            "end_range": obj.get("end_range"),
+            "attributes": obj.get("attributes"),
             "ticket_id": obj.get("ticket_id"),
             "id": obj.get("id")
         })

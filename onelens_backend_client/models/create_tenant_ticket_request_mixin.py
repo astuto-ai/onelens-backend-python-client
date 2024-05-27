@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.details import Details
@@ -31,14 +32,19 @@ class CreateTenantTicketRequestMixin(BaseModel):
     """
     CreateTenantTicketRequestMixin
     """ # noqa: E501
+    monitor_id: Optional[StrictStr] = None
     ticket_category: TicketCategory = Field(description="Category of the ticket")
     state: TicketState = Field(description="State of the ticket")
+    entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
+    entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
     assignment: TicketAssignment = Field(description="Assignment state of the ticket")
-    monitor_id: Optional[StrictStr]
+    assigned_to: Optional[StrictStr] = None
+    last_run_id: StrictStr = Field(description="Id of the last policy violation/anomaly run")
+    last_run_at: datetime = Field(description="Datetime of the last policy violation/anomaly run")
+    first_run_at: datetime = Field(description="Datetime of the first policy violation/anomaly run")
     status: Status
-    heirarchy_node_id: Optional[StrictStr] = None
     details: Details
-    __properties: ClassVar[List[str]] = ["ticket_category", "state", "assignment", "monitor_id", "status", "heirarchy_node_id", "details"]
+    __properties: ClassVar[List[str]] = ["monitor_id", "ticket_category", "state", "entity_id", "entity_type", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "status", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,10 +96,10 @@ class CreateTenantTicketRequestMixin(BaseModel):
         if self.monitor_id is None and "monitor_id" in self.model_fields_set:
             _dict['monitor_id'] = None
 
-        # set to None if heirarchy_node_id (nullable) is None
+        # set to None if assigned_to (nullable) is None
         # and model_fields_set contains the field
-        if self.heirarchy_node_id is None and "heirarchy_node_id" in self.model_fields_set:
-            _dict['heirarchy_node_id'] = None
+        if self.assigned_to is None and "assigned_to" in self.model_fields_set:
+            _dict['assigned_to'] = None
 
         return _dict
 
@@ -107,12 +113,17 @@ class CreateTenantTicketRequestMixin(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "monitor_id": obj.get("monitor_id"),
             "ticket_category": obj.get("ticket_category"),
             "state": obj.get("state"),
+            "entity_id": obj.get("entity_id"),
+            "entity_type": obj.get("entity_type"),
             "assignment": obj.get("assignment"),
-            "monitor_id": obj.get("monitor_id"),
+            "assigned_to": obj.get("assigned_to"),
+            "last_run_id": obj.get("last_run_id"),
+            "last_run_at": obj.get("last_run_at"),
+            "first_run_at": obj.get("first_run_at"),
             "status": Status.from_dict(obj["status"]) if obj.get("status") is not None else None,
-            "heirarchy_node_id": obj.get("heirarchy_node_id"),
             "details": Details.from_dict(obj["details"]) if obj.get("details") is not None else None
         })
         return _obj

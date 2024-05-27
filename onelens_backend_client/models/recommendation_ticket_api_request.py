@@ -18,8 +18,13 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.cost_saving import CostSaving
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.begin_range import BeginRange
+from onelens_backend_client.models.current_cost import CurrentCost
+from onelens_backend_client.models.end_range import EndRange
+from onelens_backend_client.models.new_cost import NewCost
+from onelens_backend_client.models.potential_saving import PotentialSaving
+from onelens_backend_client.models.price_per_unit import PricePerUnit
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,12 +33,22 @@ class RecommendationTicketAPIRequest(BaseModel):
     RecommendationTicketAPIRequest
     """ # noqa: E501
     recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
-    action_type_id: StrictStr = Field(description="Action Type ID")
-    risk: StrictInt = Field(description="Risk")
+    action_type_id: StrictInt = Field(description="Action Type ID")
     priority: StrictInt = Field(description="Priority")
-    cost_saving: CostSaving
+    instance_type: Optional[StrictStr] = None
+    instance_family: Optional[StrictStr] = None
+    price_per_unit: PricePerUnit
+    currency: StrictStr = Field(description="Currency")
+    unit: StrictStr = Field(description="Unit")
+    new_cost: NewCost
+    current_cost: CurrentCost
+    potential_saving: PotentialSaving
+    description: StrictStr = Field(description="Description")
+    begin_range: BeginRange
+    end_range: EndRange
+    attributes: Dict[str, Any] = Field(description="Attributes")
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "risk", "priority", "cost_saving", "ticket_id"]
+    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "priority", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,9 +89,34 @@ class RecommendationTicketAPIRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of cost_saving
-        if self.cost_saving:
-            _dict['cost_saving'] = self.cost_saving.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of price_per_unit
+        if self.price_per_unit:
+            _dict['price_per_unit'] = self.price_per_unit.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of new_cost
+        if self.new_cost:
+            _dict['new_cost'] = self.new_cost.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of current_cost
+        if self.current_cost:
+            _dict['current_cost'] = self.current_cost.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of potential_saving
+        if self.potential_saving:
+            _dict['potential_saving'] = self.potential_saving.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of begin_range
+        if self.begin_range:
+            _dict['begin_range'] = self.begin_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of end_range
+        if self.end_range:
+            _dict['end_range'] = self.end_range.to_dict()
+        # set to None if instance_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.instance_type is None and "instance_type" in self.model_fields_set:
+            _dict['instance_type'] = None
+
+        # set to None if instance_family (nullable) is None
+        # and model_fields_set contains the field
+        if self.instance_family is None and "instance_family" in self.model_fields_set:
+            _dict['instance_family'] = None
+
         return _dict
 
     @classmethod
@@ -91,9 +131,19 @@ class RecommendationTicketAPIRequest(BaseModel):
         _obj = cls.model_validate({
             "recommendation_unit_id": obj.get("recommendation_unit_id"),
             "action_type_id": obj.get("action_type_id"),
-            "risk": obj.get("risk"),
             "priority": obj.get("priority"),
-            "cost_saving": CostSaving.from_dict(obj["cost_saving"]) if obj.get("cost_saving") is not None else None,
+            "instance_type": obj.get("instance_type"),
+            "instance_family": obj.get("instance_family"),
+            "price_per_unit": PricePerUnit.from_dict(obj["price_per_unit"]) if obj.get("price_per_unit") is not None else None,
+            "currency": obj.get("currency"),
+            "unit": obj.get("unit"),
+            "new_cost": NewCost.from_dict(obj["new_cost"]) if obj.get("new_cost") is not None else None,
+            "current_cost": CurrentCost.from_dict(obj["current_cost"]) if obj.get("current_cost") is not None else None,
+            "potential_saving": PotentialSaving.from_dict(obj["potential_saving"]) if obj.get("potential_saving") is not None else None,
+            "description": obj.get("description"),
+            "begin_range": BeginRange.from_dict(obj["begin_range"]) if obj.get("begin_range") is not None else None,
+            "end_range": EndRange.from_dict(obj["end_range"]) if obj.get("end_range") is not None else None,
+            "attributes": obj.get("attributes"),
             "ticket_id": obj.get("ticket_id")
         })
         return _obj

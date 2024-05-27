@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**monitor_ids** | **List[str]** | List of violation monitor ids for which tickets are to be fetched. | [optional] [default to []]
-**heirarchy_node_ids** | **List[str]** | List of heirarchy node ids for which tickets are to be fetched. | [optional] [default to []]
+**monitor_ids** | **List[str]** | List of violation monitor ids/anomaly node ids for which tickets are to be fetched. | [optional] [default to []]
 **ticket_categories** | [**List[TicketCategory]**](TicketCategory.md) | List of ticket categories for which tickets are to be fetched. | [optional] [default to []]
 **states** | [**List[TicketState]**](TicketState.md) | List of ticket State for which tickets are to be fetched. | [optional] [default to []]
 **statuses** | [**Statuses**](Statuses.md) |  | [optional] 

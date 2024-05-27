@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from onelens_backend_client.models.details1 import Details1
 from onelens_backend_client.models.status import Status
 from typing import Optional, Set
@@ -31,7 +32,10 @@ class UpdateTenantTicketRequestMixin(BaseModel):
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     status: Status
     details: Details1
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "details"]
+    cost_impact: Optional[Union[StrictFloat, StrictInt]] = None
+    last_run_id: Optional[StrictStr] = None
+    last_run_at: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "details", "cost_impact", "last_run_id", "last_run_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +82,21 @@ class UpdateTenantTicketRequestMixin(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
+        # set to None if cost_impact (nullable) is None
+        # and model_fields_set contains the field
+        if self.cost_impact is None and "cost_impact" in self.model_fields_set:
+            _dict['cost_impact'] = None
+
+        # set to None if last_run_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_run_id is None and "last_run_id" in self.model_fields_set:
+            _dict['last_run_id'] = None
+
+        # set to None if last_run_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_run_at is None and "last_run_at" in self.model_fields_set:
+            _dict['last_run_at'] = None
+
         return _dict
 
     @classmethod
@@ -92,7 +111,10 @@ class UpdateTenantTicketRequestMixin(BaseModel):
         _obj = cls.model_validate({
             "ticket_id": obj.get("ticket_id"),
             "status": Status.from_dict(obj["status"]) if obj.get("status") is not None else None,
-            "details": Details1.from_dict(obj["details"]) if obj.get("details") is not None else None
+            "details": Details1.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "cost_impact": obj.get("cost_impact"),
+            "last_run_id": obj.get("last_run_id"),
+            "last_run_at": obj.get("last_run_at")
         })
         return _obj
 

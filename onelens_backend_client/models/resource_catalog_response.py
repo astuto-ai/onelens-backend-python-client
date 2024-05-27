@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,7 +37,7 @@ class ResourceCatalogResponse(BaseModel):
     crn: StrictStr = Field(description="Cloud resource identifier")
     provider: StrictStr = Field(description="Resource provider")
     status: StrictStr = Field(description="Resource status")
-    tags: Dict[str, Any] = Field(description="Resource tags.")
+    tags: Optional[Dict[str, Any]] = None
     additional_info: Dict[str, Any] = Field(description="Additional info of the resource.")
     run_id: StrictStr = Field(description="The run id.")
     last_updated_at: datetime = Field(description="The last updated at.")
@@ -82,6 +82,11 @@ class ResourceCatalogResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if tags (nullable) is None
+        # and model_fields_set contains the field
+        if self.tags is None and "tags" in self.model_fields_set:
+            _dict['tags'] = None
+
         return _dict
 
     @classmethod

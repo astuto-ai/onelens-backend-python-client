@@ -6,10 +6,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recommendation_unit_id** | **str** | Recommendation Unit ID | 
-**action_type_id** | **str** | Action Type ID | 
-**risk** | **int** | Risk | 
+**action_type_id** | **int** | Action Type ID | 
 **priority** | **int** | Priority | 
-**cost_saving** | [**CostSaving**](CostSaving.md) |  | 
+**instance_type** | **str** |  | [optional] 
+**instance_family** | **str** |  | [optional] 
+**price_per_unit** | [**PricePerUnit**](PricePerUnit.md) |  | 
+**currency** | **str** | Currency | 
+**unit** | **str** | Unit | 
+**new_cost** | [**NewCost**](NewCost.md) |  | 
+**current_cost** | [**CurrentCost**](CurrentCost.md) |  | 
+**potential_saving** | [**PotentialSaving**](PotentialSaving.md) |  | 
+**description** | **str** | Description | 
+**begin_range** | [**BeginRange**](BeginRange.md) |  | 
+**end_range** | [**EndRange**](EndRange.md) |  | 
+**attributes** | **object** | Attributes | 
 **ticket_id** | **str** | The unique identifier of the ticket | 
 
 ## Example
