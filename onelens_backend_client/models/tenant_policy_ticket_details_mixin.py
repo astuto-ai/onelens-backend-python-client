@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,10 +28,12 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
     """ # noqa: E501
     policy_id: StrictStr = Field(description="The id of the policy being violated.")
     policy_template_id: StrictStr = Field(description="The id of the policy template being violated.")
-    policy_config: StrictStr = Field(description="The config of the policy being violated.")
-    policy_config_version: StrictStr = Field(description="The config version of the policy being violated.")
-    violation_attributes: StrictStr = Field(description="The attributes of the violation.")
-    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes"]
+    policy_config: Dict[str, Any] = Field(description="The config of the policy being violated.")
+    policy_config_version: StrictInt = Field(description="The config version of the policy being violated.")
+    violation_attributes: Dict[str, Any] = Field(description="The attributes of the violation.")
+    potential_cost_saving: Union[StrictFloat, StrictInt] = Field(description="The potential cost accrued because of the violation.")
+    preferred_recommendation_id: StrictStr = Field(description="The id of the preferred recommendation for the violation.")
+    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes", "potential_cost_saving", "preferred_recommendation_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +90,9 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
             "policy_template_id": obj.get("policy_template_id"),
             "policy_config": obj.get("policy_config"),
             "policy_config_version": obj.get("policy_config_version"),
-            "violation_attributes": obj.get("violation_attributes")
+            "violation_attributes": obj.get("violation_attributes"),
+            "potential_cost_saving": obj.get("potential_cost_saving"),
+            "preferred_recommendation_id": obj.get("preferred_recommendation_id")
         })
         return _obj
 

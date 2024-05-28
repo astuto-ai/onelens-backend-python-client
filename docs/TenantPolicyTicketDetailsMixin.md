@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **policy_id** | **str** | The id of the policy being violated. | 
 **policy_template_id** | **str** | The id of the policy template being violated. | 
-**policy_config** | **str** | The config of the policy being violated. | 
-**policy_config_version** | **str** | The config version of the policy being violated. | 
-**violation_attributes** | **str** | The attributes of the violation. | 
+**policy_config** | **object** | The config of the policy being violated. | 
+**policy_config_version** | **int** | The config version of the policy being violated. | 
+**violation_attributes** | **object** | The attributes of the violation. | 
+**potential_cost_saving** | **float** | The potential cost accrued because of the violation. | 
+**preferred_recommendation_id** | **str** | The id of the preferred recommendation for the violation. | 
 
 ## Example
 
