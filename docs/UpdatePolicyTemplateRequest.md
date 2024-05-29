@@ -5,11 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**force_update** | **bool** | Force update (TRUE/FALSE), default: FALSE | [optional] [default to False]
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) |  | [optional] 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) |  | [optional] 
 **details** | [**PolicyTemplateDetails**](PolicyTemplateDetails.md) |  | [optional] 
+**description2** | **str** |  | [optional] 
+**resource_type** | **str** |  | [optional] 
+**recommendation_details** | [**PolicyTemplateRecommendationDetailsInput**](PolicyTemplateRecommendationDetailsInput.md) |  | [optional] 
 **id** | **str** | The unique identifier of the policy template. | 
 
 ## Example

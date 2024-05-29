@@ -17,11 +17,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_details import PolicyTemplateDetails
+from onelens_backend_client.models.policy_template_recommendation_details_input import PolicyTemplateRecommendationDetailsInput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,13 +30,17 @@ class UpdatePolicyTemplateRequest(BaseModel):
     """
     UpdatePolicyTemplateRequest
     """ # noqa: E501
+    force_update: Optional[StrictBool] = Field(default=False, description="Force update (TRUE/FALSE), default: FALSE")
     title: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     services: Optional[List[CreatePolicyTemplateRequestServicesInner]] = None
     execution_type: Optional[PolicyExecutionType] = None
     details: Optional[PolicyTemplateDetails] = None
+    description2: Optional[StrictStr] = None
+    resource_type: Optional[StrictStr] = None
+    recommendation_details: Optional[PolicyTemplateRecommendationDetailsInput] = None
     id: StrictStr = Field(description="The unique identifier of the policy template.")
-    __properties: ClassVar[List[str]] = ["title", "description", "services", "execution_type", "details", "id"]
+    __properties: ClassVar[List[str]] = ["force_update", "title", "description", "services", "execution_type", "details", "description2", "resource_type", "recommendation_details", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +91,9 @@ class UpdatePolicyTemplateRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of recommendation_details
+        if self.recommendation_details:
+            _dict['recommendation_details'] = self.recommendation_details.to_dict()
         # set to None if title (nullable) is None
         # and model_fields_set contains the field
         if self.title is None and "title" in self.model_fields_set:
@@ -111,6 +119,21 @@ class UpdatePolicyTemplateRequest(BaseModel):
         if self.details is None and "details" in self.model_fields_set:
             _dict['details'] = None
 
+        # set to None if description2 (nullable) is None
+        # and model_fields_set contains the field
+        if self.description2 is None and "description2" in self.model_fields_set:
+            _dict['description2'] = None
+
+        # set to None if resource_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.resource_type is None and "resource_type" in self.model_fields_set:
+            _dict['resource_type'] = None
+
+        # set to None if recommendation_details (nullable) is None
+        # and model_fields_set contains the field
+        if self.recommendation_details is None and "recommendation_details" in self.model_fields_set:
+            _dict['recommendation_details'] = None
+
         return _dict
 
     @classmethod
@@ -123,11 +146,15 @@ class UpdatePolicyTemplateRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "force_update": obj.get("force_update") if obj.get("force_update") is not None else False,
             "title": obj.get("title"),
             "description": obj.get("description"),
             "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "description2": obj.get("description2"),
+            "resource_type": obj.get("resource_type"),
+            "recommendation_details": PolicyTemplateRecommendationDetailsInput.from_dict(obj["recommendation_details"]) if obj.get("recommendation_details") is not None else None,
             "id": obj.get("id")
         })
         return _obj

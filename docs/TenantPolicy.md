@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) | The list of services associated the policy template. | 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) | The execution type of the policy template. | 
 **details** | [**PolicyTemplateDetails**](PolicyTemplateDetails.md) | The details of the policy template. | 
-**description2** | **str** | The description2 of the policy template. | 
+**description2** | **str** | The description2 of the policy template. | [optional] 
 **resource_type** | **str** | The resource type of the policy template. | 
 **recommendation_details** | [**PolicyTemplateRecommendationDetailsOutput**](PolicyTemplateRecommendationDetailsOutput.md) | The recommendation details for the policy template. | 
 **policy_template_id** | **str** | The id of the policy template. | 

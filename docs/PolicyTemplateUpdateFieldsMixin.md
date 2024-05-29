@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) |  | [optional] 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) |  | [optional] 
 **details** | [**PolicyTemplateDetails**](PolicyTemplateDetails.md) |  | [optional] 
+**description2** | **str** |  | [optional] 
+**resource_type** | **str** |  | [optional] 
+**recommendation_details** | [**PolicyTemplateRecommendationDetailsInput**](PolicyTemplateRecommendationDetailsInput.md) |  | [optional] 
 
 ## Example
 

@@ -39,7 +39,7 @@ class TenantPolicy(BaseModel):
     services: List[CreatePolicyTemplateRequestServicesInner] = Field(description="The list of services associated the policy template.")
     execution_type: PolicyExecutionType = Field(description="The execution type of the policy template.")
     details: PolicyTemplateDetails = Field(description="The details of the policy template.")
-    description2: StrictStr = Field(description="The description2 of the policy template.")
+    description2: Optional[StrictStr] = Field(default=None, description="The description2 of the policy template.")
     resource_type: StrictStr = Field(description="The resource type of the policy template.")
     recommendation_details: PolicyTemplateRecommendationDetailsOutput = Field(description="The recommendation details for the policy template.")
     policy_template_id: StrictStr = Field(description="The id of the policy template.")

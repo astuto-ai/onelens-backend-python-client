@@ -16,7 +16,9 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
+from pydantic import Field, StrictBool, StrictStr
+from typing import Optional
+from typing_extensions import Annotated
 from onelens_backend_client.models.create_policy_template_request import CreatePolicyTemplateRequest
 from onelens_backend_client.models.get_policy_templates_request import GetPolicyTemplatesRequest
 from onelens_backend_client.models.policy_template_update_fields_mixin import PolicyTemplateUpdateFieldsMixin
@@ -1636,6 +1638,7 @@ class PoliciesPolicyTemplatesApi:
         self,
         policy_template_id: StrictStr,
         policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin,
+        force_update: Annotated[Optional[StrictBool], Field(description="Force update (TRUE/FALSE), default: FALSE")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1657,6 +1660,8 @@ class PoliciesPolicyTemplatesApi:
         :type policy_template_id: str
         :param policy_template_update_fields_mixin: (required)
         :type policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin
+        :param force_update: Force update (TRUE/FALSE), default: FALSE
+        :type force_update: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1682,6 +1687,7 @@ class PoliciesPolicyTemplatesApi:
         _param = self._update_policy_template_serialize(
             policy_template_id=policy_template_id,
             policy_template_update_fields_mixin=policy_template_update_fields_mixin,
+            force_update=force_update,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1708,6 +1714,7 @@ class PoliciesPolicyTemplatesApi:
         self,
         policy_template_id: StrictStr,
         policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin,
+        force_update: Annotated[Optional[StrictBool], Field(description="Force update (TRUE/FALSE), default: FALSE")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1729,6 +1736,8 @@ class PoliciesPolicyTemplatesApi:
         :type policy_template_id: str
         :param policy_template_update_fields_mixin: (required)
         :type policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin
+        :param force_update: Force update (TRUE/FALSE), default: FALSE
+        :type force_update: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1754,6 +1763,7 @@ class PoliciesPolicyTemplatesApi:
         _param = self._update_policy_template_serialize(
             policy_template_id=policy_template_id,
             policy_template_update_fields_mixin=policy_template_update_fields_mixin,
+            force_update=force_update,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1780,6 +1790,7 @@ class PoliciesPolicyTemplatesApi:
         self,
         policy_template_id: StrictStr,
         policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin,
+        force_update: Annotated[Optional[StrictBool], Field(description="Force update (TRUE/FALSE), default: FALSE")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1801,6 +1812,8 @@ class PoliciesPolicyTemplatesApi:
         :type policy_template_id: str
         :param policy_template_update_fields_mixin: (required)
         :type policy_template_update_fields_mixin: PolicyTemplateUpdateFieldsMixin
+        :param force_update: Force update (TRUE/FALSE), default: FALSE
+        :type force_update: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1826,6 +1839,7 @@ class PoliciesPolicyTemplatesApi:
         _param = self._update_policy_template_serialize(
             policy_template_id=policy_template_id,
             policy_template_update_fields_mixin=policy_template_update_fields_mixin,
+            force_update=force_update,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1847,6 +1861,7 @@ class PoliciesPolicyTemplatesApi:
         self,
         policy_template_id,
         policy_template_update_fields_mixin,
+        force_update,
         _request_auth,
         _content_type,
         _headers,
@@ -1869,6 +1884,10 @@ class PoliciesPolicyTemplatesApi:
         if policy_template_id is not None:
             _path_params['policy_template_id'] = policy_template_id
         # process the query parameters
+        if force_update is not None:
+            
+            _query_params.append(('force_update', force_update))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

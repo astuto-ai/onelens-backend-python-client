@@ -26,8 +26,8 @@ class TenantPolicyExclusions(BaseModel):
     """
     TenantPolicyExclusions
     """ # noqa: E501
-    resource_ids: List[StrictStr] = Field(description="The resources excluded from running the policies on.")
-    __properties: ClassVar[List[str]] = ["resource_ids"]
+    entity_ids: List[StrictStr] = Field(description="The resources excluded from running the policies on.")
+    __properties: ClassVar[List[str]] = ["entity_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +80,7 @@ class TenantPolicyExclusions(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "resource_ids": obj.get("resource_ids")
+            "entity_ids": obj.get("entity_ids")
         })
         return _obj
 

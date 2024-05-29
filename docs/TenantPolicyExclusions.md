@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource_ids** | **List[str]** | The resources excluded from running the policies on. | 
+**entity_ids** | **List[str]** | The resources excluded from running the policies on. | 
 
 ## Example
 

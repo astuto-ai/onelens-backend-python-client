@@ -623,6 +623,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_anomaly_rca_ids_mixin.py
-test/test_anomaly_source_type.py
 tox.ini

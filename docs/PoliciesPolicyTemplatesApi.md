@@ -430,7 +430,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_policy_template**
-> ResponseUpdatePolicyTemplateResponse update_policy_template(policy_template_id, policy_template_update_fields_mixin)
+> ResponseUpdatePolicyTemplateResponse update_policy_template(policy_template_id, policy_template_update_fields_mixin, force_update=force_update)
 
 Update Policy Template
 
@@ -459,10 +459,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
     api_instance = onelens_backend_client.PoliciesPolicyTemplatesApi(api_client)
     policy_template_id = 'policy_template_id_example' # str | 
     policy_template_update_fields_mixin = onelens_backend_client.PolicyTemplateUpdateFieldsMixin() # PolicyTemplateUpdateFieldsMixin | 
+    force_update = True # bool | Force update (TRUE/FALSE), default: FALSE (optional)
 
     try:
         # Update Policy Template
-        api_response = api_instance.update_policy_template(policy_template_id, policy_template_update_fields_mixin)
+        api_response = api_instance.update_policy_template(policy_template_id, policy_template_update_fields_mixin, force_update=force_update)
         print("The response of PoliciesPolicyTemplatesApi->update_policy_template:\n")
         pprint(api_response)
     except Exception as e:
@@ -478,6 +479,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policy_template_id** | **str**|  | 
  **policy_template_update_fields_mixin** | [**PolicyTemplateUpdateFieldsMixin**](PolicyTemplateUpdateFieldsMixin.md)|  | 
+ **force_update** | **bool**| Force update (TRUE/FALSE), default: FALSE | [optional] 
 
 ### Return type
 
