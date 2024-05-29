@@ -12,14 +12,14 @@ Name | Type | Description | Notes
 **policy_config_version** | **int** | The config version of the policy being violated. | 
 **violation_attributes** | **object** | The attributes of the violation. | 
 **potential_cost_saving** | **float** | The potential cost accrued because of the violation. | 
-**preferred_recommendation_id** | **str** | The id of the preferred recommendation for the violation. | 
-**anomalies** | **List[object]** | List of anomaly ids and rca ids. | 
+**preferred_recommendation_id** | **str** |  | [optional] 
+**anomalies** | [**List[AnomalyRcaIdsMixin]**](AnomalyRcaIdsMixin.md) | List of anomaly ids and rca ids. | 
 **total_cost_impact** | **float** | Total cost incurred due to the anomaly. | 
 **rca_hash** | **str** | The hash of the RCA associated with the anomaly. | 
 **deviation** | **float** | The percentage delta of the anomaly. | 
 **duration** | **float** | The duration of the anomaly. | 
 **duration_unit** | **str** | The duration unit of the anomaly. | 
-**source_type** | **str** | The source type of the anomaly. | 
+**source_type** | [**AnomalySourceType**](AnomalySourceType.md) | The source type of the anomaly. | 
 **usage_type** | **str** | The usage type of the anomaly. | 
 **operation_type** | **str** | The operation type of the anomaly. | 
 **is_continuous** | **bool** | Is the anomaly continuous. | 

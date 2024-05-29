@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **policy_config_version** | **int** | The config version of the policy being violated. | 
 **violation_attributes** | **object** | The attributes of the violation. | 
 **potential_cost_saving** | **float** | The potential cost accrued because of the violation. | 
-**preferred_recommendation_id** | **str** | The id of the preferred recommendation for the violation. | 
+**preferred_recommendation_id** | **str** |  | [optional] 
 
 ## Example
 

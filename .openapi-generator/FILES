@@ -9,6 +9,8 @@ docs/AddTenantPolicyExclusionsRequest.md
 docs/AddTenantPolicyExclusionsResponse.md
 docs/AndItem.md
 docs/AnomalyLogicOperation.md
+docs/AnomalyRcaIdsMixin.md
+docs/AnomalySourceType.md
 docs/AnomalyTicketStatus.md
 docs/AwsService.md
 docs/BeginRange.md
@@ -350,6 +352,8 @@ onelens_backend_client/models/add_tenant_policy_exclusions_request.py
 onelens_backend_client/models/add_tenant_policy_exclusions_response.py
 onelens_backend_client/models/and_item.py
 onelens_backend_client/models/anomaly_logic_operation.py
+onelens_backend_client/models/anomaly_rca_ids_mixin.py
+onelens_backend_client/models/anomaly_source_type.py
 onelens_backend_client/models/anomaly_ticket_status.py
 onelens_backend_client/models/aws_service.py
 onelens_backend_client/models/begin_range.py
@@ -619,4 +623,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_anomaly_rca_ids_mixin.py
+test/test_anomaly_source_type.py
 tox.ini
