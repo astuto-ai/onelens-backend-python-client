@@ -19,7 +19,7 @@ jobs:
       # Step 3: Run Docker command
       - name: Run Docker command to generate files
         run: |
-          docker run --rm -v ${{ github.workspace }}:/onelens-backend-python-client openapitools/openapi-generator-cli generate -i  https://dev-api.onelens.cloud/openapi.json -g python -o /onelens-backend-python-client/ -t /onelens-backend-python-client/templates/ -c /onelens-backend-python-client/config.yaml -p packageName=onelens_backend_client -p projectName=onelens-backend-python-client --skip-validate-spec
+          docker run --rm -v ${{ github.workspace }}:/onelens-backend-python-client openapitools/openapi-generator-cli:v7.5.0 generate -i  https://dev-api.onelens.cloud/openapi.json -g python -o /onelens-backend-python-client/ -t /onelens-backend-python-client/templates/ -c /onelens-backend-python-client/config.yaml -p packageName=onelens_backend_client -p projectName=onelens-backend-python-client --skip-validate-spec
 
       # Step 4: Configure Git
       - name: Configure Git
