@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **anomalies** | [**List[AnomalyRcaIdsMixin]**](AnomalyRcaIdsMixin.md) | List of anomaly ids and rca ids. | 
 **total_cost_impact** | **float** | Total cost incurred due to the anomaly. | 
 **rca_hash** | **str** | The hash of the RCA associated with the anomaly. | 
-**deviation** | **float** | The percentage delta of the anomaly. | 
+**deviation** | [**Deviation**](Deviation.md) |  | 
 **duration** | **float** | The duration of the anomaly. | 
 **duration_unit** | **str** | The duration unit of the anomaly. | 
 **source_type** | [**AnomalySourceType**](AnomalySourceType.md) | The source type of the anomaly. | 

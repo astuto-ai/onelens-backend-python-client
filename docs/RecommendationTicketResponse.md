@@ -5,23 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recommendation_unit_id** | **str** | Recommendation Unit ID | 
-**action_type_id** | **int** | Action Type ID | 
-**priority** | **int** | Priority | 
-**instance_type** | **str** |  | [optional] 
-**instance_family** | **str** |  | [optional] 
-**price_per_unit** | **str** | Price Per Unit | 
-**currency** | **str** | Currency | 
-**unit** | **str** | Unit | 
-**new_cost** | **str** | New Cost | 
-**current_cost** | **str** | Current Cost | 
-**potential_saving** | **str** | Potential Saving | 
-**description** | **str** | Description | 
-**begin_range** | **str** | Begin Range | 
-**end_range** | **str** | End Range | 
-**attributes** | **object** | Attributes | 
-**ticket_id** | **str** | The unique identifier of the ticket | 
-**id** | **str** | The unique identifier of the ticket | [optional] 
+**recommendations** | [**List[RecommendationTicket]**](RecommendationTicket.md) | The recommendations | 
 
 ## Example
 

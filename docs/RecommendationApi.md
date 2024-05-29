@@ -8,7 +8,7 @@ Method | Description
 
 
 # **create_root_node**
-> ResponseListRecommendationTicketResponse create_root_node(tenant_id, recommendation_ticket_api_request)
+> ResponseRecommendationTicketResponse create_root_node(tenant_id, recommendation_ticket_api_request)
 
 Create Root Node
 
@@ -20,7 +20,7 @@ An API endpoint to create bulk recommendations
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.recommendation_ticket_api_request import RecommendationTicketAPIRequest
-from onelens_backend_client.models.response_list_recommendation_ticket_response import ResponseListRecommendationTicketResponse
+from onelens_backend_client.models.response_recommendation_ticket_response import ResponseRecommendationTicketResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseListRecommendationTicketResponse**](ResponseListRecommendationTicketResponse.md)
+[**ResponseRecommendationTicketResponse**](ResponseRecommendationTicketResponse.md)
 
 ### Authorization
 

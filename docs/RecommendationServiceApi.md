@@ -8,7 +8,7 @@ Method | Description
 
 
 # **bulk_create**
-> List[RecommendationTicketResponse] bulk_create(recommendation_ticket_request)
+> RecommendationTicketResponse bulk_create(recommendation_ticket_request)
 
 Creates bulk recommendations.
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[RecommendationTicketResponse]**](RecommendationTicketResponse.md)
+[**RecommendationTicketResponse**](RecommendationTicketResponse.md)
 
 ### Authorization
 

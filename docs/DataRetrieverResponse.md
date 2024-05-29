@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | [**DataRetrieverQuery**](DataRetrieverQuery.md) | Query to be executed | 
+**query** | [**DataRetrieverQuery**](DataRetrieverQuery.md) |  | [optional] 
 **data** | **List[object]** |  | [optional] 
 **annotation** | **object** |  | [optional] 
 **last_refresh_time** | **str** |  | [optional] 
@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **external** | **bool** |  | [optional] 
 **slow_query** | **bool** |  | [optional] 
 **total** | **int** |  | [optional] 
+**error** | **str** |  | [optional] 
 
 ## Example
 

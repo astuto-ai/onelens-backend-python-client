@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **anomaly_id** | **str** | The unique identifier of the anomaly | 
 **rca_ids** | **List[str]** | List of rca ids associated with the anomaly | 
+**actual_cost** | **float** | Actual cost of the resource because of the anomaly | 
+**expected_cost** | **float** | Expected cost of the resource without the anomaly | 
 
 ## Example
 

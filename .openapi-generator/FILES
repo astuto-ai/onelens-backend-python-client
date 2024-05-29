@@ -58,6 +58,7 @@ docs/DeprecatePolicyTemplateRequest.md
 docs/Details.md
 docs/Details1.md
 docs/Details2.md
+docs/Deviation.md
 docs/DisableTenantAnomalySettingsRequest.md
 docs/DisableTenantAnomalySettingsResponse.md
 docs/DisableTenantPolicyRequest.md
@@ -170,6 +171,7 @@ docs/RecommendationEngineResponse.md
 docs/RecommendationEngineServiceApi.md
 docs/RecommendationParams.md
 docs/RecommendationServiceApi.md
+docs/RecommendationTicket.md
 docs/RecommendationTicketAPIRequest.md
 docs/RecommendationTicketRequest.md
 docs/RecommendationTicketResponse.md
@@ -209,10 +211,10 @@ docs/ResponseGetTenantProviderByIDResponse.md
 docs/ResponseGetTenantProvidersResponse.md
 docs/ResponseGetTenantTicketsResponse.md
 docs/ResponseGetTenantsResponse.md
-docs/ResponseListRecommendationTicketResponse.md
 docs/ResponseOverrideTenantAnomalyConfigResponse.md
 docs/ResponseOverrideTenantPolicyExclusionsResponse.md
 docs/ResponseRecommendationEngineResponse.md
+docs/ResponseRecommendationTicketResponse.md
 docs/ResponseResourceCatalogResponse.md
 docs/ResponseResourceHierarchyMappingResponse.md
 docs/ResponseSetTenantProviderStatusResponse.md
@@ -399,6 +401,7 @@ onelens_backend_client/models/deprecate_policy_template_request.py
 onelens_backend_client/models/details.py
 onelens_backend_client/models/details1.py
 onelens_backend_client/models/details2.py
+onelens_backend_client/models/deviation.py
 onelens_backend_client/models/disable_tenant_anomaly_settings_request.py
 onelens_backend_client/models/disable_tenant_anomaly_settings_response.py
 onelens_backend_client/models/disable_tenant_policy_request.py
@@ -501,6 +504,7 @@ onelens_backend_client/models/recommendation_engine_api_request.py
 onelens_backend_client/models/recommendation_engine_request.py
 onelens_backend_client/models/recommendation_engine_response.py
 onelens_backend_client/models/recommendation_params.py
+onelens_backend_client/models/recommendation_ticket.py
 onelens_backend_client/models/recommendation_ticket_api_request.py
 onelens_backend_client/models/recommendation_ticket_request.py
 onelens_backend_client/models/recommendation_ticket_response.py
@@ -537,10 +541,10 @@ onelens_backend_client/models/response_get_tenant_provider_by_id_response.py
 onelens_backend_client/models/response_get_tenant_providers_response.py
 onelens_backend_client/models/response_get_tenant_tickets_response.py
 onelens_backend_client/models/response_get_tenants_response.py
-onelens_backend_client/models/response_list_recommendation_ticket_response.py
 onelens_backend_client/models/response_override_tenant_anomaly_config_response.py
 onelens_backend_client/models/response_override_tenant_policy_exclusions_response.py
 onelens_backend_client/models/response_recommendation_engine_response.py
+onelens_backend_client/models/response_recommendation_ticket_response.py
 onelens_backend_client/models/response_resource_catalog_response.py
 onelens_backend_client/models/response_resource_hierarchy_mapping_response.py
 onelens_backend_client/models/response_set_tenant_provider_status_response.py
@@ -623,4 +627,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_deviation.py
+test/test_recommendation_ticket.py
+test/test_response_recommendation_ticket_response.py
 tox.ini
