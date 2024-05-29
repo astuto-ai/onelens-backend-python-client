@@ -1,0 +1,42 @@
+name: Update Client
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Docker
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # Step 3: Run Docker command
+      - name: Run Docker command to generate files
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/onelens-backend-python-client" openapitools/openapi-generator-cli generate -i  https://dev-api.onelens.cloud/openapi.json -g python -o /onelens-backend-python-client/ -t /onelens-backend-python-client/templates/ -c /onelens-backend-python-client/config.yaml -p packageName=onelens_backend_client -p projectName=onelens-backend-python-client --skip-validate-spec
+
+      # Step 4: Configure Git
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      # Step 5: Add and commit changes
+      - name: Add and commit changes
+        run: |
+          cd ${{ github.workspace }}
+          git add .
+          git commit -m "Generated files by GitHub Action"
+
+      # Step 6: Push changes
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin HEAD:${{ github.ref }}
