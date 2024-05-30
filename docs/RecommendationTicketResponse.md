@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recommendations** | [**List[RecommendationTicket]**](RecommendationTicket.md) | The recommendations | 
+**recommendations** | [**List[RecommendationTicketAPIRequestOutput]**](RecommendationTicketAPIRequestOutput.md) | The recommendations | 
 
 ## Example
 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenant_id** | **str** | The unique identifier of the tenant | 
-**recommendations** | [**List[RecommendationTicketAPIRequest]**](RecommendationTicketAPIRequest.md) | The unique identifier of the tenant | 
+**recommendations** | [**List[RecommendationTicketAPIRequestInput]**](RecommendationTicketAPIRequestInput.md) | The unique identifier of the tenant | 
 
 ## Example
 

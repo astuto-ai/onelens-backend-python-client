@@ -8,7 +8,7 @@ Method | Description
 
 
 # **create_root_node**
-> ResponseRecommendationTicketResponse create_root_node(tenant_id, recommendation_ticket_api_request)
+> ResponseRecommendationTicketResponse create_root_node(tenant_id, recommendation_ticket_api_request_input)
 
 Create Root Node
 
@@ -19,7 +19,7 @@ An API endpoint to create bulk recommendations
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.recommendation_ticket_api_request import RecommendationTicketAPIRequest
+from onelens_backend_client.models.recommendation_ticket_api_request_input import RecommendationTicketAPIRequestInput
 from onelens_backend_client.models.response_recommendation_ticket_response import ResponseRecommendationTicketResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -36,11 +36,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.RecommendationApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    recommendation_ticket_api_request = [onelens_backend_client.RecommendationTicketAPIRequest()] # List[RecommendationTicketAPIRequest] | 
+    recommendation_ticket_api_request_input = [onelens_backend_client.RecommendationTicketAPIRequestInput()] # List[RecommendationTicketAPIRequestInput] | 
 
     try:
         # Create Root Node
-        api_response = api_instance.create_root_node(tenant_id, recommendation_ticket_api_request)
+        api_response = api_instance.create_root_node(tenant_id, recommendation_ticket_api_request_input)
         print("The response of RecommendationApi->create_root_node:\n")
         pprint(api_response)
     except Exception as e:
@@ -55,7 +55,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant_id** | **str**|  | 
- **recommendation_ticket_api_request** | [**List[RecommendationTicketAPIRequest]**](RecommendationTicketAPIRequest.md)|  | 
+ **recommendation_ticket_api_request_input** | [**List[RecommendationTicketAPIRequestInput]**](RecommendationTicketAPIRequestInput.md)|  | 
 
 ### Return type
 

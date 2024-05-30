@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.recommendation_ticket_api_request import RecommendationTicketAPIRequest
+from onelens_backend_client.models.recommendation_ticket_api_request_input import RecommendationTicketAPIRequestInput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class RecommendationTicketRequest(BaseModel):
     RecommendationTicketRequest
     """ # noqa: E501
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
-    recommendations: List[RecommendationTicketAPIRequest] = Field(description="The unique identifier of the tenant")
+    recommendations: List[RecommendationTicketAPIRequestInput] = Field(description="The unique identifier of the tenant")
     __properties: ClassVar[List[str]] = ["tenant_id", "recommendations"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class RecommendationTicketRequest(BaseModel):
 
         _obj = cls.model_validate({
             "tenant_id": obj.get("tenant_id"),
-            "recommendations": [RecommendationTicketAPIRequest.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
+            "recommendations": [RecommendationTicketAPIRequestInput.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
         })
         return _obj
 

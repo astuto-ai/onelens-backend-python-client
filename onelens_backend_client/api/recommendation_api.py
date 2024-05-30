@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from typing import List
-from onelens_backend_client.models.recommendation_ticket_api_request import RecommendationTicketAPIRequest
+from onelens_backend_client.models.recommendation_ticket_api_request_input import RecommendationTicketAPIRequestInput
 from onelens_backend_client.models.response_recommendation_ticket_response import ResponseRecommendationTicketResponse
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
@@ -43,7 +43,7 @@ class RecommendationApi:
     def create_root_node(
         self,
         tenant_id: StrictStr,
-        recommendation_ticket_api_request: List[RecommendationTicketAPIRequest],
+        recommendation_ticket_api_request_input: List[RecommendationTicketAPIRequestInput],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,8 +63,8 @@ class RecommendationApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param recommendation_ticket_api_request: (required)
-        :type recommendation_ticket_api_request: List[RecommendationTicketAPIRequest]
+        :param recommendation_ticket_api_request_input: (required)
+        :type recommendation_ticket_api_request_input: List[RecommendationTicketAPIRequestInput]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,7 +89,7 @@ class RecommendationApi:
 
         _param = self._create_root_node_serialize(
             tenant_id=tenant_id,
-            recommendation_ticket_api_request=recommendation_ticket_api_request,
+            recommendation_ticket_api_request_input=recommendation_ticket_api_request_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -115,7 +115,7 @@ class RecommendationApi:
     def create_root_node_with_http_info(
         self,
         tenant_id: StrictStr,
-        recommendation_ticket_api_request: List[RecommendationTicketAPIRequest],
+        recommendation_ticket_api_request_input: List[RecommendationTicketAPIRequestInput],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,8 +135,8 @@ class RecommendationApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param recommendation_ticket_api_request: (required)
-        :type recommendation_ticket_api_request: List[RecommendationTicketAPIRequest]
+        :param recommendation_ticket_api_request_input: (required)
+        :type recommendation_ticket_api_request_input: List[RecommendationTicketAPIRequestInput]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -161,7 +161,7 @@ class RecommendationApi:
 
         _param = self._create_root_node_serialize(
             tenant_id=tenant_id,
-            recommendation_ticket_api_request=recommendation_ticket_api_request,
+            recommendation_ticket_api_request_input=recommendation_ticket_api_request_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -187,7 +187,7 @@ class RecommendationApi:
     def create_root_node_without_preload_content(
         self,
         tenant_id: StrictStr,
-        recommendation_ticket_api_request: List[RecommendationTicketAPIRequest],
+        recommendation_ticket_api_request_input: List[RecommendationTicketAPIRequestInput],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -207,8 +207,8 @@ class RecommendationApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param recommendation_ticket_api_request: (required)
-        :type recommendation_ticket_api_request: List[RecommendationTicketAPIRequest]
+        :param recommendation_ticket_api_request_input: (required)
+        :type recommendation_ticket_api_request_input: List[RecommendationTicketAPIRequestInput]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -233,7 +233,7 @@ class RecommendationApi:
 
         _param = self._create_root_node_serialize(
             tenant_id=tenant_id,
-            recommendation_ticket_api_request=recommendation_ticket_api_request,
+            recommendation_ticket_api_request_input=recommendation_ticket_api_request_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -254,7 +254,7 @@ class RecommendationApi:
     def _create_root_node_serialize(
         self,
         tenant_id,
-        recommendation_ticket_api_request,
+        recommendation_ticket_api_request_input,
         _request_auth,
         _content_type,
         _headers,
@@ -264,7 +264,7 @@ class RecommendationApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'RecommendationTicketAPIRequest': '',
+            'RecommendationTicketAPIRequestInput': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -281,8 +281,8 @@ class RecommendationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if recommendation_ticket_api_request is not None:
-            _body_params = recommendation_ticket_api_request
+        if recommendation_ticket_api_request_input is not None:
+            _body_params = recommendation_ticket_api_request_input
 
 
         # set the HTTP header `Accept`

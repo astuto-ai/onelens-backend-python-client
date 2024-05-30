@@ -171,8 +171,8 @@ docs/RecommendationEngineResponse.md
 docs/RecommendationEngineServiceApi.md
 docs/RecommendationParams.md
 docs/RecommendationServiceApi.md
-docs/RecommendationTicket.md
-docs/RecommendationTicketAPIRequest.md
+docs/RecommendationTicketAPIRequestInput.md
+docs/RecommendationTicketAPIRequestOutput.md
 docs/RecommendationTicketRequest.md
 docs/RecommendationTicketResponse.md
 docs/RelationshipConfigItem.md
@@ -504,8 +504,8 @@ onelens_backend_client/models/recommendation_engine_api_request.py
 onelens_backend_client/models/recommendation_engine_request.py
 onelens_backend_client/models/recommendation_engine_response.py
 onelens_backend_client/models/recommendation_params.py
-onelens_backend_client/models/recommendation_ticket.py
-onelens_backend_client/models/recommendation_ticket_api_request.py
+onelens_backend_client/models/recommendation_ticket_api_request_input.py
+onelens_backend_client/models/recommendation_ticket_api_request_output.py
 onelens_backend_client/models/recommendation_ticket_request.py
 onelens_backend_client/models/recommendation_ticket_response.py
 onelens_backend_client/models/relationship_config_item.py
@@ -627,7 +627,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_deviation.py
-test/test_recommendation_ticket.py
-test/test_response_recommendation_ticket_response.py
+test/test_recommendation_ticket_api_request_input.py
+test/test_recommendation_ticket_api_request_output.py
 tox.ini
