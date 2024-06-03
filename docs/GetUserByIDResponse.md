@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auth0_id** | **object** | Auth0 user identifier | 
-**id** | **object** | Unique identifier for the user | 
+**auth0_id** | **str** | Auth0 user identifier | 
+**state** | [**UserCatalogState**](UserCatalogState.md) |  | [optional] 
+**details** | [**UserCatalogDetails**](UserCatalogDetails.md) | Details of the user in catalof DB. | 
+**id** | **str** | Unique identifier for the user | 
 
 ## Example
 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **resource_type** | **str** | Resource type | 
 **resource_url_template** | **str** | Resource url template | 
 **crn** | **str** | Cloud resource identifier | 
+**title** | **str** | Resource name | 
 **provider** | **str** | Resource provider | 
 **status** | **str** | Resource status | 
 **tags** | **object** |  | [optional] 

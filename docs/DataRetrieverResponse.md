@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | [**DataRetrieverQuery**](DataRetrieverQuery.md) |  | [optional] 
+**query** | [**DataRetrieverQueryOutput**](DataRetrieverQueryOutput.md) |  | [optional] 
 **data** | **List[object]** |  | [optional] 
 **annotation** | **object** |  | [optional] 
 **last_refresh_time** | **str** |  | [optional] 

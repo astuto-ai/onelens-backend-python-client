@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** | Unique identifier for the Recommendation Ticket | 
+**ticket_id** | **str** | The unique identifier of the ticket | 
 **recommendation_unit_id** | **str** | Recommendation Unit ID | 
 **action_type_id** | **int** | Action Type ID | 
 **priority** | **int** | Priority | 
@@ -20,8 +22,7 @@ Name | Type | Description | Notes
 **begin_range** | **str** | Begin Range | 
 **end_range** | **str** | End Range | 
 **attributes** | **object** | Attributes | 
-**ticket_id** | **str** | The unique identifier of the ticket | 
-**id** | **str** | The unique identifier of the ticket | [optional] 
+**created_at** | **datetime** | Datetime of ticket creation | 
 
 ## Example
 

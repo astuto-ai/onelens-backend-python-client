@@ -19,10 +19,10 @@ from typing_extensions import Annotated
 from pydantic import StrictStr
 from typing import Any
 from onelens_backend_client.models.create_user_request import CreateUserRequest
-from onelens_backend_client.models.create_user_response import CreateUserResponse
 from onelens_backend_client.models.get_all_users_request import GetAllUsersRequest
 from onelens_backend_client.models.get_all_users_response import GetAllUsersResponse
-from onelens_backend_client.models.update_user_request import UpdateUserRequest
+from onelens_backend_client.models.response_create_user_response import ResponseCreateUserResponse
+from onelens_backend_client.models.update_user_api_request import UpdateUserAPIRequest
 from onelens_backend_client.models.update_user_response import UpdateUserResponse
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
@@ -59,7 +59,7 @@ class UsersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateUserResponse:
+    ) -> ResponseCreateUserResponse:
         """Create User
 
 
@@ -96,7 +96,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateUserResponse",
+            '200': "ResponseCreateUserResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -126,7 +126,7 @@ class UsersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateUserResponse]:
+    ) -> ApiResponse[ResponseCreateUserResponse]:
         """Create User
 
 
@@ -163,7 +163,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateUserResponse",
+            '200': "ResponseCreateUserResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -230,7 +230,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateUserResponse",
+            '200': "ResponseCreateUserResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -843,7 +843,8 @@ class UsersApi:
     @validate_call
     def update_user(
         self,
-        update_user_request: UpdateUserRequest,
+        id: StrictStr,
+        update_user_api_request: UpdateUserAPIRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -860,8 +861,10 @@ class UsersApi:
         """Update User
 
 
-        :param update_user_request: (required)
-        :type update_user_request: UpdateUserRequest
+        :param id: (required)
+        :type id: str
+        :param update_user_api_request: (required)
+        :type update_user_api_request: UpdateUserAPIRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -885,7 +888,8 @@ class UsersApi:
         """ # noqa: E501
 
         _param = self._update_user_serialize(
-            update_user_request=update_user_request,
+            id=id,
+            update_user_api_request=update_user_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -910,7 +914,8 @@ class UsersApi:
     @validate_call
     def update_user_with_http_info(
         self,
-        update_user_request: UpdateUserRequest,
+        id: StrictStr,
+        update_user_api_request: UpdateUserAPIRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -927,8 +932,10 @@ class UsersApi:
         """Update User
 
 
-        :param update_user_request: (required)
-        :type update_user_request: UpdateUserRequest
+        :param id: (required)
+        :type id: str
+        :param update_user_api_request: (required)
+        :type update_user_api_request: UpdateUserAPIRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -952,7 +959,8 @@ class UsersApi:
         """ # noqa: E501
 
         _param = self._update_user_serialize(
-            update_user_request=update_user_request,
+            id=id,
+            update_user_api_request=update_user_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -977,7 +985,8 @@ class UsersApi:
     @validate_call
     def update_user_without_preload_content(
         self,
-        update_user_request: UpdateUserRequest,
+        id: StrictStr,
+        update_user_api_request: UpdateUserAPIRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -994,8 +1003,10 @@ class UsersApi:
         """Update User
 
 
-        :param update_user_request: (required)
-        :type update_user_request: UpdateUserRequest
+        :param id: (required)
+        :type id: str
+        :param update_user_api_request: (required)
+        :type update_user_api_request: UpdateUserAPIRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1019,7 +1030,8 @@ class UsersApi:
         """ # noqa: E501
 
         _param = self._update_user_serialize(
-            update_user_request=update_user_request,
+            id=id,
+            update_user_api_request=update_user_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1039,7 +1051,8 @@ class UsersApi:
 
     def _update_user_serialize(
         self,
-        update_user_request,
+        id,
+        update_user_api_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1059,12 +1072,14 @@ class UsersApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_user_request is not None:
-            _body_params = update_user_request
+        if update_user_api_request is not None:
+            _body_params = update_user_api_request
 
 
         # set the HTTP header `Accept`
@@ -1094,7 +1109,7 @@ class UsersApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/v1/users/',
+            resource_path='/v1/users/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

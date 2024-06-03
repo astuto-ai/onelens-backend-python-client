@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | [**DataRetrieverQuery**](DataRetrieverQuery.md) | Query to be executed | 
+**query** | [**DataRetrieverQueryInput**](DataRetrieverQueryInput.md) | Query to be executed | 
 
 ## Example
 

@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -26,6 +27,8 @@ class RecommendationTicket(BaseModel):
     """
     RecommendationTicket
     """ # noqa: E501
+    id: StrictStr = Field(description="Unique identifier for the Recommendation Ticket")
+    ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
     action_type_id: StrictInt = Field(description="Action Type ID")
     priority: StrictInt = Field(description="Priority")
@@ -41,9 +44,8 @@ class RecommendationTicket(BaseModel):
     begin_range: StrictStr = Field(description="Begin Range")
     end_range: StrictStr = Field(description="End Range")
     attributes: Dict[str, Any] = Field(description="Attributes")
-    ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "priority", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
+    created_at: datetime = Field(description="Datetime of ticket creation")
+    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,6 +108,8 @@ class RecommendationTicket(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
+            "ticket_id": obj.get("ticket_id"),
             "recommendation_unit_id": obj.get("recommendation_unit_id"),
             "action_type_id": obj.get("action_type_id"),
             "priority": obj.get("priority"),
@@ -121,8 +125,7 @@ class RecommendationTicket(BaseModel):
             "begin_range": obj.get("begin_range"),
             "end_range": obj.get("end_range"),
             "attributes": obj.get("attributes"),
-            "ticket_id": obj.get("ticket_id"),
-            "id": obj.get("id")
+            "created_at": obj.get("created_at")
         })
         return _obj
 

@@ -6,7 +6,7 @@ dto for resource hierarchy mapping request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | **str** | Tenant ID | 
+**tenant_id** | **str** | The id of the tenant. | 
 
 ## Example
 

@@ -87,16 +87,26 @@ Class | Method | Description
 ------------ | ------------- | -------------
 *DataRetrieverApi* | [**query_data_retriever**](docs/DataRetrieverApi.md#query_data_retriever) | Query Data Retriever
 *RecommendationApi* | [**create_root_node**](docs/RecommendationApi.md#create_root_node) | Create Root Node
+*RecommendationApi* | [**create_root_node_0**](docs/RecommendationApi.md#create_root_node_0) | Create Root Node
+*RecommendationApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationApi.md#get_recommendation_by_ticket_id) | Get Recommendation By Ticket Id
+*RecommendationApi* | [**get_recommendation_by_ticket_id_0**](docs/RecommendationApi.md#get_recommendation_by_ticket_id_0) | Get Recommendation By Ticket Id
+*RecommendationEngineApi* | [**get_recommendation_unit_by_id**](docs/RecommendationEngineApi.md#get_recommendation_unit_by_id) | Get Recommendation Unit By Id
 *RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
+*RecommendationEngineApi* | [**get_recommendations_0**](docs/RecommendationEngineApi.md#get_recommendations_0) | Get Recommendations
+*CloudMetadataApi* | [**create_root_node**](docs/CloudMetadataApi.md#create_root_node) | Create Root Node
+*CloudMetadataApi* | [**create_root_node_0**](docs/CloudMetadataApi.md#create_root_node_0) | Create Root Node
+*CloudMetadataServiceApi* | [**get_cloud_metadata**](docs/CloudMetadataServiceApi.md#get_cloud_metadata) | get cloud metadata for tenant
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
 *HierarchyNodeServiceApi* | [**create_default_hierarchy**](docs/HierarchyNodeServiceApi.md#create_default_hierarchy) | create default hierarchy
 *HierarchyNodeServiceApi* | [**create_node**](docs/HierarchyNodeServiceApi.md#create_node) | create a node in org hierarchy
 *HierarchyNodeServiceApi* | [**create_root_node**](docs/HierarchyNodeServiceApi.md#create_root_node) | create a root node in org hierarchy
 *HierarchyNodeServiceApi* | [**delete_node**](docs/HierarchyNodeServiceApi.md#delete_node) | delete a node in org hierarchy
 *HierarchyNodeServiceApi* | [**get_hierarchy**](docs/HierarchyNodeServiceApi.md#get_hierarchy) | get hierarchy
+*HierarchyNodeServiceApi* | [**get_hierarchy_node_by_id**](docs/HierarchyNodeServiceApi.md#get_hierarchy_node_by_id) | get hierarchy node by id
 *HierarchyNodeServiceApi* | [**get_leaf_nodes**](docs/HierarchyNodeServiceApi.md#get_leaf_nodes) | get hierarchy leaf nodes
 *HierarchyNodeServiceApi* | [**publish_custom_hierarchy**](docs/HierarchyNodeServiceApi.md#publish_custom_hierarchy) | publish custom hierarchy
 *HierarchyNodeServiceApi* | [**update_node**](docs/HierarchyNodeServiceApi.md#update_node) | update a node in org hierarchy
+*MetricsServiceApi* | [**get_metrics**](docs/MetricsServiceApi.md#get_metrics) | get metrics
 *OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | Create Organization
 *OrganizationsApi* | [**disable_organization**](docs/OrganizationsApi.md#disable_organization) | Disable Organization
 *OrganizationsApi* | [**enable_organization**](docs/OrganizationsApi.md#enable_organization) | Enable Organization
@@ -123,43 +133,77 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
+*RecommendationEngineServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationEngineServiceApi.md#get_recommendation_unit_by_id) | Retrieves all Tenants with filters.
 *RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
+*RecommendationServiceApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationServiceApi.md#get_recommendation_by_ticket_id) | Get recommendations by ticket id.
 *ResourceCatalogApi* | [**create_root_node**](docs/ResourceCatalogApi.md#create_root_node) | Create Root Node
+*ResourceCatalogApi* | [**create_root_node_0**](docs/ResourceCatalogApi.md#create_root_node_0) | Create Root Node
 *ResourceCatalogServiceApi* | [**get_by_id**](docs/ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
+*ResourceMappingServiceApi* | [**get_mapping_by_ol_id**](docs/ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
+*ServiceCatalogApi* | [**get_metrics**](docs/ServiceCatalogApi.md#get_metrics) | Get Metrics
+*ServiceCatalogApi* | [**get_metrics_0**](docs/ServiceCatalogApi.md#get_metrics_0) | Get Metrics
 *ServiceCatalogApi* | [**get_service_catalog**](docs/ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
+*ServiceCatalogApi* | [**get_service_catalog_0**](docs/ServiceCatalogApi.md#get_service_catalog_0) | Get Service Catalog
 *ServiceCatalogServiceApi* | [**get**](docs/ServiceCatalogServiceApi.md#get) | service catalog service handler
+*ServiceCatalogServiceApi* | [**get_by_id**](docs/ServiceCatalogServiceApi.md#get_by_id) | service catalog get by id service handler
 *TenantAnomaliesApi* | [**disable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#disable_tenant_anomaly_setting) | Disable Tenant Anomaly Setting
+*TenantAnomaliesApi* | [**disable_tenant_anomaly_setting_0**](docs/TenantAnomaliesApi.md#disable_tenant_anomaly_setting_0) | Disable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomaliesApi.md#enable_tenant_anomaly_setting) | Enable Tenant Anomaly Setting
+*TenantAnomaliesApi* | [**enable_tenant_anomaly_setting_0**](docs/TenantAnomaliesApi.md#enable_tenant_anomaly_setting_0) | Enable Tenant Anomaly Setting
 *TenantAnomaliesApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomaliesApi.md#get_tenant_anomaly_settings) | Get Tenant Anomaly Settings
+*TenantAnomaliesApi* | [**get_tenant_anomaly_settings_0**](docs/TenantAnomaliesApi.md#get_tenant_anomaly_settings_0) | Get Tenant Anomaly Settings
 *TenantAnomaliesApi* | [**override_tenant_anomaly_config**](docs/TenantAnomaliesApi.md#override_tenant_anomaly_config) | Override Tenant Anomaly Config
+*TenantAnomaliesApi* | [**override_tenant_anomaly_config_0**](docs/TenantAnomaliesApi.md#override_tenant_anomaly_config_0) | Override Tenant Anomaly Config
 *TenantAnomalyServiceApi* | [**disable_tenant_anomaly_setting**](docs/TenantAnomalyServiceApi.md#disable_tenant_anomaly_setting) | disables an anomaly for a tenant in the tenant DB.
 *TenantAnomalyServiceApi* | [**enable_tenant_anomaly_setting**](docs/TenantAnomalyServiceApi.md#enable_tenant_anomaly_setting) | enables an anomaly for a tenant in the tenant DB.
 *TenantAnomalyServiceApi* | [**get_tenant_anomaly_settings**](docs/TenantAnomalyServiceApi.md#get_tenant_anomaly_settings) | Retrieves all tenant anomaly settings, optionally filtered by the parameters in the request.
 *TenantAnomalyServiceApi* | [**override_tenant_anomaly_setting_config**](docs/TenantAnomalyServiceApi.md#override_tenant_anomaly_setting_config) | Override the tenant anomaly config with the provided config.
 *TenantHierarchyApi* | [**create_default_hierarchy**](docs/TenantHierarchyApi.md#create_default_hierarchy) | Create Default Hierarchy
+*TenantHierarchyApi* | [**create_default_hierarchy_0**](docs/TenantHierarchyApi.md#create_default_hierarchy_0) | Create Default Hierarchy
 *TenantHierarchyApi* | [**create_hierarchy_node**](docs/TenantHierarchyApi.md#create_hierarchy_node) | Create Hierarchy Node
+*TenantHierarchyApi* | [**create_hierarchy_node_0**](docs/TenantHierarchyApi.md#create_hierarchy_node_0) | Create Hierarchy Node
 *TenantHierarchyApi* | [**create_root_node**](docs/TenantHierarchyApi.md#create_root_node) | Create Root Node
+*TenantHierarchyApi* | [**create_root_node_0**](docs/TenantHierarchyApi.md#create_root_node_0) | Create Root Node
 *TenantHierarchyApi* | [**delete_hierarchy_node**](docs/TenantHierarchyApi.md#delete_hierarchy_node) | Delete Hierarchy Node
+*TenantHierarchyApi* | [**delete_hierarchy_node_0**](docs/TenantHierarchyApi.md#delete_hierarchy_node_0) | Delete Hierarchy Node
 *TenantHierarchyApi* | [**get_hierarchy**](docs/TenantHierarchyApi.md#get_hierarchy) | Get Hierarchy
+*TenantHierarchyApi* | [**get_hierarchy_0**](docs/TenantHierarchyApi.md#get_hierarchy_0) | Get Hierarchy
 *TenantHierarchyApi* | [**get_hierarchy_leaf_nodes**](docs/TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
+*TenantHierarchyApi* | [**get_hierarchy_leaf_nodes_0**](docs/TenantHierarchyApi.md#get_hierarchy_leaf_nodes_0) | Get Hierarchy Leaf Nodes
 *TenantHierarchyApi* | [**publish_custom_hierarchy**](docs/TenantHierarchyApi.md#publish_custom_hierarchy) | Publish Custom Hierarchy
+*TenantHierarchyApi* | [**publish_custom_hierarchy_0**](docs/TenantHierarchyApi.md#publish_custom_hierarchy_0) | Publish Custom Hierarchy
 *TenantHierarchyApi* | [**update_hierarchy_node**](docs/TenantHierarchyApi.md#update_hierarchy_node) | Update Hierarchy Node
+*TenantHierarchyApi* | [**update_hierarchy_node_0**](docs/TenantHierarchyApi.md#update_hierarchy_node_0) | Update Hierarchy Node
 *TenantPoliciesApi* | [**add_tenant_policy_exclusions**](docs/TenantPoliciesApi.md#add_tenant_policy_exclusions) | Add Tenant Policy Exclusions
+*TenantPoliciesApi* | [**add_tenant_policy_exclusions_0**](docs/TenantPoliciesApi.md#add_tenant_policy_exclusions_0) | Add Tenant Policy Exclusions
 *TenantPoliciesApi* | [**disable_tenant_policy**](docs/TenantPoliciesApi.md#disable_tenant_policy) | Disable Tenant Policy
+*TenantPoliciesApi* | [**disable_tenant_policy_0**](docs/TenantPoliciesApi.md#disable_tenant_policy_0) | Disable Tenant Policy
 *TenantPoliciesApi* | [**enable_all_policies**](docs/TenantPoliciesApi.md#enable_all_policies) | Enable All Policies
+*TenantPoliciesApi* | [**enable_all_policies_0**](docs/TenantPoliciesApi.md#enable_all_policies_0) | Enable All Policies
 *TenantPoliciesApi* | [**enable_tenant_policy**](docs/TenantPoliciesApi.md#enable_tenant_policy) | Enable Tenant Policy
+*TenantPoliciesApi* | [**enable_tenant_policy_0**](docs/TenantPoliciesApi.md#enable_tenant_policy_0) | Enable Tenant Policy
 *TenantPoliciesApi* | [**get_tenant_policies**](docs/TenantPoliciesApi.md#get_tenant_policies) | Get Tenant Policies
+*TenantPoliciesApi* | [**get_tenant_policies_0**](docs/TenantPoliciesApi.md#get_tenant_policies_0) | Get Tenant Policies
+*TenantPoliciesApi* | [**get_tenant_policy_by_id**](docs/TenantPoliciesApi.md#get_tenant_policy_by_id) | Get Tenant Policy By Id
+*TenantPoliciesApi* | [**get_tenant_policy_by_id_0**](docs/TenantPoliciesApi.md#get_tenant_policy_by_id_0) | Get Tenant Policy By Id
+*TenantPoliciesApi* | [**get_tenant_policy_by_id_with_recommendations**](docs/TenantPoliciesApi.md#get_tenant_policy_by_id_with_recommendations) | Get Tenant Policy By Id With Recommendations
+*TenantPoliciesApi* | [**get_tenant_policy_by_id_with_recommendations_0**](docs/TenantPoliciesApi.md#get_tenant_policy_by_id_with_recommendations_0) | Get Tenant Policy By Id With Recommendations
 *TenantPoliciesApi* | [**get_tenant_policy_settings**](docs/TenantPoliciesApi.md#get_tenant_policy_settings) | Get Tenant Policy Settings
+*TenantPoliciesApi* | [**get_tenant_policy_settings_0**](docs/TenantPoliciesApi.md#get_tenant_policy_settings_0) | Get Tenant Policy Settings
 *TenantPoliciesApi* | [**override_tenant_policy_config**](docs/TenantPoliciesApi.md#override_tenant_policy_config) | Override Tenant Policy Config
+*TenantPoliciesApi* | [**override_tenant_policy_config_0**](docs/TenantPoliciesApi.md#override_tenant_policy_config_0) | Override Tenant Policy Config
 *TenantPoliciesApi* | [**override_tenant_policy_exclusions**](docs/TenantPoliciesApi.md#override_tenant_policy_exclusions) | Override Tenant Policy Exclusions
+*TenantPoliciesApi* | [**override_tenant_policy_exclusions_0**](docs/TenantPoliciesApi.md#override_tenant_policy_exclusions_0) | Override Tenant Policy Exclusions
 *TenantPolicyServiceApi* | [**add_tenant_policy_exclusions**](docs/TenantPolicyServiceApi.md#add_tenant_policy_exclusions) | Add tenant policy exclusions.
 *TenantPolicyServiceApi* | [**disable_tenant_policy**](docs/TenantPolicyServiceApi.md#disable_tenant_policy) | disable a policy for a tenant in the tenant DB.
 *TenantPolicyServiceApi* | [**enable_all_policies**](docs/TenantPolicyServiceApi.md#enable_all_policies) | enables all policies for a tenant.
 *TenantPolicyServiceApi* | [**enable_tenant_policy**](docs/TenantPolicyServiceApi.md#enable_tenant_policy) | enables a policy for a tenant in the tenant DB.
 *TenantPolicyServiceApi* | [**get_tenant_policies**](docs/TenantPolicyServiceApi.md#get_tenant_policies) | Retrieves all tenant policies, optionally filtered by the parameters in the request.
+*TenantPolicyServiceApi* | [**get_tenant_policy_by_id**](docs/TenantPolicyServiceApi.md#get_tenant_policy_by_id) | Retrieves a tenant policy by its id.
 *TenantPolicyServiceApi* | [**get_tenant_policy_settings**](docs/TenantPolicyServiceApi.md#get_tenant_policy_settings) | Retrieves all tenant policy settings, optionally filtered by the parameters in the request.
+*TenantPolicyServiceApi* | [**get_tenant_policy_with_summary**](docs/TenantPolicyServiceApi.md#get_tenant_policy_with_summary) | Retrieves a tenant policy with corresponding recommendations, by its id.
 *TenantPolicyServiceApi* | [**override_tenant_policy_config**](docs/TenantPolicyServiceApi.md#override_tenant_policy_config) | Override the tenant policy config with the provided config.
 *TenantPolicyServiceApi* | [**override_tenant_policy_exclusions**](docs/TenantPolicyServiceApi.md#override_tenant_policy_exclusions) | Override tenant policy exclusions.
 *TenantProviderServiceApi* | [**create_tenant_provider**](docs/TenantProviderServiceApi.md#create_tenant_provider) | Creates a new tenant Provider.
@@ -172,6 +216,11 @@ Class | Method | Description
 *TenantServiceApi* | [**get_tenants**](docs/TenantServiceApi.md#get_tenants) | Retrieves all Tenants with filters.
 *TenantServiceApi* | [**update_tenant**](docs/TenantServiceApi.md#update_tenant) | Updates an existing tenant.
 *TenantTicketServiceApi* | [**create_tenant_tickets**](docs/TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
+*TenantTicketServiceApi* | [**get_all_policy_violations**](docs/TenantTicketServiceApi.md#get_all_policy_violations) | Get All Policy Violations
+*TenantTicketServiceApi* | [**get_policy_ticket_stats**](docs/TenantTicketServiceApi.md#get_policy_ticket_stats) | Get Policy Ticket Stats
+*TenantTicketServiceApi* | [**get_policy_tickets_by_entity_id**](docs/TenantTicketServiceApi.md#get_policy_tickets_by_entity_id) | Get Policy Tickets By Entity Id
+*TenantTicketServiceApi* | [**get_policy_tickets_by_policy_id**](docs/TenantTicketServiceApi.md#get_policy_tickets_by_policy_id) | Get Policy Tickets By Policy Id
+*TenantTicketServiceApi* | [**get_tenant_ticket_by_id_with_policy_details**](docs/TenantTicketServiceApi.md#get_tenant_ticket_by_id_with_policy_details) | Retrieves all active tickets of a tenant.
 *TenantTicketServiceApi* | [**get_tenant_tickets**](docs/TenantTicketServiceApi.md#get_tenant_tickets) | Retrieves all active tickets of a tenant.
 *TenantTicketServiceApi* | [**update_tenant_ticket**](docs/TenantTicketServiceApi.md#update_tenant_ticket) | Update tenant policy ticket user state
 *TenantTicketServiceApi* | [**update_tenant_tickets**](docs/TenantTicketServiceApi.md#update_tenant_tickets) | Updates policy tickets in bulk
@@ -179,23 +228,49 @@ Class | Method | Description
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
 *TenantsApi* | [**create_tenant**](docs/TenantsApi.md#create_tenant) | Create Tenant
 *TenantsApi* | [**disable_tenant**](docs/TenantsApi.md#disable_tenant) | Disable Tenant
+*TenantsApi* | [**disable_tenant_0**](docs/TenantsApi.md#disable_tenant_0) | Disable Tenant
 *TenantsApi* | [**enable_tenant**](docs/TenantsApi.md#enable_tenant) | Enable Tenant
+*TenantsApi* | [**enable_tenant_0**](docs/TenantsApi.md#enable_tenant_0) | Enable Tenant
 *TenantsApi* | [**get_tenant**](docs/TenantsApi.md#get_tenant) | Get Tenant
+*TenantsApi* | [**get_tenant_0**](docs/TenantsApi.md#get_tenant_0) | Get Tenant
 *TenantsApi* | [**get_tenants**](docs/TenantsApi.md#get_tenants) | Get Tenants
 *TenantsApi* | [**update_tenant**](docs/TenantsApi.md#update_tenant) | Update Tenant
+*TenantsApi* | [**update_tenant_0**](docs/TenantsApi.md#update_tenant_0) | Update Tenant
 *TenantsResourceCatalogApi* | [**create_root_node**](docs/TenantsResourceCatalogApi.md#create_root_node) | Create Root Node
+*TenantsResourceCatalogApi* | [**create_root_node_0**](docs/TenantsResourceCatalogApi.md#create_root_node_0) | Create Root Node
 *TenantsTenantProviderVerifyApi* | [**verify_tenant**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant) | Verify Tenant
+*TenantsTenantProviderVerifyApi* | [**verify_tenant_0**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_0) | Verify Tenant
 *TenantsTenantProviderVerifyApi* | [**verify_tenant_cur_bucket**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_cur_bucket) | Verify Tenant Cur Bucket
+*TenantsTenantProviderVerifyApi* | [**verify_tenant_cur_bucket_0**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_cur_bucket_0) | Verify Tenant Cur Bucket
 *TenantsTenantTicketsApi* | [**create_tenant_tickets**](docs/TenantsTenantTicketsApi.md#create_tenant_tickets) | Create Tenant Tickets
+*TenantsTenantTicketsApi* | [**create_tenant_tickets_0**](docs/TenantsTenantTicketsApi.md#create_tenant_tickets_0) | Create Tenant Tickets
+*TenantsTenantTicketsApi* | [**get_all_policy_violations**](docs/TenantsTenantTicketsApi.md#get_all_policy_violations) | Get All Policy Violations
+*TenantsTenantTicketsApi* | [**get_all_policy_violations_0**](docs/TenantsTenantTicketsApi.md#get_all_policy_violations_0) | Get All Policy Violations
+*TenantsTenantTicketsApi* | [**get_policy_ticket_stats**](docs/TenantsTenantTicketsApi.md#get_policy_ticket_stats) | Get Policy Ticket Stats
+*TenantsTenantTicketsApi* | [**get_policy_ticket_stats_0**](docs/TenantsTenantTicketsApi.md#get_policy_ticket_stats_0) | Get Policy Ticket Stats
+*TenantsTenantTicketsApi* | [**get_policy_tickets_by_entity_id**](docs/TenantsTenantTicketsApi.md#get_policy_tickets_by_entity_id) | Get Policy Tickets By Entity Id
+*TenantsTenantTicketsApi* | [**get_policy_tickets_by_entity_id_0**](docs/TenantsTenantTicketsApi.md#get_policy_tickets_by_entity_id_0) | Get Policy Tickets By Entity Id
+*TenantsTenantTicketsApi* | [**get_policy_tickets_by_policy_id**](docs/TenantsTenantTicketsApi.md#get_policy_tickets_by_policy_id) | Get Policy Tickets By Policy Id
+*TenantsTenantTicketsApi* | [**get_policy_tickets_by_policy_id_0**](docs/TenantsTenantTicketsApi.md#get_policy_tickets_by_policy_id_0) | Get Policy Tickets By Policy Id
+*TenantsTenantTicketsApi* | [**get_tenant_ticket_by_id_with_policy**](docs/TenantsTenantTicketsApi.md#get_tenant_ticket_by_id_with_policy) | Get Tenant Ticket By Id With Policy
+*TenantsTenantTicketsApi* | [**get_tenant_ticket_by_id_with_policy_0**](docs/TenantsTenantTicketsApi.md#get_tenant_ticket_by_id_with_policy_0) | Get Tenant Ticket By Id With Policy
 *TenantsTenantTicketsApi* | [**get_tenant_tickets**](docs/TenantsTenantTicketsApi.md#get_tenant_tickets) | Get Tenant Tickets
+*TenantsTenantTicketsApi* | [**get_tenant_tickets_0**](docs/TenantsTenantTicketsApi.md#get_tenant_tickets_0) | Get Tenant Tickets
 *TenantsTenantTicketsApi* | [**update_tenant_ticket**](docs/TenantsTenantTicketsApi.md#update_tenant_ticket) | Update Tenant Ticket
+*TenantsTenantTicketsApi* | [**update_tenant_ticket_0**](docs/TenantsTenantTicketsApi.md#update_tenant_ticket_0) | Update Tenant Ticket
 *TenantsTenantTicketsApi* | [**update_tenant_tickets**](docs/TenantsTenantTicketsApi.md#update_tenant_tickets) | Update Tenant Tickets
+*TenantsTenantTicketsApi* | [**update_tenant_tickets_0**](docs/TenantsTenantTicketsApi.md#update_tenant_tickets_0) | Update Tenant Tickets
 *TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
+*TenantsTenantsProvidersApi* | [**create_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider_0) | Create Tenant Provider
 *TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
+*TenantsTenantsProvidersApi* | [**disable_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider_0) | Disable Tenant Provider
 *TenantsTenantsProvidersApi* | [**enable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#enable_tenant_provider) | Enable Tenant Provider
+*TenantsTenantsProvidersApi* | [**enable_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#enable_tenant_provider_0) | Enable Tenant Provider
 *TenantsTenantsProvidersApi* | [**get_tenant_provider**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider) | Get Tenant Provider
+*TenantsTenantsProvidersApi* | [**get_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider_0) | Get Tenant Provider
 *TenantsTenantsProvidersApi* | [**get_tenant_providers**](docs/TenantsTenantsProvidersApi.md#get_tenant_providers) | Get Tenant Providers
 *TenantsTenantsProvidersApi* | [**update_tenant_provider**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider) | Update Tenant Provider
+*TenantsTenantsProvidersApi* | [**update_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider_0) | Update Tenant Provider
 *UserTenantMappingApi* | [**create_user_tenant_mapping**](docs/UserTenantMappingApi.md#create_user_tenant_mapping) | Create User Tenant Mapping
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | Create User
 *UsersApi* | [**get_user_by_id**](docs/UsersApi.md#get_user_by_id) | Get User By Id
@@ -249,12 +324,14 @@ Class | Method | Description
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
  - [CurrentCost](docs/CurrentCost.md)
- - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
+ - [DataRetrieverQueryInput](docs/DataRetrieverQueryInput.md)
+ - [DataRetrieverQueryOutput](docs/DataRetrieverQueryOutput.md)
  - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
  - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DeleteHierarchyNodeRequest](docs/DeleteHierarchyNodeRequest.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
+ - [DerivedVariable](docs/DerivedVariable.md)
  - [Details](docs/Details.md)
  - [Details1](docs/Details1.md)
  - [Details2](docs/Details2.md)
@@ -262,6 +339,7 @@ Class | Method | Description
  - [DisableTenantAnomalySettingsRequest](docs/DisableTenantAnomalySettingsRequest.md)
  - [DisableTenantAnomalySettingsResponse](docs/DisableTenantAnomalySettingsResponse.md)
  - [DisableTenantPolicyRequest](docs/DisableTenantPolicyRequest.md)
+ - [Effort](docs/Effort.md)
  - [EnableAllPoliciesRequest](docs/EnableAllPoliciesRequest.md)
  - [EnableTenantAnomalySettingsRequest](docs/EnableTenantAnomalySettingsRequest.md)
  - [EnableTenantAnomalySettingsResponse](docs/EnableTenantAnomalySettingsResponse.md)
@@ -269,13 +347,22 @@ Class | Method | Description
  - [EndRange](docs/EndRange.md)
  - [Features](docs/Features.md)
  - [GcpService](docs/GcpService.md)
+ - [GetAllPolicyViolationsAPIRequest](docs/GetAllPolicyViolationsAPIRequest.md)
+ - [GetAllPolicyViolationsRequest](docs/GetAllPolicyViolationsRequest.md)
+ - [GetAllPolicyViolationsResponse](docs/GetAllPolicyViolationsResponse.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
+ - [GetCloudMetadataRequest](docs/GetCloudMetadataRequest.md)
+ - [GetCloudMetadataResponse](docs/GetCloudMetadataResponse.md)
  - [GetHierarchyFilters](docs/GetHierarchyFilters.md)
+ - [GetHierarchyNodeByIdRequest](docs/GetHierarchyNodeByIdRequest.md)
  - [GetHierarchyRequest](docs/GetHierarchyRequest.md)
  - [GetHierarchyResponse](docs/GetHierarchyResponse.md)
  - [GetLeafNodesRequest](docs/GetLeafNodesRequest.md)
  - [GetLeafNodesResponse](docs/GetLeafNodesResponse.md)
+ - [GetMetricsAPIRequest](docs/GetMetricsAPIRequest.md)
+ - [GetMetricsRequest](docs/GetMetricsRequest.md)
+ - [GetMetricsResponse](docs/GetMetricsResponse.md)
  - [GetOrganizationByIDResponse](docs/GetOrganizationByIDResponse.md)
  - [GetOrganizationsRequest](docs/GetOrganizationsRequest.md)
  - [GetOrganizationsResponse](docs/GetOrganizationsResponse.md)
@@ -287,6 +374,26 @@ Class | Method | Description
  - [GetPolicyTemplatePacksResponse](docs/GetPolicyTemplatePacksResponse.md)
  - [GetPolicyTemplatesRequest](docs/GetPolicyTemplatesRequest.md)
  - [GetPolicyTemplatesResponse](docs/GetPolicyTemplatesResponse.md)
+ - [GetPolicyTicketStatsAPIRequest](docs/GetPolicyTicketStatsAPIRequest.md)
+ - [GetPolicyTicketStatsGroupBy](docs/GetPolicyTicketStatsGroupBy.md)
+ - [GetPolicyTicketStatsRequest](docs/GetPolicyTicketStatsRequest.md)
+ - [GetPolicyTicketStatsResponse](docs/GetPolicyTicketStatsResponse.md)
+ - [GetPolicyTicketStatsSubGroupBy](docs/GetPolicyTicketStatsSubGroupBy.md)
+ - [GetPolicyTicketsByEntityIdAPIRequest](docs/GetPolicyTicketsByEntityIdAPIRequest.md)
+ - [GetPolicyTicketsByEntityIdRequest](docs/GetPolicyTicketsByEntityIdRequest.md)
+ - [GetPolicyTicketsByEntityIdResponse](docs/GetPolicyTicketsByEntityIdResponse.md)
+ - [GetPolicyTicketsByPolicyIdAPIRequest](docs/GetPolicyTicketsByPolicyIdAPIRequest.md)
+ - [GetPolicyTicketsByPolicyIdRequest](docs/GetPolicyTicketsByPolicyIdRequest.md)
+ - [GetPolicyTicketsByPolicyIdResponse](docs/GetPolicyTicketsByPolicyIdResponse.md)
+ - [GetRecommendationTicketRequest](docs/GetRecommendationTicketRequest.md)
+ - [GetRecommendationTicketResponse](docs/GetRecommendationTicketResponse.md)
+ - [GetRecommendationUnitByIdRequest](docs/GetRecommendationUnitByIdRequest.md)
+ - [GetRecommendationUnitByIdResponse](docs/GetRecommendationUnitByIdResponse.md)
+ - [GetResourceHierarchyMappingByOlIdRequest](docs/GetResourceHierarchyMappingByOlIdRequest.md)
+ - [GetResourceHierarchyMappingByOlIdResponse](docs/GetResourceHierarchyMappingByOlIdResponse.md)
+ - [GetSinglePolicyTicketByEntityIdResponse](docs/GetSinglePolicyTicketByEntityIdResponse.md)
+ - [GetSinglePolicyTicketByPolicyIdResponse](docs/GetSinglePolicyTicketByPolicyIdResponse.md)
+ - [GetSinglePolicyViolationsResponse](docs/GetSinglePolicyViolationsResponse.md)
  - [GetTenantAnomalySettingsAPIRequest](docs/GetTenantAnomalySettingsAPIRequest.md)
  - [GetTenantAnomalySettingsRequest](docs/GetTenantAnomalySettingsRequest.md)
  - [GetTenantAnomalySettingsResponse](docs/GetTenantAnomalySettingsResponse.md)
@@ -295,9 +402,13 @@ Class | Method | Description
  - [GetTenantPoliciesAPIRequest](docs/GetTenantPoliciesAPIRequest.md)
  - [GetTenantPoliciesRequest](docs/GetTenantPoliciesRequest.md)
  - [GetTenantPoliciesResponse](docs/GetTenantPoliciesResponse.md)
+ - [GetTenantPolicyByIdRequest](docs/GetTenantPolicyByIdRequest.md)
+ - [GetTenantPolicyByIdResponse](docs/GetTenantPolicyByIdResponse.md)
  - [GetTenantPolicySettingsAPIRequest](docs/GetTenantPolicySettingsAPIRequest.md)
  - [GetTenantPolicySettingsRequest](docs/GetTenantPolicySettingsRequest.md)
  - [GetTenantPolicySettingsResponse](docs/GetTenantPolicySettingsResponse.md)
+ - [GetTenantPolicyWithSummaryRequest](docs/GetTenantPolicyWithSummaryRequest.md)
+ - [GetTenantPolicyWithSummaryResponse](docs/GetTenantPolicyWithSummaryResponse.md)
  - [GetTenantProviderByIDRequest](docs/GetTenantProviderByIDRequest.md)
  - [GetTenantProviderByIDResponse](docs/GetTenantProviderByIDResponse.md)
  - [GetTenantProvidersRequest](docs/GetTenantProvidersRequest.md)
@@ -307,6 +418,8 @@ Class | Method | Description
  - [GetTenantTicketsResponse](docs/GetTenantTicketsResponse.md)
  - [GetTenantsRequest](docs/GetTenantsRequest.md)
  - [GetTenantsResponse](docs/GetTenantsResponse.md)
+ - [GetTicketByIdPolicyDetailsRequest](docs/GetTicketByIdPolicyDetailsRequest.md)
+ - [GetTicketByIdPolicyDetailsResponse](docs/GetTicketByIdPolicyDetailsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HierarchyNodeAttributionDetails](docs/HierarchyNodeAttributionDetails.md)
@@ -316,8 +429,15 @@ Class | Method | Description
  - [HierarchyState](docs/HierarchyState.md)
  - [HierarchyType](docs/HierarchyType.md)
  - [Join](docs/Join.md)
+ - [Metric](docs/Metric.md)
+ - [MetricsQuery](docs/MetricsQuery.md)
  - [NewCost](docs/NewCost.md)
+ - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
+ - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.md)
  - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
+ - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension.md)
  - [OrItem](docs/OrItem.md)
  - [Organization](docs/Organization.md)
  - [OrganizationFilters](docs/OrganizationFilters.md)
@@ -354,6 +474,7 @@ Class | Method | Description
  - [ProviderConfigInput](docs/ProviderConfigInput.md)
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
  - [PublishCustomHierarchyRequest](docs/PublishCustomHierarchyRequest.md)
+ - [QueryDetails](docs/QueryDetails.md)
  - [QueryFilters](docs/QueryFilters.md)
  - [QueryOrder](docs/QueryOrder.md)
  - [RecommendationEngine](docs/RecommendationEngine.md)
@@ -361,6 +482,7 @@ Class | Method | Description
  - [RecommendationEngineRequest](docs/RecommendationEngineRequest.md)
  - [RecommendationEngineResponse](docs/RecommendationEngineResponse.md)
  - [RecommendationParams](docs/RecommendationParams.md)
+ - [RecommendationTicket](docs/RecommendationTicket.md)
  - [RecommendationTicketAPIRequestInput](docs/RecommendationTicketAPIRequestInput.md)
  - [RecommendationTicketAPIRequestOutput](docs/RecommendationTicketAPIRequestOutput.md)
  - [RecommendationTicketRequest](docs/RecommendationTicketRequest.md)
@@ -378,6 +500,7 @@ Class | Method | Description
  - [ResponseCreatePolicyTemplateResponse](docs/ResponseCreatePolicyTemplateResponse.md)
  - [ResponseCreateTenantTicketsResponse](docs/ResponseCreateTenantTicketsResponse.md)
  - [ResponseCreateTenantUserResponse](docs/ResponseCreateTenantUserResponse.md)
+ - [ResponseCreateUserResponse](docs/ResponseCreateUserResponse.md)
  - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
  - [ResponseDataRetrieverResponse](docs/ResponseDataRetrieverResponse.md)
  - [ResponseDeprecatePolicyTemplateResponse](docs/ResponseDeprecatePolicyTemplateResponse.md)
@@ -385,19 +508,29 @@ Class | Method | Description
  - [ResponseEnableAllPoliciesResponse](docs/ResponseEnableAllPoliciesResponse.md)
  - [ResponseEnableTenantAnomalySettingsResponse](docs/ResponseEnableTenantAnomalySettingsResponse.md)
  - [ResponseEnableTenantPolicyResponse](docs/ResponseEnableTenantPolicyResponse.md)
+ - [ResponseGetAllPolicyViolationsResponse](docs/ResponseGetAllPolicyViolationsResponse.md)
+ - [ResponseGetCloudMetadataResponse](docs/ResponseGetCloudMetadataResponse.md)
  - [ResponseGetHierarchyResponse](docs/ResponseGetHierarchyResponse.md)
+ - [ResponseGetMetricsResponse](docs/ResponseGetMetricsResponse.md)
  - [ResponseGetPolicyTemplateByIDResponse](docs/ResponseGetPolicyTemplateByIDResponse.md)
  - [ResponseGetPolicyTemplatePackByIdResponse](docs/ResponseGetPolicyTemplatePackByIdResponse.md)
  - [ResponseGetPolicyTemplatePacksResponse](docs/ResponseGetPolicyTemplatePacksResponse.md)
  - [ResponseGetPolicyTemplatesResponse](docs/ResponseGetPolicyTemplatesResponse.md)
+ - [ResponseGetPolicyTicketStatsResponse](docs/ResponseGetPolicyTicketStatsResponse.md)
+ - [ResponseGetPolicyTicketsByEntityIdResponse](docs/ResponseGetPolicyTicketsByEntityIdResponse.md)
+ - [ResponseGetPolicyTicketsByPolicyIdResponse](docs/ResponseGetPolicyTicketsByPolicyIdResponse.md)
+ - [ResponseGetRecommendationUnitByIdResponse](docs/ResponseGetRecommendationUnitByIdResponse.md)
  - [ResponseGetTenantAnomalySettingsResponse](docs/ResponseGetTenantAnomalySettingsResponse.md)
  - [ResponseGetTenantByIDResponse](docs/ResponseGetTenantByIDResponse.md)
  - [ResponseGetTenantPoliciesResponse](docs/ResponseGetTenantPoliciesResponse.md)
+ - [ResponseGetTenantPolicyByIdResponse](docs/ResponseGetTenantPolicyByIdResponse.md)
  - [ResponseGetTenantPolicySettingsResponse](docs/ResponseGetTenantPolicySettingsResponse.md)
+ - [ResponseGetTenantPolicyWithSummaryRequest](docs/ResponseGetTenantPolicyWithSummaryRequest.md)
  - [ResponseGetTenantProviderByIDResponse](docs/ResponseGetTenantProviderByIDResponse.md)
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
  - [ResponseGetTenantTicketsResponse](docs/ResponseGetTenantTicketsResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
+ - [ResponseGetTicketByIdPolicyDetailsResponse](docs/ResponseGetTicketByIdPolicyDetailsResponse.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
  - [ResponseRecommendationEngineResponse](docs/ResponseRecommendationEngineResponse.md)
@@ -417,7 +550,9 @@ Class | Method | Description
  - [RuleType](docs/RuleType.md)
  - [ServiceCatalog](docs/ServiceCatalog.md)
  - [ServiceCatalogRequest](docs/ServiceCatalogRequest.md)
+ - [ServiceCatalogRequestFind](docs/ServiceCatalogRequestFind.md)
  - [ServiceCatalogResponse](docs/ServiceCatalogResponse.md)
+ - [ServiceConfig](docs/ServiceConfig.md)
  - [SetTenantStatusRequest](docs/SetTenantStatusRequest.md)
  - [Status](docs/Status.md)
  - [Status1](docs/Status1.md)
@@ -442,6 +577,8 @@ Class | Method | Description
  - [TenantState](docs/TenantState.md)
  - [TenantTicket](docs/TenantTicket.md)
  - [TenantTicketFilters](docs/TenantTicketFilters.md)
+ - [TenantTicketsStatsMetrics](docs/TenantTicketsStatsMetrics.md)
+ - [TenantTicketsStatsMetricsGroupBy](docs/TenantTicketsStatsMetricsGroupBy.md)
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
  - [TenantVerifyCurBucketRequest](docs/TenantVerifyCurBucketRequest.md)
  - [TenantVerifyCurBucketResponse](docs/TenantVerifyCurBucketResponse.md)
@@ -450,8 +587,8 @@ Class | Method | Description
  - [TicketAssignment](docs/TicketAssignment.md)
  - [TicketCategory](docs/TicketCategory.md)
  - [TicketState](docs/TicketState.md)
- - [TimeDimension](docs/TimeDimension.md)
- - [TimeDimensionCompareDateRangeInner](docs/TimeDimensionCompareDateRangeInner.md)
+ - [TimeDimensionOutput](docs/TimeDimensionOutput.md)
+ - [TimeDimensionOutputCompareDateRangeInner](docs/TimeDimensionOutputCompareDateRangeInner.md)
  - [UpdateHierarchyNodeAPIRequest](docs/UpdateHierarchyNodeAPIRequest.md)
  - [UpdateHierarchyNodeRequest](docs/UpdateHierarchyNodeRequest.md)
  - [UpdateHierarchyNodeResponse](docs/UpdateHierarchyNodeResponse.md)
@@ -469,13 +606,17 @@ Class | Method | Description
  - [UpdateTenantTicketsAPIRequest](docs/UpdateTenantTicketsAPIRequest.md)
  - [UpdateTenantTicketsRequest](docs/UpdateTenantTicketsRequest.md)
  - [UpdateTenantUserResponse](docs/UpdateTenantUserResponse.md)
- - [UpdateUserRequest](docs/UpdateUserRequest.md)
+ - [UpdateUserAPIRequest](docs/UpdateUserAPIRequest.md)
  - [UpdateUserResponse](docs/UpdateUserResponse.md)
+ - [UserCatalogDetails](docs/UserCatalogDetails.md)
+ - [UserCatalogState](docs/UserCatalogState.md)
  - [UserRole](docs/UserRole.md)
  - [UserStatus](docs/UserStatus.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
  - [Value](docs/Value.md)
+ - [Value1](docs/Value1.md)
+ - [Values](docs/Values.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -11,7 +11,7 @@ Method | Description
 
 
 # **create_user**
-> CreateUserResponse create_user(create_user_request)
+> ResponseCreateUserResponse create_user(create_user_request)
 
 Create User
 
@@ -21,7 +21,7 @@ Create User
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.create_user_request import CreateUserRequest
-from onelens_backend_client.models.create_user_response import CreateUserResponse
+from onelens_backend_client.models.response_create_user_response import ResponseCreateUserResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateUserResponse**](CreateUserResponse.md)
+[**ResponseCreateUserResponse**](ResponseCreateUserResponse.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user**
-> UpdateUserResponse update_user(update_user_request)
+> UpdateUserResponse update_user(id, update_user_api_request)
 
 Update User
 
@@ -222,7 +222,7 @@ Update User
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.update_user_request import UpdateUserRequest
+from onelens_backend_client.models.update_user_api_request import UpdateUserAPIRequest
 from onelens_backend_client.models.update_user_response import UpdateUserResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -238,11 +238,12 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.UsersApi(api_client)
-    update_user_request = onelens_backend_client.UpdateUserRequest() # UpdateUserRequest | 
+    id = 'id_example' # str | 
+    update_user_api_request = onelens_backend_client.UpdateUserAPIRequest() # UpdateUserAPIRequest | 
 
     try:
         # Update User
-        api_response = api_instance.update_user(update_user_request)
+        api_response = api_instance.update_user(id, update_user_api_request)
         print("The response of UsersApi->update_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -256,7 +257,8 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **update_user_request** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | 
+ **id** | **str**|  | 
+ **update_user_api_request** | [**UpdateUserAPIRequest**](UpdateUserAPIRequest.md)|  | 
 
 ### Return type
 

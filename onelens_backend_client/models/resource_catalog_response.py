@@ -35,13 +35,14 @@ class ResourceCatalogResponse(BaseModel):
     resource_type: StrictStr = Field(description="Resource type")
     resource_url_template: StrictStr = Field(description="Resource url template")
     crn: StrictStr = Field(description="Cloud resource identifier")
+    title: StrictStr = Field(description="Resource name")
     provider: StrictStr = Field(description="Resource provider")
     status: StrictStr = Field(description="Resource status")
     tags: Optional[Dict[str, Any]] = None
     additional_info: Dict[str, Any] = Field(description="Additional info of the resource.")
     run_id: StrictStr = Field(description="The run id.")
     last_updated_at: datetime = Field(description="The last updated at.")
-    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_url_template", "crn", "provider", "status", "tags", "additional_info", "run_id", "last_updated_at"]
+    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_url_template", "crn", "title", "provider", "status", "tags", "additional_info", "run_id", "last_updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,6 +108,7 @@ class ResourceCatalogResponse(BaseModel):
             "resource_type": obj.get("resource_type"),
             "resource_url_template": obj.get("resource_url_template"),
             "crn": obj.get("crn"),
+            "title": obj.get("title"),
             "provider": obj.get("provider"),
             "status": obj.get("status"),
             "tags": obj.get("tags"),

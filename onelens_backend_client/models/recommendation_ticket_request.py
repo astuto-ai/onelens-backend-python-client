@@ -28,8 +28,9 @@ class RecommendationTicketRequest(BaseModel):
     RecommendationTicketRequest
     """ # noqa: E501
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
+    ticket_ids: List[StrictStr] = Field(description="The unique identifier of the tickets")
     recommendations: List[RecommendationTicketAPIRequestInput] = Field(description="The unique identifier of the tenant")
-    __properties: ClassVar[List[str]] = ["tenant_id", "recommendations"]
+    __properties: ClassVar[List[str]] = ["tenant_id", "ticket_ids", "recommendations"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +91,7 @@ class RecommendationTicketRequest(BaseModel):
 
         _obj = cls.model_validate({
             "tenant_id": obj.get("tenant_id"),
+            "ticket_ids": obj.get("ticket_ids"),
             "recommendations": [RecommendationTicketAPIRequestInput.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
         })
         return _obj

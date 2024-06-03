@@ -26,7 +26,7 @@ class ResourceHierarchyMappingRequest(BaseModel):
     """
     dto for resource hierarchy mapping request
     """ # noqa: E501
-    tenant_id: StrictStr = Field(description="Tenant ID")
+    tenant_id: StrictStr = Field(description="The id of the tenant.")
     __properties: ClassVar[List[str]] = ["tenant_id"]
 
     model_config = ConfigDict(

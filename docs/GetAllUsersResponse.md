@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auth0_id** | **object** | Auth0 user identifier | 
+**auth0_id** | **str** | Auth0 user identifier | 
+**state** | [**UserCatalogState**](UserCatalogState.md) |  | [optional] 
+**details** | [**UserCatalogDetails**](UserCatalogDetails.md) | Details of the user in catalof DB. | 
 **users** | [**List[GetUserByIDResponse]**](GetUserByIDResponse.md) | List of users | 
 
 ## Example
