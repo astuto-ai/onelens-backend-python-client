@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.begin_range import BeginRange
 from onelens_backend_client.models.current_cost import CurrentCost
+from onelens_backend_client.models.effort import Effort
 from onelens_backend_client.models.end_range import EndRange
 from onelens_backend_client.models.new_cost import NewCost
 from onelens_backend_client.models.potential_saving import PotentialSaving
@@ -35,6 +36,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
     recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
     action_type_id: StrictInt = Field(description="Action Type ID")
     priority: StrictInt = Field(description="Priority")
+    effort: Effort = Field(description="Effort")
     instance_type: Optional[StrictStr] = None
     instance_family: Optional[StrictStr] = None
     price_per_unit: PricePerUnit
@@ -49,7 +51,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
     attributes: Dict[str, Any] = Field(description="Attributes")
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "priority", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
+    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -133,6 +135,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
             "recommendation_unit_id": obj.get("recommendation_unit_id"),
             "action_type_id": obj.get("action_type_id"),
             "priority": obj.get("priority"),
+            "effort": obj.get("effort"),
             "instance_type": obj.get("instance_type"),
             "instance_family": obj.get("instance_family"),
             "price_per_unit": PricePerUnit.from_dict(obj["price_per_unit"]) if obj.get("price_per_unit") is not None else None,

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **recommendation_unit_id** | **str** | Recommendation Unit ID | 
 **action_type_id** | **int** | Action Type ID | 
 **priority** | **int** | Priority | 
+**effort** | [**Effort**](Effort.md) | Effort | 
 **instance_type** | **str** |  | [optional] 
 **instance_family** | **str** |  | [optional] 
 **price_per_unit** | [**PricePerUnit**](PricePerUnit.md) |  | 
