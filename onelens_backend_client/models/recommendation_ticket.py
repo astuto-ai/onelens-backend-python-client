@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from onelens_backend_client.models.effort import Effort
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,8 +34,6 @@ class RecommendationTicket(BaseModel):
     action_type_id: StrictInt = Field(description="Action Type ID")
     priority: StrictInt = Field(description="Priority")
     effort: Effort = Field(description="Effort")
-    instance_type: Optional[StrictStr] = None
-    instance_family: Optional[StrictStr] = None
     price_per_unit: StrictStr = Field(description="Price Per Unit")
     currency: StrictStr = Field(description="Currency")
     unit: StrictStr = Field(description="Unit")
@@ -47,7 +45,7 @@ class RecommendationTicket(BaseModel):
     end_range: StrictStr = Field(description="End Range")
     attributes: Dict[str, Any] = Field(description="Attributes")
     created_at: datetime = Field(description="Datetime of ticket creation")
-    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "created_at"]
+    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "effort", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,16 +86,6 @@ class RecommendationTicket(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if instance_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.instance_type is None and "instance_type" in self.model_fields_set:
-            _dict['instance_type'] = None
-
-        # set to None if instance_family (nullable) is None
-        # and model_fields_set contains the field
-        if self.instance_family is None and "instance_family" in self.model_fields_set:
-            _dict['instance_family'] = None
-
         return _dict
 
     @classmethod
@@ -116,8 +104,6 @@ class RecommendationTicket(BaseModel):
             "action_type_id": obj.get("action_type_id"),
             "priority": obj.get("priority"),
             "effort": obj.get("effort"),
-            "instance_type": obj.get("instance_type"),
-            "instance_family": obj.get("instance_family"),
             "price_per_unit": obj.get("price_per_unit"),
             "currency": obj.get("currency"),
             "unit": obj.get("unit"),

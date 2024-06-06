@@ -29,7 +29,8 @@ class GetPolicyTicketStatsResponse(BaseModel):
     """ # noqa: E501
     value: Union[StrictFloat, StrictInt] = Field(description="Value of the metric")
     details: Optional[List[GetPolicyTicketStatsGroupBy]] = None
-    __properties: ClassVar[List[str]] = ["value", "details"]
+    others: Optional[List[GetPolicyTicketStatsGroupBy]] = None
+    __properties: ClassVar[List[str]] = ["value", "details", "others"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,10 +78,22 @@ class GetPolicyTicketStatsResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['details'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in others (list)
+        _items = []
+        if self.others:
+            for _item in self.others:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['others'] = _items
         # set to None if details (nullable) is None
         # and model_fields_set contains the field
         if self.details is None and "details" in self.model_fields_set:
             _dict['details'] = None
+
+        # set to None if others (nullable) is None
+        # and model_fields_set contains the field
+        if self.others is None and "others" in self.model_fields_set:
+            _dict['others'] = None
 
         return _dict
 
@@ -95,7 +108,8 @@ class GetPolicyTicketStatsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "value": obj.get("value"),
-            "details": [GetPolicyTicketStatsGroupBy.from_dict(_item) for _item in obj["details"]] if obj.get("details") is not None else None
+            "details": [GetPolicyTicketStatsGroupBy.from_dict(_item) for _item in obj["details"]] if obj.get("details") is not None else None,
+            "others": [GetPolicyTicketStatsGroupBy.from_dict(_item) for _item in obj["others"]] if obj.get("others") is not None else None
         })
         return _obj
 

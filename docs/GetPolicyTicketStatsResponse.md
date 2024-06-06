@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **float** | Value of the metric | 
 **details** | [**List[GetPolicyTicketStatsGroupBy]**](GetPolicyTicketStatsGroupBy.md) |  | [optional] 
+**others** | [**List[GetPolicyTicketStatsGroupBy]**](GetPolicyTicketStatsGroupBy.md) |  | [optional] 
 
 ## Example
 

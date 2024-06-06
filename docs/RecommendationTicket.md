@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **action_type_id** | **int** | Action Type ID | 
 **priority** | **int** | Priority | 
 **effort** | [**Effort**](Effort.md) | Effort | 
-**instance_type** | **str** |  | [optional] 
-**instance_family** | **str** |  | [optional] 
 **price_per_unit** | **str** | Price Per Unit | 
 **currency** | **str** | Currency | 
 **unit** | **str** | Unit | 

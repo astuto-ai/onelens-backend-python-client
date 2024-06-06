@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
-from onelens_backend_client.models.policy_template_details import PolicyTemplateDetails
+from onelens_backend_client.models.policy_template_details_input import PolicyTemplateDetailsInput
 from onelens_backend_client.models.policy_template_recommendation_details_input import PolicyTemplateRecommendationDetailsInput
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +34,7 @@ class PolicyTemplateUpdateFieldsMixin(BaseModel):
     description: Optional[StrictStr] = None
     services: Optional[List[CreatePolicyTemplateRequestServicesInner]] = None
     execution_type: Optional[PolicyExecutionType] = None
-    details: Optional[PolicyTemplateDetails] = None
+    details: Optional[PolicyTemplateDetailsInput] = None
     description2: Optional[StrictStr] = None
     resource_type: Optional[StrictStr] = None
     recommendation_details: Optional[PolicyTemplateRecommendationDetailsInput] = None
@@ -148,7 +148,7 @@ class PolicyTemplateUpdateFieldsMixin(BaseModel):
             "description": obj.get("description"),
             "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
-            "details": PolicyTemplateDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "details": PolicyTemplateDetailsInput.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "description2": obj.get("description2"),
             "resource_type": obj.get("resource_type"),
             "recommendation_details": PolicyTemplateRecommendationDetailsInput.from_dict(obj["recommendation_details"]) if obj.get("recommendation_details") is not None else None

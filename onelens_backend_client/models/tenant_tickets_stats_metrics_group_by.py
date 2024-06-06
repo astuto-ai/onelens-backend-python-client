@@ -29,6 +29,7 @@ class TenantTicketsStatsMetricsGroupBy(str, Enum):
     SERVICE = 'service'
     REGION = 'region'
     CLOUD_ID = 'cloud_id'
+    EFFORT = 'effort'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

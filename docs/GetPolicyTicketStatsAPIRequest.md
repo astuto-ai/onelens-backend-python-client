@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **metric** | [**TenantTicketsStatsMetrics**](TenantTicketsStatsMetrics.md) | Metric to be fetched | 
 **filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 **group** | [**TenantTicketsStatsMetricsGroupBy**](TenantTicketsStatsMetricsGroupBy.md) |  | [optional] 
-**sub_group** | [**TenantTicketsStatsMetricsGroupBy**](TenantTicketsStatsMetricsGroupBy.md) |  | [optional] 
+**sub_group** | [**TenantTicketsStatsMetricsSubGroupBy**](TenantTicketsStatsMetricsSubGroupBy.md) |  | [optional] 
+**item_count** | **int** |  | [optional] 
 
 ## Example
 

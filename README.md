@@ -91,6 +91,7 @@ Class | Method | Description
 *RecommendationApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationApi.md#get_recommendation_by_ticket_id) | Get Recommendation By Ticket Id
 *RecommendationApi* | [**get_recommendation_by_ticket_id_0**](docs/RecommendationApi.md#get_recommendation_by_ticket_id_0) | Get Recommendation By Ticket Id
 *RecommendationEngineApi* | [**get_recommendation_unit_by_id**](docs/RecommendationEngineApi.md#get_recommendation_unit_by_id) | Get Recommendation Unit By Id
+*RecommendationEngineApi* | [**get_recommendation_units**](docs/RecommendationEngineApi.md#get_recommendation_units) | Get Recommendation Units
 *RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
 *RecommendationEngineApi* | [**get_recommendations_0**](docs/RecommendationEngineApi.md#get_recommendations_0) | Get Recommendations
 *CloudMetadataApi* | [**create_root_node**](docs/CloudMetadataApi.md#create_root_node) | Create Root Node
@@ -134,6 +135,7 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
 *RecommendationEngineServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationEngineServiceApi.md#get_recommendation_unit_by_id) | Retrieves all Tenants with filters.
+*RecommendationEngineServiceApi* | [**get_recommendation_units**](docs/RecommendationEngineServiceApi.md#get_recommendation_units) | Retrieves all recommendation units by filter
 *RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationServiceApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationServiceApi.md#get_recommendation_by_ticket_id) | Get recommendations by ticket id.
@@ -385,10 +387,13 @@ Class | Method | Description
  - [GetPolicyTicketsByPolicyIdAPIRequest](docs/GetPolicyTicketsByPolicyIdAPIRequest.md)
  - [GetPolicyTicketsByPolicyIdRequest](docs/GetPolicyTicketsByPolicyIdRequest.md)
  - [GetPolicyTicketsByPolicyIdResponse](docs/GetPolicyTicketsByPolicyIdResponse.md)
+ - [GetRecommendationTicket](docs/GetRecommendationTicket.md)
  - [GetRecommendationTicketRequest](docs/GetRecommendationTicketRequest.md)
  - [GetRecommendationTicketResponse](docs/GetRecommendationTicketResponse.md)
  - [GetRecommendationUnitByIdRequest](docs/GetRecommendationUnitByIdRequest.md)
  - [GetRecommendationUnitByIdResponse](docs/GetRecommendationUnitByIdResponse.md)
+ - [GetRecommendationUnitsRequest](docs/GetRecommendationUnitsRequest.md)
+ - [GetRecommendationUnitsResponse](docs/GetRecommendationUnitsResponse.md)
  - [GetResourceHierarchyMappingByOlIdRequest](docs/GetResourceHierarchyMappingByOlIdRequest.md)
  - [GetResourceHierarchyMappingByOlIdResponse](docs/GetResourceHierarchyMappingByOlIdResponse.md)
  - [GetSinglePolicyTicketByEntityIdResponse](docs/GetSinglePolicyTicketByEntityIdResponse.md)
@@ -430,7 +435,13 @@ Class | Method | Description
  - [HierarchyType](docs/HierarchyType.md)
  - [Join](docs/Join.md)
  - [Metric](docs/Metric.md)
+ - [MetricsAggregationType](docs/MetricsAggregationType.md)
+ - [MetricsChartConfigInput](docs/MetricsChartConfigInput.md)
+ - [MetricsChartConfigOutput](docs/MetricsChartConfigOutput.md)
+ - [MetricsLookBackPeriod](docs/MetricsLookBackPeriod.md)
  - [MetricsQuery](docs/MetricsQuery.md)
+ - [MetricsThreshold](docs/MetricsThreshold.md)
+ - [MetricsValueUnit](docs/MetricsValueUnit.md)
  - [NewCost](docs/NewCost.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
@@ -457,7 +468,8 @@ Class | Method | Description
  - [PolicyExecutionType](docs/PolicyExecutionType.md)
  - [PolicyRecommendationParams](docs/PolicyRecommendationParams.md)
  - [PolicyTemplate](docs/PolicyTemplate.md)
- - [PolicyTemplateDetails](docs/PolicyTemplateDetails.md)
+ - [PolicyTemplateDetailsInput](docs/PolicyTemplateDetailsInput.md)
+ - [PolicyTemplateDetailsOutput](docs/PolicyTemplateDetailsOutput.md)
  - [PolicyTemplateFilters](docs/PolicyTemplateFilters.md)
  - [PolicyTemplatePack](docs/PolicyTemplatePack.md)
  - [PolicyTemplatePackDetails](docs/PolicyTemplatePackDetails.md)
@@ -520,6 +532,7 @@ Class | Method | Description
  - [ResponseGetPolicyTicketsByEntityIdResponse](docs/ResponseGetPolicyTicketsByEntityIdResponse.md)
  - [ResponseGetPolicyTicketsByPolicyIdResponse](docs/ResponseGetPolicyTicketsByPolicyIdResponse.md)
  - [ResponseGetRecommendationUnitByIdResponse](docs/ResponseGetRecommendationUnitByIdResponse.md)
+ - [ResponseGetRecommendationUnitsResponse](docs/ResponseGetRecommendationUnitsResponse.md)
  - [ResponseGetTenantAnomalySettingsResponse](docs/ResponseGetTenantAnomalySettingsResponse.md)
  - [ResponseGetTenantByIDResponse](docs/ResponseGetTenantByIDResponse.md)
  - [ResponseGetTenantPoliciesResponse](docs/ResponseGetTenantPoliciesResponse.md)
@@ -579,6 +592,7 @@ Class | Method | Description
  - [TenantTicketFilters](docs/TenantTicketFilters.md)
  - [TenantTicketsStatsMetrics](docs/TenantTicketsStatsMetrics.md)
  - [TenantTicketsStatsMetricsGroupBy](docs/TenantTicketsStatsMetricsGroupBy.md)
+ - [TenantTicketsStatsMetricsSubGroupBy](docs/TenantTicketsStatsMetricsSubGroupBy.md)
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
  - [TenantVerifyCurBucketRequest](docs/TenantVerifyCurBucketRequest.md)
  - [TenantVerifyCurBucketResponse](docs/TenantVerifyCurBucketResponse.md)

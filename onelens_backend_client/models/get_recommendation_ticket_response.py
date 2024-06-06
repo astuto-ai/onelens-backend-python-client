@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.recommendation_ticket import RecommendationTicket
+from onelens_backend_client.models.get_recommendation_ticket import GetRecommendationTicket
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class GetRecommendationTicketResponse(BaseModel):
     """
     GetRecommendationTicketResponse
     """ # noqa: E501
-    recommendations: List[RecommendationTicket] = Field(description="The recommendations")
+    recommendations: List[GetRecommendationTicket] = Field(description="The recommendations for the ticket")
     __properties: ClassVar[List[str]] = ["recommendations"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class GetRecommendationTicketResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recommendations": [RecommendationTicket.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
+            "recommendations": [GetRecommendationTicket.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
         })
         return _obj
 

@@ -17,11 +17,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_filter_criteria import OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria
 from onelens_backend_client.models.tenant_tickets_stats_metrics import TenantTicketsStatsMetrics
 from onelens_backend_client.models.tenant_tickets_stats_metrics_group_by import TenantTicketsStatsMetricsGroupBy
+from onelens_backend_client.models.tenant_tickets_stats_metrics_sub_group_by import TenantTicketsStatsMetricsSubGroupBy
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,9 +33,10 @@ class GetPolicyTicketStatsRequest(BaseModel):
     metric: TenantTicketsStatsMetrics = Field(description="Metric to be fetched")
     filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
     group: Optional[TenantTicketsStatsMetricsGroupBy] = None
-    sub_group: Optional[TenantTicketsStatsMetricsGroupBy] = None
+    sub_group: Optional[TenantTicketsStatsMetricsSubGroupBy] = None
+    item_count: Optional[StrictInt] = None
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
-    __properties: ClassVar[List[str]] = ["metric", "filters", "group", "sub_group", "tenant_id"]
+    __properties: ClassVar[List[str]] = ["metric", "filters", "group", "sub_group", "item_count", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +94,11 @@ class GetPolicyTicketStatsRequest(BaseModel):
         if self.sub_group is None and "sub_group" in self.model_fields_set:
             _dict['sub_group'] = None
 
+        # set to None if item_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.item_count is None and "item_count" in self.model_fields_set:
+            _dict['item_count'] = None
+
         return _dict
 
     @classmethod
@@ -108,6 +115,7 @@ class GetPolicyTicketStatsRequest(BaseModel):
             "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
             "group": obj.get("group"),
             "sub_group": obj.get("sub_group"),
+            "item_count": obj.get("item_count"),
             "tenant_id": obj.get("tenant_id")
         })
         return _obj

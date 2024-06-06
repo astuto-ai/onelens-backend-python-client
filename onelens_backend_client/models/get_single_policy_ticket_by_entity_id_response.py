@@ -30,8 +30,8 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
     GetSinglePolicyTicketByEntityIdResponse
     """ # noqa: E501
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
-    ticket_status: PolicyTicketStatus = Field(description="Status of the ticket")
-    ticket_state: TicketState = Field(description="State of the ticket")
+    status: PolicyTicketStatus = Field(description="Status of the ticket")
+    state: TicketState = Field(description="State of the ticket")
     violation_attributes: Dict[str, Any] = Field(description="Attributes of the violation")
     entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
     entity_name: StrictStr = Field(description="Name of the resource")
@@ -39,13 +39,13 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
     service: StrictStr = Field(description="Service of the resource")
     service_display_name: StrictStr = Field(description="Service name in UI")
     account_id: StrictStr = Field(description="Account Id managing the resource")
-    recommendation_unit_title: StrictStr = Field(description="recommendation names of the ticket")
+    recommendation_unit_title: Optional[StrictStr] = None
     policy_id: StrictStr = Field(description="The unique identifier of the policy")
     policy_title: StrictStr = Field(description="Policy name")
     policy_labels: Optional[List[StrictStr]] = Field(default=None, description="List of policy labels")
     policy_violated_on: datetime = Field(description="Datetime of the policy violation")
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings possible for the current policy violation")
-    __properties: ClassVar[List[str]] = ["ticket_id", "ticket_status", "ticket_state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "policy_id", "policy_title", "policy_labels", "policy_violated_on", "potential_savings"]
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "policy_id", "policy_title", "policy_labels", "policy_violated_on", "potential_savings"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +86,11 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if recommendation_unit_title (nullable) is None
+        # and model_fields_set contains the field
+        if self.recommendation_unit_title is None and "recommendation_unit_title" in self.model_fields_set:
+            _dict['recommendation_unit_title'] = None
+
         return _dict
 
     @classmethod
@@ -99,8 +104,8 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ticket_id": obj.get("ticket_id"),
-            "ticket_status": obj.get("ticket_status"),
-            "ticket_state": obj.get("ticket_state"),
+            "status": obj.get("status"),
+            "state": obj.get("state"),
             "violation_attributes": obj.get("violation_attributes"),
             "entity_id": obj.get("entity_id"),
             "entity_name": obj.get("entity_name"),

@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ticket_id** | **str** | The unique identifier of the ticket | 
-**ticket_status** | [**PolicyTicketStatus**](PolicyTicketStatus.md) | Status of the ticket | 
-**ticket_state** | [**TicketState**](TicketState.md) | State of the ticket | 
+**status** | [**PolicyTicketStatus**](PolicyTicketStatus.md) | Status of the ticket | 
+**state** | [**TicketState**](TicketState.md) | State of the ticket | 
 **violation_attributes** | **object** | Attributes of the violation | 
 **entity_id** | **str** | The id of the resource experiencing policy violation. | 
 **entity_name** | **str** | Name of the resource | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **service** | **str** | Service of the resource | 
 **service_display_name** | **str** | Service name in UI | 
 **account_id** | **str** | Account Id managing the resource | 
-**recommendation_unit_title** | **str** | recommendation names of the ticket | 
+**recommendation_unit_title** | **str** |  | [optional] 
 **policy_id** | **str** | The unique identifier of the policy | 
 **policy_title** | **str** | Policy name | 
 **policy_labels** | **List[str]** | List of policy labels | [optional] 
