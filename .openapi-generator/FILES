@@ -789,17 +789,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_get_recommendation_ticket.py
-test/test_get_recommendation_units_request.py
-test/test_get_recommendation_units_response.py
-test/test_metrics_aggregation_type.py
-test/test_metrics_chart_config_input.py
-test/test_metrics_chart_config_output.py
-test/test_metrics_look_back_period.py
-test/test_metrics_threshold.py
-test/test_metrics_value_unit.py
-test/test_policy_template_details_input.py
-test/test_policy_template_details_output.py
-test/test_response_get_recommendation_units_response.py
-test/test_tenant_tickets_stats_metrics_sub_group_by.py
 tox.ini
