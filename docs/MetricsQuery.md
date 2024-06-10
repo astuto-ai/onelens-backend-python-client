@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **metric_name** | **str** |  | 
-**measures** | **List[str]** |  | 
+**measures** | [**List[MetricsAggregationType]**](MetricsAggregationType.md) |  | 
 **filters** | [**List[OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria]**](OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria.md) |  | 
 **time_filter** | [**OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension**](OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.md) |  | 
 **timezone** | **str** |  | [optional] [default to 'Asia/Kolkata']

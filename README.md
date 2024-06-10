@@ -208,6 +208,7 @@ Class | Method | Description
 *TenantPolicyServiceApi* | [**get_tenant_policy_with_summary**](docs/TenantPolicyServiceApi.md#get_tenant_policy_with_summary) | Retrieves a tenant policy with corresponding recommendations, by its id.
 *TenantPolicyServiceApi* | [**override_tenant_policy_config**](docs/TenantPolicyServiceApi.md#override_tenant_policy_config) | Override the tenant policy config with the provided config.
 *TenantPolicyServiceApi* | [**override_tenant_policy_exclusions**](docs/TenantPolicyServiceApi.md#override_tenant_policy_exclusions) | Override tenant policy exclusions.
+*TenantPolicyServiceApi* | [**update_tenant_policy_settings_last_run_at**](docs/TenantPolicyServiceApi.md#update_tenant_policy_settings_last_run_at) | Update the last run at timestamp of the policy setting.
 *TenantProviderServiceApi* | [**create_tenant_provider**](docs/TenantProviderServiceApi.md#create_tenant_provider) | Creates a new tenant Provider.
 *TenantProviderServiceApi* | [**get_tenant_provider_by_id**](docs/TenantProviderServiceApi.md#get_tenant_provider_by_id) | Retrieves a Tenant Provider by its unique identifier.
 *TenantProviderServiceApi* | [**get_tenant_providers**](docs/TenantProviderServiceApi.md#get_tenant_providers) | Retrieves all tenant providers.
@@ -434,6 +435,7 @@ Class | Method | Description
  - [HierarchyState](docs/HierarchyState.md)
  - [HierarchyType](docs/HierarchyType.md)
  - [Join](docs/Join.md)
+ - [LastRunAtUpdateItem](docs/LastRunAtUpdateItem.md)
  - [Metric](docs/Metric.md)
  - [MetricsAggregationType](docs/MetricsAggregationType.md)
  - [MetricsChartConfigInput](docs/MetricsChartConfigInput.md)
@@ -610,6 +612,7 @@ Class | Method | Description
  - [UpdateOrganizationResponse](docs/UpdateOrganizationResponse.md)
  - [UpdatePolicyTemplateRequest](docs/UpdatePolicyTemplateRequest.md)
  - [UpdatePolicyTemplateResponse](docs/UpdatePolicyTemplateResponse.md)
+ - [UpdateTenantPolicySettingLastRunAtRequest](docs/UpdateTenantPolicySettingLastRunAtRequest.md)
  - [UpdateTenantProviderRequest](docs/UpdateTenantProviderRequest.md)
  - [UpdateTenantProviderResponse](docs/UpdateTenantProviderResponse.md)
  - [UpdateTenantRequest](docs/UpdateTenantRequest.md)

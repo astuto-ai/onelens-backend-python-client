@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.tenant_policy_exclusions import TenantPolicyExclusions
@@ -34,7 +35,8 @@ class OverrideTenantPolicyExclusionsResponse(BaseModel):
     state: TenantPolicyState = Field(description="The state of the policy template.")
     version: StrictInt = Field(description="The version of the tenant policy.")
     exclusions: TenantPolicyExclusions = Field(description="The exclusions for the tenant policy.")
-    __properties: ClassVar[List[str]] = ["id", "policy_id", "config_overrides", "state", "version", "exclusions"]
+    last_run_at: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["id", "policy_id", "config_overrides", "state", "version", "exclusions", "last_run_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +85,11 @@ class OverrideTenantPolicyExclusionsResponse(BaseModel):
         if self.config_overrides is None and "config_overrides" in self.model_fields_set:
             _dict['config_overrides'] = None
 
+        # set to None if last_run_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_run_at is None and "last_run_at" in self.model_fields_set:
+            _dict['last_run_at'] = None
+
         return _dict
 
     @classmethod
@@ -100,7 +107,8 @@ class OverrideTenantPolicyExclusionsResponse(BaseModel):
             "config_overrides": obj.get("config_overrides"),
             "state": obj.get("state"),
             "version": obj.get("version"),
-            "exclusions": TenantPolicyExclusions.from_dict(obj["exclusions"]) if obj.get("exclusions") is not None else None
+            "exclusions": TenantPolicyExclusions.from_dict(obj["exclusions"]) if obj.get("exclusions") is not None else None,
+            "last_run_at": obj.get("last_run_at")
         })
         return _obj
 

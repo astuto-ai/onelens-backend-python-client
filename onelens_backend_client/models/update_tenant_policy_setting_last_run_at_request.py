@@ -17,25 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.metrics_aggregation_type import MetricsAggregationType
-from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_filter_criteria import OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria
-from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_time_dimension import OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from onelens_backend_client.models.last_run_at_update_item import LastRunAtUpdateItem
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MetricsQuery(BaseModel):
+class UpdateTenantPolicySettingLastRunAtRequest(BaseModel):
     """
-    MetricsQuery
+    UpdateTenantPolicySettingLastRunAtRequest
     """ # noqa: E501
-    name: StrictStr
-    metric_name: StrictStr
-    measures: List[MetricsAggregationType]
-    filters: List[OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria]
-    time_filter: OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension
-    timezone: Optional[StrictStr] = 'Asia/Kolkata'
-    __properties: ClassVar[List[str]] = ["name", "metric_name", "measures", "filters", "time_filter", "timezone"]
+    tenant_id: StrictStr = Field(description="The id of the tenant.")
+    updates: List[LastRunAtUpdateItem] = Field(description="The list of updates.")
+    __properties: ClassVar[List[str]] = ["tenant_id", "updates"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +49,7 @@ class MetricsQuery(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MetricsQuery from a JSON string"""
+        """Create an instance of UpdateTenantPolicySettingLastRunAtRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,21 +70,18 @@ class MetricsQuery(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in filters (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in updates (list)
         _items = []
-        if self.filters:
-            for _item in self.filters:
+        if self.updates:
+            for _item in self.updates:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['filters'] = _items
-        # override the default output from pydantic by calling `to_dict()` of time_filter
-        if self.time_filter:
-            _dict['time_filter'] = self.time_filter.to_dict()
+            _dict['updates'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MetricsQuery from a dict"""
+        """Create an instance of UpdateTenantPolicySettingLastRunAtRequest from a dict"""
         if obj is None:
             return None
 
@@ -98,12 +89,8 @@ class MetricsQuery(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "metric_name": obj.get("metric_name"),
-            "measures": obj.get("measures"),
-            "filters": [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
-            "time_filter": OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.from_dict(obj["time_filter"]) if obj.get("time_filter") is not None else None,
-            "timezone": obj.get("timezone") if obj.get("timezone") is not None else 'Asia/Kolkata'
+            "tenant_id": obj.get("tenant_id"),
+            "updates": [LastRunAtUpdateItem.from_dict(_item) for _item in obj["updates"]] if obj.get("updates") is not None else None
         })
         return _obj
 

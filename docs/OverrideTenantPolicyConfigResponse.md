@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **state** | [**TenantPolicyState**](TenantPolicyState.md) | The state of the policy template. | 
 **version** | **int** | The version of the tenant policy. | 
 **exclusions** | [**TenantPolicyExclusions**](TenantPolicyExclusions.md) | The exclusions for the tenant policy. | 
+**last_run_at** | **datetime** |  | [optional] 
 
 ## Example
 

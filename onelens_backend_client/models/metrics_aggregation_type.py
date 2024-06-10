@@ -30,6 +30,7 @@ class MetricsAggregationType(str, Enum):
     P95_MAXIMUM = 'p95_maximum'
     P90_MAXIMUM = 'p90_maximum'
     SUM_MAXIMUM = 'sum_maximum'
+    MAX_MAXIMUM = 'max_maximum'
     SUM_SUM = 'sum_sum'
     SUM_AVERAGE = 'sum_average'
     MAXIMUM = 'maximum'
