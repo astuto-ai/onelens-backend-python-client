@@ -94,6 +94,7 @@ Class | Method | Description
 *RecommendationEngineApi* | [**get_recommendation_units**](docs/RecommendationEngineApi.md#get_recommendation_units) | Get Recommendation Units
 *RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
 *RecommendationEngineApi* | [**get_recommendations_0**](docs/RecommendationEngineApi.md#get_recommendations_0) | Get Recommendations
+*Auth0Api* | [**create_user**](docs/Auth0Api.md#create_user) | Create User
 *CloudMetadataApi* | [**create_root_node**](docs/CloudMetadataApi.md#create_root_node) | Create Root Node
 *CloudMetadataApi* | [**create_root_node_0**](docs/CloudMetadataApi.md#create_root_node_0) | Create Root Node
 *CloudMetadataServiceApi* | [**get_cloud_metadata**](docs/CloudMetadataServiceApi.md#get_cloud_metadata) | get cloud metadata for tenant
@@ -218,6 +219,7 @@ Class | Method | Description
 *TenantServiceApi* | [**get_tenant_by_id**](docs/TenantServiceApi.md#get_tenant_by_id) | Retrieves a tenant by its unique identifier.
 *TenantServiceApi* | [**get_tenants**](docs/TenantServiceApi.md#get_tenants) | Retrieves all Tenants with filters.
 *TenantServiceApi* | [**update_tenant**](docs/TenantServiceApi.md#update_tenant) | Updates an existing tenant.
+*TenantTicketServiceApi* | [**bulk_update_tenant_tickets**](docs/TenantTicketServiceApi.md#bulk_update_tenant_tickets) | Bulk update tenant tickets
 *TenantTicketServiceApi* | [**create_tenant_tickets**](docs/TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
 *TenantTicketServiceApi* | [**get_all_policy_violations**](docs/TenantTicketServiceApi.md#get_all_policy_violations) | Get All Policy Violations
 *TenantTicketServiceApi* | [**get_policy_ticket_stats**](docs/TenantTicketServiceApi.md#get_policy_ticket_stats) | Get Policy Ticket Stats
@@ -229,7 +231,8 @@ Class | Method | Description
 *TenantTicketServiceApi* | [**update_tenant_tickets**](docs/TenantTicketServiceApi.md#update_tenant_tickets) | Updates policy tickets in bulk
 *TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
-*TenantsApi* | [**create_tenant**](docs/TenantsApi.md#create_tenant) | Create Tenant
+*TenantVerifyServiceApi* | [**verify_tenant**](docs/TenantVerifyServiceApi.md#verify_tenant) | Verify Tenant
+*TenantVerifyServiceApi* | [**verify_tenant_cur_bucket**](docs/TenantVerifyServiceApi.md#verify_tenant_cur_bucket) | Verify Tenant Cur Bucket
 *TenantsApi* | [**disable_tenant**](docs/TenantsApi.md#disable_tenant) | Disable Tenant
 *TenantsApi* | [**disable_tenant_0**](docs/TenantsApi.md#disable_tenant_0) | Disable Tenant
 *TenantsApi* | [**enable_tenant**](docs/TenantsApi.md#enable_tenant) | Enable Tenant
@@ -241,10 +244,10 @@ Class | Method | Description
 *TenantsApi* | [**update_tenant_0**](docs/TenantsApi.md#update_tenant_0) | Update Tenant
 *TenantsResourceCatalogApi* | [**create_root_node**](docs/TenantsResourceCatalogApi.md#create_root_node) | Create Root Node
 *TenantsResourceCatalogApi* | [**create_root_node_0**](docs/TenantsResourceCatalogApi.md#create_root_node_0) | Create Root Node
-*TenantsTenantProviderVerifyApi* | [**verify_tenant**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant) | Verify Tenant
-*TenantsTenantProviderVerifyApi* | [**verify_tenant_0**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_0) | Verify Tenant
 *TenantsTenantProviderVerifyApi* | [**verify_tenant_cur_bucket**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_cur_bucket) | Verify Tenant Cur Bucket
 *TenantsTenantProviderVerifyApi* | [**verify_tenant_cur_bucket_0**](docs/TenantsTenantProviderVerifyApi.md#verify_tenant_cur_bucket_0) | Verify Tenant Cur Bucket
+*TenantsTenantTicketsApi* | [**bulk_update_tenant_tickets**](docs/TenantsTenantTicketsApi.md#bulk_update_tenant_tickets) | Bulk Update Tenant Tickets
+*TenantsTenantTicketsApi* | [**bulk_update_tenant_tickets_0**](docs/TenantsTenantTicketsApi.md#bulk_update_tenant_tickets_0) | Bulk Update Tenant Tickets
 *TenantsTenantTicketsApi* | [**create_tenant_tickets**](docs/TenantsTenantTicketsApi.md#create_tenant_tickets) | Create Tenant Tickets
 *TenantsTenantTicketsApi* | [**create_tenant_tickets_0**](docs/TenantsTenantTicketsApi.md#create_tenant_tickets_0) | Create Tenant Tickets
 *TenantsTenantTicketsApi* | [**get_all_policy_violations**](docs/TenantsTenantTicketsApi.md#get_all_policy_violations) | Get All Policy Violations
@@ -263,8 +266,6 @@ Class | Method | Description
 *TenantsTenantTicketsApi* | [**update_tenant_ticket_0**](docs/TenantsTenantTicketsApi.md#update_tenant_ticket_0) | Update Tenant Ticket
 *TenantsTenantTicketsApi* | [**update_tenant_tickets**](docs/TenantsTenantTicketsApi.md#update_tenant_tickets) | Update Tenant Tickets
 *TenantsTenantTicketsApi* | [**update_tenant_tickets_0**](docs/TenantsTenantTicketsApi.md#update_tenant_tickets_0) | Update Tenant Tickets
-*TenantsTenantsProvidersApi* | [**create_tenant_provider**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider) | Create Tenant Provider
-*TenantsTenantsProvidersApi* | [**create_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#create_tenant_provider_0) | Create Tenant Provider
 *TenantsTenantsProvidersApi* | [**disable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider) | Disable Tenant Provider
 *TenantsTenantsProvidersApi* | [**disable_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#disable_tenant_provider_0) | Disable Tenant Provider
 *TenantsTenantsProvidersApi* | [**enable_tenant_provider**](docs/TenantsTenantsProvidersApi.md#enable_tenant_provider) | Enable Tenant Provider
@@ -272,8 +273,6 @@ Class | Method | Description
 *TenantsTenantsProvidersApi* | [**get_tenant_provider**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider) | Get Tenant Provider
 *TenantsTenantsProvidersApi* | [**get_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#get_tenant_provider_0) | Get Tenant Provider
 *TenantsTenantsProvidersApi* | [**get_tenant_providers**](docs/TenantsTenantsProvidersApi.md#get_tenant_providers) | Get Tenant Providers
-*TenantsTenantsProvidersApi* | [**update_tenant_provider**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider) | Update Tenant Provider
-*TenantsTenantsProvidersApi* | [**update_tenant_provider_0**](docs/TenantsTenantsProvidersApi.md#update_tenant_provider_0) | Update Tenant Provider
 *UserTenantMappingApi* | [**create_user_tenant_mapping**](docs/UserTenantMappingApi.md#create_user_tenant_mapping) | Create User Tenant Mapping
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | Create User
 *UsersApi* | [**get_user_by_id**](docs/UsersApi.md#get_user_by_id) | Get User By Id
@@ -292,8 +291,18 @@ Class | Method | Description
  - [AnomalyRcaIdsMixin](docs/AnomalyRcaIdsMixin.md)
  - [AnomalySourceType](docs/AnomalySourceType.md)
  - [AnomalyTicketStatus](docs/AnomalyTicketStatus.md)
+ - [Auth0CreateUserAppMetadata](docs/Auth0CreateUserAppMetadata.md)
+ - [Auth0UserConnection](docs/Auth0UserConnection.md)
  - [AwsService](docs/AwsService.md)
  - [BeginRange](docs/BeginRange.md)
+ - [BulkUpdateTenantTicketsAPIRequest](docs/BulkUpdateTenantTicketsAPIRequest.md)
+ - [BulkUpdateTenantTicketsAPIResponse](docs/BulkUpdateTenantTicketsAPIResponse.md)
+ - [BulkUpdateTenantTicketsErrorMixin](docs/BulkUpdateTenantTicketsErrorMixin.md)
+ - [BulkUpdateTenantTicketsRequest](docs/BulkUpdateTenantTicketsRequest.md)
+ - [BulkUpdateTenantTicketsRequestMixin](docs/BulkUpdateTenantTicketsRequestMixin.md)
+ - [BulkUpdateTenantTicketsResponse](docs/BulkUpdateTenantTicketsResponse.md)
+ - [CreateAuth0UserRequest](docs/CreateAuth0UserRequest.md)
+ - [CreateAuth0UserResponse](docs/CreateAuth0UserResponse.md)
  - [CreateDefaultHierarchyRequest](docs/CreateDefaultHierarchyRequest.md)
  - [CreateHierarchyNodeAPIRequest](docs/CreateHierarchyNodeAPIRequest.md)
  - [CreateHierarchyNodeRequest](docs/CreateHierarchyNodeRequest.md)
@@ -310,7 +319,6 @@ Class | Method | Description
  - [CreatePolicyTemplateResponse](docs/CreatePolicyTemplateResponse.md)
  - [CreateTenantProviderRequest](docs/CreateTenantProviderRequest.md)
  - [CreateTenantProviderResponse](docs/CreateTenantProviderResponse.md)
- - [CreateTenantRequest](docs/CreateTenantRequest.md)
  - [CreateTenantRequestWithUser](docs/CreateTenantRequestWithUser.md)
  - [CreateTenantResponse](docs/CreateTenantResponse.md)
  - [CreateTenantTicketRequestMixin](docs/CreateTenantTicketRequestMixin.md)
@@ -508,6 +516,8 @@ Class | Method | Description
  - [ResourceType](docs/ResourceType.md)
  - [ResponseActivatePolicyTemplateResponse](docs/ResponseActivatePolicyTemplateResponse.md)
  - [ResponseAddTenantPolicyExclusionsResponse](docs/ResponseAddTenantPolicyExclusionsResponse.md)
+ - [ResponseBulkUpdateTenantTicketsAPIResponse](docs/ResponseBulkUpdateTenantTicketsAPIResponse.md)
+ - [ResponseCreateAuth0UserResponse](docs/ResponseCreateAuth0UserResponse.md)
  - [ResponseCreateDefaultHierarchyResponse](docs/ResponseCreateDefaultHierarchyResponse.md)
  - [ResponseCreateHierarchyRootNodeResponse](docs/ResponseCreateHierarchyRootNodeResponse.md)
  - [ResponseCreatePolicyTemplatePackResponse](docs/ResponseCreatePolicyTemplatePackResponse.md)
@@ -555,9 +565,7 @@ Class | Method | Description
  - [ResponseSetTenantProviderStatusResponse](docs/ResponseSetTenantProviderStatusResponse.md)
  - [ResponseSetTenantStatusResponse](docs/ResponseSetTenantStatusResponse.md)
  - [ResponseTenantVerifyCurBucketResponse](docs/ResponseTenantVerifyCurBucketResponse.md)
- - [ResponseTenantVerifyResponse](docs/ResponseTenantVerifyResponse.md)
  - [ResponseUpdatePolicyTemplateResponse](docs/ResponseUpdatePolicyTemplateResponse.md)
- - [ResponseUpdateTenantProviderResponse](docs/ResponseUpdateTenantProviderResponse.md)
  - [ResponseUpdateTenantResponse](docs/ResponseUpdateTenantResponse.md)
  - [ResponseUpdateTenantTicketResponse](docs/ResponseUpdateTenantTicketResponse.md)
  - [ResponseUpdateTenantTicketsResponse](docs/ResponseUpdateTenantTicketsResponse.md)
@@ -598,7 +606,7 @@ Class | Method | Description
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
  - [TenantVerifyCurBucketRequest](docs/TenantVerifyCurBucketRequest.md)
  - [TenantVerifyCurBucketResponse](docs/TenantVerifyCurBucketResponse.md)
- - [TenantVerifyRequest](docs/TenantVerifyRequest.md)
+ - [TenantVerifyRequestWithUser](docs/TenantVerifyRequestWithUser.md)
  - [TenantVerifyResponse](docs/TenantVerifyResponse.md)
  - [TicketAssignment](docs/TicketAssignment.md)
  - [TicketCategory](docs/TicketCategory.md)
@@ -613,8 +621,6 @@ Class | Method | Description
  - [UpdatePolicyTemplateRequest](docs/UpdatePolicyTemplateRequest.md)
  - [UpdatePolicyTemplateResponse](docs/UpdatePolicyTemplateResponse.md)
  - [UpdateTenantPolicySettingLastRunAtRequest](docs/UpdateTenantPolicySettingLastRunAtRequest.md)
- - [UpdateTenantProviderRequest](docs/UpdateTenantProviderRequest.md)
- - [UpdateTenantProviderResponse](docs/UpdateTenantProviderResponse.md)
  - [UpdateTenantRequest](docs/UpdateTenantRequest.md)
  - [UpdateTenantResponse](docs/UpdateTenantResponse.md)
  - [UpdateTenantTicketAPIRequest](docs/UpdateTenantTicketAPIRequest.md)

@@ -4,6 +4,7 @@
 from onelens_backend_client.api.data_retriever_api import DataRetrieverApi
 from onelens_backend_client.api.recommendation_api import RecommendationApi
 from onelens_backend_client.api.recommendation_engine_api import RecommendationEngineApi
+from onelens_backend_client.api.auth0_api import Auth0Api
 from onelens_backend_client.api.cloud_metadata_api import CloudMetadataApi
 from onelens_backend_client.api.cloud_metadata_service_api import CloudMetadataServiceApi
 from onelens_backend_client.api.default_api import DefaultApi
@@ -30,6 +31,7 @@ from onelens_backend_client.api.tenant_provider_service_api import TenantProvide
 from onelens_backend_client.api.tenant_service_api import TenantServiceApi
 from onelens_backend_client.api.tenant_ticket_service_api import TenantTicketServiceApi
 from onelens_backend_client.api.tenant_users_api import TenantUsersApi
+from onelens_backend_client.api.tenant_verify_service_api import TenantVerifyServiceApi
 from onelens_backend_client.api.tenants_api import TenantsApi
 from onelens_backend_client.api.tenants_resource_catalog_api import TenantsResourceCatalogApi
 from onelens_backend_client.api.tenants_tenant_provider_verify_api import TenantsTenantProviderVerifyApi

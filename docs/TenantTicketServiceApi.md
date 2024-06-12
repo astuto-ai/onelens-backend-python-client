@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
+[**bulk_update_tenant_tickets**](TenantTicketServiceApi.md#bulk_update_tenant_tickets) | Bulk update tenant tickets
 [**create_tenant_tickets**](TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
 [**get_all_policy_violations**](TenantTicketServiceApi.md#get_all_policy_violations) | Get All Policy Violations
 [**get_policy_ticket_stats**](TenantTicketServiceApi.md#get_policy_ticket_stats) | Get Policy Ticket Stats
@@ -14,6 +15,74 @@ Method | Description
 [**update_tenant_ticket**](TenantTicketServiceApi.md#update_tenant_ticket) | Update tenant policy ticket user state
 [**update_tenant_tickets**](TenantTicketServiceApi.md#update_tenant_tickets) | Updates policy tickets in bulk
 
+
+# **bulk_update_tenant_tickets**
+> BulkUpdateTenantTicketsResponse bulk_update_tenant_tickets(bulk_update_tenant_tickets_request)
+
+Bulk update tenant tickets
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.bulk_update_tenant_tickets_request import BulkUpdateTenantTicketsRequest
+from onelens_backend_client.models.bulk_update_tenant_tickets_response import BulkUpdateTenantTicketsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantTicketServiceApi(api_client)
+    bulk_update_tenant_tickets_request = onelens_backend_client.BulkUpdateTenantTicketsRequest() # BulkUpdateTenantTicketsRequest | 
+
+    try:
+        # Bulk update tenant tickets
+        api_response = api_instance.bulk_update_tenant_tickets(bulk_update_tenant_tickets_request)
+        print("The response of TenantTicketServiceApi->bulk_update_tenant_tickets:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantTicketServiceApi->bulk_update_tenant_tickets: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulk_update_tenant_tickets_request** | [**BulkUpdateTenantTicketsRequest**](BulkUpdateTenantTicketsRequest.md)|  | 
+
+### Return type
+
+[**BulkUpdateTenantTicketsResponse**](BulkUpdateTenantTicketsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tenant_tickets**
 > object create_tenant_tickets(create_tenant_tickets_request)

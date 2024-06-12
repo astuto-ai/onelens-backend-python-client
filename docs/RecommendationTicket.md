@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **recommendation_unit_id** | **str** | Recommendation Unit ID | 
 **action_type_id** | **int** | Action Type ID | 
 **priority** | **int** | Priority | 
+**sequence** | **int** | Sequence | 
 **effort** | [**Effort**](Effort.md) | Effort | 
 **price_per_unit** | **str** | Price Per Unit | 
 **currency** | **str** | Currency | 

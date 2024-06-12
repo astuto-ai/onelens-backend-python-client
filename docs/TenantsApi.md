@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
-[**create_tenant**](TenantsApi.md#create_tenant) | Create Tenant
 [**disable_tenant**](TenantsApi.md#disable_tenant) | Disable Tenant
 [**disable_tenant_0**](TenantsApi.md#disable_tenant_0) | Disable Tenant
 [**enable_tenant**](TenantsApi.md#enable_tenant) | Enable Tenant
@@ -15,76 +14,6 @@ Method | Description
 [**update_tenant**](TenantsApi.md#update_tenant) | Update Tenant
 [**update_tenant_0**](TenantsApi.md#update_tenant_0) | Update Tenant
 
-
-# **create_tenant**
-> CreateTenantResponse create_tenant(create_tenant_request)
-
-Create Tenant
-
-An API endpoint that retrieves tenant with tenant IDs.
-
-### Example
-
-
-```python
-import onelens_backend_client
-from onelens_backend_client.models.create_tenant_request import CreateTenantRequest
-from onelens_backend_client.models.create_tenant_response import CreateTenantResponse
-from onelens_backend_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = onelens_backend_client.Configuration(
-    host = "http://localhost"
-)
-
-
-# Enter a context with an instance of the API client
-with onelens_backend_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = onelens_backend_client.TenantsApi(api_client)
-    create_tenant_request = onelens_backend_client.CreateTenantRequest() # CreateTenantRequest | 
-
-    try:
-        # Create Tenant
-        api_response = api_instance.create_tenant(create_tenant_request)
-        print("The response of TenantsApi->create_tenant:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TenantsApi->create_tenant: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_tenant_request** | [**CreateTenantRequest**](CreateTenantRequest.md)|  | 
-
-### Return type
-
-[**CreateTenantResponse**](CreateTenantResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **disable_tenant**
 > ResponseSetTenantStatusResponse disable_tenant(tenant_id)

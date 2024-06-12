@@ -35,6 +35,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
     """ # noqa: E501
     recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
     action_type_id: StrictInt = Field(description="Action Type ID")
+    sequence: StrictInt = Field(description="Sequence")
     priority: StrictInt = Field(description="Priority")
     effort: Effort = Field(description="Effort")
     instance_type: Optional[StrictStr] = None
@@ -51,7 +52,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
     attributes: Dict[str, Any] = Field(description="Attributes")
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
+    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "sequence", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -134,6 +135,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
         _obj = cls.model_validate({
             "recommendation_unit_id": obj.get("recommendation_unit_id"),
             "action_type_id": obj.get("action_type_id"),
+            "sequence": obj.get("sequence"),
             "priority": obj.get("priority"),
             "effort": obj.get("effort"),
             "instance_type": obj.get("instance_type"),

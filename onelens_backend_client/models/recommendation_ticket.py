@@ -33,6 +33,7 @@ class RecommendationTicket(BaseModel):
     recommendation_unit_id: StrictStr = Field(description="Recommendation Unit ID")
     action_type_id: StrictInt = Field(description="Action Type ID")
     priority: StrictInt = Field(description="Priority")
+    sequence: StrictInt = Field(description="Sequence")
     effort: Effort = Field(description="Effort")
     price_per_unit: StrictStr = Field(description="Price Per Unit")
     currency: StrictStr = Field(description="Currency")
@@ -45,7 +46,7 @@ class RecommendationTicket(BaseModel):
     end_range: StrictStr = Field(description="End Range")
     attributes: Dict[str, Any] = Field(description="Attributes")
     created_at: datetime = Field(description="Datetime of ticket creation")
-    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "effort", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "created_at"]
+    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "sequence", "effort", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,6 +104,7 @@ class RecommendationTicket(BaseModel):
             "recommendation_unit_id": obj.get("recommendation_unit_id"),
             "action_type_id": obj.get("action_type_id"),
             "priority": obj.get("priority"),
+            "sequence": obj.get("sequence"),
             "effort": obj.get("effort"),
             "price_per_unit": obj.get("price_per_unit"),
             "currency": obj.get("currency"),
