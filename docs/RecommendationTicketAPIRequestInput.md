@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **begin_range** | [**BeginRange**](BeginRange.md) |  | 
 **end_range** | [**EndRange**](EndRange.md) |  | 
 **attributes** | **object** | Attributes | 
+**source_attributes** | **object** | Source Attributes | 
 **ticket_id** | **str** | The unique identifier of the ticket | 
 **id** | **str** | The unique identifier of the ticket | [optional] 
 

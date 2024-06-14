@@ -32,10 +32,11 @@ class UpdateTenantTicketRequestMixin(BaseModel):
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     status: Optional[Status1] = None
     details: Optional[Details2] = None
+    resource_attributes: Optional[Dict[str, Any]] = None
     cost_impact: Optional[Union[StrictFloat, StrictInt]] = None
     last_run_id: Optional[StrictStr] = None
     last_run_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "details", "cost_impact", "last_run_id", "last_run_at"]
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "details", "resource_attributes", "cost_impact", "last_run_id", "last_run_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,11 @@ class UpdateTenantTicketRequestMixin(BaseModel):
         if self.details is None and "details" in self.model_fields_set:
             _dict['details'] = None
 
+        # set to None if resource_attributes (nullable) is None
+        # and model_fields_set contains the field
+        if self.resource_attributes is None and "resource_attributes" in self.model_fields_set:
+            _dict['resource_attributes'] = None
+
         # set to None if cost_impact (nullable) is None
         # and model_fields_set contains the field
         if self.cost_impact is None and "cost_impact" in self.model_fields_set:
@@ -122,6 +128,7 @@ class UpdateTenantTicketRequestMixin(BaseModel):
             "ticket_id": obj.get("ticket_id"),
             "status": Status1.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "details": Details2.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "resource_attributes": obj.get("resource_attributes"),
             "cost_impact": obj.get("cost_impact"),
             "last_run_id": obj.get("last_run_id"),
             "last_run_at": obj.get("last_run_at")

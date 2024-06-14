@@ -45,8 +45,9 @@ class RecommendationTicket(BaseModel):
     begin_range: StrictStr = Field(description="Begin Range")
     end_range: StrictStr = Field(description="End Range")
     attributes: Dict[str, Any] = Field(description="Attributes")
+    source_attributes: Dict[str, Any] = Field(description="Source Attributes")
     created_at: datetime = Field(description="Datetime of ticket creation")
-    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "sequence", "effort", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "created_at"]
+    __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "sequence", "effort", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "source_attributes", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,6 +117,7 @@ class RecommendationTicket(BaseModel):
             "begin_range": obj.get("begin_range"),
             "end_range": obj.get("end_range"),
             "attributes": obj.get("attributes"),
+            "source_attributes": obj.get("source_attributes"),
             "created_at": obj.get("created_at")
         })
         return _obj
