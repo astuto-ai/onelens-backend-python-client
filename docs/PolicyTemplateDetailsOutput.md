@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **secondary_violation_attributes_schema** | **object** |  | [optional] 
 **rule_type** | [**RuleType**](RuleType.md) |  | [optional] 
 **rule_definition** | **str** |  | [optional] 
+**rule_definition_hash** | **str** |  | [optional] 
 **default_policy_config** | **object** |  | [optional] 
 **metrics_details** | [**List[MetricsChartConfigOutput]**](MetricsChartConfigOutput.md) |  | [optional] 
 

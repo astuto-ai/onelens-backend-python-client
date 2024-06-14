@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **field_name** | **str** | Field name to be fetched | 
-**field_value** | **str** |  | [optional] 
+**field_value** | **float** |  | [optional] 
 
 ## Example
 

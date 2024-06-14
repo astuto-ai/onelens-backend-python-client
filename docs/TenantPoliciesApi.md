@@ -14,6 +14,8 @@ Method | Description
 [**enable_tenant_policy_0**](TenantPoliciesApi.md#enable_tenant_policy_0) | Enable Tenant Policy
 [**get_tenant_policies**](TenantPoliciesApi.md#get_tenant_policies) | Get Tenant Policies
 [**get_tenant_policies_0**](TenantPoliciesApi.md#get_tenant_policies_0) | Get Tenant Policies
+[**get_tenant_policies_with_settings**](TenantPoliciesApi.md#get_tenant_policies_with_settings) | Get Tenant Policies With Settings
+[**get_tenant_policies_with_settings_0**](TenantPoliciesApi.md#get_tenant_policies_with_settings_0) | Get Tenant Policies With Settings
 [**get_tenant_policy_by_id**](TenantPoliciesApi.md#get_tenant_policy_by_id) | Get Tenant Policy By Id
 [**get_tenant_policy_by_id_0**](TenantPoliciesApi.md#get_tenant_policy_by_id_0) | Get Tenant Policy By Id
 [**get_tenant_policy_by_id_with_recommendations**](TenantPoliciesApi.md#get_tenant_policy_by_id_with_recommendations) | Get Tenant Policy By Id With Recommendations
@@ -698,6 +700,146 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseGetTenantPoliciesResponse**](ResponseGetTenantPoliciesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_policies_with_settings**
+> ResponseGetTenantPoliciesWithSettingsResponse get_tenant_policies_with_settings(tenant_id, get_tenant_policies_with_settings_api_request)
+
+Get Tenant Policies With Settings
+
+API to get all Tenant Policies along with Settings in Tenant DB
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_tenant_policies_with_settings_api_request import GetTenantPoliciesWithSettingsAPIRequest
+from onelens_backend_client.models.response_get_tenant_policies_with_settings_response import ResponseGetTenantPoliciesWithSettingsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantPoliciesApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    get_tenant_policies_with_settings_api_request = onelens_backend_client.GetTenantPoliciesWithSettingsAPIRequest() # GetTenantPoliciesWithSettingsAPIRequest | 
+
+    try:
+        # Get Tenant Policies With Settings
+        api_response = api_instance.get_tenant_policies_with_settings(tenant_id, get_tenant_policies_with_settings_api_request)
+        print("The response of TenantPoliciesApi->get_tenant_policies_with_settings:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantPoliciesApi->get_tenant_policies_with_settings: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **get_tenant_policies_with_settings_api_request** | [**GetTenantPoliciesWithSettingsAPIRequest**](GetTenantPoliciesWithSettingsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetTenantPoliciesWithSettingsResponse**](ResponseGetTenantPoliciesWithSettingsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_policies_with_settings_0**
+> ResponseGetTenantPoliciesWithSettingsResponse get_tenant_policies_with_settings_0(get_tenant_policies_with_settings_api_request)
+
+Get Tenant Policies With Settings
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_tenant_policies_with_settings_api_request import GetTenantPoliciesWithSettingsAPIRequest
+from onelens_backend_client.models.response_get_tenant_policies_with_settings_response import ResponseGetTenantPoliciesWithSettingsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantPoliciesApi(api_client)
+    get_tenant_policies_with_settings_api_request = onelens_backend_client.GetTenantPoliciesWithSettingsAPIRequest() # GetTenantPoliciesWithSettingsAPIRequest | 
+
+    try:
+        # Get Tenant Policies With Settings
+        api_response = api_instance.get_tenant_policies_with_settings_0(get_tenant_policies_with_settings_api_request)
+        print("The response of TenantPoliciesApi->get_tenant_policies_with_settings_0:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantPoliciesApi->get_tenant_policies_with_settings_0: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_tenant_policies_with_settings_api_request** | [**GetTenantPoliciesWithSettingsAPIRequest**](GetTenantPoliciesWithSettingsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetTenantPoliciesWithSettingsResponse**](ResponseGetTenantPoliciesWithSettingsResponse.md)
 
 ### Authorization
 

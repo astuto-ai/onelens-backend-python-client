@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 **group** | [**TenantTicketsStatsMetricsGroupBy**](TenantTicketsStatsMetricsGroupBy.md) |  | [optional] 
 **sub_group** | [**TenantTicketsStatsMetricsSubGroupBy**](TenantTicketsStatsMetricsSubGroupBy.md) |  | [optional] 
+**limit_items** | **bool** |  | [optional] 
 **item_count** | **int** |  | [optional] 
 
 ## Example
