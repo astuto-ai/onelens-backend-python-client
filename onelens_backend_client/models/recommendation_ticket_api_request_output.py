@@ -44,9 +44,10 @@ class RecommendationTicketAPIRequestOutput(BaseModel):
     begin_range: StrictStr = Field(description="Begin Range")
     end_range: StrictStr = Field(description="End Range")
     attributes: Dict[str, Any] = Field(description="Attributes")
+    source_attributes: Dict[str, Any] = Field(description="Source Attributes")
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the ticket")
-    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "sequence", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "ticket_id", "id"]
+    __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "sequence", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "source_attributes", "ticket_id", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -126,6 +127,7 @@ class RecommendationTicketAPIRequestOutput(BaseModel):
             "begin_range": obj.get("begin_range"),
             "end_range": obj.get("end_range"),
             "attributes": obj.get("attributes"),
+            "source_attributes": obj.get("source_attributes"),
             "ticket_id": obj.get("ticket_id"),
             "id": obj.get("id")
         })

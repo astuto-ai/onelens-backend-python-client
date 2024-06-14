@@ -32,7 +32,8 @@ class UpdateTenantTicketAPIRequest(BaseModel):
     status: Optional[Status1] = None
     assignment: Optional[TicketAssignment] = None
     details: Optional[Details2] = None
-    __properties: ClassVar[List[str]] = ["status", "assignment", "details"]
+    resource_attributes: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["status", "assignment", "details", "resource_attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +95,11 @@ class UpdateTenantTicketAPIRequest(BaseModel):
         if self.details is None and "details" in self.model_fields_set:
             _dict['details'] = None
 
+        # set to None if resource_attributes (nullable) is None
+        # and model_fields_set contains the field
+        if self.resource_attributes is None and "resource_attributes" in self.model_fields_set:
+            _dict['resource_attributes'] = None
+
         return _dict
 
     @classmethod
@@ -108,7 +114,8 @@ class UpdateTenantTicketAPIRequest(BaseModel):
         _obj = cls.model_validate({
             "status": Status1.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "assignment": obj.get("assignment"),
-            "details": Details2.from_dict(obj["details"]) if obj.get("details") is not None else None
+            "details": Details2.from_dict(obj["details"]) if obj.get("details") is not None else None,
+            "resource_attributes": obj.get("resource_attributes")
         })
         return _obj
 

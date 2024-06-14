@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **begin_range** | **str** | Begin Range | 
 **end_range** | **str** | End Range | 
 **attributes** | **object** | Attributes | 
+**source_attributes** | **object** | Source Attributes | 
 **created_at** | **datetime** | Datetime of ticket creation | 
 
 ## Example

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **state** | [**TicketState**](TicketState.md) | State of the ticket | 
 **entity_id** | **str** | The id of the resource experiencing policy violation. | 
 **entity_type** | **str** | The type of the resource experiencing policy violation. | 
+**resource_attributes** | **object** | The attributes of the resource experiencing policy violation. | 
 **assignment** | [**TicketAssignment**](TicketAssignment.md) | Assignment state of the ticket | 
 **assigned_to** | **str** |  | [optional] 
 **last_run_id** | **str** | Id of the last policy violation/anomaly run | 
