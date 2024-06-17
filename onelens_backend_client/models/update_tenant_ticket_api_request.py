@@ -17,10 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from onelens_backend_client.models.details2 import Details2
-from onelens_backend_client.models.monthly_unblended_cost1 import MonthlyUnblendedCost1
 from onelens_backend_client.models.status1 import Status1
 from onelens_backend_client.models.ticket_assignment import TicketAssignment
 from typing import Optional, Set
@@ -34,7 +33,7 @@ class UpdateTenantTicketAPIRequest(BaseModel):
     assignment: Optional[TicketAssignment] = None
     details: Optional[Details2] = None
     entity_attributes: Optional[Dict[str, Any]] = None
-    monthly_unblended_cost: Optional[MonthlyUnblendedCost1] = None
+    monthly_unblended_cost: Optional[Union[StrictFloat, StrictInt]] = None
     __properties: ClassVar[List[str]] = ["status", "assignment", "details", "entity_attributes", "monthly_unblended_cost"]
 
     model_config = ConfigDict(
@@ -82,9 +81,6 @@ class UpdateTenantTicketAPIRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of monthly_unblended_cost
-        if self.monthly_unblended_cost:
-            _dict['monthly_unblended_cost'] = self.monthly_unblended_cost.to_dict()
         # set to None if status (nullable) is None
         # and model_fields_set contains the field
         if self.status is None and "status" in self.model_fields_set:
@@ -126,7 +122,7 @@ class UpdateTenantTicketAPIRequest(BaseModel):
             "assignment": obj.get("assignment"),
             "details": Details2.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "entity_attributes": obj.get("entity_attributes"),
-            "monthly_unblended_cost": MonthlyUnblendedCost1.from_dict(obj["monthly_unblended_cost"]) if obj.get("monthly_unblended_cost") is not None else None
+            "monthly_unblended_cost": obj.get("monthly_unblended_cost")
         })
         return _obj
 

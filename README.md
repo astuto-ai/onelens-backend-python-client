@@ -461,8 +461,6 @@ Class | Method | Description
  - [MetricsQuery](docs/MetricsQuery.md)
  - [MetricsThreshold](docs/MetricsThreshold.md)
  - [MetricsValueUnit](docs/MetricsValueUnit.md)
- - [MonthlyUnblendedCost](docs/MonthlyUnblendedCost.md)
- - [MonthlyUnblendedCost1](docs/MonthlyUnblendedCost1.md)
  - [NewCost](docs/NewCost.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)

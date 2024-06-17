@@ -18,10 +18,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from onelens_backend_client.models.details import Details
-from onelens_backend_client.models.monthly_unblended_cost import MonthlyUnblendedCost
 from onelens_backend_client.models.status import Status
 from onelens_backend_client.models.ticket_assignment import TicketAssignment
 from onelens_backend_client.models.ticket_category import TicketCategory
@@ -39,7 +38,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
     entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
     entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
     entity_attributes: Optional[Dict[str, Any]] = None
-    monthly_unblended_cost: Optional[MonthlyUnblendedCost] = None
+    monthly_unblended_cost: Optional[Union[StrictFloat, StrictInt]] = None
     assignment: TicketAssignment = Field(description="Assignment state of the ticket")
     assigned_to: Optional[StrictStr] = None
     last_run_id: StrictStr = Field(description="Id of the last policy violation/anomaly run")
@@ -88,9 +87,6 @@ class CreateTenantTicketRequestMixin(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of monthly_unblended_cost
-        if self.monthly_unblended_cost:
-            _dict['monthly_unblended_cost'] = self.monthly_unblended_cost.to_dict()
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
             _dict['status'] = self.status.to_dict()
@@ -135,7 +131,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
             "entity_id": obj.get("entity_id"),
             "entity_type": obj.get("entity_type"),
             "entity_attributes": obj.get("entity_attributes"),
-            "monthly_unblended_cost": MonthlyUnblendedCost.from_dict(obj["monthly_unblended_cost"]) if obj.get("monthly_unblended_cost") is not None else None,
+            "monthly_unblended_cost": obj.get("monthly_unblended_cost"),
             "assignment": obj.get("assignment"),
             "assigned_to": obj.get("assigned_to"),
             "last_run_id": obj.get("last_run_id"),

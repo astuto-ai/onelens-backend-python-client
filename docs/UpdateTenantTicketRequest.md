@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **assignment** | [**TicketAssignment**](TicketAssignment.md) |  | [optional] 
 **details** | [**Details2**](Details2.md) |  | [optional] 
 **entity_attributes** | **object** |  | [optional] 
-**monthly_unblended_cost** | [**MonthlyUnblendedCost1**](MonthlyUnblendedCost1.md) |  | [optional] 
+**monthly_unblended_cost** | **float** |  | [optional] 
 **ticket_id** | **str** | The unique identifier of the ticket | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 

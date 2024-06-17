@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recommendations** | [**List[GetRecommendationTicket]**](GetRecommendationTicket.md) | The recommendations for the ticket | 
+**source_attributes** | **object** |  | [optional] 
 
 ## Example
 

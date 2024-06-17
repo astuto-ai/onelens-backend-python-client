@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **status** | [**Status1**](Status1.md) |  | [optional] 
 **details** | [**Details2**](Details2.md) |  | [optional] 
 **entity_attributes** | **object** |  | [optional] 
-**monthly_unblended_cost** | [**MonthlyUnblendedCost1**](MonthlyUnblendedCost1.md) |  | [optional] 
+**monthly_unblended_cost** | **float** |  | [optional] 
 **cost_impact** | **float** |  | [optional] 
 **last_run_id** | **str** |  | [optional] 
 **last_run_at** | **datetime** |  | [optional] 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **entity_id** | **str** | The id of the resource experiencing policy violation. | 
 **entity_type** | **str** | The type of the resource experiencing policy violation. | 
 **entity_attributes** | **object** |  | [optional] 
-**monthly_unblended_cost** | [**MonthlyUnblendedCost**](MonthlyUnblendedCost.md) |  | [optional] 
+**monthly_unblended_cost** | **float** |  | [optional] 
 **assignment** | [**TicketAssignment**](TicketAssignment.md) | Assignment state of the ticket | 
 **assigned_to** | **str** |  | [optional] 
 **last_run_id** | **str** | Id of the last policy violation/anomaly run | 

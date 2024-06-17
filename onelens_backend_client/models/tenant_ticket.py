@@ -18,8 +18,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from onelens_backend_client.models.details1 import Details1
 from onelens_backend_client.models.status import Status
 from onelens_backend_client.models.ticket_assignment import TicketAssignment
@@ -40,7 +40,7 @@ class TenantTicket(BaseModel):
     entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
     entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
     entity_attributes: Optional[Dict[str, Any]] = None
-    monthly_unblended_cost: Optional[StrictStr] = None
+    monthly_unblended_cost: Optional[Union[StrictFloat, StrictInt]] = None
     assignment: TicketAssignment = Field(description="Assignment state of the ticket")
     assigned_to: Optional[StrictStr] = None
     last_run_id: StrictStr = Field(description="Id of the last policy violation/anomaly run")

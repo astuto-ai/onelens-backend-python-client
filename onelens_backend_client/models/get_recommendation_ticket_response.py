@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.get_recommendation_ticket import GetRecommendationTicket
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,8 @@ class GetRecommendationTicketResponse(BaseModel):
     GetRecommendationTicketResponse
     """ # noqa: E501
     recommendations: List[GetRecommendationTicket] = Field(description="The recommendations for the ticket")
-    __properties: ClassVar[List[str]] = ["recommendations"]
+    source_attributes: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["recommendations", "source_attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +77,11 @@ class GetRecommendationTicketResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['recommendations'] = _items
+        # set to None if source_attributes (nullable) is None
+        # and model_fields_set contains the field
+        if self.source_attributes is None and "source_attributes" in self.model_fields_set:
+            _dict['source_attributes'] = None
+
         return _dict
 
     @classmethod
@@ -88,7 +94,8 @@ class GetRecommendationTicketResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recommendations": [GetRecommendationTicket.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None
+            "recommendations": [GetRecommendationTicket.from_dict(_item) for _item in obj["recommendations"]] if obj.get("recommendations") is not None else None,
+            "source_attributes": obj.get("source_attributes")
         })
         return _obj
 
