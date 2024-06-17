@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **begin_range** | **str** | Begin Range | 
 **end_range** | **str** | End Range | 
 **attributes** | **object** | Attributes | 
-**source_attributes** | **object** | Source Attributes | 
+**source_attributes** | **object** |  | [optional] 
 
 ## Example
 

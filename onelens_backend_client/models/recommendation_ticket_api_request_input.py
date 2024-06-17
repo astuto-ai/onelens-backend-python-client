@@ -50,7 +50,7 @@ class RecommendationTicketAPIRequestInput(BaseModel):
     begin_range: BeginRange
     end_range: EndRange
     attributes: Dict[str, Any] = Field(description="Attributes")
-    source_attributes: Dict[str, Any] = Field(description="Source Attributes")
+    source_attributes: Optional[Dict[str, Any]] = None
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the ticket")
     __properties: ClassVar[List[str]] = ["recommendation_unit_id", "action_type_id", "sequence", "priority", "effort", "instance_type", "instance_family", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "source_attributes", "ticket_id", "id"]
@@ -121,6 +121,11 @@ class RecommendationTicketAPIRequestInput(BaseModel):
         # and model_fields_set contains the field
         if self.instance_family is None and "instance_family" in self.model_fields_set:
             _dict['instance_family'] = None
+
+        # set to None if source_attributes (nullable) is None
+        # and model_fields_set contains the field
+        if self.source_attributes is None and "source_attributes" in self.model_fields_set:
+            _dict['source_attributes'] = None
 
         return _dict
 
