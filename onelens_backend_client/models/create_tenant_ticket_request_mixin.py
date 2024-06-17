@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.details import Details
+from onelens_backend_client.models.monthly_unblended_cost import MonthlyUnblendedCost
 from onelens_backend_client.models.status import Status
 from onelens_backend_client.models.ticket_assignment import TicketAssignment
 from onelens_backend_client.models.ticket_category import TicketCategory
@@ -38,6 +39,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
     entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
     entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
     entity_attributes: Optional[Dict[str, Any]] = None
+    monthly_unblended_cost: Optional[MonthlyUnblendedCost] = None
     assignment: TicketAssignment = Field(description="Assignment state of the ticket")
     assigned_to: Optional[StrictStr] = None
     last_run_id: StrictStr = Field(description="Id of the last policy violation/anomaly run")
@@ -45,7 +47,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
     first_run_at: datetime = Field(description="Datetime of the first policy violation/anomaly run")
     status: Status
     details: Details
-    __properties: ClassVar[List[str]] = ["monitor_id", "ticket_category", "state", "entity_id", "entity_type", "entity_attributes", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "status", "details"]
+    __properties: ClassVar[List[str]] = ["monitor_id", "ticket_category", "state", "entity_id", "entity_type", "entity_attributes", "monthly_unblended_cost", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "status", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +88,9 @@ class CreateTenantTicketRequestMixin(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of monthly_unblended_cost
+        if self.monthly_unblended_cost:
+            _dict['monthly_unblended_cost'] = self.monthly_unblended_cost.to_dict()
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
             _dict['status'] = self.status.to_dict()
@@ -101,6 +106,11 @@ class CreateTenantTicketRequestMixin(BaseModel):
         # and model_fields_set contains the field
         if self.entity_attributes is None and "entity_attributes" in self.model_fields_set:
             _dict['entity_attributes'] = None
+
+        # set to None if monthly_unblended_cost (nullable) is None
+        # and model_fields_set contains the field
+        if self.monthly_unblended_cost is None and "monthly_unblended_cost" in self.model_fields_set:
+            _dict['monthly_unblended_cost'] = None
 
         # set to None if assigned_to (nullable) is None
         # and model_fields_set contains the field
@@ -125,6 +135,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
             "entity_id": obj.get("entity_id"),
             "entity_type": obj.get("entity_type"),
             "entity_attributes": obj.get("entity_attributes"),
+            "monthly_unblended_cost": MonthlyUnblendedCost.from_dict(obj["monthly_unblended_cost"]) if obj.get("monthly_unblended_cost") is not None else None,
             "assignment": obj.get("assignment"),
             "assigned_to": obj.get("assigned_to"),
             "last_run_id": obj.get("last_run_id"),

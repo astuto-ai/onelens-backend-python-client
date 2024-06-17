@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from onelens_backend_client.models.details2 import Details2
+from onelens_backend_client.models.monthly_unblended_cost1 import MonthlyUnblendedCost1
 from onelens_backend_client.models.status1 import Status1
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,10 +34,11 @@ class UpdateTenantTicketRequestMixin(BaseModel):
     status: Optional[Status1] = None
     details: Optional[Details2] = None
     entity_attributes: Optional[Dict[str, Any]] = None
+    monthly_unblended_cost: Optional[MonthlyUnblendedCost1] = None
     cost_impact: Optional[Union[StrictFloat, StrictInt]] = None
     last_run_id: Optional[StrictStr] = None
     last_run_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "details", "entity_attributes", "cost_impact", "last_run_id", "last_run_at"]
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "details", "entity_attributes", "monthly_unblended_cost", "cost_impact", "last_run_id", "last_run_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +85,9 @@ class UpdateTenantTicketRequestMixin(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of details
         if self.details:
             _dict['details'] = self.details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of monthly_unblended_cost
+        if self.monthly_unblended_cost:
+            _dict['monthly_unblended_cost'] = self.monthly_unblended_cost.to_dict()
         # set to None if status (nullable) is None
         # and model_fields_set contains the field
         if self.status is None and "status" in self.model_fields_set:
@@ -97,6 +102,11 @@ class UpdateTenantTicketRequestMixin(BaseModel):
         # and model_fields_set contains the field
         if self.entity_attributes is None and "entity_attributes" in self.model_fields_set:
             _dict['entity_attributes'] = None
+
+        # set to None if monthly_unblended_cost (nullable) is None
+        # and model_fields_set contains the field
+        if self.monthly_unblended_cost is None and "monthly_unblended_cost" in self.model_fields_set:
+            _dict['monthly_unblended_cost'] = None
 
         # set to None if cost_impact (nullable) is None
         # and model_fields_set contains the field
@@ -129,6 +139,7 @@ class UpdateTenantTicketRequestMixin(BaseModel):
             "status": Status1.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "details": Details2.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "entity_attributes": obj.get("entity_attributes"),
+            "monthly_unblended_cost": MonthlyUnblendedCost1.from_dict(obj["monthly_unblended_cost"]) if obj.get("monthly_unblended_cost") is not None else None,
             "cost_impact": obj.get("cost_impact"),
             "last_run_id": obj.get("last_run_id"),
             "last_run_at": obj.get("last_run_at")

@@ -40,6 +40,7 @@ class TenantTicket(BaseModel):
     entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
     entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
     entity_attributes: Optional[Dict[str, Any]] = None
+    monthly_unblended_cost: Optional[StrictStr] = None
     assignment: TicketAssignment = Field(description="Assignment state of the ticket")
     assigned_to: Optional[StrictStr] = None
     last_run_id: StrictStr = Field(description="Id of the last policy violation/anomaly run")
@@ -48,7 +49,7 @@ class TenantTicket(BaseModel):
     id: StrictStr = Field(description="The unique identifier of the ticket")
     status: Status
     details: Details1
-    __properties: ClassVar[List[str]] = ["created_at", "updated_at", "monitor_id", "ticket_category", "state", "entity_id", "entity_type", "entity_attributes", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "id", "status", "details"]
+    __properties: ClassVar[List[str]] = ["created_at", "updated_at", "monitor_id", "ticket_category", "state", "entity_id", "entity_type", "entity_attributes", "monthly_unblended_cost", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "id", "status", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -105,6 +106,11 @@ class TenantTicket(BaseModel):
         if self.entity_attributes is None and "entity_attributes" in self.model_fields_set:
             _dict['entity_attributes'] = None
 
+        # set to None if monthly_unblended_cost (nullable) is None
+        # and model_fields_set contains the field
+        if self.monthly_unblended_cost is None and "monthly_unblended_cost" in self.model_fields_set:
+            _dict['monthly_unblended_cost'] = None
+
         # set to None if assigned_to (nullable) is None
         # and model_fields_set contains the field
         if self.assigned_to is None and "assigned_to" in self.model_fields_set:
@@ -130,6 +136,7 @@ class TenantTicket(BaseModel):
             "entity_id": obj.get("entity_id"),
             "entity_type": obj.get("entity_type"),
             "entity_attributes": obj.get("entity_attributes"),
+            "monthly_unblended_cost": obj.get("monthly_unblended_cost"),
             "assignment": obj.get("assignment"),
             "assigned_to": obj.get("assigned_to"),
             "last_run_id": obj.get("last_run_id"),
