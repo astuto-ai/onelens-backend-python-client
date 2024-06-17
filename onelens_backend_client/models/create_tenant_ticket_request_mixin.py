@@ -37,7 +37,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
     state: TicketState = Field(description="State of the ticket")
     entity_id: StrictStr = Field(description="The id of the resource experiencing policy violation.")
     entity_type: StrictStr = Field(description="The type of the resource experiencing policy violation.")
-    resource_attributes: Optional[Dict[str, Any]]
+    entity_attributes: Optional[Dict[str, Any]] = None
     assignment: TicketAssignment = Field(description="Assignment state of the ticket")
     assigned_to: Optional[StrictStr] = None
     last_run_id: StrictStr = Field(description="Id of the last policy violation/anomaly run")
@@ -45,7 +45,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
     first_run_at: datetime = Field(description="Datetime of the first policy violation/anomaly run")
     status: Status
     details: Details
-    __properties: ClassVar[List[str]] = ["monitor_id", "ticket_category", "state", "entity_id", "entity_type", "resource_attributes", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "status", "details"]
+    __properties: ClassVar[List[str]] = ["monitor_id", "ticket_category", "state", "entity_id", "entity_type", "entity_attributes", "assignment", "assigned_to", "last_run_id", "last_run_at", "first_run_at", "status", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,10 +97,10 @@ class CreateTenantTicketRequestMixin(BaseModel):
         if self.monitor_id is None and "monitor_id" in self.model_fields_set:
             _dict['monitor_id'] = None
 
-        # set to None if resource_attributes (nullable) is None
+        # set to None if entity_attributes (nullable) is None
         # and model_fields_set contains the field
-        if self.resource_attributes is None and "resource_attributes" in self.model_fields_set:
-            _dict['resource_attributes'] = None
+        if self.entity_attributes is None and "entity_attributes" in self.model_fields_set:
+            _dict['entity_attributes'] = None
 
         # set to None if assigned_to (nullable) is None
         # and model_fields_set contains the field
@@ -124,7 +124,7 @@ class CreateTenantTicketRequestMixin(BaseModel):
             "state": obj.get("state"),
             "entity_id": obj.get("entity_id"),
             "entity_type": obj.get("entity_type"),
-            "resource_attributes": obj.get("resource_attributes"),
+            "entity_attributes": obj.get("entity_attributes"),
             "assignment": obj.get("assignment"),
             "assigned_to": obj.get("assigned_to"),
             "last_run_id": obj.get("last_run_id"),

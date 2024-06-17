@@ -32,10 +32,10 @@ class UpdateTenantTicketRequest(BaseModel):
     status: Optional[Status1] = None
     assignment: Optional[TicketAssignment] = None
     details: Optional[Details2] = None
-    resource_attributes: Optional[Dict[str, Any]] = None
+    entity_attributes: Optional[Dict[str, Any]] = None
     ticket_id: StrictStr = Field(description="The unique identifier of the ticket")
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
-    __properties: ClassVar[List[str]] = ["status", "assignment", "details", "resource_attributes", "ticket_id", "tenant_id"]
+    __properties: ClassVar[List[str]] = ["status", "assignment", "details", "entity_attributes", "ticket_id", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,10 +97,10 @@ class UpdateTenantTicketRequest(BaseModel):
         if self.details is None and "details" in self.model_fields_set:
             _dict['details'] = None
 
-        # set to None if resource_attributes (nullable) is None
+        # set to None if entity_attributes (nullable) is None
         # and model_fields_set contains the field
-        if self.resource_attributes is None and "resource_attributes" in self.model_fields_set:
-            _dict['resource_attributes'] = None
+        if self.entity_attributes is None and "entity_attributes" in self.model_fields_set:
+            _dict['entity_attributes'] = None
 
         return _dict
 
@@ -117,7 +117,7 @@ class UpdateTenantTicketRequest(BaseModel):
             "status": Status1.from_dict(obj["status"]) if obj.get("status") is not None else None,
             "assignment": obj.get("assignment"),
             "details": Details2.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "resource_attributes": obj.get("resource_attributes"),
+            "entity_attributes": obj.get("entity_attributes"),
             "ticket_id": obj.get("ticket_id"),
             "tenant_id": obj.get("tenant_id")
         })

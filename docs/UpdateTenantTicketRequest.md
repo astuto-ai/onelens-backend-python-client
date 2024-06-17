@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **status** | [**Status1**](Status1.md) |  | [optional] 
 **assignment** | [**TicketAssignment**](TicketAssignment.md) |  | [optional] 
 **details** | [**Details2**](Details2.md) |  | [optional] 
-**resource_attributes** | **object** |  | [optional] 
+**entity_attributes** | **object** |  | [optional] 
 **ticket_id** | **str** | The unique identifier of the ticket | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 
