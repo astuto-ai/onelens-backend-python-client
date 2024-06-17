@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.effort import Effort
 from typing import Optional, Set
 from typing_extensions import Self
@@ -45,7 +45,7 @@ class RecommendationTicket(BaseModel):
     begin_range: StrictStr = Field(description="Begin Range")
     end_range: StrictStr = Field(description="End Range")
     attributes: Dict[str, Any] = Field(description="Attributes")
-    source_attributes: Dict[str, Any] = Field(description="Source Attributes")
+    source_attributes: Optional[Dict[str, Any]] = None
     created_at: datetime = Field(description="Datetime of ticket creation")
     __properties: ClassVar[List[str]] = ["id", "ticket_id", "recommendation_unit_id", "action_type_id", "priority", "sequence", "effort", "price_per_unit", "currency", "unit", "new_cost", "current_cost", "potential_saving", "description", "begin_range", "end_range", "attributes", "source_attributes", "created_at"]
 
@@ -88,6 +88,11 @@ class RecommendationTicket(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if source_attributes (nullable) is None
+        # and model_fields_set contains the field
+        if self.source_attributes is None and "source_attributes" in self.model_fields_set:
+            _dict['source_attributes'] = None
+
         return _dict
 
     @classmethod
