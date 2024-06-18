@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **violation_attributes** | **object** | The attributes of the violation. | 
 **potential_cost_saving** | **float** | The potential cost accrued because of the violation. | 
 **preferred_recommendation_id** | **str** |  | [optional] 
+**rule_definition_hash** | **str** |  | [optional] 
 
 ## Example
 

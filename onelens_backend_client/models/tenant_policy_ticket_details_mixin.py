@@ -33,7 +33,8 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
     violation_attributes: Dict[str, Any] = Field(description="The attributes of the violation.")
     potential_cost_saving: Union[StrictFloat, StrictInt] = Field(description="The potential cost accrued because of the violation.")
     preferred_recommendation_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes", "potential_cost_saving", "preferred_recommendation_id"]
+    rule_definition_hash: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes", "potential_cost_saving", "preferred_recommendation_id", "rule_definition_hash"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,6 +80,11 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
         if self.preferred_recommendation_id is None and "preferred_recommendation_id" in self.model_fields_set:
             _dict['preferred_recommendation_id'] = None
 
+        # set to None if rule_definition_hash (nullable) is None
+        # and model_fields_set contains the field
+        if self.rule_definition_hash is None and "rule_definition_hash" in self.model_fields_set:
+            _dict['rule_definition_hash'] = None
+
         return _dict
 
     @classmethod
@@ -97,7 +103,8 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
             "policy_config_version": obj.get("policy_config_version"),
             "violation_attributes": obj.get("violation_attributes"),
             "potential_cost_saving": obj.get("potential_cost_saving"),
-            "preferred_recommendation_id": obj.get("preferred_recommendation_id")
+            "preferred_recommendation_id": obj.get("preferred_recommendation_id"),
+            "rule_definition_hash": obj.get("rule_definition_hash")
         })
         return _obj
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **violation_attributes** | **object** | The attributes of the violation. | 
 **potential_cost_saving** | **float** | The potential cost accrued because of the violation. | 
 **preferred_recommendation_id** | **str** |  | [optional] 
+**rule_definition_hash** | **str** |  | [optional] 
 **anomalies** | [**List[AnomalyRcaIdsMixin]**](AnomalyRcaIdsMixin.md) | List of anomaly ids and rca ids. | 
 **total_cost_impact** | **float** | Total cost incurred due to the anomaly. | 
 **rca_hash** | **str** | The hash of the RCA associated with the anomaly. | 

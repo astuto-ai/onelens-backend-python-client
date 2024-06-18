@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
-**filters** | [**TenantPolicyFilters**](TenantPolicyFilters.md) | Filters to apply to the tenant policies. | [optional] 
+**filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 
 ## Example
 
