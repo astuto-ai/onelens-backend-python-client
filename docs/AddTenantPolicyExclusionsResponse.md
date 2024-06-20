@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** | The unique identifier of the tenant policy setting. | 
 **policy_id** | **str** | The id of the tenant policy. | 
 **config_overrides** | **object** |  | [optional] 
+**config_hash** | **str** |  | [optional] 
 **state** | [**TenantPolicyState**](TenantPolicyState.md) | The state of the policy template. | 
 **version** | **int** | The version of the tenant policy. | 
 **exclusions** | [**TenantPolicyExclusions**](TenantPolicyExclusions.md) | The exclusions for the tenant policy. | 

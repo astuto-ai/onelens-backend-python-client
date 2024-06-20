@@ -29,12 +29,13 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
     policy_id: StrictStr = Field(description="The id of the policy being violated.")
     policy_template_id: StrictStr = Field(description="The id of the policy template being violated.")
     policy_config: Dict[str, Any] = Field(description="The config of the policy being violated.")
+    policy_config_hash: Optional[StrictStr] = None
     policy_config_version: StrictInt = Field(description="The config version of the policy being violated.")
     violation_attributes: Dict[str, Any] = Field(description="The attributes of the violation.")
     potential_cost_saving: Union[StrictFloat, StrictInt] = Field(description="The potential cost accrued because of the violation.")
     preferred_recommendation_id: Optional[StrictStr] = None
     rule_definition_hash: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_version", "violation_attributes", "potential_cost_saving", "preferred_recommendation_id", "rule_definition_hash"]
+    __properties: ClassVar[List[str]] = ["policy_id", "policy_template_id", "policy_config", "policy_config_hash", "policy_config_version", "violation_attributes", "potential_cost_saving", "preferred_recommendation_id", "rule_definition_hash"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +76,11 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if policy_config_hash (nullable) is None
+        # and model_fields_set contains the field
+        if self.policy_config_hash is None and "policy_config_hash" in self.model_fields_set:
+            _dict['policy_config_hash'] = None
+
         # set to None if preferred_recommendation_id (nullable) is None
         # and model_fields_set contains the field
         if self.preferred_recommendation_id is None and "preferred_recommendation_id" in self.model_fields_set:
@@ -100,6 +106,7 @@ class TenantPolicyTicketDetailsMixin(BaseModel):
             "policy_id": obj.get("policy_id"),
             "policy_template_id": obj.get("policy_template_id"),
             "policy_config": obj.get("policy_config"),
+            "policy_config_hash": obj.get("policy_config_hash"),
             "policy_config_version": obj.get("policy_config_version"),
             "violation_attributes": obj.get("violation_attributes"),
             "potential_cost_saving": obj.get("potential_cost_saving"),

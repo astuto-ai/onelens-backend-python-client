@@ -36,8 +36,9 @@ class PolicyTemplateDetailsOutput(BaseModel):
     rule_definition: Optional[StrictStr] = None
     rule_definition_hash: Optional[StrictStr] = None
     default_policy_config: Optional[Dict[str, Any]] = None
+    default_policy_config_hash: Optional[StrictStr] = None
     metrics_details: Optional[List[MetricsChartConfigOutput]] = None
-    __properties: ClassVar[List[str]] = ["inputs", "config_schema", "primary_violation_attributes_schema", "secondary_violation_attributes_schema", "rule_type", "rule_definition", "rule_definition_hash", "default_policy_config", "metrics_details"]
+    __properties: ClassVar[List[str]] = ["inputs", "config_schema", "primary_violation_attributes_schema", "secondary_violation_attributes_schema", "rule_type", "rule_definition", "rule_definition_hash", "default_policy_config", "default_policy_config_hash", "metrics_details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -125,6 +126,11 @@ class PolicyTemplateDetailsOutput(BaseModel):
         if self.default_policy_config is None and "default_policy_config" in self.model_fields_set:
             _dict['default_policy_config'] = None
 
+        # set to None if default_policy_config_hash (nullable) is None
+        # and model_fields_set contains the field
+        if self.default_policy_config_hash is None and "default_policy_config_hash" in self.model_fields_set:
+            _dict['default_policy_config_hash'] = None
+
         # set to None if metrics_details (nullable) is None
         # and model_fields_set contains the field
         if self.metrics_details is None and "metrics_details" in self.model_fields_set:
@@ -150,6 +156,7 @@ class PolicyTemplateDetailsOutput(BaseModel):
             "rule_definition": obj.get("rule_definition"),
             "rule_definition_hash": obj.get("rule_definition_hash"),
             "default_policy_config": obj.get("default_policy_config"),
+            "default_policy_config_hash": obj.get("default_policy_config_hash"),
             "metrics_details": [MetricsChartConfigOutput.from_dict(_item) for _item in obj["metrics_details"]] if obj.get("metrics_details") is not None else None
         })
         return _obj

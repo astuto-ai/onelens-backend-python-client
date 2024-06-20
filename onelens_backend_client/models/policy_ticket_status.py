@@ -30,6 +30,7 @@ class PolicyTicketStatus(str, Enum):
     IN_PROGRESS = 'IN_PROGRESS'
     DONE = 'DONE'
     INVALID = 'INVALID'
+    SYSTEM_INVALID = 'SYSTEM_INVALID'
     DONE_AND_VERIFIED = 'DONE_AND_VERIFIED'
 
     @classmethod

@@ -32,11 +32,12 @@ class OverrideTenantPolicyConfigResponse(BaseModel):
     id: StrictStr = Field(description="The unique identifier of the tenant policy setting.")
     policy_id: StrictStr = Field(description="The id of the tenant policy.")
     config_overrides: Optional[Dict[str, Any]] = None
+    config_hash: Optional[StrictStr] = None
     state: TenantPolicyState = Field(description="The state of the policy template.")
     version: StrictInt = Field(description="The version of the tenant policy.")
     exclusions: TenantPolicyExclusions = Field(description="The exclusions for the tenant policy.")
     last_run_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "policy_id", "config_overrides", "state", "version", "exclusions", "last_run_at"]
+    __properties: ClassVar[List[str]] = ["id", "policy_id", "config_overrides", "config_hash", "state", "version", "exclusions", "last_run_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +86,11 @@ class OverrideTenantPolicyConfigResponse(BaseModel):
         if self.config_overrides is None and "config_overrides" in self.model_fields_set:
             _dict['config_overrides'] = None
 
+        # set to None if config_hash (nullable) is None
+        # and model_fields_set contains the field
+        if self.config_hash is None and "config_hash" in self.model_fields_set:
+            _dict['config_hash'] = None
+
         # set to None if last_run_at (nullable) is None
         # and model_fields_set contains the field
         if self.last_run_at is None and "last_run_at" in self.model_fields_set:
@@ -105,6 +111,7 @@ class OverrideTenantPolicyConfigResponse(BaseModel):
             "id": obj.get("id"),
             "policy_id": obj.get("policy_id"),
             "config_overrides": obj.get("config_overrides"),
+            "config_hash": obj.get("config_hash"),
             "state": obj.get("state"),
             "version": obj.get("version"),
             "exclusions": TenantPolicyExclusions.from_dict(obj["exclusions"]) if obj.get("exclusions") is not None else None,

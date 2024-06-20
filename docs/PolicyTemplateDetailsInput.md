@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **rule_definition** | **str** |  | [optional] 
 **rule_definition_hash** | **str** |  | [optional] 
 **default_policy_config** | **object** |  | [optional] 
+**default_policy_config_hash** | **str** |  | [optional] 
 **metrics_details** | [**List[MetricsChartConfigInput]**](MetricsChartConfigInput.md) |  | [optional] 
 
 ## Example
