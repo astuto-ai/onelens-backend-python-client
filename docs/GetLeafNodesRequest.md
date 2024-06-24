@@ -7,6 +7,7 @@ get leaf nodes request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenant_id** | **str** | The id of the tenant. | 
+**filters** | [**GetHierarchyFilters**](GetHierarchyFilters.md) |  | [optional] 
 
 ## Example
 

@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.get_hierarchy_filters import GetHierarchyFilters
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,8 @@ class GetLeafNodesRequest(BaseModel):
     get leaf nodes request
     """ # noqa: E501
     tenant_id: StrictStr = Field(description="The id of the tenant.")
-    __properties: ClassVar[List[str]] = ["tenant_id"]
+    filters: Optional[GetHierarchyFilters] = None
+    __properties: ClassVar[List[str]] = ["tenant_id", "filters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,6 +70,14 @@ class GetLeafNodesRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of filters
+        if self.filters:
+            _dict['filters'] = self.filters.to_dict()
+        # set to None if filters (nullable) is None
+        # and model_fields_set contains the field
+        if self.filters is None and "filters" in self.model_fields_set:
+            _dict['filters'] = None
+
         return _dict
 
     @classmethod
@@ -80,7 +90,8 @@ class GetLeafNodesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tenant_id": obj.get("tenant_id")
+            "tenant_id": obj.get("tenant_id"),
+            "filters": GetHierarchyFilters.from_dict(obj["filters"]) if obj.get("filters") is not None else None
         })
         return _obj
 
