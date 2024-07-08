@@ -30,6 +30,7 @@ from onelens_backend_client.api.tenant_policy_service_api import TenantPolicySer
 from onelens_backend_client.api.tenant_provider_service_api import TenantProviderServiceApi
 from onelens_backend_client.api.tenant_service_api import TenantServiceApi
 from onelens_backend_client.api.tenant_ticket_service_api import TenantTicketServiceApi
+from onelens_backend_client.api.tenant_user_service_api import TenantUserServiceApi
 from onelens_backend_client.api.tenant_users_api import TenantUsersApi
 from onelens_backend_client.api.tenant_verify_service_api import TenantVerifyServiceApi
 from onelens_backend_client.api.tenants_api import TenantsApi
