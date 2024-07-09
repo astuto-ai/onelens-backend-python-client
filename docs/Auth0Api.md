@@ -8,7 +8,7 @@ Method | Description
 
 
 # **create_user**
-> ResponseCreateAuth0UserResponse create_user(create_auth0_user_request)
+> ResponseCreateAuth0AndOnelensUserResponse create_user(create_auth0_user_request)
 
 Create User
 
@@ -20,7 +20,7 @@ API endpoint that creates a new auth0 user and also stores the required data in 
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.create_auth0_user_request import CreateAuth0UserRequest
-from onelens_backend_client.models.response_create_auth0_user_response import ResponseCreateAuth0UserResponse
+from onelens_backend_client.models.response_create_auth0_and_onelens_user_response import ResponseCreateAuth0AndOnelensUserResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseCreateAuth0UserResponse**](ResponseCreateAuth0UserResponse.md)
+[**ResponseCreateAuth0AndOnelensUserResponse**](ResponseCreateAuth0AndOnelensUserResponse.md)
 
 ### Authorization
 

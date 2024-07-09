@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **last_name** | [**LastName**](LastName.md) |  | 
 **mobile_country_code** | [**MobileCountryCode**](MobileCountryCode.md) |  | [optional] 
 **mobile_number** | [**MobileNumber**](MobileNumber.md) |  | [optional] 
-**persona** | [**BaseUserPersona**](BaseUserPersona.md) |  | [optional] 
+**persona** | [**CreateTenantUserRequestPersona**](CreateTenantUserRequestPersona.md) |  | [optional] 
 **job_title** | [**JobTitle**](JobTitle.md) |  | [optional] 
 **manager** | [**Manager**](Manager.md) |  | [optional] 
 **city** | [**City**](City.md) |  | [optional] 
@@ -21,11 +21,11 @@ Name | Type | Description | Notes
 **timezone** | [**Timezone**](Timezone.md) |  | [optional] 
 **display_date_format** | [**DisplayDateFormat**](DisplayDateFormat.md) |  | [optional] 
 **display_time_format** | [**DisplayTimeFormat**](DisplayTimeFormat.md) |  | [optional] 
-**ol_user_id** | **object** | Unique onelens identifier for the user | 
 **email** | [**Email**](Email.md) |  | [optional] 
-**role** | [**BaseUserRole**](BaseUserRole.md) |  | [optional] 
+**role** | [**UserRole**](UserRole.md) | Role of the user in the tenant | [optional] 
 **status** | [**UserStatus**](UserStatus.md) | Status of the user like ACTIVE, BLOCKED etc. | [optional] 
-**sources** | **List[object]** | Different sources from where user signed up. e.g. social signup, username-password | 
+**sources** | [**Sources**](Sources.md) |  | [optional] 
+**ol_user_id** | **object** | Unique onelens identifier for the user | 
 **id** | **object** | PK in the tenant users table | 
 
 ## Example

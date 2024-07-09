@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **category** | [**PolicyCategory**](PolicyCategory.md) | The category of the policy template. | 
 **provider** | [**Provider**](Provider.md) | The cloud provider of the policy template. | 
 **id** | **str** | The unique identifier of the tenant policy. | 
+**state** | [**TenantPolicySystemState**](TenantPolicySystemState.md) | The state of the tenant policy. | 
 
 ## Example
 

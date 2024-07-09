@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**users** | [**List[BaseUser]**](BaseUser.md) | List of tenant users | 
+**users** | [**List[GetAllTenantUsersItem]**](GetAllTenantUsersItem.md) | List of tenant users | 
 
 ## Example
 

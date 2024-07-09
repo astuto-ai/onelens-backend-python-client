@@ -5,9 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**UserStatus**](UserStatus.md) |  | [optional] 
 **role** | [**UserRole**](UserRole.md) |  | [optional] 
-**sources** | **List[str]** |  | [optional] 
+**persona** | [**UserPersona**](UserPersona.md) |  | [optional] 
 
 ## Example
 
