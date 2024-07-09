@@ -577,7 +577,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_user_by_ol_user_id**
-> ResponseGetTenantUserByIDResponse get_tenant_user_by_ol_user_id(tenant_id, ol_user_id)
+> ResponseGetTenantUserByIDResponse get_tenant_user_by_ol_user_id(ol_user_id, tenant_id)
 
 Get a user from the Tenant Database.
 
@@ -603,12 +603,12 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantUsersApi(api_client)
-    tenant_id = 'tenant_id_example' # str | 
     ol_user_id = 'ol_user_id_example' # str | 
+    tenant_id = 'tenant_id_example' # str | 
 
     try:
         # Get a user from the Tenant Database.
-        api_response = api_instance.get_tenant_user_by_ol_user_id(tenant_id, ol_user_id)
+        api_response = api_instance.get_tenant_user_by_ol_user_id(ol_user_id, tenant_id)
         print("The response of TenantUsersApi->get_tenant_user_by_ol_user_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -622,8 +622,8 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenant_id** | **str**|  | 
  **ol_user_id** | **str**|  | 
+ **tenant_id** | **str**|  | 
 
 ### Return type
 
@@ -859,7 +859,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_user_details**
-> ResponseUpdateTenantUserDetailsResponse update_tenant_user_details(tenant_id, ol_user_id, tenant_user_details_update_fields_mixin)
+> ResponseUpdateTenantUserDetailsResponse update_tenant_user_details(tenant_id, tenant_user_details_update_fields_mixin)
 
 Update a user details in the Tenant Database.
 
@@ -887,12 +887,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantUsersApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    ol_user_id = 'ol_user_id_example' # str | 
     tenant_user_details_update_fields_mixin = onelens_backend_client.TenantUserDetailsUpdateFieldsMixin() # TenantUserDetailsUpdateFieldsMixin | 
 
     try:
         # Update a user details in the Tenant Database.
-        api_response = api_instance.update_tenant_user_details(tenant_id, ol_user_id, tenant_user_details_update_fields_mixin)
+        api_response = api_instance.update_tenant_user_details(tenant_id, tenant_user_details_update_fields_mixin)
         print("The response of TenantUsersApi->update_tenant_user_details:\n")
         pprint(api_response)
     except Exception as e:
@@ -907,7 +906,6 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant_id** | **str**|  | 
- **ol_user_id** | **str**|  | 
  **tenant_user_details_update_fields_mixin** | [**TenantUserDetailsUpdateFieldsMixin**](TenantUserDetailsUpdateFieldsMixin.md)|  | 
 
 ### Return type
@@ -933,7 +931,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_user_details_0**
-> ResponseUpdateTenantUserDetailsResponse update_tenant_user_details_0(ol_user_id, tenant_user_details_update_fields_mixin)
+> ResponseUpdateTenantUserDetailsResponse update_tenant_user_details_0(tenant_user_details_update_fields_mixin)
 
 Update Tenant User Details
 
@@ -958,12 +956,11 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantUsersApi(api_client)
-    ol_user_id = 'ol_user_id_example' # str | 
     tenant_user_details_update_fields_mixin = onelens_backend_client.TenantUserDetailsUpdateFieldsMixin() # TenantUserDetailsUpdateFieldsMixin | 
 
     try:
         # Update Tenant User Details
-        api_response = api_instance.update_tenant_user_details_0(ol_user_id, tenant_user_details_update_fields_mixin)
+        api_response = api_instance.update_tenant_user_details_0(tenant_user_details_update_fields_mixin)
         print("The response of TenantUsersApi->update_tenant_user_details_0:\n")
         pprint(api_response)
     except Exception as e:
@@ -977,7 +974,6 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ol_user_id** | **str**|  | 
  **tenant_user_details_update_fields_mixin** | [**TenantUserDetailsUpdateFieldsMixin**](TenantUserDetailsUpdateFieldsMixin.md)|  | 
 
 ### Return type

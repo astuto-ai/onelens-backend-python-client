@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **password** | **str** | The password of the user in Auth0. | 
 **email_verified** | **bool** |  | [optional] 
 **app_metadata** | [**Auth0CreateUserAppMetadata**](Auth0CreateUserAppMetadata.md) | The app_metadata of the user in Auth0. | 
-**connection** | **str** | The connection of the user in Auth0. | 
+**connection** | **str** | The connection of the user in Auth0. | [optional] 
 
 ## Example
 

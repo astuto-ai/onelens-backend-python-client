@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **timezone** | **str** |  | [optional] 
 **display_date_format** | **str** |  | [optional] 
 **display_time_format** | **str** |  | [optional] 
-**ol_user_id** | **str** | Unique onelens identifier for the user | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 
 ## Example
