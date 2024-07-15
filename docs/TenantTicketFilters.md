@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ticket_categories** | [**List[TicketCategory]**](TicketCategory.md) | List of ticket categories for which tickets are to be fetched. | [optional] [default to []]
 **states** | [**List[TicketState]**](TicketState.md) | List of ticket State for which tickets are to be fetched. | [optional] [default to []]
 **statuses** | [**Statuses**](Statuses.md) |  | [optional] 
+**policy_ids** | **List[str]** | List of policy ids for which tickets are to be fetched. | [optional] [default to []]
 
 ## Example
 
