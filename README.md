@@ -239,8 +239,10 @@ Class | Method | Description
 *TenantUserServiceApi* | [**create_tenant_user_from_ol_user_id**](docs/TenantUserServiceApi.md#create_tenant_user_from_ol_user_id) | Creates a new user from onelens user id (ol_user_id).
 *TenantUserServiceApi* | [**disable_tenant_user**](docs/TenantUserServiceApi.md#disable_tenant_user) | Disables an existing tenant user.
 *TenantUserServiceApi* | [**enable_tenant_user**](docs/TenantUserServiceApi.md#enable_tenant_user) | Enables an existing tenant user.
+*TenantUserServiceApi* | [**enable_tenant_user_with_system**](docs/TenantUserServiceApi.md#enable_tenant_user_with_system) | System Enables an existing tenant user.
 *TenantUserServiceApi* | [**get_tenant_user_by_ol_user_id**](docs/TenantUserServiceApi.md#get_tenant_user_by_ol_user_id) | Retrieves a tenant user by its unique onelens user id (ol_user_id).
 *TenantUserServiceApi* | [**get_tenant_users**](docs/TenantUserServiceApi.md#get_tenant_users) | Retrieves all tenant users.
+*TenantUserServiceApi* | [**send_email_to_user_for_password_change**](docs/TenantUserServiceApi.md#send_email_to_user_for_password_change) | Sends a password change email to the user.
 *TenantUserServiceApi* | [**update_tenant_user**](docs/TenantUserServiceApi.md#update_tenant_user) | Updates an existing tenant user.
 *TenantUserServiceApi* | [**update_tenant_user_details**](docs/TenantUserServiceApi.md#update_tenant_user_details) | Updates tenant user details.
 *TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
@@ -253,6 +255,10 @@ Class | Method | Description
 *TenantUsersApi* | [**get_all_tenant_users_with_filter_0**](docs/TenantUsersApi.md#get_all_tenant_users_with_filter_0) | Get All Tenant Users With Filter
 *TenantUsersApi* | [**get_tenant_user_by_ol_user_id**](docs/TenantUsersApi.md#get_tenant_user_by_ol_user_id) | Get a user from the Tenant Database.
 *TenantUsersApi* | [**get_tenant_user_by_ol_user_id_0**](docs/TenantUsersApi.md#get_tenant_user_by_ol_user_id_0) | Get Tenant User By Ol User Id
+*TenantUsersApi* | [**get_tenant_user_profile**](docs/TenantUsersApi.md#get_tenant_user_profile) | Get user profile from the Tenant Database.
+*TenantUsersApi* | [**get_tenant_user_profile_0**](docs/TenantUsersApi.md#get_tenant_user_profile_0) | Get Tenant User Profile
+*TenantUsersApi* | [**send_email_to_user_for_password_change**](docs/TenantUsersApi.md#send_email_to_user_for_password_change) | Send user password change email.
+*TenantUsersApi* | [**send_email_to_user_for_password_change_0**](docs/TenantUsersApi.md#send_email_to_user_for_password_change_0) | Send Email To User For Password Change
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
 *TenantUsersApi* | [**update_tenant_user_0**](docs/TenantUsersApi.md#update_tenant_user_0) | Update Tenant User
 *TenantUsersApi* | [**update_tenant_user_details**](docs/TenantUsersApi.md#update_tenant_user_details) | Update a user details in the Tenant Database.
@@ -474,6 +480,7 @@ Class | Method | Description
  - [GetTenantTicketsResponse](docs/GetTenantTicketsResponse.md)
  - [GetTenantUserByIDRequest](docs/GetTenantUserByIDRequest.md)
  - [GetTenantUserByIDResponse](docs/GetTenantUserByIDResponse.md)
+ - [GetTenantUserProfileResponse](docs/GetTenantUserProfileResponse.md)
  - [GetTenantUsersWithFilterAPIRequest](docs/GetTenantUsersWithFilterAPIRequest.md)
  - [GetTenantUsersWithFilterRequest](docs/GetTenantUsersWithFilterRequest.md)
  - [GetTenantUsersWithFilterResponse](docs/GetTenantUsersWithFilterResponse.md)
@@ -528,6 +535,8 @@ Class | Method | Description
  - [OverrideTenantPolicyExclusionsResponse](docs/OverrideTenantPolicyExclusionsResponse.md)
  - [PaginationFields](docs/PaginationFields.md)
  - [PaginationParams](docs/PaginationParams.md)
+ - [PasswordChangeEmailRequest](docs/PasswordChangeEmailRequest.md)
+ - [PasswordChangeEmailResponse](docs/PasswordChangeEmailResponse.md)
  - [PolicyCategory](docs/PolicyCategory.md)
  - [PolicyExecutionType](docs/PolicyExecutionType.md)
  - [PolicyRecommendationParams](docs/PolicyRecommendationParams.md)
@@ -615,11 +624,13 @@ Class | Method | Description
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
  - [ResponseGetTenantTicketsResponse](docs/ResponseGetTenantTicketsResponse.md)
  - [ResponseGetTenantUserByIDResponse](docs/ResponseGetTenantUserByIDResponse.md)
+ - [ResponseGetTenantUserProfileResponse](docs/ResponseGetTenantUserProfileResponse.md)
  - [ResponseGetTenantUsersWithFilterResponse](docs/ResponseGetTenantUsersWithFilterResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
  - [ResponseGetTicketByIdPolicyDetailsResponse](docs/ResponseGetTicketByIdPolicyDetailsResponse.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
+ - [ResponsePasswordChangeEmailResponse](docs/ResponsePasswordChangeEmailResponse.md)
  - [ResponseRecommendationEngineResponse](docs/ResponseRecommendationEngineResponse.md)
  - [ResponseRecommendationTicketResponse](docs/ResponseRecommendationTicketResponse.md)
  - [ResponseResourceCatalogResponse](docs/ResponseResourceCatalogResponse.md)
@@ -646,6 +657,7 @@ Class | Method | Description
  - [Status](docs/Status.md)
  - [Status1](docs/Status1.md)
  - [Statuses](docs/Statuses.md)
+ - [StorageLensConfig](docs/StorageLensConfig.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAnomalySettingFilters](docs/TenantAnomalySettingFilters.md)
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)

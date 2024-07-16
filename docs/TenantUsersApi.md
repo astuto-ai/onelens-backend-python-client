@@ -14,6 +14,10 @@ Method | Description
 [**get_all_tenant_users_with_filter_0**](TenantUsersApi.md#get_all_tenant_users_with_filter_0) | Get All Tenant Users With Filter
 [**get_tenant_user_by_ol_user_id**](TenantUsersApi.md#get_tenant_user_by_ol_user_id) | Get a user from the Tenant Database.
 [**get_tenant_user_by_ol_user_id_0**](TenantUsersApi.md#get_tenant_user_by_ol_user_id_0) | Get Tenant User By Ol User Id
+[**get_tenant_user_profile**](TenantUsersApi.md#get_tenant_user_profile) | Get user profile from the Tenant Database.
+[**get_tenant_user_profile_0**](TenantUsersApi.md#get_tenant_user_profile_0) | Get Tenant User Profile
+[**send_email_to_user_for_password_change**](TenantUsersApi.md#send_email_to_user_for_password_change) | Send user password change email.
+[**send_email_to_user_for_password_change_0**](TenantUsersApi.md#send_email_to_user_for_password_change_0) | Send Email To User For Password Change
 [**update_tenant_user**](TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
 [**update_tenant_user_0**](TenantUsersApi.md#update_tenant_user_0) | Update Tenant User
 [**update_tenant_user_details**](TenantUsersApi.md#update_tenant_user_details) | Update a user details in the Tenant Database.
@@ -695,6 +699,275 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseGetTenantUserByIDResponse**](ResponseGetTenantUserByIDResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_user_profile**
+> ResponseGetTenantUserProfileResponse get_tenant_user_profile(tenant_id)
+
+Get user profile from the Tenant Database.
+
+Get user profile in the Tenant Database.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_get_tenant_user_profile_response import ResponseGetTenantUserProfileResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUsersApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+
+    try:
+        # Get user profile from the Tenant Database.
+        api_response = api_instance.get_tenant_user_profile(tenant_id)
+        print("The response of TenantUsersApi->get_tenant_user_profile:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUsersApi->get_tenant_user_profile: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+
+### Return type
+
+[**ResponseGetTenantUserProfileResponse**](ResponseGetTenantUserProfileResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_user_profile_0**
+> ResponseGetTenantUserProfileResponse get_tenant_user_profile_0()
+
+Get Tenant User Profile
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_get_tenant_user_profile_response import ResponseGetTenantUserProfileResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUsersApi(api_client)
+
+    try:
+        # Get Tenant User Profile
+        api_response = api_instance.get_tenant_user_profile_0()
+        print("The response of TenantUsersApi->get_tenant_user_profile_0:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUsersApi->get_tenant_user_profile_0: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ResponseGetTenantUserProfileResponse**](ResponseGetTenantUserProfileResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_email_to_user_for_password_change**
+> ResponsePasswordChangeEmailResponse send_email_to_user_for_password_change(tenant_id, ol_user_id)
+
+Send user password change email.
+
+Send user password change email.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_password_change_email_response import ResponsePasswordChangeEmailResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUsersApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    ol_user_id = 'ol_user_id_example' # str | 
+
+    try:
+        # Send user password change email.
+        api_response = api_instance.send_email_to_user_for_password_change(tenant_id, ol_user_id)
+        print("The response of TenantUsersApi->send_email_to_user_for_password_change:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUsersApi->send_email_to_user_for_password_change: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **ol_user_id** | **str**|  | 
+
+### Return type
+
+[**ResponsePasswordChangeEmailResponse**](ResponsePasswordChangeEmailResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_email_to_user_for_password_change_0**
+> ResponsePasswordChangeEmailResponse send_email_to_user_for_password_change_0(ol_user_id)
+
+Send Email To User For Password Change
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_password_change_email_response import ResponsePasswordChangeEmailResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUsersApi(api_client)
+    ol_user_id = 'ol_user_id_example' # str | 
+
+    try:
+        # Send Email To User For Password Change
+        api_response = api_instance.send_email_to_user_for_password_change_0(ol_user_id)
+        print("The response of TenantUsersApi->send_email_to_user_for_password_change_0:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUsersApi->send_email_to_user_for_password_change_0: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ol_user_id** | **str**|  | 
+
+### Return type
+
+[**ResponsePasswordChangeEmailResponse**](ResponsePasswordChangeEmailResponse.md)
 
 ### Authorization
 

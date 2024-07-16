@@ -18,23 +18,16 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.statuses import Statuses
-from onelens_backend_client.models.ticket_category import TicketCategory
-from onelens_backend_client.models.ticket_state import TicketState
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TenantTicketFilters(BaseModel):
+class PasswordChangeEmailResponse(BaseModel):
     """
-    TenantTicketFilters
+    PasswordChangeEmailResponse
     """ # noqa: E501
-    monitor_ids: Optional[List[StrictStr]] = Field(default=None, description="List of violation monitor ids/anomaly node ids for which tickets are to be fetched.")
-    ticket_categories: Optional[List[TicketCategory]] = Field(default=None, description="List of ticket categories for which tickets are to be fetched.")
-    states: Optional[List[TicketState]] = Field(default=None, description="List of ticket State for which tickets are to be fetched.")
-    statuses: Optional[Statuses] = None
-    policy_ids: Optional[List[StrictStr]] = Field(default=None, description="List of policy ids for which tickets are to be fetched.")
-    __properties: ClassVar[List[str]] = ["monitor_ids", "ticket_categories", "states", "statuses", "policy_ids"]
+    message: StrictStr = Field(description="Message for password change email response")
+    __properties: ClassVar[List[str]] = ["message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +47,7 @@ class TenantTicketFilters(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TenantTicketFilters from a JSON string"""
+        """Create an instance of PasswordChangeEmailResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,14 +68,11 @@ class TenantTicketFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of statuses
-        if self.statuses:
-            _dict['statuses'] = self.statuses.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TenantTicketFilters from a dict"""
+        """Create an instance of PasswordChangeEmailResponse from a dict"""
         if obj is None:
             return None
 
@@ -90,11 +80,7 @@ class TenantTicketFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "monitor_ids": obj.get("monitor_ids"),
-            "ticket_categories": obj.get("ticket_categories"),
-            "states": obj.get("states"),
-            "statuses": Statuses.from_dict(obj["statuses"]) if obj.get("statuses") is not None else None,
-            "policy_ids": obj.get("policy_ids")
+            "message": obj.get("message")
         })
         return _obj
 

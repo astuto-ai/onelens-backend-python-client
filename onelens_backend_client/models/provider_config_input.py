@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.cur_bucket_config import CurBucketConfig
+from onelens_backend_client.models.storage_lens_config import StorageLensConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,8 @@ class ProviderConfigInput(BaseModel):
     regions: Optional[Dict[str, Any]] = None
     role_name: Optional[StrictStr] = None
     cur_bucket_config: Optional[CurBucketConfig] = None
-    __properties: ClassVar[List[str]] = ["regions", "role_name", "cur_bucket_config"]
+    storage_lens_config: Optional[StorageLensConfig] = None
+    __properties: ClassVar[List[str]] = ["regions", "role_name", "cur_bucket_config", "storage_lens_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +76,9 @@ class ProviderConfigInput(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of cur_bucket_config
         if self.cur_bucket_config:
             _dict['cur_bucket_config'] = self.cur_bucket_config.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of storage_lens_config
+        if self.storage_lens_config:
+            _dict['storage_lens_config'] = self.storage_lens_config.to_dict()
         # set to None if regions (nullable) is None
         # and model_fields_set contains the field
         if self.regions is None and "regions" in self.model_fields_set:
@@ -89,6 +94,11 @@ class ProviderConfigInput(BaseModel):
         if self.cur_bucket_config is None and "cur_bucket_config" in self.model_fields_set:
             _dict['cur_bucket_config'] = None
 
+        # set to None if storage_lens_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.storage_lens_config is None and "storage_lens_config" in self.model_fields_set:
+            _dict['storage_lens_config'] = None
+
         return _dict
 
     @classmethod
@@ -103,7 +113,8 @@ class ProviderConfigInput(BaseModel):
         _obj = cls.model_validate({
             "regions": obj.get("regions"),
             "role_name": obj.get("role_name"),
-            "cur_bucket_config": CurBucketConfig.from_dict(obj["cur_bucket_config"]) if obj.get("cur_bucket_config") is not None else None
+            "cur_bucket_config": CurBucketConfig.from_dict(obj["cur_bucket_config"]) if obj.get("cur_bucket_config") is not None else None,
+            "storage_lens_config": StorageLensConfig.from_dict(obj["storage_lens_config"]) if obj.get("storage_lens_config") is not None else None
         })
         return _obj
 
