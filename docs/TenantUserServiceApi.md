@@ -8,8 +8,10 @@ Method | Description
 [**create_tenant_user_from_ol_user_id**](TenantUserServiceApi.md#create_tenant_user_from_ol_user_id) | Creates a new user from onelens user id (ol_user_id).
 [**disable_tenant_user**](TenantUserServiceApi.md#disable_tenant_user) | Disables an existing tenant user.
 [**enable_tenant_user**](TenantUserServiceApi.md#enable_tenant_user) | Enables an existing tenant user.
+[**enable_tenant_user_with_system**](TenantUserServiceApi.md#enable_tenant_user_with_system) | System Enables an existing tenant user.
 [**get_tenant_user_by_ol_user_id**](TenantUserServiceApi.md#get_tenant_user_by_ol_user_id) | Retrieves a tenant user by its unique onelens user id (ol_user_id).
 [**get_tenant_users**](TenantUserServiceApi.md#get_tenant_users) | Retrieves all tenant users.
+[**send_email_to_user_for_password_change**](TenantUserServiceApi.md#send_email_to_user_for_password_change) | Sends a password change email to the user.
 [**update_tenant_user**](TenantUserServiceApi.md#update_tenant_user) | Updates an existing tenant user.
 [**update_tenant_user_details**](TenantUserServiceApi.md#update_tenant_user_details) | Updates tenant user details.
 
@@ -284,6 +286,74 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **enable_tenant_user_with_system**
+> EnableTenantUserResponse enable_tenant_user_with_system(enable_tenant_user_request)
+
+System Enables an existing tenant user.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.enable_tenant_user_request import EnableTenantUserRequest
+from onelens_backend_client.models.enable_tenant_user_response import EnableTenantUserResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUserServiceApi(api_client)
+    enable_tenant_user_request = onelens_backend_client.EnableTenantUserRequest() # EnableTenantUserRequest | 
+
+    try:
+        # System Enables an existing tenant user.
+        api_response = api_instance.enable_tenant_user_with_system(enable_tenant_user_request)
+        print("The response of TenantUserServiceApi->enable_tenant_user_with_system:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUserServiceApi->enable_tenant_user_with_system: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **enable_tenant_user_request** | [**EnableTenantUserRequest**](EnableTenantUserRequest.md)|  | 
+
+### Return type
+
+[**EnableTenantUserResponse**](EnableTenantUserResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_tenant_user_by_ol_user_id**
 > GetTenantUserByIDResponse get_tenant_user_by_ol_user_id(get_tenant_user_by_id_request)
 
@@ -401,6 +471,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetTenantUsersWithFilterResponse**](GetTenantUsersWithFilterResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_email_to_user_for_password_change**
+> PasswordChangeEmailResponse send_email_to_user_for_password_change(password_change_email_request)
+
+Sends a password change email to the user.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.password_change_email_request import PasswordChangeEmailRequest
+from onelens_backend_client.models.password_change_email_response import PasswordChangeEmailResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUserServiceApi(api_client)
+    password_change_email_request = onelens_backend_client.PasswordChangeEmailRequest() # PasswordChangeEmailRequest | 
+
+    try:
+        # Sends a password change email to the user.
+        api_response = api_instance.send_email_to_user_for_password_change(password_change_email_request)
+        print("The response of TenantUserServiceApi->send_email_to_user_for_password_change:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUserServiceApi->send_email_to_user_for_password_change: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password_change_email_request** | [**PasswordChangeEmailRequest**](PasswordChangeEmailRequest.md)|  | 
+
+### Return type
+
+[**PasswordChangeEmailResponse**](PasswordChangeEmailResponse.md)
 
 ### Authorization
 

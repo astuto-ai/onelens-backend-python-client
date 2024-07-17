@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.storage_lens_config import StorageLensConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,8 +30,9 @@ class TenantVerifyRequestWithUser(BaseModel):
     role_name: StrictStr = Field(description="Role name of the tenant")
     tenant_id: StrictStr = Field(description="Tenant ID")
     tenant_provider_id: StrictStr = Field(description="Tenant Provider ID")
+    storage_lens_config: Optional[StorageLensConfig] = None
     user_id: StrictStr = Field(description="List of users")
-    __properties: ClassVar[List[str]] = ["role_name", "tenant_id", "tenant_provider_id", "user_id"]
+    __properties: ClassVar[List[str]] = ["role_name", "tenant_id", "tenant_provider_id", "storage_lens_config", "user_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,6 +73,14 @@ class TenantVerifyRequestWithUser(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of storage_lens_config
+        if self.storage_lens_config:
+            _dict['storage_lens_config'] = self.storage_lens_config.to_dict()
+        # set to None if storage_lens_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.storage_lens_config is None and "storage_lens_config" in self.model_fields_set:
+            _dict['storage_lens_config'] = None
+
         return _dict
 
     @classmethod
@@ -86,6 +96,7 @@ class TenantVerifyRequestWithUser(BaseModel):
             "role_name": obj.get("role_name"),
             "tenant_id": obj.get("tenant_id"),
             "tenant_provider_id": obj.get("tenant_provider_id"),
+            "storage_lens_config": StorageLensConfig.from_dict(obj["storage_lens_config"]) if obj.get("storage_lens_config") is not None else None,
             "user_id": obj.get("user_id")
         })
         return _obj

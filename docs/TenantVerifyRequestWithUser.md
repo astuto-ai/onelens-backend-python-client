@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **role_name** | **str** | Role name of the tenant | 
 **tenant_id** | **str** | Tenant ID | 
 **tenant_provider_id** | **str** | Tenant Provider ID | 
+**storage_lens_config** | [**StorageLensConfig**](StorageLensConfig.md) |  | [optional] 
 **user_id** | **str** | List of users | 
 
 ## Example

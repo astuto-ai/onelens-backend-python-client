@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **force_update** | **bool** | Force update (TRUE/FALSE), default: FALSE | [optional] [default to False]
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) |  | [optional] 
+**services** | [**List[ActionTypeFiltersServicesInner]**](ActionTypeFiltersServicesInner.md) |  | [optional] 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) |  | [optional] 
 **details** | [**PolicyTemplateDetailsInput**](PolicyTemplateDetailsInput.md) |  | [optional] 
 **description2** | **str** |  | [optional] 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **regions** | **object** |  | [optional] 
 **role_name** | **str** |  | [optional] 
 **cur_bucket_config** | [**CurBucketConfig**](CurBucketConfig.md) |  | [optional] 
+**storage_lens_config** | [**StorageLensConfig**](StorageLensConfig.md) |  | [optional] 
 
 ## Example
 

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.action_type_filters_services_inner import ActionTypeFiltersServicesInner
 from onelens_backend_client.models.policy_category import PolicyCategory
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_details_output import PolicyTemplateDetailsOutput
@@ -37,7 +37,7 @@ class UpdatePolicyTemplateResponse(BaseModel):
     title: StrictStr = Field(description="The title of the policy template.")
     alias: StrictStr = Field(description="The alias of the policy template.")
     description: Optional[StrictStr] = Field(default=None, description="The description of the policy template.")
-    services: List[CreatePolicyTemplateRequestServicesInner] = Field(description="The list of services associated the policy template.")
+    services: List[ActionTypeFiltersServicesInner] = Field(description="The list of services associated the policy template.")
     execution_type: PolicyExecutionType = Field(description="The execution type of the policy template.")
     details: PolicyTemplateDetailsOutput = Field(description="The details of the policy template.")
     description2: Optional[StrictStr] = Field(default=None, description="The description2 of the policy template.")
@@ -117,7 +117,7 @@ class UpdatePolicyTemplateResponse(BaseModel):
             "title": obj.get("title"),
             "alias": obj.get("alias"),
             "description": obj.get("description"),
-            "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
+            "services": [ActionTypeFiltersServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetailsOutput.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "description2": obj.get("description2"),

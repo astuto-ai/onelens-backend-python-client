@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.service_config import ServiceConfig
+from onelens_backend_client.models.recommendation_unit import RecommendationUnit
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class GetRecommendationUnitByIdResponse(BaseModel):
     """
     GetRecommendationUnitByIdResponse
     """ # noqa: E501
-    recommendation_unit: ServiceConfig = Field(description="Recommendation Unit")
+    recommendation_unit: RecommendationUnit = Field(description="Recommendation Unit")
     __properties: ClassVar[List[str]] = ["recommendation_unit"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class GetRecommendationUnitByIdResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recommendation_unit": ServiceConfig.from_dict(obj["recommendation_unit"]) if obj.get("recommendation_unit") is not None else None
+            "recommendation_unit": RecommendationUnit.from_dict(obj["recommendation_unit"]) if obj.get("recommendation_unit") is not None else None
         })
         return _obj
 

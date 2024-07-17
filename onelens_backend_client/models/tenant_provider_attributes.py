@@ -28,6 +28,7 @@ class TenantProviderAttributes(str, Enum):
     """
     ROLE_ARN = 'role_arn'
     DB_CONNECTION_STRING = 'db_connection_string'
+    STORAGE_LENS_CONFIGURATION = 'storage_lens_configuration'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

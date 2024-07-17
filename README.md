@@ -135,11 +135,16 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
-*RecommendationEngineServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationEngineServiceApi.md#get_recommendation_unit_by_id) | Retrieves all Tenants with filters.
-*RecommendationEngineServiceApi* | [**get_recommendation_units**](docs/RecommendationEngineServiceApi.md#get_recommendation_units) | Retrieves all recommendation units by filter
+*RecommendationEngineServiceApi* | [**create_action_type**](docs/RecommendationEngineServiceApi.md#create_action_type) | Create Action Type
+*RecommendationEngineServiceApi* | [**get_action_types**](docs/RecommendationEngineServiceApi.md#get_action_types) | Get Action Types
 *RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
+*RecommendationEngineServiceApi* | [**update_action_type**](docs/RecommendationEngineServiceApi.md#update_action_type) | Update Action Type
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationServiceApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationServiceApi.md#get_recommendation_by_ticket_id) | Get recommendations by ticket id.
+*RecommendationUnitServiceApi* | [**create_recommendation_unit**](docs/RecommendationUnitServiceApi.md#create_recommendation_unit) | Create recommendation unit
+*RecommendationUnitServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationUnitServiceApi.md#get_recommendation_unit_by_id) | Retrieves Recommendation unit ID.
+*RecommendationUnitServiceApi* | [**get_recommendation_units**](docs/RecommendationUnitServiceApi.md#get_recommendation_units) | Retrieves all recommendation units with filters
+*RecommendationUnitServiceApi* | [**update_recommendation_unit**](docs/RecommendationUnitServiceApi.md#update_recommendation_unit) | Update recommendation unit
 *ResourceCatalogApi* | [**get_resource_catalog**](docs/ResourceCatalogApi.md#get_resource_catalog) | Get Resource Catalog
 *ResourceCatalogApi* | [**get_resource_catalog_0**](docs/ResourceCatalogApi.md#get_resource_catalog_0) | Get Resource Catalog
 *ResourceCatalogApi* | [**get_resource_catalog_with_relationships**](docs/ResourceCatalogApi.md#get_resource_catalog_with_relationships) | Get Resource Catalog With Relationships
@@ -239,8 +244,10 @@ Class | Method | Description
 *TenantUserServiceApi* | [**create_tenant_user_from_ol_user_id**](docs/TenantUserServiceApi.md#create_tenant_user_from_ol_user_id) | Creates a new user from onelens user id (ol_user_id).
 *TenantUserServiceApi* | [**disable_tenant_user**](docs/TenantUserServiceApi.md#disable_tenant_user) | Disables an existing tenant user.
 *TenantUserServiceApi* | [**enable_tenant_user**](docs/TenantUserServiceApi.md#enable_tenant_user) | Enables an existing tenant user.
+*TenantUserServiceApi* | [**enable_tenant_user_with_system**](docs/TenantUserServiceApi.md#enable_tenant_user_with_system) | System Enables an existing tenant user.
 *TenantUserServiceApi* | [**get_tenant_user_by_ol_user_id**](docs/TenantUserServiceApi.md#get_tenant_user_by_ol_user_id) | Retrieves a tenant user by its unique onelens user id (ol_user_id).
 *TenantUserServiceApi* | [**get_tenant_users**](docs/TenantUserServiceApi.md#get_tenant_users) | Retrieves all tenant users.
+*TenantUserServiceApi* | [**send_email_to_user_for_password_change**](docs/TenantUserServiceApi.md#send_email_to_user_for_password_change) | Sends a password change email to the user.
 *TenantUserServiceApi* | [**update_tenant_user**](docs/TenantUserServiceApi.md#update_tenant_user) | Updates an existing tenant user.
 *TenantUserServiceApi* | [**update_tenant_user_details**](docs/TenantUserServiceApi.md#update_tenant_user_details) | Updates tenant user details.
 *TenantUsersApi* | [**create_tenant_user**](docs/TenantUsersApi.md#create_tenant_user) | Create a new user in the Tenant Database.
@@ -253,6 +260,10 @@ Class | Method | Description
 *TenantUsersApi* | [**get_all_tenant_users_with_filter_0**](docs/TenantUsersApi.md#get_all_tenant_users_with_filter_0) | Get All Tenant Users With Filter
 *TenantUsersApi* | [**get_tenant_user_by_ol_user_id**](docs/TenantUsersApi.md#get_tenant_user_by_ol_user_id) | Get a user from the Tenant Database.
 *TenantUsersApi* | [**get_tenant_user_by_ol_user_id_0**](docs/TenantUsersApi.md#get_tenant_user_by_ol_user_id_0) | Get Tenant User By Ol User Id
+*TenantUsersApi* | [**get_tenant_user_profile**](docs/TenantUsersApi.md#get_tenant_user_profile) | Get user profile from the Tenant Database.
+*TenantUsersApi* | [**get_tenant_user_profile_0**](docs/TenantUsersApi.md#get_tenant_user_profile_0) | Get Tenant User Profile
+*TenantUsersApi* | [**send_email_to_user_for_password_change**](docs/TenantUsersApi.md#send_email_to_user_for_password_change) | Send user password change email.
+*TenantUsersApi* | [**send_email_to_user_for_password_change_0**](docs/TenantUsersApi.md#send_email_to_user_for_password_change_0) | Send Email To User For Password Change
 *TenantUsersApi* | [**update_tenant_user**](docs/TenantUsersApi.md#update_tenant_user) | Update a user in the Tenant Database.
 *TenantUsersApi* | [**update_tenant_user_0**](docs/TenantUsersApi.md#update_tenant_user_0) | Update Tenant User
 *TenantUsersApi* | [**update_tenant_user_details**](docs/TenantUsersApi.md#update_tenant_user_details) | Update a user details in the Tenant Database.
@@ -308,6 +319,9 @@ Class | Method | Description
 
 ## Documentation For Models
 
+ - [ActionType](docs/ActionType.md)
+ - [ActionTypeFilters](docs/ActionTypeFilters.md)
+ - [ActionTypeFiltersServicesInner](docs/ActionTypeFiltersServicesInner.md)
  - [ActivatePolicyTemplateRequest](docs/ActivatePolicyTemplateRequest.md)
  - [AddTenantPolicyExclusionsAPIRequest](docs/AddTenantPolicyExclusionsAPIRequest.md)
  - [AddTenantPolicyExclusionsRequest](docs/AddTenantPolicyExclusionsRequest.md)
@@ -329,6 +343,8 @@ Class | Method | Description
  - [BulkUpdateTenantTicketsResponse](docs/BulkUpdateTenantTicketsResponse.md)
  - [City](docs/City.md)
  - [Country](docs/Country.md)
+ - [CreateActionTypeRequest](docs/CreateActionTypeRequest.md)
+ - [CreateActionTypeResponse](docs/CreateActionTypeResponse.md)
  - [CreateAuth0AndOnelensUserResponse](docs/CreateAuth0AndOnelensUserResponse.md)
  - [CreateAuth0UserRequest](docs/CreateAuth0UserRequest.md)
  - [CreateDefaultHierarchyRequest](docs/CreateDefaultHierarchyRequest.md)
@@ -343,8 +359,9 @@ Class | Method | Description
  - [CreatePolicyTemplatePackRequest](docs/CreatePolicyTemplatePackRequest.md)
  - [CreatePolicyTemplatePackResponse](docs/CreatePolicyTemplatePackResponse.md)
  - [CreatePolicyTemplateRequest](docs/CreatePolicyTemplateRequest.md)
- - [CreatePolicyTemplateRequestServicesInner](docs/CreatePolicyTemplateRequestServicesInner.md)
  - [CreatePolicyTemplateResponse](docs/CreatePolicyTemplateResponse.md)
+ - [CreateRecommendationUnitRequest](docs/CreateRecommendationUnitRequest.md)
+ - [CreateRecommendationUnitResponse](docs/CreateRecommendationUnitResponse.md)
  - [CreateTenantProviderRequest](docs/CreateTenantProviderRequest.md)
  - [CreateTenantProviderResponse](docs/CreateTenantProviderResponse.md)
  - [CreateTenantRequestWithUser](docs/CreateTenantRequestWithUser.md)
@@ -369,7 +386,6 @@ Class | Method | Description
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DeleteHierarchyNodeRequest](docs/DeleteHierarchyNodeRequest.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
- - [DerivedVariable](docs/DerivedVariable.md)
  - [Details](docs/Details.md)
  - [Details1](docs/Details1.md)
  - [Details2](docs/Details2.md)
@@ -395,6 +411,8 @@ Class | Method | Description
  - [Features](docs/Features.md)
  - [FirstName](docs/FirstName.md)
  - [GcpService](docs/GcpService.md)
+ - [GetActionTypeRequest](docs/GetActionTypeRequest.md)
+ - [GetActionTypeResponse](docs/GetActionTypeResponse.md)
  - [GetAllPolicyViolationsAPIRequest](docs/GetAllPolicyViolationsAPIRequest.md)
  - [GetAllPolicyViolationsRequest](docs/GetAllPolicyViolationsRequest.md)
  - [GetAllPolicyViolationsResponse](docs/GetAllPolicyViolationsResponse.md)
@@ -439,6 +457,7 @@ Class | Method | Description
  - [GetRecommendationTicketResponse](docs/GetRecommendationTicketResponse.md)
  - [GetRecommendationUnitByIdRequest](docs/GetRecommendationUnitByIdRequest.md)
  - [GetRecommendationUnitByIdResponse](docs/GetRecommendationUnitByIdResponse.md)
+ - [GetRecommendationUnitRequest](docs/GetRecommendationUnitRequest.md)
  - [GetRecommendationUnitsRequest](docs/GetRecommendationUnitsRequest.md)
  - [GetRecommendationUnitsResponse](docs/GetRecommendationUnitsResponse.md)
  - [GetResourceHierarchyMappingByOlIdRequest](docs/GetResourceHierarchyMappingByOlIdRequest.md)
@@ -474,6 +493,7 @@ Class | Method | Description
  - [GetTenantTicketsResponse](docs/GetTenantTicketsResponse.md)
  - [GetTenantUserByIDRequest](docs/GetTenantUserByIDRequest.md)
  - [GetTenantUserByIDResponse](docs/GetTenantUserByIDResponse.md)
+ - [GetTenantUserProfileResponse](docs/GetTenantUserProfileResponse.md)
  - [GetTenantUsersWithFilterAPIRequest](docs/GetTenantUsersWithFilterAPIRequest.md)
  - [GetTenantUsersWithFilterRequest](docs/GetTenantUsersWithFilterRequest.md)
  - [GetTenantUsersWithFilterResponse](docs/GetTenantUsersWithFilterResponse.md)
@@ -528,6 +548,8 @@ Class | Method | Description
  - [OverrideTenantPolicyExclusionsResponse](docs/OverrideTenantPolicyExclusionsResponse.md)
  - [PaginationFields](docs/PaginationFields.md)
  - [PaginationParams](docs/PaginationParams.md)
+ - [PasswordChangeEmailRequest](docs/PasswordChangeEmailRequest.md)
+ - [PasswordChangeEmailResponse](docs/PasswordChangeEmailResponse.md)
  - [PolicyCategory](docs/PolicyCategory.md)
  - [PolicyExecutionType](docs/PolicyExecutionType.md)
  - [PolicyRecommendationParams](docs/PolicyRecommendationParams.md)
@@ -552,7 +574,7 @@ Class | Method | Description
  - [ProviderConfigInput](docs/ProviderConfigInput.md)
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
  - [PublishCustomHierarchyRequest](docs/PublishCustomHierarchyRequest.md)
- - [QueryDetails](docs/QueryDetails.md)
+ - [QueryDetailsDerivedVariables](docs/QueryDetailsDerivedVariables.md)
  - [QueryFilters](docs/QueryFilters.md)
  - [QueryOrder](docs/QueryOrder.md)
  - [RecommendationEngine](docs/RecommendationEngine.md)
@@ -560,11 +582,14 @@ Class | Method | Description
  - [RecommendationEngineRequest](docs/RecommendationEngineRequest.md)
  - [RecommendationEngineResponse](docs/RecommendationEngineResponse.md)
  - [RecommendationParams](docs/RecommendationParams.md)
+ - [RecommendationQueryDetails](docs/RecommendationQueryDetails.md)
  - [RecommendationTicket](docs/RecommendationTicket.md)
  - [RecommendationTicketAPIRequestInput](docs/RecommendationTicketAPIRequestInput.md)
  - [RecommendationTicketAPIRequestOutput](docs/RecommendationTicketAPIRequestOutput.md)
  - [RecommendationTicketRequest](docs/RecommendationTicketRequest.md)
  - [RecommendationTicketResponse](docs/RecommendationTicketResponse.md)
+ - [RecommendationUnit](docs/RecommendationUnit.md)
+ - [RecommendationUnitFilters](docs/RecommendationUnitFilters.md)
  - [RelationshipConfigItem](docs/RelationshipConfigItem.md)
  - [ResourceCatalog](docs/ResourceCatalog.md)
  - [ResourceCatalogRequest](docs/ResourceCatalogRequest.md)
@@ -615,11 +640,13 @@ Class | Method | Description
  - [ResponseGetTenantProvidersResponse](docs/ResponseGetTenantProvidersResponse.md)
  - [ResponseGetTenantTicketsResponse](docs/ResponseGetTenantTicketsResponse.md)
  - [ResponseGetTenantUserByIDResponse](docs/ResponseGetTenantUserByIDResponse.md)
+ - [ResponseGetTenantUserProfileResponse](docs/ResponseGetTenantUserProfileResponse.md)
  - [ResponseGetTenantUsersWithFilterResponse](docs/ResponseGetTenantUsersWithFilterResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
  - [ResponseGetTicketByIdPolicyDetailsResponse](docs/ResponseGetTicketByIdPolicyDetailsResponse.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
+ - [ResponsePasswordChangeEmailResponse](docs/ResponsePasswordChangeEmailResponse.md)
  - [ResponseRecommendationEngineResponse](docs/ResponseRecommendationEngineResponse.md)
  - [ResponseRecommendationTicketResponse](docs/ResponseRecommendationTicketResponse.md)
  - [ResponseResourceCatalogResponse](docs/ResponseResourceCatalogResponse.md)
@@ -634,11 +661,11 @@ Class | Method | Description
  - [ResponseUpdateTenantUserDetailsResponse](docs/ResponseUpdateTenantUserDetailsResponse.md)
  - [ResponseUpdateTenantUserResponse](docs/ResponseUpdateTenantUserResponse.md)
  - [RuleType](docs/RuleType.md)
+ - [Service](docs/Service.md)
  - [ServiceCatalog](docs/ServiceCatalog.md)
  - [ServiceCatalogRequest](docs/ServiceCatalogRequest.md)
  - [ServiceCatalogRequestFind](docs/ServiceCatalogRequestFind.md)
  - [ServiceCatalogResponse](docs/ServiceCatalogResponse.md)
- - [ServiceConfig](docs/ServiceConfig.md)
  - [SetTenantStatusRequest](docs/SetTenantStatusRequest.md)
  - [SortCriteria](docs/SortCriteria.md)
  - [Sources](docs/Sources.md)
@@ -646,6 +673,7 @@ Class | Method | Description
  - [Status](docs/Status.md)
  - [Status1](docs/Status1.md)
  - [Statuses](docs/Statuses.md)
+ - [StorageLensConfig](docs/StorageLensConfig.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAnomalySettingFilters](docs/TenantAnomalySettingFilters.md)
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)
@@ -684,6 +712,8 @@ Class | Method | Description
  - [TimeDimensionOutput](docs/TimeDimensionOutput.md)
  - [TimeDimensionOutputCompareDateRangeInner](docs/TimeDimensionOutputCompareDateRangeInner.md)
  - [Timezone](docs/Timezone.md)
+ - [UpdateActionTypeRequest](docs/UpdateActionTypeRequest.md)
+ - [UpdateActionTypeResponse](docs/UpdateActionTypeResponse.md)
  - [UpdateHierarchyNodeAPIRequest](docs/UpdateHierarchyNodeAPIRequest.md)
  - [UpdateHierarchyNodeRequest](docs/UpdateHierarchyNodeRequest.md)
  - [UpdateHierarchyNodeResponse](docs/UpdateHierarchyNodeResponse.md)
@@ -691,6 +721,8 @@ Class | Method | Description
  - [UpdateOrganizationResponse](docs/UpdateOrganizationResponse.md)
  - [UpdatePolicyTemplateRequest](docs/UpdatePolicyTemplateRequest.md)
  - [UpdatePolicyTemplateResponse](docs/UpdatePolicyTemplateResponse.md)
+ - [UpdateRecommendationUnitRequest](docs/UpdateRecommendationUnitRequest.md)
+ - [UpdateRecommendationUnitResponse](docs/UpdateRecommendationUnitResponse.md)
  - [UpdateTenantPolicySettingLastRunAtRequest](docs/UpdateTenantPolicySettingLastRunAtRequest.md)
  - [UpdateTenantRequest](docs/UpdateTenantRequest.md)
  - [UpdateTenantResponse](docs/UpdateTenantResponse.md)
