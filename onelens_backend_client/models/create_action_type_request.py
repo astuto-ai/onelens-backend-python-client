@@ -27,7 +27,7 @@ class CreateActionTypeRequest(BaseModel):
     """
     CreateActionTypeRequest
     """ # noqa: E501
-    service: Service
+    service: StrictStr = Field(description="Service")
     title: StrictStr = Field(description="Title")
     subtitle: Optional[StrictStr] = None
     description: StrictStr = Field(description="Description")
@@ -35,7 +35,7 @@ class CreateActionTypeRequest(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-        validate_assignment=True,
+        validate_assignment=False,
         protected_namespaces=(),
     )
 
@@ -92,7 +92,7 @@ class CreateActionTypeRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "service": Service.from_dict(obj["service"]) if obj.get("service") is not None else None,
+            "service": obj.get("service"),
             "title": obj.get("title"),
             "subtitle": obj.get("subtitle"),
             "description": obj.get("description")

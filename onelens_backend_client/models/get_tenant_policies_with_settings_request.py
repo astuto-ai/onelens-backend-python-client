@@ -21,7 +21,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_filter_criteria import OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria
 from onelens_backend_client.models.pagination_params import PaginationParams
-from onelens_backend_client.models.sort_criteria import SortCriteria
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,9 +30,8 @@ class GetTenantPoliciesWithSettingsRequest(BaseModel):
     """ # noqa: E501
     pagination: Optional[PaginationParams] = Field(default=None, description="Pagination parameters for the request.")
     filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
-    sort_criteria: Optional[SortCriteria] = None
     tenant_id: StrictStr = Field(description="The id of the tenant.")
-    __properties: ClassVar[List[str]] = ["pagination", "filters", "sort_criteria", "tenant_id"]
+    __properties: ClassVar[List[str]] = ["pagination", "filters", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,14 +82,6 @@ class GetTenantPoliciesWithSettingsRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['filters'] = _items
-        # override the default output from pydantic by calling `to_dict()` of sort_criteria
-        if self.sort_criteria:
-            _dict['sort_criteria'] = self.sort_criteria.to_dict()
-        # set to None if sort_criteria (nullable) is None
-        # and model_fields_set contains the field
-        if self.sort_criteria is None and "sort_criteria" in self.model_fields_set:
-            _dict['sort_criteria'] = None
-
         return _dict
 
     @classmethod
@@ -106,7 +96,6 @@ class GetTenantPoliciesWithSettingsRequest(BaseModel):
         _obj = cls.model_validate({
             "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
             "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
-            "sort_criteria": SortCriteria.from_dict(obj["sort_criteria"]) if obj.get("sort_criteria") is not None else None,
             "tenant_id": obj.get("tenant_id")
         })
         return _obj

@@ -590,6 +590,7 @@ Class | Method | Description
  - [RecommendationTicketResponse](docs/RecommendationTicketResponse.md)
  - [RecommendationUnit](docs/RecommendationUnit.md)
  - [RecommendationUnitFilters](docs/RecommendationUnitFilters.md)
+ - [RecommendationUnitWithActionType](docs/RecommendationUnitWithActionType.md)
  - [RelationshipConfigItem](docs/RelationshipConfigItem.md)
  - [ResourceCatalog](docs/ResourceCatalog.md)
  - [ResourceCatalogRequest](docs/ResourceCatalogRequest.md)

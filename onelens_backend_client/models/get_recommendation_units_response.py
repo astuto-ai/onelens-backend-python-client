@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from onelens_backend_client.models.pagination_fields import PaginationFields
-from onelens_backend_client.models.recommendation_unit import RecommendationUnit
+from onelens_backend_client.models.recommendation_unit_with_action_type import RecommendationUnitWithActionType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetRecommendationUnitsResponse(BaseModel):
     """
     GetRecommendationUnitsResponse
     """ # noqa: E501
-    recommendation_units: List[RecommendationUnit] = Field(description="Recommendation Unit")
+    recommendation_units: List[RecommendationUnitWithActionType] = Field(description="Recommendation Unit")
     pagination: PaginationFields = Field(description="Pagination fields")
     __properties: ClassVar[List[str]] = ["recommendation_units", "pagination"]
 
@@ -93,7 +93,7 @@ class GetRecommendationUnitsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recommendation_units": [RecommendationUnit.from_dict(_item) for _item in obj["recommendation_units"]] if obj.get("recommendation_units") is not None else None,
+            "recommendation_units": [RecommendationUnitWithActionType.from_dict(_item) for _item in obj["recommendation_units"]] if obj.get("recommendation_units") is not None else None,
             "pagination": PaginationFields.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
