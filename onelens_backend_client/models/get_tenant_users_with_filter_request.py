@@ -19,7 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.tenant_users_filters import TenantUsersFilters
+from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_filter_criteria import OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria
+from onelens_backend_client.models.pagination_params import PaginationParams
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +28,10 @@ class GetTenantUsersWithFilterRequest(BaseModel):
     """
     GetTenantUsersWithFilterRequest
     """ # noqa: E501
-    filters: Optional[TenantUsersFilters] = Field(default=None, description="Get tenant users with filters")
+    pagination: Optional[PaginationParams] = Field(default=None, description="Pagination parameters for the request.")
+    filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
     tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
-    __properties: ClassVar[List[str]] = ["filters", "tenant_id"]
+    __properties: ClassVar[List[str]] = ["pagination", "filters", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,9 +72,16 @@ class GetTenantUsersWithFilterRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of filters
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in filters (list)
+        _items = []
         if self.filters:
-            _dict['filters'] = self.filters.to_dict()
+            for _item in self.filters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['filters'] = _items
         return _dict
 
     @classmethod
@@ -85,7 +94,8 @@ class GetTenantUsersWithFilterRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "filters": TenantUsersFilters.from_dict(obj["filters"]) if obj.get("filters") is not None else None,
+            "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
+            "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
             "tenant_id": obj.get("tenant_id")
         })
         return _obj

@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **role** | [**UserRole**](UserRole.md) | Role of the user in the tenant | [optional] 
 **status** | [**UserStatus**](UserStatus.md) | Status of the user like ACTIVE, BLOCKED etc. | [optional] 
 **sources** | [**Sources**](Sources.md) |  | [optional] 
+**last_login** | [**LastLogin**](LastLogin.md) |  | [optional] 
+**created_at** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
 **ol_user_id** | **object** | Unique onelens identifier for the user | 
 **id** | **object** | PK in the tenant users table | 
 

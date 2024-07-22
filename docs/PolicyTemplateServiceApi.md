@@ -8,6 +8,7 @@ Method | Description
 [**create_policy_template**](PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
 [**deactivate_policy_template**](PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
 [**deprecate_policy_template**](PolicyTemplateServiceApi.md#deprecate_policy_template) | Deprecate a policy template.
+[**get_policy_template_by_alias**](PolicyTemplateServiceApi.md#get_policy_template_by_alias) | Retrieves a policy template by its alias.
 [**get_policy_template_by_id**](PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 [**get_policy_templates**](PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 [**update_policy_template**](PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
@@ -263,6 +264,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 **object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_policy_template_by_alias**
+> GetPolicyTemplateByIDResponse get_policy_template_by_alias(get_policy_template_by_alias_request)
+
+Retrieves a policy template by its alias.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_policy_template_by_alias_request import GetPolicyTemplateByAliasRequest
+from onelens_backend_client.models.get_policy_template_by_id_response import GetPolicyTemplateByIDResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.PolicyTemplateServiceApi(api_client)
+    get_policy_template_by_alias_request = onelens_backend_client.GetPolicyTemplateByAliasRequest() # GetPolicyTemplateByAliasRequest | 
+
+    try:
+        # Retrieves a policy template by its alias.
+        api_response = api_instance.get_policy_template_by_alias(get_policy_template_by_alias_request)
+        print("The response of PolicyTemplateServiceApi->get_policy_template_by_alias:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PolicyTemplateServiceApi->get_policy_template_by_alias: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_policy_template_by_alias_request** | [**GetPolicyTemplateByAliasRequest**](GetPolicyTemplateByAliasRequest.md)|  | 
+
+### Return type
+
+[**GetPolicyTemplateByIDResponse**](GetPolicyTemplateByIDResponse.md)
 
 ### Authorization
 

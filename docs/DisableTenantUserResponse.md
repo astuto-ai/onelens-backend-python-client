@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **display_date_format** | [**DisplayDateFormat**](DisplayDateFormat.md) |  | [optional] 
 **display_time_format** | [**DisplayTimeFormat**](DisplayTimeFormat.md) |  | [optional] 
 **sources** | [**Sources**](Sources.md) |  | [optional] 
+**last_login** | [**LastLogin**](LastLogin.md) |  | [optional] 
+**created_at** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
 **ol_user_id** | **object** | Unique onelens identifier for the user | 
 **id** | **object** | PK in the tenant users table | 
 

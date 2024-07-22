@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from onelens_backend_client.models.get_all_tenant_users_item import GetAllTenantUsersItem
+from onelens_backend_client.models.pagination_fields import PaginationFields
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +28,9 @@ class GetTenantUsersWithFilterResponse(BaseModel):
     """
     GetTenantUsersWithFilterResponse
     """ # noqa: E501
+    pagination: PaginationFields = Field(description="Pagination fields.")
     users: List[GetAllTenantUsersItem] = Field(description="List of tenant users")
-    __properties: ClassVar[List[str]] = ["users"]
+    __properties: ClassVar[List[str]] = ["pagination", "users"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,9 @@ class GetTenantUsersWithFilterResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in users (list)
         _items = []
         if self.users:
@@ -88,6 +93,7 @@ class GetTenantUsersWithFilterResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "pagination": PaginationFields.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
             "users": [GetAllTenantUsersItem.from_dict(_item) for _item in obj["users"]] if obj.get("users") is not None else None
         })
         return _obj

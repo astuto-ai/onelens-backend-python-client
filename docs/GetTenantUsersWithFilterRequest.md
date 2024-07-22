@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**TenantUsersFilters**](TenantUsersFilters.md) | Get tenant users with filters | [optional] 
+**pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
+**filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 
 ## Example

@@ -13,6 +13,7 @@ Method | Description
 [**get_tenant_users**](TenantUserServiceApi.md#get_tenant_users) | Retrieves all tenant users.
 [**send_email_to_user_for_password_change**](TenantUserServiceApi.md#send_email_to_user_for_password_change) | Sends a password change email to the user.
 [**update_tenant_user**](TenantUserServiceApi.md#update_tenant_user) | Updates an existing tenant user.
+[**update_tenant_user_by_system**](TenantUserServiceApi.md#update_tenant_user_by_system) | Updates tenant user by system.
 [**update_tenant_user_details**](TenantUserServiceApi.md#update_tenant_user_details) | Updates tenant user details.
 
 
@@ -607,6 +608,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UpdateTenantUserResponse**](UpdateTenantUserResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_tenant_user_by_system**
+> UpdateTenantUserBySystemResponse update_tenant_user_by_system(update_tenant_user_by_system_request)
+
+Updates tenant user by system.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.update_tenant_user_by_system_request import UpdateTenantUserBySystemRequest
+from onelens_backend_client.models.update_tenant_user_by_system_response import UpdateTenantUserBySystemResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantUserServiceApi(api_client)
+    update_tenant_user_by_system_request = onelens_backend_client.UpdateTenantUserBySystemRequest() # UpdateTenantUserBySystemRequest | 
+
+    try:
+        # Updates tenant user by system.
+        api_response = api_instance.update_tenant_user_by_system(update_tenant_user_by_system_request)
+        print("The response of TenantUserServiceApi->update_tenant_user_by_system:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantUserServiceApi->update_tenant_user_by_system: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_tenant_user_by_system_request** | [**UpdateTenantUserBySystemRequest**](UpdateTenantUserBySystemRequest.md)|  | 
+
+### Return type
+
+[**UpdateTenantUserBySystemResponse**](UpdateTenantUserBySystemResponse.md)
 
 ### Authorization
 
