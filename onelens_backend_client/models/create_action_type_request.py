@@ -74,7 +74,7 @@ class CreateActionTypeRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of service
         if self.service:
-            _dict['service'] = self.service.to_dict()
+            _dict['service'] = self.service
         # set to None if subtitle (nullable) is None
         # and model_fields_set contains the field
         if self.subtitle is None and "subtitle" in self.model_fields_set:
