@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pagination** | [**PaginationFields**](PaginationFields.md) | Pagination fields. | 
 **users** | [**List[GetAllTenantUsersItem]**](GetAllTenantUsersItem.md) | List of tenant users | 
 
 ## Example

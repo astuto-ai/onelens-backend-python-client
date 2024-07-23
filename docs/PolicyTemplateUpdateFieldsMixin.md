@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **description2** | **str** |  | [optional] 
 **resource_type** | **str** |  | [optional] 
 **recommendation_details** | [**PolicyTemplateRecommendationDetailsInput**](PolicyTemplateRecommendationDetailsInput.md) |  | [optional] 
+**requirements** | **str** |  | [optional] 
 
 ## Example
 

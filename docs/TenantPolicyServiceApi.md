@@ -12,6 +12,7 @@ Method | Description
 [**get_tenant_policies_with_settings**](TenantPolicyServiceApi.md#get_tenant_policies_with_settings) | Retrieves all tenant policies, optionally filtered by the parameters in the request.
 [**get_tenant_policy_by_id**](TenantPolicyServiceApi.md#get_tenant_policy_by_id) | Retrieves a tenant policy by its id.
 [**get_tenant_policy_settings**](TenantPolicyServiceApi.md#get_tenant_policy_settings) | Retrieves all tenant policy settings, optionally filtered by the parameters in the request.
+[**get_tenant_policy_stats**](TenantPolicyServiceApi.md#get_tenant_policy_stats) | Get Tenant Policy Stats
 [**get_tenant_policy_with_summary**](TenantPolicyServiceApi.md#get_tenant_policy_with_summary) | Retrieves a tenant policy with corresponding recommendations, by its id.
 [**override_tenant_policy_config**](TenantPolicyServiceApi.md#override_tenant_policy_config) | Override the tenant policy config with the provided config.
 [**override_tenant_policy_exclusions**](TenantPolicyServiceApi.md#override_tenant_policy_exclusions) | Override tenant policy exclusions.
@@ -540,6 +541,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetTenantPolicySettingsResponse**](GetTenantPolicySettingsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_policy_stats**
+> GetTenantPolicyStatsResponse get_tenant_policy_stats(get_tenant_policy_stats_request)
+
+Get Tenant Policy Stats
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_tenant_policy_stats_request import GetTenantPolicyStatsRequest
+from onelens_backend_client.models.get_tenant_policy_stats_response import GetTenantPolicyStatsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantPolicyServiceApi(api_client)
+    get_tenant_policy_stats_request = onelens_backend_client.GetTenantPolicyStatsRequest() # GetTenantPolicyStatsRequest | 
+
+    try:
+        # Get Tenant Policy Stats
+        api_response = api_instance.get_tenant_policy_stats(get_tenant_policy_stats_request)
+        print("The response of TenantPolicyServiceApi->get_tenant_policy_stats:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantPolicyServiceApi->get_tenant_policy_stats: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_tenant_policy_stats_request** | [**GetTenantPolicyStatsRequest**](GetTenantPolicyStatsRequest.md)|  | 
+
+### Return type
+
+[**GetTenantPolicyStatsResponse**](GetTenantPolicyStatsResponse.md)
 
 ### Authorization
 

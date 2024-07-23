@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **provider** | [**Provider**](Provider.md) | The cloud provider of the policy template. | 
 **id** | **str** | The unique identifier of the policy template. | 
 **state** | [**PolicyTemplateState**](PolicyTemplateState.md) | The state of the policy template. | 
+**requirements** | **str** |  | [optional] 
 
 ## Example
 
