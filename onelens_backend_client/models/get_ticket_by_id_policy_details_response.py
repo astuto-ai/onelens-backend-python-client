@@ -33,7 +33,8 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
     recommendation_units: List[StrictStr] = Field(description="List of recommendation units")
     hierarchy_details: Dict[str, Any] = Field(description="The resource hierarchy details")
     resource_details: Dict[str, Any] = Field(description="The resource details")
-    __properties: ClassVar[List[str]] = ["tenant_ticket", "policy_details", "recommendation_units", "hierarchy_details", "resource_details"]
+    account_details: Dict[str, Any] = Field(description="The account details")
+    __properties: ClassVar[List[str]] = ["tenant_ticket", "policy_details", "recommendation_units", "hierarchy_details", "resource_details", "account_details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,7 +97,8 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
             "policy_details": TenantPolicy.from_dict(obj["policy_details"]) if obj.get("policy_details") is not None else None,
             "recommendation_units": obj.get("recommendation_units"),
             "hierarchy_details": obj.get("hierarchy_details"),
-            "resource_details": obj.get("resource_details")
+            "resource_details": obj.get("resource_details"),
+            "account_details": obj.get("account_details")
         })
         return _obj
 

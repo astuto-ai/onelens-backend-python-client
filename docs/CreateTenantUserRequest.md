@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **display_time_format** | [**DisplayTimeFormat**](DisplayTimeFormat.md) |  | [optional] 
 **status** | [**UserStatus**](UserStatus.md) | Status of the user like ACTIVE, BLOCKED etc. | [optional] 
 **sources** | [**Sources**](Sources.md) |  | [optional] 
+**last_login** | [**LastLogin**](LastLogin.md) |  | [optional] 
+**created_at** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
 
 ## Example
 

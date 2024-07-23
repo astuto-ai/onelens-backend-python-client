@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **title** | **str** | The title of the policy template. | 
 **alias** | **str** | The alias of the policy template. | 
 **description** | **str** | The description of the policy template. | [optional] 
-**services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) | The list of services associated the policy template. | 
+**services** | [**List[ActionTypeFiltersServicesInner]**](ActionTypeFiltersServicesInner.md) | The list of services associated the policy template. | 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) | The execution type of the policy template. | 
 **details** | [**PolicyTemplateDetailsOutput**](PolicyTemplateDetailsOutput.md) | The details of the policy template. | 
 **description2** | **str** | The description2 of the policy template. | [optional] 
@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **provider** | [**Provider**](Provider.md) | The cloud provider of the policy template. | 
 **id** | **str** | The unique identifier of the policy template. | 
 **state** | [**PolicyTemplateState**](PolicyTemplateState.md) | The state of the policy template. | 
+**requirements** | **str** |  | [optional] 
 
 ## Example
 

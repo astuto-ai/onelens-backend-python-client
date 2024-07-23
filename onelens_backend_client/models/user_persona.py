@@ -32,6 +32,7 @@ class UserPersona(str, Enum):
     PRODUCT_MANAGER = 'Product Manager'
     ENGINEER = 'Engineer'
     FINANCE = 'Finance'
+    OTHER = 'Other'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

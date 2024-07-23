@@ -45,7 +45,8 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
     policy_labels: Optional[List[StrictStr]] = Field(default=None, description="List of policy labels")
     policy_violated_on: datetime = Field(description="Datetime of the policy violation")
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings possible for the current policy violation")
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "policy_id", "policy_title", "policy_labels", "policy_violated_on", "potential_savings"]
+    account_name: StrictStr = Field(description="Account name")
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "policy_id", "policy_title", "policy_labels", "policy_violated_on", "potential_savings", "account_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -118,7 +119,8 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
             "policy_title": obj.get("policy_title"),
             "policy_labels": obj.get("policy_labels"),
             "policy_violated_on": obj.get("policy_violated_on"),
-            "potential_savings": obj.get("potential_savings")
+            "potential_savings": obj.get("potential_savings"),
+            "account_name": obj.get("account_name")
         })
         return _obj
 

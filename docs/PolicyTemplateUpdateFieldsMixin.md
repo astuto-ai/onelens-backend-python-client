@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) |  | [optional] 
+**services** | [**List[ActionTypeFiltersServicesInner]**](ActionTypeFiltersServicesInner.md) |  | [optional] 
 **execution_type** | [**PolicyExecutionType**](PolicyExecutionType.md) |  | [optional] 
 **details** | [**PolicyTemplateDetailsInput**](PolicyTemplateDetailsInput.md) |  | [optional] 
 **description2** | **str** |  | [optional] 
 **resource_type** | **str** |  | [optional] 
 **recommendation_details** | [**PolicyTemplateRecommendationDetailsInput**](PolicyTemplateRecommendationDetailsInput.md) |  | [optional] 
+**requirements** | **str** |  | [optional] 
 
 ## Example
 

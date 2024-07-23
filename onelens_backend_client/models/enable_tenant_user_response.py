@@ -22,12 +22,14 @@ from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.city import City
 from onelens_backend_client.models.country import Country
 from onelens_backend_client.models.create_tenant_user_request_persona import CreateTenantUserRequestPersona
+from onelens_backend_client.models.created_at import CreatedAt
 from onelens_backend_client.models.display_date_format import DisplayDateFormat
 from onelens_backend_client.models.display_language import DisplayLanguage
 from onelens_backend_client.models.display_time_format import DisplayTimeFormat
 from onelens_backend_client.models.email import Email
 from onelens_backend_client.models.first_name import FirstName
 from onelens_backend_client.models.job_title import JobTitle
+from onelens_backend_client.models.last_login import LastLogin
 from onelens_backend_client.models.last_name import LastName
 from onelens_backend_client.models.manager import Manager
 from onelens_backend_client.models.middle_name import MiddleName
@@ -66,10 +68,12 @@ class EnableTenantUserResponse(BaseModel):
     display_date_format: Optional[DisplayDateFormat] = None
     display_time_format: Optional[DisplayTimeFormat] = None
     sources: Optional[Sources] = None
+    last_login: Optional[LastLogin] = None
+    created_at: Optional[CreatedAt] = None
     ol_user_id: Optional[Any] = Field(description="Unique onelens identifier for the user")
     id: Optional[Any] = Field(description="PK in the tenant users table")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["status", "first_name", "middle_name", "last_name", "email", "mobile_country_code", "mobile_number", "persona", "role", "job_title", "manager", "city", "state", "country", "display_language", "preferred_currency", "timezone", "display_date_format", "display_time_format", "sources", "ol_user_id", "id"]
+    __properties: ClassVar[List[str]] = ["status", "first_name", "middle_name", "last_name", "email", "mobile_country_code", "mobile_number", "persona", "role", "job_title", "manager", "city", "state", "country", "display_language", "preferred_currency", "timezone", "display_date_format", "display_time_format", "sources", "last_login", "created_at", "ol_user_id", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -166,6 +170,12 @@ class EnableTenantUserResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of sources
         if self.sources:
             _dict['sources'] = self.sources.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of last_login
+        if self.last_login:
+            _dict['last_login'] = self.last_login.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of created_at
+        if self.created_at:
+            _dict['created_at'] = self.created_at.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -213,6 +223,8 @@ class EnableTenantUserResponse(BaseModel):
             "display_date_format": DisplayDateFormat.from_dict(obj["display_date_format"]) if obj.get("display_date_format") is not None else None,
             "display_time_format": DisplayTimeFormat.from_dict(obj["display_time_format"]) if obj.get("display_time_format") is not None else None,
             "sources": Sources.from_dict(obj["sources"]) if obj.get("sources") is not None else None,
+            "last_login": LastLogin.from_dict(obj["last_login"]) if obj.get("last_login") is not None else None,
+            "created_at": CreatedAt.from_dict(obj["created_at"]) if obj.get("created_at") is not None else None,
             "ol_user_id": obj.get("ol_user_id"),
             "id": obj.get("id")
         })

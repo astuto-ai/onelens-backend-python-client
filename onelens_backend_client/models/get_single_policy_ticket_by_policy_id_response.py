@@ -40,7 +40,8 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
     account_id: StrictStr = Field(description="Account Id managing the resource")
     recommendation_unit_title: Optional[StrictStr] = None
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings of the ticket")
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings"]
+    account_name: StrictStr = Field(description="Account name")
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings", "account_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -109,7 +110,8 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
             "service_display_name": obj.get("service_display_name"),
             "account_id": obj.get("account_id"),
             "recommendation_unit_title": obj.get("recommendation_unit_title"),
-            "potential_savings": obj.get("potential_savings")
+            "potential_savings": obj.get("potential_savings"),
+            "account_name": obj.get("account_name")
         })
         return _obj
 

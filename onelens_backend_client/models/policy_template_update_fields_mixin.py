@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.action_type_filters_services_inner import ActionTypeFiltersServicesInner
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_details_input import PolicyTemplateDetailsInput
 from onelens_backend_client.models.policy_template_recommendation_details_input import PolicyTemplateRecommendationDetailsInput
@@ -32,13 +32,14 @@ class PolicyTemplateUpdateFieldsMixin(BaseModel):
     """ # noqa: E501
     title: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
-    services: Optional[List[CreatePolicyTemplateRequestServicesInner]] = None
+    services: Optional[List[ActionTypeFiltersServicesInner]] = None
     execution_type: Optional[PolicyExecutionType] = None
     details: Optional[PolicyTemplateDetailsInput] = None
     description2: Optional[StrictStr] = None
     resource_type: Optional[StrictStr] = None
     recommendation_details: Optional[PolicyTemplateRecommendationDetailsInput] = None
-    __properties: ClassVar[List[str]] = ["title", "description", "services", "execution_type", "details", "description2", "resource_type", "recommendation_details"]
+    requirements: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["title", "description", "services", "execution_type", "details", "description2", "resource_type", "recommendation_details", "requirements"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -132,6 +133,11 @@ class PolicyTemplateUpdateFieldsMixin(BaseModel):
         if self.recommendation_details is None and "recommendation_details" in self.model_fields_set:
             _dict['recommendation_details'] = None
 
+        # set to None if requirements (nullable) is None
+        # and model_fields_set contains the field
+        if self.requirements is None and "requirements" in self.model_fields_set:
+            _dict['requirements'] = None
+
         return _dict
 
     @classmethod
@@ -146,12 +152,13 @@ class PolicyTemplateUpdateFieldsMixin(BaseModel):
         _obj = cls.model_validate({
             "title": obj.get("title"),
             "description": obj.get("description"),
-            "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
+            "services": [ActionTypeFiltersServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetailsInput.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "description2": obj.get("description2"),
             "resource_type": obj.get("resource_type"),
-            "recommendation_details": PolicyTemplateRecommendationDetailsInput.from_dict(obj["recommendation_details"]) if obj.get("recommendation_details") is not None else None
+            "recommendation_details": PolicyTemplateRecommendationDetailsInput.from_dict(obj["recommendation_details"]) if obj.get("recommendation_details") is not None else None,
+            "requirements": obj.get("requirements")
         })
         return _obj
 

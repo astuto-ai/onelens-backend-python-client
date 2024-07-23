@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.action_type_filters_services_inner import ActionTypeFiltersServicesInner
 from onelens_backend_client.models.policy_category import PolicyCategory
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_details_output import PolicyTemplateDetailsOutput
@@ -37,7 +37,7 @@ class PolicyTemplate(BaseModel):
     title: StrictStr = Field(description="The title of the policy template.")
     alias: StrictStr = Field(description="The alias of the policy template.")
     description: Optional[StrictStr] = Field(default=None, description="The description of the policy template.")
-    services: List[CreatePolicyTemplateRequestServicesInner] = Field(description="The list of services associated the policy template.")
+    services: List[ActionTypeFiltersServicesInner] = Field(description="The list of services associated the policy template.")
     execution_type: PolicyExecutionType = Field(description="The execution type of the policy template.")
     details: PolicyTemplateDetailsOutput = Field(description="The details of the policy template.")
     description2: Optional[StrictStr] = Field(default=None, description="The description2 of the policy template.")
@@ -47,7 +47,8 @@ class PolicyTemplate(BaseModel):
     provider: Provider = Field(description="The cloud provider of the policy template.")
     id: StrictStr = Field(description="The unique identifier of the policy template.")
     state: PolicyTemplateState = Field(description="The state of the policy template.")
-    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details", "description2", "resource_type", "recommendation_details", "category", "provider", "id", "state"]
+    requirements: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["parent_ptp_id", "title", "alias", "description", "services", "execution_type", "details", "description2", "resource_type", "recommendation_details", "category", "provider", "id", "state", "requirements"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,6 +102,11 @@ class PolicyTemplate(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of recommendation_details
         if self.recommendation_details:
             _dict['recommendation_details'] = self.recommendation_details.to_dict()
+        # set to None if requirements (nullable) is None
+        # and model_fields_set contains the field
+        if self.requirements is None and "requirements" in self.model_fields_set:
+            _dict['requirements'] = None
+
         return _dict
 
     @classmethod
@@ -117,7 +123,7 @@ class PolicyTemplate(BaseModel):
             "title": obj.get("title"),
             "alias": obj.get("alias"),
             "description": obj.get("description"),
-            "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
+            "services": [ActionTypeFiltersServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetailsOutput.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "description2": obj.get("description2"),
@@ -126,7 +132,8 @@ class PolicyTemplate(BaseModel):
             "category": obj.get("category"),
             "provider": obj.get("provider"),
             "id": obj.get("id"),
-            "state": obj.get("state")
+            "state": obj.get("state"),
+            "requirements": obj.get("requirements")
         })
         return _obj
 
