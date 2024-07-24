@@ -40,6 +40,8 @@ docs/CreateOrganizationRequest.md
 docs/CreateOrganizationResponse.md
 docs/CreatePolicyTemplatePackRequest.md
 docs/CreatePolicyTemplatePackResponse.md
+docs/CreatePolicyTemplatePullRequest.md
+docs/CreatePolicyTemplatePullResponse.md
 docs/CreatePolicyTemplateRequest.md
 docs/CreatePolicyTemplateRequestServicesInner.md
 docs/CreatePolicyTemplateResponse.md
@@ -101,6 +103,7 @@ docs/GcpService.md
 docs/GetAllPolicyViolationsAPIRequest.md
 docs/GetAllPolicyViolationsRequest.md
 docs/GetAllPolicyViolationsResponse.md
+docs/GetAllTenantEmbedAppsLinksRequest.md
 docs/GetAllTenantUsersItem.md
 docs/GetAllUsersRequest.md
 docs/GetAllUsersResponse.md
@@ -118,6 +121,8 @@ docs/GetMetricsResponse.md
 docs/GetOrganizationByIDResponse.md
 docs/GetOrganizationsRequest.md
 docs/GetOrganizationsResponse.md
+docs/GetPolicyTemplateByAliasRequest.md
+docs/GetPolicyTemplateByAliasResponse.md
 docs/GetPolicyTemplateByIDRequest.md
 docs/GetPolicyTemplateByIDResponse.md
 docs/GetPolicyTemplatePackByIdRequest.md
@@ -251,6 +256,7 @@ docs/PolicyTemplate.md
 docs/PolicyTemplateDetailsInput.md
 docs/PolicyTemplateDetailsOutput.md
 docs/PolicyTemplateFilters.md
+docs/PolicyTemplateMigrationServiceApi.md
 docs/PolicyTemplatePack.md
 docs/PolicyTemplatePackDetails.md
 docs/PolicyTemplatePackServiceApi.md
@@ -381,6 +387,8 @@ docs/Status.md
 docs/Status1.md
 docs/Statuses.md
 docs/StorageLensConfig.md
+docs/SyncPoliciesFromRepoRequest.md
+docs/SyncPoliciesFromRepoResponse.md
 docs/Tenant.md
 docs/TenantAnomaliesApi.md
 docs/TenantAnomalyServiceApi.md
@@ -486,6 +494,7 @@ onelens_backend_client/api/metrics_service_api.py
 onelens_backend_client/api/organizations_api.py
 onelens_backend_client/api/policies_policy_template_packs_api.py
 onelens_backend_client/api/policies_policy_templates_api.py
+onelens_backend_client/api/policy_template_migration_service_api.py
 onelens_backend_client/api/policy_template_pack_service_api.py
 onelens_backend_client/api/policy_template_service_api.py
 onelens_backend_client/api/recommendation_api.py
@@ -556,6 +565,8 @@ onelens_backend_client/models/create_organization_request.py
 onelens_backend_client/models/create_organization_response.py
 onelens_backend_client/models/create_policy_template_pack_request.py
 onelens_backend_client/models/create_policy_template_pack_response.py
+onelens_backend_client/models/create_policy_template_pull_request.py
+onelens_backend_client/models/create_policy_template_pull_response.py
 onelens_backend_client/models/create_policy_template_request.py
 onelens_backend_client/models/create_policy_template_request_services_inner.py
 onelens_backend_client/models/create_policy_template_response.py
@@ -615,6 +626,7 @@ onelens_backend_client/models/gcp_service.py
 onelens_backend_client/models/get_all_policy_violations_api_request.py
 onelens_backend_client/models/get_all_policy_violations_request.py
 onelens_backend_client/models/get_all_policy_violations_response.py
+onelens_backend_client/models/get_all_tenant_embed_apps_links_request.py
 onelens_backend_client/models/get_all_tenant_users_item.py
 onelens_backend_client/models/get_all_users_request.py
 onelens_backend_client/models/get_all_users_response.py
@@ -632,6 +644,8 @@ onelens_backend_client/models/get_metrics_response.py
 onelens_backend_client/models/get_organization_by_id_response.py
 onelens_backend_client/models/get_organizations_request.py
 onelens_backend_client/models/get_organizations_response.py
+onelens_backend_client/models/get_policy_template_by_alias_request.py
+onelens_backend_client/models/get_policy_template_by_alias_response.py
 onelens_backend_client/models/get_policy_template_by_id_request.py
 onelens_backend_client/models/get_policy_template_by_id_response.py
 onelens_backend_client/models/get_policy_template_pack_by_id_request.py
@@ -879,6 +893,8 @@ onelens_backend_client/models/status.py
 onelens_backend_client/models/status1.py
 onelens_backend_client/models/statuses.py
 onelens_backend_client/models/storage_lens_config.py
+onelens_backend_client/models/sync_policies_from_repo_request.py
+onelens_backend_client/models/sync_policies_from_repo_response.py
 onelens_backend_client/models/tenant.py
 onelens_backend_client/models/tenant_anomaly_setting_filters.py
 onelens_backend_client/models/tenant_anomaly_settings.py
@@ -959,23 +975,12 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_create_tenant_embed_apps_links_request.py
-test/test_create_tenant_embed_apps_links_response.py
-test/test_created_at.py
-test/test_get_tenant_embed_apps_links_request.py
-test/test_get_tenant_embed_apps_links_response.py
-test/test_get_tenant_policy_stats_api_request.py
-test/test_get_tenant_policy_stats_request.py
-test/test_get_tenant_policy_stats_response.py
-test/test_response_create_tenant_embed_apps_links_response.py
-test/test_response_delete_tenant_embed_apps_links_response.py
-test/test_response_get_tenant_embed_apps_links_response.py
-test/test_response_get_tenant_policy_stats_response.py
-test/test_response_update_tenant_embed_apps_links_response.py
-test/test_tenant_embed_apps_and_links_api.py
-test/test_tenant_embed_apps_links_service_api.py
-test/test_update_tenant_embed_apps_links_request.py
-test/test_update_tenant_embed_apps_links_response.py
-test/test_update_tenant_user_by_system_request.py
-test/test_update_tenant_user_by_system_response.py
+test/test_create_policy_template_pull_request.py
+test/test_create_policy_template_pull_response.py
+test/test_get_all_tenant_embed_apps_links_request.py
+test/test_get_policy_template_by_alias_request.py
+test/test_get_policy_template_by_alias_response.py
+test/test_policy_template_migration_service_api.py
+test/test_sync_policies_from_repo_request.py
+test/test_sync_policies_from_repo_response.py
 tox.ini

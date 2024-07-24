@@ -18,6 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from onelens_backend_client.models.create_tenant_embed_apps_links_request import CreateTenantEmbedAppsLinksRequest
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
 from onelens_backend_client.models.response_create_tenant_embed_apps_links_response import ResponseCreateTenantEmbedAppsLinksResponse
 from onelens_backend_client.models.response_delete_tenant_embed_apps_links_response import ResponseDeleteTenantEmbedAppsLinksResponse
 from onelens_backend_client.models.response_get_tenant_embed_apps_links_response import ResponseGetTenantEmbedAppsLinksResponse
@@ -572,6 +573,7 @@ class TenantEmbedAppsAndLinksApi:
     @validate_call
     def get_all_tenant_embed_apps_links(
         self,
+        get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -588,6 +590,8 @@ class TenantEmbedAppsAndLinksApi:
         """Get All Tenant Embed Apps Links
 
 
+        :param get_all_tenant_embed_apps_links_request: (required)
+        :type get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -611,6 +615,7 @@ class TenantEmbedAppsAndLinksApi:
         """ # noqa: E501
 
         _param = self._get_all_tenant_embed_apps_links_serialize(
+            get_all_tenant_embed_apps_links_request=get_all_tenant_embed_apps_links_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -619,6 +624,7 @@ class TenantEmbedAppsAndLinksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -634,6 +640,7 @@ class TenantEmbedAppsAndLinksApi:
     @validate_call
     def get_all_tenant_embed_apps_links_with_http_info(
         self,
+        get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -650,6 +657,8 @@ class TenantEmbedAppsAndLinksApi:
         """Get All Tenant Embed Apps Links
 
 
+        :param get_all_tenant_embed_apps_links_request: (required)
+        :type get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -673,6 +682,7 @@ class TenantEmbedAppsAndLinksApi:
         """ # noqa: E501
 
         _param = self._get_all_tenant_embed_apps_links_serialize(
+            get_all_tenant_embed_apps_links_request=get_all_tenant_embed_apps_links_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -681,6 +691,7 @@ class TenantEmbedAppsAndLinksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -696,6 +707,7 @@ class TenantEmbedAppsAndLinksApi:
     @validate_call
     def get_all_tenant_embed_apps_links_without_preload_content(
         self,
+        get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -712,6 +724,8 @@ class TenantEmbedAppsAndLinksApi:
         """Get All Tenant Embed Apps Links
 
 
+        :param get_all_tenant_embed_apps_links_request: (required)
+        :type get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -735,6 +749,7 @@ class TenantEmbedAppsAndLinksApi:
         """ # noqa: E501
 
         _param = self._get_all_tenant_embed_apps_links_serialize(
+            get_all_tenant_embed_apps_links_request=get_all_tenant_embed_apps_links_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -743,6 +758,7 @@ class TenantEmbedAppsAndLinksApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -753,6 +769,7 @@ class TenantEmbedAppsAndLinksApi:
 
     def _get_all_tenant_embed_apps_links_serialize(
         self,
+        get_all_tenant_embed_apps_links_request,
         _request_auth,
         _content_type,
         _headers,
@@ -776,6 +793,8 @@ class TenantEmbedAppsAndLinksApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if get_all_tenant_embed_apps_links_request is not None:
+            _body_params = get_all_tenant_embed_apps_links_request
 
 
         # set the HTTP header `Accept`
@@ -785,14 +804,27 @@ class TenantEmbedAppsAndLinksApi:
             ]
         )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v1/links/all/',
+            method='POST',
+            resource_path='/v1/links/fetch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
