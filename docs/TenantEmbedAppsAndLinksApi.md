@@ -147,7 +147,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_tenant_embed_apps_links**
-> ResponseGetTenantEmbedAppsLinksResponse get_all_tenant_embed_apps_links()
+> ResponseGetTenantEmbedAppsLinksResponse get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
 
 Get All Tenant Embed Apps Links
 
@@ -156,6 +156,7 @@ Get All Tenant Embed Apps Links
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
 from onelens_backend_client.models.response_get_tenant_embed_apps_links_response import ResponseGetTenantEmbedAppsLinksResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -171,10 +172,11 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantEmbedAppsAndLinksApi(api_client)
+    get_all_tenant_embed_apps_links_request = onelens_backend_client.GetAllTenantEmbedAppsLinksRequest() # GetAllTenantEmbedAppsLinksRequest | 
 
     try:
         # Get All Tenant Embed Apps Links
-        api_response = api_instance.get_all_tenant_embed_apps_links()
+        api_response = api_instance.get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
         print("The response of TenantEmbedAppsAndLinksApi->get_all_tenant_embed_apps_links:\n")
         pprint(api_response)
     except Exception as e:
@@ -185,7 +187,10 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_all_tenant_embed_apps_links_request** | [**GetAllTenantEmbedAppsLinksRequest**](GetAllTenantEmbedAppsLinksRequest.md)|  | 
 
 ### Return type
 
@@ -197,7 +202,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -205,6 +210,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

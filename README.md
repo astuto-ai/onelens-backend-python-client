@@ -121,6 +121,8 @@ Class | Method | Description
 *PoliciesPolicyTemplatesApi* | [**get_policy_template**](docs/PoliciesPolicyTemplatesApi.md#get_policy_template) | Get Policy Template
 *PoliciesPolicyTemplatesApi* | [**get_policy_templates**](docs/PoliciesPolicyTemplatesApi.md#get_policy_templates) | Get Policy Templates
 *PoliciesPolicyTemplatesApi* | [**update_policy_template**](docs/PoliciesPolicyTemplatesApi.md#update_policy_template) | Update Policy Template
+*PolicyTemplateMigrationServiceApi* | [**create_policy_template_pull_request**](docs/PolicyTemplateMigrationServiceApi.md#create_policy_template_pull_request) | Create a pull request for the policy template
+*PolicyTemplateMigrationServiceApi* | [**sync_policies_from_repo**](docs/PolicyTemplateMigrationServiceApi.md#sync_policies_from_repo) | Sync policy from repo
 *PolicyTemplatePackServiceApi* | [**create_policy_template_pack**](docs/PolicyTemplatePackServiceApi.md#create_policy_template_pack) | Create a new policy template pack.
 *PolicyTemplatePackServiceApi* | [**get_policy_template_pack_by_id**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_pack_by_id) | Get a policy template pack by id.
 *PolicyTemplatePackServiceApi* | [**get_policy_template_packs**](docs/PolicyTemplatePackServiceApi.md#get_policy_template_packs) | Get all policy template packs.
@@ -128,6 +130,7 @@ Class | Method | Description
 *PolicyTemplateServiceApi* | [**create_policy_template**](docs/PolicyTemplateServiceApi.md#create_policy_template) | Creates a new policy template.
 *PolicyTemplateServiceApi* | [**deactivate_policy_template**](docs/PolicyTemplateServiceApi.md#deactivate_policy_template) | Deprecate a policy template.
 *PolicyTemplateServiceApi* | [**deprecate_policy_template**](docs/PolicyTemplateServiceApi.md#deprecate_policy_template) | Deprecate a policy template.
+*PolicyTemplateServiceApi* | [**get_policy_template_by_alias**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_alias) | Retrieves a policy template by its alias.
 *PolicyTemplateServiceApi* | [**get_policy_template_by_id**](docs/PolicyTemplateServiceApi.md#get_policy_template_by_id) | Retrieves a policy template by its unique identifier.
 *PolicyTemplateServiceApi* | [**get_policy_templates**](docs/PolicyTemplateServiceApi.md#get_policy_templates) | Retrieves all policy templates, optionally filtered by the parameters in the request.
 *PolicyTemplateServiceApi* | [**update_policy_template**](docs/PolicyTemplateServiceApi.md#update_policy_template) | Updates an existing policy template.
@@ -161,6 +164,7 @@ Class | Method | Description
 *TenantEmbedAppsAndLinksApi* | [**update_tenant_embed_apps_links**](docs/TenantEmbedAppsAndLinksApi.md#update_tenant_embed_apps_links) | Update Tenant Embed Apps Links
 *TenantEmbedAppsLinksServiceApi* | [**create_tenant_embed_apps_links**](docs/TenantEmbedAppsLinksServiceApi.md#create_tenant_embed_apps_links) | Creates tenant embed apps links.
 *TenantEmbedAppsLinksServiceApi* | [**delete_tenant_embed_apps_links**](docs/TenantEmbedAppsLinksServiceApi.md#delete_tenant_embed_apps_links) | Deletes tenant embed apps links.
+*TenantEmbedAppsLinksServiceApi* | [**get_all_tenant_embed_apps_links**](docs/TenantEmbedAppsLinksServiceApi.md#get_all_tenant_embed_apps_links) | Retrieves tenant embed apps links.
 *TenantEmbedAppsLinksServiceApi* | [**get_tenant_embed_apps_link_by_id**](docs/TenantEmbedAppsLinksServiceApi.md#get_tenant_embed_apps_link_by_id) | Retrieves tenant embed apps links.
 *TenantEmbedAppsLinksServiceApi* | [**update_tenant_embed_apps_links**](docs/TenantEmbedAppsLinksServiceApi.md#update_tenant_embed_apps_links) | Updates tenant embed apps links.
 *TenantHierarchyApi* | [**create_default_hierarchy**](docs/TenantHierarchyApi.md#create_default_hierarchy) | Create Default Hierarchy
@@ -301,6 +305,8 @@ Class | Method | Description
  - [CreateOrganizationResponse](docs/CreateOrganizationResponse.md)
  - [CreatePolicyTemplatePackRequest](docs/CreatePolicyTemplatePackRequest.md)
  - [CreatePolicyTemplatePackResponse](docs/CreatePolicyTemplatePackResponse.md)
+ - [CreatePolicyTemplatePullRequest](docs/CreatePolicyTemplatePullRequest.md)
+ - [CreatePolicyTemplatePullResponse](docs/CreatePolicyTemplatePullResponse.md)
  - [CreatePolicyTemplateRequest](docs/CreatePolicyTemplateRequest.md)
  - [CreatePolicyTemplateRequestServicesInner](docs/CreatePolicyTemplateRequestServicesInner.md)
  - [CreatePolicyTemplateResponse](docs/CreatePolicyTemplateResponse.md)
@@ -360,6 +366,7 @@ Class | Method | Description
  - [GetAllPolicyViolationsAPIRequest](docs/GetAllPolicyViolationsAPIRequest.md)
  - [GetAllPolicyViolationsRequest](docs/GetAllPolicyViolationsRequest.md)
  - [GetAllPolicyViolationsResponse](docs/GetAllPolicyViolationsResponse.md)
+ - [GetAllTenantEmbedAppsLinksRequest](docs/GetAllTenantEmbedAppsLinksRequest.md)
  - [GetAllTenantUsersItem](docs/GetAllTenantUsersItem.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
@@ -377,6 +384,8 @@ Class | Method | Description
  - [GetOrganizationByIDResponse](docs/GetOrganizationByIDResponse.md)
  - [GetOrganizationsRequest](docs/GetOrganizationsRequest.md)
  - [GetOrganizationsResponse](docs/GetOrganizationsResponse.md)
+ - [GetPolicyTemplateByAliasRequest](docs/GetPolicyTemplateByAliasRequest.md)
+ - [GetPolicyTemplateByAliasResponse](docs/GetPolicyTemplateByAliasResponse.md)
  - [GetPolicyTemplateByIDRequest](docs/GetPolicyTemplateByIDRequest.md)
  - [GetPolicyTemplateByIDResponse](docs/GetPolicyTemplateByIDResponse.md)
  - [GetPolicyTemplatePackByIdRequest](docs/GetPolicyTemplatePackByIdRequest.md)
@@ -624,6 +633,8 @@ Class | Method | Description
  - [Status1](docs/Status1.md)
  - [Statuses](docs/Statuses.md)
  - [StorageLensConfig](docs/StorageLensConfig.md)
+ - [SyncPoliciesFromRepoRequest](docs/SyncPoliciesFromRepoRequest.md)
+ - [SyncPoliciesFromRepoResponse](docs/SyncPoliciesFromRepoResponse.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAnomalySettingFilters](docs/TenantAnomalySettingFilters.md)
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)

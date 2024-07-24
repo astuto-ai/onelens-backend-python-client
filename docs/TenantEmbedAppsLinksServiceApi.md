@@ -6,6 +6,7 @@ Method | Description
 ------------- | -------------
 [**create_tenant_embed_apps_links**](TenantEmbedAppsLinksServiceApi.md#create_tenant_embed_apps_links) | Creates tenant embed apps links.
 [**delete_tenant_embed_apps_links**](TenantEmbedAppsLinksServiceApi.md#delete_tenant_embed_apps_links) | Deletes tenant embed apps links.
+[**get_all_tenant_embed_apps_links**](TenantEmbedAppsLinksServiceApi.md#get_all_tenant_embed_apps_links) | Retrieves tenant embed apps links.
 [**get_tenant_embed_apps_link_by_id**](TenantEmbedAppsLinksServiceApi.md#get_tenant_embed_apps_link_by_id) | Retrieves tenant embed apps links.
 [**update_tenant_embed_apps_links**](TenantEmbedAppsLinksServiceApi.md#update_tenant_embed_apps_links) | Updates tenant embed apps links.
 
@@ -122,6 +123,73 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **get_tenant_embed_apps_links_request** | [**GetTenantEmbedAppsLinksRequest**](GetTenantEmbedAppsLinksRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_all_tenant_embed_apps_links**
+> object get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
+
+Retrieves tenant embed apps links.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantEmbedAppsLinksServiceApi(api_client)
+    get_all_tenant_embed_apps_links_request = onelens_backend_client.GetAllTenantEmbedAppsLinksRequest() # GetAllTenantEmbedAppsLinksRequest | 
+
+    try:
+        # Retrieves tenant embed apps links.
+        api_response = api_instance.get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
+        print("The response of TenantEmbedAppsLinksServiceApi->get_all_tenant_embed_apps_links:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantEmbedAppsLinksServiceApi->get_all_tenant_embed_apps_links: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_all_tenant_embed_apps_links_request** | [**GetAllTenantEmbedAppsLinksRequest**](GetAllTenantEmbedAppsLinksRequest.md)|  | 
 
 ### Return type
 
