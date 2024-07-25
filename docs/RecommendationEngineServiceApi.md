@@ -4,23 +4,24 @@ All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
-[**get_recommendation_unit_by_id**](RecommendationEngineServiceApi.md#get_recommendation_unit_by_id) | Retrieves all Tenants with filters.
-[**get_recommendation_units**](RecommendationEngineServiceApi.md#get_recommendation_units) | Retrieves all recommendation units by filter
+[**create_action_type**](RecommendationEngineServiceApi.md#create_action_type) | Create Action Type
+[**get_action_types**](RecommendationEngineServiceApi.md#get_action_types) | Get Action Types
 [**get_recommendations**](RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
+[**update_action_type**](RecommendationEngineServiceApi.md#update_action_type) | Update Action Type
 
 
-# **get_recommendation_unit_by_id**
-> GetRecommendationUnitByIdResponse get_recommendation_unit_by_id(get_recommendation_unit_by_id_request)
+# **create_action_type**
+> CreateActionTypeResponse create_action_type(create_action_type_request)
 
-Retrieves all Tenants with filters.
+Create Action Type
 
 ### Example
 
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.get_recommendation_unit_by_id_request import GetRecommendationUnitByIdRequest
-from onelens_backend_client.models.get_recommendation_unit_by_id_response import GetRecommendationUnitByIdResponse
+from onelens_backend_client.models.create_action_type_request import CreateActionTypeRequest
+from onelens_backend_client.models.create_action_type_response import CreateActionTypeResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -35,15 +36,15 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.RecommendationEngineServiceApi(api_client)
-    get_recommendation_unit_by_id_request = onelens_backend_client.GetRecommendationUnitByIdRequest() # GetRecommendationUnitByIdRequest | 
+    create_action_type_request = onelens_backend_client.CreateActionTypeRequest() # CreateActionTypeRequest | 
 
     try:
-        # Retrieves all Tenants with filters.
-        api_response = api_instance.get_recommendation_unit_by_id(get_recommendation_unit_by_id_request)
-        print("The response of RecommendationEngineServiceApi->get_recommendation_unit_by_id:\n")
+        # Create Action Type
+        api_response = api_instance.create_action_type(create_action_type_request)
+        print("The response of RecommendationEngineServiceApi->create_action_type:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling RecommendationEngineServiceApi->get_recommendation_unit_by_id: %s\n" % e)
+        print("Exception when calling RecommendationEngineServiceApi->create_action_type: %s\n" % e)
 ```
 
 
@@ -53,11 +54,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_recommendation_unit_by_id_request** | [**GetRecommendationUnitByIdRequest**](GetRecommendationUnitByIdRequest.md)|  | 
+ **create_action_type_request** | [**CreateActionTypeRequest**](CreateActionTypeRequest.md)|  | 
 
 ### Return type
 
-[**GetRecommendationUnitByIdResponse**](GetRecommendationUnitByIdResponse.md)
+[**CreateActionTypeResponse**](CreateActionTypeResponse.md)
 
 ### Authorization
 
@@ -77,18 +78,18 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_recommendation_units**
-> GetRecommendationUnitsResponse get_recommendation_units(get_recommendation_units_request)
+# **get_action_types**
+> GetActionTypeResponse get_action_types(get_action_type_request)
 
-Retrieves all recommendation units by filter
+Get Action Types
 
 ### Example
 
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.get_recommendation_units_request import GetRecommendationUnitsRequest
-from onelens_backend_client.models.get_recommendation_units_response import GetRecommendationUnitsResponse
+from onelens_backend_client.models.get_action_type_request import GetActionTypeRequest
+from onelens_backend_client.models.get_action_type_response import GetActionTypeResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -103,15 +104,15 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.RecommendationEngineServiceApi(api_client)
-    get_recommendation_units_request = onelens_backend_client.GetRecommendationUnitsRequest() # GetRecommendationUnitsRequest | 
+    get_action_type_request = onelens_backend_client.GetActionTypeRequest() # GetActionTypeRequest | 
 
     try:
-        # Retrieves all recommendation units by filter
-        api_response = api_instance.get_recommendation_units(get_recommendation_units_request)
-        print("The response of RecommendationEngineServiceApi->get_recommendation_units:\n")
+        # Get Action Types
+        api_response = api_instance.get_action_types(get_action_type_request)
+        print("The response of RecommendationEngineServiceApi->get_action_types:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling RecommendationEngineServiceApi->get_recommendation_units: %s\n" % e)
+        print("Exception when calling RecommendationEngineServiceApi->get_action_types: %s\n" % e)
 ```
 
 
@@ -121,11 +122,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_recommendation_units_request** | [**GetRecommendationUnitsRequest**](GetRecommendationUnitsRequest.md)|  | 
+ **get_action_type_request** | [**GetActionTypeRequest**](GetActionTypeRequest.md)|  | 
 
 ### Return type
 
-[**GetRecommendationUnitsResponse**](GetRecommendationUnitsResponse.md)
+[**GetActionTypeResponse**](GetActionTypeResponse.md)
 
 ### Authorization
 
@@ -194,6 +195,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RecommendationEngineResponse**](RecommendationEngineResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_action_type**
+> UpdateActionTypeResponse update_action_type(update_action_type_request)
+
+Update Action Type
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.update_action_type_request import UpdateActionTypeRequest
+from onelens_backend_client.models.update_action_type_response import UpdateActionTypeResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.RecommendationEngineServiceApi(api_client)
+    update_action_type_request = onelens_backend_client.UpdateActionTypeRequest() # UpdateActionTypeRequest | 
+
+    try:
+        # Update Action Type
+        api_response = api_instance.update_action_type(update_action_type_request)
+        print("The response of RecommendationEngineServiceApi->update_action_type:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling RecommendationEngineServiceApi->update_action_type: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_action_type_request** | [**UpdateActionTypeRequest**](UpdateActionTypeRequest.md)|  | 
+
+### Return type
+
+[**UpdateActionTypeResponse**](UpdateActionTypeResponse.md)
 
 ### Authorization
 

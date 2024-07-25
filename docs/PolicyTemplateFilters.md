@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **states** | [**List[PolicyTemplateState]**](PolicyTemplateState.md) | Filter by state. Default is ACTIVE. | [optional] [default to [ACTIVE]]
 **categories** | [**List[PolicyCategory]**](PolicyCategory.md) | Filter by type. | [optional] [default to []]
 **providers** | [**List[Provider]**](Provider.md) | Filter by provider. | [optional] [default to []]
-**services** | [**List[CreatePolicyTemplateRequestServicesInner]**](CreatePolicyTemplateRequestServicesInner.md) | Filter by services. | [optional] [default to []]
+**services** | [**List[ActionTypeFiltersServicesInner]**](ActionTypeFiltersServicesInner.md) | Filter by services. | [optional] [default to []]
 **execution_types** | [**List[PolicyExecutionType]**](PolicyExecutionType.md) | Filter by execution type. | [optional] [default to []]
 
 ## Example

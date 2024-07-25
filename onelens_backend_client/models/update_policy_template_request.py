@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.action_type_filters_services_inner import ActionTypeFiltersServicesInner
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_details_input import PolicyTemplateDetailsInput
 from onelens_backend_client.models.policy_template_recommendation_details_input import PolicyTemplateRecommendationDetailsInput
@@ -33,7 +33,7 @@ class UpdatePolicyTemplateRequest(BaseModel):
     force_update: Optional[StrictBool] = Field(default=False, description="Force update (TRUE/FALSE), default: FALSE")
     title: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
-    services: Optional[List[CreatePolicyTemplateRequestServicesInner]] = None
+    services: Optional[List[ActionTypeFiltersServicesInner]] = None
     execution_type: Optional[PolicyExecutionType] = None
     details: Optional[PolicyTemplateDetailsInput] = None
     description2: Optional[StrictStr] = None
@@ -155,7 +155,7 @@ class UpdatePolicyTemplateRequest(BaseModel):
             "force_update": obj.get("force_update") if obj.get("force_update") is not None else False,
             "title": obj.get("title"),
             "description": obj.get("description"),
-            "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
+            "services": [ActionTypeFiltersServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_type": obj.get("execution_type"),
             "details": PolicyTemplateDetailsInput.from_dict(obj["details"]) if obj.get("details") is not None else None,
             "description2": obj.get("description2"),

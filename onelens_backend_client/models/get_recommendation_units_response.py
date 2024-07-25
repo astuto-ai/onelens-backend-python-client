@@ -19,7 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.service_config import ServiceConfig
+from onelens_backend_client.models.pagination_fields import PaginationFields
+from onelens_backend_client.models.recommendation_unit_with_action_type import RecommendationUnitWithActionType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +28,9 @@ class GetRecommendationUnitsResponse(BaseModel):
     """
     GetRecommendationUnitsResponse
     """ # noqa: E501
-    recommendation_units: List[ServiceConfig] = Field(description="Recommendation Unit")
-    __properties: ClassVar[List[str]] = ["recommendation_units"]
+    recommendation_units: List[RecommendationUnitWithActionType] = Field(description="Recommendation Unit")
+    pagination: PaginationFields = Field(description="Pagination fields")
+    __properties: ClassVar[List[str]] = ["recommendation_units", "pagination"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +78,9 @@ class GetRecommendationUnitsResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['recommendation_units'] = _items
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['pagination'] = self.pagination.to_dict()
         return _dict
 
     @classmethod
@@ -88,7 +93,8 @@ class GetRecommendationUnitsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recommendation_units": [ServiceConfig.from_dict(_item) for _item in obj["recommendation_units"]] if obj.get("recommendation_units") is not None else None
+            "recommendation_units": [RecommendationUnitWithActionType.from_dict(_item) for _item in obj["recommendation_units"]] if obj.get("recommendation_units") is not None else None,
+            "pagination": PaginationFields.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
         return _obj
 
