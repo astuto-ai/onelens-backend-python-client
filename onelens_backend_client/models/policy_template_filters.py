@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.create_policy_template_request_services_inner import CreatePolicyTemplateRequestServicesInner
+from onelens_backend_client.models.action_type_filters_services_inner import ActionTypeFiltersServicesInner
 from onelens_backend_client.models.policy_category import PolicyCategory
 from onelens_backend_client.models.policy_execution_type import PolicyExecutionType
 from onelens_backend_client.models.policy_template_state import PolicyTemplateState
@@ -36,7 +36,7 @@ class PolicyTemplateFilters(BaseModel):
     states: Optional[List[PolicyTemplateState]] = Field(default=None, description="Filter by state. Default is ACTIVE.")
     categories: Optional[List[PolicyCategory]] = Field(default=None, description="Filter by type.")
     providers: Optional[List[Provider]] = Field(default=None, description="Filter by provider.")
-    services: Optional[List[CreatePolicyTemplateRequestServicesInner]] = Field(default=None, description="Filter by services.")
+    services: Optional[List[ActionTypeFiltersServicesInner]] = Field(default=None, description="Filter by services.")
     execution_types: Optional[List[PolicyExecutionType]] = Field(default=None, description="Filter by execution type.")
     __properties: ClassVar[List[str]] = ["search_query", "parent_ptp_ids", "states", "categories", "providers", "services", "execution_types"]
 
@@ -108,7 +108,7 @@ class PolicyTemplateFilters(BaseModel):
             "states": obj.get("states"),
             "categories": obj.get("categories"),
             "providers": obj.get("providers"),
-            "services": [CreatePolicyTemplateRequestServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
+            "services": [ActionTypeFiltersServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None,
             "execution_types": obj.get("execution_types")
         })
         return _obj

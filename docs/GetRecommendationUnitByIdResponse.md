@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recommendation_unit** | [**ServiceConfig**](ServiceConfig.md) | Recommendation Unit | 
+**recommendation_unit** | [**RecommendationUnit**](RecommendationUnit.md) | Recommendation Unit | 
 
 ## Example
 
