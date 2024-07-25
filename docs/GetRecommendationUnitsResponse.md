@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recommendation_units** | [**List[ServiceConfig]**](ServiceConfig.md) | Recommendation Unit | 
+**recommendation_units** | [**List[RecommendationUnitWithActionType]**](RecommendationUnitWithActionType.md) | Recommendation Unit | 
+**pagination** | [**PaginationFields**](PaginationFields.md) | Pagination fields | 
 
 ## Example
 
