@@ -49,6 +49,8 @@ docs/CreatePolicyTemplatePullRequest.md
 docs/CreatePolicyTemplatePullResponse.md
 docs/CreatePolicyTemplateRequest.md
 docs/CreatePolicyTemplateResponse.md
+docs/CreateRecommenadtionUnitPullResponse.md
+docs/CreateRecommendationUnitPullRequest.md
 docs/CreateRecommendationUnitRequest.md
 docs/CreateRecommendationUnitResponse.md
 docs/CreateTenantEmbedAppsLinksRequest.md
@@ -305,6 +307,7 @@ docs/RecommendationTicketRequest.md
 docs/RecommendationTicketResponse.md
 docs/RecommendationUnit.md
 docs/RecommendationUnitFilters.md
+docs/RecommendationUnitMigrationServiceApi.md
 docs/RecommendationUnitServiceApi.md
 docs/RecommendationUnitWithActionType.md
 docs/RelationshipConfigItem.md
@@ -403,6 +406,8 @@ docs/Statuses.md
 docs/StorageLensConfig.md
 docs/SyncPoliciesFromRepoRequest.md
 docs/SyncPoliciesFromRepoResponse.md
+docs/SyncRecommendationUnitFromRepoRequest.md
+docs/SyncRecommendationUnitFromRepoResponse.md
 docs/Tenant.md
 docs/TenantAnomaliesApi.md
 docs/TenantAnomalyServiceApi.md
@@ -519,6 +524,7 @@ onelens_backend_client/api/recommendation_api.py
 onelens_backend_client/api/recommendation_engine_api.py
 onelens_backend_client/api/recommendation_engine_service_api.py
 onelens_backend_client/api/recommendation_service_api.py
+onelens_backend_client/api/recommendation_unit_migration_service_api.py
 onelens_backend_client/api/recommendation_unit_service_api.py
 onelens_backend_client/api/resource_catalog_api.py
 onelens_backend_client/api/resource_catalog_service_api.py
@@ -593,6 +599,8 @@ onelens_backend_client/models/create_policy_template_pull_request.py
 onelens_backend_client/models/create_policy_template_pull_response.py
 onelens_backend_client/models/create_policy_template_request.py
 onelens_backend_client/models/create_policy_template_response.py
+onelens_backend_client/models/create_recommenadtion_unit_pull_response.py
+onelens_backend_client/models/create_recommendation_unit_pull_request.py
 onelens_backend_client/models/create_recommendation_unit_request.py
 onelens_backend_client/models/create_recommendation_unit_response.py
 onelens_backend_client/models/create_tenant_embed_apps_links_request.py
@@ -927,6 +935,8 @@ onelens_backend_client/models/statuses.py
 onelens_backend_client/models/storage_lens_config.py
 onelens_backend_client/models/sync_policies_from_repo_request.py
 onelens_backend_client/models/sync_policies_from_repo_response.py
+onelens_backend_client/models/sync_recommendation_unit_from_repo_request.py
+onelens_backend_client/models/sync_recommendation_unit_from_repo_response.py
 onelens_backend_client/models/tenant.py
 onelens_backend_client/models/tenant_anomaly_setting_filters.py
 onelens_backend_client/models/tenant_anomaly_settings.py
@@ -1011,5 +1021,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_query_executor_request.py
 tox.ini
