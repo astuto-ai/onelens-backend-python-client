@@ -137,9 +137,12 @@ Class | Method | Description
 *RecommendationEngineServiceApi* | [**create_action_type**](docs/RecommendationEngineServiceApi.md#create_action_type) | Create Action Type
 *RecommendationEngineServiceApi* | [**get_action_types**](docs/RecommendationEngineServiceApi.md#get_action_types) | Get Action Types
 *RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
+*RecommendationEngineServiceApi* | [**query_executor**](docs/RecommendationEngineServiceApi.md#query_executor) | Query Executor
 *RecommendationEngineServiceApi* | [**update_action_type**](docs/RecommendationEngineServiceApi.md#update_action_type) | Update Action Type
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationServiceApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationServiceApi.md#get_recommendation_by_ticket_id) | Get recommendations by ticket id.
+*RecommendationUnitMigrationServiceApi* | [**create_recommendation_unit_pull_request**](docs/RecommendationUnitMigrationServiceApi.md#create_recommendation_unit_pull_request) | Create a pull request for the recommendation_unit template
+*RecommendationUnitMigrationServiceApi* | [**sync_recommendation_unit_from_repo**](docs/RecommendationUnitMigrationServiceApi.md#sync_recommendation_unit_from_repo) | Sync recommendation_unit from repo
 *RecommendationUnitServiceApi* | [**create_recommendation_unit**](docs/RecommendationUnitServiceApi.md#create_recommendation_unit) | Create recommendation unit
 *RecommendationUnitServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationUnitServiceApi.md#get_recommendation_unit_by_id) | Retrieves Recommendation unit ID.
 *RecommendationUnitServiceApi* | [**get_recommendation_units**](docs/RecommendationUnitServiceApi.md#get_recommendation_units) | Retrieves all recommendation units with filters
@@ -319,6 +322,8 @@ Class | Method | Description
  - [CreatePolicyTemplatePullResponse](docs/CreatePolicyTemplatePullResponse.md)
  - [CreatePolicyTemplateRequest](docs/CreatePolicyTemplateRequest.md)
  - [CreatePolicyTemplateResponse](docs/CreatePolicyTemplateResponse.md)
+ - [CreateRecommenadtionUnitPullResponse](docs/CreateRecommenadtionUnitPullResponse.md)
+ - [CreateRecommendationUnitPullRequest](docs/CreateRecommendationUnitPullRequest.md)
  - [CreateRecommendationUnitRequest](docs/CreateRecommendationUnitRequest.md)
  - [CreateRecommendationUnitResponse](docs/CreateRecommendationUnitResponse.md)
  - [CreateTenantEmbedAppsLinksRequest](docs/CreateTenantEmbedAppsLinksRequest.md)
@@ -545,6 +550,7 @@ Class | Method | Description
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
  - [PublishCustomHierarchyRequest](docs/PublishCustomHierarchyRequest.md)
  - [QueryDetailsDerivedVariables](docs/QueryDetailsDerivedVariables.md)
+ - [QueryExecutorRequest](docs/QueryExecutorRequest.md)
  - [QueryFilters](docs/QueryFilters.md)
  - [QueryOrder](docs/QueryOrder.md)
  - [RecommendationEngine](docs/RecommendationEngine.md)
@@ -652,6 +658,8 @@ Class | Method | Description
  - [StorageLensConfig](docs/StorageLensConfig.md)
  - [SyncPoliciesFromRepoRequest](docs/SyncPoliciesFromRepoRequest.md)
  - [SyncPoliciesFromRepoResponse](docs/SyncPoliciesFromRepoResponse.md)
+ - [SyncRecommendationUnitFromRepoRequest](docs/SyncRecommendationUnitFromRepoRequest.md)
+ - [SyncRecommendationUnitFromRepoResponse](docs/SyncRecommendationUnitFromRepoResponse.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAnomalySettingFilters](docs/TenantAnomalySettingFilters.md)
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)

@@ -41,7 +41,9 @@ class Auth0UserAllFields(BaseModel):
     last_ip: Optional[StrictStr] = None
     last_login: Optional[datetime] = None
     logins_count: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["email", "email_verified", "created_at", "identities", "name", "nickname", "picture", "updated_at", "user_id", "user_metadata", "app_metadata", "last_ip", "last_login", "logins_count"]
+    given_name: Optional[StrictStr] = None
+    family_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["email", "email_verified", "created_at", "identities", "name", "nickname", "picture", "updated_at", "user_id", "user_metadata", "app_metadata", "last_ip", "last_login", "logins_count", "given_name", "family_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -142,6 +144,16 @@ class Auth0UserAllFields(BaseModel):
         if self.logins_count is None and "logins_count" in self.model_fields_set:
             _dict['logins_count'] = None
 
+        # set to None if given_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.given_name is None and "given_name" in self.model_fields_set:
+            _dict['given_name'] = None
+
+        # set to None if family_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.family_name is None and "family_name" in self.model_fields_set:
+            _dict['family_name'] = None
+
         return _dict
 
     @classmethod
@@ -167,7 +179,9 @@ class Auth0UserAllFields(BaseModel):
             "app_metadata": obj.get("app_metadata"),
             "last_ip": obj.get("last_ip"),
             "last_login": obj.get("last_login"),
-            "logins_count": obj.get("logins_count")
+            "logins_count": obj.get("logins_count"),
+            "given_name": obj.get("given_name"),
+            "family_name": obj.get("family_name")
         })
         return _obj
 
