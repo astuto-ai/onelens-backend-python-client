@@ -137,6 +137,7 @@ Class | Method | Description
 *RecommendationEngineServiceApi* | [**create_action_type**](docs/RecommendationEngineServiceApi.md#create_action_type) | Create Action Type
 *RecommendationEngineServiceApi* | [**get_action_types**](docs/RecommendationEngineServiceApi.md#get_action_types) | Get Action Types
 *RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
+*RecommendationEngineServiceApi* | [**query_executor**](docs/RecommendationEngineServiceApi.md#query_executor) | Query Executor
 *RecommendationEngineServiceApi* | [**update_action_type**](docs/RecommendationEngineServiceApi.md#update_action_type) | Update Action Type
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationServiceApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationServiceApi.md#get_recommendation_by_ticket_id) | Get recommendations by ticket id.
@@ -545,6 +546,7 @@ Class | Method | Description
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
  - [PublishCustomHierarchyRequest](docs/PublishCustomHierarchyRequest.md)
  - [QueryDetailsDerivedVariables](docs/QueryDetailsDerivedVariables.md)
+ - [QueryExecutorRequest](docs/QueryExecutorRequest.md)
  - [QueryFilters](docs/QueryFilters.md)
  - [QueryOrder](docs/QueryOrder.md)
  - [RecommendationEngine](docs/RecommendationEngine.md)
