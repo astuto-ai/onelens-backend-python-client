@@ -16,9 +16,9 @@ urllib3 = ">= 1.25.3"
 python-dateutil = ">=2.8.2"
 pydantic = ">=2"
 typing-extensions = ">=4.7.1"
-datamodel-code-generator = {extras = ["http"], version = "^0.25.8"}
 
 [tool.poetry.dev-dependencies]
+datamodel-code-generator = {extras = ["http"], version = "^0.25.8"}
 pytest = ">=7.2.1"
 tox = ">=3.9.0"
 flake8 = ">=4.0.0"
