@@ -36,6 +36,7 @@ extension-pkg-whitelist = "pydantic"
 [tool.mypy]
 files = [
   "onelens_backend_client",
+  "onelens_backend_client_v2"
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
