@@ -1,0 +1,9 @@
+{% for export in exports %}
+from {{ export[0] }} import {{ export[1] }}
+{% endfor %}
+
+__all__ = [
+    {% for export in exports %}
+    '{{ export[1] }}',
+    {% endfor %}
+]
