@@ -53,7 +53,7 @@ from onelens_backend_client_v2.models import UpdateTenantUserDetailsRequest
 from onelens_backend_client_v2.models import UpdateTenantUserDetailsResponse
 
 
-from onelens_backend_client.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
 class TenantUserServiceRpcHandler:

@@ -83,7 +83,7 @@ from onelens_backend_client_v2.models import UpdateTenantPolicySettingLastRunAtR
 from onelens_backend_client_v2.models import UpdateTenantPolicySettingLastRunAtResponse
 
 
-from onelens_backend_client.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
 class TenantPolicyServiceRpcHandler:

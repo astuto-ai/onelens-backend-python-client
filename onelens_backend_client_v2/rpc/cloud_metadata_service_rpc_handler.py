@@ -11,7 +11,7 @@ from onelens_backend_client_v2.models import GetCloudMetadataRequest
 from onelens_backend_client_v2.models import GetCloudMetadataResponse
 
 
-from onelens_backend_client.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
 class CloudMetadataServiceRpcHandler:

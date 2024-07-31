@@ -11,7 +11,7 @@ from onelens_backend_client_v2.models import GetMetricsRequest
 from onelens_backend_client_v2.models import GetMetricsResponse
 
 
-from onelens_backend_client.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
 class MetricsServiceRpcHandler:

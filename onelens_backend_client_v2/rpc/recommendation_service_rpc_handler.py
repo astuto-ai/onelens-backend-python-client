@@ -17,7 +17,7 @@ from onelens_backend_client_v2.models import GetRecommendationTicketRequest
 from onelens_backend_client_v2.models import GetRecommendationTicketResponse
 
 
-from onelens_backend_client.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
 class RecommendationServiceRpcHandler:
