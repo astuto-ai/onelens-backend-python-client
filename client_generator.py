@@ -114,7 +114,7 @@ def main(openapi_file: str, output_dir: str):
                 services[service_name] = {}
             services[service_name][path] = methods["post"]
 
-    exports = [(output_dir.replace("/", ".") + ".models", "*")]
+    exports = []
     for service_name, paths in services.items():
         exports.append(generate_api_interface(service_name, paths, output_dir))
 
@@ -123,8 +123,12 @@ def main(openapi_file: str, output_dir: str):
     template = env.get_template("__init__.py.jinja")
     rendered_template = template.render(exports=exports)
 
-    with open(os.path.join(output_dir, "__init__.py"), "w") as init_file:
+    with open(os.path.join(output_dir, "rpc", "__init__.py"), "w") as init_file:
         init_file.write(rendered_template)
+
+    with open(os.path.join(output_dir, "__init__.py"), "w") as init_file:
+        init_file.write("from .rpc import *\n")
+        init_file.write("from .models import *\n")
 
     # Format the generated code
     subprocess.run(["ruff", "check", "--fix", output_dir])
