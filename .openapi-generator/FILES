@@ -423,6 +423,8 @@ docs/TenantPoliciesApi.md
 docs/TenantPolicy.md
 docs/TenantPolicyExclusions.md
 docs/TenantPolicyFilters.md
+docs/TenantPolicyForPolicyWithSetting.md
+docs/TenantPolicyForPolicyWithSettingServicesInner.md
 docs/TenantPolicyServiceApi.md
 docs/TenantPolicySettings.md
 docs/TenantPolicySettingsFilters.md
@@ -447,6 +449,7 @@ docs/TenantUserDetailsUpdateFieldsMixin.md
 docs/TenantUserServiceApi.md
 docs/TenantUserUpdateFieldsMixin.md
 docs/TenantUsersApi.md
+docs/TenantVerifyCurBucketAPIRequest.md
 docs/TenantVerifyCurBucketRequest.md
 docs/TenantVerifyCurBucketResponse.md
 docs/TenantVerifyRequestWithUser.md
@@ -946,6 +949,8 @@ onelens_backend_client/models/tenant_filters.py
 onelens_backend_client/models/tenant_policy.py
 onelens_backend_client/models/tenant_policy_exclusions.py
 onelens_backend_client/models/tenant_policy_filters.py
+onelens_backend_client/models/tenant_policy_for_policy_with_setting.py
+onelens_backend_client/models/tenant_policy_for_policy_with_setting_services_inner.py
 onelens_backend_client/models/tenant_policy_settings.py
 onelens_backend_client/models/tenant_policy_settings_filters.py
 onelens_backend_client/models/tenant_policy_state.py
@@ -964,6 +969,7 @@ onelens_backend_client/models/tenant_tickets_stats_metrics_group_by.py
 onelens_backend_client/models/tenant_tickets_stats_metrics_sub_group_by.py
 onelens_backend_client/models/tenant_user_details_update_fields_mixin.py
 onelens_backend_client/models/tenant_user_update_fields_mixin.py
+onelens_backend_client/models/tenant_verify_cur_bucket_api_request.py
 onelens_backend_client/models/tenant_verify_cur_bucket_request.py
 onelens_backend_client/models/tenant_verify_cur_bucket_response.py
 onelens_backend_client/models/tenant_verify_request_with_user.py
@@ -1021,4 +1027,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_tenant_policy_for_policy_with_setting.py
+test/test_tenant_policy_for_policy_with_setting_services_inner.py
+test/test_tenant_verify_cur_bucket_api_request.py
 tox.ini

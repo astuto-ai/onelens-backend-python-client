@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.relationship_config_item import RelationshipConfigItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,11 +29,12 @@ class ResourceType(BaseModel):
     """ # noqa: E501
     resource_type: StrictStr
     resource_table: StrictStr
+    identifier_key: Optional[StrictStr] = None
     select_columns: List[StrictStr]
     resource_url_template: StrictStr
     is_tags_available: StrictBool
     relationship_config: List[RelationshipConfigItem]
-    __properties: ClassVar[List[str]] = ["resource_type", "resource_table", "select_columns", "resource_url_template", "is_tags_available", "relationship_config"]
+    __properties: ClassVar[List[str]] = ["resource_type", "resource_table", "identifier_key", "select_columns", "resource_url_template", "is_tags_available", "relationship_config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +82,11 @@ class ResourceType(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['relationship_config'] = _items
+        # set to None if identifier_key (nullable) is None
+        # and model_fields_set contains the field
+        if self.identifier_key is None and "identifier_key" in self.model_fields_set:
+            _dict['identifier_key'] = None
+
         return _dict
 
     @classmethod
@@ -95,6 +101,7 @@ class ResourceType(BaseModel):
         _obj = cls.model_validate({
             "resource_type": obj.get("resource_type"),
             "resource_table": obj.get("resource_table"),
+            "identifier_key": obj.get("identifier_key"),
             "select_columns": obj.get("select_columns"),
             "resource_url_template": obj.get("resource_url_template"),
             "is_tags_available": obj.get("is_tags_available"),
