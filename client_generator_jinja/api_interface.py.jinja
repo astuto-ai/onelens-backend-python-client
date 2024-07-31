@@ -14,9 +14,9 @@ from {{ model_import_path }} import {{ method.return_type }}
 {% endif %}
 {% endfor %}
 
-from onelens_backend_client.api_client import ApiClient, RequestSerialized
-from onelens_backend_client.api_response import ApiResponse
-from onelens_backend_client.rest import RESTResponseType
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class {{ class_name }}:
     """NOTE: This class is auto generated. Do not edit the class manually."""
