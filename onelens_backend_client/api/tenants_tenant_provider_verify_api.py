@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from onelens_backend_client.models.response_tenant_verify_cur_bucket_response import ResponseTenantVerifyCurBucketResponse
-from onelens_backend_client.models.tenant_verify_cur_bucket_request import TenantVerifyCurBucketRequest
+from onelens_backend_client.models.tenant_verify_cur_bucket_api_request import TenantVerifyCurBucketAPIRequest
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
 from onelens_backend_client.api_response import ApiResponse
@@ -42,7 +42,7 @@ class TenantsTenantProviderVerifyApi:
     def verify_tenant_cur_bucket(
         self,
         tenant_id: StrictStr,
-        tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest,
+        tenant_verify_cur_bucket_api_request: TenantVerifyCurBucketAPIRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -62,8 +62,8 @@ class TenantsTenantProviderVerifyApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param tenant_verify_cur_bucket_request: (required)
-        :type tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest
+        :param tenant_verify_cur_bucket_api_request: (required)
+        :type tenant_verify_cur_bucket_api_request: TenantVerifyCurBucketAPIRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +88,7 @@ class TenantsTenantProviderVerifyApi:
 
         _param = self._verify_tenant_cur_bucket_serialize(
             tenant_id=tenant_id,
-            tenant_verify_cur_bucket_request=tenant_verify_cur_bucket_request,
+            tenant_verify_cur_bucket_api_request=tenant_verify_cur_bucket_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -114,7 +114,7 @@ class TenantsTenantProviderVerifyApi:
     def verify_tenant_cur_bucket_with_http_info(
         self,
         tenant_id: StrictStr,
-        tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest,
+        tenant_verify_cur_bucket_api_request: TenantVerifyCurBucketAPIRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -134,8 +134,8 @@ class TenantsTenantProviderVerifyApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param tenant_verify_cur_bucket_request: (required)
-        :type tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest
+        :param tenant_verify_cur_bucket_api_request: (required)
+        :type tenant_verify_cur_bucket_api_request: TenantVerifyCurBucketAPIRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -160,7 +160,7 @@ class TenantsTenantProviderVerifyApi:
 
         _param = self._verify_tenant_cur_bucket_serialize(
             tenant_id=tenant_id,
-            tenant_verify_cur_bucket_request=tenant_verify_cur_bucket_request,
+            tenant_verify_cur_bucket_api_request=tenant_verify_cur_bucket_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -186,7 +186,7 @@ class TenantsTenantProviderVerifyApi:
     def verify_tenant_cur_bucket_without_preload_content(
         self,
         tenant_id: StrictStr,
-        tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest,
+        tenant_verify_cur_bucket_api_request: TenantVerifyCurBucketAPIRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -206,8 +206,8 @@ class TenantsTenantProviderVerifyApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param tenant_verify_cur_bucket_request: (required)
-        :type tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest
+        :param tenant_verify_cur_bucket_api_request: (required)
+        :type tenant_verify_cur_bucket_api_request: TenantVerifyCurBucketAPIRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -232,7 +232,7 @@ class TenantsTenantProviderVerifyApi:
 
         _param = self._verify_tenant_cur_bucket_serialize(
             tenant_id=tenant_id,
-            tenant_verify_cur_bucket_request=tenant_verify_cur_bucket_request,
+            tenant_verify_cur_bucket_api_request=tenant_verify_cur_bucket_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -253,7 +253,7 @@ class TenantsTenantProviderVerifyApi:
     def _verify_tenant_cur_bucket_serialize(
         self,
         tenant_id,
-        tenant_verify_cur_bucket_request,
+        tenant_verify_cur_bucket_api_request,
         _request_auth,
         _content_type,
         _headers,
@@ -273,14 +273,16 @@ class TenantsTenantProviderVerifyApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if tenant_id is not None:
-            _path_params['tenant_id'] = tenant_id
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenant_id', tenant_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if tenant_verify_cur_bucket_request is not None:
-            _body_params = tenant_verify_cur_bucket_request
+        if tenant_verify_cur_bucket_api_request is not None:
+            _body_params = tenant_verify_cur_bucket_api_request
 
 
         # set the HTTP header `Accept`
@@ -310,7 +312,7 @@ class TenantsTenantProviderVerifyApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/v1/tenants/{tenant_id}/providers/verify_cur_bucket',
+            resource_path='/v1/providers/verify_cur_bucket',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

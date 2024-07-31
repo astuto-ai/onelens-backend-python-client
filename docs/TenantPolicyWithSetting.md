@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | [**TenantPolicy**](TenantPolicy.md) | The policy details. | 
+**policy** | [**TenantPolicyForPolicyWithSetting**](TenantPolicyForPolicyWithSetting.md) | The policy details. | 
 **setting** | [**TenantPolicySettings**](TenantPolicySettings.md) | The policy setting details. | 
 
 ## Example

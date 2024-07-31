@@ -17,20 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.tenant_policy_for_policy_with_setting import TenantPolicyForPolicyWithSetting
-from onelens_backend_client.models.tenant_policy_settings import TenantPolicySettings
+from onelens_backend_client.models.cur_bucket_config import CurBucketConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TenantPolicyWithSetting(BaseModel):
+class TenantVerifyCurBucketAPIRequest(BaseModel):
     """
-    TenantPolicyWithSetting
+    TenantVerifyCurBucketAPIRequest
     """ # noqa: E501
-    policy: TenantPolicyForPolicyWithSetting = Field(description="The policy details.")
-    setting: TenantPolicySettings = Field(description="The policy setting details.")
-    __properties: ClassVar[List[str]] = ["policy", "setting"]
+    cur_bucket_config: CurBucketConfig = Field(description="cur bucket config")
+    cloud_id: StrictStr = Field(description="cloud id")
+    __properties: ClassVar[List[str]] = ["cur_bucket_config", "cloud_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class TenantPolicyWithSetting(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TenantPolicyWithSetting from a JSON string"""
+        """Create an instance of TenantVerifyCurBucketAPIRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,17 +70,14 @@ class TenantPolicyWithSetting(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of policy
-        if self.policy:
-            _dict['policy'] = self.policy.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of setting
-        if self.setting:
-            _dict['setting'] = self.setting.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of cur_bucket_config
+        if self.cur_bucket_config:
+            _dict['cur_bucket_config'] = self.cur_bucket_config.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TenantPolicyWithSetting from a dict"""
+        """Create an instance of TenantVerifyCurBucketAPIRequest from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +85,8 @@ class TenantPolicyWithSetting(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "policy": TenantPolicyForPolicyWithSetting.from_dict(obj["policy"]) if obj.get("policy") is not None else None,
-            "setting": TenantPolicySettings.from_dict(obj["setting"]) if obj.get("setting") is not None else None
+            "cur_bucket_config": CurBucketConfig.from_dict(obj["cur_bucket_config"]) if obj.get("cur_bucket_config") is not None else None,
+            "cloud_id": obj.get("cloud_id")
         })
         return _obj
 

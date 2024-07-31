@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **account_id** | **str** | Account Id managing the resource | 
 **recommendation_unit_title** | **str** |  | [optional] 
 **potential_savings** | **float** | Potential savings of the ticket | 
+**resource_id** | **str** |  | [optional] 
 
 ## Example
 
