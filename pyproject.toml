@@ -10,7 +10,7 @@ keywords = ["OpenAPI", "OpenAPI-Generator", "onelens-backend"]
 include = ["onelens_backend_client/py.typed", "onelens_backend_client_v2/py.typed"]
 packages = [
     { include = "onelens_backend_client" },
-    { include = "onelens_backend_client_v2" }
+    { include = "onelens_backend_client_v2", from = "." }
 ]
 
 [tool.poetry.dependencies]
