@@ -48,41 +48,38 @@ def generate_api_interface(service_name: str, paths: Dict[str, Any], output_dir:
     api_methods = []
     for method, details in paths.items():
         operation_id = details.get("operationId", method)
-        parameters = details.get("parameters", [])
         request_body = details.get("requestBody", {})
         responses = details.get("responses", {})
-
-        param_list = []
-        for param in parameters:
-            param_name = param["name"]
-            param_type = param.get("schema", {}).get("type", "Any")
-            param_list.append(f"{param_name}: {param_type}")
+        params = None
 
         if request_body:
             content_type = next(iter(request_body.get("content", {})))
             schema_ref = request_body["content"][content_type]["schema"].get("$ref", "")
             if schema_ref:
                 model_name = schema_ref.split("/")[-1]
-                param_list.append(f"request: {model_name}")
+                params = f"request: {model_name}"
 
-        # Add return type based on responses
-        return_type = "Any"
-        if "200" in responses:
-            content = responses["200"].get("content", {})
-            if "application/json" in content:
-                schema = content["application/json"].get("schema", {})
-                if "$ref" in schema:
-                    return_type = schema["$ref"].split("/")[-1]
+        if params:
+            # Add return type based on responses
+            return_type = "Any"
+            if "200" in responses:
+                content = responses["200"].get("content", {})
+                if "application/json" in content:
+                    schema = content["application/json"].get("schema", {})
+                    if "$ref" in schema:
+                        return_type = schema["$ref"].split("/")[-1]
 
-        api_methods.append(
-            {
-                "operation_id": operation_id,
-                "params": ", ".join(param_list),
-                "return_type": return_type,
-                "summary": details.get("summary", ""),
-                "description": details.get("description", ""),
-            }
-        )
+            api_methods.append(
+                {
+                    "operation_id": operation_id,
+                    "params": params,
+                    "return_type": return_type,
+                    "summary": details.get("summary", ""),
+                    "description": details.get("description", ""),
+                }
+            )
+        else:
+            print(f"Skipping {operation_id} because it has no request body")
 
     rendered_template = template.render(
         class_name=class_name,
