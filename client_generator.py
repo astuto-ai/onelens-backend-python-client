@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any, Dict
 
 import yaml
-from datamodel_code_generator import InputFileType, generate
+from datamodel_code_generator import DataModelType, InputFileType, generate
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -30,6 +30,7 @@ def generate_models(spec: Dict[str, Any], output_dir: str):
         input_=json.dumps(spec),
         input_file_type=InputFileType.OpenAPI,
         output=Path(output_file),
+        output_model_type=DataModelType.PydanticV2BaseModel
     )
 
 
