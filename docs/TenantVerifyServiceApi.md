@@ -77,7 +77,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **verify_tenant_cur_bucket**
-> object verify_tenant_cur_bucket(request)
+> object verify_tenant_cur_bucket(tenant_verify_cur_bucket_request)
 
 Verify Tenant Cur Bucket
 
@@ -86,6 +86,7 @@ Verify Tenant Cur Bucket
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.tenant_verify_cur_bucket_request import TenantVerifyCurBucketRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -100,11 +101,11 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantVerifyServiceApi(api_client)
-    request = 'request_example' # str | 
+    tenant_verify_cur_bucket_request = onelens_backend_client.TenantVerifyCurBucketRequest() # TenantVerifyCurBucketRequest | 
 
     try:
         # Verify Tenant Cur Bucket
-        api_response = api_instance.verify_tenant_cur_bucket(request)
+        api_response = api_instance.verify_tenant_cur_bucket(tenant_verify_cur_bucket_request)
         print("The response of TenantVerifyServiceApi->verify_tenant_cur_bucket:\n")
         pprint(api_response)
     except Exception as e:
@@ -118,7 +119,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **str**|  | 
+ **tenant_verify_cur_bucket_request** | [**TenantVerifyCurBucketRequest**](TenantVerifyCurBucketRequest.md)|  | 
 
 ### Return type
 
@@ -130,7 +131,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

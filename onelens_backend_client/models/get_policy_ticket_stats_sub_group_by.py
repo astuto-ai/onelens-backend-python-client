@@ -28,7 +28,8 @@ class GetPolicyTicketStatsSubGroupBy(BaseModel):
     """ # noqa: E501
     field_name: StrictStr = Field(description="Field name to be fetched")
     field_value: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["field_name", "field_value"]
+    field_display_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["field_name", "field_value", "field_display_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,11 @@ class GetPolicyTicketStatsSubGroupBy(BaseModel):
         if self.field_value is None and "field_value" in self.model_fields_set:
             _dict['field_value'] = None
 
+        # set to None if field_display_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.field_display_name is None and "field_display_name" in self.model_fields_set:
+            _dict['field_display_name'] = None
+
         return _dict
 
     @classmethod
@@ -87,7 +93,8 @@ class GetPolicyTicketStatsSubGroupBy(BaseModel):
 
         _obj = cls.model_validate({
             "field_name": obj.get("field_name"),
-            "field_value": obj.get("field_value")
+            "field_value": obj.get("field_value"),
+            "field_display_name": obj.get("field_display_name")
         })
         return _obj
 

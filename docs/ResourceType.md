@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **resource_type** | **str** |  | 
 **resource_table** | **str** |  | 
+**identifier_key** | **str** |  | [optional] 
 **select_columns** | **List[str]** |  | 
 **resource_url_template** | **str** |  | 
 **is_tags_available** | **bool** |  | 
