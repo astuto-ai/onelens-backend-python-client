@@ -23,11 +23,11 @@ import tempfile
 from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 
-from onelens_backend_client.configuration import Configuration
-from onelens_backend_client.api_response import ApiResponse, T as ApiResponseT
-import onelens_backend_client.models
-from onelens_backend_client import rest
-from onelens_backend_client.exceptions import ApiValueError, ApiException
+from .configuration import Configuration
+from .api_response import ApiResponse, T as ApiResponseT
+from . import models
+from . import rest
+from .exceptions import ApiValueError, ApiException
 
 RequestSerialized = Tuple[str, str, Dict[str, str], Optional[str], List[str]]
 
@@ -403,7 +403,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(onelens_backend_client.models, klass)
+                klass = getattr(models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
