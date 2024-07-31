@@ -30,7 +30,7 @@ def generate_models(spec: Dict[str, Any], output_dir: str):
         input_=json.dumps(spec),
         input_file_type=InputFileType.OpenAPI,
         output=Path(output_file),
-        output_model_type=DataModelType.PydanticV2BaseModel
+        output_model_type=DataModelType.PydanticV2BaseModel,
     )
 
 
@@ -126,10 +126,6 @@ def main(openapi_file: str, output_dir: str):
 
     with open(os.path.join(output_dir, "rpc", "__init__.py"), "w") as init_file:
         init_file.write(rendered_template)
-
-    with open(os.path.join(output_dir, "__init__.py"), "w") as init_file:
-        init_file.write("from .rpc import *\n")
-        init_file.write("from .models import *\n")
 
     # Format the generated code
     subprocess.run(["ruff", "check", "--fix", output_dir])
