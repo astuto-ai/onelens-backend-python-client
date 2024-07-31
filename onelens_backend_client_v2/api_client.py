@@ -702,4 +702,4 @@ class ApiClient:
         :return: model object.
         """
 
-        return klass.from_dict(data)
+        return klass.model_validate(data)
