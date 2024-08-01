@@ -12,6 +12,7 @@ Do not edit the class manually.
 """  # noqa: E501
 
 import datetime
+import uuid
 from dateutil.parser import parse
 from enum import Enum
 import json
@@ -347,6 +348,8 @@ class ApiClient:
 
         elif isinstance(obj, dict):
             obj_dict = obj
+        elif isinstance(obj, uuid.UUID):
+            return str(obj)
         else:
             # Convert model obj to dict except
             # attributes `openapi_types`, `attribute_map`
