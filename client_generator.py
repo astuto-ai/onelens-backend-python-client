@@ -9,7 +9,11 @@ from typing import Any, Dict
 
 import yaml
 from datamodel_code_generator import DataModelType, InputFileType, generate
+from datamodel_code_generator.imports import Import
+from datamodel_code_generator.model.pydantic_v2 import types as pydantic_v2_types
 from jinja2 import Environment, FileSystemLoader
+
+pydantic_v2_types.IMPORT_AWARE_DATETIME = Import.from_full_path("datetime.datetime")
 
 
 def load_openapi_spec(file_path: str) -> Dict[str, Any]:
