@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,7 @@ class UpdateTenantEmbedAppsLinksRequest(BaseModel):
     """ # noqa: E501
     tab_name: Optional[StrictStr] = None
     link: Optional[StrictStr] = None
-    system_created: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["tab_name", "link", "system_created"]
+    __properties: ClassVar[List[str]] = ["tab_name", "link"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,11 +79,6 @@ class UpdateTenantEmbedAppsLinksRequest(BaseModel):
         if self.link is None and "link" in self.model_fields_set:
             _dict['link'] = None
 
-        # set to None if system_created (nullable) is None
-        # and model_fields_set contains the field
-        if self.system_created is None and "system_created" in self.model_fields_set:
-            _dict['system_created'] = None
-
         return _dict
 
     @classmethod
@@ -98,8 +92,7 @@ class UpdateTenantEmbedAppsLinksRequest(BaseModel):
 
         _obj = cls.model_validate({
             "tab_name": obj.get("tab_name"),
-            "link": obj.get("link"),
-            "system_created": obj.get("system_created")
+            "link": obj.get("link")
         })
         return _obj
 

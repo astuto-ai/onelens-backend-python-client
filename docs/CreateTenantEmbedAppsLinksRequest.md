@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tab_name** | **str** | Name of the tab | 
 **link** | **str** | Link of the tab | 
-**system_created** | **bool** |  | [optional] 
 
 ## Example
 
