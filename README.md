@@ -105,6 +105,7 @@ Class | Method | Description
 *HierarchyNodeServiceApi* | [**publish_custom_hierarchy**](docs/HierarchyNodeServiceApi.md#publish_custom_hierarchy) | publish custom hierarchy
 *HierarchyNodeServiceApi* | [**update_node**](docs/HierarchyNodeServiceApi.md#update_node) | update a node in org hierarchy
 *MetricsServiceApi* | [**get_metrics**](docs/MetricsServiceApi.md#get_metrics) | get metrics
+*MetricsServiceApi* | [**get_multiple_metrics**](docs/MetricsServiceApi.md#get_multiple_metrics) | get mutiple metrics
 *OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | Create Organization
 *OrganizationsApi* | [**disable_organization**](docs/OrganizationsApi.md#disable_organization) | Disable Organization
 *OrganizationsApi* | [**enable_organization**](docs/OrganizationsApi.md#enable_organization) | Enable Organization
@@ -147,13 +148,16 @@ Class | Method | Description
 *RecommendationUnitServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationUnitServiceApi.md#get_recommendation_unit_by_id) | Retrieves Recommendation unit ID.
 *RecommendationUnitServiceApi* | [**get_recommendation_units**](docs/RecommendationUnitServiceApi.md#get_recommendation_units) | Retrieves all recommendation units with filters
 *RecommendationUnitServiceApi* | [**update_recommendation_unit**](docs/RecommendationUnitServiceApi.md#update_recommendation_unit) | Update recommendation unit
+*ResourceCatalogApi* | [**get_all_resource_catalogs**](docs/ResourceCatalogApi.md#get_all_resource_catalogs) | Get All Resource Catalogs
 *ResourceCatalogApi* | [**get_resource_catalog**](docs/ResourceCatalogApi.md#get_resource_catalog) | Get Resource Catalog
 *ResourceCatalogApi* | [**get_resource_catalog_with_relationships**](docs/ResourceCatalogApi.md#get_resource_catalog_with_relationships) | Get Resource Catalog With Relationships
+*ResourceCatalogServiceApi* | [**get_all**](docs/ResourceCatalogServiceApi.md#get_all) | Get all resource catalogs
 *ResourceCatalogServiceApi* | [**get_by_id**](docs/ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 *ResourceCatalogServiceApi* | [**get_by_id_with_relations**](docs/ResourceCatalogServiceApi.md#get_by_id_with_relations) | Get resource catalog by id with relations
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
 *ResourceMappingServiceApi* | [**get_mapping_by_ol_id**](docs/ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
 *ServiceCatalogApi* | [**get_metrics**](docs/ServiceCatalogApi.md#get_metrics) | Get Metrics
+*ServiceCatalogApi* | [**get_multiple_metrices**](docs/ServiceCatalogApi.md#get_multiple_metrices) | Get Multiple Metrices
 *ServiceCatalogApi* | [**get_service_catalog**](docs/ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
 *ServiceCatalogServiceApi* | [**get**](docs/ServiceCatalogServiceApi.md#get) | service catalog service handler
 *ServiceCatalogServiceApi* | [**get_by_id**](docs/ServiceCatalogServiceApi.md#get_by_id) | service catalog get by id service handler
@@ -346,8 +350,7 @@ Class | Method | Description
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
  - [CurrentCost](docs/CurrentCost.md)
- - [DataRetrieverQueryInput](docs/DataRetrieverQueryInput.md)
- - [DataRetrieverQueryOutput](docs/DataRetrieverQueryOutput.md)
+ - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
  - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
  - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
@@ -376,6 +379,7 @@ Class | Method | Description
  - [EnableTenantUserResponse](docs/EnableTenantUserResponse.md)
  - [EndRange](docs/EndRange.md)
  - [Features](docs/Features.md)
+ - [FilterCriteriaOutput](docs/FilterCriteriaOutput.md)
  - [FirstName](docs/FirstName.md)
  - [GcpService](docs/GcpService.md)
  - [GetActionTypeRequest](docs/GetActionTypeRequest.md)
@@ -383,7 +387,12 @@ Class | Method | Description
  - [GetAllPolicyViolationsAPIRequest](docs/GetAllPolicyViolationsAPIRequest.md)
  - [GetAllPolicyViolationsRequest](docs/GetAllPolicyViolationsRequest.md)
  - [GetAllPolicyViolationsResponse](docs/GetAllPolicyViolationsResponse.md)
+ - [GetAllResourceCatalogsApiRequest](docs/GetAllResourceCatalogsApiRequest.md)
+ - [GetAllResourceCatalogsRequest](docs/GetAllResourceCatalogsRequest.md)
+ - [GetAllResourceCatalogsResponse](docs/GetAllResourceCatalogsResponse.md)
+ - [GetAllTenantEmbedAppsLinksApiRequest](docs/GetAllTenantEmbedAppsLinksApiRequest.md)
  - [GetAllTenantEmbedAppsLinksRequest](docs/GetAllTenantEmbedAppsLinksRequest.md)
+ - [GetAllTenantEmbedAppsLinksResponse](docs/GetAllTenantEmbedAppsLinksResponse.md)
  - [GetAllTenantUsersItem](docs/GetAllTenantUsersItem.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
@@ -398,6 +407,10 @@ Class | Method | Description
  - [GetMetricsAPIRequest](docs/GetMetricsAPIRequest.md)
  - [GetMetricsRequest](docs/GetMetricsRequest.md)
  - [GetMetricsResponse](docs/GetMetricsResponse.md)
+ - [GetMutipleMetricsAPIRequest](docs/GetMutipleMetricsAPIRequest.md)
+ - [GetMutipleMetricsRequest](docs/GetMutipleMetricsRequest.md)
+ - [GetMutipleMetricsResponse](docs/GetMutipleMetricsResponse.md)
+ - [GetMutipleMetricsResponseMixin](docs/GetMutipleMetricsResponseMixin.md)
  - [GetOrganizationByIDResponse](docs/GetOrganizationByIDResponse.md)
  - [GetOrganizationsRequest](docs/GetOrganizationsRequest.md)
  - [GetOrganizationsResponse](docs/GetOrganizationsResponse.md)
@@ -441,8 +454,8 @@ Class | Method | Description
  - [GetTenantAnomalySettingsResponse](docs/GetTenantAnomalySettingsResponse.md)
  - [GetTenantByIDRequest](docs/GetTenantByIDRequest.md)
  - [GetTenantByIDResponse](docs/GetTenantByIDResponse.md)
+ - [GetTenantEmbedAppsLinkResponse](docs/GetTenantEmbedAppsLinkResponse.md)
  - [GetTenantEmbedAppsLinksRequest](docs/GetTenantEmbedAppsLinksRequest.md)
- - [GetTenantEmbedAppsLinksResponse](docs/GetTenantEmbedAppsLinksResponse.md)
  - [GetTenantPoliciesAPIRequest](docs/GetTenantPoliciesAPIRequest.md)
  - [GetTenantPoliciesRequest](docs/GetTenantPoliciesRequest.md)
  - [GetTenantPoliciesResponse](docs/GetTenantPoliciesResponse.md)
@@ -495,7 +508,8 @@ Class | Method | Description
  - [MetricsChartConfigInput](docs/MetricsChartConfigInput.md)
  - [MetricsChartConfigOutput](docs/MetricsChartConfigOutput.md)
  - [MetricsLookBackPeriod](docs/MetricsLookBackPeriod.md)
- - [MetricsQuery](docs/MetricsQuery.md)
+ - [MetricsQueryInput](docs/MetricsQueryInput.md)
+ - [MetricsQueryOutput](docs/MetricsQueryOutput.md)
  - [MetricsThreshold](docs/MetricsThreshold.md)
  - [MetricsValueUnit](docs/MetricsValueUnit.md)
  - [MiddleName](docs/MiddleName.md)
@@ -504,10 +518,11 @@ Class | Method | Description
  - [NewCost](docs/NewCost.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
- - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.md)
  - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
  - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension.md)
+ - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner.md)
  - [OrItem](docs/OrItem.md)
  - [Organization](docs/Organization.md)
  - [OrganizationFilters](docs/OrganizationFilters.md)
@@ -595,6 +610,7 @@ Class | Method | Description
  - [ResponseEnableTenantAnomalySettingsResponse](docs/ResponseEnableTenantAnomalySettingsResponse.md)
  - [ResponseEnableTenantPolicyResponse](docs/ResponseEnableTenantPolicyResponse.md)
  - [ResponseGetAllPolicyViolationsResponse](docs/ResponseGetAllPolicyViolationsResponse.md)
+ - [ResponseGetAllTenantEmbedAppsLinksResponse](docs/ResponseGetAllTenantEmbedAppsLinksResponse.md)
  - [ResponseGetCloudMetadataResponse](docs/ResponseGetCloudMetadataResponse.md)
  - [ResponseGetHierarchyResponse](docs/ResponseGetHierarchyResponse.md)
  - [ResponseGetMetricsResponse](docs/ResponseGetMetricsResponse.md)
@@ -610,7 +626,7 @@ Class | Method | Description
  - [ResponseGetResourceWithRelationResponse](docs/ResponseGetResourceWithRelationResponse.md)
  - [ResponseGetTenantAnomalySettingsResponse](docs/ResponseGetTenantAnomalySettingsResponse.md)
  - [ResponseGetTenantByIDResponse](docs/ResponseGetTenantByIDResponse.md)
- - [ResponseGetTenantEmbedAppsLinksResponse](docs/ResponseGetTenantEmbedAppsLinksResponse.md)
+ - [ResponseGetTenantEmbedAppsLinkResponse](docs/ResponseGetTenantEmbedAppsLinkResponse.md)
  - [ResponseGetTenantPoliciesResponse](docs/ResponseGetTenantPoliciesResponse.md)
  - [ResponseGetTenantPoliciesWithSettingsResponse](docs/ResponseGetTenantPoliciesWithSettingsResponse.md)
  - [ResponseGetTenantPolicyByIdResponse](docs/ResponseGetTenantPolicyByIdResponse.md)
@@ -665,6 +681,8 @@ Class | Method | Description
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)
  - [TenantAnomalyState](docs/TenantAnomalyState.md)
  - [TenantAnomalyTicketDetailsMixin](docs/TenantAnomalyTicketDetailsMixin.md)
+ - [TenantEmbedAppsLinkState](docs/TenantEmbedAppsLinkState.md)
+ - [TenantEmbedAppsLinksWithUser](docs/TenantEmbedAppsLinksWithUser.md)
  - [TenantFilters](docs/TenantFilters.md)
  - [TenantPolicy](docs/TenantPolicy.md)
  - [TenantPolicyExclusions](docs/TenantPolicyExclusions.md)
@@ -697,8 +715,6 @@ Class | Method | Description
  - [TicketAssignment](docs/TicketAssignment.md)
  - [TicketCategory](docs/TicketCategory.md)
  - [TicketState](docs/TicketState.md)
- - [TimeDimensionOutput](docs/TimeDimensionOutput.md)
- - [TimeDimensionOutputCompareDateRangeInner](docs/TimeDimensionOutputCompareDateRangeInner.md)
  - [Timezone](docs/Timezone.md)
  - [UpdateActionTypeRequest](docs/UpdateActionTypeRequest.md)
  - [UpdateActionTypeResponse](docs/UpdateActionTypeResponse.md)
@@ -739,6 +755,7 @@ Class | Method | Description
  - [Value](docs/Value.md)
  - [Value1](docs/Value1.md)
  - [Values](docs/Values.md)
+ - [ViolationMetricsDetails](docs/ViolationMetricsDetails.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **measures** | **List[str]** |  | [optional] 
 **dimensions** | **List[str]** |  | [optional] 
 **filters** | [**List[QueryFilters]**](QueryFilters.md) |  | [optional] 
-**time_dimensions** | [**List[TimeDimension]**](TimeDimension.md) |  | [optional] 
+**time_dimensions** | [**List[OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension]**](OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension.md) |  | [optional] 
 **segments** | **List[str]** |  | [optional] 
 **limit** | **int** |  | [optional] 
 **total** | **bool** |  | [optional] 

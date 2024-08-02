@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.time_dimension_output_compare_date_range_inner import TimeDimensionOutputCompareDateRangeInner
+from onelens_backend_client.models.onelens_models_service_interfaces_utilities_data_retriever_service_time_dimension_compare_date_range_inner import OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension(B
     """ # noqa: E501
     dimension: Optional[StrictStr] = None
     date_range: Optional[List[StrictStr]] = Field(default=None, alias="dateRange")
-    compare_date_range: Optional[List[TimeDimensionOutputCompareDateRangeInner]] = Field(default=None, alias="compareDateRange")
+    compare_date_range: Optional[List[OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner]] = Field(default=None, alias="compareDateRange")
     granularity: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["dimension", "dateRange", "compareDateRange", "granularity"]
 
@@ -84,6 +84,16 @@ class OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension(B
         if self.dimension is None and "dimension" in self.model_fields_set:
             _dict['dimension'] = None
 
+        # set to None if date_range (nullable) is None
+        # and model_fields_set contains the field
+        if self.date_range is None and "date_range" in self.model_fields_set:
+            _dict['dateRange'] = None
+
+        # set to None if compare_date_range (nullable) is None
+        # and model_fields_set contains the field
+        if self.compare_date_range is None and "compare_date_range" in self.model_fields_set:
+            _dict['compareDateRange'] = None
+
         # set to None if granularity (nullable) is None
         # and model_fields_set contains the field
         if self.granularity is None and "granularity" in self.model_fields_set:
@@ -103,7 +113,7 @@ class OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension(B
         _obj = cls.model_validate({
             "dimension": obj.get("dimension"),
             "dateRange": obj.get("dateRange"),
-            "compareDateRange": [TimeDimensionOutputCompareDateRangeInner.from_dict(_item) for _item in obj["compareDateRange"]] if obj.get("compareDateRange") is not None else None,
+            "compareDateRange": [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner.from_dict(_item) for _item in obj["compareDateRange"]] if obj.get("compareDateRange") is not None else None,
             "granularity": obj.get("granularity")
         })
         return _obj
