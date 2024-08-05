@@ -345,11 +345,12 @@ class ApiClient:
             return tuple(self.sanitize_for_serialization(sub_obj) for sub_obj in obj)
         elif isinstance(obj, (datetime.datetime, datetime.date)):
             return obj.isoformat()
-
         elif isinstance(obj, dict):
             obj_dict = obj
         elif isinstance(obj, uuid.UUID):
             return str(obj)
+        elif isinstance(obj, Enum):
+            return obj.value
         else:
             # Convert model obj to dict except
             # attributes `openapi_types`, `attribute_map`
