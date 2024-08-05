@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **source_branch** | **str** | The source branch of the pull request. | 
 **branch_name** | **str** | The branch name of the pull request. | 
 **id** | **str** | The unique identifier of the recommendation unit template by alias. | 
+**commit_message** | **str** | Recommendation change commit message | 
 
 ## Example
 

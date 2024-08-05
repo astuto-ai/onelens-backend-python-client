@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **recommendation_units** | **List[str]** | List of recommendation units | 
 **hierarchy_details** | **object** | The resource hierarchy details | 
 **resource_details** | **object** | The resource details | 
+**violation_metrics_details** | [**List[ViolationMetricsDetails]**](ViolationMetricsDetails.md) | The violation metrics details | 
 
 ## Example
 

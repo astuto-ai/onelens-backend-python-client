@@ -27,7 +27,7 @@ class UpdateActionTypeResponse(BaseModel):
     """
     UpdateActionTypeResponse
     """ # noqa: E501
-    service: StrictStr = Field(description="Service")
+    service: Service
     title: StrictStr = Field(description="Title")
     subtitle: Optional[StrictStr] = None
     description: StrictStr = Field(description="Description")
@@ -36,7 +36,7 @@ class UpdateActionTypeResponse(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-        validate_assignment=False,
+        validate_assignment=True,
         protected_namespaces=(),
     )
 
@@ -75,7 +75,7 @@ class UpdateActionTypeResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of service
         if self.service:
-            _dict['service'] = self.service
+            _dict['service'] = self.service.to_dict()
         # set to None if subtitle (nullable) is None
         # and model_fields_set contains the field
         if self.subtitle is None and "subtitle" in self.model_fields_set:
@@ -93,7 +93,7 @@ class UpdateActionTypeResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "service": obj.get("service"),
+            "service": Service.from_dict(obj["service"]) if obj.get("service") is not None else None,
             "title": obj.get("title"),
             "subtitle": obj.get("subtitle"),
             "description": obj.get("description"),

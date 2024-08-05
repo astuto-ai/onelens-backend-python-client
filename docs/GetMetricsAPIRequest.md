@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | [**MetricsQuery**](MetricsQuery.md) |  | 
+**query** | [**MetricsQueryInput**](MetricsQueryInput.md) |  | 
 
 ## Example
 

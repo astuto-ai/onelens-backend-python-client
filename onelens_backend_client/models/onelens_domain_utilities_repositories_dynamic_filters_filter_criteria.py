@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_operator import OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator
 from onelens_backend_client.models.value1 import Value1
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria(BaseModel):
     """ # noqa: E501
     var_field: StrictStr = Field(alias="field")
     operator: OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator
-    value: Value1
+    value: Optional[Value1]
     __properties: ClassVar[List[str]] = ["field", "operator", "value"]
 
     model_config = ConfigDict(
@@ -75,6 +75,11 @@ class OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['value'] = self.value.to_dict()
+        # set to None if value (nullable) is None
+        # and model_fields_set contains the field
+        if self.value is None and "value" in self.model_fields_set:
+            _dict['value'] = None
+
         return _dict
 
     @classmethod

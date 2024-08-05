@@ -147,7 +147,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_tenant_embed_apps_links**
-> ResponseGetTenantEmbedAppsLinksResponse get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
+> ResponseGetAllTenantEmbedAppsLinksResponse get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_api_request)
 
 Get All Tenant Embed Apps Links
 
@@ -156,8 +156,8 @@ Get All Tenant Embed Apps Links
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
-from onelens_backend_client.models.response_get_tenant_embed_apps_links_response import ResponseGetTenantEmbedAppsLinksResponse
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_api_request import GetAllTenantEmbedAppsLinksApiRequest
+from onelens_backend_client.models.response_get_all_tenant_embed_apps_links_response import ResponseGetAllTenantEmbedAppsLinksResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -172,11 +172,11 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantEmbedAppsAndLinksApi(api_client)
-    get_all_tenant_embed_apps_links_request = onelens_backend_client.GetAllTenantEmbedAppsLinksRequest() # GetAllTenantEmbedAppsLinksRequest | 
+    get_all_tenant_embed_apps_links_api_request = onelens_backend_client.GetAllTenantEmbedAppsLinksApiRequest() # GetAllTenantEmbedAppsLinksApiRequest | 
 
     try:
         # Get All Tenant Embed Apps Links
-        api_response = api_instance.get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
+        api_response = api_instance.get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_api_request)
         print("The response of TenantEmbedAppsAndLinksApi->get_all_tenant_embed_apps_links:\n")
         pprint(api_response)
     except Exception as e:
@@ -190,11 +190,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_all_tenant_embed_apps_links_request** | [**GetAllTenantEmbedAppsLinksRequest**](GetAllTenantEmbedAppsLinksRequest.md)|  | 
+ **get_all_tenant_embed_apps_links_api_request** | [**GetAllTenantEmbedAppsLinksApiRequest**](GetAllTenantEmbedAppsLinksApiRequest.md)|  | 
 
 ### Return type
 
-[**ResponseGetTenantEmbedAppsLinksResponse**](ResponseGetTenantEmbedAppsLinksResponse.md)
+[**ResponseGetAllTenantEmbedAppsLinksResponse**](ResponseGetAllTenantEmbedAppsLinksResponse.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_embed_apps_link_by_id**
-> ResponseGetTenantEmbedAppsLinksResponse get_tenant_embed_apps_link_by_id(link_id)
+> ResponseGetTenantEmbedAppsLinkResponse get_tenant_embed_apps_link_by_id(link_id)
 
 Get Tenant Embed Apps Link By Id
 
@@ -224,7 +224,7 @@ Get Tenant Embed Apps Link By Id
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.response_get_tenant_embed_apps_links_response import ResponseGetTenantEmbedAppsLinksResponse
+from onelens_backend_client.models.response_get_tenant_embed_apps_link_response import ResponseGetTenantEmbedAppsLinkResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseGetTenantEmbedAppsLinksResponse**](ResponseGetTenantEmbedAppsLinksResponse.md)
+[**ResponseGetTenantEmbedAppsLinkResponse**](ResponseGetTenantEmbedAppsLinkResponse.md)
 
 ### Authorization
 

@@ -31,7 +31,8 @@ class CreatePolicyTemplatePullRequest(BaseModel):
     source_branch: StrictStr = Field(description="The source branch of the pull request.")
     branch_name: StrictStr = Field(description="The branch name of the pull request.")
     alias: StrictStr = Field(description="The unique identifier of the policy template by alias.")
-    __properties: ClassVar[List[str]] = ["title", "description", "source_branch", "branch_name", "alias"]
+    commit_message: StrictStr = Field(description="Change commit message")
+    __properties: ClassVar[List[str]] = ["title", "description", "source_branch", "branch_name", "alias", "commit_message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +89,8 @@ class CreatePolicyTemplatePullRequest(BaseModel):
             "description": obj.get("description"),
             "source_branch": obj.get("source_branch"),
             "branch_name": obj.get("branch_name"),
-            "alias": obj.get("alias")
+            "alias": obj.get("alias"),
+            "commit_message": obj.get("commit_message")
         })
         return _obj
 
