@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **source_branch** | **str** | The source branch of the pull request. | 
 **branch_name** | **str** | The branch name of the pull request. | 
 **alias** | **str** | The unique identifier of the policy template by alias. | 
+**commit_message** | **str** | Change commit message | 
 
 ## Example
 

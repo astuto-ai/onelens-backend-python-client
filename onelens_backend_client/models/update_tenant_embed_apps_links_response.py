@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.tenant_embed_apps_link_state import TenantEmbedAppsLinkState
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,12 +28,15 @@ class UpdateTenantEmbedAppsLinksResponse(BaseModel):
     """
     UpdateTenantEmbedAppsLinksResponse
     """ # noqa: E501
-    ol_user_id: StrictStr = Field(description="Unique onelens identifier for the user")
-    tenant_id: StrictStr = Field(description="The unique identifier of the tenant")
+    created_by: StrictStr = Field(description="The unique identifier of the user who created the link")
+    created_at: datetime = Field(description="The date and time when the link was created")
+    updated_at: datetime = Field(description="The date and time when the link was updated")
+    updated_by: Optional[StrictStr] = None
     tab_name: StrictStr = Field(description="Name of the tab")
     link: StrictStr = Field(description="Link of the tab")
     system_created: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["ol_user_id", "tenant_id", "tab_name", "link", "system_created"]
+    state: TenantEmbedAppsLinkState = Field(description="State of the link")
+    __properties: ClassVar[List[str]] = ["created_by", "created_at", "updated_at", "updated_by", "tab_name", "link", "system_created", "state"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +77,11 @@ class UpdateTenantEmbedAppsLinksResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if updated_by (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated_by is None and "updated_by" in self.model_fields_set:
+            _dict['updated_by'] = None
+
         # set to None if system_created (nullable) is None
         # and model_fields_set contains the field
         if self.system_created is None and "system_created" in self.model_fields_set:
@@ -89,11 +99,14 @@ class UpdateTenantEmbedAppsLinksResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ol_user_id": obj.get("ol_user_id"),
-            "tenant_id": obj.get("tenant_id"),
+            "created_by": obj.get("created_by"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at"),
+            "updated_by": obj.get("updated_by"),
             "tab_name": obj.get("tab_name"),
             "link": obj.get("link"),
-            "system_created": obj.get("system_created")
+            "system_created": obj.get("system_created"),
+            "state": obj.get("state")
         })
         return _obj
 

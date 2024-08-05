@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.metrics_query import MetricsQuery
+from onelens_backend_client.models.metrics_query_input import MetricsQueryInput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class GetMetricsAPIRequest(BaseModel):
     """
     GetMetricsAPIRequest
     """ # noqa: E501
-    query: MetricsQuery
+    query: MetricsQueryInput
     __properties: ClassVar[List[str]] = ["query"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class GetMetricsAPIRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "query": MetricsQuery.from_dict(obj["query"]) if obj.get("query") is not None else None
+            "query": MetricsQueryInput.from_dict(obj["query"]) if obj.get("query") is not None else None
         })
         return _obj
 

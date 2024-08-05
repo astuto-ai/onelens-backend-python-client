@@ -21,8 +21,9 @@ from typing import Any
 from onelens_backend_client.models.create_tenant_embed_apps_links_request import CreateTenantEmbedAppsLinksRequest
 from onelens_backend_client.models.create_tenant_embed_apps_links_response import CreateTenantEmbedAppsLinksResponse
 from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_response import GetAllTenantEmbedAppsLinksResponse
+from onelens_backend_client.models.get_tenant_embed_apps_link_response import GetTenantEmbedAppsLinkResponse
 from onelens_backend_client.models.get_tenant_embed_apps_links_request import GetTenantEmbedAppsLinksRequest
-from onelens_backend_client.models.get_tenant_embed_apps_links_response import GetTenantEmbedAppsLinksResponse
 from onelens_backend_client.models.update_tenant_embed_apps_links_response import UpdateTenantEmbedAppsLinksResponse
 
 from onelens_backend_client.api_client import ApiClient, RequestSerialized
@@ -599,7 +600,7 @@ class TenantEmbedAppsLinksServiceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> GetAllTenantEmbedAppsLinksResponse:
         """Retrieves tenant embed apps links.
 
 
@@ -636,7 +637,7 @@ class TenantEmbedAppsLinksServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "GetAllTenantEmbedAppsLinksResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -666,7 +667,7 @@ class TenantEmbedAppsLinksServiceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[GetAllTenantEmbedAppsLinksResponse]:
         """Retrieves tenant embed apps links.
 
 
@@ -703,7 +704,7 @@ class TenantEmbedAppsLinksServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "GetAllTenantEmbedAppsLinksResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -770,7 +771,7 @@ class TenantEmbedAppsLinksServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "GetAllTenantEmbedAppsLinksResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -869,7 +870,7 @@ class TenantEmbedAppsLinksServiceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantEmbedAppsLinksResponse:
+    ) -> GetTenantEmbedAppsLinkResponse:
         """Retrieves tenant embed apps links.
 
 
@@ -906,7 +907,7 @@ class TenantEmbedAppsLinksServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantEmbedAppsLinksResponse",
+            '200': "GetTenantEmbedAppsLinkResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -936,7 +937,7 @@ class TenantEmbedAppsLinksServiceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantEmbedAppsLinksResponse]:
+    ) -> ApiResponse[GetTenantEmbedAppsLinkResponse]:
         """Retrieves tenant embed apps links.
 
 
@@ -973,7 +974,7 @@ class TenantEmbedAppsLinksServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantEmbedAppsLinksResponse",
+            '200': "GetTenantEmbedAppsLinkResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1040,7 +1041,7 @@ class TenantEmbedAppsLinksServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantEmbedAppsLinksResponse",
+            '200': "GetTenantEmbedAppsLinkResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

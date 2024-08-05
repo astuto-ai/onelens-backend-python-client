@@ -147,7 +147,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_tenant_embed_apps_links**
-> object get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
+> GetAllTenantEmbedAppsLinksResponse get_all_tenant_embed_apps_links(get_all_tenant_embed_apps_links_request)
 
 Retrieves tenant embed apps links.
 
@@ -157,6 +157,7 @@ Retrieves tenant embed apps links.
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_response import GetAllTenantEmbedAppsLinksResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -193,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetAllTenantEmbedAppsLinksResponse**](GetAllTenantEmbedAppsLinksResponse.md)
 
 ### Authorization
 
@@ -214,7 +215,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_embed_apps_link_by_id**
-> GetTenantEmbedAppsLinksResponse get_tenant_embed_apps_link_by_id(get_tenant_embed_apps_links_request)
+> GetTenantEmbedAppsLinkResponse get_tenant_embed_apps_link_by_id(get_tenant_embed_apps_links_request)
 
 Retrieves tenant embed apps links.
 
@@ -223,8 +224,8 @@ Retrieves tenant embed apps links.
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.get_tenant_embed_apps_link_response import GetTenantEmbedAppsLinkResponse
 from onelens_backend_client.models.get_tenant_embed_apps_links_request import GetTenantEmbedAppsLinksRequest
-from onelens_backend_client.models.get_tenant_embed_apps_links_response import GetTenantEmbedAppsLinksResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -261,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantEmbedAppsLinksResponse**](GetTenantEmbedAppsLinksResponse.md)
+[**GetTenantEmbedAppsLinkResponse**](GetTenantEmbedAppsLinkResponse.md)
 
 ### Authorization
 

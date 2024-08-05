@@ -26,6 +26,7 @@ class UserRole(str, Enum):
     """
     allowed enum values
     """
+    ROOT = 'ROOT'
     ADMIN = 'ADMIN'
     MEMBER = 'MEMBER'
     READER = 'READER'

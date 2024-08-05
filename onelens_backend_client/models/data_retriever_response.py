@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from onelens_backend_client.models.data_retriever_query_output import DataRetrieverQueryOutput
+from onelens_backend_client.models.data_retriever_query import DataRetrieverQuery
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class DataRetrieverResponse(BaseModel):
     """
     DataRetrieverResponse
     """ # noqa: E501
-    query: Optional[DataRetrieverQueryOutput] = None
+    query: Optional[DataRetrieverQuery] = None
     data: Optional[List[Dict[str, Any]]] = None
     annotation: Optional[Dict[str, Any]] = None
     last_refresh_time: Optional[StrictStr] = Field(default=None, alias="lastRefreshTime")
@@ -149,7 +149,7 @@ class DataRetrieverResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "query": DataRetrieverQueryOutput.from_dict(obj["query"]) if obj.get("query") is not None else None,
+            "query": DataRetrieverQuery.from_dict(obj["query"]) if obj.get("query") is not None else None,
             "data": obj.get("data"),
             "annotation": obj.get("annotation"),
             "lastRefreshTime": obj.get("lastRefreshTime"),

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | Description
 ------------- | -------------
 [**get_metrics**](ServiceCatalogApi.md#get_metrics) | Get Metrics
+[**get_multiple_metrices**](ServiceCatalogApi.md#get_multiple_metrices) | Get Multiple Metrices
 [**get_service_catalog**](ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
 
 
@@ -59,6 +60,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseGetMetricsResponse**](ResponseGetMetricsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_multiple_metrices**
+> object get_multiple_metrices(get_mutiple_metrics_api_request)
+
+Get Multiple Metrices
+
+An API endpoint to get tenant cloud metadata like cloud id, region, service...
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_mutiple_metrics_api_request import GetMutipleMetricsAPIRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ServiceCatalogApi(api_client)
+    get_mutiple_metrics_api_request = onelens_backend_client.GetMutipleMetricsAPIRequest() # GetMutipleMetricsAPIRequest | 
+
+    try:
+        # Get Multiple Metrices
+        api_response = api_instance.get_multiple_metrices(get_mutiple_metrics_api_request)
+        print("The response of ServiceCatalogApi->get_multiple_metrices:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ServiceCatalogApi->get_multiple_metrices: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_mutiple_metrics_api_request** | [**GetMutipleMetricsAPIRequest**](GetMutipleMetricsAPIRequest.md)|  | 
+
+### Return type
+
+**object**
 
 ### Authorization
 
