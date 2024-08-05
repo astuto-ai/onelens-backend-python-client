@@ -1,23 +1,26 @@
-# TenantVerifyServiceRpcHandler API
+# RecommendationUnitMigrationServiceRpcHandler API
 
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import TenantVerifyRequestWithUser
+from onelens_backend_client_v2.models import CreateRecommendationUnitPullRequest
 
 
-from onelens_backend_client_v2.models import TenantVerifyResponse
+from onelens_backend_client_v2.models import CreateRecommenadtionUnitPullResponse
 
 
-from onelens_backend_client_v2.models import TenantVerifyCurBucketRequest
+from onelens_backend_client_v2.models import SyncRecommendationUnitFromRepoRequest
+
+
+from onelens_backend_client_v2.models import SyncRecommendationUnitFromRepoResponse
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
-class TenantVerifyServiceRpcHandler:
+class RecommendationUnitMigrationServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
 
     def __init__(self, api_client=None) -> None:
@@ -26,9 +29,9 @@ class TenantVerifyServiceRpcHandler:
         self.api_client = api_client
 
     @validate_call
-    def verify_tenant(
+    def create_recommendation_unit_pull_request(
         self,
-        request: TenantVerifyRequestWithUser,
+        request: CreateRecommendationUnitPullRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -40,13 +43,13 @@ class TenantVerifyServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TenantVerifyResponse:
-        """Verify Tenant
+    ) -> CreateRecommenadtionUnitPullResponse:
+        """Create a pull request for the recommendation_unit template
 
 
 
         :param request: (required)
-        :type request: TenantVerifyRequestWithUser
+        :type request: CreateRecommendationUnitPullRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -69,7 +72,7 @@ class TenantVerifyServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._verify_tenant_serialize(
+        _param = self._create_recommendation_unit_pull_request_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -78,7 +81,7 @@ class TenantVerifyServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "TenantVerifyResponse",
+            "200": "CreateRecommenadtionUnitPullResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -90,9 +93,9 @@ class TenantVerifyServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _verify_tenant_serialize(
+    def _create_recommendation_unit_pull_request_serialize(
         self,
-        request: TenantVerifyRequestWithUser,
+        request: CreateRecommendationUnitPullRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -133,7 +136,7 @@ class TenantVerifyServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_verify_service/verify_tenant",
+            resource_path="/rpc/recommendation_unit_migration_service/create_recommendation_unit_pull_request",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -147,9 +150,9 @@ class TenantVerifyServiceRpcHandler:
         )
 
     @validate_call
-    def verify_tenant_cur_bucket(
+    def sync_recommendation_unit_from_repo(
         self,
-        request: TenantVerifyCurBucketRequest,
+        request: SyncRecommendationUnitFromRepoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -161,13 +164,13 @@ class TenantVerifyServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Any:
-        """Verify Tenant Cur Bucket
+    ) -> SyncRecommendationUnitFromRepoResponse:
+        """Sync recommendation_unit from repo
 
 
 
         :param request: (required)
-        :type request: TenantVerifyCurBucketRequest
+        :type request: SyncRecommendationUnitFromRepoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -190,7 +193,7 @@ class TenantVerifyServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._verify_tenant_cur_bucket_serialize(
+        _param = self._sync_recommendation_unit_from_repo_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -199,7 +202,7 @@ class TenantVerifyServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Any",
+            "200": "SyncRecommendationUnitFromRepoResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -211,9 +214,9 @@ class TenantVerifyServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _verify_tenant_cur_bucket_serialize(
+    def _sync_recommendation_unit_from_repo_serialize(
         self,
-        request: TenantVerifyCurBucketRequest,
+        request: SyncRecommendationUnitFromRepoRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -254,7 +257,7 @@ class TenantVerifyServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_verify_service/verify_tenant_cur_bucket",
+            resource_path="/rpc/recommendation_unit_migration_service/sync_recommendation_unit_from_repo",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

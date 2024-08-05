@@ -17,7 +17,10 @@ from onelens_backend_client_v2.models import GetTenantEmbedAppsLinksRequest
 from onelens_backend_client_v2.models import GetAllTenantEmbedAppsLinksRequest
 
 
-from onelens_backend_client_v2.models import GetTenantEmbedAppsLinksResponse
+from onelens_backend_client_v2.models import GetAllTenantEmbedAppsLinksResponse
+
+
+from onelens_backend_client_v2.models import GetTenantEmbedAppsLinkResponse
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
@@ -288,7 +291,7 @@ class TenantEmbedAppsLinksServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Any:
+    ) -> GetAllTenantEmbedAppsLinksResponse:
         """Retrieves tenant embed apps links.
 
 
@@ -326,7 +329,7 @@ class TenantEmbedAppsLinksServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Any",
+            "200": "GetAllTenantEmbedAppsLinksResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -409,7 +412,7 @@ class TenantEmbedAppsLinksServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantEmbedAppsLinksResponse:
+    ) -> GetTenantEmbedAppsLinkResponse:
         """Retrieves tenant embed apps links.
 
 
@@ -447,7 +450,7 @@ class TenantEmbedAppsLinksServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantEmbedAppsLinksResponse",
+            "200": "GetTenantEmbedAppsLinkResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

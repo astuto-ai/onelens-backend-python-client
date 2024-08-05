@@ -78,6 +78,10 @@ from onelens_backend_client_v2.rpc.recommendation_unit_service_rpc_handler impor
     RecommendationUnitServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.recommendation_unit_migration_service_rpc_handler import (
+    RecommendationUnitMigrationServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -100,4 +104,5 @@ __all__ = [
     "TenantUserServiceRpcHandler",
     "TenantEmbedAppsLinksServiceRpcHandler",
     "RecommendationUnitServiceRpcHandler",
+    "RecommendationUnitMigrationServiceRpcHandler",
 ]

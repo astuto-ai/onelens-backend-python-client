@@ -18,5 +18,5 @@ docker run --rm -v "${PWD}:/onelens-backend-python-client" openapitools/openapi-
 ```
 poetry install
 poetry shell
-python3 client_generator.py -i http://localhost:19000/openapi.json -o onelens_backend_client/rpc
+python3 client_generator.py -i http://localhost:19000/openapi.json -o onelens_backend_client_v2
 ```
