@@ -41,7 +41,8 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
     recommendation_unit_title: Optional[StrictStr] = None
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings of the ticket")
     resource_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings", "resource_id"]
+    account_name: Optional[StrictStr]
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings", "resource_id", "account_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,11 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
         if self.resource_id is None and "resource_id" in self.model_fields_set:
             _dict['resource_id'] = None
 
+        # set to None if account_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.account_name is None and "account_name" in self.model_fields_set:
+            _dict['account_name'] = None
+
         return _dict
 
     @classmethod
@@ -116,7 +122,8 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
             "account_id": obj.get("account_id"),
             "recommendation_unit_title": obj.get("recommendation_unit_title"),
             "potential_savings": obj.get("potential_savings"),
-            "resource_id": obj.get("resource_id")
+            "resource_id": obj.get("resource_id"),
+            "account_name": obj.get("account_name")
         })
         return _obj
 

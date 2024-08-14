@@ -19,26 +19,27 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from onelens_backend_client.models.auth0_user_connection import Auth0UserConnection
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-SOURCES_ANY_OF_SCHEMAS = ["List[str]", "object"]
+SOURCES_ANY_OF_SCHEMAS = ["List[Auth0UserConnection]", "object"]
 
 class Sources(BaseModel):
     """
     Different sources from where user signed up. e.g. social signup, username-password
     """
 
-    # data type: List[str]
-    anyof_schema_1_validator: Optional[List[StrictStr]] = None
+    # data type: List[Auth0UserConnection]
+    anyof_schema_1_validator: Optional[List[Auth0UserConnection]] = None
     # data type: object
     anyof_schema_2_validator: Optional[Any] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[List[str], object]] = None
+        actual_instance: Optional[Union[List[Auth0UserConnection], object]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "List[str]", "object" }
+    any_of_schemas: Set[str] = { "List[Auth0UserConnection]", "object" }
 
     model_config = {
         "validate_assignment": True,
@@ -59,7 +60,7 @@ class Sources(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = Sources.model_construct()
         error_messages = []
-        # validate data type: List[str]
+        # validate data type: List[Auth0UserConnection]
         try:
             instance.anyof_schema_1_validator = v
             return v
@@ -73,7 +74,7 @@ class Sources(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in Sources with anyOf schemas: List[str], object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in Sources with anyOf schemas: List[Auth0UserConnection], object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -86,7 +87,7 @@ class Sources(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # deserialize data into List[str]
+        # deserialize data into List[Auth0UserConnection]
         try:
             # validation
             instance.anyof_schema_1_validator = json.loads(json_str)
@@ -107,7 +108,7 @@ class Sources(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Sources with anyOf schemas: List[str], object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into Sources with anyOf schemas: List[Auth0UserConnection], object. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -121,7 +122,7 @@ class Sources(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], List[str], object]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], List[Auth0UserConnection], object]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

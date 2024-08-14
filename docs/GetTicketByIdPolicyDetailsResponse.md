@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **hierarchy_details** | **object** | The resource hierarchy details | 
 **resource_details** | **object** | The resource details | 
 **violation_metrics_details** | [**List[ViolationMetricsDetails]**](ViolationMetricsDetails.md) | The violation metrics details | 
+**account_details** | **object** | The account details | 
 
 ## Example
 

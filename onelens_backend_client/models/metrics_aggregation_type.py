@@ -29,11 +29,16 @@ class MetricsAggregationType(str, Enum):
     P99_MAXIMUM = 'p99_maximum'
     P95_MAXIMUM = 'p95_maximum'
     P90_MAXIMUM = 'p90_maximum'
+    AVG_MAXIMUM = 'avg_maximum'
     SUM_MAXIMUM = 'sum_maximum'
     MAX_MAXIMUM = 'max_maximum'
+    AVG_AVERAGE = 'avg_average'
+    MIN_MINIMUM = 'min_minimum'
     SUM_SUM = 'sum_sum'
     SUM_AVERAGE = 'sum_average'
     MAXIMUM = 'maximum'
+    AVERAGE = 'average'
+    MINIMUM = 'minimum'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
