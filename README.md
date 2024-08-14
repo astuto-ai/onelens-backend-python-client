@@ -92,6 +92,8 @@ Class | Method | Description
 *RecommendationEngineApi* | [**get_recommendation_units**](docs/RecommendationEngineApi.md#get_recommendation_units) | Get Recommendation Units
 *RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
 *Auth0Api* | [**create_user**](docs/Auth0Api.md#create_user) | Create User
+*CloudAccountMetadataApi* | [**get_cloud_account_metadata**](docs/CloudAccountMetadataApi.md#get_cloud_account_metadata) | Get Cloud Account Metadata
+*CloudAccountMetadataServiceApi* | [**get_cloud_account_metadata**](docs/CloudAccountMetadataServiceApi.md#get_cloud_account_metadata) | get cloud account metadata for tenant
 *CloudMetadataApi* | [**create_root_node**](docs/CloudMetadataApi.md#create_root_node) | Create Root Node
 *CloudMetadataServiceApi* | [**get_cloud_metadata**](docs/CloudMetadataServiceApi.md#get_cloud_metadata) | get cloud metadata for tenant
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
@@ -299,6 +301,7 @@ Class | Method | Description
  - [AnomalyTicketStatus](docs/AnomalyTicketStatus.md)
  - [Auth0CreateUserAppMetadata](docs/Auth0CreateUserAppMetadata.md)
  - [Auth0UserAllFields](docs/Auth0UserAllFields.md)
+ - [Auth0UserConnection](docs/Auth0UserConnection.md)
  - [AwsService](docs/AwsService.md)
  - [BeginRange](docs/BeginRange.md)
  - [BulkUpdateTenantTicketsAPIRequest](docs/BulkUpdateTenantTicketsAPIRequest.md)
@@ -308,6 +311,8 @@ Class | Method | Description
  - [BulkUpdateTenantTicketsRequestMixin](docs/BulkUpdateTenantTicketsRequestMixin.md)
  - [BulkUpdateTenantTicketsResponse](docs/BulkUpdateTenantTicketsResponse.md)
  - [City](docs/City.md)
+ - [CloudAccountMetadata](docs/CloudAccountMetadata.md)
+ - [CloudAccountMetadataFilters](docs/CloudAccountMetadataFilters.md)
  - [Country](docs/Country.md)
  - [CreateActionTypeRequest](docs/CreateActionTypeRequest.md)
  - [CreateActionTypeResponse](docs/CreateActionTypeResponse.md)
@@ -398,6 +403,8 @@ Class | Method | Description
  - [GetAllTenantUsersItem](docs/GetAllTenantUsersItem.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
+ - [GetCloudAccountMetadataRequest](docs/GetCloudAccountMetadataRequest.md)
+ - [GetCloudAccountMetadataResponse](docs/GetCloudAccountMetadataResponse.md)
  - [GetCloudMetadataRequest](docs/GetCloudMetadataRequest.md)
  - [GetCloudMetadataResponse](docs/GetCloudMetadataResponse.md)
  - [GetHierarchyFilters](docs/GetHierarchyFilters.md)
@@ -495,11 +502,15 @@ Class | Method | Description
  - [GetTicketByIdPolicyDetailsRequest](docs/GetTicketByIdPolicyDetailsRequest.md)
  - [GetTicketByIdPolicyDetailsResponse](docs/GetTicketByIdPolicyDetailsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
+ - [Granularity](docs/Granularity.md)
+ - [GranularityUnit](docs/GranularityUnit.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HierarchyNodeAttributionDetails](docs/HierarchyNodeAttributionDetails.md)
+ - [HierarchyNodeCategory](docs/HierarchyNodeCategory.md)
  - [HierarchyNodeEntityDTO](docs/HierarchyNodeEntityDTO.md)
  - [HierarchyNodeResourceFilters](docs/HierarchyNodeResourceFilters.md)
  - [HierarchyNodeState](docs/HierarchyNodeState.md)
+ - [HierarchySharedNodeStrategy](docs/HierarchySharedNodeStrategy.md)
  - [HierarchyState](docs/HierarchyState.md)
  - [HierarchyType](docs/HierarchyType.md)
  - [JobTitle](docs/JobTitle.md)
@@ -524,10 +535,12 @@ Class | Method | Description
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput.md)
- - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.md)
- - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput.md)
  - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension.md)
  - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner.md)
+ - [OperatorOutput](docs/OperatorOutput.md)
  - [OrItem](docs/OrItem.md)
  - [Organization](docs/Organization.md)
  - [OrganizationFilters](docs/OrganizationFilters.md)
@@ -616,6 +629,7 @@ Class | Method | Description
  - [ResponseEnableTenantPolicyResponse](docs/ResponseEnableTenantPolicyResponse.md)
  - [ResponseGetAllPolicyViolationsResponse](docs/ResponseGetAllPolicyViolationsResponse.md)
  - [ResponseGetAllTenantEmbedAppsLinksResponse](docs/ResponseGetAllTenantEmbedAppsLinksResponse.md)
+ - [ResponseGetCloudAccountMetadataResponse](docs/ResponseGetCloudAccountMetadataResponse.md)
  - [ResponseGetCloudMetadataResponse](docs/ResponseGetCloudMetadataResponse.md)
  - [ResponseGetHierarchyResponse](docs/ResponseGetHierarchyResponse.md)
  - [ResponseGetMetricsResponse](docs/ResponseGetMetricsResponse.md)
@@ -721,6 +735,7 @@ Class | Method | Description
  - [TicketAssignment](docs/TicketAssignment.md)
  - [TicketCategory](docs/TicketCategory.md)
  - [TicketState](docs/TicketState.md)
+ - [TicketUnassignment](docs/TicketUnassignment.md)
  - [Timezone](docs/Timezone.md)
  - [UpdateActionTypeRequest](docs/UpdateActionTypeRequest.md)
  - [UpdateActionTypeResponse](docs/UpdateActionTypeResponse.md)

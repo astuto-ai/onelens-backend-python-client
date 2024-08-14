@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from onelens_backend_client.models.hierarchy_shared_node_strategy import HierarchySharedNodeStrategy
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class HierarchyNodeAttributionDetails(BaseModel):
     HierarchyNodeAttributionDetails
     """ # noqa: E501
     nodes: List[StrictStr] = Field(description="List of nodes with which the node is shared")
-    strategy: StrictStr = Field(description="Strategy for attribution")
+    strategy: HierarchySharedNodeStrategy = Field(description="Strategy for attribution")
     __properties: ClassVar[List[str]] = ["nodes", "strategy"]
 
     model_config = ConfigDict(

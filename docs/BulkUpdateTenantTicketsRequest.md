@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ticket_ids** | **List[str]** | List of ticket ids | [optional] [default to []]
 **status** | [**PolicyTicketStatus**](PolicyTicketStatus.md) |  | [optional] 
-**assignment** | **str** |  | [optional] 
+**assignment** | [**TicketUnassignment**](TicketUnassignment.md) |  | [optional] 
 **assigned_to** | **str** |  | [optional] 
 **comment** | **str** |  | [optional] 
 **tenant_id** | **str** | The unique identifier of the tenant | 
