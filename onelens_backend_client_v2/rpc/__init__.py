@@ -86,10 +86,6 @@ from onelens_backend_client_v2.rpc.cloud_account_metadata_service_rpc_handler im
     CloudAccountMetadataServiceRpcHandler,
 )
 
-from onelens_backend_client_v2.rpc.action_type_migration_service_rpc_handler import (
-    ActionTypeMigrationServiceRpcHandler,
-)
-
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -114,5 +110,4 @@ __all__ = [
     "RecommendationUnitServiceRpcHandler",
     "RecommendationUnitMigrationServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
-    "ActionTypeMigrationServiceRpcHandler",
 ]
