@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_operator import OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator
 from onelens_backend_client.models.values import Values
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +29,7 @@ class OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput(
     OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput
     """ # noqa: E501
     var_field: StrictStr = Field(alias="field")
-    operator: StrictStr
+    operator: OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator
     values: Values
     __properties: ClassVar[List[str]] = ["field", "operator", "values"]
 

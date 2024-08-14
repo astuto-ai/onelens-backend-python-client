@@ -12,6 +12,8 @@ docker run --rm -v "${PWD}:/onelens-backend-python-client" openapitools/openapi-
 -p packageName=onelens_backend_client \
 -p projectName=onelens-backend-python-client \
 --skip-validate-spec
+
+git restore pyproject.toml
 ```
 
 # Client Generator V2

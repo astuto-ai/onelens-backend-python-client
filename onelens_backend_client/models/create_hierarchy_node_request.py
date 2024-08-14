@@ -17,12 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from onelens_backend_client.models.hierarchy_node_attribution_details import HierarchyNodeAttributionDetails
 from onelens_backend_client.models.hierarchy_node_resource_filters import HierarchyNodeResourceFilters
-from onelens_backend_client.models.onelens_models_service_interfaces_tenant_metadata_commons_hierarchy_node_category1 import OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,13 +31,20 @@ class CreateHierarchyNodeRequest(BaseModel):
     """ # noqa: E501
     name: Annotated[str, Field(strict=True, max_length=30)]
     parent_id: Optional[StrictStr]
-    category: OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1
+    category: Annotated[str, Field(strict=True, max_length=20)]
     resource_filters: Optional[List[HierarchyNodeResourceFilters]] = None
     resource_filter_expression: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None
     is_shared: Optional[StrictBool] = Field(default=False, description="is this node a shared node or not.")
     attribution_details: Optional[HierarchyNodeAttributionDetails] = None
     tenant_id: StrictStr = Field(description="The id of the tenant.")
     __properties: ClassVar[List[str]] = ["name", "parent_id", "category", "resource_filters", "resource_filter_expression", "is_shared", "attribution_details", "tenant_id"]
+
+    @field_validator('category')
+    def category_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ROOT', 'BUSINESS_UNIT', 'PRODUCT', 'SERVICE', 'ENVIRONMENT', 'RESIDUAL', 'CLOUD_ID', 'REGION']):
+            raise ValueError("must be one of enum values ('ROOT', 'BUSINESS_UNIT', 'PRODUCT', 'SERVICE', 'ENVIRONMENT', 'RESIDUAL', 'CLOUD_ID', 'REGION')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
