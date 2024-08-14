@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_field** | **str** |  | 
-**operator** | [**OperatorOutput**](OperatorOutput.md) |  | 
+**operator** | **str** |  | 
 **values** | [**Values**](Values.md) |  | 
 
 ## Example

@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **policy_violated_on** | **datetime** | Datetime of the policy violation | 
 **potential_savings** | **float** | Potential savings possible for the current policy violation | 
 **resource_id** | **str** |  | [optional] 
-**account_name** | **str** |  | [optional] 
 
 ## Example
 

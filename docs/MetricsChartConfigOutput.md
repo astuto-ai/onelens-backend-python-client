@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **chart_title** | **str** | The title of the chart. | 
 **chart_type** | **str** | The type of the chart. | 
-**chart_data_tooltip** | **str** |  | [optional] 
 **table_name** | **str** | The name of the table. | 
 **metric_name** | **str** | The name of the metric. | 
 **aggregation_type** | [**MetricsAggregationType**](MetricsAggregationType.md) | The aggregation type of the metric. | 

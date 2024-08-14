@@ -33,7 +33,6 @@ class ResourceCatalogResponse(BaseModel):
     service: StrictStr = Field(description="Resource service class")
     service_display_name: StrictStr = Field(description="Service name in UI")
     resource_type: StrictStr = Field(description="Resource type")
-    resource_id: Optional[StrictStr] = None
     resource_url_template: StrictStr = Field(description="Resource url template")
     crn: StrictStr = Field(description="Cloud resource identifier")
     title: StrictStr = Field(description="Resource name")
@@ -43,7 +42,7 @@ class ResourceCatalogResponse(BaseModel):
     additional_info: Dict[str, Any] = Field(description="Additional info of the resource.")
     run_id: StrictStr = Field(description="The run id.")
     last_updated_at: datetime = Field(description="The last updated at.")
-    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_id", "resource_url_template", "crn", "title", "provider", "status", "tags", "additional_info", "run_id", "last_updated_at"]
+    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_url_template", "crn", "title", "provider", "status", "tags", "additional_info", "run_id", "last_updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,11 +83,6 @@ class ResourceCatalogResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if resource_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.resource_id is None and "resource_id" in self.model_fields_set:
-            _dict['resource_id'] = None
-
         # set to None if tags (nullable) is None
         # and model_fields_set contains the field
         if self.tags is None and "tags" in self.model_fields_set:
@@ -112,7 +106,6 @@ class ResourceCatalogResponse(BaseModel):
             "service": obj.get("service"),
             "service_display_name": obj.get("service_display_name"),
             "resource_type": obj.get("resource_type"),
-            "resource_id": obj.get("resource_id"),
             "resource_url_template": obj.get("resource_url_template"),
             "crn": obj.get("crn"),
             "title": obj.get("title"),

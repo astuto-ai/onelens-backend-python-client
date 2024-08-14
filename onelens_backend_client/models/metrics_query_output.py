@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.filter_criteria_output import FilterCriteriaOutput
 from onelens_backend_client.models.metrics_aggregation_type import MetricsAggregationType
-from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_time_dimension_output import OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput
+from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_time_dimension import OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +33,7 @@ class MetricsQueryOutput(BaseModel):
     metric_name: StrictStr
     measures: List[MetricsAggregationType]
     filters: List[FilterCriteriaOutput]
-    time_filter: OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput
+    time_filter: OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension
     timezone: Optional[StrictStr] = 'Asia/Kolkata'
     __properties: ClassVar[List[str]] = ["name", "metric_name", "measures", "filters", "time_filter", "timezone"]
 
@@ -102,7 +102,7 @@ class MetricsQueryOutput(BaseModel):
             "metric_name": obj.get("metric_name"),
             "measures": obj.get("measures"),
             "filters": [FilterCriteriaOutput.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
-            "time_filter": OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput.from_dict(obj["time_filter"]) if obj.get("time_filter") is not None else None,
+            "time_filter": OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.from_dict(obj["time_filter"]) if obj.get("time_filter") is not None else None,
             "timezone": obj.get("timezone") if obj.get("timezone") is not None else 'Asia/Kolkata'
         })
         return _obj

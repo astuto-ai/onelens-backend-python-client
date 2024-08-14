@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **parent_id** | **str** |  | [optional] 
-**category** | **str** |  | [optional] 
+**category** | [**OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1**](OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md) |  | [optional] 
 **resource_filters** | [**List[HierarchyNodeResourceFilters]**](HierarchyNodeResourceFilters.md) |  | [optional] 
 **resource_filter_expression** | **str** |  | [optional] 
 **is_shared** | **bool** |  | [optional] 

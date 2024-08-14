@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **var_field** | **str** |  | 
-**operator** | [**OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator**](OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator.md) |  | 
+**operator** | **str** |  | 
 **values** | [**Values**](Values.md) |  | 
 
 ## Example

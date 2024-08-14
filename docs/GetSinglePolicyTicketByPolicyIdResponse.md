@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **recommendation_unit_title** | **str** |  | [optional] 
 **potential_savings** | **float** | Potential savings of the ticket | 
 **resource_id** | **str** |  | [optional] 
-**account_name** | **str** |  | 
 
 ## Example
 

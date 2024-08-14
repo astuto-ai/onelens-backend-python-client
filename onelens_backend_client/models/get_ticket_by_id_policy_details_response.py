@@ -35,8 +35,7 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
     hierarchy_details: Dict[str, Any] = Field(description="The resource hierarchy details")
     resource_details: Dict[str, Any] = Field(description="The resource details")
     violation_metrics_details: List[ViolationMetricsDetails] = Field(description="The violation metrics details")
-    account_details: Dict[str, Any] = Field(description="The account details")
-    __properties: ClassVar[List[str]] = ["tenant_ticket", "policy_details", "recommendation_units", "hierarchy_details", "resource_details", "violation_metrics_details", "account_details"]
+    __properties: ClassVar[List[str]] = ["tenant_ticket", "policy_details", "recommendation_units", "hierarchy_details", "resource_details", "violation_metrics_details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,8 +106,7 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
             "recommendation_units": obj.get("recommendation_units"),
             "hierarchy_details": obj.get("hierarchy_details"),
             "resource_details": obj.get("resource_details"),
-            "violation_metrics_details": [ViolationMetricsDetails.from_dict(_item) for _item in obj["violation_metrics_details"]] if obj.get("violation_metrics_details") is not None else None,
-            "account_details": obj.get("account_details")
+            "violation_metrics_details": [ViolationMetricsDetails.from_dict(_item) for _item in obj["violation_metrics_details"]] if obj.get("violation_metrics_details") is not None else None
         })
         return _obj
 

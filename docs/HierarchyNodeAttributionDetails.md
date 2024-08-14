@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **nodes** | **List[str]** | List of nodes with which the node is shared | 
-**strategy** | [**HierarchySharedNodeStrategy**](HierarchySharedNodeStrategy.md) | Strategy for attribution | 
+**strategy** | **str** | Strategy for attribution | 
 
 ## Example
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **metric_name** | **str** |  | 
 **measures** | [**List[MetricsAggregationType]**](MetricsAggregationType.md) |  | 
 **filters** | [**List[FilterCriteriaOutput]**](FilterCriteriaOutput.md) |  | 
-**time_filter** | [**OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput**](OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput.md) |  | 
+**time_filter** | [**OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension**](OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.md) |  | 
 **timezone** | **str** |  | [optional] [default to 'Asia/Kolkata']
 
 ## Example

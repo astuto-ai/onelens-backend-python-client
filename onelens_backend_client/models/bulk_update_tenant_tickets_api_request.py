@@ -20,7 +20,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.policy_ticket_status import PolicyTicketStatus
-from onelens_backend_client.models.ticket_unassignment import TicketUnassignment
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +29,7 @@ class BulkUpdateTenantTicketsAPIRequest(BaseModel):
     """ # noqa: E501
     ticket_ids: Optional[List[StrictStr]] = Field(default=None, description="List of ticket ids")
     status: Optional[PolicyTicketStatus] = None
-    assignment: Optional[TicketUnassignment] = None
+    assignment: Optional[StrictStr] = None
     assigned_to: Optional[StrictStr] = None
     comment: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["ticket_ids", "status", "assignment", "assigned_to", "comment"]
@@ -78,11 +77,6 @@ class BulkUpdateTenantTicketsAPIRequest(BaseModel):
         # and model_fields_set contains the field
         if self.status is None and "status" in self.model_fields_set:
             _dict['status'] = None
-
-        # set to None if assignment (nullable) is None
-        # and model_fields_set contains the field
-        if self.assignment is None and "assignment" in self.model_fields_set:
-            _dict['assignment'] = None
 
         # set to None if assigned_to (nullable) is None
         # and model_fields_set contains the field

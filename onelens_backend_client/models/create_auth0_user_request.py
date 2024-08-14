@@ -20,7 +20,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.auth0_create_user_app_metadata import Auth0CreateUserAppMetadata
-from onelens_backend_client.models.auth0_user_connection import Auth0UserConnection
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +31,7 @@ class CreateAuth0UserRequest(BaseModel):
     password: StrictStr = Field(description="The password of the user in Auth0.")
     email_verified: Optional[StrictBool] = None
     app_metadata: Auth0CreateUserAppMetadata = Field(description="The app_metadata of the user in Auth0.")
-    connection: Optional[Auth0UserConnection] = Field(default=None, description="The connection of the user in Auth0.")
+    connection: Optional[StrictStr] = Field(default=None, description="The connection of the user in Auth0.")
     given_name: Optional[StrictStr] = None
     family_name: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["email", "password", "email_verified", "app_metadata", "connection", "given_name", "family_name"]
