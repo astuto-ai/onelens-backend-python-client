@@ -12,25 +12,24 @@ Do not edit the class manually.
 """  # noqa: E501
 
 import datetime
-import uuid
-from dateutil.parser import parse
-from enum import Enum
 import json
 import mimetypes
 import os
 import re
 import tempfile
-
+import uuid
+from enum import Enum
+from typing import Dict, List, Optional, Tuple, Union
 from urllib.parse import quote
-from typing import Tuple, Optional, List, Dict, Union
 
 import pydantic
+from dateutil.parser import parse
 
+from . import models, rest
+from .api_response import ApiResponse
+from .api_response import T as ApiResponseT
 from .configuration import Configuration
-from .api_response import ApiResponse, T as ApiResponseT
-from . import models
-from . import rest
-from .exceptions import ApiValueError, ApiException
+from .exceptions import ApiException, ApiValueError
 
 RequestSerialized = Tuple[str, str, Dict[str, str], Optional[str], List[str]]
 
@@ -357,7 +356,7 @@ class ApiClient:
             # and attributes which value is not None.
             # Convert attribute name to json key in
             # model definition for request.
-            obj_dict = obj.model_dump()
+            obj_dict = obj.model_dump(exclude_unset=True)
 
         return {
             key: self.sanitize_for_serialization(val) for key, val in obj_dict.items()
