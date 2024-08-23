@@ -16,8 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
 from typing import Any
+from onelens_backend_client.models.tenant_verify_cur_bucket_request import TenantVerifyCurBucketRequest
 from onelens_backend_client.models.tenant_verify_request_with_user import TenantVerifyRequestWithUser
 from onelens_backend_client.models.tenant_verify_response import TenantVerifyResponse
 
@@ -312,7 +312,7 @@ class TenantVerifyServiceApi:
     @validate_call
     def verify_tenant_cur_bucket(
         self,
-        request: StrictStr,
+        tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -329,8 +329,8 @@ class TenantVerifyServiceApi:
         """Verify Tenant Cur Bucket
 
 
-        :param request: (required)
-        :type request: str
+        :param tenant_verify_cur_bucket_request: (required)
+        :type tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -354,7 +354,7 @@ class TenantVerifyServiceApi:
         """ # noqa: E501
 
         _param = self._verify_tenant_cur_bucket_serialize(
-            request=request,
+            tenant_verify_cur_bucket_request=tenant_verify_cur_bucket_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -379,7 +379,7 @@ class TenantVerifyServiceApi:
     @validate_call
     def verify_tenant_cur_bucket_with_http_info(
         self,
-        request: StrictStr,
+        tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -396,8 +396,8 @@ class TenantVerifyServiceApi:
         """Verify Tenant Cur Bucket
 
 
-        :param request: (required)
-        :type request: str
+        :param tenant_verify_cur_bucket_request: (required)
+        :type tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -421,7 +421,7 @@ class TenantVerifyServiceApi:
         """ # noqa: E501
 
         _param = self._verify_tenant_cur_bucket_serialize(
-            request=request,
+            tenant_verify_cur_bucket_request=tenant_verify_cur_bucket_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -446,7 +446,7 @@ class TenantVerifyServiceApi:
     @validate_call
     def verify_tenant_cur_bucket_without_preload_content(
         self,
-        request: StrictStr,
+        tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -463,8 +463,8 @@ class TenantVerifyServiceApi:
         """Verify Tenant Cur Bucket
 
 
-        :param request: (required)
-        :type request: str
+        :param tenant_verify_cur_bucket_request: (required)
+        :type tenant_verify_cur_bucket_request: TenantVerifyCurBucketRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -488,7 +488,7 @@ class TenantVerifyServiceApi:
         """ # noqa: E501
 
         _param = self._verify_tenant_cur_bucket_serialize(
-            request=request,
+            tenant_verify_cur_bucket_request=tenant_verify_cur_bucket_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -508,7 +508,7 @@ class TenantVerifyServiceApi:
 
     def _verify_tenant_cur_bucket_serialize(
         self,
-        request,
+        tenant_verify_cur_bucket_request,
         _request_auth,
         _content_type,
         _headers,
@@ -529,13 +529,11 @@ class TenantVerifyServiceApi:
 
         # process the path parameters
         # process the query parameters
-        if request is not None:
-            
-            _query_params.append(('request', request))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if tenant_verify_cur_bucket_request is not None:
+            _body_params = tenant_verify_cur_bucket_request
 
 
         # set the HTTP header `Accept`
@@ -545,6 +543,19 @@ class TenantVerifyServiceApi:
             ]
         )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from onelens_backend_client.models.tenant_policy import TenantPolicy
 from onelens_backend_client.models.tenant_ticket import TenantTicket
+from onelens_backend_client.models.violation_metrics_details import ViolationMetricsDetails
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +34,9 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
     recommendation_units: List[StrictStr] = Field(description="List of recommendation units")
     hierarchy_details: Dict[str, Any] = Field(description="The resource hierarchy details")
     resource_details: Dict[str, Any] = Field(description="The resource details")
-    __properties: ClassVar[List[str]] = ["tenant_ticket", "policy_details", "recommendation_units", "hierarchy_details", "resource_details"]
+    violation_metrics_details: List[ViolationMetricsDetails] = Field(description="The violation metrics details")
+    account_details: Dict[str, Any] = Field(description="The account details")
+    __properties: ClassVar[List[str]] = ["tenant_ticket", "policy_details", "recommendation_units", "hierarchy_details", "resource_details", "violation_metrics_details", "account_details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +83,13 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of policy_details
         if self.policy_details:
             _dict['policy_details'] = self.policy_details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in violation_metrics_details (list)
+        _items = []
+        if self.violation_metrics_details:
+            for _item in self.violation_metrics_details:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['violation_metrics_details'] = _items
         return _dict
 
     @classmethod
@@ -96,7 +106,9 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
             "policy_details": TenantPolicy.from_dict(obj["policy_details"]) if obj.get("policy_details") is not None else None,
             "recommendation_units": obj.get("recommendation_units"),
             "hierarchy_details": obj.get("hierarchy_details"),
-            "resource_details": obj.get("resource_details")
+            "resource_details": obj.get("resource_details"),
+            "violation_metrics_details": [ViolationMetricsDetails.from_dict(_item) for _item in obj["violation_metrics_details"]] if obj.get("violation_metrics_details") is not None else None,
+            "account_details": obj.get("account_details")
         })
         return _obj
 

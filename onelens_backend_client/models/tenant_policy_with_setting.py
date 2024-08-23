@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.tenant_policy import TenantPolicy
+from onelens_backend_client.models.tenant_policy_for_policy_with_setting import TenantPolicyForPolicyWithSetting
 from onelens_backend_client.models.tenant_policy_settings import TenantPolicySettings
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class TenantPolicyWithSetting(BaseModel):
     """
     TenantPolicyWithSetting
     """ # noqa: E501
-    policy: TenantPolicy = Field(description="The policy details.")
+    policy: TenantPolicyForPolicyWithSetting = Field(description="The policy details.")
     setting: TenantPolicySettings = Field(description="The policy setting details.")
     __properties: ClassVar[List[str]] = ["policy", "setting"]
 
@@ -89,7 +89,7 @@ class TenantPolicyWithSetting(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "policy": TenantPolicy.from_dict(obj["policy"]) if obj.get("policy") is not None else None,
+            "policy": TenantPolicyForPolicyWithSetting.from_dict(obj["policy"]) if obj.get("policy") is not None else None,
             "setting": TenantPolicySettings.from_dict(obj["setting"]) if obj.get("setting") is not None else None
         })
         return _obj

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dimension** | **str** |  | [optional] 
 **date_range** | **List[str]** |  | [optional] 
-**compare_date_range** | [**List[TimeDimensionOutputCompareDateRangeInner]**](TimeDimensionOutputCompareDateRangeInner.md) |  | [optional] 
+**compare_date_range** | [**List[OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner]**](OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner.md) |  | [optional] 
 **granularity** | **str** |  | [optional] 
 
 ## Example

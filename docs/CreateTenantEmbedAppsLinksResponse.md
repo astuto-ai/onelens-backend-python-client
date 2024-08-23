@@ -5,11 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ol_user_id** | **str** | Unique onelens identifier for the user | 
-**tenant_id** | **str** | The unique identifier of the tenant | 
+**created_by** | **str** | The unique identifier of the user who created the link | 
+**created_at** | **datetime** | The date and time when the link was created | 
+**updated_at** | **datetime** | The date and time when the link was updated | 
+**updated_by** | **str** |  | [optional] 
 **tab_name** | **str** | Name of the tab | 
 **link** | **str** | Link of the tab | 
 **system_created** | **bool** |  | [optional] 
+**state** | [**TenantEmbedAppsLinkState**](TenantEmbedAppsLinkState.md) | State of the link | 
 
 ## Example
 

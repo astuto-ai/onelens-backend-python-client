@@ -29,7 +29,8 @@ class TenantVerifyCurBucketRequest(BaseModel):
     """ # noqa: E501
     cur_bucket_config: CurBucketConfig = Field(description="cur bucket config")
     cloud_id: StrictStr = Field(description="cloud id")
-    __properties: ClassVar[List[str]] = ["cur_bucket_config", "cloud_id"]
+    tenant_id: StrictStr = Field(description="Tenant ID")
+    __properties: ClassVar[List[str]] = ["cur_bucket_config", "cloud_id", "tenant_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +87,8 @@ class TenantVerifyCurBucketRequest(BaseModel):
 
         _obj = cls.model_validate({
             "cur_bucket_config": CurBucketConfig.from_dict(obj["cur_bucket_config"]) if obj.get("cur_bucket_config") is not None else None,
-            "cloud_id": obj.get("cloud_id")
+            "cloud_id": obj.get("cloud_id"),
+            "tenant_id": obj.get("tenant_id")
         })
         return _obj
 

@@ -45,7 +45,9 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
     policy_labels: Optional[List[StrictStr]] = Field(default=None, description="List of policy labels")
     policy_violated_on: datetime = Field(description="Datetime of the policy violation")
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings possible for the current policy violation")
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "policy_id", "policy_title", "policy_labels", "policy_violated_on", "potential_savings"]
+    resource_id: Optional[StrictStr] = None
+    account_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "policy_id", "policy_title", "policy_labels", "policy_violated_on", "potential_savings", "resource_id", "account_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +93,16 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
         if self.recommendation_unit_title is None and "recommendation_unit_title" in self.model_fields_set:
             _dict['recommendation_unit_title'] = None
 
+        # set to None if resource_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.resource_id is None and "resource_id" in self.model_fields_set:
+            _dict['resource_id'] = None
+
+        # set to None if account_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.account_name is None and "account_name" in self.model_fields_set:
+            _dict['account_name'] = None
+
         return _dict
 
     @classmethod
@@ -118,7 +130,9 @@ class GetSinglePolicyTicketByEntityIdResponse(BaseModel):
             "policy_title": obj.get("policy_title"),
             "policy_labels": obj.get("policy_labels"),
             "policy_violated_on": obj.get("policy_violated_on"),
-            "potential_savings": obj.get("potential_savings")
+            "potential_savings": obj.get("potential_savings"),
+            "resource_id": obj.get("resource_id"),
+            "account_name": obj.get("account_name")
         })
         return _obj
 

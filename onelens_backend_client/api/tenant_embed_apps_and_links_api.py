@@ -18,10 +18,11 @@ from typing_extensions import Annotated
 
 from pydantic import StrictStr
 from onelens_backend_client.models.create_tenant_embed_apps_links_request import CreateTenantEmbedAppsLinksRequest
-from onelens_backend_client.models.get_all_tenant_embed_apps_links_request import GetAllTenantEmbedAppsLinksRequest
+from onelens_backend_client.models.get_all_tenant_embed_apps_links_api_request import GetAllTenantEmbedAppsLinksApiRequest
 from onelens_backend_client.models.response_create_tenant_embed_apps_links_response import ResponseCreateTenantEmbedAppsLinksResponse
 from onelens_backend_client.models.response_delete_tenant_embed_apps_links_response import ResponseDeleteTenantEmbedAppsLinksResponse
-from onelens_backend_client.models.response_get_tenant_embed_apps_links_response import ResponseGetTenantEmbedAppsLinksResponse
+from onelens_backend_client.models.response_get_all_tenant_embed_apps_links_response import ResponseGetAllTenantEmbedAppsLinksResponse
+from onelens_backend_client.models.response_get_tenant_embed_apps_link_response import ResponseGetTenantEmbedAppsLinkResponse
 from onelens_backend_client.models.response_update_tenant_embed_apps_links_response import ResponseUpdateTenantEmbedAppsLinksResponse
 from onelens_backend_client.models.update_tenant_embed_apps_links_request import UpdateTenantEmbedAppsLinksRequest
 
@@ -573,7 +574,7 @@ class TenantEmbedAppsAndLinksApi:
     @validate_call
     def get_all_tenant_embed_apps_links(
         self,
-        get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest,
+        get_all_tenant_embed_apps_links_api_request: GetAllTenantEmbedAppsLinksApiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -586,12 +587,12 @@ class TenantEmbedAppsAndLinksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseGetTenantEmbedAppsLinksResponse:
+    ) -> ResponseGetAllTenantEmbedAppsLinksResponse:
         """Get All Tenant Embed Apps Links
 
 
-        :param get_all_tenant_embed_apps_links_request: (required)
-        :type get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest
+        :param get_all_tenant_embed_apps_links_api_request: (required)
+        :type get_all_tenant_embed_apps_links_api_request: GetAllTenantEmbedAppsLinksApiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -615,7 +616,7 @@ class TenantEmbedAppsAndLinksApi:
         """ # noqa: E501
 
         _param = self._get_all_tenant_embed_apps_links_serialize(
-            get_all_tenant_embed_apps_links_request=get_all_tenant_embed_apps_links_request,
+            get_all_tenant_embed_apps_links_api_request=get_all_tenant_embed_apps_links_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -623,7 +624,7 @@ class TenantEmbedAppsAndLinksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '200': "ResponseGetAllTenantEmbedAppsLinksResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -640,7 +641,7 @@ class TenantEmbedAppsAndLinksApi:
     @validate_call
     def get_all_tenant_embed_apps_links_with_http_info(
         self,
-        get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest,
+        get_all_tenant_embed_apps_links_api_request: GetAllTenantEmbedAppsLinksApiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -653,12 +654,12 @@ class TenantEmbedAppsAndLinksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseGetTenantEmbedAppsLinksResponse]:
+    ) -> ApiResponse[ResponseGetAllTenantEmbedAppsLinksResponse]:
         """Get All Tenant Embed Apps Links
 
 
-        :param get_all_tenant_embed_apps_links_request: (required)
-        :type get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest
+        :param get_all_tenant_embed_apps_links_api_request: (required)
+        :type get_all_tenant_embed_apps_links_api_request: GetAllTenantEmbedAppsLinksApiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -682,7 +683,7 @@ class TenantEmbedAppsAndLinksApi:
         """ # noqa: E501
 
         _param = self._get_all_tenant_embed_apps_links_serialize(
-            get_all_tenant_embed_apps_links_request=get_all_tenant_embed_apps_links_request,
+            get_all_tenant_embed_apps_links_api_request=get_all_tenant_embed_apps_links_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -690,7 +691,7 @@ class TenantEmbedAppsAndLinksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '200': "ResponseGetAllTenantEmbedAppsLinksResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -707,7 +708,7 @@ class TenantEmbedAppsAndLinksApi:
     @validate_call
     def get_all_tenant_embed_apps_links_without_preload_content(
         self,
-        get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest,
+        get_all_tenant_embed_apps_links_api_request: GetAllTenantEmbedAppsLinksApiRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -724,8 +725,8 @@ class TenantEmbedAppsAndLinksApi:
         """Get All Tenant Embed Apps Links
 
 
-        :param get_all_tenant_embed_apps_links_request: (required)
-        :type get_all_tenant_embed_apps_links_request: GetAllTenantEmbedAppsLinksRequest
+        :param get_all_tenant_embed_apps_links_api_request: (required)
+        :type get_all_tenant_embed_apps_links_api_request: GetAllTenantEmbedAppsLinksApiRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -749,7 +750,7 @@ class TenantEmbedAppsAndLinksApi:
         """ # noqa: E501
 
         _param = self._get_all_tenant_embed_apps_links_serialize(
-            get_all_tenant_embed_apps_links_request=get_all_tenant_embed_apps_links_request,
+            get_all_tenant_embed_apps_links_api_request=get_all_tenant_embed_apps_links_api_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -757,7 +758,7 @@ class TenantEmbedAppsAndLinksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '200': "ResponseGetAllTenantEmbedAppsLinksResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -769,7 +770,7 @@ class TenantEmbedAppsAndLinksApi:
 
     def _get_all_tenant_embed_apps_links_serialize(
         self,
-        get_all_tenant_embed_apps_links_request,
+        get_all_tenant_embed_apps_links_api_request,
         _request_auth,
         _content_type,
         _headers,
@@ -793,8 +794,8 @@ class TenantEmbedAppsAndLinksApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if get_all_tenant_embed_apps_links_request is not None:
-            _body_params = get_all_tenant_embed_apps_links_request
+        if get_all_tenant_embed_apps_links_api_request is not None:
+            _body_params = get_all_tenant_embed_apps_links_api_request
 
 
         # set the HTTP header `Accept`
@@ -856,7 +857,7 @@ class TenantEmbedAppsAndLinksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseGetTenantEmbedAppsLinksResponse:
+    ) -> ResponseGetTenantEmbedAppsLinkResponse:
         """Get Tenant Embed Apps Link By Id
 
 
@@ -893,7 +894,7 @@ class TenantEmbedAppsAndLinksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '200': "ResponseGetTenantEmbedAppsLinkResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -923,7 +924,7 @@ class TenantEmbedAppsAndLinksApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseGetTenantEmbedAppsLinksResponse]:
+    ) -> ApiResponse[ResponseGetTenantEmbedAppsLinkResponse]:
         """Get Tenant Embed Apps Link By Id
 
 
@@ -960,7 +961,7 @@ class TenantEmbedAppsAndLinksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '200': "ResponseGetTenantEmbedAppsLinkResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1027,7 +1028,7 @@ class TenantEmbedAppsAndLinksApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetTenantEmbedAppsLinksResponse",
+            '200': "ResponseGetTenantEmbedAppsLinkResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

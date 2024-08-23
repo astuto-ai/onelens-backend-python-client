@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cur_bucket_config** | [**CurBucketConfig**](CurBucketConfig.md) | cur bucket config | 
 **cloud_id** | **str** | cloud id | 
+**tenant_id** | **str** | Tenant ID | 
 
 ## Example
 

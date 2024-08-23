@@ -31,12 +31,13 @@ class MetricsChartConfigInput(BaseModel):
     """ # noqa: E501
     chart_title: StrictStr = Field(description="The title of the chart.")
     chart_type: StrictStr = Field(description="The type of the chart.")
+    chart_data_tooltip: Optional[StrictStr] = None
     table_name: StrictStr = Field(description="The name of the table.")
     metric_name: StrictStr = Field(description="The name of the metric.")
     aggregation_type: MetricsAggregationType = Field(description="The aggregation type of the metric.")
     look_back_period: MetricsLookBackPeriod = Field(description="The look back period of the metric.")
     threshold: Optional[MetricsThreshold] = None
-    __properties: ClassVar[List[str]] = ["chart_title", "chart_type", "table_name", "metric_name", "aggregation_type", "look_back_period", "threshold"]
+    __properties: ClassVar[List[str]] = ["chart_title", "chart_type", "chart_data_tooltip", "table_name", "metric_name", "aggregation_type", "look_back_period", "threshold"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +84,11 @@ class MetricsChartConfigInput(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of threshold
         if self.threshold:
             _dict['threshold'] = self.threshold.to_dict()
+        # set to None if chart_data_tooltip (nullable) is None
+        # and model_fields_set contains the field
+        if self.chart_data_tooltip is None and "chart_data_tooltip" in self.model_fields_set:
+            _dict['chart_data_tooltip'] = None
+
         # set to None if threshold (nullable) is None
         # and model_fields_set contains the field
         if self.threshold is None and "threshold" in self.model_fields_set:
@@ -102,6 +108,7 @@ class MetricsChartConfigInput(BaseModel):
         _obj = cls.model_validate({
             "chart_title": obj.get("chart_title"),
             "chart_type": obj.get("chart_type"),
+            "chart_data_tooltip": obj.get("chart_data_tooltip"),
             "table_name": obj.get("table_name"),
             "metric_name": obj.get("metric_name"),
             "aggregation_type": obj.get("aggregation_type"),

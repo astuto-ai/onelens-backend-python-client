@@ -92,6 +92,8 @@ Class | Method | Description
 *RecommendationEngineApi* | [**get_recommendation_units**](docs/RecommendationEngineApi.md#get_recommendation_units) | Get Recommendation Units
 *RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
 *Auth0Api* | [**create_user**](docs/Auth0Api.md#create_user) | Create User
+*CloudAccountMetadataApi* | [**get_cloud_account_metadata**](docs/CloudAccountMetadataApi.md#get_cloud_account_metadata) | Get Cloud Account Metadata
+*CloudAccountMetadataServiceApi* | [**get_cloud_account_metadata**](docs/CloudAccountMetadataServiceApi.md#get_cloud_account_metadata) | get cloud account metadata for tenant
 *CloudMetadataApi* | [**create_root_node**](docs/CloudMetadataApi.md#create_root_node) | Create Root Node
 *CloudMetadataServiceApi* | [**get_cloud_metadata**](docs/CloudMetadataServiceApi.md#get_cloud_metadata) | get cloud metadata for tenant
 *DefaultApi* | [**root**](docs/DefaultApi.md#root) | Root
@@ -105,6 +107,7 @@ Class | Method | Description
 *HierarchyNodeServiceApi* | [**publish_custom_hierarchy**](docs/HierarchyNodeServiceApi.md#publish_custom_hierarchy) | publish custom hierarchy
 *HierarchyNodeServiceApi* | [**update_node**](docs/HierarchyNodeServiceApi.md#update_node) | update a node in org hierarchy
 *MetricsServiceApi* | [**get_metrics**](docs/MetricsServiceApi.md#get_metrics) | get metrics
+*MetricsServiceApi* | [**get_multiple_metrics**](docs/MetricsServiceApi.md#get_multiple_metrics) | get mutiple metrics
 *OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | Create Organization
 *OrganizationsApi* | [**disable_organization**](docs/OrganizationsApi.md#disable_organization) | Disable Organization
 *OrganizationsApi* | [**enable_organization**](docs/OrganizationsApi.md#enable_organization) | Enable Organization
@@ -137,20 +140,28 @@ Class | Method | Description
 *RecommendationEngineServiceApi* | [**create_action_type**](docs/RecommendationEngineServiceApi.md#create_action_type) | Create Action Type
 *RecommendationEngineServiceApi* | [**get_action_types**](docs/RecommendationEngineServiceApi.md#get_action_types) | Get Action Types
 *RecommendationEngineServiceApi* | [**get_recommendations**](docs/RecommendationEngineServiceApi.md#get_recommendations) | Get recommendations.
+*RecommendationEngineServiceApi* | [**query_executor**](docs/RecommendationEngineServiceApi.md#query_executor) | Query Executor
 *RecommendationEngineServiceApi* | [**update_action_type**](docs/RecommendationEngineServiceApi.md#update_action_type) | Update Action Type
 *RecommendationServiceApi* | [**bulk_create**](docs/RecommendationServiceApi.md#bulk_create) | Creates bulk recommendations.
 *RecommendationServiceApi* | [**get_recommendation_by_ticket_id**](docs/RecommendationServiceApi.md#get_recommendation_by_ticket_id) | Get recommendations by ticket id.
+*RecommendationUnitMigrationServiceApi* | [**create_recommendation_unit_pull_request**](docs/RecommendationUnitMigrationServiceApi.md#create_recommendation_unit_pull_request) | Create a pull request for the recommendation_unit template
+*RecommendationUnitMigrationServiceApi* | [**sync_recommendation_unit_from_repo**](docs/RecommendationUnitMigrationServiceApi.md#sync_recommendation_unit_from_repo) | Sync recommendation_unit from repo
 *RecommendationUnitServiceApi* | [**create_recommendation_unit**](docs/RecommendationUnitServiceApi.md#create_recommendation_unit) | Create recommendation unit
 *RecommendationUnitServiceApi* | [**get_recommendation_unit_by_id**](docs/RecommendationUnitServiceApi.md#get_recommendation_unit_by_id) | Retrieves Recommendation unit ID.
 *RecommendationUnitServiceApi* | [**get_recommendation_units**](docs/RecommendationUnitServiceApi.md#get_recommendation_units) | Retrieves all recommendation units with filters
 *RecommendationUnitServiceApi* | [**update_recommendation_unit**](docs/RecommendationUnitServiceApi.md#update_recommendation_unit) | Update recommendation unit
+*ResourceCatalogApi* | [**get_all_resource_catalogs**](docs/ResourceCatalogApi.md#get_all_resource_catalogs) | Get All Resource Catalogs
 *ResourceCatalogApi* | [**get_resource_catalog**](docs/ResourceCatalogApi.md#get_resource_catalog) | Get Resource Catalog
+*ResourceCatalogApi* | [**get_resource_catalog_stats**](docs/ResourceCatalogApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
 *ResourceCatalogApi* | [**get_resource_catalog_with_relationships**](docs/ResourceCatalogApi.md#get_resource_catalog_with_relationships) | Get Resource Catalog With Relationships
+*ResourceCatalogServiceApi* | [**get_all**](docs/ResourceCatalogServiceApi.md#get_all) | Get all resource catalogs
 *ResourceCatalogServiceApi* | [**get_by_id**](docs/ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 *ResourceCatalogServiceApi* | [**get_by_id_with_relations**](docs/ResourceCatalogServiceApi.md#get_by_id_with_relations) | Get resource catalog by id with relations
+*ResourceCatalogServiceApi* | [**get_resource_catalog_stats**](docs/ResourceCatalogServiceApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
 *ResourceMappingServiceApi* | [**get_mapping_by_ol_id**](docs/ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
 *ServiceCatalogApi* | [**get_metrics**](docs/ServiceCatalogApi.md#get_metrics) | Get Metrics
+*ServiceCatalogApi* | [**get_multiple_metrices**](docs/ServiceCatalogApi.md#get_multiple_metrices) | Get Multiple Metrices
 *ServiceCatalogApi* | [**get_service_catalog**](docs/ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
 *ServiceCatalogServiceApi* | [**get**](docs/ServiceCatalogServiceApi.md#get) | service catalog service handler
 *ServiceCatalogServiceApi* | [**get_by_id**](docs/ServiceCatalogServiceApi.md#get_by_id) | service catalog get by id service handler
@@ -290,6 +301,7 @@ Class | Method | Description
  - [AnomalyTicketStatus](docs/AnomalyTicketStatus.md)
  - [Auth0CreateUserAppMetadata](docs/Auth0CreateUserAppMetadata.md)
  - [Auth0UserAllFields](docs/Auth0UserAllFields.md)
+ - [Auth0UserConnection](docs/Auth0UserConnection.md)
  - [AwsService](docs/AwsService.md)
  - [BeginRange](docs/BeginRange.md)
  - [BulkUpdateTenantTicketsAPIRequest](docs/BulkUpdateTenantTicketsAPIRequest.md)
@@ -299,6 +311,8 @@ Class | Method | Description
  - [BulkUpdateTenantTicketsRequestMixin](docs/BulkUpdateTenantTicketsRequestMixin.md)
  - [BulkUpdateTenantTicketsResponse](docs/BulkUpdateTenantTicketsResponse.md)
  - [City](docs/City.md)
+ - [CloudAccountMetadata](docs/CloudAccountMetadata.md)
+ - [CloudAccountMetadataFilters](docs/CloudAccountMetadataFilters.md)
  - [Country](docs/Country.md)
  - [CreateActionTypeRequest](docs/CreateActionTypeRequest.md)
  - [CreateActionTypeResponse](docs/CreateActionTypeResponse.md)
@@ -319,6 +333,8 @@ Class | Method | Description
  - [CreatePolicyTemplatePullResponse](docs/CreatePolicyTemplatePullResponse.md)
  - [CreatePolicyTemplateRequest](docs/CreatePolicyTemplateRequest.md)
  - [CreatePolicyTemplateResponse](docs/CreatePolicyTemplateResponse.md)
+ - [CreateRecommenadtionUnitPullResponse](docs/CreateRecommenadtionUnitPullResponse.md)
+ - [CreateRecommendationUnitPullRequest](docs/CreateRecommendationUnitPullRequest.md)
  - [CreateRecommendationUnitRequest](docs/CreateRecommendationUnitRequest.md)
  - [CreateRecommendationUnitResponse](docs/CreateRecommendationUnitResponse.md)
  - [CreateTenantEmbedAppsLinksRequest](docs/CreateTenantEmbedAppsLinksRequest.md)
@@ -341,8 +357,7 @@ Class | Method | Description
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
  - [CurrentCost](docs/CurrentCost.md)
- - [DataRetrieverQueryInput](docs/DataRetrieverQueryInput.md)
- - [DataRetrieverQueryOutput](docs/DataRetrieverQueryOutput.md)
+ - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
  - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
  - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
@@ -371,6 +386,7 @@ Class | Method | Description
  - [EnableTenantUserResponse](docs/EnableTenantUserResponse.md)
  - [EndRange](docs/EndRange.md)
  - [Features](docs/Features.md)
+ - [FilterCriteriaOutput](docs/FilterCriteriaOutput.md)
  - [FirstName](docs/FirstName.md)
  - [GcpService](docs/GcpService.md)
  - [GetActionTypeRequest](docs/GetActionTypeRequest.md)
@@ -378,10 +394,17 @@ Class | Method | Description
  - [GetAllPolicyViolationsAPIRequest](docs/GetAllPolicyViolationsAPIRequest.md)
  - [GetAllPolicyViolationsRequest](docs/GetAllPolicyViolationsRequest.md)
  - [GetAllPolicyViolationsResponse](docs/GetAllPolicyViolationsResponse.md)
+ - [GetAllResourceCatalogsApiRequest](docs/GetAllResourceCatalogsApiRequest.md)
+ - [GetAllResourceCatalogsRequest](docs/GetAllResourceCatalogsRequest.md)
+ - [GetAllResourceCatalogsResponse](docs/GetAllResourceCatalogsResponse.md)
+ - [GetAllTenantEmbedAppsLinksApiRequest](docs/GetAllTenantEmbedAppsLinksApiRequest.md)
  - [GetAllTenantEmbedAppsLinksRequest](docs/GetAllTenantEmbedAppsLinksRequest.md)
+ - [GetAllTenantEmbedAppsLinksResponse](docs/GetAllTenantEmbedAppsLinksResponse.md)
  - [GetAllTenantUsersItem](docs/GetAllTenantUsersItem.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
+ - [GetCloudAccountMetadataRequest](docs/GetCloudAccountMetadataRequest.md)
+ - [GetCloudAccountMetadataResponse](docs/GetCloudAccountMetadataResponse.md)
  - [GetCloudMetadataRequest](docs/GetCloudMetadataRequest.md)
  - [GetCloudMetadataResponse](docs/GetCloudMetadataResponse.md)
  - [GetHierarchyFilters](docs/GetHierarchyFilters.md)
@@ -393,6 +416,10 @@ Class | Method | Description
  - [GetMetricsAPIRequest](docs/GetMetricsAPIRequest.md)
  - [GetMetricsRequest](docs/GetMetricsRequest.md)
  - [GetMetricsResponse](docs/GetMetricsResponse.md)
+ - [GetMutipleMetricsAPIRequest](docs/GetMutipleMetricsAPIRequest.md)
+ - [GetMutipleMetricsRequest](docs/GetMutipleMetricsRequest.md)
+ - [GetMutipleMetricsResponse](docs/GetMutipleMetricsResponse.md)
+ - [GetMutipleMetricsResponseMixin](docs/GetMutipleMetricsResponseMixin.md)
  - [GetOrganizationByIDResponse](docs/GetOrganizationByIDResponse.md)
  - [GetOrganizationsRequest](docs/GetOrganizationsRequest.md)
  - [GetOrganizationsResponse](docs/GetOrganizationsResponse.md)
@@ -425,6 +452,9 @@ Class | Method | Description
  - [GetRecommendationUnitRequest](docs/GetRecommendationUnitRequest.md)
  - [GetRecommendationUnitsRequest](docs/GetRecommendationUnitsRequest.md)
  - [GetRecommendationUnitsResponse](docs/GetRecommendationUnitsResponse.md)
+ - [GetResourceCatalogStatsAPIRequest](docs/GetResourceCatalogStatsAPIRequest.md)
+ - [GetResourceCatalogStatsRequest](docs/GetResourceCatalogStatsRequest.md)
+ - [GetResourceCatalogStatsResponse](docs/GetResourceCatalogStatsResponse.md)
  - [GetResourceHierarchyMappingByOlIdRequest](docs/GetResourceHierarchyMappingByOlIdRequest.md)
  - [GetResourceHierarchyMappingByOlIdResponse](docs/GetResourceHierarchyMappingByOlIdResponse.md)
  - [GetResourceWithRelationResponse](docs/GetResourceWithRelationResponse.md)
@@ -436,8 +466,8 @@ Class | Method | Description
  - [GetTenantAnomalySettingsResponse](docs/GetTenantAnomalySettingsResponse.md)
  - [GetTenantByIDRequest](docs/GetTenantByIDRequest.md)
  - [GetTenantByIDResponse](docs/GetTenantByIDResponse.md)
+ - [GetTenantEmbedAppsLinkResponse](docs/GetTenantEmbedAppsLinkResponse.md)
  - [GetTenantEmbedAppsLinksRequest](docs/GetTenantEmbedAppsLinksRequest.md)
- - [GetTenantEmbedAppsLinksResponse](docs/GetTenantEmbedAppsLinksResponse.md)
  - [GetTenantPoliciesAPIRequest](docs/GetTenantPoliciesAPIRequest.md)
  - [GetTenantPoliciesRequest](docs/GetTenantPoliciesRequest.md)
  - [GetTenantPoliciesResponse](docs/GetTenantPoliciesResponse.md)
@@ -472,11 +502,15 @@ Class | Method | Description
  - [GetTicketByIdPolicyDetailsRequest](docs/GetTicketByIdPolicyDetailsRequest.md)
  - [GetTicketByIdPolicyDetailsResponse](docs/GetTicketByIdPolicyDetailsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
+ - [Granularity](docs/Granularity.md)
+ - [GranularityUnit](docs/GranularityUnit.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HierarchyNodeAttributionDetails](docs/HierarchyNodeAttributionDetails.md)
+ - [HierarchyNodeCategory](docs/HierarchyNodeCategory.md)
  - [HierarchyNodeEntityDTO](docs/HierarchyNodeEntityDTO.md)
  - [HierarchyNodeResourceFilters](docs/HierarchyNodeResourceFilters.md)
  - [HierarchyNodeState](docs/HierarchyNodeState.md)
+ - [HierarchySharedNodeStrategy](docs/HierarchySharedNodeStrategy.md)
  - [HierarchyState](docs/HierarchyState.md)
  - [HierarchyType](docs/HierarchyType.md)
  - [JobTitle](docs/JobTitle.md)
@@ -490,7 +524,8 @@ Class | Method | Description
  - [MetricsChartConfigInput](docs/MetricsChartConfigInput.md)
  - [MetricsChartConfigOutput](docs/MetricsChartConfigOutput.md)
  - [MetricsLookBackPeriod](docs/MetricsLookBackPeriod.md)
- - [MetricsQuery](docs/MetricsQuery.md)
+ - [MetricsQueryInput](docs/MetricsQueryInput.md)
+ - [MetricsQueryOutput](docs/MetricsQueryOutput.md)
  - [MetricsThreshold](docs/MetricsThreshold.md)
  - [MetricsValueUnit](docs/MetricsValueUnit.md)
  - [MiddleName](docs/MiddleName.md)
@@ -499,10 +534,13 @@ Class | Method | Description
  - [NewCost](docs/NewCost.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
- - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteria.md)
- - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimension.md)
- - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput.md)
  - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension.md)
+ - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner.md)
+ - [OperatorOutput](docs/OperatorOutput.md)
  - [OrItem](docs/OrItem.md)
  - [Organization](docs/Organization.md)
  - [OrganizationFilters](docs/OrganizationFilters.md)
@@ -545,6 +583,7 @@ Class | Method | Description
  - [ProviderConfigOutput](docs/ProviderConfigOutput.md)
  - [PublishCustomHierarchyRequest](docs/PublishCustomHierarchyRequest.md)
  - [QueryDetailsDerivedVariables](docs/QueryDetailsDerivedVariables.md)
+ - [QueryExecutorRequest](docs/QueryExecutorRequest.md)
  - [QueryFilters](docs/QueryFilters.md)
  - [QueryOrder](docs/QueryOrder.md)
  - [RecommendationEngine](docs/RecommendationEngine.md)
@@ -589,6 +628,8 @@ Class | Method | Description
  - [ResponseEnableTenantAnomalySettingsResponse](docs/ResponseEnableTenantAnomalySettingsResponse.md)
  - [ResponseEnableTenantPolicyResponse](docs/ResponseEnableTenantPolicyResponse.md)
  - [ResponseGetAllPolicyViolationsResponse](docs/ResponseGetAllPolicyViolationsResponse.md)
+ - [ResponseGetAllTenantEmbedAppsLinksResponse](docs/ResponseGetAllTenantEmbedAppsLinksResponse.md)
+ - [ResponseGetCloudAccountMetadataResponse](docs/ResponseGetCloudAccountMetadataResponse.md)
  - [ResponseGetCloudMetadataResponse](docs/ResponseGetCloudMetadataResponse.md)
  - [ResponseGetHierarchyResponse](docs/ResponseGetHierarchyResponse.md)
  - [ResponseGetMetricsResponse](docs/ResponseGetMetricsResponse.md)
@@ -601,10 +642,11 @@ Class | Method | Description
  - [ResponseGetPolicyTicketsByPolicyIdResponse](docs/ResponseGetPolicyTicketsByPolicyIdResponse.md)
  - [ResponseGetRecommendationUnitByIdResponse](docs/ResponseGetRecommendationUnitByIdResponse.md)
  - [ResponseGetRecommendationUnitsResponse](docs/ResponseGetRecommendationUnitsResponse.md)
+ - [ResponseGetResourceCatalogStatsResponse](docs/ResponseGetResourceCatalogStatsResponse.md)
  - [ResponseGetResourceWithRelationResponse](docs/ResponseGetResourceWithRelationResponse.md)
  - [ResponseGetTenantAnomalySettingsResponse](docs/ResponseGetTenantAnomalySettingsResponse.md)
  - [ResponseGetTenantByIDResponse](docs/ResponseGetTenantByIDResponse.md)
- - [ResponseGetTenantEmbedAppsLinksResponse](docs/ResponseGetTenantEmbedAppsLinksResponse.md)
+ - [ResponseGetTenantEmbedAppsLinkResponse](docs/ResponseGetTenantEmbedAppsLinkResponse.md)
  - [ResponseGetTenantPoliciesResponse](docs/ResponseGetTenantPoliciesResponse.md)
  - [ResponseGetTenantPoliciesWithSettingsResponse](docs/ResponseGetTenantPoliciesWithSettingsResponse.md)
  - [ResponseGetTenantPolicyByIdResponse](docs/ResponseGetTenantPolicyByIdResponse.md)
@@ -652,15 +694,21 @@ Class | Method | Description
  - [StorageLensConfig](docs/StorageLensConfig.md)
  - [SyncPoliciesFromRepoRequest](docs/SyncPoliciesFromRepoRequest.md)
  - [SyncPoliciesFromRepoResponse](docs/SyncPoliciesFromRepoResponse.md)
+ - [SyncRecommendationUnitFromRepoRequest](docs/SyncRecommendationUnitFromRepoRequest.md)
+ - [SyncRecommendationUnitFromRepoResponse](docs/SyncRecommendationUnitFromRepoResponse.md)
  - [Tenant](docs/Tenant.md)
  - [TenantAnomalySettingFilters](docs/TenantAnomalySettingFilters.md)
  - [TenantAnomalySettings](docs/TenantAnomalySettings.md)
  - [TenantAnomalyState](docs/TenantAnomalyState.md)
  - [TenantAnomalyTicketDetailsMixin](docs/TenantAnomalyTicketDetailsMixin.md)
+ - [TenantEmbedAppsLinkState](docs/TenantEmbedAppsLinkState.md)
+ - [TenantEmbedAppsLinksWithUser](docs/TenantEmbedAppsLinksWithUser.md)
  - [TenantFilters](docs/TenantFilters.md)
  - [TenantPolicy](docs/TenantPolicy.md)
  - [TenantPolicyExclusions](docs/TenantPolicyExclusions.md)
  - [TenantPolicyFilters](docs/TenantPolicyFilters.md)
+ - [TenantPolicyForPolicyWithSetting](docs/TenantPolicyForPolicyWithSetting.md)
+ - [TenantPolicyForPolicyWithSettingServicesInner](docs/TenantPolicyForPolicyWithSettingServicesInner.md)
  - [TenantPolicySettings](docs/TenantPolicySettings.md)
  - [TenantPolicySettingsFilters](docs/TenantPolicySettingsFilters.md)
  - [TenantPolicyState](docs/TenantPolicyState.md)
@@ -679,6 +727,7 @@ Class | Method | Description
  - [TenantTicketsStatsMetricsSubGroupBy](docs/TenantTicketsStatsMetricsSubGroupBy.md)
  - [TenantUserDetailsUpdateFieldsMixin](docs/TenantUserDetailsUpdateFieldsMixin.md)
  - [TenantUserUpdateFieldsMixin](docs/TenantUserUpdateFieldsMixin.md)
+ - [TenantVerifyCurBucketAPIRequest](docs/TenantVerifyCurBucketAPIRequest.md)
  - [TenantVerifyCurBucketRequest](docs/TenantVerifyCurBucketRequest.md)
  - [TenantVerifyCurBucketResponse](docs/TenantVerifyCurBucketResponse.md)
  - [TenantVerifyRequestWithUser](docs/TenantVerifyRequestWithUser.md)
@@ -686,8 +735,7 @@ Class | Method | Description
  - [TicketAssignment](docs/TicketAssignment.md)
  - [TicketCategory](docs/TicketCategory.md)
  - [TicketState](docs/TicketState.md)
- - [TimeDimensionOutput](docs/TimeDimensionOutput.md)
- - [TimeDimensionOutputCompareDateRangeInner](docs/TimeDimensionOutputCompareDateRangeInner.md)
+ - [TicketUnassignment](docs/TicketUnassignment.md)
  - [Timezone](docs/Timezone.md)
  - [UpdateActionTypeRequest](docs/UpdateActionTypeRequest.md)
  - [UpdateActionTypeResponse](docs/UpdateActionTypeResponse.md)
@@ -728,6 +776,7 @@ Class | Method | Description
  - [Value](docs/Value.md)
  - [Value1](docs/Value1.md)
  - [Values](docs/Values.md)
+ - [ViolationMetricsDetails](docs/ViolationMetricsDetails.md)
 
 
 <a id="documentation-for-authorization"></a>

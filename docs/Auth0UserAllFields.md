@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **last_ip** | **str** |  | [optional] 
 **last_login** | **datetime** |  | [optional] 
 **logins_count** | **int** |  | [optional] 
+**given_name** | **str** |  | [optional] 
+**family_name** | **str** |  | [optional] 
 
 ## Example
 

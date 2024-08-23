@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | [**MetricsQuery**](MetricsQuery.md) |  | 
+**query** | [**MetricsQueryInput**](MetricsQueryInput.md) |  | 
 **tenant_id** | **str** | The id of the tenant. | 
 
 ## Example

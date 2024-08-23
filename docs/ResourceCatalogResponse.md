@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **service** | **str** | Resource service class | 
 **service_display_name** | **str** | Service name in UI | 
 **resource_type** | **str** | Resource type | 
+**resource_id** | **str** |  | [optional] 
 **resource_url_template** | **str** | Resource url template | 
 **crn** | **str** | Cloud resource identifier | 
 **title** | **str** | Resource name | 

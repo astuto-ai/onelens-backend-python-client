@@ -8,7 +8,7 @@ Method | Description
 
 
 # **verify_tenant_cur_bucket**
-> ResponseTenantVerifyCurBucketResponse verify_tenant_cur_bucket(tenant_id, tenant_verify_cur_bucket_request)
+> ResponseTenantVerifyCurBucketResponse verify_tenant_cur_bucket(tenant_id, tenant_verify_cur_bucket_api_request)
 
 Verify Tenant Cur Bucket
 
@@ -20,7 +20,7 @@ An API endpoint that verifies the tenant cur bucket.
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.response_tenant_verify_cur_bucket_response import ResponseTenantVerifyCurBucketResponse
-from onelens_backend_client.models.tenant_verify_cur_bucket_request import TenantVerifyCurBucketRequest
+from onelens_backend_client.models.tenant_verify_cur_bucket_api_request import TenantVerifyCurBucketAPIRequest
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -36,11 +36,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.TenantsTenantProviderVerifyApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    tenant_verify_cur_bucket_request = onelens_backend_client.TenantVerifyCurBucketRequest() # TenantVerifyCurBucketRequest | 
+    tenant_verify_cur_bucket_api_request = onelens_backend_client.TenantVerifyCurBucketAPIRequest() # TenantVerifyCurBucketAPIRequest | 
 
     try:
         # Verify Tenant Cur Bucket
-        api_response = api_instance.verify_tenant_cur_bucket(tenant_id, tenant_verify_cur_bucket_request)
+        api_response = api_instance.verify_tenant_cur_bucket(tenant_id, tenant_verify_cur_bucket_api_request)
         print("The response of TenantsTenantProviderVerifyApi->verify_tenant_cur_bucket:\n")
         pprint(api_response)
     except Exception as e:
@@ -55,7 +55,7 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant_id** | **str**|  | 
- **tenant_verify_cur_bucket_request** | [**TenantVerifyCurBucketRequest**](TenantVerifyCurBucketRequest.md)|  | 
+ **tenant_verify_cur_bucket_api_request** | [**TenantVerifyCurBucketAPIRequest**](TenantVerifyCurBucketAPIRequest.md)|  | 
 
 ### Return type
 

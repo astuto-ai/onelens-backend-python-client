@@ -38,6 +38,8 @@ class OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator(str, Enum):
     NOT_EQUALS = 'not_equals'
     NOT_IN = 'not_in'
     STARTS_WITH = 'starts_with'
+    IS = 'is'
+    IS_NOT = 'is_not'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

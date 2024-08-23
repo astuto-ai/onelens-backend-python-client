@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.data_retriever_query_input import DataRetrieverQueryInput
+from onelens_backend_client.models.data_retriever_query import DataRetrieverQuery
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class DataRetrieverRequest(BaseModel):
     """
     DataRetrieverRequest
     """ # noqa: E501
-    query: DataRetrieverQueryInput = Field(description="Query to be executed")
+    query: DataRetrieverQuery = Field(description="Query to be executed")
     __properties: ClassVar[List[str]] = ["query"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class DataRetrieverRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "query": DataRetrieverQueryInput.from_dict(obj["query"]) if obj.get("query") is not None else None
+            "query": DataRetrieverQuery.from_dict(obj["query"]) if obj.get("query") is not None else None
         })
         return _obj
 
