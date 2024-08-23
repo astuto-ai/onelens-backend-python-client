@@ -1576,7 +1576,7 @@ class RecommendationUnitFilters(BaseModel):
     services: Optional[List[str]] = Field(
         [], description="Filter by Services", title="Services"
     )
-    action_type_alias: Optional[List[int]] = Field(
+    action_type_alias: Optional[List[str]] = Field(
         [], description="Filter by action type.", title="Action Type Alias"
     )
     priorities: Optional[List[int]] = Field(
