@@ -9,9 +9,11 @@ Method | Description
 [**create_root_node**](TenantHierarchyApi.md#create_root_node) | Create Root Node
 [**delete_hierarchy_node**](TenantHierarchyApi.md#delete_hierarchy_node) | Delete Hierarchy Node
 [**get_hierarchy**](TenantHierarchyApi.md#get_hierarchy) | Get Hierarchy
+[**get_hierarchy_flat**](TenantHierarchyApi.md#get_hierarchy_flat) | Get Hierarchy Flat
 [**get_hierarchy_leaf_nodes**](TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
 [**publish_custom_hierarchy**](TenantHierarchyApi.md#publish_custom_hierarchy) | Publish Custom Hierarchy
 [**update_hierarchy_node**](TenantHierarchyApi.md#update_hierarchy_node) | Update Hierarchy Node
+[**validate_node_filters**](TenantHierarchyApi.md#validate_node_filters) | Validate Node Filters
 
 
 # **create_default_hierarchy**
@@ -360,6 +362,76 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_hierarchy_flat**
+> ResponseGetHierarchyFlatResponse get_hierarchy_flat(get_hierarchy_flat_api_request)
+
+Get Hierarchy Flat
+
+An API endpoint to fetch org hierarchy with filters
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_hierarchy_flat_api_request import GetHierarchyFlatAPIRequest
+from onelens_backend_client.models.response_get_hierarchy_flat_response import ResponseGetHierarchyFlatResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    get_hierarchy_flat_api_request = onelens_backend_client.GetHierarchyFlatAPIRequest() # GetHierarchyFlatAPIRequest | 
+
+    try:
+        # Get Hierarchy Flat
+        api_response = api_instance.get_hierarchy_flat(get_hierarchy_flat_api_request)
+        print("The response of TenantHierarchyApi->get_hierarchy_flat:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->get_hierarchy_flat: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_hierarchy_flat_api_request** | [**GetHierarchyFlatAPIRequest**](GetHierarchyFlatAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetHierarchyFlatResponse**](ResponseGetHierarchyFlatResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_hierarchy_leaf_nodes**
 > ResponseCreateDefaultHierarchyResponse get_hierarchy_leaf_nodes()
 
@@ -537,6 +609,76 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **node_id** | **str**|  | 
  **update_hierarchy_node_api_request** | [**UpdateHierarchyNodeAPIRequest**](UpdateHierarchyNodeAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseCreateHierarchyRootNodeResponse**](ResponseCreateHierarchyRootNodeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_node_filters**
+> ResponseCreateHierarchyRootNodeResponse validate_node_filters(validate_node_filters_api_request)
+
+Validate Node Filters
+
+An API endpoint to validate hierarchy node filters
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_create_hierarchy_root_node_response import ResponseCreateHierarchyRootNodeResponse
+from onelens_backend_client.models.validate_node_filters_api_request import ValidateNodeFiltersAPIRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    validate_node_filters_api_request = onelens_backend_client.ValidateNodeFiltersAPIRequest() # ValidateNodeFiltersAPIRequest | 
+
+    try:
+        # Validate Node Filters
+        api_response = api_instance.validate_node_filters(validate_node_filters_api_request)
+        print("The response of TenantHierarchyApi->validate_node_filters:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->validate_node_filters: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validate_node_filters_api_request** | [**ValidateNodeFiltersAPIRequest**](ValidateNodeFiltersAPIRequest.md)|  | 
 
 ### Return type
 

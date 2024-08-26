@@ -9,6 +9,7 @@ Method | Description
 [**create_root_node**](HierarchyNodeServiceApi.md#create_root_node) | create a root node in org hierarchy
 [**delete_node**](HierarchyNodeServiceApi.md#delete_node) | delete a node in org hierarchy
 [**get_hierarchy**](HierarchyNodeServiceApi.md#get_hierarchy) | get hierarchy
+[**get_hierarchy_flat**](HierarchyNodeServiceApi.md#get_hierarchy_flat) | get hierarchy flat
 [**get_hierarchy_node_by_id**](HierarchyNodeServiceApi.md#get_hierarchy_node_by_id) | get hierarchy node by id
 [**get_leaf_nodes**](HierarchyNodeServiceApi.md#get_leaf_nodes) | get hierarchy leaf nodes
 [**publish_custom_hierarchy**](HierarchyNodeServiceApi.md#publish_custom_hierarchy) | publish custom hierarchy
@@ -334,6 +335,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetHierarchyResponse**](GetHierarchyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_hierarchy_flat**
+> GetHierarchyFlatResponse get_hierarchy_flat(get_hierarchy_flat_request)
+
+get hierarchy flat
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_hierarchy_flat_request import GetHierarchyFlatRequest
+from onelens_backend_client.models.get_hierarchy_flat_response import GetHierarchyFlatResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.HierarchyNodeServiceApi(api_client)
+    get_hierarchy_flat_request = onelens_backend_client.GetHierarchyFlatRequest() # GetHierarchyFlatRequest | 
+
+    try:
+        # get hierarchy flat
+        api_response = api_instance.get_hierarchy_flat(get_hierarchy_flat_request)
+        print("The response of HierarchyNodeServiceApi->get_hierarchy_flat:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HierarchyNodeServiceApi->get_hierarchy_flat: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_hierarchy_flat_request** | [**GetHierarchyFlatRequest**](GetHierarchyFlatRequest.md)|  | 
+
+### Return type
+
+[**GetHierarchyFlatResponse**](GetHierarchyFlatResponse.md)
 
 ### Authorization
 

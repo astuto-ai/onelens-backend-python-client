@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.tenant_policy import TenantPolicy
 from onelens_backend_client.models.tenant_ticket import TenantTicket
 from onelens_backend_client.models.violation_metrics_details import ViolationMetricsDetails
@@ -32,7 +32,7 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
     tenant_ticket: TenantTicket = Field(description="Tenant ticket details")
     policy_details: TenantPolicy = Field(description="Policy details")
     recommendation_units: List[StrictStr] = Field(description="List of recommendation units")
-    hierarchy_details: Dict[str, Any] = Field(description="The resource hierarchy details")
+    hierarchy_details: Optional[Dict[str, Any]] = None
     resource_details: Dict[str, Any] = Field(description="The resource details")
     violation_metrics_details: List[ViolationMetricsDetails] = Field(description="The violation metrics details")
     account_details: Dict[str, Any] = Field(description="The account details")
@@ -90,6 +90,11 @@ class GetTicketByIdPolicyDetailsResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['violation_metrics_details'] = _items
+        # set to None if hierarchy_details (nullable) is None
+        # and model_fields_set contains the field
+        if self.hierarchy_details is None and "hierarchy_details" in self.model_fields_set:
+            _dict['hierarchy_details'] = None
+
         return _dict
 
     @classmethod

@@ -26,12 +26,15 @@ from typing_extensions import Self
 
 class GetAllResourceCatalogsRequest(BaseModel):
     """
-    Get All Resource Catalogs Request
+    Get All Resource Catalogs Request with navira
     """ # noqa: E501
     pagination: Optional[PaginationParams] = Field(default=None, description="Pagination parameters for the request.")
-    filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
     tenant_id: StrictStr = Field(description="The id of the tenant.")
-    __properties: ClassVar[List[str]] = ["pagination", "filters", "tenant_id"]
+    user_id: Optional[StrictStr] = None
+    filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
+    navira_log_id: Optional[StrictStr] = None
+    request: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["pagination", "tenant_id", "user_id", "filters", "navira_log_id", "request"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +85,21 @@ class GetAllResourceCatalogsRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['filters'] = _items
+        # set to None if user_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.user_id is None and "user_id" in self.model_fields_set:
+            _dict['user_id'] = None
+
+        # set to None if navira_log_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.navira_log_id is None and "navira_log_id" in self.model_fields_set:
+            _dict['navira_log_id'] = None
+
+        # set to None if request (nullable) is None
+        # and model_fields_set contains the field
+        if self.request is None and "request" in self.model_fields_set:
+            _dict['request'] = None
+
         return _dict
 
     @classmethod
@@ -95,8 +113,11 @@ class GetAllResourceCatalogsRequest(BaseModel):
 
         _obj = cls.model_validate({
             "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
+            "tenant_id": obj.get("tenant_id"),
+            "user_id": obj.get("user_id"),
             "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
-            "tenant_id": obj.get("tenant_id")
+            "navira_log_id": obj.get("navira_log_id"),
+            "request": obj.get("request")
         })
         return _obj
 

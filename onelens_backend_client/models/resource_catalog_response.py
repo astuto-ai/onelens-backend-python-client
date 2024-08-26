@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -43,7 +43,9 @@ class ResourceCatalogResponse(BaseModel):
     additional_info: Dict[str, Any] = Field(description="Additional info of the resource.")
     run_id: StrictStr = Field(description="The run id.")
     last_updated_at: datetime = Field(description="The last updated at.")
-    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_id", "resource_url_template", "crn", "title", "provider", "status", "tags", "additional_info", "run_id", "last_updated_at"]
+    account_name: Optional[StrictStr] = None
+    tagged_resource: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["ol_id", "cloud_id", "region", "service", "service_display_name", "resource_type", "resource_id", "resource_url_template", "crn", "title", "provider", "status", "tags", "additional_info", "run_id", "last_updated_at", "account_name", "tagged_resource"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +96,16 @@ class ResourceCatalogResponse(BaseModel):
         if self.tags is None and "tags" in self.model_fields_set:
             _dict['tags'] = None
 
+        # set to None if account_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.account_name is None and "account_name" in self.model_fields_set:
+            _dict['account_name'] = None
+
+        # set to None if tagged_resource (nullable) is None
+        # and model_fields_set contains the field
+        if self.tagged_resource is None and "tagged_resource" in self.model_fields_set:
+            _dict['tagged_resource'] = None
+
         return _dict
 
     @classmethod
@@ -121,7 +133,9 @@ class ResourceCatalogResponse(BaseModel):
             "tags": obj.get("tags"),
             "additional_info": obj.get("additional_info"),
             "run_id": obj.get("run_id"),
-            "last_updated_at": obj.get("last_updated_at")
+            "last_updated_at": obj.get("last_updated_at"),
+            "account_name": obj.get("account_name"),
+            "tagged_resource": obj.get("tagged_resource")
         })
         return _obj
 

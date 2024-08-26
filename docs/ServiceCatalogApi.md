@@ -4,10 +4,80 @@ All URIs are relative to *http://localhost*
 
 Method | Description
 ------------- | -------------
+[**get_curdata**](ServiceCatalogApi.md#get_curdata) | Get Cur Data
 [**get_metrics**](ServiceCatalogApi.md#get_metrics) | Get Metrics
 [**get_multiple_metrices**](ServiceCatalogApi.md#get_multiple_metrices) | Get Multiple Metrices
 [**get_service_catalog**](ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
 
+
+# **get_curdata**
+> object get_curdata(get_cur_data_api_request)
+
+Get Cur Data
+
+An API endpoint to get cost data based on filters like account id, region, service.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_cur_data_api_request import GetCurDataAPIRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ServiceCatalogApi(api_client)
+    get_cur_data_api_request = onelens_backend_client.GetCurDataAPIRequest() # GetCurDataAPIRequest | 
+
+    try:
+        # Get Cur Data
+        api_response = api_instance.get_curdata(get_cur_data_api_request)
+        print("The response of ServiceCatalogApi->get_curdata:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ServiceCatalogApi->get_curdata: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_cur_data_api_request** | [**GetCurDataAPIRequest**](GetCurDataAPIRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_metrics**
 > ResponseGetMetricsResponse get_metrics(get_metrics_api_request)

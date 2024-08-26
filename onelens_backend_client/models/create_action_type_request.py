@@ -31,7 +31,8 @@ class CreateActionTypeRequest(BaseModel):
     title: StrictStr = Field(description="Title")
     subtitle: Optional[StrictStr] = None
     description: StrictStr = Field(description="Description")
-    __properties: ClassVar[List[str]] = ["service", "title", "subtitle", "description"]
+    alias: Optional[StrictStr]
+    __properties: ClassVar[List[str]] = ["service", "title", "subtitle", "description", "alias"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +81,11 @@ class CreateActionTypeRequest(BaseModel):
         if self.subtitle is None and "subtitle" in self.model_fields_set:
             _dict['subtitle'] = None
 
+        # set to None if alias (nullable) is None
+        # and model_fields_set contains the field
+        if self.alias is None and "alias" in self.model_fields_set:
+            _dict['alias'] = None
+
         return _dict
 
     @classmethod
@@ -95,7 +101,8 @@ class CreateActionTypeRequest(BaseModel):
             "service": Service.from_dict(obj["service"]) if obj.get("service") is not None else None,
             "title": obj.get("title"),
             "subtitle": obj.get("subtitle"),
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "alias": obj.get("alias")
         })
         return _obj
 

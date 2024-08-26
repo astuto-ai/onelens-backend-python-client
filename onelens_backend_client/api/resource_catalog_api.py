@@ -19,6 +19,7 @@ from typing_extensions import Annotated
 from pydantic import StrictStr
 from onelens_backend_client.models.get_all_resource_catalogs_api_request import GetAllResourceCatalogsApiRequest
 from onelens_backend_client.models.get_resource_catalog_stats_api_request import GetResourceCatalogStatsAPIRequest
+from onelens_backend_client.models.response_get_all_resource_catalogs_response import ResponseGetAllResourceCatalogsResponse
 from onelens_backend_client.models.response_get_resource_catalog_stats_response import ResponseGetResourceCatalogStatsResponse
 from onelens_backend_client.models.response_get_resource_with_relation_response import ResponseGetResourceWithRelationResponse
 from onelens_backend_client.models.response_resource_catalog_response import ResponseResourceCatalogResponse
@@ -57,7 +58,7 @@ class ResourceCatalogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseGetResourceWithRelationResponse:
+    ) -> ResponseGetAllResourceCatalogsResponse:
         """Get All Resource Catalogs
 
         An API endpoint to get all resource catalogs
@@ -95,7 +96,7 @@ class ResourceCatalogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetResourceWithRelationResponse",
+            '200': "ResponseGetAllResourceCatalogsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -125,7 +126,7 @@ class ResourceCatalogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseGetResourceWithRelationResponse]:
+    ) -> ApiResponse[ResponseGetAllResourceCatalogsResponse]:
         """Get All Resource Catalogs
 
         An API endpoint to get all resource catalogs
@@ -163,7 +164,7 @@ class ResourceCatalogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetResourceWithRelationResponse",
+            '200': "ResponseGetAllResourceCatalogsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -231,7 +232,7 @@ class ResourceCatalogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseGetResourceWithRelationResponse",
+            '200': "ResponseGetAllResourceCatalogsResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

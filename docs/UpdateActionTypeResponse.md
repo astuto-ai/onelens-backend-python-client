@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **title** | **str** | Title | 
 **subtitle** | **str** |  | [optional] 
 **description** | **str** | Description | 
+**alias** | **str** |  | 
 **id** | **int** | Action Type ID | 
 
 ## Example

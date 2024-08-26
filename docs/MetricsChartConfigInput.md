@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **table_name** | **str** | The name of the table. | 
 **metric_name** | **str** | The name of the metric. | 
 **aggregation_type** | [**MetricsAggregationType**](MetricsAggregationType.md) | The aggregation type of the metric. | 
-**look_back_period** | [**MetricsLookBackPeriod**](MetricsLookBackPeriod.md) | The look back period of the metric. | 
+**look_back_period** | [**MetricsLookBackPeriod**](MetricsLookBackPeriod.md) |  | [optional] 
 **threshold** | [**MetricsThreshold**](MetricsThreshold.md) |  | [optional] 
 
 ## Example

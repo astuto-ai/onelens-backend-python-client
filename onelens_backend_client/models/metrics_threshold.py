@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.metrics_value_unit import MetricsValueUnit
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class MetricsThreshold(BaseModel):
     """
     MetricsThreshold
     """ # noqa: E501
-    value_from: StrictStr = Field(description="value_from for the threshold.")
-    value: MetricsValueUnit = Field(description="The value of the threshold.")
+    value_from: Optional[StrictStr] = None
+    value: Optional[MetricsValueUnit] = None
     __properties: ClassVar[List[str]] = ["value_from", "value"]
 
     model_config = ConfigDict(
@@ -73,6 +73,16 @@ class MetricsThreshold(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['value'] = self.value.to_dict()
+        # set to None if value_from (nullable) is None
+        # and model_fields_set contains the field
+        if self.value_from is None and "value_from" in self.model_fields_set:
+            _dict['value_from'] = None
+
+        # set to None if value (nullable) is None
+        # and model_fields_set contains the field
+        if self.value is None and "value" in self.model_fields_set:
+            _dict['value'] = None
+
         return _dict
 
     @classmethod

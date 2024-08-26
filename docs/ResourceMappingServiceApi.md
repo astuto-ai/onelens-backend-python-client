@@ -5,7 +5,9 @@ All URIs are relative to *http://localhost*
 Method | Description
 ------------- | -------------
 [**create**](ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
+[**create_mappings_from_query**](ResourceMappingServiceApi.md#create_mappings_from_query) | create resource hierarchy mappings from query
 [**get_mapping_by_ol_id**](ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
+[**get_node_metrics**](ResourceMappingServiceApi.md#get_node_metrics) | get hierarchy node metrics
 
 
 # **create**
@@ -52,6 +54,73 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resource_hierarchy_mapping_request** | [**ResourceHierarchyMappingRequest**](ResourceHierarchyMappingRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_mappings_from_query**
+> object create_mappings_from_query(create_resource_hierarchy_mappings_from_query_request)
+
+create resource hierarchy mappings from query
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.create_resource_hierarchy_mappings_from_query_request import CreateResourceHierarchyMappingsFromQueryRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceMappingServiceApi(api_client)
+    create_resource_hierarchy_mappings_from_query_request = onelens_backend_client.CreateResourceHierarchyMappingsFromQueryRequest() # CreateResourceHierarchyMappingsFromQueryRequest | 
+
+    try:
+        # create resource hierarchy mappings from query
+        api_response = api_instance.create_mappings_from_query(create_resource_hierarchy_mappings_from_query_request)
+        print("The response of ResourceMappingServiceApi->create_mappings_from_query:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceMappingServiceApi->create_mappings_from_query: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_resource_hierarchy_mappings_from_query_request** | [**CreateResourceHierarchyMappingsFromQueryRequest**](CreateResourceHierarchyMappingsFromQueryRequest.md)|  | 
 
 ### Return type
 
@@ -124,6 +193,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetResourceHierarchyMappingByOlIdResponse**](GetResourceHierarchyMappingByOlIdResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_node_metrics**
+> GetHierarchyNodeMetricsResponse get_node_metrics(get_hierarchy_node_metrics_request)
+
+get hierarchy node metrics
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_hierarchy_node_metrics_request import GetHierarchyNodeMetricsRequest
+from onelens_backend_client.models.get_hierarchy_node_metrics_response import GetHierarchyNodeMetricsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceMappingServiceApi(api_client)
+    get_hierarchy_node_metrics_request = onelens_backend_client.GetHierarchyNodeMetricsRequest() # GetHierarchyNodeMetricsRequest | 
+
+    try:
+        # get hierarchy node metrics
+        api_response = api_instance.get_node_metrics(get_hierarchy_node_metrics_request)
+        print("The response of ResourceMappingServiceApi->get_node_metrics:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceMappingServiceApi->get_node_metrics: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_hierarchy_node_metrics_request** | [**GetHierarchyNodeMetricsRequest**](GetHierarchyNodeMetricsRequest.md)|  | 
+
+### Return type
+
+[**GetHierarchyNodeMetricsResponse**](GetHierarchyNodeMetricsResponse.md)
 
 ### Authorization
 

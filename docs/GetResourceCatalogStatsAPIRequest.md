@@ -7,6 +7,7 @@ Get Resource Catalog Stats API Request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
+**navira_log_id** | **str** |  | [optional] 
 
 ## Example
 

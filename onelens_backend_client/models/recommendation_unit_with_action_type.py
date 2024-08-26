@@ -30,7 +30,7 @@ class RecommendationUnitWithActionType(BaseModel):
     """ # noqa: E501
     id: StrictStr = Field(description="Recommendation Config ID")
     service: StrictStr = Field(description="Service AWS etc.")
-    action_type_id: Optional[StrictInt] = None
+    action_type_alias: Optional[StrictStr] = None
     priority: StrictInt = Field(description="Priority")
     title: StrictStr = Field(description="Title")
     subtitle: Optional[StrictStr] = Field(default=None, description="Subtitle")
@@ -41,7 +41,7 @@ class RecommendationUnitWithActionType(BaseModel):
     action_type_title: Optional[StrictStr] = None
     action_type_subtitle: Optional[StrictStr] = None
     action_type_description: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "service", "action_type_id", "priority", "title", "subtitle", "description", "effort", "query_details", "action_type_service", "action_type_title", "action_type_subtitle", "action_type_description"]
+    __properties: ClassVar[List[str]] = ["id", "service", "action_type_alias", "priority", "title", "subtitle", "description", "effort", "query_details", "action_type_service", "action_type_title", "action_type_subtitle", "action_type_description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,10 +85,10 @@ class RecommendationUnitWithActionType(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of query_details
         if self.query_details:
             _dict['query_details'] = self.query_details.to_dict()
-        # set to None if action_type_id (nullable) is None
+        # set to None if action_type_alias (nullable) is None
         # and model_fields_set contains the field
-        if self.action_type_id is None and "action_type_id" in self.model_fields_set:
-            _dict['action_type_id'] = None
+        if self.action_type_alias is None and "action_type_alias" in self.model_fields_set:
+            _dict['action_type_alias'] = None
 
         # set to None if query_details (nullable) is None
         # and model_fields_set contains the field
@@ -129,7 +129,7 @@ class RecommendationUnitWithActionType(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "service": obj.get("service"),
-            "action_type_id": obj.get("action_type_id"),
+            "action_type_alias": obj.get("action_type_alias"),
             "priority": obj.get("priority"),
             "title": obj.get("title"),
             "subtitle": obj.get("subtitle"),
