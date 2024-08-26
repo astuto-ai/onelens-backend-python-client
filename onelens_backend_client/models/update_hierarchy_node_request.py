@@ -46,8 +46,8 @@ class UpdateHierarchyNodeRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['ROOT', 'BUSINESS_UNIT', 'PRODUCT', 'SERVICE', 'ENVIRONMENT', 'RESIDUAL', 'CLOUD_ID', 'REGION']):
-            raise ValueError("must be one of enum values ('ROOT', 'BUSINESS_UNIT', 'PRODUCT', 'SERVICE', 'ENVIRONMENT', 'RESIDUAL', 'CLOUD_ID', 'REGION')")
+        if value not in set(['ROOT', 'BUSINESS_UNIT', 'DEPARTMENT', 'DIVISION', 'PRODUCT', 'TEAM', 'APPLICATION', 'CUSTOM', 'SERVICE', 'ENVIRONMENT', 'RESIDUAL', 'CLOUD_ID', 'REGION']):
+            raise ValueError("must be one of enum values ('ROOT', 'BUSINESS_UNIT', 'DEPARTMENT', 'DIVISION', 'PRODUCT', 'TEAM', 'APPLICATION', 'CUSTOM', 'SERVICE', 'ENVIRONMENT', 'RESIDUAL', 'CLOUD_ID', 'REGION')")
         return value
 
     model_config = ConfigDict(

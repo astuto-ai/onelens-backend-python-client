@@ -91,6 +91,8 @@ Class | Method | Description
 *RecommendationEngineApi* | [**get_recommendation_unit_by_id**](docs/RecommendationEngineApi.md#get_recommendation_unit_by_id) | Get Recommendation Unit By Id
 *RecommendationEngineApi* | [**get_recommendation_units**](docs/RecommendationEngineApi.md#get_recommendation_units) | Get Recommendation Units
 *RecommendationEngineApi* | [**get_recommendations**](docs/RecommendationEngineApi.md#get_recommendations) | Get Recommendations
+*ActionTypeMigrationServiceApi* | [**create_action_type_pull_request**](docs/ActionTypeMigrationServiceApi.md#create_action_type_pull_request) | Create a pull request for the action_type template
+*ActionTypeMigrationServiceApi* | [**sync_action_type_from_repo**](docs/ActionTypeMigrationServiceApi.md#sync_action_type_from_repo) | Sync action_type from repo
 *Auth0Api* | [**create_user**](docs/Auth0Api.md#create_user) | Create User
 *CloudAccountMetadataApi* | [**get_cloud_account_metadata**](docs/CloudAccountMetadataApi.md#get_cloud_account_metadata) | Get Cloud Account Metadata
 *CloudAccountMetadataServiceApi* | [**get_cloud_account_metadata**](docs/CloudAccountMetadataServiceApi.md#get_cloud_account_metadata) | get cloud account metadata for tenant
@@ -102,12 +104,18 @@ Class | Method | Description
 *HierarchyNodeServiceApi* | [**create_root_node**](docs/HierarchyNodeServiceApi.md#create_root_node) | create a root node in org hierarchy
 *HierarchyNodeServiceApi* | [**delete_node**](docs/HierarchyNodeServiceApi.md#delete_node) | delete a node in org hierarchy
 *HierarchyNodeServiceApi* | [**get_hierarchy**](docs/HierarchyNodeServiceApi.md#get_hierarchy) | get hierarchy
+*HierarchyNodeServiceApi* | [**get_hierarchy_flat**](docs/HierarchyNodeServiceApi.md#get_hierarchy_flat) | get hierarchy flat
 *HierarchyNodeServiceApi* | [**get_hierarchy_node_by_id**](docs/HierarchyNodeServiceApi.md#get_hierarchy_node_by_id) | get hierarchy node by id
 *HierarchyNodeServiceApi* | [**get_leaf_nodes**](docs/HierarchyNodeServiceApi.md#get_leaf_nodes) | get hierarchy leaf nodes
 *HierarchyNodeServiceApi* | [**publish_custom_hierarchy**](docs/HierarchyNodeServiceApi.md#publish_custom_hierarchy) | publish custom hierarchy
 *HierarchyNodeServiceApi* | [**update_node**](docs/HierarchyNodeServiceApi.md#update_node) | update a node in org hierarchy
 *MetricsServiceApi* | [**get_metrics**](docs/MetricsServiceApi.md#get_metrics) | get metrics
 *MetricsServiceApi* | [**get_multiple_metrics**](docs/MetricsServiceApi.md#get_multiple_metrics) | get mutiple metrics
+*NaviraApisApi* | [**get_all_resource_catalogs**](docs/NaviraApisApi.md#get_all_resource_catalogs) | Get All Resource Catalogs
+*NaviraApisApi* | [**get_all_resource_catalogs_0**](docs/NaviraApisApi.md#get_all_resource_catalogs_0) | Get All Resource Catalogs
+*NaviraServiceApi* | [**create_navira_log**](docs/NaviraServiceApi.md#create_navira_log) | Create Navira Log
+*NaviraServiceApi* | [**fetch_logs_with_filters**](docs/NaviraServiceApi.md#fetch_logs_with_filters) | Fetch Logs With Filters
+*NaviraServiceApi* | [**update_navira_log**](docs/NaviraServiceApi.md#update_navira_log) | Update Navira Log
 *OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | Create Organization
 *OrganizationsApi* | [**disable_organization**](docs/OrganizationsApi.md#disable_organization) | Disable Organization
 *OrganizationsApi* | [**enable_organization**](docs/OrganizationsApi.md#enable_organization) | Enable Organization
@@ -159,7 +167,10 @@ Class | Method | Description
 *ResourceCatalogServiceApi* | [**get_by_id_with_relations**](docs/ResourceCatalogServiceApi.md#get_by_id_with_relations) | Get resource catalog by id with relations
 *ResourceCatalogServiceApi* | [**get_resource_catalog_stats**](docs/ResourceCatalogServiceApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
+*ResourceMappingServiceApi* | [**create_mappings_from_query**](docs/ResourceMappingServiceApi.md#create_mappings_from_query) | create resource hierarchy mappings from query
 *ResourceMappingServiceApi* | [**get_mapping_by_ol_id**](docs/ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
+*ResourceMappingServiceApi* | [**get_node_metrics**](docs/ResourceMappingServiceApi.md#get_node_metrics) | get hierarchy node metrics
+*ServiceCatalogApi* | [**get_curdata**](docs/ServiceCatalogApi.md#get_curdata) | Get Cur Data
 *ServiceCatalogApi* | [**get_metrics**](docs/ServiceCatalogApi.md#get_metrics) | Get Metrics
 *ServiceCatalogApi* | [**get_multiple_metrices**](docs/ServiceCatalogApi.md#get_multiple_metrices) | Get Multiple Metrices
 *ServiceCatalogApi* | [**get_service_catalog**](docs/ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
@@ -188,9 +199,11 @@ Class | Method | Description
 *TenantHierarchyApi* | [**create_root_node**](docs/TenantHierarchyApi.md#create_root_node) | Create Root Node
 *TenantHierarchyApi* | [**delete_hierarchy_node**](docs/TenantHierarchyApi.md#delete_hierarchy_node) | Delete Hierarchy Node
 *TenantHierarchyApi* | [**get_hierarchy**](docs/TenantHierarchyApi.md#get_hierarchy) | Get Hierarchy
+*TenantHierarchyApi* | [**get_hierarchy_flat**](docs/TenantHierarchyApi.md#get_hierarchy_flat) | Get Hierarchy Flat
 *TenantHierarchyApi* | [**get_hierarchy_leaf_nodes**](docs/TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
 *TenantHierarchyApi* | [**publish_custom_hierarchy**](docs/TenantHierarchyApi.md#publish_custom_hierarchy) | Publish Custom Hierarchy
 *TenantHierarchyApi* | [**update_hierarchy_node**](docs/TenantHierarchyApi.md#update_hierarchy_node) | Update Hierarchy Node
+*TenantHierarchyApi* | [**validate_node_filters**](docs/TenantHierarchyApi.md#validate_node_filters) | Validate Node Filters
 *TenantPoliciesApi* | [**add_tenant_policy_exclusions**](docs/TenantPoliciesApi.md#add_tenant_policy_exclusions) | Add Tenant Policy Exclusions
 *TenantPoliciesApi* | [**disable_tenant_policy**](docs/TenantPoliciesApi.md#disable_tenant_policy) | Disable Tenant Policy
 *TenantPoliciesApi* | [**enable_all_policies**](docs/TenantPoliciesApi.md#enable_all_policies) | Enable All Policies
@@ -310,10 +323,13 @@ Class | Method | Description
  - [BulkUpdateTenantTicketsRequest](docs/BulkUpdateTenantTicketsRequest.md)
  - [BulkUpdateTenantTicketsRequestMixin](docs/BulkUpdateTenantTicketsRequestMixin.md)
  - [BulkUpdateTenantTicketsResponse](docs/BulkUpdateTenantTicketsResponse.md)
+ - [CURDataQuery](docs/CURDataQuery.md)
  - [City](docs/City.md)
  - [CloudAccountMetadata](docs/CloudAccountMetadata.md)
  - [CloudAccountMetadataFilters](docs/CloudAccountMetadataFilters.md)
  - [Country](docs/Country.md)
+ - [CreateActionTypePullRequest](docs/CreateActionTypePullRequest.md)
+ - [CreateActionTypePullResponse](docs/CreateActionTypePullResponse.md)
  - [CreateActionTypeRequest](docs/CreateActionTypeRequest.md)
  - [CreateActionTypeResponse](docs/CreateActionTypeResponse.md)
  - [CreateAuth0AndOnelensUserResponse](docs/CreateAuth0AndOnelensUserResponse.md)
@@ -325,6 +341,7 @@ Class | Method | Description
  - [CreateHierarchyRootNodeAPIRequest](docs/CreateHierarchyRootNodeAPIRequest.md)
  - [CreateHierarchyRootNodeRequest](docs/CreateHierarchyRootNodeRequest.md)
  - [CreateHierarchyRootNodeResponse](docs/CreateHierarchyRootNodeResponse.md)
+ - [CreateNaviraLogRequest](docs/CreateNaviraLogRequest.md)
  - [CreateOrganizationRequest](docs/CreateOrganizationRequest.md)
  - [CreateOrganizationResponse](docs/CreateOrganizationResponse.md)
  - [CreatePolicyTemplatePackRequest](docs/CreatePolicyTemplatePackRequest.md)
@@ -337,6 +354,7 @@ Class | Method | Description
  - [CreateRecommendationUnitPullRequest](docs/CreateRecommendationUnitPullRequest.md)
  - [CreateRecommendationUnitRequest](docs/CreateRecommendationUnitRequest.md)
  - [CreateRecommendationUnitResponse](docs/CreateRecommendationUnitResponse.md)
+ - [CreateResourceHierarchyMappingsFromQueryRequest](docs/CreateResourceHierarchyMappingsFromQueryRequest.md)
  - [CreateTenantEmbedAppsLinksRequest](docs/CreateTenantEmbedAppsLinksRequest.md)
  - [CreateTenantEmbedAppsLinksResponse](docs/CreateTenantEmbedAppsLinksResponse.md)
  - [CreateTenantProviderRequest](docs/CreateTenantProviderRequest.md)
@@ -356,6 +374,7 @@ Class | Method | Description
  - [CreatedAt](docs/CreatedAt.md)
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
+ - [CurDataAggregationType](docs/CurDataAggregationType.md)
  - [CurrentCost](docs/CurrentCost.md)
  - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
  - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
@@ -386,11 +405,15 @@ Class | Method | Description
  - [EnableTenantUserResponse](docs/EnableTenantUserResponse.md)
  - [EndRange](docs/EndRange.md)
  - [Features](docs/Features.md)
+ - [FeedbackModel](docs/FeedbackModel.md)
  - [FilterCriteriaOutput](docs/FilterCriteriaOutput.md)
  - [FirstName](docs/FirstName.md)
  - [GcpService](docs/GcpService.md)
+ - [GenerationStatus](docs/GenerationStatus.md)
  - [GetActionTypeRequest](docs/GetActionTypeRequest.md)
  - [GetActionTypeResponse](docs/GetActionTypeResponse.md)
+ - [GetAllNaviraFullLogResponse](docs/GetAllNaviraFullLogResponse.md)
+ - [GetAllNaviraLogResponse](docs/GetAllNaviraLogResponse.md)
  - [GetAllPolicyViolationsAPIRequest](docs/GetAllPolicyViolationsAPIRequest.md)
  - [GetAllPolicyViolationsRequest](docs/GetAllPolicyViolationsRequest.md)
  - [GetAllPolicyViolationsResponse](docs/GetAllPolicyViolationsResponse.md)
@@ -407,8 +430,15 @@ Class | Method | Description
  - [GetCloudAccountMetadataResponse](docs/GetCloudAccountMetadataResponse.md)
  - [GetCloudMetadataRequest](docs/GetCloudMetadataRequest.md)
  - [GetCloudMetadataResponse](docs/GetCloudMetadataResponse.md)
+ - [GetCurDataAPIRequest](docs/GetCurDataAPIRequest.md)
  - [GetHierarchyFilters](docs/GetHierarchyFilters.md)
+ - [GetHierarchyFlatAPIRequest](docs/GetHierarchyFlatAPIRequest.md)
+ - [GetHierarchyFlatFilters](docs/GetHierarchyFlatFilters.md)
+ - [GetHierarchyFlatRequest](docs/GetHierarchyFlatRequest.md)
+ - [GetHierarchyFlatResponse](docs/GetHierarchyFlatResponse.md)
  - [GetHierarchyNodeByIdRequest](docs/GetHierarchyNodeByIdRequest.md)
+ - [GetHierarchyNodeMetricsRequest](docs/GetHierarchyNodeMetricsRequest.md)
+ - [GetHierarchyNodeMetricsResponse](docs/GetHierarchyNodeMetricsResponse.md)
  - [GetHierarchyRequest](docs/GetHierarchyRequest.md)
  - [GetHierarchyResponse](docs/GetHierarchyResponse.md)
  - [GetLeafNodesRequest](docs/GetLeafNodesRequest.md)
@@ -420,6 +450,7 @@ Class | Method | Description
  - [GetMutipleMetricsRequest](docs/GetMutipleMetricsRequest.md)
  - [GetMutipleMetricsResponse](docs/GetMutipleMetricsResponse.md)
  - [GetMutipleMetricsResponseMixin](docs/GetMutipleMetricsResponseMixin.md)
+ - [GetNaviraLogApiRequest](docs/GetNaviraLogApiRequest.md)
  - [GetOrganizationByIDResponse](docs/GetOrganizationByIDResponse.md)
  - [GetOrganizationsRequest](docs/GetOrganizationsRequest.md)
  - [GetOrganizationsResponse](docs/GetOrganizationsResponse.md)
@@ -502,13 +533,17 @@ Class | Method | Description
  - [GetTicketByIdPolicyDetailsRequest](docs/GetTicketByIdPolicyDetailsRequest.md)
  - [GetTicketByIdPolicyDetailsResponse](docs/GetTicketByIdPolicyDetailsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
- - [Granularity](docs/Granularity.md)
+ - [GranularityOutput](docs/GranularityOutput.md)
  - [GranularityUnit](docs/GranularityUnit.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HierarchyNodeAttributionDetails](docs/HierarchyNodeAttributionDetails.md)
  - [HierarchyNodeCategory](docs/HierarchyNodeCategory.md)
  - [HierarchyNodeEntityDTO](docs/HierarchyNodeEntityDTO.md)
+ - [HierarchyNodeEntityWithDetails](docs/HierarchyNodeEntityWithDetails.md)
+ - [HierarchyNodeParentItem](docs/HierarchyNodeParentItem.md)
+ - [HierarchyNodePathItem](docs/HierarchyNodePathItem.md)
  - [HierarchyNodeResourceFilters](docs/HierarchyNodeResourceFilters.md)
+ - [HierarchyNodeResourceMetrics](docs/HierarchyNodeResourceMetrics.md)
  - [HierarchyNodeState](docs/HierarchyNodeState.md)
  - [HierarchySharedNodeStrategy](docs/HierarchySharedNodeStrategy.md)
  - [HierarchyState](docs/HierarchyState.md)
@@ -531,10 +566,20 @@ Class | Method | Description
  - [MiddleName](docs/MiddleName.md)
  - [MobileCountryCode](docs/MobileCountryCode.md)
  - [MobileNumber](docs/MobileNumber.md)
+ - [NaviraFullLogResponse](docs/NaviraFullLogResponse.md)
+ - [NaviraLogFeedbackUpdateApiRequest](docs/NaviraLogFeedbackUpdateApiRequest.md)
+ - [NaviraLogResponse](docs/NaviraLogResponse.md)
+ - [NaviraLogUpdateRequest](docs/NaviraLogUpdateRequest.md)
  - [NewCost](docs/NewCost.md)
+ - [NodeId](docs/NodeId.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md)
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
+ - [OnelensModelsServiceInterfacesTenantDataCurServiceFilterCriteria](docs/OnelensModelsServiceInterfacesTenantDataCurServiceFilterCriteria.md)
+ - [OnelensModelsServiceInterfacesTenantDataCurServiceGranularity](docs/OnelensModelsServiceInterfacesTenantDataCurServiceGranularity.md)
+ - [OnelensModelsServiceInterfacesTenantDataCurServiceOperator](docs/OnelensModelsServiceInterfacesTenantDataCurServiceOperator.md)
+ - [OnelensModelsServiceInterfacesTenantDataCurServiceTimeDimension](docs/OnelensModelsServiceInterfacesTenantDataCurServiceTimeDimension.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput.md)
@@ -627,10 +672,13 @@ Class | Method | Description
  - [ResponseEnableAllPoliciesResponse](docs/ResponseEnableAllPoliciesResponse.md)
  - [ResponseEnableTenantAnomalySettingsResponse](docs/ResponseEnableTenantAnomalySettingsResponse.md)
  - [ResponseEnableTenantPolicyResponse](docs/ResponseEnableTenantPolicyResponse.md)
+ - [ResponseGetAllNaviraLogResponse](docs/ResponseGetAllNaviraLogResponse.md)
  - [ResponseGetAllPolicyViolationsResponse](docs/ResponseGetAllPolicyViolationsResponse.md)
+ - [ResponseGetAllResourceCatalogsResponse](docs/ResponseGetAllResourceCatalogsResponse.md)
  - [ResponseGetAllTenantEmbedAppsLinksResponse](docs/ResponseGetAllTenantEmbedAppsLinksResponse.md)
  - [ResponseGetCloudAccountMetadataResponse](docs/ResponseGetCloudAccountMetadataResponse.md)
  - [ResponseGetCloudMetadataResponse](docs/ResponseGetCloudMetadataResponse.md)
+ - [ResponseGetHierarchyFlatResponse](docs/ResponseGetHierarchyFlatResponse.md)
  - [ResponseGetHierarchyResponse](docs/ResponseGetHierarchyResponse.md)
  - [ResponseGetMetricsResponse](docs/ResponseGetMetricsResponse.md)
  - [ResponseGetPolicyTemplateByIDResponse](docs/ResponseGetPolicyTemplateByIDResponse.md)
@@ -661,6 +709,7 @@ Class | Method | Description
  - [ResponseGetTenantUsersWithFilterResponse](docs/ResponseGetTenantUsersWithFilterResponse.md)
  - [ResponseGetTenantsResponse](docs/ResponseGetTenantsResponse.md)
  - [ResponseGetTicketByIdPolicyDetailsResponse](docs/ResponseGetTicketByIdPolicyDetailsResponse.md)
+ - [ResponseNaviraLogResponse](docs/ResponseNaviraLogResponse.md)
  - [ResponseOverrideTenantAnomalyConfigResponse](docs/ResponseOverrideTenantAnomalyConfigResponse.md)
  - [ResponseOverrideTenantPolicyExclusionsResponse](docs/ResponseOverrideTenantPolicyExclusionsResponse.md)
  - [ResponsePasswordChangeEmailResponse](docs/ResponsePasswordChangeEmailResponse.md)
@@ -692,6 +741,8 @@ Class | Method | Description
  - [Status1](docs/Status1.md)
  - [Statuses](docs/Statuses.md)
  - [StorageLensConfig](docs/StorageLensConfig.md)
+ - [SyncActionTypeFromRepoRequest](docs/SyncActionTypeFromRepoRequest.md)
+ - [SyncActionTypeFromRepoResponse](docs/SyncActionTypeFromRepoResponse.md)
  - [SyncPoliciesFromRepoRequest](docs/SyncPoliciesFromRepoRequest.md)
  - [SyncPoliciesFromRepoResponse](docs/SyncPoliciesFromRepoResponse.md)
  - [SyncRecommendationUnitFromRepoRequest](docs/SyncRecommendationUnitFromRepoRequest.md)
@@ -771,6 +822,7 @@ Class | Method | Description
  - [UserPersona](docs/UserPersona.md)
  - [UserRole](docs/UserRole.md)
  - [UserStatus](docs/UserStatus.md)
+ - [ValidateNodeFiltersAPIRequest](docs/ValidateNodeFiltersAPIRequest.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
  - [Value](docs/Value.md)

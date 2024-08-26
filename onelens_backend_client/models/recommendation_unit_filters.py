@@ -30,10 +30,10 @@ class RecommendationUnitFilters(BaseModel):
     search_query: Optional[StrictStr] = None
     ids: Optional[List[StrictStr]] = Field(default=None, description="Filter by recommendation unit id/alias.")
     services: Optional[List[StrictStr]] = Field(default=None, description="Filter by Services")
-    action_type_ids: Optional[List[StrictInt]] = Field(default=None, description="Filter by action type.")
+    action_type_alias: Optional[List[StrictStr]] = Field(default=None, description="Filter by action type.")
     priorities: Optional[List[StrictInt]] = Field(default=None, description="Filter by priorities.")
     efforts: Optional[List[Effort]] = Field(default=None, description="Filter by effort.")
-    __properties: ClassVar[List[str]] = ["search_query", "ids", "services", "action_type_ids", "priorities", "efforts"]
+    __properties: ClassVar[List[str]] = ["search_query", "ids", "services", "action_type_alias", "priorities", "efforts"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,7 +94,7 @@ class RecommendationUnitFilters(BaseModel):
             "search_query": obj.get("search_query"),
             "ids": obj.get("ids"),
             "services": obj.get("services"),
-            "action_type_ids": obj.get("action_type_ids"),
+            "action_type_alias": obj.get("action_type_alias"),
             "priorities": obj.get("priorities"),
             "efforts": obj.get("efforts")
         })

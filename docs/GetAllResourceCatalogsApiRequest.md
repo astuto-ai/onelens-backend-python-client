@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
 **filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
+**navira_log_id** | **str** |  | [optional] 
+**prompt** | **str** |  | [optional] 
 
 ## Example
 

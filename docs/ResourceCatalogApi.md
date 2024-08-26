@@ -11,7 +11,7 @@ Method | Description
 
 
 # **get_all_resource_catalogs**
-> ResponseGetResourceWithRelationResponse get_all_resource_catalogs(get_all_resource_catalogs_api_request)
+> ResponseGetAllResourceCatalogsResponse get_all_resource_catalogs(get_all_resource_catalogs_api_request)
 
 Get All Resource Catalogs
 
@@ -23,7 +23,7 @@ An API endpoint to get all resource catalogs
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.get_all_resource_catalogs_api_request import GetAllResourceCatalogsApiRequest
-from onelens_backend_client.models.response_get_resource_with_relation_response import ResponseGetResourceWithRelationResponse
+from onelens_backend_client.models.response_get_all_resource_catalogs_response import ResponseGetAllResourceCatalogsResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseGetResourceWithRelationResponse**](ResponseGetResourceWithRelationResponse.md)
+[**ResponseGetAllResourceCatalogsResponse**](ResponseGetAllResourceCatalogsResponse.md)
 
 ### Authorization
 

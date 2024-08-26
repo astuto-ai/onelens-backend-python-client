@@ -7,6 +7,7 @@ Get Resource Catalog Stats Request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
+**navira_log_id** | **str** |  | [optional] 
 **tenant_id** | **str** | The id of the tenant. | 
 
 ## Example

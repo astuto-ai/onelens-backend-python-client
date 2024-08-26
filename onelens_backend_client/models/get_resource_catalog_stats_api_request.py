@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_filter_criteria import OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,8 @@ class GetResourceCatalogStatsAPIRequest(BaseModel):
     Get Resource Catalog Stats API Request
     """ # noqa: E501
     filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
-    __properties: ClassVar[List[str]] = ["filters"]
+    navira_log_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["filters", "navira_log_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +77,11 @@ class GetResourceCatalogStatsAPIRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['filters'] = _items
+        # set to None if navira_log_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.navira_log_id is None and "navira_log_id" in self.model_fields_set:
+            _dict['navira_log_id'] = None
+
         return _dict
 
     @classmethod
@@ -88,7 +94,8 @@ class GetResourceCatalogStatsAPIRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None
+            "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
+            "navira_log_id": obj.get("navira_log_id")
         })
         return _obj
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_filter_criteria import OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria
 from onelens_backend_client.models.pagination_params import PaginationParams
@@ -30,7 +30,9 @@ class GetAllResourceCatalogsApiRequest(BaseModel):
     """ # noqa: E501
     pagination: Optional[PaginationParams] = Field(default=None, description="Pagination parameters for the request.")
     filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
-    __properties: ClassVar[List[str]] = ["pagination", "filters"]
+    navira_log_id: Optional[StrictStr] = None
+    prompt: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["pagination", "filters", "navira_log_id", "prompt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +83,16 @@ class GetAllResourceCatalogsApiRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['filters'] = _items
+        # set to None if navira_log_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.navira_log_id is None and "navira_log_id" in self.model_fields_set:
+            _dict['navira_log_id'] = None
+
+        # set to None if prompt (nullable) is None
+        # and model_fields_set contains the field
+        if self.prompt is None and "prompt" in self.model_fields_set:
+            _dict['prompt'] = None
+
         return _dict
 
     @classmethod
@@ -94,7 +106,9 @@ class GetAllResourceCatalogsApiRequest(BaseModel):
 
         _obj = cls.model_validate({
             "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
-            "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None
+            "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
+            "navira_log_id": obj.get("navira_log_id"),
+            "prompt": obj.get("prompt")
         })
         return _obj
 

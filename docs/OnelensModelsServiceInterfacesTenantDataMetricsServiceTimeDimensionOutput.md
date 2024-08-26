@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **range** | **List[str]** |  | 
-**granularity** | [**Granularity**](Granularity.md) |  | 
+**granularity** | [**GranularityOutput**](GranularityOutput.md) |  | 
 
 ## Example
 

@@ -41,7 +41,7 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
     recommendation_unit_title: Optional[StrictStr] = None
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings of the ticket")
     resource_id: Optional[StrictStr] = None
-    account_name: Optional[StrictStr]
+    account_name: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings", "resource_id", "account_name"]
 
     model_config = ConfigDict(

@@ -1,14 +1,17 @@
 # GetAllResourceCatalogsRequest
 
-Get All Resource Catalogs Request
+Get All Resource Catalogs Request with navira
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
-**filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 **tenant_id** | **str** | The id of the tenant. | 
+**user_id** | **str** |  | [optional] 
+**filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
+**navira_log_id** | **str** |  | [optional] 
+**request** | **str** |  | [optional] 
 
 ## Example
 

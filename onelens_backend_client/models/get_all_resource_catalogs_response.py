@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from onelens_backend_client.models.generation_status import GenerationStatus
 from onelens_backend_client.models.pagination_fields import PaginationFields
 from onelens_backend_client.models.resource_catalog import ResourceCatalog
 from typing import Optional, Set
@@ -30,7 +31,10 @@ class GetAllResourceCatalogsResponse(BaseModel):
     """ # noqa: E501
     pagination: PaginationFields = Field(description="Pagination fields.")
     resources: List[ResourceCatalog] = Field(description="List of resource catalog.")
-    __properties: ClassVar[List[str]] = ["pagination", "resources"]
+    status: Optional[GenerationStatus] = Field(default=None, description="The status of the query, represented as an enum value.")
+    ambiguous_values: Optional[List[StrictStr]] = None
+    navira_log_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["pagination", "resources", "status", "ambiguous_values", "navira_log_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +85,16 @@ class GetAllResourceCatalogsResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['resources'] = _items
+        # set to None if ambiguous_values (nullable) is None
+        # and model_fields_set contains the field
+        if self.ambiguous_values is None and "ambiguous_values" in self.model_fields_set:
+            _dict['ambiguous_values'] = None
+
+        # set to None if navira_log_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.navira_log_id is None and "navira_log_id" in self.model_fields_set:
+            _dict['navira_log_id'] = None
+
         return _dict
 
     @classmethod
@@ -94,7 +108,10 @@ class GetAllResourceCatalogsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pagination": PaginationFields.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
-            "resources": [ResourceCatalog.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None
+            "resources": [ResourceCatalog.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None,
+            "status": obj.get("status"),
+            "ambiguous_values": obj.get("ambiguous_values"),
+            "navira_log_id": obj.get("navira_log_id")
         })
         return _obj
 

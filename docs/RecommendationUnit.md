@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Recommendation Config ID | 
 **service** | **str** | Service AWS etc. | 
-**action_type_id** | **int** |  | [optional] 
+**action_type_alias** | **str** |  | [optional] 
 **priority** | **int** | Priority | 
 **title** | **str** | Title | 
 **subtitle** | **str** | Subtitle | [optional] 

@@ -28,9 +28,10 @@ class ActionTypeFilters(BaseModel):
     ActionTypeFilters
     """ # noqa: E501
     search_query: Optional[StrictStr] = None
-    ids: Optional[List[StrictInt]] = Field(default=None, description="Filter by recommendation unit id/alias.")
+    ids: Optional[List[StrictInt]] = Field(default=None, description="Filter by action type id/alias.")
+    alias: Optional[List[StrictStr]] = Field(default=None, description="Filter by alias.")
     services: Optional[List[ActionTypeFiltersServicesInner]] = Field(default=None, description="Filter by Services")
-    __properties: ClassVar[List[str]] = ["search_query", "ids", "services"]
+    __properties: ClassVar[List[str]] = ["search_query", "ids", "alias", "services"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class ActionTypeFilters(BaseModel):
         _obj = cls.model_validate({
             "search_query": obj.get("search_query"),
             "ids": obj.get("ids"),
+            "alias": obj.get("alias"),
             "services": [ActionTypeFiltersServicesInner.from_dict(_item) for _item in obj["services"]] if obj.get("services") is not None else None
         })
         return _obj

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value_from** | **str** | value_from for the threshold. | 
-**value** | [**MetricsValueUnit**](MetricsValueUnit.md) | The value of the threshold. | 
+**value_from** | **str** |  | [optional] 
+**value** | [**MetricsValueUnit**](MetricsValueUnit.md) |  | [optional] 
 
 ## Example
 

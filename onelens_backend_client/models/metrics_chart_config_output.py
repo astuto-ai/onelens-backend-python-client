@@ -35,7 +35,7 @@ class MetricsChartConfigOutput(BaseModel):
     table_name: StrictStr = Field(description="The name of the table.")
     metric_name: StrictStr = Field(description="The name of the metric.")
     aggregation_type: MetricsAggregationType = Field(description="The aggregation type of the metric.")
-    look_back_period: MetricsLookBackPeriod = Field(description="The look back period of the metric.")
+    look_back_period: Optional[MetricsLookBackPeriod] = None
     threshold: Optional[MetricsThreshold] = None
     __properties: ClassVar[List[str]] = ["chart_title", "chart_type", "chart_data_tooltip", "table_name", "metric_name", "aggregation_type", "look_back_period", "threshold"]
 
@@ -88,6 +88,11 @@ class MetricsChartConfigOutput(BaseModel):
         # and model_fields_set contains the field
         if self.chart_data_tooltip is None and "chart_data_tooltip" in self.model_fields_set:
             _dict['chart_data_tooltip'] = None
+
+        # set to None if look_back_period (nullable) is None
+        # and model_fields_set contains the field
+        if self.look_back_period is None and "look_back_period" in self.model_fields_set:
+            _dict['look_back_period'] = None
 
         # set to None if threshold (nullable) is None
         # and model_fields_set contains the field

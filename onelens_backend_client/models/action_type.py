@@ -31,8 +31,9 @@ class ActionType(BaseModel):
     title: StrictStr = Field(description="Title")
     subtitle: Optional[StrictStr] = None
     description: StrictStr = Field(description="Description")
+    alias: Optional[StrictStr]
     id: StrictInt = Field(description="Action Type ID")
-    __properties: ClassVar[List[str]] = ["service", "title", "subtitle", "description", "id"]
+    __properties: ClassVar[List[str]] = ["service", "title", "subtitle", "description", "alias", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +82,11 @@ class ActionType(BaseModel):
         if self.subtitle is None and "subtitle" in self.model_fields_set:
             _dict['subtitle'] = None
 
+        # set to None if alias (nullable) is None
+        # and model_fields_set contains the field
+        if self.alias is None and "alias" in self.model_fields_set:
+            _dict['alias'] = None
+
         return _dict
 
     @classmethod
@@ -97,6 +103,7 @@ class ActionType(BaseModel):
             "title": obj.get("title"),
             "subtitle": obj.get("subtitle"),
             "description": obj.get("description"),
+            "alias": obj.get("alias"),
             "id": obj.get("id")
         })
         return _obj
