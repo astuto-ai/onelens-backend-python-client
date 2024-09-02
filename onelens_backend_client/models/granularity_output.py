@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.granularity_unit import GranularityUnit
+from onelens_backend_client.models.granularity_unit_output import GranularityUnitOutput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class GranularityOutput(BaseModel):
     """
     GranularityOutput
     """ # noqa: E501
-    unit: GranularityUnit
+    unit: GranularityUnitOutput
     value: StrictInt
     __properties: ClassVar[List[str]] = ["unit", "value"]
 

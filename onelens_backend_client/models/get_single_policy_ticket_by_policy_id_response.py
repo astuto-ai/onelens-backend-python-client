@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from onelens_backend_client.models.effort import Effort
 from onelens_backend_client.models.policy_ticket_status import PolicyTicketStatus
 from onelens_backend_client.models.ticket_state import TicketState
 from typing import Optional, Set
@@ -42,7 +43,11 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
     potential_savings: Union[StrictFloat, StrictInt] = Field(description="Potential savings of the ticket")
     resource_id: Optional[StrictStr] = None
     account_name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings", "resource_id", "account_name"]
+    policy_id: Optional[StrictStr] = None
+    policy_title: Optional[StrictStr] = None
+    policy_labels: Optional[List[StrictStr]] = None
+    effort: Optional[Effort] = None
+    __properties: ClassVar[List[str]] = ["ticket_id", "status", "state", "violation_attributes", "entity_id", "entity_name", "region", "service", "service_display_name", "account_id", "recommendation_unit_title", "potential_savings", "resource_id", "account_name", "policy_id", "policy_title", "policy_labels", "effort"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,6 +103,26 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
         if self.account_name is None and "account_name" in self.model_fields_set:
             _dict['account_name'] = None
 
+        # set to None if policy_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.policy_id is None and "policy_id" in self.model_fields_set:
+            _dict['policy_id'] = None
+
+        # set to None if policy_title (nullable) is None
+        # and model_fields_set contains the field
+        if self.policy_title is None and "policy_title" in self.model_fields_set:
+            _dict['policy_title'] = None
+
+        # set to None if policy_labels (nullable) is None
+        # and model_fields_set contains the field
+        if self.policy_labels is None and "policy_labels" in self.model_fields_set:
+            _dict['policy_labels'] = None
+
+        # set to None if effort (nullable) is None
+        # and model_fields_set contains the field
+        if self.effort is None and "effort" in self.model_fields_set:
+            _dict['effort'] = None
+
         return _dict
 
     @classmethod
@@ -123,7 +148,11 @@ class GetSinglePolicyTicketByPolicyIdResponse(BaseModel):
             "recommendation_unit_title": obj.get("recommendation_unit_title"),
             "potential_savings": obj.get("potential_savings"),
             "resource_id": obj.get("resource_id"),
-            "account_name": obj.get("account_name")
+            "account_name": obj.get("account_name"),
+            "policy_id": obj.get("policy_id"),
+            "policy_title": obj.get("policy_title"),
+            "policy_labels": obj.get("policy_labels"),
+            "effort": obj.get("effort")
         })
         return _obj
 

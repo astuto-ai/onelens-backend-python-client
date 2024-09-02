@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from onelens_backend_client.models.onelens_models_service_interfaces_tenant_metadata_commons_hierarchy_node_category2 import OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +29,11 @@ class GetHierarchyFlatFilters(BaseModel):
     get hierarchy flat filters request
     """ # noqa: E501
     is_leaf: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["is_leaf"]
+    name: Optional[StrictStr] = None
+    parent_names: Optional[List[StrictStr]] = None
+    has_conflict: Optional[Annotated[List[StrictBool], Field(max_length=2)]] = None
+    node_category: Optional[List[OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2]] = None
+    __properties: ClassVar[List[str]] = ["is_leaf", "name", "parent_names", "has_conflict", "node_category"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +79,26 @@ class GetHierarchyFlatFilters(BaseModel):
         if self.is_leaf is None and "is_leaf" in self.model_fields_set:
             _dict['is_leaf'] = None
 
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
+        # set to None if parent_names (nullable) is None
+        # and model_fields_set contains the field
+        if self.parent_names is None and "parent_names" in self.model_fields_set:
+            _dict['parent_names'] = None
+
+        # set to None if has_conflict (nullable) is None
+        # and model_fields_set contains the field
+        if self.has_conflict is None and "has_conflict" in self.model_fields_set:
+            _dict['has_conflict'] = None
+
+        # set to None if node_category (nullable) is None
+        # and model_fields_set contains the field
+        if self.node_category is None and "node_category" in self.model_fields_set:
+            _dict['node_category'] = None
+
         return _dict
 
     @classmethod
@@ -85,7 +111,11 @@ class GetHierarchyFlatFilters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "is_leaf": obj.get("is_leaf")
+            "is_leaf": obj.get("is_leaf"),
+            "name": obj.get("name"),
+            "parent_names": obj.get("parent_names"),
+            "has_conflict": obj.get("has_conflict"),
+            "node_category": obj.get("node_category")
         })
         return _obj
 

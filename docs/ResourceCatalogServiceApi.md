@@ -8,6 +8,7 @@ Method | Description
 [**get_by_id**](ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 [**get_by_id_with_relations**](ResourceCatalogServiceApi.md#get_by_id_with_relations) | Get resource catalog by id with relations
 [**get_resource_catalog_stats**](ResourceCatalogServiceApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
+[**upsert_resource_catalog_cost_data**](ResourceCatalogServiceApi.md#upsert_resource_catalog_cost_data) | Upsert resource catalog cost data
 
 
 # **get_all**
@@ -263,6 +264,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetResourceCatalogStatsResponse**](GetResourceCatalogStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_resource_catalog_cost_data**
+> object upsert_resource_catalog_cost_data(upsert_resource_catalog_cost_data_request)
+
+Upsert resource catalog cost data
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.upsert_resource_catalog_cost_data_request import UpsertResourceCatalogCostDataRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceCatalogServiceApi(api_client)
+    upsert_resource_catalog_cost_data_request = onelens_backend_client.UpsertResourceCatalogCostDataRequest() # UpsertResourceCatalogCostDataRequest | 
+
+    try:
+        # Upsert resource catalog cost data
+        api_response = api_instance.upsert_resource_catalog_cost_data(upsert_resource_catalog_cost_data_request)
+        print("The response of ResourceCatalogServiceApi->upsert_resource_catalog_cost_data:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceCatalogServiceApi->upsert_resource_catalog_cost_data: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upsert_resource_catalog_cost_data_request** | [**UpsertResourceCatalogCostDataRequest**](UpsertResourceCatalogCostDataRequest.md)|  | 
+
+### Return type
+
+**object**
 
 ### Authorization
 

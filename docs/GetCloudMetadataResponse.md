@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **cloud_ids** | **List[object]** | List of Cloud IDs | 
 **regions** | **List[object]** | List of regions | 
 **services** | **List[object]** | List of services | 
+**tag_keys** | **List[object]** | List of tag keys | 
+**tag_values** | **List[object]** | List of tag values | 
 
 ## Example
 

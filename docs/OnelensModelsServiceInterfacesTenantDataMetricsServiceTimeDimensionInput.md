@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **range** | **List[str]** |  | 
-**granularity** | [**OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity**](OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity.md) |  | 
+**granularity** | [**OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput**](OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput.md) |  | 
 
 ## Example
 

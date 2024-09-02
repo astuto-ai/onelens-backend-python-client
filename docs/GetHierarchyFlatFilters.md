@@ -7,6 +7,10 @@ get hierarchy flat filters request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_leaf** | **bool** |  | [optional] 
+**name** | **str** |  | [optional] 
+**parent_names** | **List[str]** |  | [optional] 
+**has_conflict** | **List[bool]** |  | [optional] 
+**node_category** | [**List[OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2]**](OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2.md) |  | [optional] 
 
 ## Example
 

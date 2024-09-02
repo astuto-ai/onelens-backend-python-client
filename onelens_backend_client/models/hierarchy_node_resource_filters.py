@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from onelens_backend_client.models.value import Value
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,8 @@ class HierarchyNodeResourceFilters(BaseModel):
     var_field: StrictStr = Field(alias="field")
     operator: StrictStr
     value: Value
-    __properties: ClassVar[List[str]] = ["key", "field", "operator", "value"]
+    json_key: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["key", "field", "operator", "value", "json_key"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +76,11 @@ class HierarchyNodeResourceFilters(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['value'] = self.value.to_dict()
+        # set to None if json_key (nullable) is None
+        # and model_fields_set contains the field
+        if self.json_key is None and "json_key" in self.model_fields_set:
+            _dict['json_key'] = None
+
         return _dict
 
     @classmethod
@@ -90,7 +96,8 @@ class HierarchyNodeResourceFilters(BaseModel):
             "key": obj.get("key"),
             "field": obj.get("field"),
             "operator": obj.get("operator"),
-            "value": Value.from_dict(obj["value"]) if obj.get("value") is not None else None
+            "value": Value.from_dict(obj["value"]) if obj.get("value") is not None else None,
+            "json_key": obj.get("json_key")
         })
         return _obj
 
