@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **potential_savings** | **float** | Potential savings of the ticket | 
 **resource_id** | **str** |  | [optional] 
 **account_name** | **str** |  | [optional] 
+**policy_id** | **str** |  | [optional] 
+**policy_title** | **str** |  | [optional] 
+**policy_labels** | **List[str]** |  | [optional] 
+**effort** | [**Effort**](Effort.md) |  | [optional] 
 
 ## Example
 

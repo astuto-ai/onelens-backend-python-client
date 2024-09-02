@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **resource_filters** | [**List[HierarchyNodeResourceFilters]**](HierarchyNodeResourceFilters.md) | Resource filters of the node | 
 **resource_filter_expression** | **str** | Resource filter expression of the node | 
 **node_id** | **str** |  | [optional] 
+**filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 
 ## Example
 

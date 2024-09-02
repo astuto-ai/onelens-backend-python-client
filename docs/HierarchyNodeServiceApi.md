@@ -423,7 +423,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hierarchy_node_by_id**
-> object get_hierarchy_node_by_id(get_hierarchy_node_by_id_request)
+> GetHierarchyNodeByIdResponse get_hierarchy_node_by_id(get_hierarchy_node_by_id_request)
 
 get hierarchy node by id
 
@@ -433,6 +433,7 @@ get hierarchy node by id
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.get_hierarchy_node_by_id_request import GetHierarchyNodeByIdRequest
+from onelens_backend_client.models.get_hierarchy_node_by_id_response import GetHierarchyNodeByIdResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -469,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetHierarchyNodeByIdResponse**](GetHierarchyNodeByIdResponse.md)
 
 ### Authorization
 

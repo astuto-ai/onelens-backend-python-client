@@ -40,6 +40,8 @@ class OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator(str, Enum):
     STARTS_WITH = 'starts_with'
     IS = 'is'
     IS_NOT = 'is_not'
+    IS_EMPTY = 'is_empty'
+    IS_NOT_EMPTY = 'is_not_empty'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

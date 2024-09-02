@@ -70,6 +70,9 @@ class OnelensModelsServiceInterfacesTenantDataCurServiceTimeDimension(BaseModel)
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of granularity
+        if self.granularity:
+            _dict['granularity'] = self.granularity.to_dict()
         return _dict
 
     @classmethod
@@ -83,7 +86,7 @@ class OnelensModelsServiceInterfacesTenantDataCurServiceTimeDimension(BaseModel)
 
         _obj = cls.model_validate({
             "range": obj.get("range"),
-            "granularity": obj.get("granularity")
+            "granularity": OnelensModelsServiceInterfacesTenantDataCurServiceGranularity.from_dict(obj["granularity"]) if obj.get("granularity") is not None else None
         })
         return _obj
 

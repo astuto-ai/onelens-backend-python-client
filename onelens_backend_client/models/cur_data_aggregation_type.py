@@ -18,19 +18,21 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class CurDataAggregationType(str, Enum):
+class CURDataAggregationType(str, Enum):
     """
-    CurDataAggregationType
+    CURDataAggregationType
     """
 
     """
     allowed enum values
     """
-    SUM_LINE_ITEM_UNBLENDED_COST = 'sum_line_item_unblended_cost'
+    SUM_UNBLENDED_COST = 'sum_unblended_cost'
+    SUM_BLENDED_COST = 'sum_blended_cost'
+    SUM_NET_UNBLENDED_COST = 'sum_net_unblended_cost'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of CurDataAggregationType from a JSON string"""
+        """Create an instance of CURDataAggregationType from a JSON string"""
         return cls(json.loads(json_str))
 
 

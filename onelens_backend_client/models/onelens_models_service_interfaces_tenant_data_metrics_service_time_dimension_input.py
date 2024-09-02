@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_granularity import OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity
+from onelens_backend_client.models.onelens_models_service_interfaces_tenant_data_metrics_service_granularity_input import OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput(B
     OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput
     """ # noqa: E501
     range: List[StrictStr]
-    granularity: OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity
+    granularity: OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput
     __properties: ClassVar[List[str]] = ["range", "granularity"]
 
     model_config = ConfigDict(
@@ -86,7 +86,7 @@ class OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput(B
 
         _obj = cls.model_validate({
             "range": obj.get("range"),
-            "granularity": OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity.from_dict(obj["granularity"]) if obj.get("granularity") is not None else None
+            "granularity": OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput.from_dict(obj["granularity"]) if obj.get("granularity") is not None else None
         })
         return _obj
 

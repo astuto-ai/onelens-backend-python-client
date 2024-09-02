@@ -11,6 +11,7 @@ Method | Description
 [**get_hierarchy**](TenantHierarchyApi.md#get_hierarchy) | Get Hierarchy
 [**get_hierarchy_flat**](TenantHierarchyApi.md#get_hierarchy_flat) | Get Hierarchy Flat
 [**get_hierarchy_leaf_nodes**](TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
+[**get_hierarchy_node_by_id**](TenantHierarchyApi.md#get_hierarchy_node_by_id) | Get Hierarchy Node By Id
 [**publish_custom_hierarchy**](TenantHierarchyApi.md#publish_custom_hierarchy) | Publish Custom Hierarchy
 [**update_hierarchy_node**](TenantHierarchyApi.md#update_hierarchy_node) | Update Hierarchy Node
 [**validate_node_filters**](TenantHierarchyApi.md#validate_node_filters) | Validate Node Filters
@@ -221,7 +222,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_hierarchy_node**
-> ResponseCreateHierarchyRootNodeResponse delete_hierarchy_node(node_id)
+> ResponseDeleteHierarchyNodeResponse delete_hierarchy_node(node_id)
 
 Delete Hierarchy Node
 
@@ -232,7 +233,7 @@ An API endpoint to delete a node in org hierarchy
 
 ```python
 import onelens_backend_client
-from onelens_backend_client.models.response_create_hierarchy_root_node_response import ResponseCreateHierarchyRootNodeResponse
+from onelens_backend_client.models.response_delete_hierarchy_node_response import ResponseDeleteHierarchyNodeResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -269,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseCreateHierarchyRootNodeResponse**](ResponseCreateHierarchyRootNodeResponse.md)
+[**ResponseDeleteHierarchyNodeResponse**](ResponseDeleteHierarchyNodeResponse.md)
 
 ### Authorization
 
@@ -493,6 +494,75 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_hierarchy_node_by_id**
+> ResponseGetHierarchyNodeByIdResponse get_hierarchy_node_by_id(node_id)
+
+Get Hierarchy Node By Id
+
+An API endpoint to get a hierarchy node by its ID
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_get_hierarchy_node_by_id_response import ResponseGetHierarchyNodeByIdResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    node_id = 'node_id_example' # str | 
+
+    try:
+        # Get Hierarchy Node By Id
+        api_response = api_instance.get_hierarchy_node_by_id(node_id)
+        print("The response of TenantHierarchyApi->get_hierarchy_node_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->get_hierarchy_node_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **node_id** | **str**|  | 
+
+### Return type
+
+[**ResponseGetHierarchyNodeByIdResponse**](ResponseGetHierarchyNodeByIdResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**unit** | [**GranularityUnit**](GranularityUnit.md) |  | 
+**unit** | [**GranularityUnitOutput**](GranularityUnitOutput.md) |  | 
 **value** | **int** |  | 
 
 ## Example

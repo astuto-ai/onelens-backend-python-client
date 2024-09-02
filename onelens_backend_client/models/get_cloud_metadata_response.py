@@ -29,7 +29,9 @@ class GetCloudMetadataResponse(BaseModel):
     cloud_ids: List[Any] = Field(description="List of Cloud IDs")
     regions: List[Any] = Field(description="List of regions")
     services: List[Any] = Field(description="List of services")
-    __properties: ClassVar[List[str]] = ["cloud_ids", "regions", "services"]
+    tag_keys: List[Any] = Field(description="List of tag keys")
+    tag_values: List[Any] = Field(description="List of tag values")
+    __properties: ClassVar[List[str]] = ["cloud_ids", "regions", "services", "tag_keys", "tag_values"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +86,9 @@ class GetCloudMetadataResponse(BaseModel):
         _obj = cls.model_validate({
             "cloud_ids": obj.get("cloud_ids"),
             "regions": obj.get("regions"),
-            "services": obj.get("services")
+            "services": obj.get("services"),
+            "tag_keys": obj.get("tag_keys"),
+            "tag_values": obj.get("tag_values")
         })
         return _obj
 

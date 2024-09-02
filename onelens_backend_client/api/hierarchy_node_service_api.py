@@ -26,6 +26,7 @@ from onelens_backend_client.models.delete_hierarchy_node_request import DeleteHi
 from onelens_backend_client.models.get_hierarchy_flat_request import GetHierarchyFlatRequest
 from onelens_backend_client.models.get_hierarchy_flat_response import GetHierarchyFlatResponse
 from onelens_backend_client.models.get_hierarchy_node_by_id_request import GetHierarchyNodeByIdRequest
+from onelens_backend_client.models.get_hierarchy_node_by_id_response import GetHierarchyNodeByIdResponse
 from onelens_backend_client.models.get_hierarchy_request import GetHierarchyRequest
 from onelens_backend_client.models.get_hierarchy_response import GetHierarchyResponse
 from onelens_backend_client.models.get_leaf_nodes_request import GetLeafNodesRequest
@@ -1688,7 +1689,7 @@ class HierarchyNodeServiceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> GetHierarchyNodeByIdResponse:
         """get hierarchy node by id
 
 
@@ -1725,7 +1726,7 @@ class HierarchyNodeServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "GetHierarchyNodeByIdResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1755,7 +1756,7 @@ class HierarchyNodeServiceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[GetHierarchyNodeByIdResponse]:
         """get hierarchy node by id
 
 
@@ -1792,7 +1793,7 @@ class HierarchyNodeServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "GetHierarchyNodeByIdResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1859,7 +1860,7 @@ class HierarchyNodeServiceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': "GetHierarchyNodeByIdResponse",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(

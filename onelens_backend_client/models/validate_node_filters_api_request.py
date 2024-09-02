@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from onelens_backend_client.models.hierarchy_node_resource_filters import HierarchyNodeResourceFilters
+from onelens_backend_client.models.onelens_domain_utilities_repositories_dynamic_filters_filter_criteria import OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria
 from onelens_backend_client.models.pagination_params import PaginationParams
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +34,8 @@ class ValidateNodeFiltersAPIRequest(BaseModel):
     resource_filters: List[HierarchyNodeResourceFilters] = Field(description="Resource filters of the node")
     resource_filter_expression: Annotated[str, Field(strict=True, max_length=200)] = Field(description="Resource filter expression of the node")
     node_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["pagination", "resource_filters", "resource_filter_expression", "node_id"]
+    filters: List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria] = Field(description="Filters to be applied")
+    __properties: ClassVar[List[str]] = ["pagination", "resource_filters", "resource_filter_expression", "node_id", "filters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +86,13 @@ class ValidateNodeFiltersAPIRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['resource_filters'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in filters (list)
+        _items = []
+        if self.filters:
+            for _item in self.filters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['filters'] = _items
         # set to None if node_id (nullable) is None
         # and model_fields_set contains the field
         if self.node_id is None and "node_id" in self.model_fields_set:
@@ -104,7 +113,8 @@ class ValidateNodeFiltersAPIRequest(BaseModel):
             "pagination": PaginationParams.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None,
             "resource_filters": [HierarchyNodeResourceFilters.from_dict(_item) for _item in obj["resource_filters"]] if obj.get("resource_filters") is not None else None,
             "resource_filter_expression": obj.get("resource_filter_expression"),
-            "node_id": obj.get("node_id")
+            "node_id": obj.get("node_id"),
+            "filters": [OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None
         })
         return _obj
 

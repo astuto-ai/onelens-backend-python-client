@@ -162,15 +162,19 @@ Class | Method | Description
 *ResourceCatalogApi* | [**get_resource_catalog**](docs/ResourceCatalogApi.md#get_resource_catalog) | Get Resource Catalog
 *ResourceCatalogApi* | [**get_resource_catalog_stats**](docs/ResourceCatalogApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
 *ResourceCatalogApi* | [**get_resource_catalog_with_relationships**](docs/ResourceCatalogApi.md#get_resource_catalog_with_relationships) | Get Resource Catalog With Relationships
+*ResourceCatalogApi* | [**upsert_resource_catalog_cost_data**](docs/ResourceCatalogApi.md#upsert_resource_catalog_cost_data) | Upsert Resource Catalog Cost Data
 *ResourceCatalogServiceApi* | [**get_all**](docs/ResourceCatalogServiceApi.md#get_all) | Get all resource catalogs
 *ResourceCatalogServiceApi* | [**get_by_id**](docs/ResourceCatalogServiceApi.md#get_by_id) | Get resource catalog by id
 *ResourceCatalogServiceApi* | [**get_by_id_with_relations**](docs/ResourceCatalogServiceApi.md#get_by_id_with_relations) | Get resource catalog by id with relations
 *ResourceCatalogServiceApi* | [**get_resource_catalog_stats**](docs/ResourceCatalogServiceApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
+*ResourceCatalogServiceApi* | [**upsert_resource_catalog_cost_data**](docs/ResourceCatalogServiceApi.md#upsert_resource_catalog_cost_data) | Upsert resource catalog cost data
 *ResourceMappingServiceApi* | [**create**](docs/ResourceMappingServiceApi.md#create) | create a resource hierarchy mapping
 *ResourceMappingServiceApi* | [**create_mappings_from_query**](docs/ResourceMappingServiceApi.md#create_mappings_from_query) | create resource hierarchy mappings from query
+*ResourceMappingServiceApi* | [**delete_mappings_by_node_ids**](docs/ResourceMappingServiceApi.md#delete_mappings_by_node_ids) | delete resource hierarchy mappings by node ids
 *ResourceMappingServiceApi* | [**get_mapping_by_ol_id**](docs/ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
 *ResourceMappingServiceApi* | [**get_node_metrics**](docs/ResourceMappingServiceApi.md#get_node_metrics) | get hierarchy node metrics
-*ServiceCatalogApi* | [**get_curdata**](docs/ServiceCatalogApi.md#get_curdata) | Get Cur Data
+*ServiceCatalogApi* | [**get_cur_data_metrics**](docs/ServiceCatalogApi.md#get_cur_data_metrics) | Get Cur Data Metrics
+*ServiceCatalogApi* | [**get_cur_data_metrics_config**](docs/ServiceCatalogApi.md#get_cur_data_metrics_config) | Get Cur Data Metrics Config
 *ServiceCatalogApi* | [**get_metrics**](docs/ServiceCatalogApi.md#get_metrics) | Get Metrics
 *ServiceCatalogApi* | [**get_multiple_metrices**](docs/ServiceCatalogApi.md#get_multiple_metrices) | Get Multiple Metrices
 *ServiceCatalogApi* | [**get_service_catalog**](docs/ServiceCatalogApi.md#get_service_catalog) | Get Service Catalog
@@ -201,6 +205,7 @@ Class | Method | Description
 *TenantHierarchyApi* | [**get_hierarchy**](docs/TenantHierarchyApi.md#get_hierarchy) | Get Hierarchy
 *TenantHierarchyApi* | [**get_hierarchy_flat**](docs/TenantHierarchyApi.md#get_hierarchy_flat) | Get Hierarchy Flat
 *TenantHierarchyApi* | [**get_hierarchy_leaf_nodes**](docs/TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
+*TenantHierarchyApi* | [**get_hierarchy_node_by_id**](docs/TenantHierarchyApi.md#get_hierarchy_node_by_id) | Get Hierarchy Node By Id
 *TenantHierarchyApi* | [**publish_custom_hierarchy**](docs/TenantHierarchyApi.md#publish_custom_hierarchy) | Publish Custom Hierarchy
 *TenantHierarchyApi* | [**update_hierarchy_node**](docs/TenantHierarchyApi.md#update_hierarchy_node) | Update Hierarchy Node
 *TenantHierarchyApi* | [**validate_node_filters**](docs/TenantHierarchyApi.md#validate_node_filters) | Validate Node Filters
@@ -323,7 +328,8 @@ Class | Method | Description
  - [BulkUpdateTenantTicketsRequest](docs/BulkUpdateTenantTicketsRequest.md)
  - [BulkUpdateTenantTicketsRequestMixin](docs/BulkUpdateTenantTicketsRequestMixin.md)
  - [BulkUpdateTenantTicketsResponse](docs/BulkUpdateTenantTicketsResponse.md)
- - [CURDataQuery](docs/CURDataQuery.md)
+ - [CURDataAggregationType](docs/CURDataAggregationType.md)
+ - [CURDataMetricsQuery](docs/CURDataMetricsQuery.md)
  - [City](docs/City.md)
  - [CloudAccountMetadata](docs/CloudAccountMetadata.md)
  - [CloudAccountMetadataFilters](docs/CloudAccountMetadataFilters.md)
@@ -374,13 +380,13 @@ Class | Method | Description
  - [CreatedAt](docs/CreatedAt.md)
  - [CurBucketConfig](docs/CurBucketConfig.md)
  - [CurBucketVersion](docs/CurBucketVersion.md)
- - [CurDataAggregationType](docs/CurDataAggregationType.md)
  - [CurrentCost](docs/CurrentCost.md)
  - [DataRetrieverQuery](docs/DataRetrieverQuery.md)
  - [DataRetrieverRequest](docs/DataRetrieverRequest.md)
  - [DataRetrieverResponse](docs/DataRetrieverResponse.md)
  - [DeactivatePolicyTemplateRequest](docs/DeactivatePolicyTemplateRequest.md)
  - [DeleteHierarchyNodeRequest](docs/DeleteHierarchyNodeRequest.md)
+ - [DeleteResourceHierarchyMappingsByNodeIdsRequest](docs/DeleteResourceHierarchyMappingsByNodeIdsRequest.md)
  - [DeprecatePolicyTemplateRequest](docs/DeprecatePolicyTemplateRequest.md)
  - [Details](docs/Details.md)
  - [Details1](docs/Details1.md)
@@ -426,17 +432,19 @@ Class | Method | Description
  - [GetAllTenantUsersItem](docs/GetAllTenantUsersItem.md)
  - [GetAllUsersRequest](docs/GetAllUsersRequest.md)
  - [GetAllUsersResponse](docs/GetAllUsersResponse.md)
+ - [GetCURDataMetricsAPIRequest](docs/GetCURDataMetricsAPIRequest.md)
+ - [GetCURDataMetricsConfigAPIRequest](docs/GetCURDataMetricsConfigAPIRequest.md)
  - [GetCloudAccountMetadataRequest](docs/GetCloudAccountMetadataRequest.md)
  - [GetCloudAccountMetadataResponse](docs/GetCloudAccountMetadataResponse.md)
  - [GetCloudMetadataRequest](docs/GetCloudMetadataRequest.md)
  - [GetCloudMetadataResponse](docs/GetCloudMetadataResponse.md)
- - [GetCurDataAPIRequest](docs/GetCurDataAPIRequest.md)
  - [GetHierarchyFilters](docs/GetHierarchyFilters.md)
  - [GetHierarchyFlatAPIRequest](docs/GetHierarchyFlatAPIRequest.md)
  - [GetHierarchyFlatFilters](docs/GetHierarchyFlatFilters.md)
  - [GetHierarchyFlatRequest](docs/GetHierarchyFlatRequest.md)
  - [GetHierarchyFlatResponse](docs/GetHierarchyFlatResponse.md)
  - [GetHierarchyNodeByIdRequest](docs/GetHierarchyNodeByIdRequest.md)
+ - [GetHierarchyNodeByIdResponse](docs/GetHierarchyNodeByIdResponse.md)
  - [GetHierarchyNodeMetricsRequest](docs/GetHierarchyNodeMetricsRequest.md)
  - [GetHierarchyNodeMetricsResponse](docs/GetHierarchyNodeMetricsResponse.md)
  - [GetHierarchyRequest](docs/GetHierarchyRequest.md)
@@ -534,10 +542,10 @@ Class | Method | Description
  - [GetTicketByIdPolicyDetailsResponse](docs/GetTicketByIdPolicyDetailsResponse.md)
  - [GetUserByIDResponse](docs/GetUserByIDResponse.md)
  - [GranularityOutput](docs/GranularityOutput.md)
- - [GranularityUnit](docs/GranularityUnit.md)
+ - [GranularityUnitOutput](docs/GranularityUnitOutput.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [HierarchyNodeAttributionDetails](docs/HierarchyNodeAttributionDetails.md)
- - [HierarchyNodeCategory](docs/HierarchyNodeCategory.md)
+ - [HierarchyNodeCategoryOutput](docs/HierarchyNodeCategoryOutput.md)
  - [HierarchyNodeEntityDTO](docs/HierarchyNodeEntityDTO.md)
  - [HierarchyNodeEntityWithDetails](docs/HierarchyNodeEntityWithDetails.md)
  - [HierarchyNodeParentItem](docs/HierarchyNodeParentItem.md)
@@ -576,13 +584,18 @@ Class | Method | Description
  - [OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator](docs/OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md)
  - [OnelensModelsServiceInterfacesTenantDataCurServiceFilterCriteria](docs/OnelensModelsServiceInterfacesTenantDataCurServiceFilterCriteria.md)
  - [OnelensModelsServiceInterfacesTenantDataCurServiceGranularity](docs/OnelensModelsServiceInterfacesTenantDataCurServiceGranularity.md)
+ - [OnelensModelsServiceInterfacesTenantDataCurServiceGranularityUnit](docs/OnelensModelsServiceInterfacesTenantDataCurServiceGranularityUnit.md)
  - [OnelensModelsServiceInterfacesTenantDataCurServiceOperator](docs/OnelensModelsServiceInterfacesTenantDataCurServiceOperator.md)
  - [OnelensModelsServiceInterfacesTenantDataCurServiceTimeDimension](docs/OnelensModelsServiceInterfacesTenantDataCurServiceTimeDimension.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceFilterCriteriaInput.md)
- - [OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularity.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityInput.md)
+ - [OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityUnit](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceGranularityUnit.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceOperator.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionInput.md)
  - [OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput](docs/OnelensModelsServiceInterfacesTenantDataMetricsServiceTimeDimensionOutput.md)
+ - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory1.md)
+ - [OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2](docs/OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2.md)
+ - [OnelensModelsServiceInterfacesUtilitiesCommonsGranularityUnit](docs/OnelensModelsServiceInterfacesUtilitiesCommonsGranularityUnit.md)
  - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimension.md)
  - [OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner](docs/OnelensModelsServiceInterfacesUtilitiesDataRetrieverServiceTimeDimensionCompareDateRangeInner.md)
  - [OperatorOutput](docs/OperatorOutput.md)
@@ -647,6 +660,7 @@ Class | Method | Description
  - [RecommendationUnitWithActionType](docs/RecommendationUnitWithActionType.md)
  - [RelationshipConfigItem](docs/RelationshipConfigItem.md)
  - [ResourceCatalog](docs/ResourceCatalog.md)
+ - [ResourceCatalogCostDataMixin](docs/ResourceCatalogCostDataMixin.md)
  - [ResourceCatalogRequest](docs/ResourceCatalogRequest.md)
  - [ResourceCatalogResponse](docs/ResourceCatalogResponse.md)
  - [ResourceHierarchyMappingRequest](docs/ResourceHierarchyMappingRequest.md)
@@ -666,6 +680,7 @@ Class | Method | Description
  - [ResponseCreateUserResponse](docs/ResponseCreateUserResponse.md)
  - [ResponseCreateUserTenantMappingResponse](docs/ResponseCreateUserTenantMappingResponse.md)
  - [ResponseDataRetrieverResponse](docs/ResponseDataRetrieverResponse.md)
+ - [ResponseDeleteHierarchyNodeResponse](docs/ResponseDeleteHierarchyNodeResponse.md)
  - [ResponseDeleteTenantEmbedAppsLinksResponse](docs/ResponseDeleteTenantEmbedAppsLinksResponse.md)
  - [ResponseDeprecatePolicyTemplateResponse](docs/ResponseDeprecatePolicyTemplateResponse.md)
  - [ResponseDisableTenantPolicyResponse](docs/ResponseDisableTenantPolicyResponse.md)
@@ -679,6 +694,7 @@ Class | Method | Description
  - [ResponseGetCloudAccountMetadataResponse](docs/ResponseGetCloudAccountMetadataResponse.md)
  - [ResponseGetCloudMetadataResponse](docs/ResponseGetCloudMetadataResponse.md)
  - [ResponseGetHierarchyFlatResponse](docs/ResponseGetHierarchyFlatResponse.md)
+ - [ResponseGetHierarchyNodeByIdResponse](docs/ResponseGetHierarchyNodeByIdResponse.md)
  - [ResponseGetHierarchyResponse](docs/ResponseGetHierarchyResponse.md)
  - [ResponseGetMetricsResponse](docs/ResponseGetMetricsResponse.md)
  - [ResponseGetPolicyTemplateByIDResponse](docs/ResponseGetPolicyTemplateByIDResponse.md)
@@ -727,6 +743,7 @@ Class | Method | Description
  - [ResponseUpdateTenantTicketsResponse](docs/ResponseUpdateTenantTicketsResponse.md)
  - [ResponseUpdateTenantUserDetailsResponse](docs/ResponseUpdateTenantUserDetailsResponse.md)
  - [ResponseUpdateTenantUserResponse](docs/ResponseUpdateTenantUserResponse.md)
+ - [ResponseUpsertResourceCatalogCostDataResponse](docs/ResponseUpsertResourceCatalogCostDataResponse.md)
  - [RuleType](docs/RuleType.md)
  - [Service](docs/Service.md)
  - [ServiceCatalog](docs/ServiceCatalog.md)
@@ -817,6 +834,8 @@ Class | Method | Description
  - [UpdateTenantUserResponse](docs/UpdateTenantUserResponse.md)
  - [UpdateUserAPIRequest](docs/UpdateUserAPIRequest.md)
  - [UpdateUserResponse](docs/UpdateUserResponse.md)
+ - [UpsertResourceCatalogCostDataAPIRequest](docs/UpsertResourceCatalogCostDataAPIRequest.md)
+ - [UpsertResourceCatalogCostDataRequest](docs/UpsertResourceCatalogCostDataRequest.md)
  - [UserCatalogDetails](docs/UserCatalogDetails.md)
  - [UserCatalogState](docs/UserCatalogState.md)
  - [UserPersona](docs/UserPersona.md)
