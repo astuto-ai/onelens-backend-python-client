@@ -26,7 +26,7 @@ class RecommendationParams(BaseModel):
     """
     RecommendationParams
     """ # noqa: E501
-    actual: Dict[str, Any] = Field(description="Actual")
+    current: Dict[str, Any] = Field(description="Current")
     target: Dict[str, Any] = Field(description="Target")
     __properties: ClassVar[List[str]] = ["actual", "target"]
 
@@ -81,7 +81,7 @@ class RecommendationParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "actual": obj.get("actual"),
+            "current": obj.get("current"),
             "target": obj.get("target")
         })
         return _obj
