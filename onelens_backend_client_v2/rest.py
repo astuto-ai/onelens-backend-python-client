@@ -18,7 +18,7 @@ import ssl
 
 import urllib3
 
-from onelens_backend_client.exceptions import ApiException, ApiValueError
+from onelens_backend_client_v2.exceptions import ApiException, ApiValueError
 
 SUPPORTED_SOCKS_PROXIES = {"socks5", "socks5h", "socks4", "socks4a"}
 RESTResponseType = urllib3.HTTPResponse
