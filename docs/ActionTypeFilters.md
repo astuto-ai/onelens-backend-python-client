@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_query** | **str** |  | [optional] 
-**ids** | **List[int]** | Filter by recommendation unit id/alias. | [optional] [default to []]
+**ids** | **List[int]** | Filter by action type id/alias. | [optional] [default to []]
+**alias** | **List[str]** | Filter by alias. | [optional] [default to []]
 **services** | [**List[ActionTypeFiltersServicesInner]**](ActionTypeFiltersServicesInner.md) | Filter by Services | [optional] [default to []]
 
 ## Example

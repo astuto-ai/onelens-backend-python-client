@@ -8,10 +8,11 @@ Method | Description
 [**get_resource_catalog**](ResourceCatalogApi.md#get_resource_catalog) | Get Resource Catalog
 [**get_resource_catalog_stats**](ResourceCatalogApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
 [**get_resource_catalog_with_relationships**](ResourceCatalogApi.md#get_resource_catalog_with_relationships) | Get Resource Catalog With Relationships
+[**upsert_resource_catalog_cost_data**](ResourceCatalogApi.md#upsert_resource_catalog_cost_data) | Upsert Resource Catalog Cost Data
 
 
 # **get_all_resource_catalogs**
-> ResponseGetResourceWithRelationResponse get_all_resource_catalogs(get_all_resource_catalogs_api_request)
+> ResponseGetAllResourceCatalogsResponse get_all_resource_catalogs(get_all_resource_catalogs_api_request)
 
 Get All Resource Catalogs
 
@@ -23,7 +24,7 @@ An API endpoint to get all resource catalogs
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.get_all_resource_catalogs_api_request import GetAllResourceCatalogsApiRequest
-from onelens_backend_client.models.response_get_resource_with_relation_response import ResponseGetResourceWithRelationResponse
+from onelens_backend_client.models.response_get_all_resource_catalogs_response import ResponseGetAllResourceCatalogsResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -60,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseGetResourceWithRelationResponse**](ResponseGetResourceWithRelationResponse.md)
+[**ResponseGetAllResourceCatalogsResponse**](ResponseGetAllResourceCatalogsResponse.md)
 
 ### Authorization
 
@@ -277,6 +278,76 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_resource_catalog_cost_data**
+> ResponseUpsertResourceCatalogCostDataResponse upsert_resource_catalog_cost_data(upsert_resource_catalog_cost_data_api_request)
+
+Upsert Resource Catalog Cost Data
+
+API to upsert resource catalog cost data
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_upsert_resource_catalog_cost_data_response import ResponseUpsertResourceCatalogCostDataResponse
+from onelens_backend_client.models.upsert_resource_catalog_cost_data_api_request import UpsertResourceCatalogCostDataAPIRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceCatalogApi(api_client)
+    upsert_resource_catalog_cost_data_api_request = onelens_backend_client.UpsertResourceCatalogCostDataAPIRequest() # UpsertResourceCatalogCostDataAPIRequest | 
+
+    try:
+        # Upsert Resource Catalog Cost Data
+        api_response = api_instance.upsert_resource_catalog_cost_data(upsert_resource_catalog_cost_data_api_request)
+        print("The response of ResourceCatalogApi->upsert_resource_catalog_cost_data:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceCatalogApi->upsert_resource_catalog_cost_data: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upsert_resource_catalog_cost_data_api_request** | [**UpsertResourceCatalogCostDataAPIRequest**](UpsertResourceCatalogCostDataAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseUpsertResourceCatalogCostDataResponse**](ResponseUpsertResourceCatalogCostDataResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

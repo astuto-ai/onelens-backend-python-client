@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **search_query** | **str** |  | [optional] 
 **ids** | **List[str]** | Filter by recommendation unit id/alias. | [optional] [default to []]
 **services** | **List[str]** | Filter by Services | [optional] [default to []]
-**action_type_ids** | **List[int]** | Filter by action type. | [optional] [default to []]
+**action_type_alias** | **List[str]** | Filter by action type. | [optional] [default to []]
 **priorities** | **List[int]** | Filter by priorities. | [optional] [default to []]
 **efforts** | [**List[Effort]**](Effort.md) | Filter by effort. | [optional] [default to []]
 

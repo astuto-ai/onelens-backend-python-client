@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **tenant_ticket** | [**TenantTicket**](TenantTicket.md) | Tenant ticket details | 
 **policy_details** | [**TenantPolicy**](TenantPolicy.md) | Policy details | 
 **recommendation_units** | **List[str]** | List of recommendation units | 
-**hierarchy_details** | **object** | The resource hierarchy details | 
+**hierarchy_details** | **object** |  | [optional] 
 **resource_details** | **object** | The resource details | 
 **violation_metrics_details** | [**List[ViolationMetricsDetails]**](ViolationMetricsDetails.md) | The violation metrics details | 
 **account_details** | **object** | The account details | 

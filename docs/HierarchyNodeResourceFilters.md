@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **var_field** | **str** |  | 
 **operator** | **str** |  | 
 **value** | [**Value**](Value.md) |  | 
+**json_key** | **str** |  | [optional] 
 
 ## Example
 

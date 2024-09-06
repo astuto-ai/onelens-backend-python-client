@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **additional_info** | **object** | Additional info of the resource. | 
 **run_id** | **str** | The run id. | 
 **last_updated_at** | **datetime** | The last updated at. | 
+**account_name** | **str** |  | [optional] 
+**tagged_resource** | **bool** |  | [optional] 
 
 ## Example
 
