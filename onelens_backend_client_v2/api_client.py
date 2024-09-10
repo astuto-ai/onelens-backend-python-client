@@ -12,6 +12,7 @@ Do not edit the class manually.
 """  # noqa: E501
 
 import datetime
+from decimal import Decimal
 import json
 import mimetypes
 import os
@@ -350,13 +351,17 @@ class ApiClient:
             return str(obj)
         elif isinstance(obj, Enum):
             return obj.value
-        else:
+        elif isinstance(obj, Decimal):
+            return float(obj)
+        elif isinstance(obj, pydantic.BaseModel):
             # Convert model obj to dict except
             # attributes `openapi_types`, `attribute_map`
             # and attributes which value is not None.
             # Convert attribute name to json key in
             # model definition for request.
             obj_dict = obj.model_dump(exclude_unset=True)
+        else:
+            return str(obj)
 
         return {
             key: self.sanitize_for_serialization(val) for key, val in obj_dict.items()
