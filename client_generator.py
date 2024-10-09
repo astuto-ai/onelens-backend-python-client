@@ -35,6 +35,7 @@ def generate_models(spec: Dict[str, Any], output_dir: str):
         input_file_type=InputFileType.OpenAPI,
         output=Path(output_file),
         output_model_type=DataModelType.PydanticV2BaseModel,
+        use_subclass_enum=True,
     )
 
 
