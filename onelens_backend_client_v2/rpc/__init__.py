@@ -74,6 +74,10 @@ from onelens_backend_client_v2.rpc.tenant_embed_apps_links_service_rpc_handler i
     TenantEmbedAppsLinksServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.saved_view_service_rpc_handler import (
+    SavedViewServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.recommendation_unit_service_rpc_handler import (
     RecommendationUnitServiceRpcHandler,
 )
@@ -92,6 +96,10 @@ from onelens_backend_client_v2.rpc.navira_service_rpc_handler import (
 
 from onelens_backend_client_v2.rpc.action_type_migration_service_rpc_handler import (
     ActionTypeMigrationServiceRpcHandler,
+)
+
+from onelens_backend_client_v2.rpc.tenant_connection_service_rpc_handler import (
+    TenantConnectionServiceRpcHandler,
 )
 
 
@@ -115,9 +123,11 @@ __all__ = [
     "MetricsServiceRpcHandler",
     "TenantUserServiceRpcHandler",
     "TenantEmbedAppsLinksServiceRpcHandler",
+    "SavedViewServiceRpcHandler",
     "RecommendationUnitServiceRpcHandler",
     "RecommendationUnitMigrationServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
     "NaviraServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
+    "TenantConnectionServiceRpcHandler",
 ]
