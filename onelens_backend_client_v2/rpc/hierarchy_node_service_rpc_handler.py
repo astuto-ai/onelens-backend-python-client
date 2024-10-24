@@ -66,7 +66,7 @@ from onelens_backend_client_v2.models import GetHierarchyNodeByIdResponse
 from onelens_backend_client_v2.models import GetLeafNodesRequest
 
 
-from onelens_backend_client_v2.models import GetLeafNodesResponse
+from onelens_backend_client_v2.models import GetLeafNodesResponse-Output
 
 
 
@@ -1212,7 +1212,7 @@ class HierarchyNodeServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetLeafNodesResponse:
+    ) -> GetLeafNodesResponse-Output:
         """get hierarchy leaf nodes
 
         
@@ -1250,7 +1250,7 @@ class HierarchyNodeServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLeafNodesResponse",
+            '200': "GetLeafNodesResponse-Output",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
