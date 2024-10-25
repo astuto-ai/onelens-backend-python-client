@@ -86,6 +86,10 @@ from onelens_backend_client_v2.rpc.recommendation_unit_migration_service_rpc_han
     RecommendationUnitMigrationServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.cost_analyzer_service_rpc_handler import (
+    CostAnalyzerServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.cloud_account_metadata_service_rpc_handler import (
     CloudAccountMetadataServiceRpcHandler,
 )
@@ -126,6 +130,7 @@ __all__ = [
     "SavedViewServiceRpcHandler",
     "RecommendationUnitServiceRpcHandler",
     "RecommendationUnitMigrationServiceRpcHandler",
+    "CostAnalyzerServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
     "NaviraServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
