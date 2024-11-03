@@ -106,6 +106,14 @@ from onelens_backend_client_v2.rpc.tenant_connection_service_rpc_handler import 
     TenantConnectionServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.feature_service_rpc_handler import (
+    FeatureServiceRpcHandler,
+)
+
+from onelens_backend_client_v2.rpc.change_detection_service_rpc_handler import (
+    ChangeDetectionServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -135,4 +143,6 @@ __all__ = [
     "NaviraServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
+    "FeatureServiceRpcHandler",
+    "ChangeDetectionServiceRpcHandler",
 ]
