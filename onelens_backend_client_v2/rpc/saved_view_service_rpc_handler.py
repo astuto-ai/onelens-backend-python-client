@@ -410,7 +410,7 @@ class SavedViewServiceRpcHandler:
         )
 
     @validate_call
-    def mark_saved_view_as_default(
+    def toggle_default_to_saved_view(
         self,
         request: MarkViewAsDefaultRequest,
         _request_timeout: Union[
@@ -453,7 +453,7 @@ class SavedViewServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._mark_saved_view_as_default_serialize(
+        _param = self._toggle_default_to_saved_view_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -474,7 +474,7 @@ class SavedViewServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _mark_saved_view_as_default_serialize(
+    def _toggle_default_to_saved_view_serialize(
         self,
         request: MarkViewAsDefaultRequest,
         _request_auth,
@@ -517,7 +517,7 @@ class SavedViewServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/saved_view_service/mark_saved_view_as_default",
+            resource_path="/rpc/saved_view_service/toggle_default_to_saved_view",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
