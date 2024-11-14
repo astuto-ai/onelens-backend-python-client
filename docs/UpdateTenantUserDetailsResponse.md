@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **last_name** | [**LastName**](LastName.md) |  | 
 **mobile_country_code** | [**MobileCountryCode**](MobileCountryCode.md) |  | [optional] 
 **mobile_number** | [**MobileNumber**](MobileNumber.md) |  | [optional] 
-**persona** | [**CreateTenantUserRequestPersona**](CreateTenantUserRequestPersona.md) |  | [optional] 
+**persona** | [**BaseUserPersona**](BaseUserPersona.md) |  | [optional] 
 **job_title** | [**JobTitle**](JobTitle.md) |  | [optional] 
 **manager** | [**Manager**](Manager.md) |  | [optional] 
 **city** | [**City**](City.md) |  | [optional] 
@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **sources** | [**Sources**](Sources.md) |  | [optional] 
 **last_login** | [**LastLogin**](LastLogin.md) |  | [optional] 
 **created_at** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
+**node_ids** | **List[object]** | Hierarchy node ids(cost centers) the user has access to. | 
 **ol_user_id** | **object** | Unique onelens identifier for the user | 
 **id** | **object** | PK in the tenant users table | 
 

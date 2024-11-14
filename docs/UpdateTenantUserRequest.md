@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | [**UserRole**](UserRole.md) |  | [optional] 
 **persona** | [**UserPersona**](UserPersona.md) |  | [optional] 
+**node_ids** | **List[str]** |  | [optional] 
 **ol_user_id** | **str** | Unique onelens identifier for the user | 
 **tenant_id** | **str** | The unique identifier of the tenant | 
 

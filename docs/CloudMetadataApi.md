@@ -8,7 +8,7 @@ Method | Description
 
 
 # **create_root_node**
-> ResponseGetCloudMetadataResponse create_root_node()
+> ResponseGetCloudMetadataResponse create_root_node(get_cloud_metadata_api_request)
 
 Create Root Node
 
@@ -19,6 +19,7 @@ An API endpoint to get tenant cloud metadata like cloud id, region, service...
 
 ```python
 import onelens_backend_client
+from onelens_backend_client.models.get_cloud_metadata_api_request import GetCloudMetadataAPIRequest
 from onelens_backend_client.models.response_get_cloud_metadata_response import ResponseGetCloudMetadataResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
@@ -34,10 +35,11 @@ configuration = onelens_backend_client.Configuration(
 with onelens_backend_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = onelens_backend_client.CloudMetadataApi(api_client)
+    get_cloud_metadata_api_request = onelens_backend_client.GetCloudMetadataAPIRequest() # GetCloudMetadataAPIRequest | 
 
     try:
         # Create Root Node
-        api_response = api_instance.create_root_node()
+        api_response = api_instance.create_root_node(get_cloud_metadata_api_request)
         print("The response of CloudMetadataApi->create_root_node:\n")
         pprint(api_response)
     except Exception as e:
@@ -48,7 +50,10 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_cloud_metadata_api_request** | [**GetCloudMetadataAPIRequest**](GetCloudMetadataAPIRequest.md)|  | 
 
 ### Return type
 
@@ -60,7 +65,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -68,6 +73,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -12,8 +12,13 @@ Method | Description
 [**get_hierarchy_flat**](TenantHierarchyApi.md#get_hierarchy_flat) | Get Hierarchy Flat
 [**get_hierarchy_leaf_nodes**](TenantHierarchyApi.md#get_hierarchy_leaf_nodes) | Get Hierarchy Leaf Nodes
 [**get_hierarchy_node_by_id**](TenantHierarchyApi.md#get_hierarchy_node_by_id) | Get Hierarchy Node By Id
+[**get_mapped_resources**](TenantHierarchyApi.md#get_mapped_resources) | Get Mapped Resources
+[**get_mapped_resources_metrics**](TenantHierarchyApi.md#get_mapped_resources_metrics) | Get Mapped Resources Metrics
+[**get_metrics_count**](TenantHierarchyApi.md#get_metrics_count) | Get Metrics Count
+[**get_users_nodes_categories**](TenantHierarchyApi.md#get_users_nodes_categories) | Get Users Nodes Categories
 [**publish_custom_hierarchy**](TenantHierarchyApi.md#publish_custom_hierarchy) | Publish Custom Hierarchy
 [**update_hierarchy_node**](TenantHierarchyApi.md#update_hierarchy_node) | Update Hierarchy Node
+[**validate_hierarchy_node_fields**](TenantHierarchyApi.md#validate_hierarchy_node_fields) | Validate Hierarchy Node Fields
 [**validate_node_filters**](TenantHierarchyApi.md#validate_node_filters) | Validate Node Filters
 
 
@@ -291,7 +296,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hierarchy**
-> ResponseGetHierarchyResponse get_hierarchy(state=state, type=type)
+> ResponseGetHierarchyResponse get_hierarchy(state=state, type=type, with_info=with_info)
 
 Get Hierarchy
 
@@ -321,10 +326,11 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
     api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
     state = onelens_backend_client.HierarchyState() # HierarchyState | Filter by state(ACTIVE, INACTIVE, DRAFT) (optional)
     type = onelens_backend_client.HierarchyType() # HierarchyType | Filter by type(DEFAUT, CUSTOM) (optional)
+    with_info = False # bool | Whether to include additional info in the response. (optional) (default to False)
 
     try:
         # Get Hierarchy
-        api_response = api_instance.get_hierarchy(state=state, type=type)
+        api_response = api_instance.get_hierarchy(state=state, type=type, with_info=with_info)
         print("The response of TenantHierarchyApi->get_hierarchy:\n")
         pprint(api_response)
     except Exception as e:
@@ -340,6 +346,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **state** | [**HierarchyState**](.md)| Filter by state(ACTIVE, INACTIVE, DRAFT) | [optional] 
  **type** | [**HierarchyType**](.md)| Filter by type(DEFAUT, CUSTOM) | [optional] 
+ **with_info** | **bool**| Whether to include additional info in the response. | [optional] [default to False]
 
 ### Return type
 
@@ -566,6 +573,280 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_mapped_resources**
+> ResponseGetMappedResourcesResponse get_mapped_resources(get_mapped_resources_api_request)
+
+Get Mapped Resources
+
+An API endpoint to get mapped resources for a hierarchy node
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_mapped_resources_api_request import GetMappedResourcesAPIRequest
+from onelens_backend_client.models.response_get_mapped_resources_response import ResponseGetMappedResourcesResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    get_mapped_resources_api_request = onelens_backend_client.GetMappedResourcesAPIRequest() # GetMappedResourcesAPIRequest | 
+
+    try:
+        # Get Mapped Resources
+        api_response = api_instance.get_mapped_resources(get_mapped_resources_api_request)
+        print("The response of TenantHierarchyApi->get_mapped_resources:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->get_mapped_resources: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_mapped_resources_api_request** | [**GetMappedResourcesAPIRequest**](GetMappedResourcesAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetMappedResourcesResponse**](ResponseGetMappedResourcesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_mapped_resources_metrics**
+> ResponseHierarchyNodeResourceMetrics get_mapped_resources_metrics(get_mapped_resources_metrics_api_request)
+
+Get Mapped Resources Metrics
+
+An API endpoint to get metrics count
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_mapped_resources_metrics_api_request import GetMappedResourcesMetricsAPIRequest
+from onelens_backend_client.models.response_hierarchy_node_resource_metrics import ResponseHierarchyNodeResourceMetrics
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    get_mapped_resources_metrics_api_request = onelens_backend_client.GetMappedResourcesMetricsAPIRequest() # GetMappedResourcesMetricsAPIRequest | 
+
+    try:
+        # Get Mapped Resources Metrics
+        api_response = api_instance.get_mapped_resources_metrics(get_mapped_resources_metrics_api_request)
+        print("The response of TenantHierarchyApi->get_mapped_resources_metrics:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->get_mapped_resources_metrics: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_mapped_resources_metrics_api_request** | [**GetMappedResourcesMetricsAPIRequest**](GetMappedResourcesMetricsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseHierarchyNodeResourceMetrics**](ResponseHierarchyNodeResourceMetrics.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_metrics_count**
+> ResponseHierarchyNodeResourceMetrics get_metrics_count(get_metrics_count_api_request)
+
+Get Metrics Count
+
+An API endpoint to get metrics count
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_metrics_count_api_request import GetMetricsCountAPIRequest
+from onelens_backend_client.models.response_hierarchy_node_resource_metrics import ResponseHierarchyNodeResourceMetrics
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    get_metrics_count_api_request = onelens_backend_client.GetMetricsCountAPIRequest() # GetMetricsCountAPIRequest | 
+
+    try:
+        # Get Metrics Count
+        api_response = api_instance.get_metrics_count(get_metrics_count_api_request)
+        print("The response of TenantHierarchyApi->get_metrics_count:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->get_metrics_count: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_metrics_count_api_request** | [**GetMetricsCountAPIRequest**](GetMetricsCountAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseHierarchyNodeResourceMetrics**](ResponseHierarchyNodeResourceMetrics.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_users_nodes_categories**
+> ResponseGetUsersNodesCategories get_users_nodes_categories()
+
+Get Users Nodes Categories
+
+An API endpoint to create default org hierarchy
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_get_users_nodes_categories import ResponseGetUsersNodesCategories
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+
+    try:
+        # Get Users Nodes Categories
+        api_response = api_instance.get_users_nodes_categories()
+        print("The response of TenantHierarchyApi->get_users_nodes_categories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->get_users_nodes_categories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ResponseGetUsersNodesCategories**](ResponseGetUsersNodesCategories.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **publish_custom_hierarchy**
 > ResponseCreateHierarchyRootNodeResponse publish_custom_hierarchy()
 
@@ -683,6 +964,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResponseCreateHierarchyRootNodeResponse**](ResponseCreateHierarchyRootNodeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_hierarchy_node_fields**
+> ResponseValidateHierarchyNodeFieldsResponse validate_hierarchy_node_fields(validate_hierarchy_node_fields_api_request)
+
+Validate Hierarchy Node Fields
+
+An API endpoint to validate hierarchy node fields
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.response_validate_hierarchy_node_fields_response import ResponseValidateHierarchyNodeFieldsResponse
+from onelens_backend_client.models.validate_hierarchy_node_fields_api_request import ValidateHierarchyNodeFieldsAPIRequest
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantHierarchyApi(api_client)
+    validate_hierarchy_node_fields_api_request = onelens_backend_client.ValidateHierarchyNodeFieldsAPIRequest() # ValidateHierarchyNodeFieldsAPIRequest | 
+
+    try:
+        # Validate Hierarchy Node Fields
+        api_response = api_instance.validate_hierarchy_node_fields(validate_hierarchy_node_fields_api_request)
+        print("The response of TenantHierarchyApi->validate_hierarchy_node_fields:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantHierarchyApi->validate_hierarchy_node_fields: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validate_hierarchy_node_fields_api_request** | [**ValidateHierarchyNodeFieldsAPIRequest**](ValidateHierarchyNodeFieldsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseValidateHierarchyNodeFieldsResponse**](ResponseValidateHierarchyNodeFieldsResponse.md)
 
 ### Authorization
 

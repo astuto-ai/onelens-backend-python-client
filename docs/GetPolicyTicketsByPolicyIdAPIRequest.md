@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **pagination** | [**PaginationParams**](PaginationParams.md) | Pagination parameters for the request. | [optional] 
 **filters** | [**List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]**](OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria.md) | Filters to be applied | 
 **sort_criteria** | [**SortCriteria**](SortCriteria.md) |  | [optional] 
+**selected_fields** | [**List[TicketsSelectedField]**](TicketsSelectedField.md) |  | [optional] 
 
 ## Example
 

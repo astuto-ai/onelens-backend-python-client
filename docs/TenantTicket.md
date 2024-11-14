@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **id** | **str** | The unique identifier of the ticket | 
 **status** | [**Status**](Status.md) |  | 
 **details** | [**Details1**](Details1.md) |  | 
+**ticket_alias** | **int** |  | [optional] 
+**trigger_id** | **str** | The unique identifier of the trigger that created the ticket | 
 
 ## Example
 

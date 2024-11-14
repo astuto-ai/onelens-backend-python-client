@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ticket_id** | **str** | The unique identifier of the ticket | 
+**ticket_alias** | **str** | The unique identifier of the ticket | 
 **status** | [**PolicyTicketStatus**](PolicyTicketStatus.md) | Status of the ticket | 
 **state** | [**TicketState**](TicketState.md) | State of the ticket | 
 **violation_attributes** | **object** | Attributes of the violation | 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **policy_id** | **str** | The unique identifier of the policy | 
 **policy_title** | **str** | Policy name | 
 **policy_labels** | **List[str]** | List of policy labels | [optional] 
+**policy_display_alias** | **str** |  | [optional] 
 **policy_violated_on** | **datetime** | Datetime of the policy violation | 
 **potential_savings** | **float** | Potential savings possible for the current policy violation | 
 **resource_id** | **str** |  | [optional] 

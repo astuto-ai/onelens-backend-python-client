@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **metric_name** | **str** | The name of the metric. | 
 **aggregation_type** | [**MetricsAggregationType**](MetricsAggregationType.md) | The aggregation type of the metric. | 
 **look_back_period** | [**MetricsLookBackPeriod**](MetricsLookBackPeriod.md) |  | [optional] 
+**filter** | [**List[MetricChartFilters]**](MetricChartFilters.md) |  | [optional] 
 **threshold** | [**MetricsThreshold**](MetricsThreshold.md) |  | [optional] 
 
 ## Example

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query** | [**MetricsQueryOutput**](MetricsQueryOutput.md) | Query for the metric | 
-**metrics** | [**List[Metric]**](Metric.md) |  | 
+**metrics** | [**List[OnelensModelsServiceInterfacesTenantDataMetricsServiceMetric]**](OnelensModelsServiceInterfacesTenantDataMetricsServiceMetric.md) |  | 
 **unit** | **str** |  | 
 
 ## Example

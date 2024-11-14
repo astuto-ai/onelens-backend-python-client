@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The unique identifier of the hierarchy node. | 
 **tenant_id** | **str** | The id of the tenant. | 
+**with_info** | **bool** | Whether to include additional info in the response. | [optional] [default to True]
 
 ## Example
 

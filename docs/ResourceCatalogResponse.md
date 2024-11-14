@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **last_updated_at** | **datetime** | The last updated at. | 
 **account_name** | **str** |  | [optional] 
 **tagged_resource** | **bool** |  | [optional] 
+**resource_created_at** | **datetime** |  | [optional] 
+**resource_updated_at** | **datetime** |  | [optional] 
 
 ## Example
 

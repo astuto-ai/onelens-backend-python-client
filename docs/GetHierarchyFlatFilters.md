@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **parent_names** | **List[str]** |  | [optional] 
 **has_conflict** | **List[bool]** |  | [optional] 
 **node_category** | [**List[OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2]**](OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2.md) |  | [optional] 
+**node_ids** | **List[str]** |  | [optional] 
 
 ## Example
 

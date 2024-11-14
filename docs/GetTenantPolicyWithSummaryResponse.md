@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | [**TenantPolicy**](TenantPolicy.md) | The policy details. | 
+**policy** | [**TenantPolicyWithPolicyDisplayAlias**](TenantPolicyWithPolicyDisplayAlias.md) | The policy details. | 
 **recommendation_units** | **List[str]** | List of recommendation units names. | 
 
 ## Example

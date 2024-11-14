@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **email** | [**Email**](Email.md) |  | [optional] 
 **mobile_country_code** | [**MobileCountryCode**](MobileCountryCode.md) |  | [optional] 
 **mobile_number** | [**MobileNumber**](MobileNumber.md) |  | [optional] 
-**persona** | [**CreateTenantUserRequestPersona**](CreateTenantUserRequestPersona.md) |  | [optional] 
+**persona** | [**BaseUserPersona**](BaseUserPersona.md) |  | [optional] 
 **role** | [**UserRole**](UserRole.md) | Role of the user in the tenant | [optional] 
 **job_title** | [**JobTitle**](JobTitle.md) |  | [optional] 
 **manager** | [**Manager**](Manager.md) |  | [optional] 
@@ -28,7 +28,10 @@ Name | Type | Description | Notes
 **status** | [**UserStatus**](UserStatus.md) | Status of the user like ACTIVE, BLOCKED etc. | [optional] 
 **sources** | [**Sources**](Sources.md) |  | [optional] 
 **created_at** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
+**node_ids** | **List[object]** | Hierarchy node ids(cost centers) the user has access to. | 
 **ol_user_id** | **object** | Unique onelens identifier for the user | 
+**nodes** | [**List[HierarchyNodeEntityWithDetails]**](HierarchyNodeEntityWithDetails.md) | Hierarchy nodes&#39; details the user has access to | 
+**action_level** | [**TenantUserActionLevel**](TenantUserActionLevel.md) | Action that can be performed on this user | 
 
 ## Example
 

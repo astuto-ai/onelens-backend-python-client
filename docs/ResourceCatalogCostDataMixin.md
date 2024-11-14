@@ -7,13 +7,13 @@ Resource Catalog Cost Data
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The id of the resource catalog cost data. | 
-**resource_id** | **str** | The id of the resource. | 
+**resource_catalog_id** | **str** | The id of the resource catalog. | 
 **start_datetime** | **datetime** | The start datetime. | 
 **end_datetime** | **datetime** | The end datetime. | 
 **granularity** | [**OnelensModelsServiceInterfacesUtilitiesCommonsGranularityUnit**](OnelensModelsServiceInterfacesUtilitiesCommonsGranularityUnit.md) | The granularity. | 
-**unblended_cost** | **float** | The unblended cost. | [optional] 
-**blended_cost** | **float** | The blended cost. | [optional] 
-**net_unblended_cost** | **float** | The net unblended cost. | [optional] 
+**unblended_cost** | **float** |  | [optional] 
+**blended_cost** | **float** |  | [optional] 
+**net_unblended_cost** | **float** |  | [optional] 
 
 ## Example
 

@@ -133,8 +133,8 @@ def main(openapi_file: str, output_dir: str):
         init_file.write(rendered_template)
 
     # Format the generated code
-    subprocess.run(["ruff", "check", "--fix", output_dir])
-    subprocess.run(["ruff", "format", output_dir])
+    #subprocess.run(["ruff", "check", "--fix", output_dir])
+    #subprocess.run(["ruff", "format", output_dir])
 
 
 if __name__ == "__main__":

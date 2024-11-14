@@ -6,7 +6,7 @@ hierarchy node resource metrics like unique count and conflict count of resource
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **int** | The total count of the resource. | 
+**total** | **int** |  | [optional] 
 **unique** | **int** |  | [optional] 
 **conflicting** | **int** |  | [optional] 
 

@@ -6,7 +6,7 @@ get leaf nodes response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodes** | [**List[HierarchyNodeEntityDTO]**](HierarchyNodeEntityDTO.md) | List of leaf nodes. | 
+**nodes** | [**List[HierarchyNodeEntityDTOOutput]**](HierarchyNodeEntityDTOOutput.md) | List of leaf nodes. | 
 
 ## Example
 

@@ -155,7 +155,7 @@ No authorization required
 
 Enable Organization
 
-An API endpoint that retrieves organization with organization IDs.
+An API endpoint to update organisation status to enable.
 
 ### Example
 

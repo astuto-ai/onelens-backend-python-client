@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**var_field** | **str** |  | 
+**var_field** | [**ModelField**](ModelField.md) |  | 
 **operator** | [**OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator**](OnelensDomainUtilitiesRepositoriesDynamicFiltersOperator.md) |  | 
-**value** | [**Value1**](Value1.md) |  | 
+**value** | [**Value4**](Value4.md) |  | 
 
 ## Example
 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **description** | **str** | Description | 
 **effort** | [**Effort**](Effort.md) | Effort | 
 **query_details** | [**RecommendationQueryDetails**](RecommendationQueryDetails.md) |  | 
+**target_attribute** | **str** |  | [optional] 
 
 ## Example
 

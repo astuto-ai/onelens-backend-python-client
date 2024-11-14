@@ -6,6 +6,8 @@ create a branch node request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**created_by** | **str** |  | [optional] 
+**updated_by** | **str** |  | [optional] 
 **name** | **str** |  | 
 **parent_id** | **str** |  | 
 **category** | **str** |  | 
@@ -13,6 +15,7 @@ Name | Type | Description | Notes
 **resource_filter_expression** | **str** |  | [optional] 
 **is_shared** | **bool** | is this node a shared node or not. | [optional] [default to False]
 **attribution_details** | [**HierarchyNodeAttributionDetails**](HierarchyNodeAttributionDetails.md) |  | [optional] 
+**description** | **str** |  | [optional] 
 **tenant_id** | **str** | The id of the tenant. | 
 
 ## Example

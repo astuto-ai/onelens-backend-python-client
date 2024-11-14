@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **description2** | **str** | The description2 of the policy template. | [optional] 
 **resource_type** | **str** | The resource type of the policy template. | 
 **recommendation_details** | [**PolicyTemplateRecommendationDetailsInput**](PolicyTemplateRecommendationDetailsInput.md) | The recommendation details for the policy template. | 
+**activated_at** | **datetime** |  | [optional] 
 **requirements** | **str** |  | [optional] 
 
 ## Example

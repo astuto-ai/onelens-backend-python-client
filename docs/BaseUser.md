@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ol_user_id** | **object** | Unique onelens identifier for the user | 
 **first_name** | [**FirstName**](FirstName.md) |  | 
 **middle_name** | [**MiddleName**](MiddleName.md) |  | [optional] 
 **last_name** | [**LastName**](LastName.md) |  | 
@@ -13,7 +12,7 @@ Name | Type | Description | Notes
 **mobile_country_code** | [**MobileCountryCode**](MobileCountryCode.md) |  | [optional] 
 **mobile_number** | [**MobileNumber**](MobileNumber.md) |  | [optional] 
 **persona** | [**BaseUserPersona**](BaseUserPersona.md) |  | [optional] 
-**role** | [**BaseUserRole**](BaseUserRole.md) |  | [optional] 
+**role** | [**UserRole**](UserRole.md) | Role of the user in the tenant | [optional] 
 **job_title** | [**JobTitle**](JobTitle.md) |  | [optional] 
 **manager** | [**Manager**](Manager.md) |  | [optional] 
 **city** | [**City**](City.md) |  | [optional] 
@@ -25,7 +24,11 @@ Name | Type | Description | Notes
 **display_date_format** | [**DisplayDateFormat**](DisplayDateFormat.md) |  | [optional] 
 **display_time_format** | [**DisplayTimeFormat**](DisplayTimeFormat.md) |  | [optional] 
 **status** | [**UserStatus**](UserStatus.md) | Status of the user like ACTIVE, BLOCKED etc. | [optional] 
-**sources** | **List[object]** | Different sources from where user signed up. e.g. social signup, username-password | 
+**sources** | [**Sources**](Sources.md) |  | [optional] 
+**last_login** | [**LastLogin**](LastLogin.md) |  | [optional] 
+**created_at** | [**CreatedAt**](CreatedAt.md) |  | [optional] 
+**node_ids** | **List[object]** | Hierarchy node ids(cost centers) the user has access to. | 
+**ol_user_id** | **object** | Unique onelens identifier for the user | 
 
 ## Example
 

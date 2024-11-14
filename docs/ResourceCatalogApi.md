@@ -6,8 +6,10 @@ Method | Description
 ------------- | -------------
 [**get_all_resource_catalogs**](ResourceCatalogApi.md#get_all_resource_catalogs) | Get All Resource Catalogs
 [**get_resource_catalog**](ResourceCatalogApi.md#get_resource_catalog) | Get Resource Catalog
-[**get_resource_catalog_stats**](ResourceCatalogApi.md#get_resource_catalog_stats) | Get Resource Catalog Stats
+[**get_resource_catalog_cost_data_stats**](ResourceCatalogApi.md#get_resource_catalog_cost_data_stats) | Get Resource Catalog Cost Data Stats
+[**get_resource_catalog_count_stats**](ResourceCatalogApi.md#get_resource_catalog_count_stats) | Get Resource Catalog Count Stats
 [**get_resource_catalog_with_relationships**](ResourceCatalogApi.md#get_resource_catalog_with_relationships) | Get Resource Catalog With Relationships
+[**get_untagged_resource_catalog_count_stats**](ResourceCatalogApi.md#get_untagged_resource_catalog_count_stats) | Get Untagged Resource Catalog Count Stats
 [**upsert_resource_catalog_cost_data**](ResourceCatalogApi.md#upsert_resource_catalog_cost_data) | Upsert Resource Catalog Cost Data
 
 
@@ -150,10 +152,80 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_resource_catalog_stats**
-> ResponseGetResourceCatalogStatsResponse get_resource_catalog_stats(get_resource_catalog_stats_api_request)
+# **get_resource_catalog_cost_data_stats**
+> ResponseGetResourceCatalogCostDataStatsResponse get_resource_catalog_cost_data_stats(get_resource_catalog_cost_data_stats_api_request)
 
-Get Resource Catalog Stats
+Get Resource Catalog Cost Data Stats
+
+API to get all Resource Catalog Cost Data Stats
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_resource_catalog_cost_data_stats_api_request import GetResourceCatalogCostDataStatsAPIRequest
+from onelens_backend_client.models.response_get_resource_catalog_cost_data_stats_response import ResponseGetResourceCatalogCostDataStatsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceCatalogApi(api_client)
+    get_resource_catalog_cost_data_stats_api_request = onelens_backend_client.GetResourceCatalogCostDataStatsAPIRequest() # GetResourceCatalogCostDataStatsAPIRequest | 
+
+    try:
+        # Get Resource Catalog Cost Data Stats
+        api_response = api_instance.get_resource_catalog_cost_data_stats(get_resource_catalog_cost_data_stats_api_request)
+        print("The response of ResourceCatalogApi->get_resource_catalog_cost_data_stats:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceCatalogApi->get_resource_catalog_cost_data_stats: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_resource_catalog_cost_data_stats_api_request** | [**GetResourceCatalogCostDataStatsAPIRequest**](GetResourceCatalogCostDataStatsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetResourceCatalogCostDataStatsResponse**](ResponseGetResourceCatalogCostDataStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resource_catalog_count_stats**
+> ResponseGetResourceCatalogCountStatsResponse get_resource_catalog_count_stats(get_resource_catalog_stats_api_request)
+
+Get Resource Catalog Count Stats
 
 API to get all Resource Catalog Stats
 
@@ -163,7 +235,7 @@ API to get all Resource Catalog Stats
 ```python
 import onelens_backend_client
 from onelens_backend_client.models.get_resource_catalog_stats_api_request import GetResourceCatalogStatsAPIRequest
-from onelens_backend_client.models.response_get_resource_catalog_stats_response import ResponseGetResourceCatalogStatsResponse
+from onelens_backend_client.models.response_get_resource_catalog_count_stats_response import ResponseGetResourceCatalogCountStatsResponse
 from onelens_backend_client.rest import ApiException
 from pprint import pprint
 
@@ -181,12 +253,12 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
     get_resource_catalog_stats_api_request = onelens_backend_client.GetResourceCatalogStatsAPIRequest() # GetResourceCatalogStatsAPIRequest | 
 
     try:
-        # Get Resource Catalog Stats
-        api_response = api_instance.get_resource_catalog_stats(get_resource_catalog_stats_api_request)
-        print("The response of ResourceCatalogApi->get_resource_catalog_stats:\n")
+        # Get Resource Catalog Count Stats
+        api_response = api_instance.get_resource_catalog_count_stats(get_resource_catalog_stats_api_request)
+        print("The response of ResourceCatalogApi->get_resource_catalog_count_stats:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ResourceCatalogApi->get_resource_catalog_stats: %s\n" % e)
+        print("Exception when calling ResourceCatalogApi->get_resource_catalog_count_stats: %s\n" % e)
 ```
 
 
@@ -200,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseGetResourceCatalogStatsResponse**](ResponseGetResourceCatalogStatsResponse.md)
+[**ResponseGetResourceCatalogCountStatsResponse**](ResponseGetResourceCatalogCountStatsResponse.md)
 
 ### Authorization
 
@@ -278,6 +350,76 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_untagged_resource_catalog_count_stats**
+> ResponseGetUntaggedResourceCatalogCountStatsResponse get_untagged_resource_catalog_count_stats(get_resource_catalog_stats_api_request)
+
+Get Untagged Resource Catalog Count Stats
+
+API to get all Untagged Resource Catalog Stats
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_resource_catalog_stats_api_request import GetResourceCatalogStatsAPIRequest
+from onelens_backend_client.models.response_get_untagged_resource_catalog_count_stats_response import ResponseGetUntaggedResourceCatalogCountStatsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceCatalogApi(api_client)
+    get_resource_catalog_stats_api_request = onelens_backend_client.GetResourceCatalogStatsAPIRequest() # GetResourceCatalogStatsAPIRequest | 
+
+    try:
+        # Get Untagged Resource Catalog Count Stats
+        api_response = api_instance.get_untagged_resource_catalog_count_stats(get_resource_catalog_stats_api_request)
+        print("The response of ResourceCatalogApi->get_untagged_resource_catalog_count_stats:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceCatalogApi->get_untagged_resource_catalog_count_stats: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_resource_catalog_stats_api_request** | [**GetResourceCatalogStatsAPIRequest**](GetResourceCatalogStatsAPIRequest.md)|  | 
+
+### Return type
+
+[**ResponseGetUntaggedResourceCatalogCountStatsResponse**](ResponseGetUntaggedResourceCatalogCountStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

@@ -15,11 +15,13 @@ Name | Type | Description | Notes
 **description2** | **str** | The description2 of the policy template. | [optional] 
 **resource_type** | **str** | The resource type of the policy template. | 
 **recommendation_details** | [**PolicyTemplateRecommendationDetailsOutput**](PolicyTemplateRecommendationDetailsOutput.md) | The recommendation details for the policy template. | 
+**activated_at** | **datetime** | The timestamp when the policy was activated. | 
 **policy_template_id** | **str** | The id of the policy template. | 
 **category** | [**PolicyCategory**](PolicyCategory.md) | The category of the policy template. | 
 **provider** | [**Provider**](Provider.md) | The cloud provider of the policy template. | 
 **id** | **str** | The unique identifier of the tenant policy. | 
 **state** | [**TenantPolicySystemState**](TenantPolicySystemState.md) | The state of the tenant policy. | 
+**is_new** | **bool** | Flag to indicate if the policy is new. | [optional] [default to False]
 
 ## Example
 

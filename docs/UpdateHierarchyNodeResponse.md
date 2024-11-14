@@ -6,6 +6,10 @@ update a branch node response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**created_by** | **str** |  | [optional] 
+**updated_by** | **str** |  | [optional] 
+**created_at** | **datetime** |  | [optional] 
+**updated_at** | **datetime** |  | [optional] 
 **name** | **str** |  | 
 **parent_id** | **str** |  | 
 **category** | **str** |  | 
@@ -13,6 +17,7 @@ Name | Type | Description | Notes
 **resource_filter_expression** | **str** |  | [optional] 
 **is_shared** | **bool** | is this node a shared node or not. | [optional] [default to False]
 **attribution_details** | [**HierarchyNodeAttributionDetails**](HierarchyNodeAttributionDetails.md) |  | [optional] 
+**description** | **str** |  | [optional] 
 **id** | **str** | The unique identifier of the hierarchy node. | 
 **state** | [**HierarchyNodeState**](HierarchyNodeState.md) | The state of the hierarchy node. | 
 **sql_filter** | **str** |  | [optional] 

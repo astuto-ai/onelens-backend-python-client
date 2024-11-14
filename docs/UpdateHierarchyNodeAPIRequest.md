@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **resource_filter_expression** | **str** |  | [optional] 
 **is_shared** | **bool** |  | [optional] 
 **attribution_details** | [**HierarchyNodeAttributionDetails**](HierarchyNodeAttributionDetails.md) |  | [optional] 
+**description** | **str** |  | [optional] 
 
 ## Example
 

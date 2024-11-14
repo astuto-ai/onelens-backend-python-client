@@ -6,8 +6,10 @@ Method | Description
 ------------- | -------------
 [**bulk_update_tenant_tickets**](TenantTicketServiceApi.md#bulk_update_tenant_tickets) | Bulk update tenant tickets
 [**create_tenant_tickets**](TenantTicketServiceApi.md#create_tenant_tickets) | Creates policy tickets in bulk
+[**export_policy_tickets**](TenantTicketServiceApi.md#export_policy_tickets) | Exports policy tickets to CSV format.
 [**get_all_policy_violations**](TenantTicketServiceApi.md#get_all_policy_violations) | Get All Policy Violations
 [**get_policy_ticket_stats**](TenantTicketServiceApi.md#get_policy_ticket_stats) | Get Policy Ticket Stats
+[**get_policy_ticket_stats_v2**](TenantTicketServiceApi.md#get_policy_ticket_stats_v2) | Get Policy Ticket Stats V2
 [**get_policy_tickets_by_entity_id**](TenantTicketServiceApi.md#get_policy_tickets_by_entity_id) | Get Policy Tickets By Entity Id
 [**get_policy_tickets_by_policy_id**](TenantTicketServiceApi.md#get_policy_tickets_by_policy_id) | Get Policy Tickets By Policy Id
 [**get_tenant_ticket_by_id_with_policy_details**](TenantTicketServiceApi.md#get_tenant_ticket_by_id_with_policy_details) | Retrieves all active tickets of a tenant.
@@ -151,6 +153,74 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **export_policy_tickets**
+> GetPolicyTicketsExportToResponseType export_policy_tickets(get_policy_tickets_export_request)
+
+Exports policy tickets to CSV format.
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_policy_tickets_export_request import GetPolicyTicketsExportRequest
+from onelens_backend_client.models.get_policy_tickets_export_to_response_type import GetPolicyTicketsExportToResponseType
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantTicketServiceApi(api_client)
+    get_policy_tickets_export_request = onelens_backend_client.GetPolicyTicketsExportRequest() # GetPolicyTicketsExportRequest | 
+
+    try:
+        # Exports policy tickets to CSV format.
+        api_response = api_instance.export_policy_tickets(get_policy_tickets_export_request)
+        print("The response of TenantTicketServiceApi->export_policy_tickets:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantTicketServiceApi->export_policy_tickets: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_policy_tickets_export_request** | [**GetPolicyTicketsExportRequest**](GetPolicyTicketsExportRequest.md)|  | 
+
+### Return type
+
+[**GetPolicyTicketsExportToResponseType**](GetPolicyTicketsExportToResponseType.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_all_policy_violations**
 > GetAllPolicyViolationsResponse get_all_policy_violations(get_all_policy_violations_request)
 
@@ -264,6 +334,74 @@ with onelens_backend_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **get_policy_ticket_stats_request** | [**GetPolicyTicketStatsRequest**](GetPolicyTicketStatsRequest.md)|  | 
+
+### Return type
+
+[**GetPolicyTicketStatsResponse**](GetPolicyTicketStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_policy_ticket_stats_v2**
+> GetPolicyTicketStatsResponse get_policy_ticket_stats_v2(get_policy_ticket_stats_request_v2)
+
+Get Policy Ticket Stats V2
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_policy_ticket_stats_request_v2 import GetPolicyTicketStatsRequestV2
+from onelens_backend_client.models.get_policy_ticket_stats_response import GetPolicyTicketStatsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.TenantTicketServiceApi(api_client)
+    get_policy_ticket_stats_request_v2 = onelens_backend_client.GetPolicyTicketStatsRequestV2() # GetPolicyTicketStatsRequestV2 | 
+
+    try:
+        # Get Policy Ticket Stats V2
+        api_response = api_instance.get_policy_ticket_stats_v2(get_policy_ticket_stats_request_v2)
+        print("The response of TenantTicketServiceApi->get_policy_ticket_stats_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TenantTicketServiceApi->get_policy_ticket_stats_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_policy_ticket_stats_request_v2** | [**GetPolicyTicketStatsRequestV2**](GetPolicyTicketStatsRequestV2.md)|  | 
 
 ### Return type
 

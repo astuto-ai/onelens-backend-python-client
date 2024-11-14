@@ -4,7 +4,7 @@ Run this to regenerate the client code locally. OneLens Backend must be running 
 # Client Generator V1
 ```
 docker run --rm -v "${PWD}:/onelens-backend-python-client" openapitools/openapi-generator-cli:v7.5.0 generate \
--i http://host.docker.internal:19000/openapi.json \
+-i http://host.docker.internal:8001/openapi.json \
 -g python \
 -o /onelens-backend-python-client/ \
 -t /onelens-backend-python-client/templates/ \
@@ -21,5 +21,5 @@ git restore onelens_backend_client_v2/__init__.py
 ```
 poetry install
 poetry shell
-python3 client_generator.py -i http://localhost:19000/openapi.json -o onelens_backend_client_v2
+python3 client_generator.py -i http://localhost:8001/openapi.json -o onelens_backend_client_v2
 ```

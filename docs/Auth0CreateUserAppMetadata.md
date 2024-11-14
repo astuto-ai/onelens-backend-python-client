@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | [**UserRole**](UserRole.md) | The role of the user in Auth0. | 
 **tenant_id** | **str** |  | [optional] 
+**node_ids** | **List[str]** | The node_ids of the user in Auth0. | 
 
 ## Example
 

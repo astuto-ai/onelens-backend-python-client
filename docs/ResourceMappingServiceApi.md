@@ -9,6 +9,7 @@ Method | Description
 [**delete_mappings_by_node_ids**](ResourceMappingServiceApi.md#delete_mappings_by_node_ids) | delete resource hierarchy mappings by node ids
 [**get_mapping_by_ol_id**](ResourceMappingServiceApi.md#get_mapping_by_ol_id) | get resource hierarchy mapping by ol id
 [**get_node_metrics**](ResourceMappingServiceApi.md#get_node_metrics) | get hierarchy node metrics
+[**get_resource_ids_list_for_node_ids**](ResourceMappingServiceApi.md#get_resource_ids_list_for_node_ids) | get resource ids list for node ids
 
 
 # **create**
@@ -329,6 +330,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetHierarchyNodeMetricsResponse**](GetHierarchyNodeMetricsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resource_ids_list_for_node_ids**
+> GetResourceIdsListForNodeIdsResponse get_resource_ids_list_for_node_ids(get_resource_ids_list_for_node_ids_request)
+
+get resource ids list for node ids
+
+### Example
+
+
+```python
+import onelens_backend_client
+from onelens_backend_client.models.get_resource_ids_list_for_node_ids_request import GetResourceIdsListForNodeIdsRequest
+from onelens_backend_client.models.get_resource_ids_list_for_node_ids_response import GetResourceIdsListForNodeIdsResponse
+from onelens_backend_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = onelens_backend_client.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with onelens_backend_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = onelens_backend_client.ResourceMappingServiceApi(api_client)
+    get_resource_ids_list_for_node_ids_request = onelens_backend_client.GetResourceIdsListForNodeIdsRequest() # GetResourceIdsListForNodeIdsRequest | 
+
+    try:
+        # get resource ids list for node ids
+        api_response = api_instance.get_resource_ids_list_for_node_ids(get_resource_ids_list_for_node_ids_request)
+        print("The response of ResourceMappingServiceApi->get_resource_ids_list_for_node_ids:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResourceMappingServiceApi->get_resource_ids_list_for_node_ids: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_resource_ids_list_for_node_ids_request** | [**GetResourceIdsListForNodeIdsRequest**](GetResourceIdsListForNodeIdsRequest.md)|  | 
+
+### Return type
+
+[**GetResourceIdsListForNodeIdsResponse**](GetResourceIdsListForNodeIdsResponse.md)
 
 ### Authorization
 

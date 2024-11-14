@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metric_value** | **int** | Fetched metric | 
+**policy_count** | **int** | Fetched metric | 
+**services_count** | **int** | Fetched metric | 
+**last_month_policy_count** | **int** | Fetched metric | 
 
 ## Example
 

@@ -7,10 +7,11 @@ Get All Resource Catalogs Response
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pagination** | [**PaginationFields**](PaginationFields.md) | Pagination fields. | 
-**resources** | [**List[ResourceCatalog]**](ResourceCatalog.md) | List of resource catalog. | 
+**resources** | [**List[ResourceCatalogWithCost]**](ResourceCatalogWithCost.md) | List of resource catalog. | 
 **status** | [**GenerationStatus**](GenerationStatus.md) | The status of the query, represented as an enum value. | [optional] 
 **ambiguous_values** | **List[str]** |  | [optional] 
 **navira_log_id** | **str** |  | [optional] 
+**ai_interpretation** | **str** |  | [optional] 
 
 ## Example
 

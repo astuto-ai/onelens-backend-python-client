@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metrics** | [**List[Metric]**](Metric.md) |  | 
+**metrics** | [**List[OnelensModelsServiceInterfacesTenantDataMetricsServiceMetric]**](OnelensModelsServiceInterfacesTenantDataMetricsServiceMetric.md) |  | 
 **unit** | **str** |  | 
 
 ## Example

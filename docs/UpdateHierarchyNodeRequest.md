@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 **resource_filter_expression** | **str** |  | [optional] 
 **is_shared** | **bool** |  | [optional] 
 **attribution_details** | [**HierarchyNodeAttributionDetails**](HierarchyNodeAttributionDetails.md) |  | [optional] 
+**description** | **str** |  | [optional] 
 **node_id** | **str** | The id of the node. | 
 **tenant_id** | **str** | The id of the tenant. | 
+**updated_by** | **str** | The id of the user updating the node. | 
 
 ## Example
 

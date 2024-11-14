@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | [**UserRole**](UserRole.md) |  | [optional] 
 **persona** | [**UserPersona**](UserPersona.md) |  | [optional] 
+**node_ids** | **List[str]** |  | [optional] 
 
 ## Example
 

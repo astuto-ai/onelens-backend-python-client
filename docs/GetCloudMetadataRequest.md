@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**filters** | [**CloudMetadataFilters**](CloudMetadataFilters.md) |  | [optional] 
 **tenant_id** | **str** | The id of the tenant. | 
 
 ## Example

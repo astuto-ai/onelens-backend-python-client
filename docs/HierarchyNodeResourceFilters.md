@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **key** | **int** |  | 
 **var_field** | **str** |  | 
 **operator** | **str** |  | 
-**value** | [**Value**](Value.md) |  | 
+**value** | [**Value1**](Value1.md) |  | 
 **json_key** | **str** |  | [optional] 
 
 ## Example

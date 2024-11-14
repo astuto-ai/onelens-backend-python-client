@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **int** | The value of the metric. | 
-**unit** | **str** | The unit of the value. | 
+**unit** | **str** |  | [optional] 
 
 ## Example
 

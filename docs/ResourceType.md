@@ -12,6 +12,11 @@ Name | Type | Description | Notes
 **resource_url_template** | **str** |  | 
 **is_tags_available** | **bool** |  | 
 **relationship_config** | [**List[RelationshipConfigItem]**](RelationshipConfigItem.md) |  | 
+**created_at_column** | **str** |  | [optional] 
+**updated_at_column** | **str** |  | [optional] 
+**metrics** | [**List[OnelensModelsServiceInterfacesTenantMetadataServiceCatalogDtoMetric]**](OnelensModelsServiceInterfacesTenantMetadataServiceCatalogDtoMetric.md) |  | [optional] 
+**metric_table** | **str** |  | [optional] 
+**resource_metric_config** | [**ResourceMetricConfig**](ResourceMetricConfig.md) |  | [optional] 
 
 ## Example
 

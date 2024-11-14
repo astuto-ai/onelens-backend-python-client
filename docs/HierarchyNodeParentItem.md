@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | [**NodeId**](NodeId.md) |  | 
 **name** | **str** | The name of the node. | 
+**category** | [**OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2**](OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2.md) | The category of the node. | 
 
 ## Example
 

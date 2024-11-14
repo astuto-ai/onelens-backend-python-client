@@ -1,8 +1,10 @@
 # TenantTicketServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 
 
 from onelens_backend_client_v2.models import BulkUpdateTenantTicketsRequest
@@ -11,10 +13,12 @@ from onelens_backend_client_v2.models import BulkUpdateTenantTicketsRequest
 from onelens_backend_client_v2.models import BulkUpdateTenantTicketsResponse
 
 
+
 from onelens_backend_client_v2.models import CreateTenantTicketsRequest
 
 
 from onelens_backend_client_v2.models import CreateTenantTicketsResponse
+
 
 
 from onelens_backend_client_v2.models import GetPolicyTicketsExportRequest
@@ -23,10 +27,19 @@ from onelens_backend_client_v2.models import GetPolicyTicketsExportRequest
 from onelens_backend_client_v2.models import GetPolicyTicketsExportToResponseType
 
 
+
 from onelens_backend_client_v2.models import GetAllPolicyViolationsRequest
 
 
 from onelens_backend_client_v2.models import GetAllPolicyViolationsResponse
+
+
+
+from onelens_backend_client_v2.models import GetPolicyTicketsForNotificationRequest
+
+
+from onelens_backend_client_v2.models import GetPolicyTicketsForNotificationResponse
+
 
 
 from onelens_backend_client_v2.models import GetPolicyTicketStatsRequest
@@ -35,7 +48,12 @@ from onelens_backend_client_v2.models import GetPolicyTicketStatsRequest
 from onelens_backend_client_v2.models import GetPolicyTicketStatsResponse
 
 
+
 from onelens_backend_client_v2.models import GetPolicyTicketStatsRequestV2
+
+
+from onelens_backend_client_v2.models import GetPolicyTicketStatsResponse
+
 
 
 from onelens_backend_client_v2.models import GetPolicyTicketsByEntityIdRequest
@@ -44,10 +62,12 @@ from onelens_backend_client_v2.models import GetPolicyTicketsByEntityIdRequest
 from onelens_backend_client_v2.models import GetPolicyTicketsByEntityIdResponse
 
 
+
 from onelens_backend_client_v2.models import GetPolicyTicketsByPolicyIdRequest
 
 
 from onelens_backend_client_v2.models import GetPolicyTicketsByPolicyIdResponse
+
 
 
 from onelens_backend_client_v2.models import GetTicketByIdPolicyDetailsRequest
@@ -56,10 +76,12 @@ from onelens_backend_client_v2.models import GetTicketByIdPolicyDetailsRequest
 from onelens_backend_client_v2.models import GetTicketByIdPolicyDetailsResponse
 
 
+
 from onelens_backend_client_v2.models import GetTenantTicketsRequest
 
 
 from onelens_backend_client_v2.models import GetTenantTicketsResponse
+
 
 
 from onelens_backend_client_v2.models import UpdateTenantTicketRequest
@@ -68,14 +90,17 @@ from onelens_backend_client_v2.models import UpdateTenantTicketRequest
 from onelens_backend_client_v2.models import UpdateTenantTicketResponse
 
 
+
 from onelens_backend_client_v2.models import UpdateTenantTicketsRequest
 
 
 from onelens_backend_client_v2.models import UpdateTenantTicketsResponse
 
 
-from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class TenantTicketServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -85,6 +110,7 @@ class TenantTicketServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def bulk_update_tenant_tickets(
         self,
@@ -93,8 +119,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -103,7 +130,7 @@ class TenantTicketServiceRpcHandler:
     ) -> BulkUpdateTenantTicketsResponse:
         """Bulk update tenant tickets
 
-
+        
 
         :param request: (required)
         :type request: BulkUpdateTenantTicketsRequest
@@ -134,15 +161,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "BulkUpdateTenantTicketsResponse",
-            "422": "HTTPValidationError",
+            '200': "BulkUpdateTenantTicketsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -158,9 +186,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -174,26 +204,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/bulk_update_tenant_tickets",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/bulk_update_tenant_tickets',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -203,9 +240,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def create_tenant_tickets(
         self,
@@ -214,8 +252,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -224,7 +263,7 @@ class TenantTicketServiceRpcHandler:
     ) -> CreateTenantTicketsResponse:
         """Creates policy tickets in bulk
 
-
+        
 
         :param request: (required)
         :type request: CreateTenantTicketsRequest
@@ -255,15 +294,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "CreateTenantTicketsResponse",
-            "422": "HTTPValidationError",
+            '200': "CreateTenantTicketsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -279,9 +319,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -295,26 +337,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/create_tenant_tickets",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/create_tenant_tickets',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -324,9 +373,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def export_policy_tickets(
         self,
@@ -335,8 +385,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -345,7 +396,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetPolicyTicketsExportToResponseType:
         """Exports policy tickets to CSV format.
 
-
+        
 
         :param request: (required)
         :type request: GetPolicyTicketsExportRequest
@@ -376,15 +427,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsExportToResponseType",
-            "422": "HTTPValidationError",
+            '200': "GetPolicyTicketsExportToResponseType",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -400,9 +452,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -416,26 +470,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/export_policy_tickets",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/export_policy_tickets',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -445,9 +506,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_all_policy_violations(
         self,
@@ -456,8 +518,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -466,7 +529,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetAllPolicyViolationsResponse:
         """Get All Policy Violations
 
-
+        
 
         :param request: (required)
         :type request: GetAllPolicyViolationsRequest
@@ -497,15 +560,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetAllPolicyViolationsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetAllPolicyViolationsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -521,9 +585,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -537,26 +603,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_all_policy_violations",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_all_policy_violations',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -566,9 +639,143 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
+    @validate_call
+    def get_policy_ticket_for_notification(
+        self,
+        request: GetPolicyTicketsForNotificationRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetPolicyTicketsForNotificationResponse:
+        """Get Policy Ticket For Notification
+
+        
+
+        :param request: (required)
+        :type request: GetPolicyTicketsForNotificationRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_policy_ticket_for_notification_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetPolicyTicketsForNotificationResponse",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_policy_ticket_for_notification_serialize(
+        self,
+        request: GetPolicyTicketsForNotificationRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_policy_ticket_for_notification',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+    
     @validate_call
     def get_policy_ticket_stats(
         self,
@@ -577,8 +784,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -587,7 +795,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetPolicyTicketStatsResponse:
         """Get Policy Ticket Stats
 
-
+        
 
         :param request: (required)
         :type request: GetPolicyTicketStatsRequest
@@ -618,15 +826,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketStatsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetPolicyTicketStatsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -642,9 +851,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -658,26 +869,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_ticket_stats",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_policy_ticket_stats',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -687,9 +905,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_policy_ticket_stats_v2(
         self,
@@ -698,8 +917,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -708,7 +928,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetPolicyTicketStatsResponse:
         """Get Policy Ticket Stats V2
 
-
+        
 
         :param request: (required)
         :type request: GetPolicyTicketStatsRequestV2
@@ -739,15 +959,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketStatsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetPolicyTicketStatsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -763,9 +984,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -779,26 +1002,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_ticket_stats_v2",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_policy_ticket_stats_v2',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -808,9 +1038,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_policy_tickets_by_entity_id(
         self,
@@ -819,8 +1050,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -829,7 +1061,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetPolicyTicketsByEntityIdResponse:
         """Get Policy Tickets By Entity Id
 
-
+        
 
         :param request: (required)
         :type request: GetPolicyTicketsByEntityIdRequest
@@ -860,15 +1092,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsByEntityIdResponse",
-            "422": "HTTPValidationError",
+            '200': "GetPolicyTicketsByEntityIdResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -884,9 +1117,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -900,26 +1135,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_tickets_by_entity_id",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_policy_tickets_by_entity_id',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -929,9 +1171,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_policy_tickets_by_policy_id(
         self,
@@ -940,8 +1183,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -950,7 +1194,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetPolicyTicketsByPolicyIdResponse:
         """Get Policy Tickets By Policy Id
 
-
+        
 
         :param request: (required)
         :type request: GetPolicyTicketsByPolicyIdRequest
@@ -981,15 +1225,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsByPolicyIdResponse",
-            "422": "HTTPValidationError",
+            '200': "GetPolicyTicketsByPolicyIdResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1005,9 +1250,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1021,26 +1268,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_tickets_by_policy_id",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_policy_tickets_by_policy_id',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1050,9 +1304,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_ticket_by_id_with_policy_details(
         self,
@@ -1061,8 +1316,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1071,7 +1327,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetTicketByIdPolicyDetailsResponse:
         """Retrieves all active tickets of a tenant.
 
-
+        
 
         :param request: (required)
         :type request: GetTicketByIdPolicyDetailsRequest
@@ -1102,15 +1358,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTicketByIdPolicyDetailsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTicketByIdPolicyDetailsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1126,9 +1383,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1142,26 +1401,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_tenant_ticket_by_id_with_policy_details",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_tenant_ticket_by_id_with_policy_details',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1171,9 +1437,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_tickets(
         self,
@@ -1182,8 +1449,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1192,7 +1460,7 @@ class TenantTicketServiceRpcHandler:
     ) -> GetTenantTicketsResponse:
         """Retrieves all active tickets of a tenant.
 
-
+        
 
         :param request: (required)
         :type request: GetTenantTicketsRequest
@@ -1223,15 +1491,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantTicketsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantTicketsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1247,9 +1516,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1263,26 +1534,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_tenant_tickets",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/get_tenant_tickets',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1292,9 +1570,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def update_tenant_ticket(
         self,
@@ -1303,8 +1582,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1313,7 +1593,7 @@ class TenantTicketServiceRpcHandler:
     ) -> UpdateTenantTicketResponse:
         """Update tenant policy ticket user state
 
-
+        
 
         :param request: (required)
         :type request: UpdateTenantTicketRequest
@@ -1344,15 +1624,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateTenantTicketResponse",
-            "422": "HTTPValidationError",
+            '200': "UpdateTenantTicketResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1368,9 +1649,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1384,26 +1667,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/update_tenant_ticket",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/update_tenant_ticket',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1413,9 +1703,10 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def update_tenant_tickets(
         self,
@@ -1424,8 +1715,9 @@ class TenantTicketServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1434,7 +1726,7 @@ class TenantTicketServiceRpcHandler:
     ) -> UpdateTenantTicketsResponse:
         """Updates policy tickets in bulk
 
-
+        
 
         :param request: (required)
         :type request: UpdateTenantTicketsRequest
@@ -1465,15 +1757,16 @@ class TenantTicketServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateTenantTicketsResponse",
-            "422": "HTTPValidationError",
+            '200': "UpdateTenantTicketsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1489,9 +1782,11 @@ class TenantTicketServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1505,26 +1800,33 @@ class TenantTicketServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/update_tenant_tickets",
+            method='POST',
+            resource_path='/rpc/tenant_ticket_service/update_tenant_tickets',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1534,5 +1836,7 @@ class TenantTicketServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    

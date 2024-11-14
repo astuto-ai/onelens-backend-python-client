@@ -7,6 +7,7 @@ dto for resource hierarchy mapping request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenant_id** | **str** | The id of the tenant. | 
+**leaf_nodes** | [**LeafNodes**](LeafNodes.md) | The leaf nodes | 
 
 ## Example
 

@@ -1,8 +1,10 @@
 # TenantPolicyServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 
 
 from onelens_backend_client_v2.models import AddTenantPolicyExclusionsRequest
@@ -11,10 +13,12 @@ from onelens_backend_client_v2.models import AddTenantPolicyExclusionsRequest
 from onelens_backend_client_v2.models import AddTenantPolicyExclusionsResponse
 
 
+
 from onelens_backend_client_v2.models import DisableTenantPolicyRequest
 
 
 from onelens_backend_client_v2.models import DisableTenantPolicyResponse
+
 
 
 from onelens_backend_client_v2.models import EnableAllPoliciesRequest
@@ -23,10 +27,12 @@ from onelens_backend_client_v2.models import EnableAllPoliciesRequest
 from onelens_backend_client_v2.models import EnableAllPoliciesResponse
 
 
+
 from onelens_backend_client_v2.models import EnableTenantPolicyRequest
 
 
 from onelens_backend_client_v2.models import EnableTenantPolicyResponse
+
 
 
 from onelens_backend_client_v2.models import GetTenantPoliciesRequest
@@ -35,10 +41,12 @@ from onelens_backend_client_v2.models import GetTenantPoliciesRequest
 from onelens_backend_client_v2.models import GetTenantPoliciesResponse
 
 
+
 from onelens_backend_client_v2.models import GetTenantPoliciesWithSettingsRequest
 
 
 from onelens_backend_client_v2.models import GetTenantPoliciesWithSettingsResponse
+
 
 
 from onelens_backend_client_v2.models import GetTenantPolicyByIdRequest
@@ -47,10 +55,12 @@ from onelens_backend_client_v2.models import GetTenantPolicyByIdRequest
 from onelens_backend_client_v2.models import GetTenantPolicyByIdResponse
 
 
+
 from onelens_backend_client_v2.models import GetTenantPolicySettingsRequest
 
 
 from onelens_backend_client_v2.models import GetTenantPolicySettingsResponse
+
 
 
 from onelens_backend_client_v2.models import GetTenantPolicyStatsRequest
@@ -59,10 +69,12 @@ from onelens_backend_client_v2.models import GetTenantPolicyStatsRequest
 from onelens_backend_client_v2.models import GetTenantPolicyStatsResponse
 
 
+
 from onelens_backend_client_v2.models import GetTenantPolicyWithSummaryRequest
 
 
 from onelens_backend_client_v2.models import GetTenantPolicyWithSummaryResponse
+
 
 
 from onelens_backend_client_v2.models import OverrideTenantPolicyConfigRequest
@@ -71,10 +83,12 @@ from onelens_backend_client_v2.models import OverrideTenantPolicyConfigRequest
 from onelens_backend_client_v2.models import OverrideTenantPolicyConfigResponse
 
 
+
 from onelens_backend_client_v2.models import OverrideTenantPolicyExclusionsRequest
 
 
 from onelens_backend_client_v2.models import OverrideTenantPolicyExclusionsResponse
+
 
 
 from onelens_backend_client_v2.models import UpdateTenantPolicySettingLastRunAtRequest
@@ -83,8 +97,10 @@ from onelens_backend_client_v2.models import UpdateTenantPolicySettingLastRunAtR
 from onelens_backend_client_v2.models import UpdateTenantPolicySettingLastRunAtResponse
 
 
-from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class TenantPolicyServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -94,6 +110,7 @@ class TenantPolicyServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def add_tenant_policy_exclusions(
         self,
@@ -102,8 +119,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -112,7 +130,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> AddTenantPolicyExclusionsResponse:
         """Add tenant policy exclusions.
 
-
+        
 
         :param request: (required)
         :type request: AddTenantPolicyExclusionsRequest
@@ -143,15 +161,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "AddTenantPolicyExclusionsResponse",
-            "422": "HTTPValidationError",
+            '200': "AddTenantPolicyExclusionsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -167,9 +186,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -183,26 +204,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/add_tenant_policy_exclusions",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/add_tenant_policy_exclusions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -212,9 +240,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def disable_tenant_policy(
         self,
@@ -223,8 +252,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -233,7 +263,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> DisableTenantPolicyResponse:
         """disable a policy for a tenant in the tenant DB.
 
-
+        
 
         :param request: (required)
         :type request: DisableTenantPolicyRequest
@@ -264,15 +294,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DisableTenantPolicyResponse",
-            "422": "HTTPValidationError",
+            '200': "DisableTenantPolicyResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -288,9 +319,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -304,26 +337,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/disable_tenant_policy",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/disable_tenant_policy',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -333,9 +373,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def enable_all_policies(
         self,
@@ -344,8 +385,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -354,7 +396,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> EnableAllPoliciesResponse:
         """enables all policies for a tenant.
 
-
+        
 
         :param request: (required)
         :type request: EnableAllPoliciesRequest
@@ -385,15 +427,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "EnableAllPoliciesResponse",
-            "422": "HTTPValidationError",
+            '200': "EnableAllPoliciesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -409,9 +452,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -425,26 +470,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/enable_all_policies",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/enable_all_policies',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -454,9 +506,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def enable_tenant_policy(
         self,
@@ -465,8 +518,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -475,7 +529,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> EnableTenantPolicyResponse:
         """enables a policy for a tenant in the tenant DB.
 
-
+        
 
         :param request: (required)
         :type request: EnableTenantPolicyRequest
@@ -506,15 +560,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "EnableTenantPolicyResponse",
-            "422": "HTTPValidationError",
+            '200': "EnableTenantPolicyResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -530,9 +585,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -546,26 +603,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/enable_tenant_policy",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/enable_tenant_policy',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -575,9 +639,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_policies(
         self,
@@ -586,8 +651,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -596,7 +662,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> GetTenantPoliciesResponse:
         """Retrieves all tenant policies, optionally filtered by the parameters in the request.
 
-
+        
 
         :param request: (required)
         :type request: GetTenantPoliciesRequest
@@ -627,15 +693,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantPoliciesResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantPoliciesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -651,9 +718,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -667,26 +736,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/get_tenant_policies",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/get_tenant_policies',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -696,9 +772,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_policies_with_settings(
         self,
@@ -707,8 +784,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -717,7 +795,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> GetTenantPoliciesWithSettingsResponse:
         """Retrieves all tenant policies, optionally filtered by the parameters in the request.
 
-
+        
 
         :param request: (required)
         :type request: GetTenantPoliciesWithSettingsRequest
@@ -748,15 +826,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantPoliciesWithSettingsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantPoliciesWithSettingsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -772,9 +851,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -788,26 +869,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/get_tenant_policies_with_settings",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/get_tenant_policies_with_settings',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -817,9 +905,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_policy_by_id(
         self,
@@ -828,8 +917,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -838,7 +928,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> GetTenantPolicyByIdResponse:
         """Retrieves a tenant policy by its id.
 
-
+        
 
         :param request: (required)
         :type request: GetTenantPolicyByIdRequest
@@ -869,15 +959,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantPolicyByIdResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantPolicyByIdResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -893,9 +984,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -909,26 +1002,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/get_tenant_policy_by_id",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/get_tenant_policy_by_id',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -938,9 +1038,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_policy_settings(
         self,
@@ -949,8 +1050,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -959,7 +1061,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> GetTenantPolicySettingsResponse:
         """Retrieves all tenant policy settings, optionally filtered by the parameters in the request.
 
-
+        
 
         :param request: (required)
         :type request: GetTenantPolicySettingsRequest
@@ -990,15 +1092,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantPolicySettingsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantPolicySettingsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1014,9 +1117,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1030,26 +1135,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/get_tenant_policy_settings",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/get_tenant_policy_settings',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1059,9 +1171,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_policy_stats(
         self,
@@ -1070,8 +1183,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1080,7 +1194,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> GetTenantPolicyStatsResponse:
         """Get Tenant Policy Stats
 
-
+        
 
         :param request: (required)
         :type request: GetTenantPolicyStatsRequest
@@ -1111,15 +1225,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantPolicyStatsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantPolicyStatsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1135,9 +1250,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1151,26 +1268,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/get_tenant_policy_stats",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/get_tenant_policy_stats',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1180,9 +1304,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_policy_with_summary(
         self,
@@ -1191,8 +1316,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1201,7 +1327,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> GetTenantPolicyWithSummaryResponse:
         """Retrieves a tenant policy with corresponding recommendations, by its id.
 
-
+        
 
         :param request: (required)
         :type request: GetTenantPolicyWithSummaryRequest
@@ -1232,15 +1358,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantPolicyWithSummaryResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantPolicyWithSummaryResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1256,9 +1383,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1272,26 +1401,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/get_tenant_policy_with_summary",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/get_tenant_policy_with_summary',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1301,9 +1437,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def override_tenant_policy_config(
         self,
@@ -1312,8 +1449,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1322,7 +1460,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> OverrideTenantPolicyConfigResponse:
         """Override the tenant policy config with the provided config.
 
-
+        
 
         :param request: (required)
         :type request: OverrideTenantPolicyConfigRequest
@@ -1353,15 +1491,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "OverrideTenantPolicyConfigResponse",
-            "422": "HTTPValidationError",
+            '200': "OverrideTenantPolicyConfigResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1377,9 +1516,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1393,26 +1534,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/override_tenant_policy_config",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/override_tenant_policy_config',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1422,9 +1570,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def override_tenant_policy_exclusions(
         self,
@@ -1433,8 +1582,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1443,7 +1593,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> OverrideTenantPolicyExclusionsResponse:
         """Override tenant policy exclusions.
 
-
+        
 
         :param request: (required)
         :type request: OverrideTenantPolicyExclusionsRequest
@@ -1474,15 +1624,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "OverrideTenantPolicyExclusionsResponse",
-            "422": "HTTPValidationError",
+            '200': "OverrideTenantPolicyExclusionsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1498,9 +1649,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1514,26 +1667,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/override_tenant_policy_exclusions",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/override_tenant_policy_exclusions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1543,9 +1703,10 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def update_tenant_policy_settings_last_run_at(
         self,
@@ -1554,8 +1715,9 @@ class TenantPolicyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1564,7 +1726,7 @@ class TenantPolicyServiceRpcHandler:
     ) -> UpdateTenantPolicySettingLastRunAtResponse:
         """Update the last run at timestamp of the policy setting.
 
-
+        
 
         :param request: (required)
         :type request: UpdateTenantPolicySettingLastRunAtRequest
@@ -1595,15 +1757,16 @@ class TenantPolicyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateTenantPolicySettingLastRunAtResponse",
-            "422": "HTTPValidationError",
+            '200': "UpdateTenantPolicySettingLastRunAtResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1619,9 +1782,11 @@ class TenantPolicyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1635,26 +1800,33 @@ class TenantPolicyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_policy_service/update_tenant_policy_settings_last_run_at",
+            method='POST',
+            resource_path='/rpc/tenant_policy_service/update_tenant_policy_settings_last_run_at',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1664,5 +1836,7 @@ class TenantPolicyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    

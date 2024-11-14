@@ -15,6 +15,11 @@ Name | Type | Description | Notes
 **attribution_details** | [**HierarchyNodeAttributionDetails**](HierarchyNodeAttributionDetails.md) |  | [optional] 
 **state** | [**HierarchyNodeState**](HierarchyNodeState.md) | The state of the hierarchy node. | 
 **sql_filter** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**created_at** | **datetime** |  | [optional] 
+**updated_at** | **datetime** |  | [optional] 
+**created_by** | **str** |  | [optional] 
+**updated_by** | **str** |  | [optional] 
 **path** | [**List[HierarchyNodePathItem]**](HierarchyNodePathItem.md) | The path of the node from root. | 
 **parent** | [**HierarchyNodeParentItem**](HierarchyNodeParentItem.md) |  | [optional] 
 **resources_metrics** | [**HierarchyNodeResourceMetrics**](HierarchyNodeResourceMetrics.md) |  | [optional] 

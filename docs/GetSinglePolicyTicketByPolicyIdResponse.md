@@ -5,24 +5,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticket_id** | **str** | The unique identifier of the ticket | 
+**ticket_id** | **object** | The unique identifier of the ticket | 
 **status** | [**PolicyTicketStatus**](PolicyTicketStatus.md) | Status of the ticket | 
-**state** | [**TicketState**](TicketState.md) | State of the ticket | 
-**violation_attributes** | **object** | Attributes of the violation | 
-**entity_id** | **str** | The id of the resource experiencing policy violation. | 
-**entity_name** | **str** | Name of the resource | 
-**region** | **str** | Region of the resource | 
-**service** | **str** | Service of the resource | 
-**service_display_name** | **str** | Service name in UI | 
-**account_id** | **str** | Account Id managing the resource | 
-**recommendation_unit_title** | **str** |  | [optional] 
-**potential_savings** | **float** | Potential savings of the ticket | 
-**resource_id** | **str** |  | [optional] 
-**account_name** | **str** |  | [optional] 
-**policy_id** | **str** |  | [optional] 
-**policy_title** | **str** |  | [optional] 
-**policy_labels** | **List[str]** |  | [optional] 
-**effort** | [**Effort**](Effort.md) |  | [optional] 
+**state** | [**GetSinglePolicyTicketByPolicyIdResponseState**](GetSinglePolicyTicketByPolicyIdResponseState.md) |  | [optional] 
+**violation_attributes** | [**ViolationAttributes**](ViolationAttributes.md) |  | [optional] 
+**entity_id** | [**EntityId**](EntityId.md) |  | [optional] 
+**entity_name** | [**EntityName**](EntityName.md) |  | [optional] 
+**region** | [**Region**](Region.md) |  | [optional] 
+**service** | [**Service1**](Service1.md) |  | [optional] 
+**service_display_name** | [**ServiceDisplayName**](ServiceDisplayName.md) |  | [optional] 
+**account_id** | [**AccountId**](AccountId.md) |  | [optional] 
+**recommendation_unit_title** | [**RecommendationUnitTitle**](RecommendationUnitTitle.md) |  | [optional] 
+**potential_savings** | [**PotentialSavings**](PotentialSavings.md) |  | [optional] 
+**resource_id** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**account_name** | [**AccountName**](AccountName.md) |  | [optional] 
+**policy_id** | [**PolicyId**](PolicyId.md) |  | [optional] 
+**policy_title** | [**PolicyTitle**](PolicyTitle.md) |  | [optional] 
+**policy_display_alias** | [**PolicyDisplayAlias**](PolicyDisplayAlias.md) |  | [optional] 
+**policy_labels** | [**PolicyLabels**](PolicyLabels.md) |  | [optional] 
+**effort** | [**GetSinglePolicyTicketByPolicyIdResponseEffort**](GetSinglePolicyTicketByPolicyIdResponseEffort.md) |  | [optional] 
+**ticket_alias** | [**TicketAlias**](TicketAlias.md) |  | [optional] 
+**first_run_at** | [**FirstRunAt**](FirstRunAt.md) |  | [optional] 
+**node_ids** | [**NodeIds**](NodeIds.md) |  | [optional] 
 
 ## Example
 

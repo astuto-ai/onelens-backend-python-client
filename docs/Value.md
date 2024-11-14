@@ -1,5 +1,6 @@
 # Value
 
+Value of the group
 
 ## Properties
 

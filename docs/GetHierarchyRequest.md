@@ -7,6 +7,7 @@ get hierarchy request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filters** | [**GetHierarchyFilters**](GetHierarchyFilters.md) | Filters for the hierarchy nodes. | [optional] 
+**with_info** | **bool** | Whether to include additional info in the response. | [optional] [default to False]
 **tenant_id** | **str** | The id of the tenant. | 
 
 ## Example

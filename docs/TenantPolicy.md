@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **description2** | **str** | The description2 of the policy template. | [optional] 
 **resource_type** | **str** | The resource type of the policy template. | 
 **recommendation_details** | [**PolicyTemplateRecommendationDetailsOutput**](PolicyTemplateRecommendationDetailsOutput.md) | The recommendation details for the policy template. | 
+**activated_at** | **datetime** |  | [optional] 
 **policy_template_id** | **str** | The id of the policy template. | 
 **category** | [**PolicyCategory**](PolicyCategory.md) | The category of the policy template. | 
 **provider** | [**Provider**](Provider.md) | The cloud provider of the policy template. | 
