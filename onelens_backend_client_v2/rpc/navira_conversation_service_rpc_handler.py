@@ -1,89 +1,62 @@
-# TenantTicketServiceRpcHandler API
+# NaviraConversationServiceRpcHandler API
 
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import BulkUpdateTenantTicketsRequest
+from onelens_backend_client_v2.models import CreateThreadRequest
 
 
-from onelens_backend_client_v2.models import BulkUpdateTenantTicketsResponse
+from onelens_backend_client_v2.models import CreateThreadResponse
 
 
-from onelens_backend_client_v2.models import CreateTenantTicketsRequest
+from onelens_backend_client_v2.models import GetAgentTypesRequest
 
 
-from onelens_backend_client_v2.models import CreateTenantTicketsResponse
+from onelens_backend_client_v2.models import GetAgentTypesResponse
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsExportRequest
+from onelens_backend_client_v2.models import GetAllThreadsRequest
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsExportToResponseType
+from onelens_backend_client_v2.models import GetAllThreadsResponse
 
 
-from onelens_backend_client_v2.models import GetAllPolicyViolationsRequest
+from onelens_backend_client_v2.models import GetMessagesRequest
 
 
-from onelens_backend_client_v2.models import GetAllPolicyViolationsResponse
+from onelens_backend_client_v2.models import GetMessagesResponse
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsForNotificationRequest
+from onelens_backend_client_v2.models import GetStateRequest
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsForNotificationResponse
+from onelens_backend_client_v2.models import GetStateResponse
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketStatsRequest
+from onelens_backend_client_v2.models import GetThreadByIdRequest
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketStatsResponse
+from onelens_backend_client_v2.models import GetThreadByIdResponse
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketStatsRequestV2
+from onelens_backend_client_v2.models import SendMessageRequest
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsByEntityIdRequest
+from onelens_backend_client_v2.models import SendMessageResponse
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsByEntityIdResponse
+from onelens_backend_client_v2.models import UpdateStateRequest
 
 
-from onelens_backend_client_v2.models import GetPolicyTicketsByPolicyIdRequest
-
-
-from onelens_backend_client_v2.models import GetPolicyTicketsByPolicyIdResponse
-
-
-from onelens_backend_client_v2.models import GetTicketByIdPolicyDetailsRequest
-
-
-from onelens_backend_client_v2.models import GetTicketByIdPolicyDetailsResponse
-
-
-from onelens_backend_client_v2.models import GetTenantTicketsRequest
-
-
-from onelens_backend_client_v2.models import GetTenantTicketsResponse
-
-
-from onelens_backend_client_v2.models import UpdateTenantTicketRequest
-
-
-from onelens_backend_client_v2.models import UpdateTenantTicketResponse
-
-
-from onelens_backend_client_v2.models import UpdateTenantTicketsRequest
-
-
-from onelens_backend_client_v2.models import UpdateTenantTicketsResponse
+from onelens_backend_client_v2.models import UpdateStateResponse
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
-class TenantTicketServiceRpcHandler:
+class NaviraConversationServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
 
     def __init__(self, api_client=None) -> None:
@@ -92,9 +65,9 @@ class TenantTicketServiceRpcHandler:
         self.api_client = api_client
 
     @validate_call
-    def bulk_update_tenant_tickets(
+    def create_thread(
         self,
-        request: BulkUpdateTenantTicketsRequest,
+        request: CreateThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -106,13 +79,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BulkUpdateTenantTicketsResponse:
-        """Bulk update tenant tickets
+    ) -> CreateThreadResponse:
+        """Create Thread
 
 
 
         :param request: (required)
-        :type request: BulkUpdateTenantTicketsRequest
+        :type request: CreateThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -135,7 +108,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._bulk_update_tenant_tickets_serialize(
+        _param = self._create_thread_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -144,7 +117,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "BulkUpdateTenantTicketsResponse",
+            "200": "CreateThreadResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -156,9 +129,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _bulk_update_tenant_tickets_serialize(
+    def _create_thread_serialize(
         self,
-        request: BulkUpdateTenantTicketsRequest,
+        request: CreateThreadRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -199,7 +172,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/bulk_update_tenant_tickets",
+            resource_path="/rpc/navira_conversation_service/create_thread",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -213,9 +186,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def create_tenant_tickets(
+    def get_agent_types(
         self,
-        request: CreateTenantTicketsRequest,
+        request: GetAgentTypesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -227,13 +200,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTenantTicketsResponse:
-        """Creates policy tickets in bulk
+    ) -> GetAgentTypesResponse:
+        """Get Agent Types
 
 
 
         :param request: (required)
-        :type request: CreateTenantTicketsRequest
+        :type request: GetAgentTypesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -256,7 +229,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._create_tenant_tickets_serialize(
+        _param = self._get_agent_types_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -265,7 +238,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "CreateTenantTicketsResponse",
+            "200": "GetAgentTypesResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -277,9 +250,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _create_tenant_tickets_serialize(
+    def _get_agent_types_serialize(
         self,
-        request: CreateTenantTicketsRequest,
+        request: GetAgentTypesRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -320,7 +293,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/create_tenant_tickets",
+            resource_path="/rpc/navira_conversation_service/get_agent_types",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -334,9 +307,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def export_policy_tickets(
+    def get_all_threads(
         self,
-        request: GetPolicyTicketsExportRequest,
+        request: GetAllThreadsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -348,13 +321,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPolicyTicketsExportToResponseType:
-        """Exports policy tickets to CSV format.
+    ) -> GetAllThreadsResponse:
+        """Get All Threads
 
 
 
         :param request: (required)
-        :type request: GetPolicyTicketsExportRequest
+        :type request: GetAllThreadsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -377,7 +350,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._export_policy_tickets_serialize(
+        _param = self._get_all_threads_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -386,7 +359,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsExportToResponseType",
+            "200": "GetAllThreadsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -398,9 +371,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _export_policy_tickets_serialize(
+    def _get_all_threads_serialize(
         self,
-        request: GetPolicyTicketsExportRequest,
+        request: GetAllThreadsRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -441,7 +414,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/export_policy_tickets",
+            resource_path="/rpc/navira_conversation_service/get_all_threads",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -455,9 +428,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def get_all_policy_violations(
+    def get_messages(
         self,
-        request: GetAllPolicyViolationsRequest,
+        request: GetMessagesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -469,13 +442,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetAllPolicyViolationsResponse:
-        """Get All Policy Violations
+    ) -> GetMessagesResponse:
+        """Get Messages
 
 
 
         :param request: (required)
-        :type request: GetAllPolicyViolationsRequest
+        :type request: GetMessagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -498,7 +471,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_all_policy_violations_serialize(
+        _param = self._get_messages_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -507,7 +480,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetAllPolicyViolationsResponse",
+            "200": "GetMessagesResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -519,9 +492,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_all_policy_violations_serialize(
+    def _get_messages_serialize(
         self,
-        request: GetAllPolicyViolationsRequest,
+        request: GetMessagesRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -562,7 +535,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_all_policy_violations",
+            resource_path="/rpc/navira_conversation_service/get_messages",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -576,9 +549,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def get_policy_ticket_for_notification(
+    def get_state(
         self,
-        request: GetPolicyTicketsForNotificationRequest,
+        request: GetStateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -590,13 +563,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPolicyTicketsForNotificationResponse:
-        """Get Policy Ticket For Notification
+    ) -> GetStateResponse:
+        """Get State
 
 
 
         :param request: (required)
-        :type request: GetPolicyTicketsForNotificationRequest
+        :type request: GetStateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -619,7 +592,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_policy_ticket_for_notification_serialize(
+        _param = self._get_state_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -628,7 +601,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsForNotificationResponse",
+            "200": "GetStateResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -640,9 +613,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_policy_ticket_for_notification_serialize(
+    def _get_state_serialize(
         self,
-        request: GetPolicyTicketsForNotificationRequest,
+        request: GetStateRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -683,7 +656,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_ticket_for_notification",
+            resource_path="/rpc/navira_conversation_service/get_state",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -697,9 +670,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def get_policy_ticket_stats(
+    def get_thread_by_id(
         self,
-        request: GetPolicyTicketStatsRequest,
+        request: GetThreadByIdRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -711,13 +684,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPolicyTicketStatsResponse:
-        """Get Policy Ticket Stats
+    ) -> GetThreadByIdResponse:
+        """Get Thread By Id
 
 
 
         :param request: (required)
-        :type request: GetPolicyTicketStatsRequest
+        :type request: GetThreadByIdRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -740,7 +713,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_policy_ticket_stats_serialize(
+        _param = self._get_thread_by_id_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -749,7 +722,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketStatsResponse",
+            "200": "GetThreadByIdResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -761,9 +734,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_policy_ticket_stats_serialize(
+    def _get_thread_by_id_serialize(
         self,
-        request: GetPolicyTicketStatsRequest,
+        request: GetThreadByIdRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -804,7 +777,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_ticket_stats",
+            resource_path="/rpc/navira_conversation_service/get_thread_by_id",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -818,9 +791,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def get_policy_ticket_stats_v2(
+    def send_message(
         self,
-        request: GetPolicyTicketStatsRequestV2,
+        request: SendMessageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -832,13 +805,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPolicyTicketStatsResponse:
-        """Get Policy Ticket Stats V2
+    ) -> SendMessageResponse:
+        """Send Message
 
 
 
         :param request: (required)
-        :type request: GetPolicyTicketStatsRequestV2
+        :type request: SendMessageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -861,7 +834,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_policy_ticket_stats_v2_serialize(
+        _param = self._send_message_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -870,7 +843,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketStatsResponse",
+            "200": "SendMessageResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -882,9 +855,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_policy_ticket_stats_v2_serialize(
+    def _send_message_serialize(
         self,
-        request: GetPolicyTicketStatsRequestV2,
+        request: SendMessageRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -925,7 +898,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_ticket_stats_v2",
+            resource_path="/rpc/navira_conversation_service/send_message",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -939,9 +912,9 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
-    def get_policy_tickets_by_entity_id(
+    def update_state(
         self,
-        request: GetPolicyTicketsByEntityIdRequest,
+        request: UpdateStateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -953,13 +926,13 @@ class TenantTicketServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPolicyTicketsByEntityIdResponse:
-        """Get Policy Tickets By Entity Id
+    ) -> UpdateStateResponse:
+        """Update State
 
 
 
         :param request: (required)
-        :type request: GetPolicyTicketsByEntityIdRequest
+        :type request: UpdateStateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -982,7 +955,7 @@ class TenantTicketServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_policy_tickets_by_entity_id_serialize(
+        _param = self._update_state_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -991,7 +964,7 @@ class TenantTicketServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsByEntityIdResponse",
+            "200": "UpdateStateResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1003,9 +976,9 @@ class TenantTicketServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_policy_tickets_by_entity_id_serialize(
+    def _update_state_serialize(
         self,
-        request: GetPolicyTicketsByEntityIdRequest,
+        request: UpdateStateRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -1046,612 +1019,7 @@ class TenantTicketServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_tickets_by_entity_id",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def get_policy_tickets_by_policy_id(
-        self,
-        request: GetPolicyTicketsByPolicyIdRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPolicyTicketsByPolicyIdResponse:
-        """Get Policy Tickets By Policy Id
-
-
-
-        :param request: (required)
-        :type request: GetPolicyTicketsByPolicyIdRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._get_policy_tickets_by_policy_id_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetPolicyTicketsByPolicyIdResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _get_policy_tickets_by_policy_id_serialize(
-        self,
-        request: GetPolicyTicketsByPolicyIdRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_policy_tickets_by_policy_id",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def get_tenant_ticket_by_id_with_policy_details(
-        self,
-        request: GetTicketByIdPolicyDetailsRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTicketByIdPolicyDetailsResponse:
-        """Retrieves all active tickets of a tenant.
-
-
-
-        :param request: (required)
-        :type request: GetTicketByIdPolicyDetailsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._get_tenant_ticket_by_id_with_policy_details_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTicketByIdPolicyDetailsResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _get_tenant_ticket_by_id_with_policy_details_serialize(
-        self,
-        request: GetTicketByIdPolicyDetailsRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_tenant_ticket_by_id_with_policy_details",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def get_tenant_tickets(
-        self,
-        request: GetTenantTicketsRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantTicketsResponse:
-        """Retrieves all active tickets of a tenant.
-
-
-
-        :param request: (required)
-        :type request: GetTenantTicketsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._get_tenant_tickets_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantTicketsResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _get_tenant_tickets_serialize(
-        self,
-        request: GetTenantTicketsRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/get_tenant_tickets",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def update_tenant_ticket(
-        self,
-        request: UpdateTenantTicketRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateTenantTicketResponse:
-        """Update tenant policy ticket user state
-
-
-
-        :param request: (required)
-        :type request: UpdateTenantTicketRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._update_tenant_ticket_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateTenantTicketResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _update_tenant_ticket_serialize(
-        self,
-        request: UpdateTenantTicketRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/update_tenant_ticket",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def update_tenant_tickets(
-        self,
-        request: UpdateTenantTicketsRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateTenantTicketsResponse:
-        """Updates policy tickets in bulk
-
-
-
-        :param request: (required)
-        :type request: UpdateTenantTicketsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._update_tenant_tickets_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateTenantTicketsResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _update_tenant_tickets_serialize(
-        self,
-        request: UpdateTenantTicketsRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_ticket_service/update_tenant_tickets",
+            resource_path="/rpc/navira_conversation_service/update_state",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

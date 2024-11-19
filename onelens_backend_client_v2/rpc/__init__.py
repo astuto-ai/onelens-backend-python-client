@@ -106,8 +106,24 @@ from onelens_backend_client_v2.rpc.tenant_connection_service_rpc_handler import 
     TenantConnectionServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.navira_conversation_service_rpc_handler import (
+    NaviraConversationServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.feature_service_rpc_handler import (
     FeatureServiceRpcHandler,
+)
+
+from onelens_backend_client_v2.rpc.ticket_status_metadata_service_rpc_handler import (
+    TicketStatusMetadataServiceRpcHandler,
+)
+
+from onelens_backend_client_v2.rpc.metrics_control_service_rpc_handler import (
+    MetricsControlServiceRpcHandler,
+)
+
+from onelens_backend_client_v2.rpc.tenant_ticket_audit_service_rpc_handler import (
+    TenantTicketAuditServiceRpcHandler,
 )
 
 
@@ -139,5 +155,9 @@ __all__ = [
     "NaviraServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
+    "NaviraConversationServiceRpcHandler",
     "FeatureServiceRpcHandler",
+    "TicketStatusMetadataServiceRpcHandler",
+    "MetricsControlServiceRpcHandler",
+    "TenantTicketAuditServiceRpcHandler",
 ]
