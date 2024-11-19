@@ -1,38 +1,35 @@
-# FeatureServiceRpcHandler API
+# MetricsControlServiceRpcHandler API
 
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import GetAllFeaturesRequest
+from onelens_backend_client_v2.models import EnableMetricsRequest
 
 
-from onelens_backend_client_v2.models import GetAllFeaturesResponse
+from onelens_backend_client_v2.models import APIEnableMetricsResponse
 
 
-from onelens_backend_client_v2.models import GetFeaturesByFiltersRequest
+from onelens_backend_client_v2.models import GetMetricsControlStatusRequest
 
 
-from onelens_backend_client_v2.models import GetFeaturesByFiltersResponse
+from onelens_backend_client_v2.models import GetMetricsControlStatusResponse
 
 
-from onelens_backend_client_v2.models import RegisterAllFeaturesRequest
+from onelens_backend_client_v2.models import GetMetricsControlWebhookRequest
 
 
-from onelens_backend_client_v2.models import RegisterAllFeaturesResponse
+from onelens_backend_client_v2.models import UpdateMetricsControlRequest
 
 
-from onelens_backend_client_v2.models import UpdateFeatureStatusRequest
-
-
-from onelens_backend_client_v2.models import UpdateFeatureStatusResponse
+from onelens_backend_client_v2.models import APIUpdateMetricsControlResponse
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
-class FeatureServiceRpcHandler:
+class MetricsControlServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
 
     def __init__(self, api_client=None) -> None:
@@ -41,9 +38,9 @@ class FeatureServiceRpcHandler:
         self.api_client = api_client
 
     @validate_call
-    def get_all(
+    def enable_metrics(
         self,
-        request: GetAllFeaturesRequest,
+        request: EnableMetricsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -55,13 +52,13 @@ class FeatureServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetAllFeaturesResponse:
-        """Get all features of the tenant
+    ) -> APIEnableMetricsResponse:
+        """Enable Metrics
 
 
 
         :param request: (required)
-        :type request: GetAllFeaturesRequest
+        :type request: EnableMetricsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -84,7 +81,7 @@ class FeatureServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_all_serialize(
+        _param = self._enable_metrics_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -93,7 +90,7 @@ class FeatureServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetAllFeaturesResponse",
+            "200": "APIEnableMetricsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -105,9 +102,9 @@ class FeatureServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_all_serialize(
+    def _enable_metrics_serialize(
         self,
-        request: GetAllFeaturesRequest,
+        request: EnableMetricsRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -148,7 +145,7 @@ class FeatureServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/feature_service/get_all",
+            resource_path="/rpc/metrics_control_service/enable_metrics",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -162,9 +159,9 @@ class FeatureServiceRpcHandler:
         )
 
     @validate_call
-    def get_features_by_filters(
+    def get_metrics_control_status(
         self,
-        request: GetFeaturesByFiltersRequest,
+        request: GetMetricsControlStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -176,13 +173,13 @@ class FeatureServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFeaturesByFiltersResponse:
-        """Get features by filters
+    ) -> GetMetricsControlStatusResponse:
+        """Get Metrics Control Status
 
 
 
         :param request: (required)
-        :type request: GetFeaturesByFiltersRequest
+        :type request: GetMetricsControlStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -205,7 +202,7 @@ class FeatureServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_features_by_filters_serialize(
+        _param = self._get_metrics_control_status_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -214,7 +211,7 @@ class FeatureServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetFeaturesByFiltersResponse",
+            "200": "GetMetricsControlStatusResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -226,9 +223,9 @@ class FeatureServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_features_by_filters_serialize(
+    def _get_metrics_control_status_serialize(
         self,
-        request: GetFeaturesByFiltersRequest,
+        request: GetMetricsControlStatusRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -269,7 +266,7 @@ class FeatureServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/feature_service/get_features_by_filters",
+            resource_path="/rpc/metrics_control_service/get_metrics_control_status",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -283,9 +280,9 @@ class FeatureServiceRpcHandler:
         )
 
     @validate_call
-    def register_all_features(
+    def process_metrics_control_webhook(
         self,
-        request: RegisterAllFeaturesRequest,
+        request: GetMetricsControlWebhookRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -297,13 +294,13 @@ class FeatureServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RegisterAllFeaturesResponse:
-        """Register all service features in the tenant
+    ) -> Any:
+        """Process Metrics Control Webhook
 
 
 
         :param request: (required)
-        :type request: RegisterAllFeaturesRequest
+        :type request: GetMetricsControlWebhookRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -326,7 +323,7 @@ class FeatureServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._register_all_features_serialize(
+        _param = self._process_metrics_control_webhook_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -335,7 +332,7 @@ class FeatureServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "RegisterAllFeaturesResponse",
+            "200": "Any",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -347,9 +344,9 @@ class FeatureServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _register_all_features_serialize(
+    def _process_metrics_control_webhook_serialize(
         self,
-        request: RegisterAllFeaturesRequest,
+        request: GetMetricsControlWebhookRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -390,7 +387,7 @@ class FeatureServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/feature_service/register_all_features",
+            resource_path="/rpc/metrics_control_service/process_metrics_control_webhook",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -404,9 +401,9 @@ class FeatureServiceRpcHandler:
         )
 
     @validate_call
-    def update_feature_status(
+    def update_metric_status(
         self,
-        request: UpdateFeatureStatusRequest,
+        request: UpdateMetricsControlRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -418,13 +415,13 @@ class FeatureServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateFeatureStatusResponse:
-        """Enable feature by change manager
+    ) -> APIUpdateMetricsControlResponse:
+        """Update Metric Status
 
 
 
         :param request: (required)
-        :type request: UpdateFeatureStatusRequest
+        :type request: UpdateMetricsControlRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -447,7 +444,7 @@ class FeatureServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._update_feature_status_serialize(
+        _param = self._update_metric_status_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -456,7 +453,7 @@ class FeatureServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateFeatureStatusResponse",
+            "200": "APIUpdateMetricsControlResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -468,9 +465,9 @@ class FeatureServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _update_feature_status_serialize(
+    def _update_metric_status_serialize(
         self,
-        request: UpdateFeatureStatusRequest,
+        request: UpdateMetricsControlRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -511,7 +508,7 @@ class FeatureServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/feature_service/update_feature_status",
+            resource_path="/rpc/metrics_control_service/update_metric_status",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
