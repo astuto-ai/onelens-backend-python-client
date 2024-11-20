@@ -23,7 +23,7 @@ class TenantTicketAuditServiceRpcHandler:
         self.api_client = api_client
 
     @validate_call
-    def get(
+    def get_tenant_ticket_audit(
         self,
         request: GetTenantTicketsAuditRequest,
         _request_timeout: Union[
@@ -38,7 +38,7 @@ class TenantTicketAuditServiceRpcHandler:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> GetTenantTicketsAuditResponse:
-        """Get
+        """Get Tenant Ticket Audit
 
 
 
@@ -66,7 +66,7 @@ class TenantTicketAuditServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_serialize(
+        _param = self._get_tenant_ticket_audit_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -87,7 +87,7 @@ class TenantTicketAuditServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_serialize(
+    def _get_tenant_ticket_audit_serialize(
         self,
         request: GetTenantTicketsAuditRequest,
         _request_auth,
@@ -130,7 +130,7 @@ class TenantTicketAuditServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/tenant_ticket_audit_service/get",
+            resource_path="/rpc/tenant_ticket_audit_service/get_tenant_ticket_audit",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
