@@ -11,7 +11,7 @@ from onelens_backend_client_v2.models import GetAllFeaturesRequest
 from onelens_backend_client_v2.models import GetAllFeaturesResponse
 
 
-from onelens_backend_client_v2.models import APIGetFeaturesByFiltersRequest
+from onelens_backend_client_v2.models import GetFeaturesByFiltersRequest
 
 
 from onelens_backend_client_v2.models import GetFeaturesByFiltersResponse
@@ -164,7 +164,7 @@ class FeatureServiceRpcHandler:
     @validate_call
     def get_features_by_filters(
         self,
-        request: APIGetFeaturesByFiltersRequest,
+        request: GetFeaturesByFiltersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -182,7 +182,7 @@ class FeatureServiceRpcHandler:
 
 
         :param request: (required)
-        :type request: APIGetFeaturesByFiltersRequest
+        :type request: GetFeaturesByFiltersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -228,7 +228,7 @@ class FeatureServiceRpcHandler:
 
     def _get_features_by_filters_serialize(
         self,
-        request: APIGetFeaturesByFiltersRequest,
+        request: GetFeaturesByFiltersRequest,
         _request_auth,
         _content_type,
         _headers,
