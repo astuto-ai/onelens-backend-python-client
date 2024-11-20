@@ -110,6 +110,10 @@ from onelens_backend_client_v2.rpc.navira_conversation_service_rpc_handler impor
     NaviraConversationServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.navira_resource_explorer_service_rpc_handler import (
+    NaviraResourceExplorerServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.feature_service_rpc_handler import (
     FeatureServiceRpcHandler,
 )
@@ -156,6 +160,7 @@ __all__ = [
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
     "NaviraConversationServiceRpcHandler",
+    "NaviraResourceExplorerServiceRpcHandler",
     "FeatureServiceRpcHandler",
     "TicketStatusMetadataServiceRpcHandler",
     "MetricsControlServiceRpcHandler",
