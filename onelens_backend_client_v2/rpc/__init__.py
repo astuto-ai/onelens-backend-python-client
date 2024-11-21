@@ -130,6 +130,10 @@ from onelens_backend_client_v2.rpc.tenant_ticket_activity_service_rpc_handler im
     TenantTicketActivityServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.notification_service_rpc_handler import (
+    NotificationServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -165,4 +169,5 @@ __all__ = [
     "MetricsControlServiceRpcHandler",
     "TenantTicketAuditServiceRpcHandler",
     "TenantTicketActivityServiceRpcHandler",
+    "NotificationServiceRpcHandler",
 ]
