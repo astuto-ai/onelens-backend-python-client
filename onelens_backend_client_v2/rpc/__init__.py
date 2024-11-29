@@ -78,6 +78,10 @@ from onelens_backend_client_v2.rpc.saved_view_service_rpc_handler import (
     SavedViewServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.cur_saved_view_service_rpc_handler import (
+    CurSavedViewServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.recommendation_unit_service_rpc_handler import (
     RecommendationUnitServiceRpcHandler,
 )
@@ -164,6 +168,7 @@ __all__ = [
     "TenantUserServiceRpcHandler",
     "TenantEmbedAppsLinksServiceRpcHandler",
     "SavedViewServiceRpcHandler",
+    "CurSavedViewServiceRpcHandler",
     "RecommendationUnitServiceRpcHandler",
     "RecommendationUnitMigrationServiceRpcHandler",
     "CostAnalyzerServiceRpcHandler",
