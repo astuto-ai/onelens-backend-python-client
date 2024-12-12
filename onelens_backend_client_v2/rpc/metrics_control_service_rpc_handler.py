@@ -38,6 +38,9 @@ from onelens_backend_client_v2.models import GetMetricsControlStatusCountRespons
 from onelens_backend_client_v2.models import GetMetricsControlWebhookRequest
 
 
+from onelens_backend_client_v2.models import GetMetricsControlWebhookResponse
+
+
 from onelens_backend_client_v2.models import UpdateMetricsControlRequest
 
 
@@ -675,7 +678,7 @@ class MetricsControlServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Any:
+    ) -> GetMetricsControlWebhookResponse:
         """Process Metrics Control Webhook
 
 
@@ -713,7 +716,7 @@ class MetricsControlServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Any",
+            "200": "GetMetricsControlWebhookResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
