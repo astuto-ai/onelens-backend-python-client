@@ -102,6 +102,10 @@ from onelens_backend_client_v2.rpc.navira_service_rpc_handler import (
     NaviraServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.navira_embedding_service_rpc_handler import (
+    NaviraEmbeddingServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.action_type_migration_service_rpc_handler import (
     ActionTypeMigrationServiceRpcHandler,
 )
@@ -174,6 +178,7 @@ __all__ = [
     "CostAnalyzerServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
     "NaviraServiceRpcHandler",
+    "NaviraEmbeddingServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
     "NaviraConversationServiceRpcHandler",
