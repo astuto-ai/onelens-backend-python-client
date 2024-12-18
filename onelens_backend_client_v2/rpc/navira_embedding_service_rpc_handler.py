@@ -8,6 +8,9 @@ from typing_extensions import Annotated
 from onelens_backend_client_v2.models import UpdateEmbeddingsRequest
 
 
+from onelens_backend_client_v2.models import UpdateEmbeddingsResponse
+
+
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
@@ -34,7 +37,7 @@ class NaviraEmbeddingServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Any:
+    ) -> UpdateEmbeddingsResponse:
         """Update Embeddings
 
 
@@ -72,7 +75,7 @@ class NaviraEmbeddingServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Any",
+            "200": "UpdateEmbeddingsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
