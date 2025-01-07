@@ -554,7 +554,7 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> GetTableMetadataResponse:
-        """Get Table Metadata
+        """Get metadata for the requested tables.
 
 
 
