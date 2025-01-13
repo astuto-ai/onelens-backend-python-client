@@ -150,6 +150,10 @@ from onelens_backend_client_v2.rpc.change_detection_service_rpc_handler import (
     ChangeDetectionServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.change_detection_service_v2_rpc_handler import (
+    ChangeDetectionServiceV2RpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.cur_data_metrics_service_rpc_handler import (
     CurDataMetricsServiceRpcHandler,
 )
@@ -194,5 +198,6 @@ __all__ = [
     "TenantTicketActivityServiceRpcHandler",
     "NotificationServiceRpcHandler",
     "ChangeDetectionServiceRpcHandler",
+    "ChangeDetectionServiceV2RpcHandler",
     "CurDataMetricsServiceRpcHandler",
 ]
