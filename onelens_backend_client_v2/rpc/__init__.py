@@ -158,6 +158,10 @@ from onelens_backend_client_v2.rpc.cur_data_metrics_service_rpc_handler import (
     CurDataMetricsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.delta_events_service_rpc_handler import (
+    DeltaEventsServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -200,4 +204,5 @@ __all__ = [
     "ChangeDetectionServiceRpcHandler",
     "ChangeDetectionServiceV2RpcHandler",
     "CurDataMetricsServiceRpcHandler",
+    "DeltaEventsServiceRpcHandler",
 ]
