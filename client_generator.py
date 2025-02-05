@@ -155,6 +155,8 @@ if __name__ == "__main__":
     input_openapi = args.input
     output_dir = args.output
 
+    print(f"Generating client for {input_openapi} to {output_dir}")
+
     if input_openapi.startswith(("http://", "https://")):
         with tempfile.NamedTemporaryFile(suffix=".yaml", delete=False) as tmp_file:
             urllib.request.urlretrieve(input_openapi, tmp_file.name)
