@@ -170,6 +170,10 @@ from onelens_backend_client_v2.rpc.tenant_account_service_rpc_handler import (
     TenantAccountServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.tenant_settings_service_rpc_handler import (
+    TenantSettingsServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -215,4 +219,5 @@ __all__ = [
     "DeltaEventsServiceRpcHandler",
     "CurDataServiceRpcHandler",
     "TenantAccountServiceRpcHandler",
+    "TenantSettingsServiceRpcHandler",
 ]

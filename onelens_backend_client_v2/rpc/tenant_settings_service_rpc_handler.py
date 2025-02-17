@@ -1,44 +1,32 @@
-# DeltaEventsServiceRpcHandler API
+# TenantSettingsServiceRpcHandler API
 
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import GetDeltaEventDetailRequest
+from onelens_backend_client_v2.models import DeleteTenantSettingsRequest
 
 
-from onelens_backend_client_v2.models import GetDeltaEventDetailResponse
+from onelens_backend_client_v2.models import DeleteTenantSettingsResponse
 
 
-from onelens_backend_client_v2.models import GetDeltaEventsRequest
+from onelens_backend_client_v2.models import GetTenantSettingsRequest
 
 
-from onelens_backend_client_v2.models import GetDeltaEventsResponse
+from onelens_backend_client_v2.models import GetTenantSettingsResponse
 
 
-from onelens_backend_client_v2.models import GetDeltaEventsStatsRequest
+from onelens_backend_client_v2.models import UpsertTenantSettingsRequest
 
 
-from onelens_backend_client_v2.models import GetDeltaEventsStatsResponse
-
-
-from onelens_backend_client_v2.models import InsertDeltaEventsRequest
-
-
-from onelens_backend_client_v2.models import InsertDeltaEventsResponse
-
-
-from onelens_backend_client_v2.models import InsertDeltaEventsRcaRequest
-
-
-from onelens_backend_client_v2.models import InsertDeltaEventsRcaResponse
+from onelens_backend_client_v2.models import TenantSettingsResponse
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
-class DeltaEventsServiceRpcHandler:
+class TenantSettingsServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
 
     def __init__(self, api_client=None) -> None:
@@ -47,9 +35,9 @@ class DeltaEventsServiceRpcHandler:
         self.api_client = api_client
 
     @validate_call
-    def get_delta_event_detail(
+    def delete_tenant_setting(
         self,
-        request: GetDeltaEventDetailRequest,
+        request: DeleteTenantSettingsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,13 +49,13 @@ class DeltaEventsServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetDeltaEventDetailResponse:
-        """Get Delta Event Detail
+    ) -> DeleteTenantSettingsResponse:
+        """Delete a tenant setting.
 
 
 
         :param request: (required)
-        :type request: GetDeltaEventDetailRequest
+        :type request: DeleteTenantSettingsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,7 +78,7 @@ class DeltaEventsServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_delta_event_detail_serialize(
+        _param = self._delete_tenant_setting_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -99,7 +87,7 @@ class DeltaEventsServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventDetailResponse",
+            "200": "DeleteTenantSettingsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -111,9 +99,9 @@ class DeltaEventsServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_delta_event_detail_serialize(
+    def _delete_tenant_setting_serialize(
         self,
-        request: GetDeltaEventDetailRequest,
+        request: DeleteTenantSettingsRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -154,7 +142,7 @@ class DeltaEventsServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_event_detail",
+            resource_path="/rpc/tenant_settings_service/delete_tenant_setting",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -168,9 +156,9 @@ class DeltaEventsServiceRpcHandler:
         )
 
     @validate_call
-    def get_delta_events(
+    def get_tenant_settings(
         self,
-        request: GetDeltaEventsRequest,
+        request: GetTenantSettingsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -182,13 +170,13 @@ class DeltaEventsServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetDeltaEventsResponse:
-        """Get Delta Events
+    ) -> GetTenantSettingsResponse:
+        """Retrieve tenant settings by settings_key
 
 
 
         :param request: (required)
-        :type request: GetDeltaEventsRequest
+        :type request: GetTenantSettingsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -211,7 +199,7 @@ class DeltaEventsServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_delta_events_serialize(
+        _param = self._get_tenant_settings_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -220,7 +208,7 @@ class DeltaEventsServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventsResponse",
+            "200": "GetTenantSettingsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -232,9 +220,9 @@ class DeltaEventsServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_delta_events_serialize(
+    def _get_tenant_settings_serialize(
         self,
-        request: GetDeltaEventsRequest,
+        request: GetTenantSettingsRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -275,7 +263,7 @@ class DeltaEventsServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_events",
+            resource_path="/rpc/tenant_settings_service/get_tenant_settings",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -289,9 +277,9 @@ class DeltaEventsServiceRpcHandler:
         )
 
     @validate_call
-    def get_delta_events_stats(
+    def upsert_tenant_setting(
         self,
-        request: GetDeltaEventsStatsRequest,
+        request: UpsertTenantSettingsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -303,13 +291,13 @@ class DeltaEventsServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetDeltaEventsStatsResponse:
-        """Get delta events stats including total count and cost impact.
+    ) -> TenantSettingsResponse:
+        """Create or update tenant setting.
 
 
 
         :param request: (required)
-        :type request: GetDeltaEventsStatsRequest
+        :type request: UpsertTenantSettingsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -332,7 +320,7 @@ class DeltaEventsServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._get_delta_events_stats_serialize(
+        _param = self._upsert_tenant_setting_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -341,7 +329,7 @@ class DeltaEventsServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventsStatsResponse",
+            "200": "TenantSettingsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -353,9 +341,9 @@ class DeltaEventsServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _get_delta_events_stats_serialize(
+    def _upsert_tenant_setting_serialize(
         self,
-        request: GetDeltaEventsStatsRequest,
+        request: UpsertTenantSettingsRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -396,249 +384,7 @@ class DeltaEventsServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_events_stats",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def insert_delta_events(
-        self,
-        request: InsertDeltaEventsRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> InsertDeltaEventsResponse:
-        """Insert Delta Events
-
-
-
-        :param request: (required)
-        :type request: InsertDeltaEventsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._insert_delta_events_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "InsertDeltaEventsResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _insert_delta_events_serialize(
-        self,
-        request: InsertDeltaEventsRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/insert_delta_events",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def insert_delta_events_rca(
-        self,
-        request: InsertDeltaEventsRcaRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> InsertDeltaEventsRcaResponse:
-        """Insert Delta Events Rca
-
-
-
-        :param request: (required)
-        :type request: InsertDeltaEventsRcaRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """
-
-        _param = self._insert_delta_events_rca_serialize(
-            request=request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "InsertDeltaEventsRcaResponse",
-            "422": "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    def _insert_delta_events_rca_serialize(
-        self,
-        request: InsertDeltaEventsRcaRequest,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the body parameter
-        if request is not None:
-            _body_params = request
-
-        # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params["Content-Type"] = _content_type
-        else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
-            )
-            if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = []
-
-        return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/insert_delta_events_rca",
+            resource_path="/rpc/tenant_settings_service/upsert_tenant_setting",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
