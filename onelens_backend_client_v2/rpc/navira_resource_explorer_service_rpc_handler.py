@@ -1,8 +1,10 @@
 # NaviraResourceExplorerServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 
 
 from onelens_backend_client_v2.models import ExecuteSqlRequest
@@ -11,10 +13,12 @@ from onelens_backend_client_v2.models import ExecuteSqlRequest
 from onelens_backend_client_v2.models import ExecuteSqlResponse
 
 
+
 from onelens_backend_client_v2.models import GenerateSQLRequest
 
 
 from onelens_backend_client_v2.models import GenerateSQLResponse
+
 
 
 from onelens_backend_client_v2.models import GetAllTablesRequest
@@ -23,10 +27,12 @@ from onelens_backend_client_v2.models import GetAllTablesRequest
 from onelens_backend_client_v2.models import GetAllTablesResponse
 
 
+
 from onelens_backend_client_v2.models import GetResourceCatalogRequest
 
 
 from onelens_backend_client_v2.models import GetResourceCatalogResponse
+
 
 
 from onelens_backend_client_v2.models import GetServiceAndResourceTypeRequest
@@ -35,10 +41,12 @@ from onelens_backend_client_v2.models import GetServiceAndResourceTypeRequest
 from onelens_backend_client_v2.models import GetServiceAndResourceTypeResponse
 
 
+
 from onelens_backend_client_v2.models import GetTableMetadataRequest
 
 
 from onelens_backend_client_v2.models import GetTableMetadataResponse
+
 
 
 from onelens_backend_client_v2.models import SelectTablesRequest
@@ -47,8 +55,10 @@ from onelens_backend_client_v2.models import SelectTablesRequest
 from onelens_backend_client_v2.models import SelectTablesResponse
 
 
-from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class NaviraResourceExplorerServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -58,6 +68,7 @@ class NaviraResourceExplorerServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def execute_sql(
         self,
@@ -66,8 +77,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -76,7 +88,7 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> ExecuteSqlResponse:
         """Execute Sql
 
-
+        
 
         :param request: (required)
         :type request: ExecuteSqlRequest
@@ -107,15 +119,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "ExecuteSqlResponse",
-            "422": "HTTPValidationError",
+            '200': "ExecuteSqlResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -131,9 +144,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -147,26 +162,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/execute_sql",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/execute_sql',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -176,9 +198,10 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def generate_sql(
         self,
@@ -187,8 +210,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -197,7 +221,7 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> GenerateSQLResponse:
         """Generate Sql
 
-
+        
 
         :param request: (required)
         :type request: GenerateSQLRequest
@@ -228,15 +252,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GenerateSQLResponse",
-            "422": "HTTPValidationError",
+            '200': "GenerateSQLResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -252,9 +277,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -268,26 +295,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/generate_sql",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/generate_sql',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -297,9 +331,10 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_all_tables(
         self,
@@ -308,8 +343,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -318,7 +354,7 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> GetAllTablesResponse:
         """Get all tables with their names and services.
 
-
+        
 
         :param request: (required)
         :type request: GetAllTablesRequest
@@ -349,15 +385,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetAllTablesResponse",
-            "422": "HTTPValidationError",
+            '200': "GetAllTablesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -373,9 +410,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -389,26 +428,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/get_all_tables",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/get_all_tables',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -418,9 +464,10 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_resource_catalog_sql_query(
         self,
@@ -429,8 +476,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -439,9 +487,9 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> GetResourceCatalogResponse:
         """
         Generates SQL query for exploring resource catalog data.
+        
 
-
-
+        
 
         :param request: (required)
         :type request: GetResourceCatalogRequest
@@ -472,15 +520,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetResourceCatalogResponse",
-            "422": "HTTPValidationError",
+            '200': "GetResourceCatalogResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -496,9 +545,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -512,26 +563,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/get_resource_catalog_sql_query",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/get_resource_catalog_sql_query',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -541,9 +599,10 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_service_and_resource_type(
         self,
@@ -552,8 +611,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -562,7 +622,7 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> GetServiceAndResourceTypeResponse:
         """Get Service And Resource Type
 
-
+        
 
         :param request: (required)
         :type request: GetServiceAndResourceTypeRequest
@@ -593,15 +653,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetServiceAndResourceTypeResponse",
-            "422": "HTTPValidationError",
+            '200': "GetServiceAndResourceTypeResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -617,9 +678,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -633,26 +696,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/get_service_and_resource_type",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/get_service_and_resource_type',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -662,9 +732,10 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_table_metadata(
         self,
@@ -673,8 +744,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -683,7 +755,7 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> GetTableMetadataResponse:
         """Get metadata for the requested tables.
 
-
+        
 
         :param request: (required)
         :type request: GetTableMetadataRequest
@@ -714,15 +786,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTableMetadataResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTableMetadataResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -738,9 +811,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -754,26 +829,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/get_table_metadata",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/get_table_metadata',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -783,9 +865,10 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def select_tables(
         self,
@@ -794,8 +877,9 @@ class NaviraResourceExplorerServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -804,7 +888,7 @@ class NaviraResourceExplorerServiceRpcHandler:
     ) -> SelectTablesResponse:
         """Select Tables
 
-
+        
 
         :param request: (required)
         :type request: SelectTablesRequest
@@ -835,15 +919,16 @@ class NaviraResourceExplorerServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "SelectTablesResponse",
-            "422": "HTTPValidationError",
+            '200': "SelectTablesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -859,9 +944,11 @@ class NaviraResourceExplorerServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -875,26 +962,33 @@ class NaviraResourceExplorerServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/navira_resource_explorer_service/select_tables",
+            method='POST',
+            resource_path='/rpc/navira_resource_explorer_service/select_tables',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -904,5 +998,7 @@ class NaviraResourceExplorerServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    
