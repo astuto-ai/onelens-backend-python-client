@@ -1,10 +1,8 @@
 # TenantAnomalyServiceRpcHandler API
 
-import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-
 
 
 from onelens_backend_client_v2.models import DisableTenantAnomalySettingsRequest
@@ -13,12 +11,10 @@ from onelens_backend_client_v2.models import DisableTenantAnomalySettingsRequest
 from onelens_backend_client_v2.models import DisableTenantAnomalySettingsResponse
 
 
-
 from onelens_backend_client_v2.models import EnableTenantAnomalySettingsRequest
 
 
 from onelens_backend_client_v2.models import EnableTenantAnomalySettingsResponse
-
 
 
 from onelens_backend_client_v2.models import GetTenantAnomalySettingsRequest
@@ -27,17 +23,14 @@ from onelens_backend_client_v2.models import GetTenantAnomalySettingsRequest
 from onelens_backend_client_v2.models import GetTenantAnomalySettingsResponse
 
 
-
 from onelens_backend_client_v2.models import OverrideTenantAnomalyConfigRequest
 
 
 from onelens_backend_client_v2.models import OverrideTenantAnomalyConfigResponse
 
 
-
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-from onelens_backend_client_v2.api_response import ApiResponse
-from onelens_backend_client_v2.rest import RESTResponseType
+
 
 class TenantAnomalyServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -47,7 +40,6 @@ class TenantAnomalyServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    
     @validate_call
     def disable_tenant_anomaly_setting(
         self,
@@ -56,9 +48,8 @@ class TenantAnomalyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -67,7 +58,7 @@ class TenantAnomalyServiceRpcHandler:
     ) -> DisableTenantAnomalySettingsResponse:
         """disables an anomaly for a tenant in the tenant DB.
 
-        
+
 
         :param request: (required)
         :type request: DisableTenantAnomalySettingsRequest
@@ -98,16 +89,15 @@ class TenantAnomalyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DisableTenantAnomalySettingsResponse",
-            '422': "HTTPValidationError",
+            "200": "DisableTenantAnomalySettingsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -123,11 +113,9 @@ class TenantAnomalyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -141,33 +129,26 @@ class TenantAnomalyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/tenant_anomaly_service/disable_tenant_anomaly_setting',
+            method="POST",
+            resource_path="/rpc/tenant_anomaly_service/disable_tenant_anomaly_setting",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -177,10 +158,9 @@ class TenantAnomalyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def enable_tenant_anomaly_setting(
         self,
@@ -189,9 +169,8 @@ class TenantAnomalyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -200,7 +179,7 @@ class TenantAnomalyServiceRpcHandler:
     ) -> EnableTenantAnomalySettingsResponse:
         """enables an anomaly for a tenant in the tenant DB.
 
-        
+
 
         :param request: (required)
         :type request: EnableTenantAnomalySettingsRequest
@@ -231,16 +210,15 @@ class TenantAnomalyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EnableTenantAnomalySettingsResponse",
-            '422': "HTTPValidationError",
+            "200": "EnableTenantAnomalySettingsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -256,11 +234,9 @@ class TenantAnomalyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -274,33 +250,26 @@ class TenantAnomalyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/tenant_anomaly_service/enable_tenant_anomaly_setting',
+            method="POST",
+            resource_path="/rpc/tenant_anomaly_service/enable_tenant_anomaly_setting",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -310,10 +279,9 @@ class TenantAnomalyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_tenant_anomaly_settings(
         self,
@@ -322,9 +290,8 @@ class TenantAnomalyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -333,7 +300,7 @@ class TenantAnomalyServiceRpcHandler:
     ) -> GetTenantAnomalySettingsResponse:
         """Retrieves all tenant anomaly settings, optionally filtered by the parameters in the request.
 
-        
+
 
         :param request: (required)
         :type request: GetTenantAnomalySettingsRequest
@@ -364,16 +331,15 @@ class TenantAnomalyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantAnomalySettingsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetTenantAnomalySettingsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -389,11 +355,9 @@ class TenantAnomalyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -407,33 +371,26 @@ class TenantAnomalyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/tenant_anomaly_service/get_tenant_anomaly_settings',
+            method="POST",
+            resource_path="/rpc/tenant_anomaly_service/get_tenant_anomaly_settings",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -443,10 +400,9 @@ class TenantAnomalyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def override_tenant_anomaly_setting_config(
         self,
@@ -455,9 +411,8 @@ class TenantAnomalyServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -466,7 +421,7 @@ class TenantAnomalyServiceRpcHandler:
     ) -> OverrideTenantAnomalyConfigResponse:
         """Override the tenant anomaly config with the provided config.
 
-        
+
 
         :param request: (required)
         :type request: OverrideTenantAnomalyConfigRequest
@@ -497,16 +452,15 @@ class TenantAnomalyServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OverrideTenantAnomalyConfigResponse",
-            '422': "HTTPValidationError",
+            "200": "OverrideTenantAnomalyConfigResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -522,11 +476,9 @@ class TenantAnomalyServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -540,33 +492,26 @@ class TenantAnomalyServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/tenant_anomaly_service/override_tenant_anomaly_setting_config',
+            method="POST",
+            resource_path="/rpc/tenant_anomaly_service/override_tenant_anomaly_setting_config",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -576,7 +521,5 @@ class TenantAnomalyServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-    

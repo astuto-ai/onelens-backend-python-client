@@ -1,10 +1,8 @@
 # ResourceCatalogServiceRpcHandler API
 
-import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-
 
 
 from onelens_backend_client_v2.models import GetAllResourceCatalogsRequest
@@ -13,26 +11,13 @@ from onelens_backend_client_v2.models import GetAllResourceCatalogsRequest
 from onelens_backend_client_v2.models import GetAllResourceCatalogsResponse
 
 
-
 from onelens_backend_client_v2.models import ResourceCatalogRequest
 
 
 from onelens_backend_client_v2.models import ResourceCatalogResponse
-
-
-
-from onelens_backend_client_v2.models import ResourceCatalogRequest
 
 
 from onelens_backend_client_v2.models import GetResourceWithRelationResponse
-
-
-
-from onelens_backend_client_v2.models import ResourceCatalogRequest
-
-
-from onelens_backend_client_v2.models import ResourceCatalogResponse
-
 
 
 from onelens_backend_client_v2.models import GetResourceCatalogCostDataStatsRequest
@@ -41,12 +26,10 @@ from onelens_backend_client_v2.models import GetResourceCatalogCostDataStatsRequ
 from onelens_backend_client_v2.models import GetResourceCatalogCostDataStatsResponse
 
 
-
 from onelens_backend_client_v2.models import GetResourceCatalogCountStatsRequest
 
 
 from onelens_backend_client_v2.models import GetResourceCatalogCountStatsResponse
-
 
 
 from onelens_backend_client_v2.models import GetAllResourceCatalogsRequestV2
@@ -55,12 +38,10 @@ from onelens_backend_client_v2.models import GetAllResourceCatalogsRequestV2
 from onelens_backend_client_v2.models import GetAllResourceCatalogsResponseV2
 
 
-
 from onelens_backend_client_v2.models import GetS3AgentMetricsDataRequest
 
 
 from onelens_backend_client_v2.models import GetS3AgentMetricsDataResponse
-
 
 
 from onelens_backend_client_v2.models import GetStorageLensEnabledRequest
@@ -69,12 +50,12 @@ from onelens_backend_client_v2.models import GetStorageLensEnabledRequest
 from onelens_backend_client_v2.models import GetStorageLensEnabledResponse
 
 
-
 from onelens_backend_client_v2.models import GetUntaggedResourceCatalogCountStatsRequest
 
 
-from onelens_backend_client_v2.models import GetUntaggedResourceCatalogCountStatsResponse
-
+from onelens_backend_client_v2.models import (
+    GetUntaggedResourceCatalogCountStatsResponse,
+)
 
 
 from onelens_backend_client_v2.models import UpsertResourceCatalogCostDataRequest
@@ -83,10 +64,8 @@ from onelens_backend_client_v2.models import UpsertResourceCatalogCostDataReques
 from onelens_backend_client_v2.models import UpsertResourceCatalogCostDataResponse
 
 
-
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-from onelens_backend_client_v2.api_response import ApiResponse
-from onelens_backend_client_v2.rest import RESTResponseType
+
 
 class ResourceCatalogServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -96,7 +75,6 @@ class ResourceCatalogServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    
     @validate_call
     def get_all(
         self,
@@ -105,9 +83,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -116,7 +93,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetAllResourceCatalogsResponse:
         """Get all resource catalogs
 
-        
+
 
         :param request: (required)
         :type request: GetAllResourceCatalogsRequest
@@ -147,16 +124,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAllResourceCatalogsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetAllResourceCatalogsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -172,11 +148,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -190,33 +164,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_all',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_all",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -226,10 +193,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_by_id(
         self,
@@ -238,9 +204,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -249,7 +214,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> ResourceCatalogResponse:
         """Get resource catalog by id
 
-        
+
 
         :param request: (required)
         :type request: ResourceCatalogRequest
@@ -280,16 +245,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResourceCatalogResponse",
-            '422': "HTTPValidationError",
+            "200": "ResourceCatalogResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -305,11 +269,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -323,33 +285,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_by_id',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_by_id",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -359,10 +314,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_by_id_with_relations(
         self,
@@ -371,9 +325,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -382,7 +335,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetResourceWithRelationResponse:
         """Get resource catalog by id with relations
 
-        
+
 
         :param request: (required)
         :type request: ResourceCatalogRequest
@@ -413,16 +366,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResourceWithRelationResponse",
-            '422': "HTTPValidationError",
+            "200": "GetResourceWithRelationResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -438,11 +390,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -456,33 +406,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_by_id_with_relations',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_by_id_with_relations",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -492,10 +435,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_resource_by_id_v2(
         self,
@@ -504,9 +446,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -515,7 +456,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> ResourceCatalogResponse:
         """Get resource catalog by id
 
-        
+
 
         :param request: (required)
         :type request: ResourceCatalogRequest
@@ -546,16 +487,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResourceCatalogResponse",
-            '422': "HTTPValidationError",
+            "200": "ResourceCatalogResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -571,11 +511,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -589,33 +527,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_resource_by_id_v2',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_resource_by_id_v2",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -625,10 +556,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_resource_catalog_cost_data_stats(
         self,
@@ -637,9 +567,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -648,7 +577,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetResourceCatalogCostDataStatsResponse:
         """Get Resource Catalog Cost Data Stats
 
-        
+
 
         :param request: (required)
         :type request: GetResourceCatalogCostDataStatsRequest
@@ -679,16 +608,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResourceCatalogCostDataStatsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetResourceCatalogCostDataStatsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -704,11 +632,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -722,33 +648,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_resource_catalog_cost_data_stats',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_resource_catalog_cost_data_stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -758,10 +677,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_resource_catalog_count_stats(
         self,
@@ -770,9 +688,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -781,7 +698,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetResourceCatalogCountStatsResponse:
         """Get Resource Catalog Count Stats
 
-        
+
 
         :param request: (required)
         :type request: GetResourceCatalogCountStatsRequest
@@ -812,16 +729,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResourceCatalogCountStatsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetResourceCatalogCountStatsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -837,11 +753,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -855,33 +769,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_resource_catalog_count_stats',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_resource_catalog_count_stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -891,10 +798,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_resources_v2(
         self,
@@ -903,9 +809,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -914,7 +819,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetAllResourceCatalogsResponseV2:
         """Get all resource catalogs with storage metrics
 
-        
+
 
         :param request: (required)
         :type request: GetAllResourceCatalogsRequestV2
@@ -945,16 +850,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAllResourceCatalogsResponseV2",
-            '422': "HTTPValidationError",
+            "200": "GetAllResourceCatalogsResponseV2",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -970,11 +874,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -988,33 +890,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_resources_v2',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_resources_v2",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1024,10 +919,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_s3_agent_metrics_data(
         self,
@@ -1036,9 +930,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1047,7 +940,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetS3AgentMetricsDataResponse:
         """Get S3 agent metrics data
 
-        
+
 
         :param request: (required)
         :type request: GetS3AgentMetricsDataRequest
@@ -1078,16 +971,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetS3AgentMetricsDataResponse",
-            '422': "HTTPValidationError",
+            "200": "GetS3AgentMetricsDataResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1103,11 +995,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1121,33 +1011,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_s3_agent_metrics_data',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_s3_agent_metrics_data",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1157,10 +1040,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_storage_lens_enabled(
         self,
@@ -1169,9 +1051,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1180,7 +1061,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetStorageLensEnabledResponse:
         """Get storage lens enabled accounts for a tenant
 
-        
+
 
         :param request: (required)
         :type request: GetStorageLensEnabledRequest
@@ -1211,16 +1092,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetStorageLensEnabledResponse",
-            '422': "HTTPValidationError",
+            "200": "GetStorageLensEnabledResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1236,11 +1116,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1254,33 +1132,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_storage_lens_enabled',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_storage_lens_enabled",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1290,10 +1161,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_untagged_resource_catalog_count_stats(
         self,
@@ -1302,9 +1172,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1313,7 +1182,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> GetUntaggedResourceCatalogCountStatsResponse:
         """Get Untagged Resource Catalog Count Stats
 
-        
+
 
         :param request: (required)
         :type request: GetUntaggedResourceCatalogCountStatsRequest
@@ -1344,16 +1213,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUntaggedResourceCatalogCountStatsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetUntaggedResourceCatalogCountStatsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1369,11 +1237,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1387,33 +1253,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/get_untagged_resource_catalog_count_stats',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/get_untagged_resource_catalog_count_stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1423,10 +1282,9 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def upsert_resource_catalog_cost_data(
         self,
@@ -1435,9 +1293,8 @@ class ResourceCatalogServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1446,7 +1303,7 @@ class ResourceCatalogServiceRpcHandler:
     ) -> UpsertResourceCatalogCostDataResponse:
         """Upsert resource catalog cost data
 
-        
+
 
         :param request: (required)
         :type request: UpsertResourceCatalogCostDataRequest
@@ -1477,16 +1334,15 @@ class ResourceCatalogServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpsertResourceCatalogCostDataResponse",
-            '422': "HTTPValidationError",
+            "200": "UpsertResourceCatalogCostDataResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1502,11 +1358,9 @@ class ResourceCatalogServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1520,33 +1374,26 @@ class ResourceCatalogServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/resource_catalog_service/upsert_resource_catalog_cost_data',
+            method="POST",
+            resource_path="/rpc/resource_catalog_service/upsert_resource_catalog_cost_data",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1556,7 +1403,5 @@ class ResourceCatalogServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-    
