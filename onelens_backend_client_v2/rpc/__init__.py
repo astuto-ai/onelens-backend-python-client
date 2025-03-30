@@ -174,6 +174,10 @@ from onelens_backend_client_v2.rpc.tenant_settings_service_rpc_handler import (
     TenantSettingsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.kubernetes_management_service_rpc_handler import (
+    KubernetesManagementServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -220,4 +224,5 @@ __all__ = [
     "CurDataServiceRpcHandler",
     "TenantAccountServiceRpcHandler",
     "TenantSettingsServiceRpcHandler",
+    "KubernetesManagementServiceRpcHandler",
 ]
