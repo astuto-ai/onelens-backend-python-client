@@ -178,6 +178,10 @@ from onelens_backend_client_v2.rpc.kubernetes_management_service_rpc_handler imp
     KubernetesManagementServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.kubernetes_data_service_rpc_handler import (
+    KubernetesDataServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.s3_optimisation_service_rpc_handler import (
     S3OptimisationServiceRpcHandler,
 )
@@ -229,5 +233,6 @@ __all__ = [
     "TenantAccountServiceRpcHandler",
     "TenantSettingsServiceRpcHandler",
     "KubernetesManagementServiceRpcHandler",
+    "KubernetesDataServiceRpcHandler",
     "S3OptimisationServiceRpcHandler",
 ]

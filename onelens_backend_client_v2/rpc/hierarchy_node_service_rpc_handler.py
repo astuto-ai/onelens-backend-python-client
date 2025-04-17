@@ -44,7 +44,9 @@ from onelens_backend_client_v2.models import GetHierarchyResponse
 from onelens_backend_client_v2.models import GetHierarchyFlatRequest
 
 
-from onelens_backend_client_v2.models import GetHierarchyFlatResponse
+from onelens_backend_client_v2.models import (
+    onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetHierarchyFlatResponse,
+)
 
 
 from onelens_backend_client_v2.models import GetHierarchyNodeByIdRequest
@@ -62,7 +64,9 @@ from onelens_backend_client_v2.models import GetLeafNodesResponse
 from onelens_backend_client_v2.models import GetMappedResourcesRequest
 
 
-from onelens_backend_client_v2.models import GetMappedResourcesResponse
+from onelens_backend_client_v2.models import (
+    onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetMappedResourcesResponse,
+)
 
 
 from onelens_backend_client_v2.models import GetMappedResourcesMetricsRequest
@@ -850,7 +854,7 @@ class HierarchyNodeServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetHierarchyFlatResponse:
+    ) -> onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetHierarchyFlatResponse:
         """get hierarchy flat
 
 
@@ -888,7 +892,7 @@ class HierarchyNodeServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetHierarchyFlatResponse",
+            "200": "onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetHierarchyFlatResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -1213,7 +1217,7 @@ class HierarchyNodeServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetMappedResourcesResponse:
+    ) -> onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetMappedResourcesResponse:
         """get mapped resources
 
 
@@ -1251,7 +1255,7 @@ class HierarchyNodeServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetMappedResourcesResponse",
+            "200": "onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetMappedResourcesResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
