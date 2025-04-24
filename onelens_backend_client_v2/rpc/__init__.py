@@ -150,10 +150,6 @@ from onelens_backend_client_v2.rpc.change_detection_service_rpc_handler import (
     ChangeDetectionServiceRpcHandler,
 )
 
-from onelens_backend_client_v2.rpc.change_detection_service_v2_rpc_handler import (
-    ChangeDetectionServiceV2RpcHandler,
-)
-
 from onelens_backend_client_v2.rpc.cur_data_metrics_service_rpc_handler import (
     CurDataMetricsServiceRpcHandler,
 )
@@ -184,6 +180,10 @@ from onelens_backend_client_v2.rpc.kubernetes_data_service_rpc_handler import (
 
 from onelens_backend_client_v2.rpc.s3_optimisation_service_rpc_handler import (
     S3OptimisationServiceRpcHandler,
+)
+
+from onelens_backend_client_v2.rpc.costlens_service_rpc_handler import (
+    CostlensServiceRpcHandler,
 )
 
 
@@ -226,7 +226,6 @@ __all__ = [
     "TenantTicketActivityServiceRpcHandler",
     "NotificationServiceRpcHandler",
     "ChangeDetectionServiceRpcHandler",
-    "ChangeDetectionServiceV2RpcHandler",
     "CurDataMetricsServiceRpcHandler",
     "DeltaEventsServiceRpcHandler",
     "CurDataServiceRpcHandler",
@@ -235,4 +234,5 @@ __all__ = [
     "KubernetesManagementServiceRpcHandler",
     "KubernetesDataServiceRpcHandler",
     "S3OptimisationServiceRpcHandler",
+    "CostlensServiceRpcHandler",
 ]

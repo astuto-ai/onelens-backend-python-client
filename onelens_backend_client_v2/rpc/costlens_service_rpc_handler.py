@@ -1,20 +1,26 @@
-# ChangeDetectionServiceRpcHandler API
+# CostlensServiceRpcHandler API
 
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import DetectChangeRequest
+from onelens_backend_client_v2.models import CreateTenantAccountDailyCostRequest
 
 
-from onelens_backend_client_v2.models import DetectChangeResponse
+from onelens_backend_client_v2.models import CreateTenantAccountDailyCostResponse
+
+
+from onelens_backend_client_v2.models import CreateTenantDailyCostRequest
+
+
+from onelens_backend_client_v2.models import CreateTenantDailyCostResponse
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
 
-class ChangeDetectionServiceRpcHandler:
+class CostlensServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
 
     def __init__(self, api_client=None) -> None:
@@ -23,9 +29,9 @@ class ChangeDetectionServiceRpcHandler:
         self.api_client = api_client
 
     @validate_call
-    def detect_change(
+    def create_tenant_account_daily_cost(
         self,
-        request: DetectChangeRequest,
+        request: CreateTenantAccountDailyCostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37,13 +43,15 @@ class ChangeDetectionServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DetectChangeResponse:
-        """Detect Change
+    ) -> CreateTenantAccountDailyCostResponse:
+        """
+        Create a tenant account daily cost
+
 
 
 
         :param request: (required)
-        :type request: DetectChangeRequest
+        :type request: CreateTenantAccountDailyCostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -66,7 +74,7 @@ class ChangeDetectionServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._detect_change_serialize(
+        _param = self._create_tenant_account_daily_cost_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -75,7 +83,7 @@ class ChangeDetectionServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DetectChangeResponse",
+            "200": "CreateTenantAccountDailyCostResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -87,9 +95,9 @@ class ChangeDetectionServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _detect_change_serialize(
+    def _create_tenant_account_daily_cost_serialize(
         self,
-        request: DetectChangeRequest,
+        request: CreateTenantAccountDailyCostRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -130,7 +138,7 @@ class ChangeDetectionServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/change_detection_service/detect_change",
+            resource_path="/rpc/costlens_service/create_tenant_account_daily_cost",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -144,9 +152,9 @@ class ChangeDetectionServiceRpcHandler:
         )
 
     @validate_call
-    def detect_change_v2(
+    def create_tenant_daily_cost(
         self,
-        request: DetectChangeRequest,
+        request: CreateTenantDailyCostRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -158,13 +166,15 @@ class ChangeDetectionServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DetectChangeResponse:
-        """Detect Change V2
+    ) -> CreateTenantDailyCostResponse:
+        """
+        Create a tenant daily cost
+
 
 
 
         :param request: (required)
-        :type request: DetectChangeRequest
+        :type request: CreateTenantDailyCostRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -187,7 +197,7 @@ class ChangeDetectionServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = self._detect_change_v2_serialize(
+        _param = self._create_tenant_daily_cost_serialize(
             request=request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -196,7 +206,7 @@ class ChangeDetectionServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DetectChangeResponse",
+            "200": "CreateTenantDailyCostResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -208,9 +218,9 @@ class ChangeDetectionServiceRpcHandler:
             response_types_map=_response_types_map,
         ).data
 
-    def _detect_change_v2_serialize(
+    def _create_tenant_daily_cost_serialize(
         self,
-        request: DetectChangeRequest,
+        request: CreateTenantDailyCostRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -251,7 +261,7 @@ class ChangeDetectionServiceRpcHandler:
 
         return self.api_client.param_serialize(
             method="POST",
-            resource_path="/rpc/change_detection_service/detect_change_v2",
+            resource_path="/rpc/costlens_service/create_tenant_daily_cost",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
