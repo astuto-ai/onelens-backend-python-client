@@ -5,7 +5,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import CreateDefaultHierarchyRequest
+from onelens_backend_client_v2.models import CreateDefaultHierarchyRequest, OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetMappedResourcesResponse
 
 
 from onelens_backend_client_v2.models import CreateDefaultHierarchyResponse
