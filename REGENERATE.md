@@ -21,5 +21,5 @@ git restore onelens_backend_client_v2/__init__.py
 ```
 poetry install
 poetry shell
-python3 client_generator.py -i http://localhost:19000/openapi.json -o onelens_backend_client_v2
+python3 client_generator.py -i http://localhost:8001/openapi.json -o onelens_backend_client_v2
 ```

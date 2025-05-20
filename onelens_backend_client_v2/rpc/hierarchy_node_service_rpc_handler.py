@@ -64,9 +64,6 @@ from onelens_backend_client_v2.models import GetLeafNodesResponse
 from onelens_backend_client_v2.models import GetMappedResourcesRequest
 
 
-from onelens_backend_client_v2.models import (
-    OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetMappedResourcesResponse,
-)
 
 
 from onelens_backend_client_v2.models import GetMappedResourcesMetricsRequest
