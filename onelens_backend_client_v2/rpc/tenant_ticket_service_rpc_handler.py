@@ -74,6 +74,12 @@ from onelens_backend_client_v2.models import GetPresignedUrlForCustomTicketReque
 from onelens_backend_client_v2.models import GetPresignedUrlForCustomTicketResponse
 
 
+from onelens_backend_client_v2.models import GetServiceDashboardStatsRequest
+
+
+from onelens_backend_client_v2.models import GetServiceDashboardStatsResponse
+
+
 from onelens_backend_client_v2.models import GetTicketByIdPolicyDetailsRequest
 
 
@@ -104,6 +110,12 @@ from onelens_backend_client_v2.models import GetTicketStatsRequest
 from onelens_backend_client_v2.models import GetTicketStatsResponse
 
 
+from onelens_backend_client_v2.models import GetTicketStatsByPriorityRequest
+
+
+from onelens_backend_client_v2.models import GetTicketStatsByPriorityResponse
+
+
 from onelens_backend_client_v2.models import GetTicketTimeseriesCostDataRequest
 
 
@@ -116,10 +128,22 @@ from onelens_backend_client_v2.models import GetTicketTimeseriesDataRequest
 from onelens_backend_client_v2.models import GetTicketTimeseriesDataResponse
 
 
+from onelens_backend_client_v2.models import GetUserCustomTicketByArnRequest
+
+
+from onelens_backend_client_v2.models import GetUserCustomTicketByArnResponse
+
+
 from onelens_backend_client_v2.models import GetUserCustomTicketByIdRequest
 
 
 from onelens_backend_client_v2.models import GetUserCustomTicketByIdResponse
+
+
+from onelens_backend_client_v2.models import UpdateCustomTenantTicketRequest
+
+
+from onelens_backend_client_v2.models import UpdateCustomTenantTicketResponse
 
 
 from onelens_backend_client_v2.models import UpdateSingleTenantTicketRequest
@@ -1604,6 +1628,132 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
+    def get_service_dashboard_stats(
+        self,
+        request: GetServiceDashboardStatsRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetServiceDashboardStatsResponse:
+        """
+        Get service dashboard stats with both potential savings and monthly costs in a single optimized query.
+
+        This method uses the repository's get_service_stats_with_savings_and_costs method
+        that implements the same business logic as the working SQL query for optimal performance.
+
+
+
+
+        :param request: (required)
+        :type request: GetServiceDashboardStatsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_service_dashboard_stats_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetServiceDashboardStatsResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_service_dashboard_stats_serialize(
+        self,
+        request: GetServiceDashboardStatsRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/tenant_ticket_service/get_service_dashboard_stats",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def get_tenant_ticket_by_id_with_policy_details(
         self,
         request: GetTicketByIdPolicyDetailsRequest,
@@ -2209,6 +2359,137 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
+    def get_ticket_stats_by_priority(
+        self,
+        request: GetTicketStatsByPriorityRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetTicketStatsByPriorityResponse:
+        """
+        Get ticket stats by priority. This service handler returns the ticket stats in form of Prioritised Tickets, In-Progress and Done Tickets, and Done and Verified Tickets tickets
+
+        Priortized tickets are fetched from policy_tickets_stats/fetch rpc with filters High Priority + Status Ticket Created
+        In-Progress tickets are fetched from policy_tickets_stats/fetch rpc with filters Status: (In Progress and Done)
+        Done and Verified tickets are fetched from tickets/stats/fetch rpc with filters Status Done and Verified
+
+        All of these with metrics: DISTINCT_TICKET_COUNT
+
+        start_date and end_date are fetched on timestamp metric date_of_change
+
+
+
+
+        :param request: (required)
+        :type request: GetTicketStatsByPriorityRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_ticket_stats_by_priority_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetTicketStatsByPriorityResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_ticket_stats_by_priority_serialize(
+        self,
+        request: GetTicketStatsByPriorityRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/tenant_ticket_service/get_ticket_stats_by_priority",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def get_ticket_timeseries_cost_data(
         self,
         request: GetTicketTimeseriesCostDataRequest,
@@ -2451,6 +2732,127 @@ class TenantTicketServiceRpcHandler:
         )
 
     @validate_call
+    def get_user_custom_ticket_by_arn(
+        self,
+        request: GetUserCustomTicketByArnRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetUserCustomTicketByArnResponse:
+        """Get custom tickets by ARN ID
+
+
+
+        :param request: (required)
+        :type request: GetUserCustomTicketByArnRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_user_custom_ticket_by_arn_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetUserCustomTicketByArnResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_user_custom_ticket_by_arn_serialize(
+        self,
+        request: GetUserCustomTicketByArnRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/tenant_ticket_service/get_user_custom_ticket_by_arn",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def get_user_custom_ticket_by_id(
         self,
         request: GetUserCustomTicketByIdRequest,
@@ -2559,6 +2961,133 @@ class TenantTicketServiceRpcHandler:
         return self.api_client.param_serialize(
             method="POST",
             resource_path="/rpc/tenant_ticket_service/get_user_custom_ticket_by_id",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def update_custom_tenant_ticket(
+        self,
+        request: UpdateCustomTenantTicketRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UpdateCustomTenantTicketResponse:
+        """Custom Tenant Ticket Update
+
+        This method handles updating an existing custom ticket including:
+        1. Validating the update request
+        2. Processing any file uploads or removals
+        3. Updating the ticket in the database
+
+
+
+
+        :param request: (required)
+        :type request: UpdateCustomTenantTicketRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._update_custom_tenant_ticket_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "UpdateCustomTenantTicketResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _update_custom_tenant_ticket_serialize(
+        self,
+        request: UpdateCustomTenantTicketRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/tenant_ticket_service/update_custom_tenant_ticket",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
