@@ -23,6 +23,7 @@ typing-extensions = ">=4.7.1"
 
 [tool.poetry.dev-dependencies]
 datamodel-code-generator = {extras = ["http"], version = "^0.25.8"}
+PyYAML = "^6.0.1"
 pytest = ">=7.2.1"
 tox = ">=3.9.0"
 flake8 = ">=4.0.0"
