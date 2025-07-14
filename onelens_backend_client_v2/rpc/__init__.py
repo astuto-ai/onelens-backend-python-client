@@ -186,6 +186,10 @@ from onelens_backend_client_v2.rpc.costlens_service_rpc_handler import (
     CostlensServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.cost_delta_service_rpc_handler import (
+    CostDeltaServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -235,4 +239,5 @@ __all__ = [
     "KubernetesDataServiceRpcHandler",
     "S3OptimisationServiceRpcHandler",
     "CostlensServiceRpcHandler",
+    "CostDeltaServiceRpcHandler",
 ]
