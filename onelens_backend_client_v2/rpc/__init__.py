@@ -98,28 +98,12 @@ from onelens_backend_client_v2.rpc.cloud_account_metadata_service_rpc_handler im
     CloudAccountMetadataServiceRpcHandler,
 )
 
-from onelens_backend_client_v2.rpc.navira_service_rpc_handler import (
-    NaviraServiceRpcHandler,
-)
-
-from onelens_backend_client_v2.rpc.navira_embedding_service_rpc_handler import (
-    NaviraEmbeddingServiceRpcHandler,
-)
-
 from onelens_backend_client_v2.rpc.action_type_migration_service_rpc_handler import (
     ActionTypeMigrationServiceRpcHandler,
 )
 
 from onelens_backend_client_v2.rpc.tenant_connection_service_rpc_handler import (
     TenantConnectionServiceRpcHandler,
-)
-
-from onelens_backend_client_v2.rpc.navira_conversation_service_rpc_handler import (
-    NaviraConversationServiceRpcHandler,
-)
-
-from onelens_backend_client_v2.rpc.navira_resource_explorer_service_rpc_handler import (
-    NaviraResourceExplorerServiceRpcHandler,
 )
 
 from onelens_backend_client_v2.rpc.feature_service_rpc_handler import (
@@ -154,6 +138,10 @@ from onelens_backend_client_v2.rpc.cur_data_metrics_service_rpc_handler import (
     CurDataMetricsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.delta_events_config_service_rpc_handler import (
+    DeltaEventsConfigServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.delta_events_service_rpc_handler import (
     DeltaEventsServiceRpcHandler,
 )
@@ -178,6 +166,10 @@ from onelens_backend_client_v2.rpc.kubernetes_data_service_rpc_handler import (
     KubernetesDataServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.kubernetes_resource_service_rpc_handler import (
+    KubernetesResourceServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.s3_optimisation_service_rpc_handler import (
     S3OptimisationServiceRpcHandler,
 )
@@ -189,6 +181,8 @@ from onelens_backend_client_v2.rpc.costlens_service_rpc_handler import (
 from onelens_backend_client_v2.rpc.cost_delta_service_rpc_handler import (
     CostDeltaServiceRpcHandler,
 )
+
+from onelens_backend_client_v2.rpc.auth_service_rpc_handler import AuthServiceRpcHandler
 
 
 __all__ = [
@@ -217,12 +211,8 @@ __all__ = [
     "RecommendationUnitMigrationServiceRpcHandler",
     "CostAnalyzerServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
-    "NaviraServiceRpcHandler",
-    "NaviraEmbeddingServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
-    "NaviraConversationServiceRpcHandler",
-    "NaviraResourceExplorerServiceRpcHandler",
     "FeatureServiceRpcHandler",
     "TicketStatusMetadataServiceRpcHandler",
     "MetricsControlServiceRpcHandler",
@@ -231,13 +221,16 @@ __all__ = [
     "NotificationServiceRpcHandler",
     "ChangeDetectionServiceRpcHandler",
     "CurDataMetricsServiceRpcHandler",
+    "DeltaEventsConfigServiceRpcHandler",
     "DeltaEventsServiceRpcHandler",
     "CurDataServiceRpcHandler",
     "TenantAccountServiceRpcHandler",
     "TenantSettingsServiceRpcHandler",
     "KubernetesManagementServiceRpcHandler",
     "KubernetesDataServiceRpcHandler",
+    "KubernetesResourceServiceRpcHandler",
     "S3OptimisationServiceRpcHandler",
     "CostlensServiceRpcHandler",
     "CostDeltaServiceRpcHandler",
+    "AuthServiceRpcHandler",
 ]
