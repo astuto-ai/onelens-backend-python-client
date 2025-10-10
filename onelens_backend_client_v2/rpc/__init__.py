@@ -94,6 +94,10 @@ from onelens_backend_client_v2.rpc.cost_analyzer_service_rpc_handler import (
     CostAnalyzerServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.rate_optimization_service_rpc_handler import (
+    RateOptimizationServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.cloud_account_metadata_service_rpc_handler import (
     CloudAccountMetadataServiceRpcHandler,
 )
@@ -158,6 +162,10 @@ from onelens_backend_client_v2.rpc.tenant_settings_service_rpc_handler import (
     TenantSettingsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.tenant_data_pipeline_job_config_service_rpc_handler import (
+    TenantDataPipelineJobConfigServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.kubernetes_management_service_rpc_handler import (
     KubernetesManagementServiceRpcHandler,
 )
@@ -210,6 +218,7 @@ __all__ = [
     "RecommendationUnitServiceRpcHandler",
     "RecommendationUnitMigrationServiceRpcHandler",
     "CostAnalyzerServiceRpcHandler",
+    "RateOptimizationServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
@@ -226,6 +235,7 @@ __all__ = [
     "CurDataServiceRpcHandler",
     "TenantAccountServiceRpcHandler",
     "TenantSettingsServiceRpcHandler",
+    "TenantDataPipelineJobConfigServiceRpcHandler",
     "KubernetesManagementServiceRpcHandler",
     "KubernetesDataServiceRpcHandler",
     "KubernetesResourceServiceRpcHandler",
