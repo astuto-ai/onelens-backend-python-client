@@ -150,6 +150,10 @@ from onelens_backend_client_v2.rpc.delta_events_config_service_rpc_handler impor
     DeltaEventsConfigServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.scheduler_configs_service_rpc_handler import (
+    SchedulerConfigsServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.cur_data_service_rpc_handler import (
     CurDataServiceRpcHandler,
 )
@@ -192,6 +196,10 @@ from onelens_backend_client_v2.rpc.cost_delta_service_rpc_handler import (
 
 from onelens_backend_client_v2.rpc.auth_service_rpc_handler import AuthServiceRpcHandler
 
+from onelens_backend_client_v2.rpc.tenant_onboarding_service_rpc_handler import (
+    TenantOnboardingServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -232,6 +240,7 @@ __all__ = [
     "CurDataMetricsServiceRpcHandler",
     "DeltaEventsServiceRpcHandler",
     "DeltaEventsConfigServiceRpcHandler",
+    "SchedulerConfigsServiceRpcHandler",
     "CurDataServiceRpcHandler",
     "TenantAccountServiceRpcHandler",
     "TenantSettingsServiceRpcHandler",
@@ -243,4 +252,5 @@ __all__ = [
     "CostlensServiceRpcHandler",
     "CostDeltaServiceRpcHandler",
     "AuthServiceRpcHandler",
+    "TenantOnboardingServiceRpcHandler",
 ]
