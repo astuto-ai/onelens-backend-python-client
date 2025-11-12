@@ -20,7 +20,9 @@ from onelens_backend_client_v2.models import CreateHierarchyNodeResponse
 from onelens_backend_client_v2.models import CreateHierarchyRootNodeRequest
 
 
-from onelens_backend_client_v2.models import CreateHierarchyRootNodeResponse
+from onelens_backend_client_v2.models import (
+    OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoCreateHierarchyRootNodeResponse,
+)
 
 
 from onelens_backend_client_v2.models import DeleteHierarchyNodeRequest
@@ -370,7 +372,7 @@ class HierarchyNodeServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateHierarchyRootNodeResponse:
+    ) -> OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoCreateHierarchyRootNodeResponse:
         """create a root node in org hierarchy
 
 
@@ -408,7 +410,7 @@ class HierarchyNodeServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "CreateHierarchyRootNodeResponse",
+            "200": "OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoCreateHierarchyRootNodeResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
