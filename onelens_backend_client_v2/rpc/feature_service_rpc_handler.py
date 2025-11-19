@@ -1,8 +1,10 @@
 # FeatureServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 
 
 from onelens_backend_client_v2.models import DisableFeatureByNameRequest
@@ -11,10 +13,12 @@ from onelens_backend_client_v2.models import DisableFeatureByNameRequest
 from onelens_backend_client_v2.models import DisableFeatureByNameResponse
 
 
+
 from onelens_backend_client_v2.models import EnableFeatureByNameRequest
 
 
 from onelens_backend_client_v2.models import EnableFeatureByNameResponse
+
 
 
 from onelens_backend_client_v2.models import GetAllFeaturesRequest
@@ -23,10 +27,12 @@ from onelens_backend_client_v2.models import GetAllFeaturesRequest
 from onelens_backend_client_v2.models import GetAllFeaturesResponse
 
 
+
 from onelens_backend_client_v2.models import GetFeaturesByFiltersRequest
 
 
 from onelens_backend_client_v2.models import GetFeaturesByFiltersResponse
+
 
 
 from onelens_backend_client_v2.models import GetIsFeatureAvailableRequest
@@ -35,10 +41,12 @@ from onelens_backend_client_v2.models import GetIsFeatureAvailableRequest
 from onelens_backend_client_v2.models import GetIsFeatureAvailableResponse
 
 
+
 from onelens_backend_client_v2.models import RegisterAllFeaturesRequest
 
 
 from onelens_backend_client_v2.models import RegisterAllFeaturesResponse
+
 
 
 from onelens_backend_client_v2.models import UpdateFeatureStatusRequest
@@ -47,8 +55,10 @@ from onelens_backend_client_v2.models import UpdateFeatureStatusRequest
 from onelens_backend_client_v2.models import UpdateFeatureStatusResponse
 
 
-from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class FeatureServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -58,6 +68,7 @@ class FeatureServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def disable_feature_by_name(
         self,
@@ -66,8 +77,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -76,7 +88,7 @@ class FeatureServiceRpcHandler:
     ) -> DisableFeatureByNameResponse:
         """Disable feature by name
 
-
+        
 
         :param request: (required)
         :type request: DisableFeatureByNameRequest
@@ -107,15 +119,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DisableFeatureByNameResponse",
-            "422": "HTTPValidationError",
+            '200': "DisableFeatureByNameResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -131,9 +144,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -147,26 +162,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/disable_feature_by_name",
+            method='POST',
+            resource_path='/rpc/feature_service/disable_feature_by_name',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -176,9 +198,10 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def enable_feature_by_name(
         self,
@@ -187,8 +210,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -197,7 +221,7 @@ class FeatureServiceRpcHandler:
     ) -> EnableFeatureByNameResponse:
         """Enable feature by name
 
-
+        
 
         :param request: (required)
         :type request: EnableFeatureByNameRequest
@@ -228,15 +252,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "EnableFeatureByNameResponse",
-            "422": "HTTPValidationError",
+            '200': "EnableFeatureByNameResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -252,9 +277,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -268,26 +295,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/enable_feature_by_name",
+            method='POST',
+            resource_path='/rpc/feature_service/enable_feature_by_name',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -297,9 +331,10 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_all(
         self,
@@ -308,8 +343,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -318,7 +354,7 @@ class FeatureServiceRpcHandler:
     ) -> GetAllFeaturesResponse:
         """Get all features of the tenant
 
-
+        
 
         :param request: (required)
         :type request: GetAllFeaturesRequest
@@ -349,15 +385,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetAllFeaturesResponse",
-            "422": "HTTPValidationError",
+            '200': "GetAllFeaturesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -373,9 +410,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -389,26 +428,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/get_all",
+            method='POST',
+            resource_path='/rpc/feature_service/get_all',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -418,9 +464,10 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_features_by_filters(
         self,
@@ -429,8 +476,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -439,7 +487,7 @@ class FeatureServiceRpcHandler:
     ) -> GetFeaturesByFiltersResponse:
         """Get features by filters
 
-
+        
 
         :param request: (required)
         :type request: GetFeaturesByFiltersRequest
@@ -470,15 +518,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetFeaturesByFiltersResponse",
-            "422": "HTTPValidationError",
+            '200': "GetFeaturesByFiltersResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -494,9 +543,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -510,26 +561,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/get_features_by_filters",
+            method='POST',
+            resource_path='/rpc/feature_service/get_features_by_filters',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -539,9 +597,10 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def is_feature_available(
         self,
@@ -550,8 +609,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -560,7 +620,7 @@ class FeatureServiceRpcHandler:
     ) -> GetIsFeatureAvailableResponse:
         """Is Feature Available
 
-
+        
 
         :param request: (required)
         :type request: GetIsFeatureAvailableRequest
@@ -591,15 +651,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetIsFeatureAvailableResponse",
-            "422": "HTTPValidationError",
+            '200': "GetIsFeatureAvailableResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -615,9 +676,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -631,26 +694,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/is_feature_available",
+            method='POST',
+            resource_path='/rpc/feature_service/is_feature_available',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -660,9 +730,10 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def register_all_features(
         self,
@@ -671,8 +742,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -681,7 +753,7 @@ class FeatureServiceRpcHandler:
     ) -> RegisterAllFeaturesResponse:
         """Register all service features in the tenant
 
-
+        
 
         :param request: (required)
         :type request: RegisterAllFeaturesRequest
@@ -712,15 +784,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "RegisterAllFeaturesResponse",
-            "422": "HTTPValidationError",
+            '200': "RegisterAllFeaturesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -736,9 +809,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -752,26 +827,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/register_all_features",
+            method='POST',
+            resource_path='/rpc/feature_service/register_all_features',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -781,9 +863,10 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def update_feature_status(
         self,
@@ -792,8 +875,9 @@ class FeatureServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -802,7 +886,7 @@ class FeatureServiceRpcHandler:
     ) -> UpdateFeatureStatusResponse:
         """Enable feature by change manager
 
-
+        
 
         :param request: (required)
         :type request: UpdateFeatureStatusRequest
@@ -833,15 +917,16 @@ class FeatureServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateFeatureStatusResponse",
-            "422": "HTTPValidationError",
+            '200': "UpdateFeatureStatusResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -857,9 +942,11 @@ class FeatureServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -873,26 +960,33 @@ class FeatureServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/feature_service/update_feature_status",
+            method='POST',
+            resource_path='/rpc/feature_service/update_feature_status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -902,5 +996,7 @@ class FeatureServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    

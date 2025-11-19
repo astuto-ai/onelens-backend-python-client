@@ -1,8 +1,10 @@
 # ResourceMappingServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 
 
 from onelens_backend_client_v2.models import ResourceHierarchyMappingRequest
@@ -11,24 +13,19 @@ from onelens_backend_client_v2.models import ResourceHierarchyMappingRequest
 from onelens_backend_client_v2.models import ResourceHierarchyMappingResponse
 
 
-from onelens_backend_client_v2.models import (
-    CreateResourceHierarchyMappingsFromQueryRequest,
-)
+
+from onelens_backend_client_v2.models import CreateResourceHierarchyMappingsFromQueryRequest
 
 
-from onelens_backend_client_v2.models import (
-    CreateResourceHierarchyMappingsFromQueryResponse,
-)
+from onelens_backend_client_v2.models import CreateResourceHierarchyMappingsFromQueryResponse
 
 
-from onelens_backend_client_v2.models import (
-    DeleteResourceHierarchyMappingsByNodeIdsRequest,
-)
+
+from onelens_backend_client_v2.models import DeleteResourceHierarchyMappingsByNodeIdsRequest
 
 
-from onelens_backend_client_v2.models import (
-    DeleteResourceHierarchyMappingsByNodeIdsResponse,
-)
+from onelens_backend_client_v2.models import DeleteResourceHierarchyMappingsByNodeIdsResponse
+
 
 
 from onelens_backend_client_v2.models import GetResourceHierarchyMappingByOlIdRequest
@@ -37,10 +34,12 @@ from onelens_backend_client_v2.models import GetResourceHierarchyMappingByOlIdRe
 from onelens_backend_client_v2.models import GetResourceHierarchyMappingByOlIdResponse
 
 
+
 from onelens_backend_client_v2.models import GetHierarchyNodeMetricsRequest
 
 
 from onelens_backend_client_v2.models import GetHierarchyNodeMetricsResponse
+
 
 
 from onelens_backend_client_v2.models import GetResourceIdsListForNodeIdsRequest
@@ -49,8 +48,10 @@ from onelens_backend_client_v2.models import GetResourceIdsListForNodeIdsRequest
 from onelens_backend_client_v2.models import GetResourceIdsListForNodeIdsResponse
 
 
-from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class ResourceMappingServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -60,6 +61,7 @@ class ResourceMappingServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def create(
         self,
@@ -68,8 +70,9 @@ class ResourceMappingServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -78,7 +81,7 @@ class ResourceMappingServiceRpcHandler:
     ) -> ResourceHierarchyMappingResponse:
         """create a resource hierarchy mapping
 
-
+        
 
         :param request: (required)
         :type request: ResourceHierarchyMappingRequest
@@ -109,15 +112,16 @@ class ResourceMappingServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "ResourceHierarchyMappingResponse",
-            "422": "HTTPValidationError",
+            '200': "ResourceHierarchyMappingResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -133,9 +137,11 @@ class ResourceMappingServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -149,26 +155,33 @@ class ResourceMappingServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/resource_mapping_service/create",
+            method='POST',
+            resource_path='/rpc/resource_mapping_service/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -178,9 +191,10 @@ class ResourceMappingServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def create_mappings_from_query(
         self,
@@ -189,8 +203,9 @@ class ResourceMappingServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -199,7 +214,7 @@ class ResourceMappingServiceRpcHandler:
     ) -> CreateResourceHierarchyMappingsFromQueryResponse:
         """create resource hierarchy mappings from query
 
-
+        
 
         :param request: (required)
         :type request: CreateResourceHierarchyMappingsFromQueryRequest
@@ -230,15 +245,16 @@ class ResourceMappingServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "CreateResourceHierarchyMappingsFromQueryResponse",
-            "422": "HTTPValidationError",
+            '200': "CreateResourceHierarchyMappingsFromQueryResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -254,9 +270,11 @@ class ResourceMappingServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -270,26 +288,33 @@ class ResourceMappingServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/resource_mapping_service/create_mappings_from_query",
+            method='POST',
+            resource_path='/rpc/resource_mapping_service/create_mappings_from_query',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -299,9 +324,10 @@ class ResourceMappingServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def delete_mappings_by_node_ids(
         self,
@@ -310,8 +336,9 @@ class ResourceMappingServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -320,7 +347,7 @@ class ResourceMappingServiceRpcHandler:
     ) -> DeleteResourceHierarchyMappingsByNodeIdsResponse:
         """delete resource hierarchy mappings by node ids
 
-
+        
 
         :param request: (required)
         :type request: DeleteResourceHierarchyMappingsByNodeIdsRequest
@@ -351,15 +378,16 @@ class ResourceMappingServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DeleteResourceHierarchyMappingsByNodeIdsResponse",
-            "422": "HTTPValidationError",
+            '200': "DeleteResourceHierarchyMappingsByNodeIdsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -375,9 +403,11 @@ class ResourceMappingServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -391,26 +421,33 @@ class ResourceMappingServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/resource_mapping_service/delete_mappings_by_node_ids",
+            method='POST',
+            resource_path='/rpc/resource_mapping_service/delete_mappings_by_node_ids',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -420,9 +457,10 @@ class ResourceMappingServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_mapping_by_ol_id(
         self,
@@ -431,8 +469,9 @@ class ResourceMappingServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -441,7 +480,7 @@ class ResourceMappingServiceRpcHandler:
     ) -> GetResourceHierarchyMappingByOlIdResponse:
         """get resource hierarchy mapping by ol id
 
-
+        
 
         :param request: (required)
         :type request: GetResourceHierarchyMappingByOlIdRequest
@@ -472,15 +511,16 @@ class ResourceMappingServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetResourceHierarchyMappingByOlIdResponse",
-            "422": "HTTPValidationError",
+            '200': "GetResourceHierarchyMappingByOlIdResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -496,9 +536,11 @@ class ResourceMappingServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -512,26 +554,33 @@ class ResourceMappingServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/resource_mapping_service/get_mapping_by_ol_id",
+            method='POST',
+            resource_path='/rpc/resource_mapping_service/get_mapping_by_ol_id',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -541,9 +590,10 @@ class ResourceMappingServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_node_metrics(
         self,
@@ -552,8 +602,9 @@ class ResourceMappingServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -562,7 +613,7 @@ class ResourceMappingServiceRpcHandler:
     ) -> GetHierarchyNodeMetricsResponse:
         """get hierarchy node metrics
 
-
+        
 
         :param request: (required)
         :type request: GetHierarchyNodeMetricsRequest
@@ -593,15 +644,16 @@ class ResourceMappingServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetHierarchyNodeMetricsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetHierarchyNodeMetricsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -617,9 +669,11 @@ class ResourceMappingServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -633,26 +687,33 @@ class ResourceMappingServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/resource_mapping_service/get_node_metrics",
+            method='POST',
+            resource_path='/rpc/resource_mapping_service/get_node_metrics',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -662,9 +723,10 @@ class ResourceMappingServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_resource_ids_list_for_node_ids(
         self,
@@ -673,8 +735,9 @@ class ResourceMappingServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -683,7 +746,7 @@ class ResourceMappingServiceRpcHandler:
     ) -> GetResourceIdsListForNodeIdsResponse:
         """get resource ids list for node ids
 
-
+        
 
         :param request: (required)
         :type request: GetResourceIdsListForNodeIdsRequest
@@ -714,15 +777,16 @@ class ResourceMappingServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetResourceIdsListForNodeIdsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetResourceIdsListForNodeIdsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -738,9 +802,11 @@ class ResourceMappingServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -754,26 +820,33 @@ class ResourceMappingServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/resource_mapping_service/get_resource_ids_list_for_node_ids",
+            method='POST',
+            resource_path='/rpc/resource_mapping_service/get_resource_ids_list_for_node_ids',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -783,5 +856,7 @@ class ResourceMappingServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    

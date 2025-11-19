@@ -1,8 +1,10 @@
 # DeltaEventsServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 
 
 from onelens_backend_client_v2.models import GetDeltaEventDetailRequest
@@ -11,20 +13,19 @@ from onelens_backend_client_v2.models import GetDeltaEventDetailRequest
 from onelens_backend_client_v2.models import GetDeltaEventDetailResponse
 
 
+
 from onelens_backend_client_v2.models import GetDeltaEventLifecycleHistoryRequest
 
 
 from onelens_backend_client_v2.models import GetDeltaEventLifecycleHistoryResponse
 
 
-from onelens_backend_client_v2.models import (
-    GetDeltaEventLifecycleHistoryEntitiesRequest,
-)
+
+from onelens_backend_client_v2.models import GetDeltaEventLifecycleHistoryEntitiesRequest
 
 
-from onelens_backend_client_v2.models import (
-    GetDeltaEventLifecycleHistoryEntitiesResponse,
-)
+from onelens_backend_client_v2.models import GetDeltaEventLifecycleHistoryEntitiesResponse
+
 
 
 from onelens_backend_client_v2.models import GetDeltaEventsRequest
@@ -33,10 +34,12 @@ from onelens_backend_client_v2.models import GetDeltaEventsRequest
 from onelens_backend_client_v2.models import GetDeltaEventsResponse
 
 
+
 from onelens_backend_client_v2.models import GetDeltaEventsForWorkflowRequest
 
 
 from onelens_backend_client_v2.models import GetDeltaEventsForWorkflowResponse
+
 
 
 from onelens_backend_client_v2.models import GetDeltaEventsResourceRequest
@@ -45,23 +48,24 @@ from onelens_backend_client_v2.models import GetDeltaEventsResourceRequest
 from onelens_backend_client_v2.models import GetDeltaEventsResourceResponse
 
 
+
 from onelens_backend_client_v2.models import GetDeltaEventsStatsRequest
 
 
 from onelens_backend_client_v2.models import GetDeltaEventsStatsResponse
 
 
-from onelens_backend_client_v2.models import (
-    GetSchedulerInsightsEvaluationTimePeriodRequest,
-)
+
+from onelens_backend_client_v2.models import GetSchedulerInsightsEvaluationTimePeriodRequest
 
 
-from onelens_backend_client_v2.models import (
-    GetSchedulerInsightsEvaluationTimePeriodResponse,
-)
+from onelens_backend_client_v2.models import GetSchedulerInsightsEvaluationTimePeriodResponse
+
 
 
 from onelens_backend_client_v2.models import InsertDeltaEventLifecycleHistoryRequest
+
+
 
 
 from onelens_backend_client_v2.models import InsertDeltaEventsRequest
@@ -70,10 +74,12 @@ from onelens_backend_client_v2.models import InsertDeltaEventsRequest
 from onelens_backend_client_v2.models import InsertDeltaEventsResponse
 
 
+
 from onelens_backend_client_v2.models import InsertDeltaEventsRcaRequest
 
 
 from onelens_backend_client_v2.models import InsertDeltaEventsRcaResponse
+
 
 
 from onelens_backend_client_v2.models import UpdateDeltaEventLifecycleRequest
@@ -82,8 +88,10 @@ from onelens_backend_client_v2.models import UpdateDeltaEventLifecycleRequest
 from onelens_backend_client_v2.models import UpdateDeltaEventLifecycleResponse
 
 
-from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
 
+from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class DeltaEventsServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -93,6 +101,7 @@ class DeltaEventsServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def get_delta_event_detail(
         self,
@@ -101,8 +110,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -111,7 +121,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventDetailResponse:
         """Get Delta Event Detail
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventDetailRequest
@@ -142,15 +152,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventDetailResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventDetailResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -166,9 +177,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -182,26 +195,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_event_detail",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_event_detail',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -211,9 +231,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_delta_event_lifecycle_history(
         self,
@@ -222,8 +243,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -232,7 +254,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventLifecycleHistoryResponse:
         """Get lifecycle history for a delta event in reverse chronological order
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventLifecycleHistoryRequest
@@ -263,15 +285,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventLifecycleHistoryResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventLifecycleHistoryResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -287,9 +310,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -303,26 +328,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_event_lifecycle_history",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_event_lifecycle_history',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -332,9 +364,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_delta_event_lifecycle_history_entities(
         self,
@@ -343,8 +376,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -353,7 +387,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventLifecycleHistoryEntitiesResponse:
         """Get all lifecycle history entities for a delta event (raw entities)
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventLifecycleHistoryEntitiesRequest
@@ -384,15 +418,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventLifecycleHistoryEntitiesResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventLifecycleHistoryEntitiesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -408,9 +443,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -424,26 +461,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_event_lifecycle_history_entities",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_event_lifecycle_history_entities',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -453,9 +497,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_delta_events(
         self,
@@ -464,8 +509,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -474,7 +520,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventsResponse:
         """Get Delta Events
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventsRequest
@@ -505,15 +551,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -529,9 +576,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -545,26 +594,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_events",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_events',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -574,9 +630,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_delta_events_for_workflow(
         self,
@@ -585,8 +642,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -595,7 +653,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventsForWorkflowResponse:
         """Get all delta events for a specific workflow run
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventsForWorkflowRequest
@@ -626,15 +684,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventsForWorkflowResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventsForWorkflowResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -650,9 +709,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -666,26 +727,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_events_for_workflow",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_events_for_workflow',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -695,9 +763,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_delta_events_resource(
         self,
@@ -706,8 +775,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -716,7 +786,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventsResourceResponse:
         """Get the resource for a delta event
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventsResourceRequest
@@ -747,15 +817,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventsResourceResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventsResourceResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -771,9 +842,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -787,26 +860,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_events_resource",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_events_resource',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -816,9 +896,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_delta_events_stats(
         self,
@@ -827,8 +908,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -837,7 +919,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetDeltaEventsStatsResponse:
         """Get delta events stats including total count and cost impact.
 
-
+        
 
         :param request: (required)
         :type request: GetDeltaEventsStatsRequest
@@ -868,15 +950,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetDeltaEventsStatsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetDeltaEventsStatsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -892,9 +975,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -908,26 +993,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_delta_events_stats",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_delta_events_stats',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -937,9 +1029,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_scheduler_insights_evaluation_time_period(
         self,
@@ -948,8 +1041,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -958,7 +1052,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> GetSchedulerInsightsEvaluationTimePeriodResponse:
         """Get distinct scheduler insight evaluation windows and latest refresh.
 
-
+        
 
         :param request: (required)
         :type request: GetSchedulerInsightsEvaluationTimePeriodRequest
@@ -989,15 +1083,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetSchedulerInsightsEvaluationTimePeriodResponse",
-            "422": "HTTPValidationError",
+            '200': "GetSchedulerInsightsEvaluationTimePeriodResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1013,9 +1108,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1029,26 +1126,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/get_scheduler_insights_evaluation_time_period",
+            method='POST',
+            resource_path='/rpc/delta_events_service/get_scheduler_insights_evaluation_time_period',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1058,9 +1162,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def insert_delta_event_lifecycle_history(
         self,
@@ -1069,8 +1174,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1079,7 +1185,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> Any:
         """Insert lifecycle history for a custom ticket delta event
 
-
+        
 
         :param request: (required)
         :type request: InsertDeltaEventLifecycleHistoryRequest
@@ -1110,15 +1216,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Any",
-            "422": "HTTPValidationError",
+            '200': "Any",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1134,9 +1241,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1150,26 +1259,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/insert_delta_event_lifecycle_history",
+            method='POST',
+            resource_path='/rpc/delta_events_service/insert_delta_event_lifecycle_history',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1179,9 +1295,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def insert_delta_events(
         self,
@@ -1190,8 +1307,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1200,7 +1318,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> InsertDeltaEventsResponse:
         """Insert Delta Events
 
-
+        
 
         :param request: (required)
         :type request: InsertDeltaEventsRequest
@@ -1231,15 +1349,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "InsertDeltaEventsResponse",
-            "422": "HTTPValidationError",
+            '200': "InsertDeltaEventsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1255,9 +1374,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1271,26 +1392,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/insert_delta_events",
+            method='POST',
+            resource_path='/rpc/delta_events_service/insert_delta_events',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1300,9 +1428,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def insert_delta_events_rca(
         self,
@@ -1311,8 +1440,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1321,7 +1451,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> InsertDeltaEventsRcaResponse:
         """Insert Delta Events Rca
 
-
+        
 
         :param request: (required)
         :type request: InsertDeltaEventsRcaRequest
@@ -1352,15 +1482,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "InsertDeltaEventsRcaResponse",
-            "422": "HTTPValidationError",
+            '200': "InsertDeltaEventsRcaResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1376,9 +1507,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1392,26 +1525,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/insert_delta_events_rca",
+            method='POST',
+            resource_path='/rpc/delta_events_service/insert_delta_events_rca',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1421,9 +1561,10 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def update_delta_event_lifecycle(
         self,
@@ -1432,8 +1573,9 @@ class DeltaEventsServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1442,7 +1584,7 @@ class DeltaEventsServiceRpcHandler:
     ) -> UpdateDeltaEventLifecycleResponse:
         """Update lifecycle details for a delta event and record the history
 
-
+        
 
         :param request: (required)
         :type request: UpdateDeltaEventLifecycleRequest
@@ -1473,15 +1615,16 @@ class DeltaEventsServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpdateDeltaEventLifecycleResponse",
-            "422": "HTTPValidationError",
+            '200': "UpdateDeltaEventLifecycleResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1497,9 +1640,11 @@ class DeltaEventsServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1513,26 +1658,33 @@ class DeltaEventsServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/delta_events_service/update_delta_event_lifecycle",
+            method='POST',
+            resource_path='/rpc/delta_events_service/update_delta_event_lifecycle',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1542,5 +1694,7 @@ class DeltaEventsServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    

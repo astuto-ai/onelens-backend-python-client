@@ -1,38 +1,31 @@
 # TenantDataPipelineJobConfigServiceRpcHandler API
 
+import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-from onelens_backend_client_v2.models import (
-    DeleteTenantDataPipelineJobConfigsByCloudProvidersRequest,
-)
+
+from onelens_backend_client_v2.models import DeleteTenantDataPipelineJobConfigsByCloudProvidersRequest
 
 
-from onelens_backend_client_v2.models import (
-    DeleteTenantDataPipelineJobConfigsByCloudProvidersResponse,
-)
+from onelens_backend_client_v2.models import DeleteTenantDataPipelineJobConfigsByCloudProvidersResponse
 
 
-from onelens_backend_client_v2.models import (
-    DeleteTenantDataPipelineJobConfigsByJobNamesRequest,
-)
+
+from onelens_backend_client_v2.models import DeleteTenantDataPipelineJobConfigsByJobNamesRequest
 
 
-from onelens_backend_client_v2.models import (
-    DeleteTenantDataPipelineJobConfigsByJobNamesResponse,
-)
+from onelens_backend_client_v2.models import DeleteTenantDataPipelineJobConfigsByJobNamesResponse
 
 
-from onelens_backend_client_v2.models import (
-    DeleteTenantDataPipelineJobConfigsByTenantIdsRequest,
-)
+
+from onelens_backend_client_v2.models import DeleteTenantDataPipelineJobConfigsByTenantIdsRequest
 
 
-from onelens_backend_client_v2.models import (
-    DeleteTenantDataPipelineJobConfigsByTenantIdsResponse,
-)
+from onelens_backend_client_v2.models import DeleteTenantDataPipelineJobConfigsByTenantIdsResponse
+
 
 
 from onelens_backend_client_v2.models import GetTenantDataPipelineJobConfigsRequest
@@ -41,24 +34,24 @@ from onelens_backend_client_v2.models import GetTenantDataPipelineJobConfigsRequ
 from onelens_backend_client_v2.models import GetTenantDataPipelineJobConfigsResponse
 
 
+
 from onelens_backend_client_v2.models import RenameTenantDataPipelineJobConfigsRequest
 
 
 from onelens_backend_client_v2.models import RenameTenantDataPipelineJobConfigsResponse
 
 
-from onelens_backend_client_v2.models import (
-    UpsertTenantDataPipelineJobConfigBulkRequest,
-)
+
+from onelens_backend_client_v2.models import UpsertTenantDataPipelineJobConfigBulkRequest
 
 
-from onelens_backend_client_v2.models import (
-    UpsertTenantDataPipelineJobConfigBulkResponse,
-)
+from onelens_backend_client_v2.models import UpsertTenantDataPipelineJobConfigBulkResponse
+
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-
+from onelens_backend_client_v2.api_response import ApiResponse
+from onelens_backend_client_v2.rest import RESTResponseType
 
 class TenantDataPipelineJobConfigServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -68,6 +61,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+    
     @validate_call
     def delete_tenant_data_pipeline_job_configs_by_cloud_providers(
         self,
@@ -76,8 +70,9 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -86,7 +81,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
     ) -> DeleteTenantDataPipelineJobConfigsByCloudProvidersResponse:
         """Delete Tenant Data Pipeline Job Configs By Cloud Providers
 
-
+        
 
         :param request: (required)
         :type request: DeleteTenantDataPipelineJobConfigsByCloudProvidersRequest
@@ -112,22 +107,21 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         :return: Returns the result object.
         """
 
-        _param = (
-            self._delete_tenant_data_pipeline_job_configs_by_cloud_providers_serialize(
-                request=request,
-                _request_auth=_request_auth,
-                _content_type=_content_type,
-                _headers=_headers,
-                _host_index=_host_index,
-            )
+        _param = self._delete_tenant_data_pipeline_job_configs_by_cloud_providers_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DeleteTenantDataPipelineJobConfigsByCloudProvidersResponse",
-            "422": "HTTPValidationError",
+            '200': "DeleteTenantDataPipelineJobConfigsByCloudProvidersResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -143,9 +137,11 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -159,26 +155,33 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_data_pipeline_job_config_service/delete_tenant_data_pipeline_job_configs_by_cloud_providers",
+            method='POST',
+            resource_path='/rpc/tenant_data_pipeline_job_config_service/delete_tenant_data_pipeline_job_configs_by_cloud_providers',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -188,9 +191,10 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def delete_tenant_data_pipeline_job_configs_by_job_names(
         self,
@@ -199,8 +203,9 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -209,7 +214,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
     ) -> DeleteTenantDataPipelineJobConfigsByJobNamesResponse:
         """Delete Tenant Data Pipeline Job Configs By Job Names
 
-
+        
 
         :param request: (required)
         :type request: DeleteTenantDataPipelineJobConfigsByJobNamesRequest
@@ -240,15 +245,16 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DeleteTenantDataPipelineJobConfigsByJobNamesResponse",
-            "422": "HTTPValidationError",
+            '200': "DeleteTenantDataPipelineJobConfigsByJobNamesResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -264,9 +270,11 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -280,26 +288,33 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_data_pipeline_job_config_service/delete_tenant_data_pipeline_job_configs_by_job_names",
+            method='POST',
+            resource_path='/rpc/tenant_data_pipeline_job_config_service/delete_tenant_data_pipeline_job_configs_by_job_names',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -309,9 +324,10 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def delete_tenant_data_pipeline_job_configs_by_tenant_ids(
         self,
@@ -320,8 +336,9 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -330,7 +347,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
     ) -> DeleteTenantDataPipelineJobConfigsByTenantIdsResponse:
         """Delete Tenant Data Pipeline Job Configs By Tenant Ids
 
-
+        
 
         :param request: (required)
         :type request: DeleteTenantDataPipelineJobConfigsByTenantIdsRequest
@@ -361,15 +378,16 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "DeleteTenantDataPipelineJobConfigsByTenantIdsResponse",
-            "422": "HTTPValidationError",
+            '200': "DeleteTenantDataPipelineJobConfigsByTenantIdsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -385,9 +403,11 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -401,26 +421,33 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_data_pipeline_job_config_service/delete_tenant_data_pipeline_job_configs_by_tenant_ids",
+            method='POST',
+            resource_path='/rpc/tenant_data_pipeline_job_config_service/delete_tenant_data_pipeline_job_configs_by_tenant_ids',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -430,9 +457,10 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def get_tenant_data_pipeline_job_configs(
         self,
@@ -441,8 +469,9 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -451,7 +480,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
     ) -> GetTenantDataPipelineJobConfigsResponse:
         """Get Tenant Data Pipeline Job Configs
 
-
+        
 
         :param request: (required)
         :type request: GetTenantDataPipelineJobConfigsRequest
@@ -482,15 +511,16 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetTenantDataPipelineJobConfigsResponse",
-            "422": "HTTPValidationError",
+            '200': "GetTenantDataPipelineJobConfigsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -506,9 +536,11 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -522,26 +554,33 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_data_pipeline_job_config_service/get_tenant_data_pipeline_job_configs",
+            method='POST',
+            resource_path='/rpc/tenant_data_pipeline_job_config_service/get_tenant_data_pipeline_job_configs',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -551,9 +590,10 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def rename_tenant_data_pipeline_job_configs(
         self,
@@ -562,8 +602,9 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -572,7 +613,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
     ) -> RenameTenantDataPipelineJobConfigsResponse:
         """Rename Tenant Data Pipeline Job Configs
 
-
+        
 
         :param request: (required)
         :type request: RenameTenantDataPipelineJobConfigsRequest
@@ -603,15 +644,16 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "RenameTenantDataPipelineJobConfigsResponse",
-            "422": "HTTPValidationError",
+            '200': "RenameTenantDataPipelineJobConfigsResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -627,9 +669,11 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -643,26 +687,33 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_data_pipeline_job_config_service/rename_tenant_data_pipeline_job_configs",
+            method='POST',
+            resource_path='/rpc/tenant_data_pipeline_job_config_service/rename_tenant_data_pipeline_job_configs',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -672,9 +723,10 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
 
+    
     @validate_call
     def upsert_bulk_tenant_data_pipeline_job_configs(
         self,
@@ -683,8 +735,9 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -693,7 +746,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
     ) -> UpsertTenantDataPipelineJobConfigBulkResponse:
         """Upsert Bulk Tenant Data Pipeline Job Configs
 
-
+        
 
         :param request: (required)
         :type request: UpsertTenantDataPipelineJobConfigBulkRequest
@@ -724,15 +777,16 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "UpsertTenantDataPipelineJobConfigBulkResponse",
-            "422": "HTTPValidationError",
+            '200': "UpsertTenantDataPipelineJobConfigBulkResponse",
+            '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -748,9 +802,11 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -764,26 +820,33 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = []
+        _auth_settings: List[str] = [
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/rpc/tenant_data_pipeline_job_config_service/upsert_bulk_tenant_data_pipeline_job_configs",
+            method='POST',
+            resource_path='/rpc/tenant_data_pipeline_job_config_service/upsert_bulk_tenant_data_pipeline_job_configs',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -793,5 +856,7 @@ class TenantDataPipelineJobConfigServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+    
