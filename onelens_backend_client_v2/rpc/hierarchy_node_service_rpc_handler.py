@@ -1,17 +1,14 @@
 # HierarchyNodeServiceRpcHandler API
 
-import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-
-from onelens_backend_client_v2.models import CreateDefaultHierarchyRequest
+from onelens_backend_client_v2.models import CreateDefaultHierarchyRequest, OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetMappedResourcesResponse
 
 
 from onelens_backend_client_v2.models import CreateDefaultHierarchyResponse
-
 
 
 from onelens_backend_client_v2.models import CreateHierarchyNodeRequest
@@ -20,12 +17,12 @@ from onelens_backend_client_v2.models import CreateHierarchyNodeRequest
 from onelens_backend_client_v2.models import CreateHierarchyNodeResponse
 
 
-
 from onelens_backend_client_v2.models import CreateHierarchyRootNodeRequest
 
 
-from onelens_backend_client_v2.models import onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__CreateHierarchyRootNodeResponse
-
+from onelens_backend_client_v2.models import (
+    OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoCreateHierarchyRootNodeResponse,
+)
 
 
 from onelens_backend_client_v2.models import DeleteHierarchyNodeRequest
@@ -34,12 +31,10 @@ from onelens_backend_client_v2.models import DeleteHierarchyNodeRequest
 from onelens_backend_client_v2.models import DeleteHierarchyNodeResponse
 
 
-
 from onelens_backend_client_v2.models import GetAllParentNodesRequest
 
 
 from onelens_backend_client_v2.models import GetAllParentNodesResponse
-
 
 
 from onelens_backend_client_v2.models import GetHierarchyRequest
@@ -48,12 +43,12 @@ from onelens_backend_client_v2.models import GetHierarchyRequest
 from onelens_backend_client_v2.models import GetHierarchyResponse
 
 
-
 from onelens_backend_client_v2.models import GetHierarchyFlatRequest
 
 
-from onelens_backend_client_v2.models import onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetHierarchyFlatResponse
-
+from onelens_backend_client_v2.models import (
+    OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetHierarchyFlatResponse,
+)
 
 
 from onelens_backend_client_v2.models import GetHierarchyNodeByIdRequest
@@ -62,19 +57,18 @@ from onelens_backend_client_v2.models import GetHierarchyNodeByIdRequest
 from onelens_backend_client_v2.models import GetHierarchyNodeByIdResponse
 
 
-
 from onelens_backend_client_v2.models import GetLeafNodesRequest
 
 
 from onelens_backend_client_v2.models import GetLeafNodesResponse
 
 
-
 from onelens_backend_client_v2.models import GetMappedResourcesRequest
 
 
-from onelens_backend_client_v2.models import onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetMappedResourcesResponse
-
+from onelens_backend_client_v2.models import (
+    OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetMappedResourcesResponse,
+)
 
 
 from onelens_backend_client_v2.models import GetMappedResourcesMetricsRequest
@@ -83,12 +77,7 @@ from onelens_backend_client_v2.models import GetMappedResourcesMetricsRequest
 from onelens_backend_client_v2.models import HierarchyNodeResourceMetrics
 
 
-
 from onelens_backend_client_v2.models import GetMetricsCountRequest
-
-
-from onelens_backend_client_v2.models import HierarchyNodeResourceMetrics
-
 
 
 from onelens_backend_client_v2.models import PublishCustomHierarchyRequest
@@ -97,12 +86,10 @@ from onelens_backend_client_v2.models import PublishCustomHierarchyRequest
 from onelens_backend_client_v2.models import PublishCustomHierarchyResponse
 
 
-
 from onelens_backend_client_v2.models import ReCreateResourceHierarchyMappingsRequest
 
 
 from onelens_backend_client_v2.models import ReCreateResourceHierarchyMappingsResponse
-
 
 
 from onelens_backend_client_v2.models import UpdateHierarchyNodeRequest
@@ -111,17 +98,14 @@ from onelens_backend_client_v2.models import UpdateHierarchyNodeRequest
 from onelens_backend_client_v2.models import UpdateHierarchyNodeResponse
 
 
-
 from onelens_backend_client_v2.models import ValidateHierarchyNodeFieldsRequest
 
 
 from onelens_backend_client_v2.models import ValidateHierarchyNodeFieldsResponse
 
 
-
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-from onelens_backend_client_v2.api_response import ApiResponse
-from onelens_backend_client_v2.rest import RESTResponseType
+
 
 class HierarchyNodeServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -131,7 +115,6 @@ class HierarchyNodeServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    
     @validate_call
     def create_default_hierarchy(
         self,
@@ -140,9 +123,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -151,7 +133,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> CreateDefaultHierarchyResponse:
         """create default hierarchy
 
-        
+
 
         :param request: (required)
         :type request: CreateDefaultHierarchyRequest
@@ -182,16 +164,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateDefaultHierarchyResponse",
-            '422': "HTTPValidationError",
+            "200": "CreateDefaultHierarchyResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -207,11 +188,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -225,33 +204,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/create_default_hierarchy',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/create_default_hierarchy",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -261,10 +233,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def create_node(
         self,
@@ -273,9 +244,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -284,7 +254,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> CreateHierarchyNodeResponse:
         """create a node in org hierarchy
 
-        
+
 
         :param request: (required)
         :type request: CreateHierarchyNodeRequest
@@ -315,16 +285,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateHierarchyNodeResponse",
-            '422': "HTTPValidationError",
+            "200": "CreateHierarchyNodeResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -340,11 +309,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -358,33 +325,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/create_node',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/create_node",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -394,10 +354,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def create_root_node(
         self,
@@ -406,18 +365,17 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__CreateHierarchyRootNodeResponse:
+    ) -> OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoCreateHierarchyRootNodeResponse:
         """create a root node in org hierarchy
 
-        
+
 
         :param request: (required)
         :type request: CreateHierarchyRootNodeRequest
@@ -448,16 +406,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__CreateHierarchyRootNodeResponse",
-            '422': "HTTPValidationError",
+            "200": "OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoCreateHierarchyRootNodeResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -473,11 +430,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -491,33 +446,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/create_root_node',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/create_root_node",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -527,10 +475,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def delete_node(
         self,
@@ -539,9 +486,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -550,7 +496,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> DeleteHierarchyNodeResponse:
         """delete a node in org hierarchy
 
-        
+
 
         :param request: (required)
         :type request: DeleteHierarchyNodeRequest
@@ -581,16 +527,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteHierarchyNodeResponse",
-            '422': "HTTPValidationError",
+            "200": "DeleteHierarchyNodeResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -606,11 +551,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -624,33 +567,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/delete_node',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/delete_node",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -660,10 +596,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_all_parent_nodes_for_node_ids(
         self,
@@ -672,9 +607,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -683,7 +617,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> GetAllParentNodesResponse:
         """gives us list of all the parent nodes from root to the node, for the given node ids
 
-        
+
 
         :param request: (required)
         :type request: GetAllParentNodesRequest
@@ -714,16 +648,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAllParentNodesResponse",
-            '422': "HTTPValidationError",
+            "200": "GetAllParentNodesResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -739,11 +672,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -757,33 +688,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_all_parent_nodes_for_node_ids',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_all_parent_nodes_for_node_ids",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -793,10 +717,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_hierarchy(
         self,
@@ -805,9 +728,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -816,7 +738,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> GetHierarchyResponse:
         """get hierarchy
 
-        
+
 
         :param request: (required)
         :type request: GetHierarchyRequest
@@ -847,16 +769,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHierarchyResponse",
-            '422': "HTTPValidationError",
+            "200": "GetHierarchyResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -872,11 +793,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -890,33 +809,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_hierarchy',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_hierarchy",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -926,10 +838,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_hierarchy_flat(
         self,
@@ -938,18 +849,17 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetHierarchyFlatResponse:
+    ) -> OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetHierarchyFlatResponse:
         """get hierarchy flat
 
-        
+
 
         :param request: (required)
         :type request: GetHierarchyFlatRequest
@@ -980,16 +890,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetHierarchyFlatResponse",
-            '422': "HTTPValidationError",
+            "200": "OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetHierarchyFlatResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1005,11 +914,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1023,33 +930,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_hierarchy_flat',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_hierarchy_flat",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1059,10 +959,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_hierarchy_node_by_id(
         self,
@@ -1071,9 +970,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1082,7 +980,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> GetHierarchyNodeByIdResponse:
         """get hierarchy node by id
 
-        
+
 
         :param request: (required)
         :type request: GetHierarchyNodeByIdRequest
@@ -1113,16 +1011,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHierarchyNodeByIdResponse",
-            '422': "HTTPValidationError",
+            "200": "GetHierarchyNodeByIdResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1138,11 +1035,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1156,33 +1051,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_hierarchy_node_by_id',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_hierarchy_node_by_id",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1192,10 +1080,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_leaf_nodes(
         self,
@@ -1204,9 +1091,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1215,7 +1101,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> GetLeafNodesResponse:
         """get hierarchy leaf nodes
 
-        
+
 
         :param request: (required)
         :type request: GetLeafNodesRequest
@@ -1246,16 +1132,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLeafNodesResponse",
-            '422': "HTTPValidationError",
+            "200": "GetLeafNodesResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1271,11 +1156,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1289,33 +1172,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_leaf_nodes',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_leaf_nodes",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1325,10 +1201,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_mapped_resources(
         self,
@@ -1337,18 +1212,17 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetMappedResourcesResponse:
+    ) -> OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetMappedResourcesResponse:
         """get mapped resources
 
-        
+
 
         :param request: (required)
         :type request: GetMappedResourcesRequest
@@ -1379,16 +1253,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "onelens__models__service_interfaces__tenant_metadata__hierarchy_node_dto__GetMappedResourcesResponse",
-            '422': "HTTPValidationError",
+            "200": "OnelensModelsServiceInterfacesTenantMetadataHierarchyNodeDtoGetMappedResourcesResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1404,11 +1277,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1422,33 +1293,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_mapped_resources',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_mapped_resources",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1458,10 +1322,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_mapped_resources_metrics(
         self,
@@ -1470,9 +1333,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1481,7 +1343,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> HierarchyNodeResourceMetrics:
         """get mapped resources metrics
 
-        
+
 
         :param request: (required)
         :type request: GetMappedResourcesMetricsRequest
@@ -1512,16 +1374,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HierarchyNodeResourceMetrics",
-            '422': "HTTPValidationError",
+            "200": "HierarchyNodeResourceMetrics",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1537,11 +1398,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1555,33 +1414,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_mapped_resources_metrics',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_mapped_resources_metrics",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1591,10 +1443,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_metrics_count(
         self,
@@ -1603,9 +1454,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1614,7 +1464,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> HierarchyNodeResourceMetrics:
         """get metrics count
 
-        
+
 
         :param request: (required)
         :type request: GetMetricsCountRequest
@@ -1645,16 +1495,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HierarchyNodeResourceMetrics",
-            '422': "HTTPValidationError",
+            "200": "HierarchyNodeResourceMetrics",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1670,11 +1519,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1688,33 +1535,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/get_metrics_count',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/get_metrics_count",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1724,10 +1564,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def publish_custom_hierarchy(
         self,
@@ -1736,9 +1575,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1747,7 +1585,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> PublishCustomHierarchyResponse:
         """publish custom hierarchy
 
-        
+
 
         :param request: (required)
         :type request: PublishCustomHierarchyRequest
@@ -1778,16 +1616,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublishCustomHierarchyResponse",
-            '422': "HTTPValidationError",
+            "200": "PublishCustomHierarchyResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1803,11 +1640,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1821,33 +1656,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/publish_custom_hierarchy',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/publish_custom_hierarchy",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1857,10 +1685,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def re_create_resource_hierarchy_mappings(
         self,
@@ -1869,9 +1696,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1880,7 +1706,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> ReCreateResourceHierarchyMappingsResponse:
         """create a resource hierarchy mapping
 
-        
+
 
         :param request: (required)
         :type request: ReCreateResourceHierarchyMappingsRequest
@@ -1911,16 +1737,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReCreateResourceHierarchyMappingsResponse",
-            '422': "HTTPValidationError",
+            "200": "ReCreateResourceHierarchyMappingsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1936,11 +1761,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1954,33 +1777,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/re_create_resource_hierarchy_mappings',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/re_create_resource_hierarchy_mappings",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1990,10 +1806,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def update_node(
         self,
@@ -2002,9 +1817,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2013,7 +1827,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> UpdateHierarchyNodeResponse:
         """update a node in org hierarchy
 
-        
+
 
         :param request: (required)
         :type request: UpdateHierarchyNodeRequest
@@ -2044,16 +1858,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateHierarchyNodeResponse",
-            '422': "HTTPValidationError",
+            "200": "UpdateHierarchyNodeResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2069,11 +1882,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2087,33 +1898,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/update_node',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/update_node",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2123,10 +1927,9 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def validate_hierarchy_node_fields(
         self,
@@ -2135,9 +1938,8 @@ class HierarchyNodeServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2146,7 +1948,7 @@ class HierarchyNodeServiceRpcHandler:
     ) -> ValidateHierarchyNodeFieldsResponse:
         """validate hierarchy node fields
 
-        
+
 
         :param request: (required)
         :type request: ValidateHierarchyNodeFieldsRequest
@@ -2177,16 +1979,15 @@ class HierarchyNodeServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ValidateHierarchyNodeFieldsResponse",
-            '422': "HTTPValidationError",
+            "200": "ValidateHierarchyNodeFieldsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2202,11 +2003,9 @@ class HierarchyNodeServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2220,33 +2019,26 @@ class HierarchyNodeServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/hierarchy_node_service/validate_hierarchy_node_fields',
+            method="POST",
+            resource_path="/rpc/hierarchy_node_service/validate_hierarchy_node_fields",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2256,7 +2048,5 @@ class HierarchyNodeServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-    

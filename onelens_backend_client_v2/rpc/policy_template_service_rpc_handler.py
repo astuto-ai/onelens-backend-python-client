@@ -1,10 +1,8 @@
 # PolicyTemplateServiceRpcHandler API
 
-import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-
 
 
 from onelens_backend_client_v2.models import ActivatePolicyTemplateRequest
@@ -13,12 +11,10 @@ from onelens_backend_client_v2.models import ActivatePolicyTemplateRequest
 from onelens_backend_client_v2.models import ActivatePolicyTemplateResponse
 
 
-
 from onelens_backend_client_v2.models import CreatePolicyTemplateRequest
 
 
 from onelens_backend_client_v2.models import CreatePolicyTemplateResponse
-
 
 
 from onelens_backend_client_v2.models import DeactivatePolicyTemplateRequest
@@ -27,17 +23,13 @@ from onelens_backend_client_v2.models import DeactivatePolicyTemplateRequest
 from onelens_backend_client_v2.models import DeactivatePolicyTemplateResponse
 
 
-
 from onelens_backend_client_v2.models import DeprecatePolicyTemplateRequest
 
 
 from onelens_backend_client_v2.models import DeprecatePolicyTemplateResponse
 
 
-
 from onelens_backend_client_v2.models import GetPolicyTemplateByAliasRequest
-
-
 
 
 from onelens_backend_client_v2.models import GetPolicyTemplateByIDRequest
@@ -46,12 +38,10 @@ from onelens_backend_client_v2.models import GetPolicyTemplateByIDRequest
 from onelens_backend_client_v2.models import GetPolicyTemplateByIDResponse
 
 
-
 from onelens_backend_client_v2.models import GetPolicyTemplatesRequest
 
 
 from onelens_backend_client_v2.models import GetPolicyTemplatesResponse
-
 
 
 from onelens_backend_client_v2.models import UpdatePolicyTemplateRequest
@@ -60,10 +50,8 @@ from onelens_backend_client_v2.models import UpdatePolicyTemplateRequest
 from onelens_backend_client_v2.models import UpdatePolicyTemplateResponse
 
 
-
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-from onelens_backend_client_v2.api_response import ApiResponse
-from onelens_backend_client_v2.rest import RESTResponseType
+
 
 class PolicyTemplateServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -73,7 +61,6 @@ class PolicyTemplateServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    
     @validate_call
     def activate_policy_template(
         self,
@@ -82,9 +69,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -93,7 +79,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> ActivatePolicyTemplateResponse:
         """Deprecate a policy template.
 
-        
+
 
         :param request: (required)
         :type request: ActivatePolicyTemplateRequest
@@ -124,16 +110,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ActivatePolicyTemplateResponse",
-            '422': "HTTPValidationError",
+            "200": "ActivatePolicyTemplateResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -149,11 +134,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -167,33 +150,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/activate_policy_template',
+            method="POST",
+            resource_path="/rpc/policy_template_service/activate_policy_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -203,10 +179,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def create_policy_template(
         self,
@@ -215,9 +190,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -226,7 +200,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> CreatePolicyTemplateResponse:
         """Creates a new policy template.
 
-        
+
 
         :param request: (required)
         :type request: CreatePolicyTemplateRequest
@@ -257,16 +231,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreatePolicyTemplateResponse",
-            '422': "HTTPValidationError",
+            "200": "CreatePolicyTemplateResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -282,11 +255,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -300,33 +271,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/create_policy_template',
+            method="POST",
+            resource_path="/rpc/policy_template_service/create_policy_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -336,10 +300,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def deactivate_policy_template(
         self,
@@ -348,9 +311,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -359,7 +321,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> DeactivatePolicyTemplateResponse:
         """Deprecate a policy template.
 
-        
+
 
         :param request: (required)
         :type request: DeactivatePolicyTemplateRequest
@@ -390,16 +352,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeactivatePolicyTemplateResponse",
-            '422': "HTTPValidationError",
+            "200": "DeactivatePolicyTemplateResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -415,11 +376,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -433,33 +392,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/deactivate_policy_template',
+            method="POST",
+            resource_path="/rpc/policy_template_service/deactivate_policy_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -469,10 +421,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def deprecate_policy_template(
         self,
@@ -481,9 +432,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -492,7 +442,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> DeprecatePolicyTemplateResponse:
         """Deprecate a policy template.
 
-        
+
 
         :param request: (required)
         :type request: DeprecatePolicyTemplateRequest
@@ -523,16 +473,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeprecatePolicyTemplateResponse",
-            '422': "HTTPValidationError",
+            "200": "DeprecatePolicyTemplateResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -548,11 +497,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -566,33 +513,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/deprecate_policy_template',
+            method="POST",
+            resource_path="/rpc/policy_template_service/deprecate_policy_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -602,10 +542,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_policy_template_by_alias(
         self,
@@ -614,9 +553,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -625,7 +563,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> Any:
         """Retrieves a policy template by its alias.
 
-        
+
 
         :param request: (required)
         :type request: GetPolicyTemplateByAliasRequest
@@ -656,16 +594,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Any",
-            '422': "HTTPValidationError",
+            "200": "Any",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -681,11 +618,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -699,33 +634,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/get_policy_template_by_alias',
+            method="POST",
+            resource_path="/rpc/policy_template_service/get_policy_template_by_alias",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -735,10 +663,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_policy_template_by_id(
         self,
@@ -747,9 +674,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -758,7 +684,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> GetPolicyTemplateByIDResponse:
         """Retrieves a policy template by its unique identifier.
 
-        
+
 
         :param request: (required)
         :type request: GetPolicyTemplateByIDRequest
@@ -789,16 +715,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPolicyTemplateByIDResponse",
-            '422': "HTTPValidationError",
+            "200": "GetPolicyTemplateByIDResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -814,11 +739,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -832,33 +755,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/get_policy_template_by_id',
+            method="POST",
+            resource_path="/rpc/policy_template_service/get_policy_template_by_id",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -868,10 +784,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_policy_templates(
         self,
@@ -880,9 +795,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -891,7 +805,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> GetPolicyTemplatesResponse:
         """Retrieves all policy templates, optionally filtered by the parameters in the request.
 
-        
+
 
         :param request: (required)
         :type request: GetPolicyTemplatesRequest
@@ -922,16 +836,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPolicyTemplatesResponse",
-            '422': "HTTPValidationError",
+            "200": "GetPolicyTemplatesResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -947,11 +860,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -965,33 +876,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/get_policy_templates',
+            method="POST",
+            resource_path="/rpc/policy_template_service/get_policy_templates",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1001,10 +905,9 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def update_policy_template(
         self,
@@ -1013,9 +916,8 @@ class PolicyTemplateServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1024,7 +926,7 @@ class PolicyTemplateServiceRpcHandler:
     ) -> UpdatePolicyTemplateResponse:
         """Updates an existing policy template.
 
-        
+
 
         :param request: (required)
         :type request: UpdatePolicyTemplateRequest
@@ -1055,16 +957,15 @@ class PolicyTemplateServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdatePolicyTemplateResponse",
-            '422': "HTTPValidationError",
+            "200": "UpdatePolicyTemplateResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1080,11 +981,9 @@ class PolicyTemplateServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1098,33 +997,26 @@ class PolicyTemplateServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/policy_template_service/update_policy_template',
+            method="POST",
+            resource_path="/rpc/policy_template_service/update_policy_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1134,7 +1026,5 @@ class PolicyTemplateServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-    

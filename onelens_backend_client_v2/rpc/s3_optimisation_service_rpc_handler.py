@@ -1,15 +1,11 @@
 # S3OptimisationServiceRpcHandler API
 
-import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-
 from onelens_backend_client_v2.models import S3BucketDetailsExportAPIRequest
-
-
 
 
 from onelens_backend_client_v2.models import S3BucketDetailsRequest
@@ -18,10 +14,7 @@ from onelens_backend_client_v2.models import S3BucketDetailsRequest
 from onelens_backend_client_v2.models import S3BucketDetailsResponse
 
 
-
 from onelens_backend_client_v2.models import GetS3CostDetailsRequest
-
-
 
 
 from onelens_backend_client_v2.models import S3OptimisationGridDataRequest
@@ -30,12 +23,10 @@ from onelens_backend_client_v2.models import S3OptimisationGridDataRequest
 from onelens_backend_client_v2.models import S3OptimisationGridDataResponse
 
 
-
 from onelens_backend_client_v2.models import GetS3OptimisationInsightsRequest
 
 
 from onelens_backend_client_v2.models import GetS3OptimisationInsightsResponse
-
 
 
 from onelens_backend_client_v2.models import GetS3StatsRequest
@@ -44,10 +35,8 @@ from onelens_backend_client_v2.models import GetS3StatsRequest
 from onelens_backend_client_v2.models import S3OptimisationStatsResponse
 
 
-
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-from onelens_backend_client_v2.api_response import ApiResponse
-from onelens_backend_client_v2.rest import RESTResponseType
+
 
 class S3OptimisationServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -57,7 +46,6 @@ class S3OptimisationServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    
     @validate_call
     def export_s3_bucket_details(
         self,
@@ -66,9 +54,8 @@ class S3OptimisationServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -77,7 +64,7 @@ class S3OptimisationServiceRpcHandler:
     ) -> Any:
         """Export S3 Bucket Details
 
-        
+
 
         :param request: (required)
         :type request: S3BucketDetailsExportAPIRequest
@@ -108,16 +95,15 @@ class S3OptimisationServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Any",
-            '422': "HTTPValidationError",
+            "200": "Any",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -133,11 +119,9 @@ class S3OptimisationServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -151,33 +135,26 @@ class S3OptimisationServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/s3_optimisation_service/export_s3_bucket_details',
+            method="POST",
+            resource_path="/rpc/s3_optimisation_service/export_s3_bucket_details",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -187,10 +164,9 @@ class S3OptimisationServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_s3_bucket_details(
         self,
@@ -199,9 +175,8 @@ class S3OptimisationServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -210,7 +185,7 @@ class S3OptimisationServiceRpcHandler:
     ) -> S3BucketDetailsResponse:
         """Get S3 Bucket Details
 
-        
+
 
         :param request: (required)
         :type request: S3BucketDetailsRequest
@@ -241,16 +216,15 @@ class S3OptimisationServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "S3BucketDetailsResponse",
-            '422': "HTTPValidationError",
+            "200": "S3BucketDetailsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -266,11 +240,9 @@ class S3OptimisationServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -284,33 +256,26 @@ class S3OptimisationServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/s3_optimisation_service/get_s3_bucket_details',
+            method="POST",
+            resource_path="/rpc/s3_optimisation_service/get_s3_bucket_details",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -320,10 +285,9 @@ class S3OptimisationServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_s3_optimisation_cost_details(
         self,
@@ -332,9 +296,8 @@ class S3OptimisationServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -343,7 +306,7 @@ class S3OptimisationServiceRpcHandler:
     ) -> Any:
         """Get S3 Optimisation Cost Details
 
-        
+
 
         :param request: (required)
         :type request: GetS3CostDetailsRequest
@@ -374,16 +337,15 @@ class S3OptimisationServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Any",
-            '422': "HTTPValidationError",
+            "200": "Any",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -399,11 +361,9 @@ class S3OptimisationServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -417,33 +377,26 @@ class S3OptimisationServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/s3_optimisation_service/get_s3_optimisation_cost_details',
+            method="POST",
+            resource_path="/rpc/s3_optimisation_service/get_s3_optimisation_cost_details",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -453,10 +406,9 @@ class S3OptimisationServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_s3_optimisation_grid_data(
         self,
@@ -465,9 +417,8 @@ class S3OptimisationServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -476,7 +427,7 @@ class S3OptimisationServiceRpcHandler:
     ) -> S3OptimisationGridDataResponse:
         """Get S3 Optimisation Grid Data
 
-        
+
 
         :param request: (required)
         :type request: S3OptimisationGridDataRequest
@@ -507,16 +458,15 @@ class S3OptimisationServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "S3OptimisationGridDataResponse",
-            '422': "HTTPValidationError",
+            "200": "S3OptimisationGridDataResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -532,11 +482,9 @@ class S3OptimisationServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -550,33 +498,26 @@ class S3OptimisationServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/s3_optimisation_service/get_s3_optimisation_grid_data',
+            method="POST",
+            resource_path="/rpc/s3_optimisation_service/get_s3_optimisation_grid_data",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -586,10 +527,9 @@ class S3OptimisationServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_s3_optimisation_insights(
         self,
@@ -598,9 +538,8 @@ class S3OptimisationServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -609,7 +548,7 @@ class S3OptimisationServiceRpcHandler:
     ) -> GetS3OptimisationInsightsResponse:
         """Get S3 Optimisation Insights
 
-        
+
 
         :param request: (required)
         :type request: GetS3OptimisationInsightsRequest
@@ -640,16 +579,15 @@ class S3OptimisationServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetS3OptimisationInsightsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetS3OptimisationInsightsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -665,11 +603,9 @@ class S3OptimisationServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -683,33 +619,26 @@ class S3OptimisationServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/s3_optimisation_service/get_s3_optimisation_insights',
+            method="POST",
+            resource_path="/rpc/s3_optimisation_service/get_s3_optimisation_insights",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -719,10 +648,9 @@ class S3OptimisationServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_s3_optimisation_stats(
         self,
@@ -731,9 +659,8 @@ class S3OptimisationServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -742,7 +669,7 @@ class S3OptimisationServiceRpcHandler:
     ) -> S3OptimisationStatsResponse:
         """Get S3 Optimisation Stats
 
-        
+
 
         :param request: (required)
         :type request: GetS3StatsRequest
@@ -773,16 +700,15 @@ class S3OptimisationServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "S3OptimisationStatsResponse",
-            '422': "HTTPValidationError",
+            "200": "S3OptimisationStatsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -798,11 +724,9 @@ class S3OptimisationServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -816,33 +740,26 @@ class S3OptimisationServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/s3_optimisation_service/get_s3_optimisation_stats',
+            method="POST",
+            resource_path="/rpc/s3_optimisation_service/get_s3_optimisation_stats",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -852,7 +769,5 @@ class S3OptimisationServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-    

@@ -1,24 +1,14 @@
 # CurDataServiceRpcHandler API
 
-import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 
-
 from onelens_backend_client_v2.models import GetAchievedSavingsRequest
 
 
 from onelens_backend_client_v2.models import GetAchievedSavingsResponse
-
-
-
-from onelens_backend_client_v2.models import GetAchievedSavingsRequest
-
-
-from onelens_backend_client_v2.models import GetAchievedSavingsResponse
-
 
 
 from onelens_backend_client_v2.models import GetCURCostDataRequest
@@ -27,19 +17,10 @@ from onelens_backend_client_v2.models import GetCURCostDataRequest
 from onelens_backend_client_v2.models import GetCURCostDataResponse
 
 
-
 from onelens_backend_client_v2.models import GetCURDataCostTimeSeriesRequest
 
 
 from onelens_backend_client_v2.models import GetCURDataCostTimeSeriesResponse
-
-
-
-from onelens_backend_client_v2.models import GetCURDataCostTimeSeriesRequest
-
-
-from onelens_backend_client_v2.models import GetCURDataCostTimeSeriesResponse
-
 
 
 from onelens_backend_client_v2.models import GetCURDataQueryRequest
@@ -48,17 +29,14 @@ from onelens_backend_client_v2.models import GetCURDataQueryRequest
 from onelens_backend_client_v2.models import GetCURDataQueryResponse
 
 
-
 from onelens_backend_client_v2.models import GetResourceDetailsFromARNForCURRequest
 
 
 from onelens_backend_client_v2.models import GetResourceDetailsFromARNForCURResponse
 
 
-
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
-from onelens_backend_client_v2.api_response import ApiResponse
-from onelens_backend_client_v2.rest import RESTResponseType
+
 
 class CurDataServiceRpcHandler:
     """NOTE: This class is auto generated. Do not edit the class manually."""
@@ -68,7 +46,6 @@ class CurDataServiceRpcHandler:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    
     @validate_call
     def get_achieved_savings(
         self,
@@ -77,9 +54,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -88,7 +64,7 @@ class CurDataServiceRpcHandler:
     ) -> GetAchievedSavingsResponse:
         """Get Achieved Savings
 
-        
+
 
         :param request: (required)
         :type request: GetAchievedSavingsRequest
@@ -119,16 +95,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAchievedSavingsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetAchievedSavingsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -144,11 +119,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -162,33 +135,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_achieved_savings',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_achieved_savings",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -198,10 +164,9 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_achieved_savings_v2(
         self,
@@ -210,9 +175,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -221,7 +185,7 @@ class CurDataServiceRpcHandler:
     ) -> GetAchievedSavingsResponse:
         """Get Achieved Savings V2
 
-        
+
 
         :param request: (required)
         :type request: GetAchievedSavingsRequest
@@ -252,16 +216,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAchievedSavingsResponse",
-            '422': "HTTPValidationError",
+            "200": "GetAchievedSavingsResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -277,11 +240,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -295,33 +256,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_achieved_savings_v2',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_achieved_savings_v2",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -331,10 +285,9 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_cur_cost_data(
         self,
@@ -343,9 +296,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -354,7 +306,7 @@ class CurDataServiceRpcHandler:
     ) -> GetCURCostDataResponse:
         """Get Cur Cost Data
 
-        
+
 
         :param request: (required)
         :type request: GetCURCostDataRequest
@@ -385,16 +337,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCURCostDataResponse",
-            '422': "HTTPValidationError",
+            "200": "GetCURCostDataResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -410,11 +361,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -428,33 +377,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_cur_cost_data',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_cur_cost_data",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -464,10 +406,9 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_cur_data_cost_timeseries(
         self,
@@ -476,9 +417,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -487,7 +427,7 @@ class CurDataServiceRpcHandler:
     ) -> GetCURDataCostTimeSeriesResponse:
         """Get Cur Data Cost Timeseries
 
-        
+
 
         :param request: (required)
         :type request: GetCURDataCostTimeSeriesRequest
@@ -518,16 +458,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCURDataCostTimeSeriesResponse",
-            '422': "HTTPValidationError",
+            "200": "GetCURDataCostTimeSeriesResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -543,11 +482,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -561,33 +498,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_cur_data_cost_timeseries',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_cur_data_cost_timeseries",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -597,10 +527,9 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_cur_data_cost_timeseries_v2(
         self,
@@ -609,9 +538,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -620,7 +548,7 @@ class CurDataServiceRpcHandler:
     ) -> GetCURDataCostTimeSeriesResponse:
         """Get Cur Data Cost Timeseries V2
 
-        
+
 
         :param request: (required)
         :type request: GetCURDataCostTimeSeriesRequest
@@ -651,16 +579,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCURDataCostTimeSeriesResponse",
-            '422': "HTTPValidationError",
+            "200": "GetCURDataCostTimeSeriesResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -676,11 +603,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -694,33 +619,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_cur_data_cost_timeseries_v2',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_cur_data_cost_timeseries_v2",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -730,10 +648,9 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_cur_data_query(
         self,
@@ -742,9 +659,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -753,7 +669,7 @@ class CurDataServiceRpcHandler:
     ) -> GetCURDataQueryResponse:
         """Get Cur Data Query
 
-        
+
 
         :param request: (required)
         :type request: GetCURDataQueryRequest
@@ -784,16 +700,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCURDataQueryResponse",
-            '422': "HTTPValidationError",
+            "200": "GetCURDataQueryResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -809,11 +724,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -827,33 +740,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_cur_data_query',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_cur_data_query",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -863,10 +769,9 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
 
-    
     @validate_call
     def get_resource_details_from_arn_for_cur(
         self,
@@ -875,9 +780,8 @@ class CurDataServiceRpcHandler:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -888,9 +792,9 @@ class CurDataServiceRpcHandler:
 
         This method retrieves resource details including account information,
         region, service details, resource ID, and aggregated cost from CUR data.
-        
 
-        
+
+
 
         :param request: (required)
         :type request: GetResourceDetailsFromARNForCURRequest
@@ -921,16 +825,15 @@ class CurDataServiceRpcHandler:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResourceDetailsFromARNForCURResponse",
-            '422': "HTTPValidationError",
+            "200": "GetResourceDetailsFromARNForCURResponse",
+            "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -946,11 +849,9 @@ class CurDataServiceRpcHandler:
         _headers,
         _host_index,
     ) -> RequestSerialized:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -964,33 +865,26 @@ class CurDataServiceRpcHandler:
             _body_params = request
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-        ]
+        _auth_settings: List[str] = []
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/rpc/cur_data_service/get_resource_details_from_arn_for_cur',
+            method="POST",
+            resource_path="/rpc/cur_data_service/get_resource_details_from_arn_for_cur",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1000,7 +894,5 @@ class CurDataServiceRpcHandler:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-    
