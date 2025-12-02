@@ -465,11 +465,6 @@ class AwsService(str, Enum):
     aws_servicequotas = "aws_servicequotas"
 
 
-class AzurePlanType(str, Enum):
-    payg = "payg"
-    ea = "ea"
-
-
 class BillingConfig(BaseModel):
     dataset_name: str = Field(..., description="Dataset Name", title="Dataset Name")
     table_name: str = Field(..., description="Table Name", title="Table Name")
@@ -7767,7 +7762,7 @@ class AzureBillingConfig(BaseModel):
     client_id: str = Field(..., description="Client ID", title="Client Id")
     client_secret: str = Field(..., description="Client Secret", title="Client Secret")
     tenant_id: str = Field(..., description="Tenant ID", title="Tenant Id")
-    plan_type: AzurePlanType = Field(..., description="Plan Type")
+    plan_type: str = Field(..., description="Plan Type")
     storage_account_name: str = Field(
         ..., description="Storage Account Name", title="Storage Account Name"
     )
