@@ -7775,6 +7775,9 @@ class AzureBillingConfig(BaseModel):
         ..., description="Container Name", title="Container Name"
     )
     export_path: str = Field(..., description="Export Path", title="Export Path")
+    is_subscription_based_export: Optional[bool] = Field(
+        default=False, description="Is Subscription Based Export"
+    )
 
 
 class BaseUser(BaseModel):
