@@ -170,6 +170,10 @@ from onelens_backend_client_v2.rpc.tenant_data_pipeline_job_config_service_rpc_h
     TenantDataPipelineJobConfigServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.tenant_data_pipeline_job_run_config_service_rpc_handler import (
+    TenantDataPipelineJobRunConfigServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.kubernetes_management_service_rpc_handler import (
     KubernetesManagementServiceRpcHandler,
 )
@@ -245,6 +249,7 @@ __all__ = [
     "TenantAccountServiceRpcHandler",
     "TenantSettingsServiceRpcHandler",
     "TenantDataPipelineJobConfigServiceRpcHandler",
+    "TenantDataPipelineJobRunConfigServiceRpcHandler",
     "KubernetesManagementServiceRpcHandler",
     "KubernetesDataServiceRpcHandler",
     "KubernetesResourceServiceRpcHandler",
