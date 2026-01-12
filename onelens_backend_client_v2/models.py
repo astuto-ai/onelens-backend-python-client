@@ -4168,6 +4168,11 @@ class Provider(str, Enum):
     GCP = "GCP"
     AZURE = "AZURE"
     OCI = "OCI"
+    OPEN_AI = "OPEN_AI"
+    NEW_RELIC = "NEW_RELIC"
+    DATA_DOG = "DATA_DOG"
+    MONGO_DB = "MONGO_DB"
+    CLAUDE = "CLAUDE"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
