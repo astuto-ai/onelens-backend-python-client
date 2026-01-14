@@ -3252,6 +3252,7 @@ class KubernetesDataServiceRpcHandler:
         When grouping is CLUSTER: Returns clusters with aggregated metrics
 
         This follows the same pattern as get_workloadsV2 for consistency.
+        Supports CCBA (Cost Center Based Access) when node_id filter is present.
 
         Performance Optimizations:
         - Database-level aggregation for cluster grouping (GROUP BY)
@@ -3385,6 +3386,8 @@ class KubernetesDataServiceRpcHandler:
         target_id, namespace, and cluster_id) by using the insights_data_processor
         with specially configured measures.
 
+        Supports CCBA (Cost Center Based Access) when node_id filter is present.
+
         Args:
             request: Request containing field name and optional filters
 
@@ -3516,6 +3519,7 @@ class KubernetesDataServiceRpcHandler:
         Returns total active insights and potential savings across all clusters for a tenant.
         Only counts active insights (excludes archived).
         Supports filtering for cluster-wise or filtered insight stats.
+        Supports CCBA (Cost Center Based Access) when node_id filter is present.
 
         Performance: Uses database-level aggregation (no dimensions, only measures)
         to efficiently compute COUNT and SUM without loading data into memory.
