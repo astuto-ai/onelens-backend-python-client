@@ -208,6 +208,10 @@ from onelens_backend_client_v2.rpc.aggregated_tickets_service_rpc_handler import
     AggregatedTicketsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.aggregated_policies_service_rpc_handler import (
+    AggregatedPoliciesServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -263,4 +267,5 @@ __all__ = [
     "AuthServiceRpcHandler",
     "TenantOnboardingServiceRpcHandler",
     "AggregatedTicketsServiceRpcHandler",
+    "AggregatedPoliciesServiceRpcHandler",
 ]
