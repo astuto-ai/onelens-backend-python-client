@@ -4262,6 +4262,7 @@ class Provider(str, Enum):
     DATA_DOG = "DATA_DOG"
     MONGO_DB = "MONGO_DB"
     CLAUDE = "CLAUDE"
+    GITHUB = "GITHUB"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
