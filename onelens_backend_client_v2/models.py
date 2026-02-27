@@ -649,6 +649,11 @@ class CloudMetadataType(str, Enum):
     TAG_VALUE = "TAG_VALUE"
 
 
+class CloudProvider(str, Enum):
+    aws = "aws"
+    azure = "azure"
+
+
 class CloudwatchMetricDataPoint(BaseModel):
     label: Optional[str] = Field(..., title="Label")
     timestamps: List[int] = Field(..., title="Timestamps")
@@ -16781,6 +16786,10 @@ class GetPVStatsRequest(BaseModel):
 class GetPipelineRunConfigRequest(BaseModel):
     filters: Optional[GetPipelineRunConfigRequestFilters] = Field(
         None, description="Filters for getting pipeline run configuration."
+    )
+    provider: Optional[CloudProvider] = Field(
+        "aws",
+        description="Cloud provider to filter clusters by (aws or azure). Defaults to aws.",
     )
 
 
