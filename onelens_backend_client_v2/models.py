@@ -2145,6 +2145,56 @@ class GetClusterStatsResponse(BaseModel):
     )
 
 
+class GetNodeEfficiencyRequest(BaseModel):
+    cluster_id: Optional[UUID] = Field(
+        None, description="ID of the cluster (optional filter)", title="Cluster Id"
+    )
+    filters: Optional[
+        List[OnelensDomainUtilitiesRepositoriesDynamicFiltersFilterCriteria]
+    ] = Field(
+        None,
+        description="Optional filters (nodegroup, nodegroup_type, instance_type, from_date, to_date)",
+        title="Filters",
+    )
+    group_by: Optional[List[NodeEfficiencyGroupBy]] = Field(
+        None,
+        description="Optional grouping fields (cluster_id, nodegroup, nodegroup_type, instance_type, metric_date)",
+        title="Group By",
+    )
+    tenant_id: UUID = Field(..., description="ID of the tenant", title="Tenant Id")
+
+
+class GetNodeEfficiencyResponse(BaseModel):
+    data: List[Dict[str, Any]] = Field(
+        ...,
+        description="Efficiency data with dynamic fields based on group_by",
+        title="Data",
+    )
+
+
+class GetSpotEligibleWorkloadsRequest(BaseModel):
+    cluster_id: UUID = Field(
+        ..., description="ID of the cluster to analyze", title="Cluster Id"
+    )
+    pagination: Optional[PaginationParams] = Field(
+        {"page": 1, "page_size": 10}, description="Pagination parameters"
+    )
+    order: Optional[SortCriteria] = Field(
+        None,
+        description="Sorting criteria (supports: total_cost, new_cost, workload_name)",
+    )
+    tenant_id: UUID = Field(..., description="ID of the tenant", title="Tenant Id")
+
+
+class GetSpotEligibleWorkloadsResponse(BaseModel):
+    workloads: List[SpotEligibleWorkloadData] = Field(
+        ..., description="List of spot-eligible workloads", title="Workloads"
+    )
+    pagination: Optional[PaginationFields] = Field(
+        None, description="Pagination metadata"
+    )
+
+
 class Granularity(str, Enum):
     hour = "hour"
     day = "day"
@@ -2241,6 +2291,14 @@ class Metric(str, Enum):
     max = "max"
     p99 = "p99"
     p95 = "p95"
+
+
+class NodeEfficiencyGroupBy(str, Enum):
+    cluster_id = "cluster_id"
+    nodegroup = "nodegroup"
+    nodegroup_type = "nodegroup_type"
+    instance_type = "instance_type"
+    metric_date = "metric_date"
 
 
 class ResourceType(str, Enum):
@@ -5723,6 +5781,42 @@ class Severity(str, Enum):
 class SortCriteria(BaseModel):
     field: str = Field(..., title="Field")
     direction: Direction
+
+
+class SpotEligibleWorkloadData(BaseModel):
+    namespace: str = Field(..., description="Kubernetes namespace", title="Namespace")
+    workload_name: str = Field(
+        ..., description="Name of the workload", title="Workload Name"
+    )
+    workload_type: str = Field(
+        ...,
+        description="Type of the workload (e.g., Deployment, Job, CronJob)",
+        title="Workload Type",
+    )
+    replicas: Optional[int] = Field(
+        None, description="Current number of replicas", title="Replicas"
+    )
+    min_replicas: Optional[int] = Field(
+        0, description="Min replicas from HPA (0 if not set)", title="Min Replicas"
+    )
+    max_replicas: Optional[int] = Field(
+        0, description="Max replicas from HPA (0 if not set)", title="Max Replicas"
+    )
+    suggestion: Optional[int] = Field(
+        0,
+        description="Suggested min_replicas: 3 if current min is 0-2, else 0",
+        title="Suggestion",
+    )
+    total_cost: float = Field(
+        ...,
+        description="Total cost over the last 30 days (rounded to 2 decimals)",
+        title="Total Cost",
+    )
+    new_cost: float = Field(
+        ...,
+        description="Projected cost after spot migration (30% of original), rounded to 2 decimals",
+        title="New Cost",
+    )
 
 
 class SpotMigrationRisk(str, Enum):

@@ -149,6 +149,12 @@ from onelens_backend_client_v2.models import GetInsightsStatsRequest
 from onelens_backend_client_v2.models import GetInsightsStatsResponse
 
 
+from onelens_backend_client_v2.models import GetNodeEfficiencyRequest
+
+
+from onelens_backend_client_v2.models import GetNodeEfficiencyResponse
+
+
 from onelens_backend_client_v2.models import GetNodeUtilisationMetricsRequest
 
 
@@ -185,6 +191,12 @@ from onelens_backend_client_v2.models import GetPVStatsRequest
 from onelens_backend_client_v2.models import GetPVStatsResponse
 
 
+from onelens_backend_client_v2.models import GetSpotEligibleWorkloadsRequest
+
+
+from onelens_backend_client_v2.models import GetSpotEligibleWorkloadsResponse
+
+
 from onelens_backend_client_v2.models import GetSpotMigrationStatsRequest
 
 
@@ -218,16 +230,16 @@ from onelens_backend_client_v2.models import GetWorkloadStatsResponse
 from onelens_backend_client_v2.models import GetWorkloadsResponse
 
 
-from onelens_backend_client_v2.models import GetWorkloadsV3Request
-
-
-from onelens_backend_client_v2.models import GetWorkloadsV3Response
-
-
 from onelens_backend_client_v2.models import GetWorkloadsByNamespaceRequest
 
 
 from onelens_backend_client_v2.models import GetWorkloadsByNamespaceResponse
+
+
+from onelens_backend_client_v2.models import GetWorkloadsV3Request
+
+
+from onelens_backend_client_v2.models import GetWorkloadsV3Response
 
 
 from onelens_backend_client_v2.api_client import ApiClient, RequestSerialized
@@ -3529,7 +3541,7 @@ class KubernetesDataServiceRpcHandler:
         """Get summary statistics for insights.
 
         Returns total active insights and potential savings across all clusters for a tenant.
-        Only counts active insights (excludes archived).
+        Only counts active insights.
         Supports filtering for cluster-wise or filtered insight stats.
         Supports CCBA (Cost Center Based Access) when node_id filter is present.
 
@@ -3628,6 +3640,130 @@ class KubernetesDataServiceRpcHandler:
         return self.api_client.param_serialize(
             method="POST",
             resource_path="/rpc/kubernetes_data_service/get_insights_stats",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def get_node_efficiency(
+        self,
+        request: GetNodeEfficiencyRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetNodeEfficiencyResponse:
+        """Get node efficiency data with optional filtering and grouping.
+        Calculates efficiency as a weighted average of CPU and memory utilization
+        based on their respective costs.
+
+
+
+
+        :param request: (required)
+        :type request: GetNodeEfficiencyRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_node_efficiency_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetNodeEfficiencyResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_node_efficiency_serialize(
+        self,
+        request: GetNodeEfficiencyRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/kubernetes_data_service/get_node_efficiency",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4401,6 +4537,131 @@ class KubernetesDataServiceRpcHandler:
         )
 
     @validate_call
+    def get_spot_eligible_workloads(
+        self,
+        request: GetSpotEligibleWorkloadsRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetSpotEligibleWorkloadsResponse:
+        """Get paginated spot-eligible workloads for a cluster.
+
+        Fetches LOW_RISK workloads from the repository (CTE query) and
+        transforms them into response DTOs with pagination.
+
+
+
+
+        :param request: (required)
+        :type request: GetSpotEligibleWorkloadsRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_spot_eligible_workloads_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetSpotEligibleWorkloadsResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_spot_eligible_workloads_serialize(
+        self,
+        request: GetSpotEligibleWorkloadsRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/kubernetes_data_service/get_spot_eligible_workloads",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
     def get_spot_migration_stats(
         self,
         request: GetSpotMigrationStatsRequest,
@@ -5153,7 +5414,7 @@ class KubernetesDataServiceRpcHandler:
     @validate_call
     def get_workloadsV3(
         self,
-        request: GetWorkloadsV3Request,
+        request: GetWorkloadsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5165,24 +5426,20 @@ class KubernetesDataServiceRpcHandler:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetWorkloadsV3Response:
-        """Get workloads with spot migration risk assessment.
-
-        Fetches workloads that are NOT running on spot instances and calculates
-        the risk level for migrating them to spot instances based on workload
-        type, replicas, and namespace.
+    ) -> GetWorkloadsResponse:
+        """Get workload information with optional grouping and filtering.
 
         Args:
-            request: Request containing tenant ID, filters, pagination, and sorting
+            request: Request containing tenant ID, grouping options, and filters
 
         Returns:
-            Response containing workloads with spot migration risk assessment
+            Response containing workload information, optionally grouped
 
 
 
 
         :param request: (required)
-        :type request: GetWorkloadsV3Request
+        :type request: GetWorkloadsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5214,7 +5471,7 @@ class KubernetesDataServiceRpcHandler:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "GetWorkloadsV3Response",
+            "200": "GetWorkloadsResponse",
             "422": "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -5228,7 +5485,7 @@ class KubernetesDataServiceRpcHandler:
 
     def _get_workloadsV3_serialize(
         self,
-        request: GetWorkloadsV3Request,
+        request: GetWorkloadsRequest,
         _request_auth,
         _content_type,
         _headers,
@@ -5399,6 +5656,267 @@ class KubernetesDataServiceRpcHandler:
         return self.api_client.param_serialize(
             method="POST",
             resource_path="/rpc/kubernetes_data_service/get_workloads_by_namespace",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def get_workloads_by_namespaceV2(
+        self,
+        request: GetWorkloadsByNamespaceRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetWorkloadsByNamespaceResponse:
+        """Get workloads by namespace with efficiency metrics (V2 - uses insights API for potential savings).
+
+        Args:
+            request: Request containing tenant ID, filters and pagination metadata.
+            If namespace is provided, filters by that namespace, otherwise returns all namespaces.
+
+        Returns:
+            Response containing namespace efficiency groups and pagination metadata
+
+
+
+
+        :param request: (required)
+        :type request: GetWorkloadsByNamespaceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_workloads_by_namespaceV2_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetWorkloadsByNamespaceResponse",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_workloads_by_namespaceV2_serialize(
+        self,
+        request: GetWorkloadsByNamespaceRequest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/kubernetes_data_service/get_workloads_by_namespaceV2",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def get_workloads_spot_migration_risk(
+        self,
+        request: GetWorkloadsV3Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetWorkloadsV3Response:
+        """Get workloads with spot migration risk assessment.
+
+        Fetches workloads that are NOT running on spot instances and calculates
+        the risk level for migrating them to spot instances based on workload
+        type, replicas, and namespace.
+
+        Args:
+            request: Request containing tenant ID, filters, pagination, and sorting
+
+        Returns:
+            Response containing workloads with spot migration risk assessment
+
+
+
+
+        :param request: (required)
+        :type request: GetWorkloadsV3Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """
+
+        _param = self._get_workloads_spot_migration_risk_serialize(
+            request=request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "GetWorkloadsV3Response",
+            "422": "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    def _get_workloads_spot_migration_risk_serialize(
+        self,
+        request: GetWorkloadsV3Request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the body parameter
+        if request is not None:
+            _body_params = request
+
+        # set the HTTP header `Accept`
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params["Content-Type"] = _content_type
+        else:
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
+            )
+            if _default_content_type is not None:
+                _header_params["Content-Type"] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = []
+
+        return self.api_client.param_serialize(
+            method="POST",
+            resource_path="/rpc/kubernetes_data_service/get_workloads_spot_migration_risk",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
