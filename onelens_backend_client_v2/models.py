@@ -131,6 +131,53 @@ class AggregatedTicketsStatDetail(BaseModel):
     value: float = Field(..., title="Value")
 
 
+class AnalysisRequestStatus(str, Enum):
+    PENDING = "PENDING"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class AnalysisRequestMixin(BaseModel):
+    request_id: UUID = Field(
+        ..., description="Unique request identifier.", title="Request Id"
+    )
+    name: str = Field(..., description="Name of the analysis request.", title="Name")
+    description: str = Field(
+        ..., description="Human-readable description.", title="Description"
+    )
+    account_id: str = Field(..., description="AWS account ID.", title="Account Id")
+    region_id: str = Field(..., description="AWS region.", title="Region Id")
+    start_date: date = Field(
+        ..., description="Analysis start date.", title="Start Date"
+    )
+    end_date: date = Field(..., description="Analysis end date.", title="End Date")
+    status: AnalysisRequestStatus = Field(..., description="Current request status.")
+    status_message: Optional[str] = Field(
+        None, description="Status message or error details.", title="Status Message"
+    )
+    flow_config: Optional[List] = Field(
+        None, description="List of flow log configs.", title="Flow Config"
+    )
+    created_at: datetime = Field(
+        ..., description="Request creation timestamp.", title="Created At"
+    )
+    created_by: Optional[str] = Field(
+        None, description="User who created the request.", title="Created By"
+    )
+    started_at: Optional[datetime] = Field(
+        None, description="Processing start timestamp.", title="Started At"
+    )
+    completed_at: Optional[datetime] = Field(
+        None, description="Processing completion timestamp.", title="Completed At"
+    )
+    request_metadata: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Arbitrary metadata from the analysis.",
+        title="Request Metadata",
+    )
+
+
 class AndItem(BaseModel):
     gte: Optional[List] = Field(None, title="Gte")
     gt: Optional[List] = Field(None, title="Gt")
@@ -957,6 +1004,22 @@ class CreateActionTypePullRequest(BaseModel):
 class CreateActionTypePullResponse(BaseModel):
     pr_link: AnyUrl = Field(
         ..., description="The action type pull request link.", title="Pr Link"
+    )
+
+
+class CreateAnalysisRequestAPIRequest(BaseModel):
+    name: str = Field(..., description="Name of the analysis request.", title="Name")
+    description: str = Field(
+        ..., description="Human-readable description.", title="Description"
+    )
+    account_id: str = Field(..., description="AWS account ID.", title="Account Id")
+    region_id: str = Field(..., description="AWS region.", title="Region Id")
+    start_date: date = Field(
+        ..., description="Analysis start date.", title="Start Date"
+    )
+    end_date: date = Field(..., description="Analysis end date.", title="End Date")
+    flow_config: Optional[List[Dict[str, Any]]] = Field(
+        None, description="List of flow log configs.", title="Flow Config"
     )
 
 
@@ -2052,6 +2115,38 @@ class GetAllRecommendationUnitsRequest(BaseModel):
 
 class GetAllTenantConnectionsRequest(BaseModel):
     connection_type: ConnectionType = Field(..., description="Type of the connection")
+
+
+class GetAnalysisRequestsAPIRequest(BaseModel):
+    status_in: Optional[List[AnalysisRequestStatus]] = Field(
+        None, description="Filter by status values.", title="Status In"
+    )
+    account_id: Optional[str] = Field(
+        None, description="Filter by account ID.", title="Account Id"
+    )
+    pagination: Optional[PaginationParams] = Field(
+        None, description="Pagination parameters."
+    )
+
+
+class GetAnalysisRequestsRequest(BaseModel):
+    status_in: Optional[List[AnalysisRequestStatus]] = Field(
+        None, description="Filter by status values.", title="Status In"
+    )
+    account_id: Optional[str] = Field(
+        None, description="Filter by account ID.", title="Account Id"
+    )
+    pagination: Optional[PaginationParams] = Field(
+        None, description="Pagination parameters."
+    )
+    tenant_id: UUID = Field(..., title="Tenant Id")
+
+
+class GetAnalysisRequestsResponse(BaseModel):
+    analysis_requests: List[AnalysisRequestMixin] = Field(
+        ..., description="List of analysis requests.", title="Analysis Requests"
+    )
+    pagination: PaginationFields = Field(..., description="Pagination metadata.")
 
 
 class GetCURDataCostTimeSeriesResponse(BaseModel):
@@ -3631,6 +3726,15 @@ class ListConfigVersionsByTypeRequest(BaseModel):
 
 class ListDeltaEventConfigsResponse(BaseModel):
     configs: List[DeltaEventConfigDTO] = Field(..., title="Configs")
+
+
+class ListFlowLogsAPIRequest(BaseModel):
+    account_id: str = Field(
+        ..., description="AWS account ID to query flow logs for.", title="Account Id"
+    )
+    region: str = Field(
+        ..., description="AWS region to query (e.g. ap-southeast-2).", title="Region"
+    )
 
 
 class ListSchedulerConfigsRequest(BaseModel):
@@ -6770,6 +6874,32 @@ class UpdateAgentRegistrationRequest(BaseModel):
 
 class UpdateAgentRegistrationResponse(BaseModel):
     pass
+
+
+class UpdateAnalysisRequestRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    request_id: UUID = Field(
+        ..., description="ID of the request to update.", title="Request Id"
+    )
+    status: Optional[AnalysisRequestStatus] = Field(None, description="New status.")
+    status_message: Optional[str] = Field(
+        None, description="Status message or error details.", title="Status Message"
+    )
+    started_at: Optional[datetime] = Field(
+        None, description="Processing start timestamp.", title="Started At"
+    )
+    completed_at: Optional[datetime] = Field(
+        None, description="Processing completion timestamp.", title="Completed At"
+    )
+    request_metadata: Optional[Dict[str, Any]] = Field(
+        None, description="Updated metadata.", title="Request Metadata"
+    )
+
+
+class UpdateAnalysisRequestResponse(BaseModel):
+    analysis_request: AnalysisRequestMixin = Field(
+        ..., description="Updated analysis request."
+    )
 
 
 class UpdateCURSavedViewAPIRequest(BaseModel):

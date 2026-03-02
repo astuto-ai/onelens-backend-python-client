@@ -212,6 +212,10 @@ from onelens_backend_client_v2.rpc.aggregated_policies_service_rpc_handler impor
     AggregatedPoliciesServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.network_flow_analysis_requests_service_rpc_handler import (
+    NetworkFlowAnalysisRequestsServiceRpcHandler,
+)
+
 
 __all__ = [
     "TenantVerifyServiceRpcHandler",
@@ -268,4 +272,5 @@ __all__ = [
     "TenantOnboardingServiceRpcHandler",
     "AggregatedTicketsServiceRpcHandler",
     "AggregatedPoliciesServiceRpcHandler",
+    "NetworkFlowAnalysisRequestsServiceRpcHandler",
 ]
