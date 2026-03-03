@@ -13444,6 +13444,11 @@ class TaskConfig(BaseModel):
     payload: Dict[str, str] = Field(
         ..., description="S3 configuration for the task", title="Payload"
     )
+    cloud_provider: Optional[str] = Field(
+        None,
+        description="Cloud provider for the cluster: 'aws' or 'azure'",
+        title="Cloud Provider",
+    )
 
 
 class Tenant(BaseModel):
