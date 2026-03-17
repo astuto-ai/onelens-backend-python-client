@@ -559,6 +559,20 @@ class BillingType(str, Enum):
     Internal_POC = "Internal_POC"
 
 
+class BulkCreateKubernetesTicketsRequest(BaseModel):
+    kubernetes_tickets: List[CreateKubernetesTicketAPIRequest] = Field(
+        ..., title="Kubernetes Tickets"
+    )
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+
+
+class BulkCreateKubernetesTicketsResponse(BaseModel):
+    kubernetes_tickets: List[KubernetesTicketsMixin] = Field(
+        ..., title="Kubernetes Tickets"
+    )
+
+
 class BulkDeleteCustomFieldRequest(BaseModel):
     ids: List[UUID] = Field(..., title="Ids")
 
@@ -566,6 +580,24 @@ class BulkDeleteCustomFieldRequest(BaseModel):
 class BulkDeleteResponse(BaseModel):
     deleted_count: int = Field(..., title="Deleted Count")
     errors: Optional[List[Dict[str, Any]]] = Field([], title="Errors")
+
+
+class BulkUpdateKubernetesTicketsRequest(BaseModel):
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    ticket_status: Optional[KubernetesTicketStatus] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+
+
+class BulkUpdateKubernetesTicketsResponse(BaseModel):
+    successful_ticket_ids: List[UUID] = Field(..., title="Successful Ticket Ids")
+    failed_ticket_ids: List[UUID] = Field(..., title="Failed Ticket Ids")
+    message: str = Field(..., title="Message")
+    status_code: int = Field(..., title="Status Code")
 
 
 class BulkUpdateTenantTicketsErrorMixin(BaseModel):
@@ -756,6 +788,68 @@ class ClusterData(BaseModel):
     connected_on: Optional[datetime] = Field(
         None, description="Cluster connected on timestamp", title="Connected On"
     )
+
+
+class CreateKubernetesTicketAPIRequest(BaseModel):
+    insight_id: UUID = Field(..., title="Insight Id")
+    insight_alias: int = Field(..., title="Insight Alias")
+    cluster_id: UUID = Field(..., title="Cluster Id")
+    cluster_name: str = Field(..., title="Cluster Name")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    namespace: Optional[str] = Field(None, title="Namespace")
+    title: str = Field(..., title="Title")
+    description: str = Field(..., title="Description")
+    target_id: str = Field(..., title="Target Id")
+    target_type: str = Field(..., title="Target Type")
+    recommendation_type: str = Field(..., title="Recommendation Type")
+    recommendation_details: Optional[Dict[str, Any]] = Field(
+        None, title="Recommendation Details"
+    )
+    potential_savings: Optional[float] = Field(None, title="Potential Savings")
+    non_prorated_potential_savings: Optional[float] = Field(
+        None, title="Non Prorated Potential Savings"
+    )
+    status: str = Field(..., title="Status")
+    unique_target_id: Optional[str] = Field(None, title="Unique Target Id")
+    parent_insight_id: Optional[UUID] = Field(None, title="Parent Insight Id")
+    ticket_status: Optional[KubernetesTicketStatus] = "TO_DO"
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    provider: Provider
+
+
+class CreateKubernetesTicketRequest(BaseModel):
+    insight_id: UUID = Field(..., title="Insight Id")
+    insight_alias: int = Field(..., title="Insight Alias")
+    cluster_id: UUID = Field(..., title="Cluster Id")
+    cluster_name: str = Field(..., title="Cluster Name")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    namespace: Optional[str] = Field(None, title="Namespace")
+    title: str = Field(..., title="Title")
+    description: str = Field(..., title="Description")
+    target_id: str = Field(..., title="Target Id")
+    target_type: str = Field(..., title="Target Type")
+    recommendation_type: str = Field(..., title="Recommendation Type")
+    recommendation_details: Optional[Dict[str, Any]] = Field(
+        None, title="Recommendation Details"
+    )
+    potential_savings: Optional[float] = Field(None, title="Potential Savings")
+    non_prorated_potential_savings: Optional[float] = Field(
+        None, title="Non Prorated Potential Savings"
+    )
+    status: str = Field(..., title="Status")
+    unique_target_id: Optional[str] = Field(None, title="Unique Target Id")
+    parent_insight_id: Optional[UUID] = Field(None, title="Parent Insight Id")
+    ticket_status: Optional[KubernetesTicketStatus] = "TO_DO"
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    provider: Provider
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+
+
+class CreateKubernetesTicketResponse(BaseModel):
+    kubernetes_ticket: KubernetesTicketsMixin
 
 
 class EntityType(str, Enum):
@@ -2245,6 +2339,34 @@ class GetClusterStatsResponse(BaseModel):
     )
 
 
+class GetKubernetesTicketByInsightIdRequest(BaseModel):
+    insight_id: UUID = Field(..., title="Insight Id")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+
+
+class GetKubernetesTicketByInsightIdResponse(BaseModel):
+    insight: InsightData
+
+
+class GetKubernetesTicketMetadataRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_id: UUID = Field(..., title="Ticket Id")
+
+
+class GetKubernetesTicketMetadataResponse(BaseModel):
+    kubernetes_ticket: KubernetesTicketsMixin
+
+
+class GetKubernetesTicketRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_id: UUID = Field(..., title="Ticket Id")
+
+
+class GetKubernetesTicketResponse(BaseModel):
+    kubernetes_ticket: KubernetesTicketsMixin
+    assigned_to_email: Optional[str] = Field(None, title="Assigned To Email")
+
+
 class GetNodeEfficiencyRequest(BaseModel):
     cluster_id: Optional[UUID] = Field(
         None, description="ID of the cluster (optional filter)", title="Cluster Id"
@@ -2385,6 +2507,53 @@ class GetConfigByIdRequest(BaseModel):
     )
 
 
+class KubernetesTicketStatus(str, Enum):
+    TO_DO = "TO_DO"
+    IN_PROGRESS = "IN_PROGRESS"
+    DONE_AND_WAITING = "DONE_AND_WAITING"
+    DONE_AND_VERIFIED = "DONE_AND_VERIFIED"
+    DONE_AND_FLAKY = "DONE_AND_FLAKY"
+    INVALID = "INVALID"
+    SYSTEM_INVALID = "SYSTEM_INVALID"
+
+
+class KubernetesTicketsMixin(BaseModel):
+    id: Optional[UUID] = Field(None, title="Id")
+    insight_id: UUID = Field(..., title="Insight Id")
+    insight_alias: int = Field(..., title="Insight Alias")
+    cluster_id: UUID = Field(..., title="Cluster Id")
+    cluster_name: str = Field(..., title="Cluster Name")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    namespace: Optional[str] = Field(None, title="Namespace")
+    title: str = Field(..., title="Title")
+    description: str = Field(..., title="Description")
+    target_id: str = Field(..., title="Target Id")
+    target_type: str = Field(..., title="Target Type")
+    recommendation_type: str = Field(..., title="Recommendation Type")
+    recommendation_details: Optional[Dict[str, Any]] = Field(
+        None, title="Recommendation Details"
+    )
+    potential_savings: Optional[float] = Field(None, title="Potential Savings")
+    non_prorated_potential_savings: Optional[float] = Field(
+        None, title="Non Prorated Potential Savings"
+    )
+    status: str = Field(..., title="Status")
+    created_at: Optional[datetime] = Field(None, title="Created At")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+    updated_at: Optional[datetime] = Field(None, title="Updated At")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+    unique_target_id: Optional[str] = Field(None, title="Unique Target Id")
+    parent_insight_id: Optional[UUID] = Field(None, title="Parent Insight Id")
+    ticket_status: Optional[KubernetesTicketStatus] = "TO_DO"
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    provider: Provider
+    data_synced: Optional[bool] = Field(False, title="Data Synced")
+
+
 class Metric(str, Enum):
     avg = "avg"
     min = "min"
@@ -2399,6 +2568,12 @@ class NodeEfficiencyGroupBy(str, Enum):
     nodegroup_type = "nodegroup_type"
     instance_type = "instance_type"
     metric_date = "metric_date"
+
+
+class OnelensModelsCommonsPriority(str, Enum):
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
 
 
 class ResourceType(str, Enum):
@@ -6097,6 +6272,18 @@ class SyncActionTypeFromRepoResponse(BaseModel):
     )
 
 
+class SyncKubernetesTicketDataRequest(BaseModel):
+    ticket_ids: Optional[List[UUID]] = Field(None, title="Ticket Ids")
+    batch_size: Optional[int] = Field(500, title="Batch Size")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+
+
+class SyncKubernetesTicketDataResponse(BaseModel):
+    tickets_synced: bool = Field(..., title="Tickets Synced")
+    tickets_synced_count: int = Field(..., title="Tickets Synced Count")
+    tickets_not_synced_count: int = Field(..., title="Tickets Not Synced Count")
+
+
 class SyncPoliciesFromRepoRequest(BaseModel):
     alias: str = Field(
         ...,
@@ -7089,6 +7276,21 @@ class UpdateFeatureStatusRequest(BaseModel):
     is_enabled: bool = Field(..., title="Is Enabled")
 
 
+class UpdateKubernetesTicketRequest(BaseModel):
+    ticket_id: UUID = Field(..., title="Ticket Id")
+    ticket_status: Optional[KubernetesTicketStatus] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+
+
+class UpdateKubernetesTicketResponse(BaseModel):
+    kubernetes_ticket: KubernetesTicketsMixin
+
+
 class UpdateOrganizationRequest(BaseModel):
     name: Optional[str] = Field(
         None, description="Name of the organization", title="Name"
@@ -7553,6 +7755,17 @@ class UpsertAggregatedPoliciesResponse(BaseModel):
 
 
 class UpsertAggregatedTicketsResponse(BaseModel):
+    pass
+
+
+class UpsertKubernetesTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    kubernetes_tickets: List[KubernetesTicketsMixin] = Field(
+        ..., title="Kubernetes Tickets"
+    )
+
+
+class UpsertKubernetesTicketsResponse(BaseModel):
     pass
 
 
