@@ -1,3 +1,7 @@
+from onelens_backend_client_v2.rpc.azure_advisor_tickets_service_rpc_handler import (
+    AzureAdvisorTicketsServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.tenant_verify_service_rpc_handler import (
     TenantVerifyServiceRpcHandler,
 )
@@ -222,6 +226,7 @@ from onelens_backend_client_v2.rpc.network_flow_analysis_requests_service_rpc_ha
 
 
 __all__ = [
+    "AzureAdvisorTicketsServiceRpcHandler",
     "TenantVerifyServiceRpcHandler",
     "PolicyTemplateServiceRpcHandler",
     "PolicyTemplateMigrationServiceRpcHandler",

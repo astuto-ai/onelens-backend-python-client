@@ -8734,6 +8734,95 @@ class AggregatedTicketsMixin(BaseModel):
         title="Assigned To Email",
     )
     sync_type: SyncType = Field(..., description="The synchronization type")
+    hide: Optional[bool] = Field(
+        None, description="Whether ticket is hidden from default views", title="Hide"
+    )
+
+
+class AdvisorTicketsMixin(BaseModel):
+    """Mixin for azure advisor ticket upsert operations."""
+
+    ticket_ol_id: UUID = Field(..., title="Ticket Ol Id")
+    resource_ol_id: Optional[UUID] = Field(None, title="Resource Ol Id")
+    resource_id: Optional[str] = Field(None, title="Resource Id")
+    resource_name: Optional[str] = Field(None, title="Resource Name")
+    resource_title: Optional[str] = Field(None, title="Resource Title")
+    status: str = Field(..., title="Status")
+    policy_ol_id: Optional[UUID] = Field(None, title="Policy Ol Id")
+    policy_id: Optional[str] = Field(None, title="Policy Id")
+    policy_title: Optional[str] = Field(None, title="Policy Title")
+    potential_savings_priority: Optional[bool] = Field(True, title="Potential Savings Priority")
+    recommendation_priority: Optional[int] = Field(1, title="Recommendation Priority")
+    policy_label: Optional[str] = Field(None, title="Policy Label")
+    recommendation_title: Optional[str] = Field(None, title="Recommendation Title")
+    suggested_recommendations: Optional[Dict[str, Any]] = Field(None, title="Suggested Recommendations")
+    recommendation_category: Optional[str] = Field(None, title="Recommendation Category")
+    risk: Optional[str] = Field(None, title="Risk")
+    priority: Optional[str] = Field(None, title="Priority")
+    account_name: Optional[str] = Field(None, title="Account Name")
+    account_id: Optional[str] = Field(None, title="Account Id")
+    region: Optional[str] = Field(None, title="Region")
+    service: Optional[str] = Field(None, title="Service")
+    evidence: Optional[Dict[str, Any]] = Field(None, title="Evidence")
+    monthly_potential_savings: Optional[float] = Field(0.0, title="Monthly Potential Savings")
+    objective: Optional[str] = Field(None, title="Objective")
+    last_sync_date: datetime = Field(..., title="Last Sync Date")
+    created_date: Optional[datetime] = Field(None, title="Created Date")
+    closure_date: Optional[datetime] = Field(None, title="Closure Date")
+    resource_acted_on: Optional[datetime] = Field(None, title="Resource Acted On")
+    ticket_type: Optional[str] = Field("INSIGHTS", title="Ticket Type")
+    cloud_provider: Optional[str] = Field("AZURE", title="Cloud Provider")
+    creator_ol_id: UUID = Field(..., title="Creator Ol Id")
+    sync_type: Optional[str] = Field("AUTOMATIC", title="Sync Type")
+    ticket_closure_method: Optional[str] = Field("MANUAL", title="Ticket Closure Method")
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    assigned_to_first_name: Optional[str] = Field(None, title="Assigned To First Name")
+    assigned_to_last_name: Optional[str] = Field(None, title="Assigned To Last Name")
+    assigned_to_email: Optional[str] = Field(None, title="Assigned To Email")
+    effort: Optional[str] = Field(None, title="Effort")
+    creator_email: Optional[str] = Field(None, title="Creator Email")
+    monthly_achieved_savings: Optional[float] = Field(None, title="Monthly Achieved Savings")
+
+
+class UpsertAzureAdvisorTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    advisor_tickets: List[AdvisorTicketsMixin] = Field(..., title="Advisor Tickets")
+
+
+class UpsertAzureAdvisorTicketsResponse(BaseModel):
+    pass
+
+
+class BulkUpdateAzureAdvisorTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    status: Optional[PolicyTicketStatus] = None
+    priority: Optional[Priority] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+
+
+class BulkUpdateAzureAdvisorTicketsResponse(BaseModel):
+    successful_ticket_ids: List[UUID] = Field(..., title="Successful Ticket Ids")
+    failed_ticket_ids: List[UUID] = Field(..., title="Failed Ticket Ids")
+    message: str = Field(..., title="Message")
+    status_code: int = Field(..., title="Status Code")
+
+
+class SyncAzureAdvisorTicketDataRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ol_ids: List[UUID] = Field(..., title="Ticket Ol Ids")
+    new_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="New Ticket Ol Ids")
+    inactive_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="Inactive Ticket Ol Ids")
+    batch_size: Optional[int] = Field(500, title="Batch Size")
+
+
+class SyncAzureAdvisorTicketDataResponse(BaseModel):
+    tickets_synced: bool = Field(..., title="Tickets Synced")
+    tickets_synced_count: int = Field(..., title="Tickets Synced Count")
+    tickets_not_synced_count: int = Field(..., title="Tickets Not Synced Count")
 
 
 class AnomalyLogicOperation(BaseModel):
