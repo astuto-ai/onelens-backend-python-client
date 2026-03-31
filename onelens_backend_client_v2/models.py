@@ -8787,6 +8787,8 @@ class AdvisorTicketsMixin(BaseModel):
 class UpsertAzureAdvisorTicketsRequest(BaseModel):
     tenant_id: UUID = Field(..., title="Tenant Id")
     advisor_tickets: List[AdvisorTicketsMixin] = Field(..., title="Advisor Tickets")
+    new_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="New Ticket Ol Ids")
+    inactive_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="Inactive Ticket Ol Ids")
 
 
 class UpsertAzureAdvisorTicketsResponse(BaseModel):
