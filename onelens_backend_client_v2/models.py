@@ -12031,6 +12031,10 @@ class GetTenantsRequest(BaseModel):
     filters: Optional[TenantFilters] = Field(
         {}, description="Filters to apply to the policy templates."
     )
+    include_encrypted_connection_string: Optional[bool] = Field(
+        False,
+        description="If True, returns the encrypted database_connection_string reconstructed from tenant_connections",
+    )
 
 
 class GetTicketStatsByPriorityResponse(BaseModel):
