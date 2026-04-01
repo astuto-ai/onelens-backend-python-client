@@ -3337,6 +3337,14 @@ class GetTenantAchievedSavingsStatusResponse(BaseModel):
 
 class GetTenantByIDRequest(BaseModel):
     id: UUID4 = Field(..., description="Unique identifier for the tenant", title="Id")
+    include_encrypted_connection_string: Optional[bool] = Field(
+        False,
+        description="If True, returns the encrypted database_connection_string reconstructed from tenant_connections",
+    )
+    include_connection_string: Optional[bool] = Field(
+        False,
+        description="If True, returns the encrypted database_connection_string reconstructed from tenant_connections",
+    )
 
 
 class GetTenantConnectionRequest(BaseModel):
