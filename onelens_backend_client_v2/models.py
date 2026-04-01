@@ -12035,6 +12035,10 @@ class GetTenantsRequest(BaseModel):
         False,
         description="If True, returns the encrypted database_connection_string reconstructed from tenant_connections",
     )
+    include_connection_string: Optional[bool] = Field(
+        False,
+        description="If True, returns the encrypted database_connection_string reconstructed from tenant_connections",
+    )
 
 
 class GetTicketStatsByPriorityResponse(BaseModel):
