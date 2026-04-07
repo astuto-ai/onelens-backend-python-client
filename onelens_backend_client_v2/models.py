@@ -21118,6 +21118,9 @@ class CreateTenantTicketsAPIRequest(BaseModel):
         description="Request payload for ticket creation",
         title="New Ticket Details",
     )
+    sync_data: bool = Field(
+        True, description="Whether to sync ticket data to aggregated tickets after creation"
+    )
 
 
 class CreateTenantTicketsRequest(BaseModel):
@@ -22285,6 +22288,13 @@ class UpdateTenantTicketsAPIRequest(BaseModel):
         description="Request payload for ticket updation",
         title="Updated Ticket Details",
     )
+    sync_data: bool = Field(
+        True, description="Whether to sync ticket data to aggregated tickets after update"
+    )
+    send_notification: bool = Field(
+        True, description="Whether to send a notification after syncing tickets"
+    )
+
 
 
 class UpdateTenantTicketsRequest(BaseModel):
@@ -22295,6 +22305,9 @@ class UpdateTenantTicketsRequest(BaseModel):
         ...,
         description="Request payload for ticket updation",
         title="Updated Ticket Details",
+    )
+    sync_data: bool = Field(
+        True, description="Whether to sync ticket data to aggregated tickets after update"
     )
     send_notification: Optional[bool] = Field(
         True,
