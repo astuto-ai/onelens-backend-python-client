@@ -21118,6 +21118,17 @@ class CreateTenantTicketsAPIRequest(BaseModel):
         description="Request payload for ticket creation",
         title="New Ticket Details",
     )
+    sync_data: Optional[bool] = Field(
+        True,
+        description="Whether to sync ticket data to aggregated tickets after creation",
+        title="Sync Data",
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
+    )
+
 
 
 class CreateTenantTicketsRequest(BaseModel):
@@ -21128,6 +21139,16 @@ class CreateTenantTicketsRequest(BaseModel):
         ...,
         description="Request payload for ticket creation",
         title="New Ticket Details",
+    )
+    sync_data: Optional[bool] = Field(
+        True,
+        description="Whether to sync ticket data to aggregated tickets after creation",
+        title="Sync Data",
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
     )
     tenant_id: UUID4 = Field(
         ..., description="The unique identifier of the tenant", title="Tenant Id"
@@ -22285,6 +22306,17 @@ class UpdateTenantTicketsAPIRequest(BaseModel):
         description="Request payload for ticket updation",
         title="Updated Ticket Details",
     )
+    sync_data: Optional[bool] = Field(
+        True,
+        description="Whether to sync ticket data to aggregated tickets after update",
+        title="Sync Data",
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
+    )
+
 
 
 class UpdateTenantTicketsRequest(BaseModel):
@@ -22295,6 +22327,11 @@ class UpdateTenantTicketsRequest(BaseModel):
         ...,
         description="Request payload for ticket updation",
         title="Updated Ticket Details",
+    )
+    sync_data: Optional[bool] = Field(
+        True,
+        description="Whether to sync ticket data to aggregated tickets after update",
+        title="Sync Data",
     )
     send_notification: Optional[bool] = Field(
         True,
