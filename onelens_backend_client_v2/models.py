@@ -563,6 +563,12 @@ class BulkCreateKubernetesTicketsRequest(BaseModel):
     kubernetes_tickets: List[CreateKubernetesTicketAPIRequest] = Field(
         ..., title="Kubernetes Tickets"
     )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger ID to propagate to aggregated tickets upsert",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
     tenant_id: UUID = Field(..., title="Tenant Id")
     created_by: Optional[UUID] = Field(None, title="Created By")
 
@@ -589,6 +595,12 @@ class BulkUpdateKubernetesTicketsRequest(BaseModel):
     priority: Optional[OnelensModelsCommonsPriority] = None
     achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
     achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger ID to propagate to aggregated tickets upsert",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
     tenant_id: UUID = Field(..., title="Tenant Id")
     updated_by: Optional[UUID] = Field(None, title="Updated By")
 
@@ -842,8 +854,14 @@ class CreateKubernetesTicketRequest(BaseModel):
     unique_target_id: Optional[str] = Field(None, title="Unique Target Id")
     parent_insight_id: Optional[UUID] = Field(None, title="Parent Insight Id")
     ticket_status: Optional[KubernetesTicketStatus] = "TO_DO"
-    priority: Optional[OnelensModelsCommonsPriority] = None
+    priority: Optional[OnelensModelsCommonsPriority] = "LOW"
     provider: Provider
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger ID to propagate to aggregated tickets upsert",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
     tenant_id: UUID = Field(..., title="Tenant Id")
     created_by: Optional[UUID] = Field(None, title="Created By")
 
@@ -6014,6 +6032,17 @@ class SchedulerInsightsEvaluationPeriod(BaseModel):
     )
 
 
+class SendTicketSyncNotificationRequest(BaseModel):
+    tenant_id: UUID = Field(
+        ..., description="The unique identifier of the tenant", title="Tenant Id"
+    )
+    trigger_id: UUID = Field(
+        ...,
+        description="Trigger ID associated with the completed sync operation",
+        title="Trigger Id",
+    )
+
+
 class ServiceCatalogRequest(BaseModel):
     tenant_id: UUID = Field(..., description="The id of the tenant.", title="Tenant Id")
 
@@ -6283,6 +6312,8 @@ class SyncActionTypeFromRepoResponse(BaseModel):
 class SyncKubernetesTicketDataRequest(BaseModel):
     ticket_ids: Optional[List[UUID]] = Field(None, title="Ticket Ids")
     batch_size: Optional[int] = Field(500, title="Batch Size")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
     tenant_id: UUID = Field(..., title="Tenant Id")
 
 
@@ -6359,6 +6390,16 @@ class SyncTicketDataRequest(BaseModel):
     )
     batch_size: Optional[int] = Field(
         500, description="The batch size for syncing ticket data", title="Batch Size"
+    )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger ID to propagate to aggregated tickets upsert",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after upserting tickets",
+        title="Send Notification",
     )
     tenant_id: UUID4 = Field(
         ..., description="The unique identifier of the tenant", title="Tenant Id"
@@ -7291,6 +7332,12 @@ class UpdateKubernetesTicketRequest(BaseModel):
     priority: Optional[OnelensModelsCommonsPriority] = None
     achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
     achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger ID to propagate to aggregated tickets upsert",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
     tenant_id: UUID = Field(..., title="Tenant Id")
     updated_by: Optional[UUID] = Field(None, title="Updated By")
 
@@ -14891,6 +14938,16 @@ class UpsertAggregatedTicketsRequest(BaseModel):
     aggregated_tickets: List[AggregatedTicketsMixin] = Field(
         ..., description="The aggregated tickets", title="Aggregated Tickets"
     )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger ID of the operation that last modified this batch of tickets",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after upserting tickets",
+        title="Send Notification",
+    )
 
 
 class UpsertResourceCatalogCostDataAPIRequest(BaseModel):
@@ -20011,6 +20068,11 @@ class UpdateSingleTenantTicketRequest(BaseModel):
     manual_closure_initiated: Optional[bool] = Field(
         None, description="Manual closure initiated", title="Manual Closure Initiated"
     )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
+    )
     tenant_id: UUID4 = Field(
         ..., description="The unique identifier of the tenant", title="Tenant Id"
     )
@@ -20223,6 +20285,11 @@ class UpdateTenantTicketRequest(BaseModel):
         description="Monthly unblended cost of the resource experiencing policy violation",
         title="Monthly Unblended Cost",
     )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
+    )
     ticket_id: UUID4 = Field(
         ..., description="The unique identifier of the ticket", title="Ticket Id"
     )
@@ -20429,6 +20496,11 @@ class BulkUpdateTenantTicketsRequest(BaseModel):
     priority: Optional[Priority] = Field(None, description="Priority of the ticket")
     ticket_owner: Optional[UUID] = Field(
         None, description="Owner of the ticket", title="Ticket Owner"
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
     )
     tenant_id: UUID4 = Field(
         ..., description="The unique identifier of the tenant", title="Tenant Id"
@@ -20671,6 +20743,11 @@ class CreateCustomTenantTicketsRequest(BaseModel):
     )
     ticket_file_details: Optional[TicketFileDetails] = Field(
         None, description="Request payload for document upload"
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
     )
     trigger_id: Optional[UUID4] = Field(
         None, description="The unique identifier of the trigger", title="Trigger Id"
@@ -22092,6 +22169,11 @@ class UpdateCustomTenantTicketRequest(BaseModel):
     ticket_file_details: Optional[TicketFileDetails] = Field(
         None, description="Request payload for document upload"
     )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
+    )
     trigger_id: Optional[UUID4] = Field(
         None, description="The unique identifier of the trigger", title="Trigger Id"
     )
@@ -22213,6 +22295,11 @@ class UpdateTenantTicketsRequest(BaseModel):
         ...,
         description="Request payload for ticket updation",
         title="Updated Ticket Details",
+    )
+    send_notification: Optional[bool] = Field(
+        True,
+        description="Whether to send a notification after syncing tickets",
+        title="Send Notification",
     )
     tenant_id: UUID4 = Field(
         ..., description="The unique identifier of the tenant", title="Tenant Id"
