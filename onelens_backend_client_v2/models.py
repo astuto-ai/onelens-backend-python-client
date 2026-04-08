@@ -4631,6 +4631,7 @@ class Provider(str, Enum):
     MONGO_DB = "MONGO_DB"
     CLAUDE = "CLAUDE"
     GITHUB = "GITHUB"
+    DATABRICKS = "DATABRICKS"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
