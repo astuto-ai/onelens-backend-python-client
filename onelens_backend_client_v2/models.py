@@ -6390,6 +6390,11 @@ class SyncTicketDataRequest(BaseModel):
     policy_ids: List[UUID] = Field(
         ..., description="The unique identifiers of the policies", title="Policy Ids"
     )
+    monitor_ids: Optional[List[UUID]] = Field(
+        None,
+        description="The unique identifiers of the monitors to filter tickets by",
+        title="Monitor Ids",
+    )
     batch_size: Optional[int] = Field(
         500, description="The batch size for syncing ticket data", title="Batch Size"
     )
