@@ -986,6 +986,7 @@ class ConnectionType(str, Enum):
     MAIN = "MAIN"
     REPLICA = "REPLICA"
     CLICKHOUSE = "CLICKHOUSE"
+    CLICKHOUSE_REPLICA = "CLICKHOUSE_REPLICA"
 
 
 class ContainerUtilizationDataPoint(BaseModel):
