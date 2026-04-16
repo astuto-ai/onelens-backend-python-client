@@ -3874,7 +3874,7 @@ CCC_COMPUTE_CLASS_JOBS = "spot-jobs"
 CCC_COMPUTE_CLASS_CORE_JOB = "core-job"
 
 
-class KubernetesPodComputeLabel(str, enum.Enum):
+class KubernetesPodComputeLabel(str, Enum):
     spot_jobs = CCC_COMPUTE_CLASS_JOBS
     core_job = CCC_COMPUTE_CLASS_CORE_JOB
 
