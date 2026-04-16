@@ -3871,8 +3871,13 @@ class JsonDimensionValues(BaseModel):
 
 
 CCC_COMPUTE_CLASS_JOBS = "spot-jobs"
-class KubernetesPodComputeLabel(str, Enum):
+CCC_COMPUTE_CLASS_CORE_JOB = "core-job"
+
+
+class KubernetesPodComputeLabel(str, enum.Enum):
     spot_jobs = CCC_COMPUTE_CLASS_JOBS
+    core_job = CCC_COMPUTE_CLASS_CORE_JOB
+
     # Aliases — all map to the same CCC
     ol_arm_mini = CCC_COMPUTE_CLASS_JOBS
     ol_arm_small = CCC_COMPUTE_CLASS_JOBS
