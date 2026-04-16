@@ -3874,11 +3874,12 @@ CCC_COMPUTE_CLASS_JOBS = "spot-jobs"
 class KubernetesPodComputeLabel(str, Enum):
     spot_jobs = CCC_COMPUTE_CLASS_JOBS
     # Aliases — all map to the same CCC
+    ol_arm_mini = CCC_COMPUTE_CLASS_JOBS
+    ol_arm_small = CCC_COMPUTE_CLASS_JOBS
+    ol_arm_medium = CCC_COMPUTE_CLASS_JOBS
     ol_amd_mini = CCC_COMPUTE_CLASS_JOBS
     ol_amd_small = CCC_COMPUTE_CLASS_JOBS
     ol_amd_medium = CCC_COMPUTE_CLASS_JOBS
-    ol_amd_large = CCC_COMPUTE_CLASS_JOBS
-
 
 
 class KubernetesProcessorPayload(BaseModel):
@@ -21173,7 +21174,6 @@ class CreateTenantTicketsAPIRequest(BaseModel):
     )
 
 
-
 class CreateTenantTicketsRequest(BaseModel):
     trigger_id: Optional[UUID4] = Field(
         None, description="The unique identifier of the trigger", title="Trigger Id"
@@ -22359,7 +22359,6 @@ class UpdateTenantTicketsAPIRequest(BaseModel):
         description="Whether to send a notification after syncing tickets",
         title="Send Notification",
     )
-
 
 
 class UpdateTenantTicketsRequest(BaseModel):
