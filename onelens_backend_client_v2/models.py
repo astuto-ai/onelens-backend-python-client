@@ -3870,13 +3870,15 @@ class JsonDimensionValues(BaseModel):
     values: Dict[str, List[Optional[str]]] = Field(..., title="Values")
 
 
+CCC_COMPUTE_CLASS_JOBS = "spot-jobs"
 class KubernetesPodComputeLabel(str, Enum):
-    ol_arm_mini = "ol_arm_mini"
-    ol_arm_small = "ol_arm_small"
-    ol_arm_medium = "ol_arm_medium"
-    ol_amd_mini = "ol_amd_mini"
-    ol_amd_small = "ol_amd_small"
-    ol_amd_medium = "ol_amd_medium"
+    spot_jobs = CCC_COMPUTE_CLASS_JOBS
+    # Aliases — all map to the same CCC
+    ol_amd_mini = CCC_COMPUTE_CLASS_JOBS
+    ol_amd_small = CCC_COMPUTE_CLASS_JOBS
+    ol_amd_medium = CCC_COMPUTE_CLASS_JOBS
+    ol_amd_large = CCC_COMPUTE_CLASS_JOBS
+
 
 
 class KubernetesProcessorPayload(BaseModel):
