@@ -224,6 +224,10 @@ from onelens_backend_client_v2.rpc.network_flow_analysis_requests_service_rpc_ha
     NetworkFlowAnalysisRequestsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.vpc_flow_log_violations_service_rpc_handler import (
+    VpcFlowLogViolationsServiceRpcHandler,
+)
+
 
 __all__ = [
     "AzureAdvisorTicketsServiceRpcHandler",
@@ -283,4 +287,5 @@ __all__ = [
     "AggregatedTicketsServiceRpcHandler",
     "AggregatedPoliciesServiceRpcHandler",
     "NetworkFlowAnalysisRequestsServiceRpcHandler",
+    "VpcFlowLogViolationsServiceRpcHandler",
 ]
