@@ -22522,4 +22522,65 @@ class ResponseGetUserCustomTicketByIdResponse(BaseModel):
     status_code: Optional[int] = Field(200, title="Status Code")
 
 
+class VpcFlowLogViolationMixin(BaseModel):
+    raw_insight_id: str = Field(..., title="Raw Insight Id")
+    insight_type: str = Field(..., title="Insight Type")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    vpc_id: Optional[str] = Field(None, title="Vpc Id")
+    resource: Optional[str] = Field(None, title="Resource")
+    source_ip: Optional[str] = Field(None, title="Source Ip")
+    destination: Optional[str] = Field(None, title="Destination")
+    destination_ip: Optional[str] = Field(None, title="Destination Ip")
+    service: Optional[str] = Field(None, title="Service")
+    transfer_type: Optional[str] = Field(None, title="Transfer Type")
+    source_az: Optional[str] = Field(None, title="Source Az")
+    destination_az: Optional[str] = Field(None, title="Destination Az")
+    bytes_transferred: Optional[int] = Field(None, title="Bytes Transferred")
+    networking_cost: Optional[float] = Field(None, title="Networking Cost")
+    potential_monthly_savings: Optional[float] = Field(0.0, title="Potential Monthly Savings")
+    recommendation_title: Optional[str] = Field(None, title="Recommendation Title")
+    recommendation_description: Optional[str] = Field(None, title="Recommendation Description")
+    effort_level: Optional[str] = Field(None, title="Effort Level")
+    start_date: Optional[date] = Field(None, title="Start Date")
+    end_date: Optional[date] = Field(None, title="End Date")
+    resource_ol_id: Optional[UUID] = Field(None, title="Resource Ol Id")
+    account_name: Optional[str] = Field(None, title="Account Name")
+    risk: Optional[str] = Field(None, title="Risk")
+    priority: Optional[str] = Field(None, title="Priority")
+    effort: Optional[str] = Field(None, title="Effort")
+
+
+class SyncVpcFlowLogViolationsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    request_id: str = Field(..., title="Request Id")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    violations: List[VpcFlowLogViolationMixin] = Field(..., title="Violations")
+
+
+class SyncVpcFlowLogViolationsResponse(BaseModel):
+    inserted_violations: int = Field(..., title="Inserted Violations")
+    created_ticket_count: int = Field(..., title="Created Ticket Count")
+    pending_verification_count: int = Field(..., title="Pending Verification Count")
+
+
+class BulkUpdateVpcFlowLogViolationTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    status: Optional[PolicyTicketStatus] = None
+    priority: Optional[Priority] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+
+
+class BulkUpdateVpcFlowLogViolationTicketsResponse(BaseModel):
+    successful_ticket_ids: List[UUID] = Field(..., title="Successful Ticket Ids")
+    failed_ticket_ids: List[UUID] = Field(..., title="Failed Ticket Ids")
+    message: str = Field(..., title="Message")
+    status_code: int = Field(..., title="Status Code")
+
+
 GroupData.model_rebuild()
