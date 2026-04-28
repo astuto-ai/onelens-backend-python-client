@@ -22759,3 +22759,46 @@ class GetS3TicketMetadataResponse(BaseModel):
 class GetS3TicketResponse(BaseModel):
     s3_ticket: S3TicketMixin
     assigned_to_email: Optional[str] = Field(None, title="Assigned To Email")
+
+
+class InsightTrackerState(str, Enum):
+    OPEN = "OPEN"
+    CLOSED = "CLOSED"
+
+
+class CostDetailBreakDownMetrics(BaseModel):
+    cost: float = Field(
+        ..., description="The cost of the cost detail breakdown metrics.", title="Cost"
+    )
+    value: Optional[float] = Field(
+        None,
+        description="The value of the cost detail breakdown metrics.",
+        title="Value",
+    )
+    unit: Optional[str] = Field(
+        None, description="The unit of the cost detail breakdown metrics.", title="Unit"
+    )
+
+
+class InsightTrackerMixin(BaseModel):
+    insight_id: UUID = Field(..., title="Insight Id")
+    state: InsightTrackerState
+
+
+class BulkUpsertInsightsTrackerResponse(BaseModel):
+    upserted_count: int = Field(..., title="Upserted Count")
+
+
+class BulkUpsertInsightsTrackerRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    items: List[InsightTrackerMixin] = Field(..., title="Items")
+
+
+class S3OptimisationCostDetailsResponse(BaseModel):
+    cost_details_breakdown: Dict[str, Dict[str, CostDetailBreakDownMetrics]] = Field(
+        ..., title="Cost Details Breakdown"
+    )
+    total_cost: float = Field(..., title="Total Cost")
+    total_value: None = Field(..., title="Total Value")
+    other_costs: float = Field(..., title="Other Costs")
+    other_costs_value: None = Field(..., title="Other Costs Value")
