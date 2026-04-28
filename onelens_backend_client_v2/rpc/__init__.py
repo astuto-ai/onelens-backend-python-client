@@ -198,6 +198,10 @@ from onelens_backend_client_v2.rpc.s3_optimisation_service_rpc_handler import (
     S3OptimisationServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.s3_tickets_service_rpc_handler import (
+    S3TicketsServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.costlens_service_rpc_handler import (
     CostlensServiceRpcHandler,
 )
@@ -280,6 +284,7 @@ __all__ = [
     "KubernetesResourceServiceRpcHandler",
     "KubernetesTicketsServiceRpcHandler",
     "S3OptimisationServiceRpcHandler",
+    "S3TicketsServiceRpcHandler",
     "CostlensServiceRpcHandler",
     "CostDeltaServiceRpcHandler",
     "AuthServiceRpcHandler",
