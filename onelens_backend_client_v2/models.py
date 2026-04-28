@@ -22584,3 +22584,178 @@ class BulkUpdateVpcFlowLogViolationTicketsResponse(BaseModel):
 
 
 GroupData.model_rebuild()
+
+
+class S3TicketStatus(str, Enum):
+    TO_DO = "TO_DO"
+    IN_PROGRESS = "IN_PROGRESS"
+    DONE_AND_WAITING = "DONE_AND_WAITING"
+    DONE_AND_VERIFIED = "DONE_AND_VERIFIED"
+    DONE_AND_FLAKY = "DONE_AND_FLAKY"
+    INVALID = "INVALID"
+    SYSTEM_INVALID = "SYSTEM_INVALID"
+
+
+class S3TicketCreateInput(BaseModel):
+    insight_id: UUID = Field(..., title="Insight Id")
+    resource_id: UUID = Field(..., title="Resource Id")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    analysis: str = Field(..., title="Analysis")
+    recommendation: str = Field(..., title="Recommendation")
+    potential_savings: Optional[float] = Field(None, title="Potential Savings")
+    transition_cost: Optional[float] = Field(None, title="Transition Cost")
+    category: str = Field(..., title="Category")
+    additional_data: Optional[Dict[str, Any]] = Field(None, title="Additional Data")
+    ticket_status: Optional[S3TicketStatus] = "TO_DO"
+    priority: Optional[OnelensModelsCommonsPriority] = "LOW"
+
+
+class S3TicketMixin(BaseModel):
+    id: Optional[UUID] = Field(None, title="Id")
+    insight_id: UUID = Field(..., title="Insight Id")
+    ticket_alias: Optional[int] = Field(None, title="Ticket Alias")
+    resource_id: UUID = Field(..., title="Resource Id")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    analysis: str = Field(..., title="Analysis")
+    recommendation: str = Field(..., title="Recommendation")
+    potential_savings: Optional[float] = Field(None, title="Potential Savings")
+    transition_cost: Optional[float] = Field(None, title="Transition Cost")
+    category: str = Field(..., title="Category")
+    additional_data: Optional[Dict[str, Any]] = Field(None, title="Additional Data")
+    ticket_status: Optional[S3TicketStatus] = "TO_DO"
+    priority: Optional[OnelensModelsCommonsPriority] = "LOW"
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    data_synced: Optional[bool] = Field(False, title="Data Synced")
+    created_at: Optional[datetime] = Field(None, title="Created At")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+    updated_at: Optional[datetime] = Field(None, title="Updated At")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+
+
+class BulkGetS3TicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+
+
+class BulkUpdateS3TicketsResponse(BaseModel):
+    successful_ticket_ids: List[UUID] = Field(..., title="Successful Ticket Ids")
+    failed_ticket_ids: List[UUID] = Field(..., title="Failed Ticket Ids")
+    message: str = Field(..., title="Message")
+    status_code: int = Field(..., title="Status Code")
+
+
+class GetS3TicketMetadataRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_id: UUID = Field(..., title="Ticket Id")
+
+
+class GetS3TicketRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_id: UUID = Field(..., title="Ticket Id")
+
+
+class SyncS3TicketDataRequest(BaseModel):
+    ticket_ids: Optional[List[UUID]] = Field(None, title="Ticket Ids")
+    batch_size: Optional[int] = Field(500, title="Batch Size")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+
+
+class SyncS3TicketDataResponse(BaseModel):
+    tickets_synced: bool = Field(..., title="Tickets Synced")
+    tickets_synced_count: int = Field(..., title="Tickets Synced Count")
+    tickets_not_synced_count: int = Field(..., title="Tickets Not Synced Count")
+
+
+class UpsertS3TicketsResponse(BaseModel):
+    pass
+
+
+class BulkUpdateS3TicketsRequest(BaseModel):
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    ticket_status: Optional[S3TicketStatus] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+
+
+class CreateS3TicketRequest(BaseModel):
+    insight_id: UUID = Field(..., title="Insight Id")
+    resource_id: UUID = Field(..., title="Resource Id")
+    account_id: str = Field(..., title="Account Id")
+    region: str = Field(..., title="Region")
+    analysis: str = Field(..., title="Analysis")
+    recommendation: str = Field(..., title="Recommendation")
+    potential_savings: Optional[float] = Field(None, title="Potential Savings")
+    transition_cost: Optional[float] = Field(None, title="Transition Cost")
+    category: str = Field(..., title="Category")
+    additional_data: Optional[Dict[str, Any]] = Field(None, title="Additional Data")
+    ticket_status: Optional[S3TicketStatus] = "TO_DO"
+    priority: Optional[OnelensModelsCommonsPriority] = "LOW"
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+
+
+class UpdateS3TicketRequest(BaseModel):
+    ticket_id: UUID = Field(..., title="Ticket Id")
+    ticket_status: Optional[S3TicketStatus] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    priority: Optional[OnelensModelsCommonsPriority] = None
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+
+
+class UpdateS3TicketResponse(BaseModel):
+    s3_ticket: S3TicketMixin
+
+
+class UpsertS3TicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    s3_tickets: List[S3TicketMixin] = Field(..., title="S3 Tickets")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+
+
+class BulkCreateS3TicketsRequest(BaseModel):
+    s3_tickets: List[S3TicketCreateInput] = Field(..., title="S3 Tickets")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+
+
+class BulkCreateS3TicketsResponse(BaseModel):
+    s3_tickets: List[S3TicketMixin] = Field(..., title="S3 Tickets")
+
+
+class BulkGetS3TicketsResponse(BaseModel):
+    s3_tickets: List[S3TicketMixin] = Field(..., title="S3 Tickets")
+
+
+class CreateS3TicketResponse(BaseModel):
+    s3_ticket: S3TicketMixin
+
+
+class GetS3TicketMetadataResponse(BaseModel):
+    s3_ticket: S3TicketMixin
+
+
+class GetS3TicketResponse(BaseModel):
+    s3_ticket: S3TicketMixin
+    assigned_to_email: Optional[str] = Field(None, title="Assigned To Email")
