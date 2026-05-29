@@ -4528,6 +4528,8 @@ class PolicyExclusionType(str, Enum):
     FEATURED = "FEATURED"
     GLOBAL = "GLOBAL"
     TEMPORARY = "TEMPORARY"
+    SYSTEM_AUTO_ACCOUNT_INACTIVE = "SYSTEM_AUTO_ACCOUNT_INACTIVE"
+    SYSTEM_AUTO_REGION_OUT_OF_SCOPE = "SYSTEM_AUTO_REGION_OUT_OF_SCOPE"
 
 
 class PolicyExecutionType(str, Enum):
@@ -22802,3 +22804,71 @@ class S3OptimisationCostDetailsResponse(BaseModel):
     total_value: None = Field(..., title="Total Value")
     other_costs: float = Field(..., title="Other Costs")
     other_costs_value: None = Field(..., title="Other Costs Value")
+
+
+class BulkDeleteSystemAutoExclusionsRequest(BaseModel):
+    tenant_id: UUID4 = Field(..., title="Tenant Id")
+    resource_catalog_ids: List[UUID] = Field(
+        ..., description="Resources to clear", title="Resource Catalog Ids"
+    )
+    exclusion_types: List[PolicyExclusionType] = Field(
+        ...,
+        description="SYSTEM_AUTO_* only; user-intent types are rejected",
+        title="Exclusion Types",
+    )
+
+
+class BulkDeleteSystemAutoExclusionsResponse(BaseModel):
+    deleted: Optional[int] = Field(0, title="Deleted")
+
+
+class BulkSystemInvalidateTicketsRequest(BaseModel):
+    tenant_id: UUID4 = Field(
+        ..., description="The unique identifier of the tenant", title="Tenant Id"
+    )
+    ticket_ids: List[UUID] = Field(
+        ..., description="Ticket IDs to system-close as INVALID", title="Ticket Ids"
+    )
+    exclusion_type: PolicyExclusionType = Field(
+        ..., description="Must be a SYSTEM_AUTO_* type"
+    )
+    note: Optional[str] = Field(None, description="Optional audit note", title="Note")
+    trigger_id: Optional[UUID] = Field(
+        None, description="Trigger id; auto-generated if omitted", title="Trigger Id"
+    )
+
+
+class BulkSystemInvalidateTicketsResponse(BaseModel):
+    closed_ticket_ids: Optional[List[UUID]] = Field(None, title="Closed Ticket Ids")
+    exclusion_rows_inserted: Optional[int] = Field(0, title="Exclusion Rows Inserted")
+    errors: Optional[List[BulkUpdateTenantTicketsErrorMixin]] = Field(
+        None, title="Errors"
+    )
+
+
+class BulkUpsertSystemAutoExclusionsRequest(BaseModel):
+    tenant_id: UUID4 = Field(..., title="Tenant Id")
+    exclusions: List[AddTenantPolicyExclusionsAPIRequestMixin] = Field(
+        ...,
+        description="Must use only SYSTEM_AUTO_* exclusion_type values",
+        title="Exclusions",
+    )
+
+
+class BulkUpsertSystemAutoExclusionsResponse(BaseModel):
+    inserted: Optional[int] = Field(
+        0,
+        description="Rows actually inserted (excludes ON CONFLICT skips)",
+        title="Inserted",
+    )
+
+
+class GetAwsInactiveAccountsAndAllowedRegionsRequest(BaseModel):
+    tenant_id: UUID4 = Field(..., description="Tenant ID", title="Tenant Id")
+
+
+class GetAwsInactiveAccountsAndAllowedRegionsResponse(BaseModel):
+    inactive_cloud_ids: Optional[List[str]] = Field(None, title="Inactive Cloud Ids")
+    allowed_regions_by_cloud_id: Optional[Dict[str, List[str]]] = Field(
+        None, title="Allowed Regions By Cloud Id"
+    )
