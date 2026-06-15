@@ -4675,6 +4675,7 @@ class Provider(str, Enum):
     CLAUDE = "CLAUDE"
     GITHUB = "GITHUB"
     DATABRICKS = "DATABRICKS"
+    LITELLM = "LITELLM"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
