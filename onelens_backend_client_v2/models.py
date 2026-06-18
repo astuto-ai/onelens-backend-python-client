@@ -828,6 +828,7 @@ class CreateKubernetesTicketAPIRequest(BaseModel):
     ticket_status: Optional[KubernetesTicketStatus] = "TO_DO"
     priority: Optional[OnelensModelsCommonsPriority] = None
     provider: Provider
+    hide: Optional[bool] = Field(None, title="Hide")
 
 
 class CreateKubernetesTicketRequest(BaseModel):
@@ -2603,6 +2604,7 @@ class KubernetesTicketsMixin(BaseModel):
     achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
     provider: Provider
     data_synced: Optional[bool] = Field(False, title="Data Synced")
+    hide: Optional[bool] = Field(None, title="Hide")
 
 
 class Metric(str, Enum):
