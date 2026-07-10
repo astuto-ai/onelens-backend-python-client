@@ -6971,6 +6971,7 @@ class TicketCategory(str, Enum):
     POLICY_TICKET = "POLICY_TICKET"
     ANOMALY_TICKET = "ANOMALY_TICKET"
     CUSTOM_TICKET = "CUSTOM_TICKET"
+    CUSTOM_POLICY_TICKET="CUSTOM_POLICY_TICKET"
 
 
 class TicketClosureMetadataMixin(BaseModel):
