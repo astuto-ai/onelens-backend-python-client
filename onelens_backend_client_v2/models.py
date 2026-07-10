@@ -22879,3 +22879,111 @@ class GetAwsInactiveAccountsAndAllowedRegionsResponse(BaseModel):
     allowed_regions_by_cloud_id: Optional[Dict[str, List[str]]] = Field(
         None, title="Allowed Regions By Cloud Id"
     )
+
+
+# --- Custom Policy Tickets (scoped manual addition; see REGENERATE.md) ---
+
+
+class CustomPolicyTicketStatus(str, Enum):
+    TO_DO = "TO_DO"
+    IN_PROGRESS = "IN_PROGRESS"
+    DONE_AND_WAITING = "DONE_AND_WAITING"
+    DONE_AND_VERIFIED = "DONE_AND_VERIFIED"
+    DONE_AND_FLAKY = "DONE_AND_FLAKY"
+    INVALID = "INVALID"
+    SYSTEM_INVALID = "SYSTEM_INVALID"
+
+
+class CustomPolicyTicketCreateInput(BaseModel):
+    id: UUID = Field(..., title="Id")
+    cloud: str = Field(..., title="Cloud")
+    policy_key: str = Field(..., title="Policy Key")
+    account_id: Optional[str] = Field(None, title="Account Id")
+    account_name: Optional[str] = Field(None, title="Account Name")
+    service: Optional[str] = Field(None, title="Service")
+    region: Optional[str] = Field(None, title="Region")
+    resource_id: str = Field(..., title="Resource Id")
+    title: Optional[str] = Field(None, title="Title")
+    state: Optional[str] = Field(None, title="State")
+    cost: Optional[float] = Field(None, title="Cost")
+    potential_saving: Optional[float] = Field(None, title="Potential Saving")
+    recommendation: Optional[List[str]] = Field(None, title="Recommendation")
+    metric: Optional[Dict[str, Any]] = Field(None, title="Metric")
+    additional_info: Optional[Dict[str, Any]] = Field(None, title="Additional Info")
+    ticket_status: Optional[CustomPolicyTicketStatus] = "TO_DO"
+    priority: Optional[Priority] = "LOW"
+
+
+class CustomPolicyTicketMixin(BaseModel):
+    id: UUID = Field(..., title="Id")
+    ticket_alias: Optional[int] = Field(None, title="Ticket Alias")
+    cloud: str = Field(..., title="Cloud")
+    policy_key: str = Field(..., title="Policy Key")
+    account_id: Optional[str] = Field(None, title="Account Id")
+    account_name: Optional[str] = Field(None, title="Account Name")
+    service: Optional[str] = Field(None, title="Service")
+    region: Optional[str] = Field(None, title="Region")
+    resource_id: str = Field(..., title="Resource Id")
+    title: Optional[str] = Field(None, title="Title")
+    state: Optional[str] = Field(None, title="State")
+    cost: Optional[float] = Field(None, title="Cost")
+    potential_saving: Optional[float] = Field(None, title="Potential Saving")
+    recommendation: Optional[List[str]] = Field(None, title="Recommendation")
+    metric: Optional[Dict[str, Any]] = Field(None, title="Metric")
+    additional_info: Optional[Dict[str, Any]] = Field(None, title="Additional Info")
+    ticket_status: Optional[CustomPolicyTicketStatus] = "TO_DO"
+    priority: Optional[Priority] = "LOW"
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    data_synced: Optional[bool] = Field(False, title="Data Synced")
+    created_at: Optional[datetime] = Field(None, title="Created At")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+    updated_at: Optional[datetime] = Field(None, title="Updated At")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+
+
+class BulkCreateCustomPolicyTicketsRequest(BaseModel):
+    tickets: List[CustomPolicyTicketCreateInput] = Field(..., title="Tickets")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    created_by: Optional[UUID] = Field(None, title="Created By")
+
+
+class BulkCreateCustomPolicyTicketsResponse(BaseModel):
+    tickets: List[CustomPolicyTicketMixin] = Field(..., title="Tickets")
+
+
+class UpsertCustomPolicyTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    tickets: List[CustomPolicyTicketMixin] = Field(..., title="Tickets")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+
+
+class UpsertCustomPolicyTicketsResponse(BaseModel):
+    pass
+
+
+class BulkGetCustomPolicyTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+
+
+class BulkGetCustomPolicyTicketsResponse(BaseModel):
+    tickets: List[CustomPolicyTicketMixin] = Field(..., title="Tickets")
+
+
+class SyncCustomPolicyTicketDataRequest(BaseModel):
+    ticket_ids: Optional[List[UUID]] = Field(None, title="Ticket Ids")
+    batch_size: Optional[int] = Field(500, title="Batch Size")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(True, title="Send Notification")
+    tenant_id: UUID = Field(..., title="Tenant Id")
+
+
+class SyncCustomPolicyTicketDataResponse(BaseModel):
+    tickets_synced: bool = Field(..., title="Tickets Synced")
+    tickets_synced_count: int = Field(..., title="Tickets Synced Count")
+    tickets_not_synced_count: int = Field(..., title="Tickets Not Synced Count")
