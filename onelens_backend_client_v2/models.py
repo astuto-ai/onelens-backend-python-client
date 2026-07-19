@@ -4681,6 +4681,7 @@ class Provider(str, Enum):
     DATABRICKS = "DATABRICKS"
     LITELLM = "LITELLM"
     AI = "AI"
+    CURSOR = "CURSOR"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
@@ -6971,7 +6972,7 @@ class TicketCategory(str, Enum):
     POLICY_TICKET = "POLICY_TICKET"
     ANOMALY_TICKET = "ANOMALY_TICKET"
     CUSTOM_TICKET = "CUSTOM_TICKET"
-    CUSTOM_POLICY_TICKET="CUSTOM_POLICY_TICKET"
+    CUSTOM_POLICY_TICKET = "CUSTOM_POLICY_TICKET"
 
 
 class TicketClosureMetadataMixin(BaseModel):
@@ -8864,12 +8865,18 @@ class AdvisorTicketsMixin(BaseModel):
     policy_ol_id: Optional[UUID] = Field(None, title="Policy Ol Id")
     policy_id: Optional[str] = Field(None, title="Policy Id")
     policy_title: Optional[str] = Field(None, title="Policy Title")
-    potential_savings_priority: Optional[bool] = Field(True, title="Potential Savings Priority")
+    potential_savings_priority: Optional[bool] = Field(
+        True, title="Potential Savings Priority"
+    )
     recommendation_priority: Optional[int] = Field(1, title="Recommendation Priority")
     policy_label: Optional[str] = Field(None, title="Policy Label")
     recommendation_title: Optional[str] = Field(None, title="Recommendation Title")
-    suggested_recommendations: Optional[Dict[str, Any]] = Field(None, title="Suggested Recommendations")
-    recommendation_category: Optional[str] = Field(None, title="Recommendation Category")
+    suggested_recommendations: Optional[Dict[str, Any]] = Field(
+        None, title="Suggested Recommendations"
+    )
+    recommendation_category: Optional[str] = Field(
+        None, title="Recommendation Category"
+    )
     risk: Optional[str] = Field(None, title="Risk")
     priority: Optional[str] = Field(None, title="Priority")
     account_name: Optional[str] = Field(None, title="Account Name")
@@ -8877,7 +8884,9 @@ class AdvisorTicketsMixin(BaseModel):
     region: Optional[str] = Field(None, title="Region")
     service: Optional[str] = Field(None, title="Service")
     evidence: Optional[Dict[str, Any]] = Field(None, title="Evidence")
-    monthly_potential_savings: Optional[float] = Field(0.0, title="Monthly Potential Savings")
+    monthly_potential_savings: Optional[float] = Field(
+        0.0, title="Monthly Potential Savings"
+    )
     objective: Optional[str] = Field(None, title="Objective")
     last_sync_date: datetime = Field(..., title="Last Sync Date")
     created_date: Optional[datetime] = Field(None, title="Created Date")
@@ -8887,21 +8896,29 @@ class AdvisorTicketsMixin(BaseModel):
     cloud_provider: Optional[str] = Field("AZURE", title="Cloud Provider")
     creator_ol_id: UUID = Field(..., title="Creator Ol Id")
     sync_type: Optional[str] = Field("AUTOMATIC", title="Sync Type")
-    ticket_closure_method: Optional[str] = Field("MANUAL", title="Ticket Closure Method")
+    ticket_closure_method: Optional[str] = Field(
+        "MANUAL", title="Ticket Closure Method"
+    )
     assigned_to: Optional[UUID] = Field(None, title="Assigned To")
     assigned_to_first_name: Optional[str] = Field(None, title="Assigned To First Name")
     assigned_to_last_name: Optional[str] = Field(None, title="Assigned To Last Name")
     assigned_to_email: Optional[str] = Field(None, title="Assigned To Email")
     effort: Optional[str] = Field(None, title="Effort")
     creator_email: Optional[str] = Field(None, title="Creator Email")
-    monthly_achieved_savings: Optional[float] = Field(None, title="Monthly Achieved Savings")
+    monthly_achieved_savings: Optional[float] = Field(
+        None, title="Monthly Achieved Savings"
+    )
 
 
 class UpsertAzureAdvisorTicketsRequest(BaseModel):
     tenant_id: UUID = Field(..., title="Tenant Id")
     advisor_tickets: List[AdvisorTicketsMixin] = Field(..., title="Advisor Tickets")
-    new_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="New Ticket Ol Ids")
-    inactive_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="Inactive Ticket Ol Ids")
+    new_ticket_ol_ids: Optional[List[UUID]] = Field(
+        default=[], title="New Ticket Ol Ids"
+    )
+    inactive_ticket_ol_ids: Optional[List[UUID]] = Field(
+        default=[], title="Inactive Ticket Ol Ids"
+    )
 
 
 class UpsertAzureAdvisorTicketsResponse(BaseModel):
@@ -8929,8 +8946,12 @@ class BulkUpdateAzureAdvisorTicketsResponse(BaseModel):
 class SyncAzureAdvisorTicketDataRequest(BaseModel):
     tenant_id: UUID = Field(..., title="Tenant Id")
     ticket_ol_ids: List[UUID] = Field(..., title="Ticket Ol Ids")
-    new_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="New Ticket Ol Ids")
-    inactive_ticket_ol_ids: Optional[List[UUID]] = Field(default=[], title="Inactive Ticket Ol Ids")
+    new_ticket_ol_ids: Optional[List[UUID]] = Field(
+        default=[], title="New Ticket Ol Ids"
+    )
+    inactive_ticket_ol_ids: Optional[List[UUID]] = Field(
+        default=[], title="Inactive Ticket Ol Ids"
+    )
     batch_size: Optional[int] = Field(500, title="Batch Size")
 
 
@@ -11530,9 +11551,9 @@ class GetS3CostDetailsRequest(BaseModel):
     resource_id: Union[str, List[str]] = Field(
         ..., description="The id of the resource.", title="Resource Id"
     )
-    time_range: OnelensModelsServiceInterfacesS3OptimisationS3OptimisationServiceTimeRange = Field(
-        ..., description="The time range of the request."
-    )
+    time_range: (
+        OnelensModelsServiceInterfacesS3OptimisationS3OptimisationServiceTimeRange
+    ) = Field(..., description="The time range of the request.")
     is_export_request: Optional[bool] = Field(
         False,
         description="Whether the request is an export request.",
@@ -12403,9 +12424,9 @@ class HierarchyNodeParentItem(BaseModel):
         ..., description="The id of the node.", title="Node Id"
     )
     name: str = Field(..., description="The name of the node.", title="Name")
-    category: OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2 = Field(
-        ..., description="The category of the node."
-    )
+    category: (
+        OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2
+    ) = Field(..., description="The category of the node.")
 
 
 class InsertDeltaEventsAPIRequest(BaseModel):
@@ -15037,9 +15058,9 @@ class UpsertTenantDataPipelineJobConfigBulkResponse(BaseModel):
 
 class ValidateHierarchyNodeFieldsAPIRequest(BaseModel):
     name: str = Field(..., description="The name of the node.", title="Name")
-    category: OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2 = Field(
-        ..., description="The category of the node."
-    )
+    category: (
+        OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2
+    ) = Field(..., description="The category of the node.")
     parent_id: UUID4 = Field(
         ..., description="The id of the parent node.", title="Parent Id"
     )
@@ -15050,9 +15071,9 @@ class ValidateHierarchyNodeFieldsAPIRequest(BaseModel):
 
 class ValidateHierarchyNodeFieldsRequest(BaseModel):
     name: str = Field(..., description="The name of the node.", title="Name")
-    category: OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2 = Field(
-        ..., description="The category of the node."
-    )
+    category: (
+        OnelensModelsServiceInterfacesTenantMetadataCommonsHierarchyNodeCategory2
+    ) = Field(..., description="The category of the node.")
     parent_id: UUID4 = Field(
         ..., description="The id of the parent node.", title="Parent Id"
     )
@@ -20636,9 +20657,9 @@ class CloudwatchMetricsRequest(BaseModel):
     cloud_watch_filter: CloudwatchMetric = Field(
         ..., description="CloudWatch filter criteria"
     )
-    time_filter: OnelensModelsServiceInterfacesTenantDataCloudwatchServiceTimeDimension = Field(
-        ..., description="Time range filter"
-    )
+    time_filter: (
+        OnelensModelsServiceInterfacesTenantDataCloudwatchServiceTimeDimension
+    ) = Field(..., description="Time range filter")
     stat_type: StatType = Field(..., description="Statistical aggregation type")
 
 
@@ -22547,9 +22568,13 @@ class VpcFlowLogViolationMixin(BaseModel):
     destination_az: Optional[str] = Field(None, title="Destination Az")
     bytes_transferred: Optional[int] = Field(None, title="Bytes Transferred")
     networking_cost: Optional[float] = Field(None, title="Networking Cost")
-    potential_monthly_savings: Optional[float] = Field(0.0, title="Potential Monthly Savings")
+    potential_monthly_savings: Optional[float] = Field(
+        0.0, title="Potential Monthly Savings"
+    )
     recommendation_title: Optional[str] = Field(None, title="Recommendation Title")
-    recommendation_description: Optional[str] = Field(None, title="Recommendation Description")
+    recommendation_description: Optional[str] = Field(
+        None, title="Recommendation Description"
+    )
     effort_level: Optional[str] = Field(None, title="Effort Level")
     start_date: Optional[date] = Field(None, title="Start Date")
     end_date: Optional[date] = Field(None, title="End Date")
