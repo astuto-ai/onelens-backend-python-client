@@ -1873,6 +1873,7 @@ class DeltaEventsMetricName(str, Enum):
     resource_usage_cost = "resource_usage_cost"
     no_resource_cost = "no_resource_cost"
     total_cost = "total_cost"
+    resource_usage = "resource_usage"
 
 
 class DeprecatePolicyTemplateRequest(BaseModel):
@@ -4682,6 +4683,7 @@ class Provider(str, Enum):
     LITELLM = "LITELLM"
     AI = "AI"
     CURSOR = "CURSOR"
+    AI_USAGE = "AI_USAGE"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
