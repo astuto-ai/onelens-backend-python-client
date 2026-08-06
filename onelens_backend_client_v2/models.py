@@ -22921,82 +22921,73 @@ class CustomPolicyTicketStatus(str, Enum):
     SYSTEM_INVALID = "SYSTEM_INVALID"
 
 
-class CustomPolicyTicketCreateInput(BaseModel):
-    id: UUID = Field(..., title="Id")
-    cloud: str = Field(..., title="Cloud")
-    policy_key: str = Field(..., title="Policy Key")
-    account_id: Optional[str] = Field(None, title="Account Id")
-    account_name: Optional[str] = Field(None, title="Account Name")
-    service: Optional[str] = Field(None, title="Service")
-    region: Optional[str] = Field(None, title="Region")
-    resource_id: str = Field(..., title="Resource Id")
-    title: Optional[str] = Field(None, title="Title")
-    state: Optional[str] = Field(None, title="State")
-    cost: Optional[float] = Field(None, title="Cost")
-    potential_saving: Optional[float] = Field(None, title="Potential Saving")
-    recommendation: Optional[List[str]] = Field(None, title="Recommendation")
-    metric: Optional[Dict[str, Any]] = Field(None, title="Metric")
-    additional_info: Optional[Dict[str, Any]] = Field(None, title="Additional Info")
-    ticket_status: Optional[CustomPolicyTicketStatus] = "TO_DO"
-    priority: Optional[Priority] = "LOW"
-
-
-class CustomPolicyTicketMixin(BaseModel):
-    id: UUID = Field(..., title="Id")
-    ticket_alias: Optional[int] = Field(None, title="Ticket Alias")
-    cloud: str = Field(..., title="Cloud")
-    policy_key: str = Field(..., title="Policy Key")
-    account_id: Optional[str] = Field(None, title="Account Id")
-    account_name: Optional[str] = Field(None, title="Account Name")
-    service: Optional[str] = Field(None, title="Service")
-    region: Optional[str] = Field(None, title="Region")
-    resource_id: str = Field(..., title="Resource Id")
-    title: Optional[str] = Field(None, title="Title")
-    state: Optional[str] = Field(None, title="State")
-    cost: Optional[float] = Field(None, title="Cost")
-    potential_saving: Optional[float] = Field(None, title="Potential Saving")
-    recommendation: Optional[List[str]] = Field(None, title="Recommendation")
-    metric: Optional[Dict[str, Any]] = Field(None, title="Metric")
-    additional_info: Optional[Dict[str, Any]] = Field(None, title="Additional Info")
-    ticket_status: Optional[CustomPolicyTicketStatus] = "TO_DO"
-    priority: Optional[Priority] = "LOW"
-    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
-    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
-    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
-    data_synced: Optional[bool] = Field(False, title="Data Synced")
-    created_at: Optional[datetime] = Field(None, title="Created At")
-    created_by: Optional[UUID] = Field(None, title="Created By")
-    updated_at: Optional[datetime] = Field(None, title="Updated At")
-    updated_by: Optional[UUID] = Field(None, title="Updated By")
-
-
-class BulkCreateCustomPolicyTicketsRequest(BaseModel):
-    tickets: List[CustomPolicyTicketCreateInput] = Field(..., title="Tickets")
-    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
-    send_notification: Optional[bool] = Field(True, title="Send Notification")
-    tenant_id: UUID = Field(..., title="Tenant Id")
-    created_by: Optional[UUID] = Field(None, title="Created By")
-
-
-class BulkCreateCustomPolicyTicketsResponse(BaseModel):
-    tickets: List[CustomPolicyTicketMixin] = Field(..., title="Tickets")
-
-
-class UpsertCustomPolicyTicketsRequest(BaseModel):
-    tenant_id: UUID = Field(..., title="Tenant Id")
-    tickets: List[CustomPolicyTicketMixin] = Field(..., title="Tickets")
-    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
-    send_notification: Optional[bool] = Field(True, title="Send Notification")
-
-
-class UpsertCustomPolicyTicketsResponse(BaseModel):
-    pass
-
-
 class ScanCompletionStatus(str, Enum):
     SUCCESS = "SUCCESS"
     PARTIAL = "PARTIAL"
     FAILED = "FAILED"
+
+
+class CustomPolicyTicketCreateInput(BaseModel):
+    """Client-supplied fields for a single ticket in a bulk-create request."""
+
+    id: UUID  # deterministic monitor_id (uuid5 of the finding identity)
+    cloud: str
+    policy_key: str
+    account_id: Optional[str] = None
+    account_name: Optional[str] = None
+    service: Optional[str] = None
+    region: Optional[str] = None
+    resource_id: str
+    title: Optional[str] = None
+    state: Optional[str] = None
+    cost: Optional[float] = None
+    potential_saving: Optional[float] = None
+    recommendation: Optional[List[str]] = None
+    metric: Optional[dict] = None
+    additional_info: Optional[dict] = None
+    ticket_status: CustomPolicyTicketStatus = CustomPolicyTicketStatus.TO_DO
+    priority: Optional[Priority] = Priority.LOW
+
+
+class CustomPolicyTicketMixin(CustomPolicyTicketCreateInput):
+    """Full custom-policy ticket row for upsert operations: the create-input fields
+    plus DB-generated alias, user-owned state, and audit columns."""
+
+    ticket_alias: Optional[int] = None
+    assigned_to: Optional[UUID] = None
+    achieved_savings: Optional[float] = None
+    achieved_savings_on: Optional[datetime] = None
+    data_synced: Optional[bool] = False
+    created_at: Optional[datetime] = None
+    created_by: Optional[UUID] = None
+    updated_at: Optional[datetime] = None
+    updated_by: Optional[UUID] = None
+
+
+class BulkCreateCustomPolicyTicketsAPIRequest(BaseModel):
+    tickets: List[CustomPolicyTicketCreateInput]
+    trigger_id: Optional[UUID] = None
+    send_notification: Optional[bool] = True
+
+
+class BulkCreateCustomPolicyTicketsRequest(BulkCreateCustomPolicyTicketsAPIRequest):
+    tenant_id: UUID
+    created_by: Optional[UUID] = None
+
+
+class BulkCreateCustomPolicyTicketsResponse(BaseModel):
+    tickets: List[CustomPolicyTicketMixin]
+
+
+class UpsertCustomPolicyTicketsRequest(BaseModel):
+    tenant_id: UUID
+    tickets: List[CustomPolicyTicketMixin]
+    trigger_id: Optional[UUID] = None
+    send_notification: Optional[bool] = True
+
+
+class UpsertCustomPolicyTicketsResponse(BaseModel):
+    pass
 
 
 class MarkCustomPolicyTicketsPendingVerificationRequest(BaseModel):
@@ -23032,23 +23023,50 @@ class FlippedTicket(BaseModel):
 
 
 class BulkGetCustomPolicyTicketsRequest(BaseModel):
-    tenant_id: UUID = Field(..., title="Tenant Id")
-    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    tenant_id: UUID
+    ticket_ids: List[UUID]
 
 
 class BulkGetCustomPolicyTicketsResponse(BaseModel):
-    tickets: List[CustomPolicyTicketMixin] = Field(..., title="Tickets")
+    tickets: List[CustomPolicyTicketMixin]
 
 
-class SyncCustomPolicyTicketDataRequest(BaseModel):
-    ticket_ids: Optional[List[UUID]] = Field(None, title="Ticket Ids")
-    batch_size: Optional[int] = Field(500, title="Batch Size")
-    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
-    send_notification: Optional[bool] = Field(True, title="Send Notification")
-    tenant_id: UUID = Field(..., title="Tenant Id")
+class SyncCustomPolicyTicketDataAPIRequest(BaseModel):
+    ticket_ids: List[UUID] = Field(default_factory=list)
+    batch_size: int = 500
+    trigger_id: Optional[UUID] = None
+    send_notification: Optional[bool] = True
+
+
+class SyncCustomPolicyTicketDataRequest(SyncCustomPolicyTicketDataAPIRequest):
+    tenant_id: UUID
 
 
 class SyncCustomPolicyTicketDataResponse(BaseModel):
-    tickets_synced: bool = Field(..., title="Tickets Synced")
-    tickets_synced_count: int = Field(..., title="Tickets Synced Count")
-    tickets_not_synced_count: int = Field(..., title="Tickets Not Synced Count")
+    tickets_synced: bool
+    tickets_synced_count: int
+    tickets_not_synced_count: int
+
+
+class BulkUpdateCustomPolicyTicketsAPIRequest(BaseModel):
+    ticket_ids: List[UUID]
+    ticket_status: Optional[CustomPolicyTicketStatus] = None
+    assigned_to: Optional[UUID] = None
+    priority: Optional[Priority] = None
+    achieved_savings: Optional[float] = None
+    achieved_savings_on: Optional[datetime] = None
+    trigger_id: Optional[UUID] = None
+    send_notification: Optional[bool] = True
+
+
+class BulkUpdateCustomPolicyTicketsRequest(BulkUpdateCustomPolicyTicketsAPIRequest):
+    tenant_id: UUID
+    updated_by: Optional[UUID] = None
+    note: Optional[str] = None
+
+
+class BulkUpdateCustomPolicyTicketsResponse(BaseModel):
+    successful_ticket_ids: List[UUID]
+    failed_ticket_ids: List[UUID]
+    message: str
+    status_code: int
