@@ -22993,6 +22993,44 @@ class UpsertCustomPolicyTicketsResponse(BaseModel):
     pass
 
 
+class ScanCompletionStatus(str, Enum):
+    SUCCESS = "SUCCESS"
+    PARTIAL = "PARTIAL"
+    FAILED = "FAILED"
+
+
+class MarkCustomPolicyTicketsPendingVerificationRequest(BaseModel):
+    tenant_id: UUID
+    ticket_ids: List[UUID]
+    scan_status: Optional[ScanCompletionStatus] = None
+    cloud: Optional[str] = None
+    policy_key: Optional[str] = None
+    account_id: Optional[str] = None
+    region: Optional[str] = None
+    run_id: Optional[str] = None
+    # Accepted for sibling-RPC compatibility only. The pending-verification RPC
+    # logs trigger_id for correlation and deliberately sends no notification.
+    trigger_id: Optional[UUID] = None
+    send_notification: Optional[bool] = False
+
+
+class MarkCustomPolicyTicketsPendingVerificationResponse(BaseModel):
+    pending_verification_count: int = 0
+    skipped_ticket_ids: List[UUID] = Field(default_factory=list)
+    not_found_ticket_ids: List[UUID] = Field(default_factory=list)
+
+
+class MarkPendingVerificationInput(BaseModel):
+    tenant_id: UUID
+    ticket_ids: List[UUID]
+    run_id: Optional[str] = None
+
+
+class FlippedTicket(BaseModel):
+    ticket_id: UUID
+    previous_status: str
+
+
 class BulkGetCustomPolicyTicketsRequest(BaseModel):
     tenant_id: UUID = Field(..., title="Tenant Id")
     ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
