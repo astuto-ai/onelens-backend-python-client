@@ -15,7 +15,6 @@ from onelens_backend_client_v2.rpc.tenant_policy_service_rpc_handler import Tena
 
 from onelens_backend_client_v2.rpc.tenant_anomaly_service_rpc_handler import TenantAnomalyServiceRpcHandler
 
-from onelens_backend_client_v2.rpc.anomaly_details_service_rpc_handler import AnomalyDetailsServiceRpcHandler
 
 from onelens_backend_client_v2.rpc.tenant_ticket_service_rpc_handler import TenantTicketServiceRpcHandler
 
@@ -171,8 +170,6 @@ __all__ = [
     'TenantPolicyServiceRpcHandler',
     
     'TenantAnomalyServiceRpcHandler',
-    
-    'AnomalyDetailsServiceRpcHandler',
     
     'TenantTicketServiceRpcHandler',
     
