@@ -1892,6 +1892,7 @@ class DeltaEventsMetricName(str, Enum):
     no_resource_cost = "no_resource_cost"
     total_cost = "total_cost"
     resource_usage = "resource_usage"
+    resource_usage_beta = "resource_usage_beta"
 
 
 class DeprecatePolicyTemplateRequest(BaseModel):
