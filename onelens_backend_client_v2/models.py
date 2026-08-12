@@ -518,6 +518,24 @@ class AwsService(str, Enum):
     aws_servicequotas = "aws_servicequotas"
 
 
+class AzureBenefitType(str, Enum):
+    reservation = "reservation"
+    savings_plan_compute = "savings_plan_compute"
+    savings_plan_database = "savings_plan_database"
+
+
+class AzureBillingPlan(str, Enum):
+    Monthly = "Monthly"
+    Upfront = "Upfront"
+
+
+class AzureProvisioningState(str, Enum):
+    Succeeded = "Succeeded"
+    Expiring = "Expiring"
+    Expired = "Expired"
+    Cancelled = "Cancelled"
+
+
 class AzureBillingConfig(BaseModel):
     client_id: str = Field(..., description="Client ID", title="Client Id")
     client_secret: str = Field(..., description="Client Secret", title="Client Secret")
