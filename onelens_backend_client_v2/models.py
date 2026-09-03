@@ -4617,6 +4617,23 @@ class PolicyTemplateState(str, Enum):
     DEPRECATED = "DEPRECATED"
 
 
+class TicketSubtype(str, Enum):
+    AWS_POLICY_TICKET = "AWS_POLICY_TICKET"
+    AWS_INSIGHT_TICKET = "AWS_INSIGHT_TICKET"
+    AZURE_INSIGHT_TICKET = "AZURE_INSIGHT_TICKET"
+    KUBERNETES_INSIGHT_TICKET = "KUBERNETES_INSIGHT_TICKET"
+    S3_INSIGHT_TICKET = "S3_INSIGHT_TICKET"
+    GCS_INSIGHT_TICKET = "GCS_INSIGHT_TICKET"
+    VPC_INSIGHT_TICKET = "VPC_INSIGHT_TICKET"
+    CUSTOM_TICKET = "CUSTOM_TICKET"
+    CUSTOM_POLICY_TICKET = "CUSTOM_POLICY_TICKET"
+
+
+class TicketClosureMethod(str, Enum):
+    AUTOMATIC = "AUTOMATIC"
+    MANUAL = "MANUAL"
+
+
 class PolicyTicketStatus(str, Enum):
     TO_DO = "TO_DO"
     IN_PROGRESS = "IN_PROGRESS"
@@ -8869,8 +8886,20 @@ class AggregatedTicketsMixin(BaseModel):
         title="Assigned To Email",
     )
     sync_type: SyncType = Field(..., description="The synchronization type")
+    ticket_closure_method: Optional[TicketClosureMethod] = Field(
+        None, description="The closure method"
+    )
+    updated_by: Optional[UUID] = Field(
+        None, description="The UUID of who last updated the ticket"
+    )
     hide: Optional[bool] = Field(
         None, description="Whether ticket is hidden from default views", title="Hide"
+    )
+    ticket_subtype: Optional[TicketSubtype] = Field(
+        None, description="The subtype of the ticket"
+    )
+    additional_ticket_metadata: Optional[Dict[str, Any]] = Field(
+        None, description="Additional ticket metadata"
     )
 
 
@@ -22729,6 +22758,46 @@ class SyncS3TicketDataResponse(BaseModel):
 
 class UpsertS3TicketsResponse(BaseModel):
     pass
+
+
+class SyncGcsTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    tickets: Optional[List[AggregatedTicketsMixin]] = Field(None, title="Tickets")
+    created_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Created Ticket Ol Ids"
+    )
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(None, title="Send Notification")
+
+
+class SyncGcsTicketsResponse(BaseModel):
+    tickets_written: Optional[int] = Field(0, title="Tickets Written")
+    history_entries_written: Optional[int] = Field(
+        0, title="History Entries Written"
+    )
+
+
+class BulkUpdateGcsTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    status: Optional[PolicyTicketStatus] = None
+    priority: Optional[Priority] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(None, title="Send Notification")
+    note: Optional[str] = Field(None, title="Note")
+
+
+class BulkUpdateGcsTicketsResponse(BaseModel):
+    successful_ticket_ids: Optional[List[UUID]] = Field(
+        None, title="Successful Ticket Ids"
+    )
+    failed_ticket_ids: Optional[List[UUID]] = Field(None, title="Failed Ticket Ids")
+    message: str = Field(..., title="Message")
+    status_code: int = Field(..., title="Status Code")
 
 
 class BulkUpdateS3TicketsRequest(BaseModel):

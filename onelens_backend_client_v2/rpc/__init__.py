@@ -235,6 +235,10 @@ from onelens_backend_client_v2.rpc.vpc_flow_log_violations_service_rpc_handler i
     VpcFlowLogViolationsServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.gcs_tickets_service_rpc_handler import (
+    GcsTicketsServiceRpcHandler,
+)
+
 __all__ = [
     "AzureAdvisorTicketsServiceRpcHandler",
     "TenantVerifyServiceRpcHandler",
@@ -296,4 +300,5 @@ __all__ = [
     "NetworkFlowAnalysisRequestsServiceRpcHandler",
     "VpcFlowLogViolationsServiceRpcHandler",
     "CustomPolicyTicketsServiceRpcHandler",
+    "GcsTicketsServiceRpcHandler",
 ]
