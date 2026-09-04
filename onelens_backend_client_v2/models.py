@@ -4727,6 +4727,10 @@ class Provider(str, Enum):
     AI = "AI"
     CURSOR = "CURSOR"
     AI_USAGE = "AI_USAGE"
+    GEMINI = "GEMINI"
+    AWS_BEDROCK = "AWS_BEDROCK"
+    AZURE_FOUNDRY = "AZURE_FOUNDRY"
+    CLOUDFLARE = "CLOUDFLARE"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
@@ -23174,3 +23178,70 @@ class BulkUpdateCustomPolicyTicketsResponse(BaseModel):
     failed_ticket_ids: List[UUID]
     message: str
     status_code: int
+
+
+class CloudflareOnboardingMode(str, Enum):
+    account = "account"
+    organization = "organization"
+
+
+class OnboardCloudflareTenantResponse(BaseModel):
+    message: str = Field(..., description="Message", title="Message")
+    success: bool = Field(..., description="Success", title="Success")
+    tenant_provider_id: UUID4 = Field(
+        ..., description="Tenant Provider ID", title="Tenant Provider Id"
+    )
+
+
+class ResponseOnboardCloudflareTenantResponse(BaseModel):
+    data: OnboardCloudflareTenantResponse
+    message: Optional[str] = Field(None, title="Message")
+    status_code: Optional[int] = Field(200, title="Status Code")
+
+
+class CloudflareBillingConfig(BaseModel):
+    mode: CloudflareOnboardingMode = Field(
+        ...,
+        description="'account' for a normal self-serve/PAYG account, 'organization' for an Enterprise Cloudflare Organization",
+    )
+    account_id: Optional[str] = Field(
+        None,
+        description="Cloudflare account_id — required when mode=account",
+        title="Account Id",
+    )
+    organization_id: Optional[str] = Field(
+        None,
+        description="Cloudflare organization_id — required when mode=organization (Enterprise-only feature)",
+        title="Organization Id",
+    )
+    api_token: str = Field(
+        ..., description="Cloudflare API token, scoped Billing Read", title="Api Token"
+    )
+
+
+class OnboardCloudflareTenantRequest(BaseModel):
+    tenant_id: Optional[UUID4] = Field(
+        None,
+        description="Tenant ID (ignored, derived from auth context)",
+        title="Tenant Id",
+    )
+    user_email: Optional[str] = Field(
+        None,
+        description="Email of the user who made the request, derived from the auth context. Ignored if supplied in the request body.",
+        title="User Email",
+    )
+    parent_id: Optional[UUID4] = Field(None, description="Parent ID", title="Parent Id")
+    is_verified: Optional[bool] = Field(
+        False, description="Is Verified", title="Is Verified"
+    )
+    is_billing_account: bool = Field(
+        ..., description="Is Billing Account", title="Is Billing Account"
+    )
+    caller_user_id: Optional[UUID4] = Field(
+        None,
+        description="Wrapper's own user id (tenant_management.users.id), for onboarding comment attribution. Absent on service-token calls.",
+        title="Caller User Id",
+    )
+    name: str = Field(..., description="Display name", title="Name")
+    billing_config: Optional[CloudflareBillingConfig] = None
+
