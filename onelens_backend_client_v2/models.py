@@ -17,6 +17,7 @@ from pydantic import (
     ConfigDict,
     EmailStr,
     Field,
+    StrictStr,
     conint,
     constr,
 )
@@ -1081,6 +1082,9 @@ class CostSummary(BaseModel):
     last_run_on: Optional[datetime] = Field(
         None, description="Last run on", title="Last Run On"
     )
+    cloud_provider: Optional[StrictStr] = Field(
+        None, description="Cloud provider", title="Cloud Provider"
+    )
 
 
 class CountEntity(BaseModel):
@@ -1334,6 +1338,9 @@ class CreateTenantAccountDailyCostRequest(BaseModel):
     onelens_cost: float = Field(..., description="OneLens cost", title="Onelens Cost")
     last_run_on: Optional[datetime] = Field(
         None, description="Last run on", title="Last Run On"
+    )
+    cloud_provider: Optional[StrictStr] = Field(
+        None, description="Cloud provider", title="Cloud Provider"
     )
 
 
@@ -6510,6 +6517,9 @@ class TenantAccountDailyCostDTO(BaseModel):
     last_run_on: Optional[datetime] = Field(
         None, description="Last run on", title="Last Run On"
     )
+    cloud_provider: Optional[StrictStr] = Field(
+        None, description="Cloud provider", title="Cloud Provider"
+    )
 
 
 class TenantAccountDeltaExportDTO(BaseModel):
@@ -7580,6 +7590,9 @@ class UpdateTenantAccountDailyCostRequest(BaseModel):
     onelens_cost: float = Field(..., description="OneLens cost", title="Onelens Cost")
     last_run_on: Optional[datetime] = Field(
         None, description="Last run on", title="Last Run On"
+    )
+    cloud_provider: Optional[StrictStr] = Field(
+        None, description="Cloud provider", title="Cloud Provider"
     )
 
 
@@ -11870,6 +11883,9 @@ class GetTenantAccountDailyCostRequest(BaseModel):
     )
     cost_to: Optional[date] = Field(
         None, description="End date for cost filtering", title="Cost To"
+    )
+    cloud_provider: Optional[StrictStr] = Field(
+        None, description="Cloud provider", title="Cloud Provider"
     )
 
 
