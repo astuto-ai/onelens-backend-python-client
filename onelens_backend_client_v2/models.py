@@ -6724,6 +6724,7 @@ class TenantFilters(BaseModel):
     plans: Optional[List[str]] = Field(None, title="Plans")
     billing_owners: Optional[List[UUID4]] = Field(None, title="Billing Owners")
     billing_types: Optional[List[str]] = Field(None, title="Billing Types")
+    cluster_ids: Optional[List[str]] = Field(None, title="Cluster Ids")
 
 
 class TenantPolicyExclusions(BaseModel):
@@ -14028,6 +14029,11 @@ class Tenant(BaseModel):
     )
     external_id: Optional[str] = Field(
         ..., description="External id of the tenant", title="External Id"
+    )
+    cluster_id: str = Field(
+        "3001",
+        description="Dagster cluster id the tenant is routed to",
+        title="Cluster Id",
     )
 
 
