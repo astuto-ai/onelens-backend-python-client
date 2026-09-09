@@ -22811,6 +22811,12 @@ class SyncGclTicketsRequest(BaseModel):
     created_ticket_ol_ids: Optional[List[UUID]] = Field(
         None, title="Created Ticket Ol Ids"
     )
+    reopened_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Reopened Ticket Ol Ids"
+    )
+    retired_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Retired Ticket Ol Ids"
+    )
     trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
     send_notification: Optional[bool] = Field(None, title="Send Notification")
 
