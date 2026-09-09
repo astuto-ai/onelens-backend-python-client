@@ -4632,6 +4632,7 @@ class TicketSubtype(str, Enum):
     S3_INSIGHT_TICKET = "S3_INSIGHT_TICKET"
     GCS_INSIGHT_TICKET = "GCS_INSIGHT_TICKET"
     AZURE_STORAGE_INSIGHT_TICKET = "AZURE_STORAGE_INSIGHT_TICKET"
+    AZURE_MONITOR_INSIGHT_TICKET = "AZURE_MONITOR_INSIGHT_TICKET"
     VPC_INSIGHT_TICKET = "VPC_INSIGHT_TICKET"
     CUSTOM_TICKET = "CUSTOM_TICKET"
     CUSTOM_POLICY_TICKET = "CUSTOM_POLICY_TICKET"
@@ -22859,6 +22860,46 @@ class BulkUpdateAzureStorageTicketsRequest(BaseModel):
 
 
 class BulkUpdateAzureStorageTicketsResponse(BaseModel):
+    successful_ticket_ids: Optional[List[UUID]] = Field(
+        None, title="Successful Ticket Ids"
+    )
+    failed_ticket_ids: Optional[List[UUID]] = Field(None, title="Failed Ticket Ids")
+    message: str = Field(..., title="Message")
+    status_code: int = Field(..., title="Status Code")
+
+
+class SyncAzureMonitorTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    tickets: Optional[List[AggregatedTicketsMixin]] = Field(None, title="Tickets")
+    created_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Created Ticket Ol Ids"
+    )
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(None, title="Send Notification")
+
+
+class SyncAzureMonitorTicketsResponse(BaseModel):
+    tickets_written: Optional[int] = Field(0, title="Tickets Written")
+    history_entries_written: Optional[int] = Field(
+        0, title="History Entries Written"
+    )
+
+
+class BulkUpdateAzureMonitorTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    ticket_ids: List[UUID] = Field(..., title="Ticket Ids")
+    status: Optional[PolicyTicketStatus] = None
+    priority: Optional[Priority] = None
+    assigned_to: Optional[UUID] = Field(None, title="Assigned To")
+    updated_by: Optional[UUID] = Field(None, title="Updated By")
+    achieved_savings: Optional[float] = Field(None, title="Achieved Savings")
+    achieved_savings_on: Optional[datetime] = Field(None, title="Achieved Savings On")
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(None, title="Send Notification")
+    note: Optional[str] = Field(None, title="Note")
+
+
+class BulkUpdateAzureMonitorTicketsResponse(BaseModel):
     successful_ticket_ids: Optional[List[UUID]] = Field(
         None, title="Successful Ticket Ids"
     )
