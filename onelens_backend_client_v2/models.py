@@ -4631,6 +4631,7 @@ class TicketSubtype(str, Enum):
     KUBERNETES_INSIGHT_TICKET = "KUBERNETES_INSIGHT_TICKET"
     S3_INSIGHT_TICKET = "S3_INSIGHT_TICKET"
     GCS_INSIGHT_TICKET = "GCS_INSIGHT_TICKET"
+    GCL_INSIGHT_TICKET = "GCL_INSIGHT_TICKET"
     AZURE_STORAGE_INSIGHT_TICKET = "AZURE_STORAGE_INSIGHT_TICKET"
     VPC_INSIGHT_TICKET = "VPC_INSIGHT_TICKET"
     CUSTOM_TICKET = "CUSTOM_TICKET"
@@ -22798,6 +22799,29 @@ class SyncGcsTicketsRequest(BaseModel):
 
 
 class SyncGcsTicketsResponse(BaseModel):
+    tickets_written: Optional[int] = Field(0, title="Tickets Written")
+    history_entries_written: Optional[int] = Field(
+        0, title="History Entries Written"
+    )
+
+
+class SyncGclTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., title="Tenant Id")
+    tickets: Optional[List[AggregatedTicketsMixin]] = Field(None, title="Tickets")
+    created_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Created Ticket Ol Ids"
+    )
+    reopened_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Reopened Ticket Ol Ids"
+    )
+    retired_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None, title="Retired Ticket Ol Ids"
+    )
+    trigger_id: Optional[UUID] = Field(None, title="Trigger Id")
+    send_notification: Optional[bool] = Field(None, title="Send Notification")
+
+
+class SyncGclTicketsResponse(BaseModel):
     tickets_written: Optional[int] = Field(0, title="Tickets Written")
     history_entries_written: Optional[int] = Field(
         0, title="History Entries Written"
