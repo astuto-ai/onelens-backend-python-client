@@ -4734,6 +4734,7 @@ class Provider(str, Enum):
     AWS_BEDROCK = "AWS_BEDROCK"
     AZURE_FOUNDRY = "AZURE_FOUNDRY"
     CLOUDFLARE = "CLOUDFLARE"
+    SNOWFLAKE= "SNOWFLAKE"
 
 
 class PublishCustomHierarchyRequest(BaseModel):
