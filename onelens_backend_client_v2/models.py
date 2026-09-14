@@ -4249,6 +4249,8 @@ class NodegroupUtilizationUsageType(str, Enum):
 class NotificationEntityType(str, Enum):
     ticket = "ticket"
     anomaly = "anomaly"
+    unit_economics_report = "unit_economics_report"
+    unit_economics_report_safeguards = "unit_economics_report_safeguards"
 
 
 class NotificationResponse(BaseModel):
@@ -4261,6 +4263,9 @@ class NotificationType(str, Enum):
     ticket_processed_updated = "ticket_processed_updated"
     anomaly_detected = "anomaly_detected"
     anomaly_processed = "anomaly_processed"
+    anomaly_updated = "anomaly_updated"
+    unit_economics_report_generated = "unit_economics_report_generated"
+    unit_economics_report_safeguards = "unit_economics_report_safeguards"
 
 
 class OCIBillingConfig(BaseModel):
@@ -12806,6 +12811,7 @@ class NotificationRequest(BaseModel):
     id: List[UUID] = Field(..., title="Id")
     tenant_id: UUID = Field(..., title="Tenant Id")
     type: Optional[str] = Field("default", title="Type")
+    input: Optional[Dict[str, Any]] = Field({}, title="Input")
 
 
 class OnboardOpenAITenantRequest(BaseModel):
