@@ -4251,6 +4251,8 @@ class NotificationEntityType(str, Enum):
     anomaly = "anomaly"
     unit_economics_report = "unit_economics_report"
     unit_economics_report_safeguards = "unit_economics_report_safeguards"
+    currency_rate_missing = "currency_rate_missing"
+    budget_vs_forecast_alert = "budget_vs_forecast_alert"
 
 
 class NotificationResponse(BaseModel):
@@ -4266,6 +4268,8 @@ class NotificationType(str, Enum):
     anomaly_updated = "anomaly_updated"
     unit_economics_report_generated = "unit_economics_report_generated"
     unit_economics_report_safeguards = "unit_economics_report_safeguards"
+    currency_rate_missing = "currency_rate_missing"
+    budget_vs_forecast_alert = "budget_vs_forecast_alert"
 
 
 class OCIBillingConfig(BaseModel):
