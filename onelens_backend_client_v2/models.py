@@ -149,6 +149,9 @@ class AnalysisRequestMixin(BaseModel):
     )
     account_id: str = Field(..., description="AWS account ID.", title="Account Id")
     region_id: str = Field(..., description="AWS region.", title="Region Id")
+    provider: Optional[Provider] = Field(
+        None, description="Cloud the request analyses: AWS or GCP."
+    )
     start_date: date = Field(
         ..., description="Analysis start date.", title="Start Date"
     )
@@ -2308,6 +2311,9 @@ class GetAnalysisRequestsRequest(BaseModel):
     )
     account_id: Optional[str] = Field(
         None, description="Filter by account ID.", title="Account Id"
+    )
+    provider: Optional[Provider] = Field(
+        None, description="Filter by cloud provider; all providers when omitted."
     )
     pagination: Optional[PaginationParams] = Field(
         None, description="Pagination parameters."
