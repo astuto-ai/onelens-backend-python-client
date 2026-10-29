@@ -4259,6 +4259,7 @@ class NotificationEntityType(str, Enum):
     unit_economics_report_safeguards = "unit_economics_report_safeguards"
     currency_rate_missing = "currency_rate_missing"
     budget_vs_forecast_alert = "budget_vs_forecast_alert"
+    custom_weighted_metric_missing = "custom_weighted_metric_missing"
 
 
 class NotificationResponse(BaseModel):
@@ -4276,6 +4277,7 @@ class NotificationType(str, Enum):
     unit_economics_report_safeguards = "unit_economics_report_safeguards"
     currency_rate_missing = "currency_rate_missing"
     budget_vs_forecast_alert = "budget_vs_forecast_alert"
+    custom_weighted_metric_missing = "custom_weighted_metric_missing"
 
 
 class OCIBillingConfig(BaseModel):
