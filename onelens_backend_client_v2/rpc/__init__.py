@@ -244,6 +244,9 @@ from onelens_backend_client_v2.rpc.gcl_tickets_service_rpc_handler import (
 from onelens_backend_client_v2.rpc.azure_storage_tickets_service_rpc_handler import (
     AzureStorageTicketsServiceRpcHandler,
 )
+from onelens_backend_client_v2.rpc.snowflake_tickets_service_rpc_handler import (
+    SnowflakeTicketsServiceRpcHandler,
+)
 from onelens_backend_client_v2.rpc.azure_monitor_tickets_service_rpc_handler import (
     AzureMonitorTicketsServiceRpcHandler,
 )
@@ -312,5 +315,6 @@ __all__ = [
     "GcsTicketsServiceRpcHandler",
     "GclTicketsServiceRpcHandler",
     "AzureStorageTicketsServiceRpcHandler",
+    "SnowflakeTicketsServiceRpcHandler",
     "AzureMonitorTicketsServiceRpcHandler",
 ]
