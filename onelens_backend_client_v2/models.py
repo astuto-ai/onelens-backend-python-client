@@ -4649,6 +4649,7 @@ class TicketSubtype(str, Enum):
     S3_INSIGHT_TICKET = "S3_INSIGHT_TICKET"
     GCS_INSIGHT_TICKET = "GCS_INSIGHT_TICKET"
     GCL_INSIGHT_TICKET = "GCL_INSIGHT_TICKET"
+    GCP_VPC_INSIGHT_TICKET = "GCP_VPC_INSIGHT_TICKET"
     AZURE_STORAGE_INSIGHT_TICKET = "AZURE_STORAGE_INSIGHT_TICKET"
     AZURE_MONITOR_INSIGHT_TICKET = "AZURE_MONITOR_INSIGHT_TICKET"
     VPC_INSIGHT_TICKET = "VPC_INSIGHT_TICKET"
@@ -22845,6 +22846,96 @@ class SyncGclTicketsResponse(BaseModel):
     tickets_written: Optional[int] = Field(0, title="Tickets Written")
     history_entries_written: Optional[int] = Field(
         0, title="History Entries Written"
+    )
+
+
+class SyncGcpVpcTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., description="Tenant ID", title="Tenant Id")
+    tickets: Optional[List[AggregatedTicketsMixin]] = Field(
+        None, description="Tickets to write", title="Tickets"
+    )
+    created_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Which of the tickets are new. Only these get a CREATE_TICKET history entry; a refresh of an existing ticket records nothing, or every run would append a duplicate.",
+        title="Created Ticket Ol Ids",
+    )
+    reopened_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the pipeline auto-reopened because their insight was detected again. Each gets a STATUS_CHANGE history entry (DONE_AND_WAITING -> TO_DO).",
+        title="Reopened Ticket Ol Ids",
+    )
+    retired_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the pipeline auto-retired because their insight no longer applies. Each gets a STATUS_CHANGE history entry (-> DONE_AND_WAITING).",
+        title="Retired Ticket Ol Ids",
+    )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger id to attribute this batch's writes to",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(
+        None,
+        description="False suppresses the sync notification",
+        title="Send Notification",
+    )
+
+
+class SyncGcpVpcTicketsResponse(BaseModel):
+    tickets_written: Optional[int] = Field(
+        0, description="Tickets upserted", title="Tickets Written"
+    )
+    history_entries_written: Optional[int] = Field(
+        0,
+        description="Lifecycle history entries recorded",
+        title="History Entries Written",
+    )
+
+
+class BulkUpdateGcpVpcTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., description="Tenant ID", title="Tenant Id")
+    ticket_ids: List[UUID] = Field(
+        ..., description="ticket_ol_id of each ticket to update", title="Ticket Ids"
+    )
+    status: Optional[PolicyTicketStatus] = Field(None, description="New status")
+    priority: Optional[Priority] = Field(
+        None, description="New priority"
+    )
+    assigned_to: Optional[UUID] = Field(
+        None, description="New assignee", title="Assigned To"
+    )
+    updated_by: Optional[UUID] = Field(
+        None, description="User performing the update", title="Updated By"
+    )
+    achieved_savings: Optional[float] = Field(
+        None, description="Monthly achieved savings", title="Achieved Savings"
+    )
+    achieved_savings_on: Optional[datetime] = Field(
+        None, description="Date the savings were achieved", title="Achieved Savings On"
+    )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger id to attribute this update's writes to",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(
+        None,
+        description="False suppresses the update notification",
+        title="Send Notification",
+    )
+    note: Optional[str] = Field(
+        None, description="Note recorded with this update", title="Note"
+    )
+
+
+class BulkUpdateGcpVpcTicketsResponse(BaseModel):
+    successful_ticket_ids: Optional[List[UUID]] = Field(
+        None, title="Successful Ticket Ids"
+    )
+    failed_ticket_ids: Optional[List[UUID]] = Field(None, title="Failed Ticket Ids")
+    message: str = Field(..., description="Human-readable outcome", title="Message")
+    status_code: int = Field(
+        ..., description="HTTP-style status code", title="Status Code"
     )
 
 
