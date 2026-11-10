@@ -8836,6 +8836,16 @@ class AggregatedTicketsMixin(BaseModel):
     policy_title: Optional[str] = Field(
         None, description="The title of the policy", title="Policy Title"
     )
+    potential_savings_priority: bool = Field(
+        True,
+        description="Include row in potential savings aggregation when True (default True).",
+        title="Potential Savings Priority",
+    )
+    recommendation_action_type_id: Optional[int] = Field(
+        None,
+        description="Recommendation action type id for potential savings deduplication (from recommendations.action_type_id)",
+        title="Recommendation Action Type Id",
+    )
     policy_label: Optional[PolicyCategory] = Field(
         None, description="The label/category of the policy"
     )
