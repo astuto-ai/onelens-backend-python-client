@@ -4654,6 +4654,7 @@ class TicketSubtype(str, Enum):
     AZURE_STORAGE_INSIGHT_TICKET = "AZURE_STORAGE_INSIGHT_TICKET"
     AZURE_MONITOR_INSIGHT_TICKET = "AZURE_MONITOR_INSIGHT_TICKET"
     VPC_INSIGHT_TICKET = "VPC_INSIGHT_TICKET"
+    SNOWFLAKE_INSIGHT_TICKET = "SNOWFLAKE_INSIGHT_TICKET"
     CUSTOM_TICKET = "CUSTOM_TICKET"
     CUSTOM_POLICY_TICKET = "CUSTOM_POLICY_TICKET"
 
@@ -8835,6 +8836,16 @@ class AggregatedTicketsMixin(BaseModel):
     )
     policy_title: Optional[str] = Field(
         None, description="The title of the policy", title="Policy Title"
+    )
+    potential_savings_priority: bool = Field(
+        True,
+        description="Include row in potential savings aggregation when True (default True).",
+        title="Potential Savings Priority",
+    )
+    recommendation_action_type_id: Optional[int] = Field(
+        None,
+        description="Recommendation action type id for potential savings deduplication (from recommendations.action_type_id)",
+        title="Recommendation Action Type Id",
     )
     policy_label: Optional[PolicyCategory] = Field(
         None, description="The label/category of the policy"
@@ -22930,6 +22941,109 @@ class BulkUpdateGcpVpcTicketsRequest(BaseModel):
 
 
 class BulkUpdateGcpVpcTicketsResponse(BaseModel):
+    successful_ticket_ids: Optional[List[UUID]] = Field(
+        None, title="Successful Ticket Ids"
+    )
+    failed_ticket_ids: Optional[List[UUID]] = Field(None, title="Failed Ticket Ids")
+    message: str = Field(..., description="Human-readable outcome", title="Message")
+    status_code: int = Field(
+        ..., description="HTTP-style status code", title="Status Code"
+    )
+
+
+class SyncSnowflakeTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., description="Tenant ID", title="Tenant Id")
+    tickets: Optional[List[AggregatedTicketsMixin]] = Field(
+        None, description="Tickets to write", title="Tickets"
+    )
+    created_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Which of the tickets are new. Only these get a CREATE_TICKET history entry; a refresh of an existing ticket records nothing, or every run would append a duplicate.",
+        title="Created Ticket Ol Ids",
+    )
+    reopened_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the pipeline auto-reopened because their insight was detected again. Each gets a STATUS_CHANGE history entry (DONE_AND_WAITING -> TO_DO).",
+        title="Reopened Ticket Ol Ids",
+    )
+    retired_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the pipeline auto-retired because their insight no longer applies. Each gets a STATUS_CHANGE history entry (-> DONE_AND_WAITING).",
+        title="Retired Ticket Ol Ids",
+    )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger id to attribute this batch's writes to",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(
+        None,
+        description="False suppresses the sync notification",
+        title="Send Notification",
+    )
+    verified_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the pipeline closed because the fix was verified. Each gets a STATUS_CHANGE history entry (-> DONE_AND_VERIFIED).",
+        title="Verified Ticket Ol Ids",
+    )
+    auto_resolved_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the pipeline closed because the insight went away without the fix. Each gets a STATUS_CHANGE history entry (-> DONE_AND_FLAKY).",
+        title="Auto Resolved Ticket Ol Ids",
+    )
+    system_reopened_ticket_ol_ids: Optional[List[UUID]] = Field(
+        None,
+        description="Tickets the SYSTEM had closed (DONE_AND_VERIFIED or DONE_AND_FLAKY) reopened to TO_DO because the problem returned. Kept apart from reopened_ticket_ol_ids, which is DONE_AND_WAITING -> TO_DO only. Each gets a STATUS_CHANGE history entry (-> TO_DO, no previous status recorded).",
+        title="System Reopened Ticket Ol Ids",
+    )
+
+
+class SyncSnowflakeTicketsResponse(BaseModel):
+    tickets_written: Optional[int] = Field(
+        0, description="Tickets upserted", title="Tickets Written"
+    )
+    history_entries_written: Optional[int] = Field(
+        0,
+        description="Lifecycle history entries recorded",
+        title="History Entries Written",
+    )
+
+
+class BulkUpdateSnowflakeTicketsRequest(BaseModel):
+    tenant_id: UUID = Field(..., description="Tenant ID", title="Tenant Id")
+    ticket_ids: List[UUID] = Field(
+        ..., description="ticket_ol_id of each ticket to update", title="Ticket Ids"
+    )
+    status: Optional[PolicyTicketStatus] = Field(None, description="New status")
+    priority: Optional[Priority] = Field(None, description="New priority")
+    assigned_to: Optional[UUID] = Field(
+        None, description="New assignee", title="Assigned To"
+    )
+    updated_by: Optional[UUID] = Field(
+        None, description="User performing the update", title="Updated By"
+    )
+    achieved_savings: Optional[float] = Field(
+        None, description="Monthly achieved savings", title="Achieved Savings"
+    )
+    achieved_savings_on: Optional[datetime] = Field(
+        None, description="Date the savings were achieved", title="Achieved Savings On"
+    )
+    trigger_id: Optional[UUID] = Field(
+        None,
+        description="Trigger id to attribute this update's writes to",
+        title="Trigger Id",
+    )
+    send_notification: Optional[bool] = Field(
+        None,
+        description="False suppresses the update notification",
+        title="Send Notification",
+    )
+    note: Optional[str] = Field(
+        None, description="Note recorded with this update", title="Note"
+    )
+
+
+class BulkUpdateSnowflakeTicketsResponse(BaseModel):
     successful_ticket_ids: Optional[List[UUID]] = Field(
         None, title="Successful Ticket Ids"
     )
