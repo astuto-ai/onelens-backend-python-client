@@ -23570,11 +23570,22 @@ class RecommendationInstance(BaseModel):
     flags: Optional[List[InstanceFlag]] = Field(None, title="Flags")
 
 
+class SourceKind(str, Enum):
+    coh = "coh"
+    cur = "cur"
+    metrics = "metrics"
+    inventory = "inventory"
+    accounts = "accounts"
+
+
 class RecommendationSource(BaseModel):
     what: str = Field(..., title="What")
     where: str = Field(..., title="Where")
     detail: Optional[str] = Field(None, title="Detail")
     href: Optional[str] = Field(None, title="Href")
+    kind: Optional[SourceKind] = None
+    window_start: Optional[date] = Field(None, title="Window Start")
+    window_end: Optional[date] = Field(None, title="Window End")
 
 
 class RecommendationVariant(BaseModel):
