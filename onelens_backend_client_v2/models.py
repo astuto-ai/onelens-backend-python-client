@@ -18,6 +18,7 @@ from pydantic import (
     EmailStr,
     Field,
     StrictStr,
+    confloat,
     conint,
     constr,
 )
@@ -23467,3 +23468,280 @@ class OnboardCloudflareTenantRequest(BaseModel):
     name: str = Field(..., description="Display name", title="Name")
     billing_config: Optional[CloudflareBillingConfig] = None
 
+
+class CheckName(str, Enum):
+    Not_connected = "Not connected"
+    No_metrics = "No metrics"
+    Idle = "Idle"
+    Stopping = "Stopping"
+    Migration_copy = "Migration copy"
+    Non_prod = "Non-prod"
+    Schedule = "Schedule"
+    Right_sized = "Right-sized"
+    Size_lock = "Size lock"
+    Steadiness = "Steadiness"
+
+
+class CheckStatus(str, Enum):
+    pass_ = "pass"
+    warn = "warn"
+    fail = "fail"
+    skip = "skip"
+
+
+class CommitmentPaymentOption(str, Enum):
+    No_Upfront = "No Upfront"
+    Partial_Upfront = "Partial Upfront"
+    All_Upfront = "All Upfront"
+
+
+class CommitmentTerm(str, Enum):
+    field_1_yr = "1-yr"
+    field_3_yr = "3-yr"
+
+
+class InstanceEnv(str, Enum):
+    Prod = "Prod"
+    Non_prod = "Non-prod"
+
+
+class InstanceFlag(str, Enum):
+    idle = "idle"
+    stopped = "stopped"
+    leaving = "leaving"
+    my_copy = "my-copy"
+    nonprod = "nonprod"
+    unverified = "unverified"
+    no_metrics = "no-metrics"
+    hot = "hot"
+
+
+class PoolMonth(BaseModel):
+    month: date = Field(..., title="Month")
+    commitment: float = Field(..., title="Commitment")
+    used: float = Field(..., title="Used")
+    unused: float = Field(..., title="Unused")
+    used_pct: float = Field(..., title="Used Pct")
+    covered_od: Optional[float] = Field(None, title="Covered Od")
+
+
+class PurchaseVerdict(str, Enum):
+    Buy = "Buy"
+    Buy_with_changes = "Buy with changes"
+    Fix_first = "Fix first"
+    Don_t_buy = "Don't buy"
+    Can_t_verify = "Can't verify"
+
+
+class RecommendationCheck(BaseModel):
+    name: CheckName
+    status: CheckStatus
+    detail: Optional[str] = Field(None, title="Detail")
+
+
+class RecommendationCommitmentType(str, Enum):
+    RI = "RI"
+    SP = "SP"
+
+
+class RecommendationExplanation(BaseModel):
+    found: Optional[List[str]] = Field(None, title="Found")
+    headline: str = Field(..., title="Headline")
+    subline: Optional[str] = Field(None, title="Subline")
+    note: Optional[str] = Field(None, title="Note")
+
+
+class RecommendationInstance(BaseModel):
+    name: str = Field(..., title="Name")
+    account_id: Optional[str] = Field(None, title="Account Id")
+    env: Optional[InstanceEnv] = None
+    type: Optional[str] = Field(None, title="Type")
+    deployment: Optional[str] = Field(None, title="Deployment")
+    od_hours: Optional[float] = Field(None, title="Od Hours")
+    ri_hours: Optional[float] = Field(None, title="Ri Hours")
+    sp_hours: Optional[float] = Field(None, title="Sp Hours")
+    hours_last7: Optional[float] = Field(None, title="Hours Last7")
+    od_cost: Optional[float] = Field(None, title="Od Cost")
+    units: Optional[float] = Field(None, title="Units")
+    cpu_avg: Optional[float] = Field(None, title="Cpu Avg")
+    cpu_p95: Optional[float] = Field(None, title="Cpu P95")
+    conn_max: Optional[float] = Field(None, title="Conn Max")
+    free_mem_gib: Optional[float] = Field(None, title="Free Mem Gib")
+    flags: Optional[List[InstanceFlag]] = Field(None, title="Flags")
+
+
+class SourceKind(str, Enum):
+    coh = "coh"
+    cur = "cur"
+    metrics = "metrics"
+    inventory = "inventory"
+    accounts = "accounts"
+
+
+class RecommendationSource(BaseModel):
+    what: str = Field(..., title="What")
+    where: str = Field(..., title="Where")
+    detail: Optional[str] = Field(None, title="Detail")
+    href: Optional[str] = Field(None, title="Href")
+    kind: Optional[SourceKind] = None
+    window_start: Optional[date] = Field(None, title="Window Start")
+    window_end: Optional[date] = Field(None, title="Window End")
+
+
+class RecommendationVariant(BaseModel):
+    term: CommitmentTerm
+    payment_option: CommitmentPaymentOption
+    count: float = Field(..., title="Count")
+    savings_monthly: float = Field(..., title="Savings Monthly")
+    upfront_cost: float = Field(..., title="Upfront Cost")
+    cost: Optional[float] = Field(None, title="Cost")
+    pct: Optional[float] = Field(None, title="Pct")
+    recommendation_id: Optional[str] = Field(None, title="Recommendation Id")
+    is_preferred: Optional[bool] = Field(False, title="Is Preferred")
+    is_pick: Optional[bool] = Field(False, title="Is Pick")
+
+
+class RenewalImpactKind(str, Enum):
+    monthly_gain = "monthly_gain"
+    upfront_avoided = "upfront_avoided"
+    keeps_monthly = "keeps_monthly"
+    pool_unused = "pool_unused"
+
+
+class RenewalOptionKey(str, Enum):
+    renew_as_is = "renew_as_is"
+    renew_at_target = "renew_at_target"
+    top_up = "top_up"
+    let_expire = "let_expire"
+
+
+class RenewalOptionTag(str, Enum):
+    onelens_pick = "onelens_pick"
+    like_for_like = "like_for_like"
+
+
+class RenewalVerdict(str, Enum):
+    Top_up = "Top up"
+    Reduce = "Reduce"
+    Remove = "Remove"
+    Renew = "Renew"
+    Not_due = "Not due"
+
+
+class SaveRateOptimizationRecommendationsResponse(BaseModel):
+    success: bool = Field(..., title="Success")
+    purchases_saved: int = Field(..., title="Purchases Saved")
+    renewals_saved: int = Field(..., title="Renewals Saved")
+    message: str = Field(..., title="Message")
+
+
+class SavingsPlanPool(str, Enum):
+    compute = "compute"
+    database = "database"
+
+
+class ScopeCoverage(BaseModel):
+    covered_usd: float = Field(..., title="Covered Usd")
+    on_demand_usd: float = Field(..., title="On Demand Usd")
+
+
+class SizingUnit(str, Enum):
+    usd_per_hr = "usd_per_hr"
+    usd_per_day = "usd_per_day"
+    usd_per_month = "usd_per_month"
+    pct = "pct"
+    ratio = "ratio"
+    count = "count"
+
+
+class PurchaseRecommendation(BaseModel):
+    payer_account_id: str = Field(..., title="Payer Account Id")
+    workload_key: str = Field(..., title="Workload Key")
+    service: str = Field(..., title="Service")
+    region: str = Field(..., title="Region")
+    title: str = Field(..., title="Title")
+    engine: Optional[str] = Field(None, title="Engine")
+    instance_scope: Optional[str] = Field(None, title="Instance Scope")
+    deployment_option: Optional[str] = Field(None, title="Deployment Option")
+    size_flexible: Optional[bool] = Field(False, title="Size Flexible")
+    verdict: PurchaseVerdict
+    recommendation: str = Field(..., title="Recommendation")
+    reason: str = Field(..., title="Reason")
+    buy_label: Optional[str] = Field(None, title="Buy Label")
+    buy_units: Optional[Union[float, str]] = Field("0", title="Buy Units")
+    term: CommitmentTerm
+    payment_option: CommitmentPaymentOption
+    upfront_cost: Optional[Union[float, str]] = Field("0", title="Upfront Cost")
+    savings_monthly: Optional[Union[float, str]] = Field("0", title="Savings Monthly")
+    savings_estimated: Optional[bool] = Field(False, title="Savings Estimated")
+    alt_payment_option: Optional[CommitmentPaymentOption] = None
+    alt_upfront_cost: Optional[Union[float, str]] = Field(
+        None, title="Alt Upfront Cost"
+    )
+    alt_savings_monthly: Optional[Union[float, str]] = Field(
+        None, title="Alt Savings Monthly"
+    )
+    coh_best_savings: Optional[Union[float, str]] = Field("0", title="Coh Best Savings")
+    coh_best_label: str = Field(..., title="Coh Best Label")
+    idle_spend_monthly: Optional[Union[float, str]] = Field(
+        "0", title="Idle Spend Monthly"
+    )
+    variants: Optional[List[RecommendationVariant]] = Field(None, title="Variants")
+    checks: Optional[List[RecommendationCheck]] = Field(None, title="Checks")
+    instances: Optional[List[RecommendationInstance]] = Field(None, title="Instances")
+    sources: Optional[List[RecommendationSource]] = Field(None, title="Sources")
+    explanation: RecommendationExplanation
+    coh_refreshed_at: Optional[datetime] = Field(None, title="Coh Refreshed At")
+
+
+class RenewalOption(BaseModel):
+    option_key: RenewalOptionKey
+    quantity: Optional[float] = Field(None, title="Quantity")
+    hourly_commitment: Optional[float] = Field(None, title="Hourly Commitment")
+    term: CommitmentTerm
+    payment_option: CommitmentPaymentOption
+    upfront: float = Field(..., title="Upfront")
+    monthly_effect: float = Field(..., title="Monthly Effect")
+    tags: Optional[List[RenewalOptionTag]] = Field(None, title="Tags")
+
+
+class SizingStep(BaseModel):
+    label: str = Field(..., title="Label")
+    value: float = Field(..., title="Value")
+    unit: SizingUnit
+
+
+class RenewalRecommendation(BaseModel):
+    commitment_type: RecommendationCommitmentType
+    commitment_id: str = Field(..., title="Commitment Id")
+    arn: Optional[str] = Field(None, title="Arn")
+    pool: Optional[SavingsPlanPool] = None
+    verdict: RenewalVerdict
+    action: str = Field(..., title="Action")
+    reason: str = Field(..., title="Reason")
+    impact_kind: RenewalImpactKind
+    impact_value: Optional[Union[confloat(ge=0.0), str]] = Field(
+        "0", title="Impact Value"
+    )
+    target_label: Optional[str] = Field(None, title="Target Label")
+    target_quantity: Optional[Union[float, str]] = Field(None, title="Target Quantity")
+    window_opens: date = Field(..., title="Window Opens")
+    pool_months: Optional[List[PoolMonth]] = Field(None, title="Pool Months")
+    covered_instances: Optional[List[RecommendationInstance]] = Field(
+        None, title="Covered Instances"
+    )
+    sizing_steps: Optional[List[SizingStep]] = Field(None, title="Sizing Steps")
+    renewal_options: Optional[List[RenewalOption]] = Field(
+        None, title="Renewal Options"
+    )
+    scope_coverage: Optional[ScopeCoverage] = None
+    sources: Optional[List[RecommendationSource]] = Field(None, title="Sources")
+    explanation: RecommendationExplanation
+
+
+class SaveRateOptimizationRecommendationsRequest(BaseModel):
+    tenant_id: UUID4 = Field(..., title="Tenant Id")
+    run_date: date = Field(..., title="Run Date")
+    payer_account_id: str = Field(..., title="Payer Account Id")
+    purchases: Optional[List[PurchaseRecommendation]] = Field(None, title="Purchases")
+    renewals: Optional[List[RenewalRecommendation]] = Field(None, title="Renewals")
