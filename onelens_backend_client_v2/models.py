@@ -23681,6 +23681,7 @@ class RecommendationInstance(BaseModel):
     cpu_p95: Optional[float] = Field(None, title="Cpu P95")
     conn_max: Optional[float] = Field(None, title="Conn Max")
     free_mem_gib: Optional[float] = Field(None, title="Free Mem Gib")
+    mem_used_pct_max: Optional[float] = Field(None, title="Mem Used Pct Max")
     flags: Optional[List[InstanceFlag]] = Field(None, title="Flags")
 
 
@@ -23713,6 +23714,7 @@ class RecommendationVariant(BaseModel):
     recommendation_id: Optional[str] = Field(None, title="Recommendation Id")
     is_preferred: Optional[bool] = Field(False, title="Is Preferred")
     is_pick: Optional[bool] = Field(False, title="Is Pick")
+    estimated: Optional[bool] = Field(False, title="Estimated")
 
 
 class RenewalImpactKind(str, Enum):
