@@ -105,6 +105,10 @@ from onelens_backend_client_v2.rpc.rate_optimization_service_rpc_handler import 
     RateOptimizationServiceRpcHandler,
 )
 
+from onelens_backend_client_v2.rpc.azure_rate_recommendations_service_rpc_handler import (
+    AzureRateRecommendationsServiceRpcHandler,
+)
+
 from onelens_backend_client_v2.rpc.cloud_account_metadata_service_rpc_handler import (
     CloudAccountMetadataServiceRpcHandler,
 )
@@ -281,6 +285,7 @@ __all__ = [
     "RecommendationUnitMigrationServiceRpcHandler",
     "CostAnalyzerServiceRpcHandler",
     "RateOptimizationServiceRpcHandler",
+    "AzureRateRecommendationsServiceRpcHandler",
     "CloudAccountMetadataServiceRpcHandler",
     "ActionTypeMigrationServiceRpcHandler",
     "TenantConnectionServiceRpcHandler",
