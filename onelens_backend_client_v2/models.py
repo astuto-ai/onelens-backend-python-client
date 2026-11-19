@@ -23861,3 +23861,206 @@ class SaveRateOptimizationRecommendationsRequest(BaseModel):
     payer_account_id: str = Field(..., title="Payer Account Id")
     purchases: Optional[List[PurchaseRecommendation]] = Field(None, title="Purchases")
     renewals: Optional[List[RenewalRecommendation]] = Field(None, title="Renewals")
+
+
+class AzureAppliedScopeType(str, Enum):
+    Single = "Single"
+    Shared = "Shared"
+    ManagementGroup = "ManagementGroup"
+
+
+class AzureRecommendationCheckName(str, Enum):
+    Steadiness = "Steadiness"
+    Running = "Running"
+    Stopping = "Stopping"
+    Not_connected = "Not connected"
+    Non_prod = "Non-prod"
+    Right_sized = "Right-sized"
+    Size_still_sold = "Size still sold"
+    Term_offered = "Term offered"
+
+
+class AzureRecommendationSourceKind(str, Enum):
+    advisor = "advisor"
+    billing = "billing"
+    commitments = "commitments"
+    retail_prices = "retail_prices"
+
+
+class AzureRenewalVerdict(str, Enum):
+    Top_up = "Top up"
+    Reduce = "Reduce"
+    Remove = "Remove"
+    Renew = "Renew"
+    Not_due = "Not due"
+    Rightsize__then_renew = "Rightsize, then renew"
+    Migrate__then_renew = "Migrate, then renew"
+
+
+class AzureResourceFlag(str, Enum):
+    nonprod = "nonprod"
+    stopped = "stopped"
+    leaving = "leaving"
+    part_time = "part-time"
+    oversized = "oversized"
+    shutdown = "shutdown"
+    unverified = "unverified"
+
+
+class AzureRecommendationVariant(BaseModel):
+    term: CommitmentTerm
+    quantity: float = Field(..., title="Quantity")
+    savings_monthly: float = Field(..., title="Savings Monthly")
+    cost_monthly: Optional[float] = Field(None, title="Cost Monthly")
+    pct: Optional[float] = Field(None, title="Pct")
+    recommendation_id: Optional[str] = Field(None, title="Recommendation Id")
+    is_pick: Optional[bool] = Field(False, title="Is Pick")
+
+
+class AzureRecommendationCheck(BaseModel):
+    name: AzureRecommendationCheckName
+    status: CheckStatus
+    detail: Optional[str] = Field(None, title="Detail")
+
+
+class AzureRecommendationResource(BaseModel):
+    name: str = Field(..., title="Name")
+    resource_id: Optional[str] = Field(None, title="Resource Id")
+    subscription_id: Optional[str] = Field(None, title="Subscription Id")
+    resource_group: Optional[str] = Field(None, title="Resource Group")
+    env: Optional[InstanceEnv] = None
+    sku: Optional[str] = Field(None, title="Sku")
+    on_demand_hours: Optional[float] = Field(None, title="On Demand Hours")
+    reserved_hours: Optional[float] = Field(None, title="Reserved Hours")
+    savings_plan_hours: Optional[float] = Field(None, title="Savings Plan Hours")
+    on_demand_cost: Optional[float] = Field(None, title="On Demand Cost")
+    normalized_units: Optional[float] = Field(None, title="Normalized Units")
+    advisor_target_sku: Optional[str] = Field(None, title="Advisor Target Sku")
+    advisor_savings_monthly: Optional[float] = Field(
+        None, title="Advisor Savings Monthly"
+    )
+    cpu_p95: Optional[float] = Field(
+        None,
+        description="Advisor right-size CPU p95, oversized VMs only",
+        title="Cpu P95",
+    )
+    memory_p95: Optional[float] = Field(
+        None,
+        description="Advisor right-size memory p95, oversized VMs only",
+        title="Memory P95",
+    )
+    flags: Optional[List[AzureResourceFlag]] = Field(None, title="Flags")
+
+
+class AzureRecommendationSource(BaseModel):
+    what: str = Field(..., title="What")
+    where: str = Field(..., title="Where")
+    detail: Optional[str] = Field(None, title="Detail")
+    href: Optional[str] = Field(None, title="Href")
+    kind: Optional[AzureRecommendationSourceKind] = None
+    window_start: Optional[date] = Field(None, title="Window Start")
+    window_end: Optional[date] = Field(None, title="Window End")
+
+
+class AzureRenewalOption(BaseModel):
+    option_key: RenewalOptionKey
+    quantity: Optional[float] = Field(None, title="Quantity")
+    hourly_commitment: Optional[float] = Field(None, title="Hourly Commitment")
+    term: CommitmentTerm
+    billing_plan: AzureBillingPlan
+    upfront: float = Field(..., title="Upfront")
+    monthly_effect: float = Field(..., title="Monthly Effect")
+    tags: Optional[List[RenewalOptionTag]] = Field(None, title="Tags")
+
+
+class AzurePurchaseRecommendation(BaseModel):
+    billing_account_id: str = Field(..., title="Billing Account Id")
+    workload_key: str = Field(..., title="Workload Key")
+    benefit_type: AzureBenefitType
+    service: str = Field(..., title="Service")
+    reserved_resource_type: Optional[str] = Field(None, title="Reserved Resource Type")
+    region: Optional[str] = Field(None, title="Region")
+    title: str = Field(..., title="Title")
+    sku_name: Optional[str] = Field(None, title="Sku Name")
+    applied_scope_type: AzureAppliedScopeType
+    subscription_id: Optional[str] = Field(None, title="Subscription Id")
+    size_flexible: Optional[bool] = Field(False, title="Size Flexible")
+    verdict: PurchaseVerdict
+    recommendation: str = Field(..., title="Recommendation")
+    reason: str = Field(..., title="Reason")
+    buy_label: Optional[str] = Field(None, title="Buy Label")
+    buy_quantity: Optional[
+        Union[float, str]
+    ] = Field("0", title="Buy Quantity")
+    commitment_currency: Optional[str] = Field(None, title="Commitment Currency")
+    term: CommitmentTerm
+    billing_plan: AzureBillingPlan
+    upfront_cost: Optional[
+        Union[float, str]
+    ] = Field("0", title="Upfront Cost")
+    savings_monthly: Optional[
+        Union[float, str]
+    ] = Field("0", title="Savings Monthly")
+    savings_estimated: Optional[bool] = Field(False, title="Savings Estimated")
+    advisor_savings_monthly: Optional[
+        Union[float, str]
+    ] = Field("0", title="Advisor Savings Monthly")
+    advisor_label: str = Field(..., title="Advisor Label")
+    idle_spend_monthly: Optional[
+        Union[float, str]
+    ] = Field("0", title="Idle Spend Monthly")
+    variants: Optional[List[AzureRecommendationVariant]] = Field(None, title="Variants")
+    checks: Optional[List[AzureRecommendationCheck]] = Field(None, title="Checks")
+    resources: Optional[List[AzureRecommendationResource]] = Field(
+        None, title="Resources"
+    )
+    sources: Optional[List[AzureRecommendationSource]] = Field(None, title="Sources")
+    explanation: RecommendationExplanation
+    advisor_refreshed_at: Optional[datetime] = Field(None, title="Advisor Refreshed At")
+
+
+class AzureRenewalRecommendation(BaseModel):
+    benefit_type: AzureBenefitType
+    benefit_id: str = Field(..., title="Benefit Id")
+    pool: Optional[str] = Field(None, title="Pool")
+    verdict: AzureRenewalVerdict
+    action: str = Field(..., title="Action")
+    reason: str = Field(..., title="Reason")
+    impact_kind: RenewalImpactKind
+    impact_value: Optional[
+        Union[confloat(ge=0.0), str]
+    ] = Field("0", title="Impact Value")
+    target_label: Optional[str] = Field(None, title="Target Label")
+    target_quantity: Optional[
+        Union[float, str]
+    ] = Field(None, title="Target Quantity")
+    window_opens: date = Field(..., title="Window Opens")
+    size_retired: Optional[bool] = Field(False, title="Size Retired")
+    exchange_candidate: Optional[bool] = Field(False, title="Exchange Candidate")
+    pool_months: Optional[List[PoolMonth]] = Field(None, title="Pool Months")
+    covered_resources: Optional[List[AzureRecommendationResource]] = Field(
+        None, title="Covered Resources"
+    )
+    sizing_steps: Optional[List[SizingStep]] = Field(None, title="Sizing Steps")
+    renewal_options: Optional[List[AzureRenewalOption]] = Field(
+        None, title="Renewal Options"
+    )
+    scope_coverage: Optional[ScopeCoverage] = None
+    sources: Optional[List[AzureRecommendationSource]] = Field(None, title="Sources")
+    explanation: RecommendationExplanation
+
+
+class SaveAzureRateOptimizationRecommendationsRequest(BaseModel):
+    tenant_id: UUID4 = Field(..., title="Tenant Id")
+    run_date: date = Field(..., title="Run Date")
+    purchases: Optional[List[AzurePurchaseRecommendation]] = Field(
+        None, title="Purchases"
+    )
+    renewals: Optional[List[AzureRenewalRecommendation]] = Field(None, title="Renewals")
+
+
+class SaveAzureRateOptimizationRecommendationsResponse(BaseModel):
+    success: bool = Field(..., title="Success")
+    purchases_saved: int = Field(..., title="Purchases Saved")
+    renewals_saved: int = Field(..., title="Renewals Saved")
+    message: str = Field(..., title="Message")
