@@ -4261,6 +4261,7 @@ class NotificationEntityType(str, Enum):
     currency_rate_missing = "currency_rate_missing"
     budget_vs_forecast_alert = "budget_vs_forecast_alert"
     custom_weighted_metric_missing = "custom_weighted_metric_missing"
+    aca_run_completed = "aca_run_completed"
 
 
 class NotificationResponse(BaseModel):
@@ -4279,6 +4280,7 @@ class NotificationType(str, Enum):
     currency_rate_missing = "currency_rate_missing"
     budget_vs_forecast_alert = "budget_vs_forecast_alert"
     custom_weighted_metric_missing = "custom_weighted_metric_missing"
+    aca_run_completed = "aca_run_completed"
 
 
 class OCIBillingConfig(BaseModel):
