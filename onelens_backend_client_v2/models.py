@@ -23629,6 +23629,7 @@ class InstanceFlag(str, Enum):
     nonprod = "nonprod"
     unverified = "unverified"
     no_metrics = "no-metrics"
+    resized = "resized"
     hot = "hot"
 
 
@@ -23683,6 +23684,7 @@ class RecommendationInstance(BaseModel):
     cpu_p95: Optional[float] = Field(None, title="Cpu P95")
     conn_max: Optional[float] = Field(None, title="Conn Max")
     free_mem_gib: Optional[float] = Field(None, title="Free Mem Gib")
+    memory_gib: Optional[float] = Field(None, title="Memory Gib")
     mem_used_pct_max: Optional[float] = Field(None, title="Mem Used Pct Max")
     flags: Optional[List[InstanceFlag]] = Field(None, title="Flags")
 
