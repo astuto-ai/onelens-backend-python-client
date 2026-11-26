@@ -23812,6 +23812,7 @@ class PurchaseRecommendation(BaseModel):
     sources: Optional[List[RecommendationSource]] = Field(None, title="Sources")
     explanation: RecommendationExplanation
     coh_refreshed_at: Optional[datetime] = Field(None, title="Coh Refreshed At")
+    covered_by: Optional[str] = Field(None, title="Covered By")
 
 
 class RenewalOption(BaseModel):
